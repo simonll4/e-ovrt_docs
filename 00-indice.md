@@ -23,8 +23,8 @@ entre sí como "doc 04", "doc 07", etc. Las carpetas agrupan por **rol**, no por
 |---|---|---|
 | `informe/` | **El TFG en sí** (`.docx`) y su texto extraído (serie 90-). Es nuestro entregable, no una fuente externa. | Viva — se reescribe al final |
 | `nucleo/` | 01–11. La narrativa principal, en orden de lectura. | Viva — se corrige y amplía |
-| `decisiones/` | ADR-001…008. Las decisiones formalizadas (D1–D6 + 1:1 + servicio). **Un ADR solo se revisa con causa registrada** (p. ej. el experimento D1). | Cerrada — se agrega, no se re-litiga |
-| `specs/` | Serie 40-. Specs de Etapa 4 por módulo, escritos **sin alternativas** a partir de los ADRs. | En construcción |
+| `decisiones/` | ADR-001…011. Las decisiones formalizadas (D1–D6 + 1:1, servicio, config/gestión, secuenciación, frontera de alertas). **Un ADR solo se revisa con causa registrada** (p. ej. el experimento D1). | Cerrada — se agrega, no se re-litiga |
+| `specs/` | Serie 40-. Specs de Etapa 4 por módulo, escritos **sin alternativas** a partir de los ADRs. | **Serie completa escrita (2026-07-09)**; 43 diferido en ejecución (ADR-010) |
 | `contingencia/` | Serie 20-. Trabajo **fuera del plan**, por si sobra tiempo. No reabre exclusiones. | Congelada salvo que se active |
 | `operacion/` | Serie 30-. Runbooks y mediciones sobre el host local. `operacion/datos/` guarda evidencia cruda (JSON, scripts). | Viva — se re-mide |
 | `herramientas/` | Diseño y plan de utilidades del entorno de desarrollo. No es documentación de la plataforma. | Independiente |
@@ -70,17 +70,25 @@ el `.docx`. Y un cambio del informe puede invalidar un doc del núcleo. Ninguno 
 
 **Lectura mínima si hay poco tiempo:** 02 (norte) → 03 (decisiones) → 07 (riesgos) → 08 (alineación con el informe) → 09 (defensa).
 
+**¿Venís a implementar, no a leer?** Empezá por
+[`operacion/32-handoff-arranque-tramo-plataforma.md`](operacion/32-handoff-arranque-tramo-plataforma.md):
+estado de los repos, Paso 0 y orden de trabajo con gates.
+
 ### `decisiones/` — ADRs (2026-07-09)
 
-Las 9 decisiones formalizadas: D1–D6 del tablero + semántica 1:1 + control-plane
-como servicio mínimo + config centralizada/webconsole. Tabla completa en
+Las 11 decisiones formalizadas: D1–D6 del tablero + semántica 1:1, control-plane
+como servicio mínimo, config centralizada/webconsole, secuenciación
+plataforma-primero y frontera de política de alertas. Tabla completa en
 `decisiones/README.md`. Se leen después del doc 03 (que explica cada dimensión) y
 antes de cualquier spec.
 
 ### `specs/` — Etapa 4 por módulo (serie 40, en construcción)
 
-Cola y reglas en `specs/README.md`: 40 plataforma, 41 control-plane, 42 media-plane,
-43 clip bench (mayor lead time), 44 experimental-setup, 45 distribución (repo nuevo).
+Cola y reglas en `specs/README.md`. Orden de ejecución (ADR-010, plataforma
+primero): 40 plataforma → 41 control-plane → 42 media-plane → 44 experimental-setup
+→ **43 clip bench** (escrito y congelado; su disparador es el cierre del 44 —
+corridas/configs trazables + runner + reporte; el material crudo de videos ya se
+arma en paralelo). El 45 (distribución) no bloquea al 43 y corre tras el 44.
 Se escriben sin alternativas, citando los ADRs.
 
 ### `contingencia/` — fuera del plan
@@ -95,6 +103,7 @@ Se escriben sin alternativas, citando los ADRs.
 |---|---|---|
 | 30 | `operacion/30-runbook-local.md` | Cómo levantar media-plane + webconsole en local sin Docker, con hot-reload, para iterar rápido: comandos por terminal, refs de modelo, lanzar una corrida RTSP, y las trampas conocidas (`dist/` viejo servido en silencio, run "succeeded" con cámara caída). |
 | 31 | `operacion/31-benchmark-modelos-host-local.md` | Benchmark de las 6 variantes GDINO/YOLOE: BENCH v2 val con GT (mAP@0.5, AP por clase, recall CR-01) + cámara RTSP en vivo (keep-up, latencia, VRAM). **Hallazgo clave: YOLOE es ciego a `bare_head` (recall CR-01 ≈ 0), y el mAP oculta que GDINO-base gana en CR-01 y `vest` pese a perder en mAP.** |
+| 32 | `operacion/32-handoff-arranque-tramo-plataforma.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR.** Estado congelado de los repos (ramas, venvs, tests), orden de lectura, reglas del workspace, el **Paso 0** (re-correr Fase 0 con el motor `mati`, con baseline y trampas), el orden de trabajo con sus gates, las decisiones que no se re-litigan y lo pendiente del usuario. |
 
 Evidencia cruda del doc 31, para que los números sean auditables y re-generables:
 
@@ -139,6 +148,8 @@ desalineaciones).
 | +  | Semántica de corrida EBE | **ADR-007** — 1:1 con el run del media-plane |
 | +  | Forma de ejecución del control-plane | **ADR-008** — servicio mínimo; webconsole cliente de ambos planos (excepción registrada en doc 10) |
 | +  | Config y gestión de la plataforma | **ADR-009** — config experimental centralizada en experimental-setup; webconsole superficie de gestión primaria (+mejora UX); runner CLI para campañas (doc 10 ítem 11) |
+| +  | Orden de ejecución del proyecto | **ADR-010** — tramo plataforma primero (servicios, bus, trazabilidad, instrumentación); el clip bench (spec 43) se dispara al cierre del spec 44 (la distribución no lo bloquea); Fase 2 de D1 y R3 se mueven con él; material crudo de videos en armado paralelo |
+| +  | Frontera de política de alertas | **ADR-011** — el motor emite en cada confirmación; cooldown y supresión de re-notificación pasan al módulo de distribución; el evaluador cuenta `re_alerts`, no los penaliza como FP |
 
 **Insumo nuevo para D1:** el doc 31 muestra que YOLOE no puede sostener CR-01 tal como está
 definida (`bare_head`). Si CR-01 sigue anclada a esa clase, YOLOE sale del espacio de
@@ -147,6 +158,8 @@ búsqueda antes de correr el experimento del doc 04.
 ## Trabajo común que no depende de ninguna decisión (arranca ya)
 
 1. Corrida DBE end-to-end real (media-plane → control-plane sobre detecciones reales).
-2. Clip bench con GT temporal — mayor lead time de todo el plan (ver hueco H2 en doc 07).
+2. ~~Clip bench con GT temporal — mayor lead time~~ **✎ ADR-010:** diseño hecho
+   (spec 43), ejecución al cierre del spec 44; en paralelo corren el armado del
+   material crudo de videos (en proceso) y los trámites (Intel, consentimientos).
 3. Calibración de umbrales/regiones con datos reales.
 4. Erratas del .docx de Etapa 3 (doc 02 §4.8).

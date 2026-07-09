@@ -149,7 +149,7 @@ Costo de implementación total (evaluador `direct_evidence` + marca de corrobora
 |---|---|---|---|
 | 0 — Detección | BENCH (hecho: Sprint 2 / doc 31) | AP por clase; insumos de cada estrategia | n/a (hereda) |
 | 1 — Estado por persona (Fase 1) | BENCH, mitad test | P/R/F1 del estado "sin EPP" vs `has_helmet`/`has_vest`, matching por variante, IC bootstrap, confianza media TP | **offline, sin inferencia nueva**: fusión de los estados predichos por las dos corridas; el análisis de errores (¿FP/FN caen en las mismas personas?) mide la complementariedad ANTES de la Fase 2 |
-| 2 — Alerta (Fase 2) | Clip bench, motor G0, pattern set v2 | P/R/F1 de alertas vs GT temporal escena-condición; `t_alert-system`, TTFD, SDR contra Tabla D.4 (PR-01: 5–10 s / <3 s / ≥0.60; PR-02: 10–20 s / <10 s / ≥0.70); duplicadas/inesperadas; estabilidad de episodios | corre con las dos fusiones; el efecto esperado de -and es visible como reducción de `t_alert-system` sin caída de precisión |
+| 2 — Alerta (Fase 2) | Clip bench, motor G0, pattern set v2 | P/R/F1 de alertas vs GT temporal escena-condición; `t_alert-system`, TTFD, SDR contra Tabla D.4 (PR-01: 5–10 s / <3 s / ≥0.60; PR-02: 10–20 s / <10 s / ≥0.70); re-alertas por episodio (ADR-011) e inesperadas; estabilidad de episodios | corre con las dos fusiones; el efecto esperado de -and es visible como reducción de `t_alert-system` sin caída de precisión |
 
 Reglas transversales: mismos clips, mismo motor, mismo pattern set y misma GT para
 todas las estrategias; toda métrica con **estado de aplicabilidad + causa**

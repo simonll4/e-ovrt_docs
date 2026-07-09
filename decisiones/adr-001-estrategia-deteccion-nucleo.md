@@ -13,7 +13,8 @@ en el control-plane). **E-DIR** (prompts directos de ausencia/estado) pasa a
 variante comparativa, y la tensión se convierte en el resultado R2.
 
 Esto NO cierra el experimento D1: el protocolo pre-registrado del doc 04 corre
-igual (semanas 3–4) para cuantificar la brecha, darle a E-DIR la oportunidad justa
+igual (por ADR-010: Fase 1 en el tramo plataforma apenas exista `edir_v1`;
+Fases 2–3 en el tramo de evaluación) para cuantificar la brecha, darle a E-DIR la oportunidad justa
 con sus propias formulaciones (Tabla 45) y detectar complementariedad E-HYB. Si el
 resultado contradijera el encuadre (criterios doc 04 §8 mandan), este ADR se revisa.
 

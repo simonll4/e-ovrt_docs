@@ -42,7 +42,8 @@ dedicado con protocolo pre-registrado, gates y criterios de decisión fijados:
 `04-diseno-comparativo-estrategias-edir-eind.md`. No se repite aquí.
 
 - **Mecanismo:** experimento en dos fases (BENCH por persona → clip bench por
-  alertas), time-box 2 semanas (semanas 3–4).
+  alertas), time-box 2 semanas de esfuerzo (✎ ADR-010: Fase 1 en el tramo
+  plataforma, Fase 2 en el tramo de evaluación).
 - **Cierre:** ADR "Estrategia del núcleo validable" en el control-plane + redlines
   a §17.3.9.2 del informe.
 - **Inclinación posterior:** si gana E-IND, la implementación no cambia (calibrar
@@ -171,7 +172,10 @@ posponen a ninguna decisión:
    valida contratos y da los primeros números reales. Semana 1.
 2. **Clip bench con GT temporal** (8–15 clips, GT de episodios a nivel
    escena-condición) — el ítem de mayor lead time; bloquea la Fase 2 del fork de
-   estrategia y el resultado R3. Arranca semana 1, en paralelo.
+   estrategia y el resultado R3. ~~Arranca semana 1, en paralelo.~~ **✎ Superado
+   2026-07-09 (ADR-010):** diseño hecho (spec 43); su ejecución se dispara al
+   cierre del spec 44 (experimental-setup) — el material crudo de videos se arma
+   en paralelo. Sigue bloqueando Fase 2/R3, que se mueven con él.
 3. **Calibración de umbrales/regiones** con salidas reales (partición de calibración
    separada de BENCH).
 4. Erratas del docx de Etapa 3 (§4.8 de la revisión crítica) — para la versión final
@@ -182,12 +186,15 @@ posponen a ninguna decisión:
 > **2026-07-09 — TABLERO CERRADO.** Todas las filas quedaron decididas y
 > formalizadas como ADRs en `decisiones/` (D1 como encuadre: el experimento del
 > doc 04 corre igual y es lo único que puede revisarla; ajuste del mismo día:
-> E-HYB-or/and corre siempre en Fase 2). Se sumaron tres decisiones fuera del
+> E-HYB-or/and corre siempre en Fase 2). Se sumaron cinco decisiones fuera del
 > tablero original: **ADR-007** (semántica de corrida 1:1 en EBE, pregunta 4 del
 > doc 02 §9), **ADR-008** (control-plane como servicio mínimo — excepción
-> registrada en el doc 10) y **ADR-009** (config experimental centralizada en
-> experimental-setup + webconsole como superficie de gestión, doc 10 ítem 11).
-> Los specs por módulo (doc 02 §8) se escriben ya sin alternativas.
+> registrada en el doc 10), **ADR-009** (config experimental centralizada en
+> experimental-setup + webconsole como superficie de gestión, doc 10 ítem 11),
+> **ADR-010** (secuenciación plataforma-primero; el clip bench y las campañas
+> pasan al tramo final) y **ADR-011** (el motor emite en cada confirmación; el
+> cooldown es política del tramo de distribución). Los specs por módulo
+> (doc 02 §8) quedaron **escritos** en `specs/` (serie 40).
 
 | # | Dimensión | Mecanismo | Cuándo se cierra | Recomendación previa | Estado |
 |---|---|---|---|---|---|
@@ -205,6 +212,12 @@ escriben ya sin alternativas — solo con la implementación elegida — y el pl
 12 semanas corre sin re-litigar decisiones.
 
 ## 10. Cómo se inclina la implementación después de decidir
+
+> **✎ 2026-07-09:** este diagrama quedó cumplido en su primera columna (ADRs
+> cerrados, specs escritos) y re-secuenciado por ADR-010 en el resto: el
+> experimento D1 se parte (Fase 1 temprana, Fase 2 al tramo final con el clip
+> bench) y la implementación arranca directo con los specs de plataforma
+> (40→41→42→44→45). Se conserva como registro del método.
 
 ```
 Semana 1–2          Semana 3–4              Semana 5+

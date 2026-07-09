@@ -1,9 +1,12 @@
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
 
-- **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones D1–D6 + 2
-  adicionales formalizadas en `decisiones/` (ADR-001…008). Dos ADRs amplían el
-  alcance de forma acotada y quedan registrados acá: **ADR-002** (G1 demostrativa —
-  redefine E-03) y **ADR-008** (control-plane como servicio mínimo — ítem 9).
+- **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones formalizadas en
+  `decisiones/` (ADR-001…011). Tres ADRs amplían el alcance de forma acotada y
+  quedan registrados acá: **ADR-002** (G1 demostrativa — ítem 10, redefine E-03),
+  **ADR-008** (control-plane como servicio mínimo — ítem 9) y **ADR-009** (config
+  centralizada + webconsole — ítem 11). **ADR-010** fija el orden de ejecución
+  (plataforma primero) y **ADR-011** la frontera de política de alertas (no
+  cambian el alcance).
 - **Decisión que registra:** el proyecto implementa el **núcleo validable y lo
   detiene ahí** (decisión del usuario, 2026-07-07). Todo lo demás queda **excluido de
   implementación pero cerrado documentalmente**: con justificación metodológica
@@ -284,7 +287,9 @@ posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
 
 - **Doc 02 §5 (recorte):** G1/tracker sale de "should" y pasa a exclusión E-03
   (especificada); el "should" queda solo con refinamientos menores del motor
-  (cooldown) y el segundo canal se elimina (E-06). ✎ Aplicado.
+  (cooldown) y el segundo canal se elimina (E-06). ✎ Aplicado. **✎ Nota posterior:**
+  el cooldown se implementó en `mati` y ADR-011 lo reubicó en distribución — ya no
+  es refinamiento del motor.
 - **Doc 03 (tablero):** sin cambios de decisiones; D2 queda reforzada (G0 sin
   vía G1 en este proyecto). **✎ Superado 2026-07-09 (ADR-002):** D2 se cerró
   como G0 núcleo **+ G1 demostrativa** (tracker portado al media-plane, 2–3
@@ -296,3 +301,5 @@ posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
   excluida (E-13, sin cambios).
 - **Plan 12 semanas:** las semanas 7–8 pierden el ítem "G1 sobre 2–3 clips si sobra
   agenda" — ese margen se reasigna a overlay renderer + guion de grabación.
+  **✎ Superado 2026-07-09 (ADR-002):** la demo G1 sobre 2–3 clips vuelve a las
+  semanas 7–8 como ítem 10 del §2, primera en el orden de sacrificio tras 11-UX.

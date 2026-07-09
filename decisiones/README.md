@@ -20,3 +20,5 @@ esta carpeta.
 | [007](adr-007-semantica-corrida-1a1.md) | Corrida control-plane 1:1 con run del media-plane en EBE | doc 02 §9.4 | Aceptada |
 | [008](adr-008-control-plane-servicio-minimo.md) | Control-plane como servicio mínimo; webconsole cliente de ambos planos | nueva (excepción al doc 10) | Aceptada |
 | [009](adr-009-config-centralizada-webconsole.md) | Config experimental centralizada en experimental-setup; webconsole superficie de gestión primaria (+mejora UX); runner CLI como camino reproducible | nueva (doc 10 ítem 11) | Aceptada |
+| [010](adr-010-secuenciacion-plataforma-primero.md) | Secuenciación: tramo plataforma primero (servicios+bus+trazabilidad+instrumentación); el clip bench (spec 43) se dispara al cierre del spec 44 — la distribución (45) no lo bloquea; material crudo de videos en armado paralelo | nueva (orden de ejecución) | Aceptada |
+| [011](adr-011-frontera-politica-alertas.md) | El motor emite `AlertEvent` en CADA confirmación del patrón; cooldown/supresión/agrupación = política de notificación del módulo de distribución; evaluación a nivel episodio (`re_alerts` ≠ FP) | nueva (frontera control↔distribución) | Aceptada |

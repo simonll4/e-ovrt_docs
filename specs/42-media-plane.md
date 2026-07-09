@@ -1,0 +1,156 @@
+# Spec 42 — media-plane
+
+- **Fecha:** 2026-07-09
+- **Estado:** Escrito
+- **Repo dueño:** `e-ovrt_media-plane` (base: `feature/inference-service` — servicio
+  Fase 1 + two-node Fase 2 + visibilidad; doc 11. **Precondición operativa:
+  commitear/pushear el working tree pendiente de doc 11 §8 antes de empezar.**)
+- **Decisiones que implementa:** ADR-002 (tracker + `track_id`), ADR-003
+  (publisher del bus), ADR-004 (`experiment_id`), ADR-009 (config por payload).
+  Normativa transversal: **spec 40** (envelope, seq, lifecycle, G2A, relojes).
+
+## 1. Principio
+
+El pipeline (ingesta → rate-gate → normalización → inferencia → postproceso →
+persistencia) no cambia de forma. Este spec agrega **dos sinks/etapas opcionales**
+(publisher de bus, tracker) y **trazabilidad** — todo desactivable por config, con
+el comportamiento actual como default. Cero cambios a `contracts/` salvo campos
+opcionales aditivos.
+
+## 2. `BusPublishingArtifactWriter` (ADR-003; doc 05 §4.1)
+
+- **Costura:** decorador del `RunArtifactWriter`, hermano de
+  `EventEmittingArtifactWriter` (`service/events.py`) — publica el
+  `DetectionEvent` **completo** tras persistirlo (el WS sigue emitiendo resúmenes
+  para la consola; son piezas distintas, doc 11 §3).
+- **Wire:** envelope `bus.envelope.v1` (spec 40 §3.1) sobre ZeroMQ **PUB** —
+  adaptador nuevo en `transport/` (hoy hay REQ/REP; el patrón base/factory se
+  reutiliza). `topic = media.detection.v1.<run_id>`, `key = source_id`, `seq`
+  monótono por corrida, `payload` = bytes del evento tal cual va al JSONL.
+- **Fin de corrida:** en la finalización del run (donde se estampa
+  `summary.json`) publica `run.lifecycle.v1 {event: run_finished, media_run_id,
+  status}`. En **two-node**, el writer vive en el Nodo B (`run_node_b`), que ya
+  garantiza finalización con status explícito (doc 11 §8.1) — el publisher se
+  engancha ahí mismo; el Nodo A no publica nada.
+- **Reglas (spec 40 §3.2):** no-bloqueante (HWM finito; drop antes que frenar la
+  inferencia — el JSONL es la verdad), habilitado por config de corrida:
+
+```yaml
+bus: { enabled: false, endpoint: "tcp://0.0.0.0:5557", hwm: 1000 }
+```
+
+## 3. Tracker liviano y `track_id` (ADR-002)
+
+- **Origen:** puerto de `eovrt_labs/perception/tracking.py` (control-plane, rama
+  `mati`): IoU greedy + gates de centro/área + ventanas `max_lost` (ms y frames)
+  + firma de apariencia del torso. Se porta el algoritmo con sus tests; labs
+  sigue existiendo como herramienta de calibración (no se importa entre repos).
+- **Ubicación:** etapa opcional de postproceso, **después** de la normalización y
+  del NMS, **antes** de persistir — trackea solo la clase `person` (los sujetos;
+  el EPP no se trackea). Determinista dado el stream de detecciones.
+- **Contrato:** `Detection.track_id: str | None` (default `None`) — campo
+  **opcional aditivo** de `media.detection.v1`, sin bump de versión (spec 40 §1).
+  Formato `subject_NNN`, ámbito (run, source). Config:
+
+```yaml
+tracking:
+  enabled: false            # default: comportamiento actual
+  iou_threshold: 0.3
+  max_lost_ms: 1500         # y/o max_lost_frames
+  appearance: { weight: 0.3, min_similarity: 0.2 }
+```
+
+- Los parámetros calibrados en labs (p. ej. `video5_gdino.yaml`: `max_lost_ms`
+  3000 por oclusiones largas) son los valores de partida documentados.
+- **Sin métricas MOT** (E-10): el único indicador emitido es el conteo de tracks
+  creados/perdidos por corrida (diagnóstico de fragmentación) — ΔFP_tracker se
+  calcula aguas abajo comparando corridas con/sin tracker (Tabla D.2).
+
+## 4. Trazabilidad y config (ADR-004/009)
+
+1. **`experiment_id`**: aceptado en `POST /api/runs`, persistido en `RunSummary`
+   (el campo ya existe — pasa a poblarse siempre que venga) y en
+   `effective_config`.
+2. **Config por payload:** auditar `POST /api/runs` para que la corrida completa
+   pueda declararse por payload (ingest config, prompts inline —ya soportado—,
+   `tracking`, `bus`, `experiment_id`). Los **catálogos por id se conservan**
+   (datasets, plugins, modelos): el payload referencia ids de catálogo para lo
+   que es del despliegue, e incluye valores para lo que es del experimento —
+   exactamente la frontera del ADR-009 §2.
+3. **Timestamps:** verificación puntual (doc 05 §6.4) de que toda fuente puebla
+   `timestamp_ms` en EBE (`RtspSource` ya emite wall-clock; `VideoFileSource`
+   emite tiempo de media) — test por fuente.
+
+## 5. Instrumentación G2A (doc 08 §1.8 / acción 7)
+
+Las latencias por sub-etapa ya existen (µs, p50/95/99). Se agrega al summary la
+**métrica compuesta G2A** = captura/lectura → resultado algorítmico
+(t_capture + t_transport + t_preprocess + t_inference), reportada P50/P95/P99
+contra el **presupuesto declarado 50–250 ms**, con warm-up excluido y declarado
+(`warmup_units` en config/summary). En two-node, los tramos se reportan por nodo
+y el G2A end-to-end se mide en el reloj del Nodo B (criterio de relojes,
+spec 40 §4). Este número decide H5 (¿GDINO defendible en EBE?) — mini-ADR en su
+momento, con datos.
+
+### 5.1 Insumos de `t_capture→alert` (spec 40 §5.2 — obligatorio, no solo agregado)
+
+El agregado del summary no alcanza: la métrica frame→evento se atribuye **por
+alerta**, así que estos campos van **por unidad** en `metrics.jsonl`, con
+`unit_id` como clave de join:
+
+| Campo | Significado |
+|---|---|
+| `unit_id` | clave de join con el control-plane (ya existe) |
+| `capture_monotonic_ns` | instante de captura, reloj monotónico del nodo de ingesta |
+| `capture_wallclock_ms` | instante de captura, reloj de pared (para cruce entre nodos) |
+| `g2a_ms` | compuesta de esta unidad (no solo sus componentes) |
+
+**Semántica de la captura por fuente** (importa para la aplicabilidad, spec 40
+§5.2.3): en `RtspSource` el instante de captura es wall-clock real de llegada del
+frame → `t_capture→alert` es una latencia genuina. En `VideoFileSource` /
+`ImageFolderSource` el `timestamp_ms` es **tiempo de medio**: se persiste igual
+(`capture_monotonic_ns` marca cuándo lo leyó el proceso), pero el reporte etiqueta
+la métrica `not_interpretable / dbe_media_time`. El media-plane **declara qué tipo
+de reloj emite cada fuente** en el summary (`source_clock: wallclock | media`) —
+sin ese campo el reporte no puede decidir el estado de aplicabilidad.
+
+## 6. Orden de implementación sugerido
+
+1. Commit/push del working tree pendiente (doc 11 §8) — precondición.
+2. `experiment_id` + auditoría de config por payload (§4) — gate: corrida por API
+   con payload completo y summary poblado.
+3. Adaptador PUB en `transport/` + `BusPublishingArtifactWriter` + lifecycle (§2)
+   — gate: consumidor de prueba recibe N eventos = N líneas del JSONL + END
+   (insumo directo del test de paridad del spec 41).
+4. Tracker + `track_id` (§3) — gate: tests del algoritmo portados + corrida sobre
+   video de prueba con `track_id` estable visible en `detections.jsonl`.
+5. G2A en summary + insumos por unidad de `t_capture→alert` (§5, §5.1) — gate:
+   summary con G2A P50/95/99, warm-up y `source_clock` declarados; `metrics.jsonl`
+   con los tres campos por `unit_id`.
+
+## 7. Criterios de terminado (evidencia)
+
+- [ ] Corrida con `bus.enabled: true` publicando eventos completos + lifecycle;
+      verificada contra el `BusSource` del control-plane (integración spec 41).
+- [ ] Corrida con `tracking.enabled: true` sobre video real: `track_id` presente,
+      estable a lo largo de frames, `None` cuando está deshabilitado (contrato
+      intacto para consumidores viejos).
+- [ ] `experiment_id` de un `POST /api/runs` recuperable en `RunSummary` y
+      `effective_config` (eslabón de la cadena de reconstrucción, spec 40 §2).
+- [ ] G2A P50/P95/P99 en el summary de una corrida RTSP, contra presupuesto.
+- [ ] `metrics.jsonl` con `capture_monotonic_ns`, `capture_wallclock_ms` y
+      `g2a_ms` por `unit_id`, y `source_clock` declarado en el summary — los
+      insumos de `t_capture→alert` (spec 40 §5.2.4) verificados con un join
+      manual contra una alerta del control-plane.
+- [ ] Two-node: run con publisher activo en Nodo B finaliza con `run_finished`
+      publicado y summary estampado (los 3 escenarios de doc 11 §8.4 siguen
+      pasando).
+
+## 8. Interfaces
+
+- **Spec 41:** el control-plane consume este bus (envelope común) y prefiere
+  `track_id` como `subject_id` en patrones G1.
+- **Spec 44:** el runner/webconsole disparan con `experiment_id` y config por
+  payload; la consola sigue leyendo WS/artefactos por HTTP (no el bus).
+- **Spec 43 (diferido):** los clips se consumen por `VideoFileSource` (DBE) y
+  como RTSP loop (EBE) sin cambios adicionales aquí.

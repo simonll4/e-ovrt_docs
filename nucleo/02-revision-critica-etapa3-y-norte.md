@@ -161,7 +161,11 @@ del t1 al t2 ⇒ alerta esperada). Sin clips reales anotados, el capítulo de
 resultados del plano de control queda apoyado en simulación — el punto más débil
 frente a un tribunal.
 
-**Recomendación (empezar ya, es lo de mayor lead time):** construir un "clip bench"
+**Recomendación (empezar ya, es lo de mayor lead time):** *(✎ superada en
+secuencia por ADR-010, 2026-07-09: el diseño quedó hecho —spec 43— y su ejecución
+se dispara al cierre del spec 44 —experimental-setup: configs trazables + runner
++ reporte—; el armado del material crudo de videos, ya en proceso, y los trámites
+—Intel, consentimientos— corren en paralelo)* construir un "clip bench"
 de 8–15 clips cortos (10–60 s) desde el split DEMO o grabaciones propias, con GT
 temporal débil por episodio (formato `ground_truth.json` ya definido en el
 control-plane). Con eso, `evaluate-alerts` ya calcula precision/recall/F1/latencia
@@ -207,7 +211,10 @@ métrica separada. **Recorte propuesto:**
   incluir la **tabla de correspondencia contrato-preliminar ↔ artefacto real** —
   refuerza la coherencia diseño→implementación ante el tribunal.
 - `cooldown` figura en la Tabla 44 pero no existe en el motor; o se agrega el
-  parámetro (trivial) o se quita del texto.
+  parámetro (trivial) o se quita del texto. **✎ Resuelto 2026-07-09 (dos vueltas):**
+  la rama `mati` lo implementó en el motor, y luego ADR-011 lo reubicó — el redline
+  correcto para la Tabla 44 es declararlo **parámetro del tramo de distribución**
+  (`notification_policy.cooldown_ms`, spec 45 §6), no de la evaluación de patrones.
 
 ## 5. Recorte de alcance propuesto (must / should / won't)
 
@@ -220,7 +227,9 @@ métrica separada. **Recorte propuesto:**
 6. Un canal de distribución + vista de alertas en webconsole.
 
 **Should (si la agenda acompaña):**
-- Cooldown y refinamientos menores del motor.
+- Cooldown y refinamientos menores del motor. *(✎ 2026-07-09: el cooldown se
+  implementó en la rama `mati` y luego ADR-011 lo reubicó — es política de
+  notificación del módulo de distribución, no refinamiento del motor.)*
 
 **Won't — ACTUALIZADO 2026-07-07:** por decisión del usuario, el proyecto implementa
 el núcleo validable y se detiene ahí. Todas las exclusiones (CR-03…06, MOT/G1,
@@ -247,6 +256,12 @@ infraestructura ya existente:
 
 ## 7. Plan indicativo de 12 semanas
 
+> **✎ Re-secuenciado 2026-07-09 (ADR-010):** el proyecto corre en dos tramos —
+> **plataforma primero** (servicios, bus, config centralizada, trazabilidad,
+> instrumentación: specs 40–42/44/45), **evaluación después** (spec 43 + Fase 2 de
+> D1 + R3 + calibración final). Las filas de este plan valen como dependencias,
+> no como semanas literales, para los ítems de clip bench y campañas.
+
 | Semanas | Foco | Entregables |
 |---|---|---|
 | 1–2 | Cierre de decisiones + Fase 0 | Specs Etapa 4 por módulo (ver §8); corrida DBE real end-to-end; `experiment_id`; inicio del clip bench (selección de clips). |
@@ -260,6 +275,11 @@ Regla de oro para el tramo final: **después de la semana 8 no se agrega capacid
 sólo se corre, se mide y se escribe.**
 
 ## 8. Specs a escribir ahora (uno por módulo, cortos, con las decisiones cerradas)
+
+> **✎ 2026-07-09 — ESCRITOS.** Los seis specs están en `specs/` (serie 40, ver su
+> README); esta lista queda como insumo histórico. Ajustes posteriores a esta
+> lista: el "cooldown" del punto 3 se reubicó al tramo de distribución (ADR-011)
+> y el orden de ejecución es plataforma-primero (ADR-010).
 
 1. **Plataforma / Etapa 4 (integrador):** mapa contrato-preliminar↔artefacto real;
    bus ZeroMQ (envelope, topics, END/run_finished); `experiment_id`; criterio de
@@ -279,7 +299,7 @@ sólo se corre, se mide y se escribe.**
 ## 9. Decisiones a tomar ya (bloqueantes de los specs)
 
 > **2026-07-09 — TODAS RESUELTAS** (decisión del usuario, formalizadas en
-> `decisiones/ADR-001…008`). Los specs quedan desbloqueados.
+> `decisiones/ADR-001…011`). Los specs quedan desbloqueados (y escritos, ver §8).
 
 1. ~~¿Se invierte la estrategia del núcleo a E-IND con E-DIR como variante?~~ —
    **SÍ (ADR-001)**; el experimento del doc 04 corre igual y cuantifica.

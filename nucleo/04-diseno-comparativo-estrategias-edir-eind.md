@@ -231,7 +231,10 @@ capítulo de resultados válido.
 
 ## 7. Protocolo experimental (pre-registrado)
 
-**Time-box total: 2 semanas** (semanas 3–4 del plan). Variables fijas en todas las
+**Time-box total: 2 semanas** de esfuerzo experimental (*✎ ADR-010: ya no es un
+bloque contiguo de calendario — la Fase 1 corre en el tramo plataforma apenas
+exista `edir_v1`; las Fases 2–3 corren en el tramo de evaluación, con el clip
+bench*). Variables fijas en todas las
 corridas: modelo (GDINO-tiny como baseline; opcional repetir con GDINO-base),
 fuente (BENCH v2, 196 imgs), resolución, postproceso, umbrales de NMS. Variable
 única: estrategia/prompt set (regla de comparabilidad §17.3.6.5).
@@ -266,8 +269,11 @@ E-HYB sigue atada a los criterios del §8.3.
 
 ### Fase 2 — Cadena completa sobre clips (días 5–10)
 
-1. Con el clip bench (en construcción en paralelo — es bloqueante de esta fase, no de la Fase 1): correr media-plane sobre clips + control-plane con cada estrategia sobreviviente.
-2. Métricas: precision/recall/F1 de **alertas** vs GT temporal, latencia hasta alerta (frames y ms), alertas duplicadas/inesperadas, estabilidad (oscilaciones candidate↔resolved por episodio).
+1. Con el clip bench (bloqueante de esta fase, no de la Fase 1; **desde ADR-010 su
+   ejecución es del tramo final del proyecto** — la Fase 2 se corre entonces, la
+   Fase 1 sobre BENCH puede correr apenas exista `edir_v1`): correr media-plane
+   sobre clips + control-plane con cada estrategia sobreviviente.
+2. Métricas: precision/recall/F1 de **alertas** vs GT temporal (evaluación a nivel episodio), latencia hasta alerta (frames y ms), re-alertas por episodio (ADR-011: se reportan como estabilidad, no como FP) y alertas inesperadas, oscilaciones candidate↔resolved por episodio.
 3. Sensibilidad: 2–3 variantes de formulación E-DIR (si sigue viva) y 2 configuraciones de región E-IND, para el capítulo de sensibilidad al prompt.
 
 ### Fase 3 — Decisión y cierre documental (días 11–14)

@@ -90,6 +90,19 @@ Adoptar los nombres y definiciones del informe, textuales:
 - Reporte temporal mínimo: **P50/P95/P99 + promedio**, con warm-up previo declarado y
   timestamps monotónicos de fuente explícita.
 
+**Adenda 2026-07-09 — dos métricas derivadas propias (no del informe).** El spec 40
+§5.2 introduce `t_capture→alert` (captura del frame de primera evidencia → alerta
+registrada) y `t_compute-budget` (= t_capture→alert − T_persistencia_efectiva).
+**No sustituyen a `t_alert-system`: la descomponen**, y se introducen porque son
+las únicas métricas end-to-end computables **sin GT**, lo que permite validar el
+tramo plataforma antes de que exista el clip bench (ADR-010). Vale la identidad
+`t_alert-system = TTFD + t_capture→alert` **si y solo si** el `t1` de TTFD se
+define en el **instante de captura** del frame de primera evidencia — así queda
+declarado en el spec 40 §5.2.2. `t_compute-budget` es, literalmente, el
+"presupuesto computacional" por el que la Tabla D.4 dice que `t_alert` excede a la
+persistencia. Al escribir Etapa 4 deben presentarse como aporte instrumental
+propio, con esta justificación, no como reemplazo de la métrica oficial.
+
 **Umbrales orientativos por severidad (Tabla 35) — son los targets de R3:**
 
 | Severidad | t_alert-system | TTFD | SDR mínima |
@@ -139,6 +152,9 @@ El protocolo (§17.1.5.4.2/.5, 5 fases) agrega requisitos que el doc 04 no tení
 
 Usar los nombres de fase del informe en specs y en la escritura de Etapa 4/5 — la
 correspondencia 1:1 es un argumento de coherencia metodológica gratis en la defensa.
+*(✎ 2026-07-09, ADR-010: las semanas de la columna "Nuestro plan" dejan de leerse
+literalmente — vale la correspondencia de fases y sus dependencias; "Sensibilidad
+de prompts" se parte en Fase 1 temprana / Fases 2–3 con el clip bench al final.)*
 
 ### 2.5 Instrumentación pendiente detectada por §17.1.7.8
 
@@ -178,7 +194,9 @@ títulos de tabla pegados, oración duplicada en §17.3.15) siguen vigentes.
    *Nota 2026-07-09:* la rama `mati` agregó `cr01_cr02_field_v1` (perfil de campo con
    expiración/cooldown/memoria de cobertura) — la v2 alineada al informe debe partir
    de ese perfil, cambiando severidades (PR-01→alto, PR-02→medio) y ventanas
-   (3–5 s / 5–10 s; hoy usa 1000 ms).
+   (3–5 s / 5–10 s; hoy usa 1000 ms), **y desactivando el cooldown: por ADR-011
+   la supresión de re-notificación es política del tramo de distribución, no del
+   motor** (spec 41 §7).
 2. **Diccionario de métricas (D6)** con los nombres/definiciones/umbrales del §2.2 —
    ya no hay que inventarlo: es transcribir §17.1.7 + Tabla 35.
 3. **Actualizar doc 04**: ejes de §2.3 (vocabulario aislado/completo, templates,

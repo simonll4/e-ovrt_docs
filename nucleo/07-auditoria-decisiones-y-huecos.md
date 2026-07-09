@@ -171,6 +171,9 @@ prometerse.
 2. **No hay slack:** 12 semanas justas hasta ~fin de septiembre. El plan ya ordena
    por dependencia dura (clip bench primero); si algo se cae, lo primero
    sacrificable es G1, luego la segunda vuelta de calibración — nunca R3 ni R4.
+   **✎ Superado 2026-07-09 (ADR-010):** el orden pasó a plataforma-primero; el
+   clip bench se ejecuta al cierre del spec 44 (su material crudo se arma en
+   paralelo); el orden de sacrificio vigente es el del doc 10 §2.
 3. El congelamiento de campaña en semana 10 debería tratarse como semana 9 si la
    escritura viene atrasada.
 
@@ -214,10 +217,12 @@ de entrada a mantener.
 
 ## Parte IV — Qué queda genuinamente abierto después de esta auditoría
 
-1. ~~Formalizar los ADRs D2–D6~~ — ✎ **HECHO 2026-07-09**: `decisiones/ADR-001…008`
-   (incluye dos decisiones posteriores a esta auditoría: semántica 1:1 y
-   control-plane como servicio mínimo — la segunda amplía la contención de D4.1:
-   el runner CLI orquesta, pero ahora por HTTP contra ambos servicios).
-2. Correr el experimento D1 (semanas 3–4) — con el protocolo ya corregido.
+1. ~~Formalizar los ADRs D2–D6~~ — ✎ **HECHO 2026-07-09**: `decisiones/ADR-001…011`
+   (incluye las decisiones posteriores a esta auditoría: semántica 1:1, servicio
+   mínimo — que amplía la contención de D4.1: el runner CLI orquesta, pero ahora
+   por HTTP contra ambos servicios —, config centralizada/webconsole,
+   secuenciación plataforma-primero y frontera de política de alertas).
+2. Correr el experimento D1 — con el protocolo ya corregido (✎ ADR-010: Fase 1
+   temprana sobre BENCH; Fases 2–3 en el tramo de evaluación).
 3. Mini-ADR H5 (modelo EBE) en semana 7 con datos de FPS.
 4. ~~Decisión H10~~ — ✎ resuelta (ver tabla): `docs/` versionada en repo propio.
