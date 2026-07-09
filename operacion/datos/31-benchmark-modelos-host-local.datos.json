@@ -1,0 +1,1058 @@
+[
+  {
+    "model_ref": "grounding-dino/gdino-tiny",
+    "load_seconds": 20.04,
+    "model_info": {
+      "ref": "grounding-dino/gdino-tiny",
+      "name": "grounding_dino",
+      "adapter": "grounding_dino",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.35,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_163954_dbe_grounding_dino_051ede",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_163954_dbe_grounding_dino_051ede",
+        "scenario": "DBE",
+        "model_name": "grounding_dino",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 368,
+        "detections_by_label": {
+          "person": 151,
+          "vest": 77,
+          "helmet": 73,
+          "bare_head": 67
+        },
+        "detections_by_prompt_id": {
+          "person": 151,
+          "vest": 77,
+          "helmet": 73,
+          "bare_head": 67
+        },
+        "avg_latency_ms": 248.5,
+        "p50_latency_ms": 232.58,
+        "p95_latency_ms": 348.63,
+        "p99_latency_ms": 432.44,
+        "fps_effective": 3.99,
+        "gpu_memory_peak_mb": 1747.25,
+        "device": "cuda",
+        "duration_seconds": 28.55,
+        "started_at": "2026-07-09T16:39:54.494677+00:00",
+        "finished_at": "2026-07-09T16:40:23.044504+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 25028.26,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "grounding_dino",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_163954_dbe_grounding_dino_051ede",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.7167,
+            "n_gt": 166,
+            "n_det": 151
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.7977,
+            "n_gt": 79,
+            "n_det": 73
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.296,
+            "n_gt": 41,
+            "n_det": 77
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0202,
+            "n_gt": 69,
+            "n_det": 67
+          }
+        ],
+        "cr01_detection_recall": 0.4429,
+        "evaluated_at": "2026-07-09T16:40:24.581413+00:00",
+        "mAP50": 0.4577,
+        "model": "grounding_dino",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164024_dbe_grounding_dino_db6145",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164024_dbe_grounding_dino_db6145",
+        "scenario": "DBE",
+        "model_name": "grounding_dino",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 22,
+        "units_processed": 22,
+        "units_failed": 0,
+        "total_detections": 62,
+        "detections_by_label": {
+          "vest": 31,
+          "person": 22,
+          "bare_head": 9
+        },
+        "detections_by_prompt_id": {
+          "vest": 31,
+          "person": 22,
+          "bare_head": 9
+        },
+        "avg_latency_ms": 285.48,
+        "p50_latency_ms": 250.03,
+        "p95_latency_ms": 418.78,
+        "p99_latency_ms": 839.69,
+        "fps_effective": 2.6,
+        "gpu_memory_peak_mb": 1747.25,
+        "device": "cuda",
+        "duration_seconds": 8.47,
+        "started_at": "2026-07-09T16:40:24.587028+00:00",
+        "finished_at": "2026-07-09T16:40:33.052998+00:00",
+        "units_dropped": 78,
+        "backpressure_wait_ms": 2.65,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "grounding_dino",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  },
+  {
+    "model_ref": "grounding-dino/gdino-base",
+    "load_seconds": 18.02,
+    "model_info": {
+      "ref": "grounding-dino/gdino-base",
+      "name": "grounding_dino",
+      "adapter": "grounding_dino",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.3,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_164055_dbe_grounding_dino_6d555e",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164055_dbe_grounding_dino_6d555e",
+        "scenario": "DBE",
+        "model_name": "grounding_dino",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 310,
+        "detections_by_label": {
+          "person": 118,
+          "helmet": 74,
+          "bare_head": 73,
+          "vest": 45
+        },
+        "detections_by_prompt_id": {
+          "person": 118,
+          "helmet": 74,
+          "bare_head": 73,
+          "vest": 45
+        },
+        "avg_latency_ms": 248.6,
+        "p50_latency_ms": 242.08,
+        "p95_latency_ms": 270.33,
+        "p99_latency_ms": 330.86,
+        "fps_effective": 3.98,
+        "gpu_memory_peak_mb": 2108.73,
+        "device": "cuda",
+        "duration_seconds": 28.63,
+        "started_at": "2026-07-09T16:40:55.223559+00:00",
+        "finished_at": "2026-07-09T16:41:23.857159+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 24845.77,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "grounding_dino",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_164055_dbe_grounding_dino_6d555e",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.6346,
+            "n_gt": 166,
+            "n_det": 118
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.5276,
+            "n_gt": 79,
+            "n_det": 74
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.4674,
+            "n_gt": 41,
+            "n_det": 45
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0076,
+            "n_gt": 69,
+            "n_det": 73
+          }
+        ],
+        "cr01_detection_recall": 0.5857,
+        "evaluated_at": "2026-07-09T16:41:25.285747+00:00",
+        "mAP50": 0.4093,
+        "model": "grounding_dino",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164125_dbe_grounding_dino_3040fc",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164125_dbe_grounding_dino_3040fc",
+        "scenario": "DBE",
+        "model_name": "grounding_dino",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 14,
+        "units_processed": 14,
+        "units_failed": 0,
+        "total_detections": 28,
+        "detections_by_label": {
+          "person": 14,
+          "bare_head": 14
+        },
+        "detections_by_prompt_id": {
+          "person": 14,
+          "bare_head": 14
+        },
+        "avg_latency_ms": 380.48,
+        "p50_latency_ms": 376.67,
+        "p95_latency_ms": 753.03,
+        "p99_latency_ms": 753.03,
+        "fps_effective": 1.64,
+        "gpu_memory_peak_mb": 2108.73,
+        "device": "cuda",
+        "duration_seconds": 8.56,
+        "started_at": "2026-07-09T16:41:25.290263+00:00",
+        "finished_at": "2026-07-09T16:41:33.850309+00:00",
+        "units_dropped": 86,
+        "backpressure_wait_ms": 3.03,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "grounding_dino",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  },
+  {
+    "model_ref": "yoloe/yoloe-26s",
+    "load_seconds": 19.02,
+    "model_info": {
+      "ref": "yoloe/yoloe-26s",
+      "name": "yoloe",
+      "adapter": "yoloe",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.35,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_164157_dbe_yoloe_63052a",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164157_dbe_yoloe_63052a",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 196,
+        "detections_by_label": {
+          "person": 132,
+          "helmet": 53,
+          "vest": 10,
+          "bare_head": 1
+        },
+        "detections_by_prompt_id": {
+          "person": 132,
+          "helmet": 53,
+          "vest": 10,
+          "bare_head": 1
+        },
+        "avg_latency_ms": 91.41,
+        "p50_latency_ms": 38.8,
+        "p95_latency_ms": 56.44,
+        "p99_latency_ms": 79.61,
+        "fps_effective": 10.77,
+        "gpu_memory_peak_mb": 372.65,
+        "device": "cuda",
+        "duration_seconds": 10.59,
+        "started_at": "2026-07-09T16:41:57.122211+00:00",
+        "finished_at": "2026-07-09T16:42:07.710102+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 6488.23,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_164157_dbe_yoloe_63052a",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.6289,
+            "n_gt": 166,
+            "n_det": 132
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.6171,
+            "n_gt": 79,
+            "n_det": 53
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.2727,
+            "n_gt": 41,
+            "n_det": 10
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0,
+            "n_gt": 69,
+            "n_det": 1
+          }
+        ],
+        "cr01_detection_recall": 0.0143,
+        "evaluated_at": "2026-07-09T16:42:07.959349+00:00",
+        "mAP50": 0.3797,
+        "model": "yoloe",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164207_dbe_yoloe_4b28de",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164207_dbe_yoloe_4b28de",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 58,
+        "units_processed": 58,
+        "units_failed": 0,
+        "total_detections": 58,
+        "detections_by_label": {
+          "person": 58
+        },
+        "detections_by_prompt_id": {
+          "person": 58
+        },
+        "avg_latency_ms": 65.54,
+        "p50_latency_ms": 34.98,
+        "p95_latency_ms": 75.55,
+        "p99_latency_ms": 1574.92,
+        "fps_effective": 7.17,
+        "gpu_memory_peak_mb": 141.61,
+        "device": "cuda",
+        "duration_seconds": 8.09,
+        "started_at": "2026-07-09T16:42:07.964103+00:00",
+        "finished_at": "2026-07-09T16:42:16.052830+00:00",
+        "units_dropped": 42,
+        "backpressure_wait_ms": 4.36,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  },
+  {
+    "model_ref": "yoloe/yoloe-26m",
+    "load_seconds": 24.02,
+    "model_info": {
+      "ref": "yoloe/yoloe-26m",
+      "name": "yoloe",
+      "adapter": "yoloe",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.35,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_164244_dbe_yoloe_248407",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164244_dbe_yoloe_248407",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 191,
+        "detections_by_label": {
+          "person": 133,
+          "helmet": 56,
+          "vest": 2
+        },
+        "detections_by_prompt_id": {
+          "person": 133,
+          "helmet": 56,
+          "vest": 2
+        },
+        "avg_latency_ms": 62.3,
+        "p50_latency_ms": 35.69,
+        "p95_latency_ms": 45.19,
+        "p99_latency_ms": 48.48,
+        "fps_effective": 15.74,
+        "gpu_memory_peak_mb": 440.19,
+        "device": "cuda",
+        "duration_seconds": 7.24,
+        "started_at": "2026-07-09T16:42:44.530061+00:00",
+        "finished_at": "2026-07-09T16:42:51.773456+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 5374.78,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_164244_dbe_yoloe_248407",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.6355,
+            "n_gt": 166,
+            "n_det": 133
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.6101,
+            "n_gt": 79,
+            "n_det": 56
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.0909,
+            "n_gt": 41,
+            "n_det": 2
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0,
+            "n_gt": 69,
+            "n_det": 0
+          }
+        ],
+        "cr01_detection_recall": 0.0,
+        "evaluated_at": "2026-07-09T16:42:52.554840+00:00",
+        "mAP50": 0.3341,
+        "model": "yoloe",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164252_dbe_yoloe_00392c",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164252_dbe_yoloe_00392c",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 63,
+        "units_processed": 63,
+        "units_failed": 0,
+        "total_detections": 133,
+        "detections_by_label": {
+          "person": 133
+        },
+        "detections_by_prompt_id": {
+          "person": 133
+        },
+        "avg_latency_ms": 67.86,
+        "p50_latency_ms": 38.9,
+        "p95_latency_ms": 87.14,
+        "p99_latency_ms": 1520.22,
+        "fps_effective": 7.78,
+        "gpu_memory_peak_mb": 210.15,
+        "device": "cuda",
+        "duration_seconds": 8.1,
+        "started_at": "2026-07-09T16:42:52.559971+00:00",
+        "finished_at": "2026-07-09T16:43:00.656578+00:00",
+        "units_dropped": 37,
+        "backpressure_wait_ms": 4.72,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  },
+  {
+    "model_ref": "yoloe/yoloe-26l",
+    "load_seconds": 25.02,
+    "model_info": {
+      "ref": "yoloe/yoloe-26l",
+      "name": "yoloe",
+      "adapter": "yoloe",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.35,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_164330_dbe_yoloe_574ee2",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164330_dbe_yoloe_574ee2",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 199,
+        "detections_by_label": {
+          "person": 137,
+          "helmet": 56,
+          "vest": 6
+        },
+        "detections_by_prompt_id": {
+          "person": 137,
+          "helmet": 56,
+          "vest": 6
+        },
+        "avg_latency_ms": 86.06,
+        "p50_latency_ms": 43.97,
+        "p95_latency_ms": 55.96,
+        "p99_latency_ms": 135.02,
+        "fps_effective": 11.42,
+        "gpu_memory_peak_mb": 457.46,
+        "device": "cuda",
+        "duration_seconds": 9.99,
+        "started_at": "2026-07-09T16:43:30.131177+00:00",
+        "finished_at": "2026-07-09T16:43:40.116304+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 6508.83,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_164330_dbe_yoloe_574ee2",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.7128,
+            "n_gt": 166,
+            "n_det": 137
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.6199,
+            "n_gt": 79,
+            "n_det": 56
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.1667,
+            "n_gt": 41,
+            "n_det": 6
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0,
+            "n_gt": 69,
+            "n_det": 0
+          }
+        ],
+        "cr01_detection_recall": 0.0,
+        "evaluated_at": "2026-07-09T16:43:40.258308+00:00",
+        "mAP50": 0.3749,
+        "model": "yoloe",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164340_dbe_yoloe_ca8815",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164340_dbe_yoloe_ca8815",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 69,
+        "units_processed": 69,
+        "units_failed": 0,
+        "total_detections": 69,
+        "detections_by_label": {
+          "person": 69
+        },
+        "detections_by_prompt_id": {
+          "person": 69
+        },
+        "avg_latency_ms": 69.9,
+        "p50_latency_ms": 49.36,
+        "p95_latency_ms": 90.67,
+        "p99_latency_ms": 1179.84,
+        "fps_effective": 8.6,
+        "gpu_memory_peak_mb": 218.3,
+        "device": "cuda",
+        "duration_seconds": 8.02,
+        "started_at": "2026-07-09T16:43:40.262843+00:00",
+        "finished_at": "2026-07-09T16:43:48.283801+00:00",
+        "units_dropped": 31,
+        "backpressure_wait_ms": 4.09,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  },
+  {
+    "model_ref": "yoloe/yoloe-26x",
+    "load_seconds": 54.05,
+    "model_info": {
+      "ref": "yoloe/yoloe-26x",
+      "name": "yoloe",
+      "adapter": "yoloe",
+      "device": "cuda",
+      "thresholds": {
+        "box": 0.35,
+        "text": 0.25,
+        "confidence": 0.25,
+        "iou": 0.5
+      },
+      "runtime": {
+        "half_precision": true,
+        "warmup": true
+      }
+    },
+    "bench": {
+      "run_id": "run_20260709_164447_dbe_yoloe_a15cbe",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164447_dbe_yoloe_a15cbe",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "image_folder",
+        "source_count": 114,
+        "units_processed": 114,
+        "units_failed": 0,
+        "total_detections": 214,
+        "detections_by_label": {
+          "person": 139,
+          "helmet": 69,
+          "vest": 6
+        },
+        "detections_by_prompt_id": {
+          "person": 139,
+          "helmet": 69,
+          "vest": 6
+        },
+        "avg_latency_ms": 85.44,
+        "p50_latency_ms": 50.0,
+        "p95_latency_ms": 79.12,
+        "p99_latency_ms": 114.59,
+        "fps_effective": 11.47,
+        "gpu_memory_peak_mb": 618.71,
+        "device": "cuda",
+        "duration_seconds": 9.93,
+        "started_at": "2026-07-09T16:44:47.030324+00:00",
+        "finished_at": "2026-07-09T16:44:56.965158+00:00",
+        "units_dropped": 0,
+        "backpressure_wait_ms": 7359.97,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "deterministic",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "pulleable",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      },
+      "eval_status": 200,
+      "eval": {
+        "type": "perception",
+        "run_id": "run_20260709_164447_dbe_yoloe_a15cbe",
+        "benchmark": "construction_site_safety_bench",
+        "iou_threshold": 0.5,
+        "per_class": [
+          {
+            "class_name": "person",
+            "AP50": 0.7147,
+            "n_gt": 166,
+            "n_det": 139
+          },
+          {
+            "class_name": "helmet",
+            "AP50": 0.7989,
+            "n_gt": 79,
+            "n_det": 69
+          },
+          {
+            "class_name": "vest",
+            "AP50": 0.1818,
+            "n_gt": 41,
+            "n_det": 6
+          },
+          {
+            "class_name": "bare_head",
+            "AP50": 0.0,
+            "n_gt": 69,
+            "n_det": 0
+          }
+        ],
+        "cr01_detection_recall": 0.0,
+        "evaluated_at": "2026-07-09T16:44:57.067620+00:00",
+        "mAP50": 0.4239,
+        "model": "yoloe",
+        "bench_split": "bench_v2_val"
+      }
+    },
+    "rtsp": {
+      "run_id": "run_20260709_164457_dbe_yoloe_58dc6d",
+      "status": "succeeded",
+      "summary": {
+        "schema_version": "media.summary.v2",
+        "run_id": "run_20260709_164457_dbe_yoloe_58dc6d",
+        "scenario": "DBE",
+        "model_name": "yoloe",
+        "prompt_set_id": "cr01_cr02_bench_v2",
+        "source_type": "rtsp",
+        "source_count": 63,
+        "units_processed": 63,
+        "units_failed": 0,
+        "total_detections": 86,
+        "detections_by_label": {
+          "person": 86
+        },
+        "detections_by_prompt_id": {
+          "person": 86
+        },
+        "avg_latency_ms": 71.01,
+        "p50_latency_ms": 45.87,
+        "p95_latency_ms": 60.91,
+        "p99_latency_ms": 1472.13,
+        "fps_effective": 7.83,
+        "gpu_memory_peak_mb": 336.72,
+        "device": "cuda",
+        "duration_seconds": 8.04,
+        "started_at": "2026-07-09T16:44:57.073314+00:00",
+        "finished_at": "2026-07-09T16:45:05.115772+00:00",
+        "units_dropped": 37,
+        "backpressure_wait_ms": 3.72,
+        "max_staleness_observed_ms": 0.0,
+        "run_descriptor": {
+          "scenario": "DBE",
+          "topology": "single_host",
+          "transport": {
+            "backend": "memory",
+            "payload_format": "uint8_rgb"
+          },
+          "rate_control": {
+            "policy": "bounded_freshness",
+            "stride": 1,
+            "max_queue_size": 8
+          },
+          "source_kind": "live",
+          "model": "yoloe",
+          "prompt_set": "cr01_cr02_bench_v2",
+          "device": "cuda",
+          "code_version": "96fe720"
+        },
+        "status": "succeeded",
+        "stop_cause": null,
+        "error": null
+      }
+    }
+  }
+]
