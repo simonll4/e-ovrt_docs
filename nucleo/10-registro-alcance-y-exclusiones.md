@@ -1,6 +1,9 @@
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
 
-- **Fecha:** 2026-07-07
+- **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones D1–D6 + 2
+  adicionales formalizadas en `decisiones/` (ADR-001…008). Dos ADRs amplían el
+  alcance de forma acotada y quedan registrados acá: **ADR-002** (G1 demostrativa —
+  redefine E-03) y **ADR-008** (control-plane como servicio mínimo — ítem 9).
 - **Decisión que registra:** el proyecto implementa el **núcleo validable y lo
   detiene ahí** (decisión del usuario, 2026-07-07). Todo lo demás queda **excluido de
   implementación pero cerrado documentalmente**: con justificación metodológica
@@ -38,14 +41,22 @@
    con costo marginal bajo — no es una ampliación de alcance sino capitalización de
    trabajo hecho.
 5. **Distribución mínima**: un canal (MQTT) + ledger de idempotencia + vista de
-   alertas en la webconsole existente.
+   alertas en la webconsole existente. **En repo propio**, consumiendo el bus
+   control→distribución (ADR-005).
 6. **Bus ZeroMQ media→control** (necesario para el punto 4).
 7. **Overlay renderer** offline (videos V1–V3 de la defensa + figuras del informe).
 8. **Mini-experimento A1** (costo marginal de una condición nueva por configuración).
+9. **Control-plane como servicio mínimo** (ADR-008, 2026-07-09): cáscara HTTP sobre
+   el runtime live (disparo, estado, config efectiva) + webconsole como cliente de
+   ambos planos. Sin sesiones/auth/concurrencia (E-12 sigue vigente).
+10. **G1 demostrativa** (ADR-002, 2026-07-09): tracker de labs portado al
+    media-plane (`track_id` opcional aditivo), demostrada en 2–3 clips. Sin
+    métricas MOT (E-10 sigue "no aplicable"). Redefine E-03.
 
 Nada fuera de esta lista entra a implementación. Si algo de la lista peligra por
-tiempo, el orden de sacrificio es: 8 → 7 (se reemplaza por overlays simples) → 5 (se
-reduce a `mosquitto_sub`) — nunca 1, 2 ni 3.
+tiempo, el orden de sacrificio es: **10 → 9 (queda el runner CLI; el runtime live
+no se sacrifica) → 8 → 7 (se reemplaza por overlays simples) → 5 (se reduce a
+`mosquitto_sub`)** — nunca 1, 2 ni 3.
 
 ## 3. Registro de exclusiones
 
@@ -82,29 +93,32 @@ declaración → condición de habilitación futura.
   núcleo no exige (DA-06)."
 - **Habilitación futura:** E-03 + parametrización de zonas + escenas con maquinaria.
 
-### E-03 — MOT formal en el flujo de plataforma / métricas MOT (REDEFINIDA 2026-07-09)
+### E-03 — MOT formal en el flujo de plataforma / métricas MOT (REDEFINIDA 2026-07-09; acotada por ADR-002)
 
-- **Cambio de situación:** la rama `mati` implementó un tracker IoU liviano con ids
+- **Cambio de situación (1):** la rama `mati` implementó un tracker IoU liviano con ids
   estables (`SimpleIoUTracker`, en `eovrt_labs`) y el motor ya opera por sujeto con
-  expiración y cooldown (doc 01 §12). **Lo excluido ya no es "el tracking"** — que
-  existe como herramienta experimental — sino: (a) su incorporación al flujo de
-  plataforma (el media-plane no emite track_id; el bus tampoco), y (b) las métricas
-  MOT estándar, que exigen GT de identidades (Tabla D.2).
+  expiración y cooldown (doc 01 §12).
+- **Cambio de situación (2 — ADR-002, cierra D2):** el tracker **se porta al
+  media-plane** como componente opcional post-normalización (`track_id` aditivo en
+  `media.detection.v1`) y G1 entra al alcance como **capacidad demostrativa**
+  (2–3 clips, comparación de episodios G0 vs G1). **Lo excluido queda acotado a:**
+  (a) G1 como modo del núcleo (el núcleo evalúa en G0, escena/fuente), y (b) las
+  métricas MOT estándar y el GT de identidades que exigirían (Tabla D.2 → E-10).
 - **Justificación (ajustada):** el núcleo sigue sin exigir identidad persistente por
-  definición metodológica (§17.1.10.2); el tracker de labs sirve para calibrar el
-  motor y generar fixtures con identidad, sin convertir al tracking en dependencia
-  del flujo base (DA-06). La decisión de granularidad de la plataforma (D2) quedó en
-  re-discusión (doc 03 §9).
+  definición metodológica (§17.1.10.2); G1 se muestra como extensión operativa del
+  contrato sin prometer atribución por sujeto validada — la demo no requiere GT MOT
+  y es lo primero que se sacrifica si la agenda aprieta (§2, orden de sacrificio).
 - **Rastro documental:** decisión D2 con análisis (doc 03 §3); contrato `track_id`
   opcional especificado (docs 03/05); métrica ΔFP_tracker definida y con regla de
   aplicación (Tabla D.2) para cuando se habilite; semántica G1 descrita (doc 04 §
   granularidad, doc 07 D2).
 - **Declaración:** "El núcleo evalúa a nivel de patrón por fuente y condición,
-  conforme §17.1.10.2; la atribución por sujeto individual queda especificada como
-  extensión (contrato track_id, métrica ΔFP_tracker) y condicionada a tracking cuya
-  evaluación rigurosa exigiría anotación de identidades fuera del alcance."
-- **Habilitación futura:** tracker liviano IoU en media-plane + ΔFP_tracker con
-  unidad de FP declarada; GT de identidad solo si se exigen métricas MOT estándar.
+  conforme §17.1.10.2. La atribución por sujeto individual se implementa como
+  capacidad demostrativa (contrato `track_id` opcional, tracker liviano IoU) y se
+  ilustra sobre clips seleccionados; su validación rigurosa (métricas MOT, GT de
+  identidades) queda fuera del alcance conforme Tabla D.2."
+- **Habilitación futura:** GT de identidad + ΔFP_tracker con unidad de FP declarada,
+  solo si se exigen métricas MOT estándar (E-10).
 
 ### E-04 — Fine-tuning / adaptación al dominio / rol TN
 
@@ -230,7 +244,7 @@ declaración → condición de habilitación futura.
 |---|---|---|---|---|
 | E-01 | CR-03/CR-04 | Especificada, no implementada | Tabla 17; Tabla C.3 (0 fuentes); Tabla 38 | Tabla 24, Anexo C |
 | E-02 | CR-05/CR-06 | Especificada (criterios de activación) | Tabla 23; §17.1.5.2.4 | §17.1.5.3.6, Anexo C |
-| E-03 | MOT / G1 sujeto | Especificada (contrato + métrica) | DA-06; §17.1.10.2 | docs 03/04/05; Tabla D.2 |
+| E-03 | G1 como modo del núcleo / GT de identidades | Acotada: G1 demostrativa SÍ se implementa (ADR-002); validación MOT excluida | DA-06; §17.1.10.2 | ADR-002; docs 03/04/05; Tabla D.2 |
 | E-04 | Fine-tuning / TN | Condicionada no ejercida | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |

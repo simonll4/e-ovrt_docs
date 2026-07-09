@@ -179,14 +179,22 @@ posponen a ninguna decisión:
 
 ## 9. Tablero de decisiones (registro vivo)
 
+> **2026-07-09 — TABLERO CERRADO.** Todas las filas quedaron decididas y
+> formalizadas como ADRs en `decisiones/` (D1 como encuadre: el experimento del
+> doc 04 corre igual y es lo único que puede revisarla). Se sumaron dos decisiones
+> fuera del tablero original: **ADR-007** (semántica de corrida 1:1 en EBE,
+> pregunta 4 del doc 02 §9) y **ADR-008** (control-plane como servicio mínimo —
+> excepción registrada en el doc 10). Los specs por módulo (doc 02 §8) se escriben
+> ya sin alternativas.
+
 | # | Dimensión | Mecanismo | Cuándo se cierra | Recomendación previa | Estado |
 |---|---|---|---|---|---|
-| D1 | Estrategia del núcleo (E-IND/E-DIR/E-HYB) | Empírico (protocolo pre-registrado) | Fin semana 4 | E-IND favorita; E-HYB-and si hay complementariedad | **Abierta — experimento** |
-| D2 | Granularidad del patrón (G0/G1) | ADR + validación liviana | Semana 1 (ADR) | G0 núcleo, G1 condicionada — **A REVISAR: la rama `mati` implementó G1 con tracker IoU en labs (doc 01 §12); decidir G1-en-labs vs G0-en-plataforma vs portar tracker** | **Abierta — re-discusión con equipo** |
-| D3 | Bus media→control | ADR | Semana 1 | ZeroMQ PUB/SUB; broker diferido | **Abierta — ADR** |
-| D4 | Config paraguas / experiment_id | ADR | Semana 1 | Manifiesto paraguas en experimental-setup | **Abierta — ADR** |
-| D5 | Alcance de distribución + canal | ADR + elección de canal | Semana 2 | Recorte; canal: **MQTT** (elegido 2026-07-06) | **Decidida — falta formalizar ADR** |
-| D6 | Reporte consolidado + métricas | ADR + diccionario | Semana 2 | Adoptar Camino B (doc) | **Abierta — ADR** |
+| D1 | Estrategia del núcleo (E-IND/E-DIR/E-HYB) | Empírico (protocolo pre-registrado) | Fin semana 4 | E-IND favorita; E-HYB-and si hay complementariedad | **Encuadre decidido — ADR-001** (E-IND núcleo provisional; el experimento cuantifica y puede revisar) |
+| D2 | Granularidad del patrón (G0/G1) | ADR + validación liviana | Semana 1 (ADR) | G0 núcleo, G1 condicionada | **Decidida — ADR-002** (G0 núcleo + G1 demostrativa: tracker de labs portado al media-plane, sin métricas MOT) |
+| D3 | Bus media→control | ADR | Semana 1 | ZeroMQ PUB/SUB; broker diferido | **Decidida — ADR-003** |
+| D4 | Config paraguas / experiment_id | ADR | Semana 1 | Manifiesto paraguas en experimental-setup | **Decidida — ADR-004** |
+| D5 | Alcance de distribución + canal | ADR + elección de canal | Semana 2 | Recorte; canal: **MQTT** (elegido 2026-07-06) | **Decidida — ADR-005** (+ módulo en repo propio) |
+| D6 | Reporte consolidado + métricas | ADR + diccionario | Semana 2 | Adoptar Camino B (doc) | **Decidida — ADR-006** |
 
 Regla de cierre: cada fila se cierra con un ADR corto (decisión, alternativas,
 fundamento, referencias a los docs de este set) en el repo dueño de la dimensión.

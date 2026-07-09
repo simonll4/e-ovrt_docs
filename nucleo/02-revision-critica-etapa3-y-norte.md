@@ -278,10 +278,17 @@ sólo se corre, se mide y se escribe.**
 
 ## 9. Decisiones a tomar ya (bloqueantes de los specs)
 
-1. ¿Se invierte la estrategia del núcleo a E-IND con E-DIR como variante? (§4.1 — recomendado: sí).
-2. ¿Granularidad G0 como núcleo y G1 condicionada? (§4.2 — recomendado: sí; decidir si el tracker liviano entra en should).
-3. ¿Canal de distribución demostrativo: Telegram o MQTT? (uno solo).
-4. ¿Semántica de corrida del control-plane en EBE: 1:1 con el run del media-plane? (recomendado: sí para la tesis; ventanas propias quedan como trabajo futuro).
+> **2026-07-09 — TODAS RESUELTAS** (decisión del usuario, formalizadas en
+> `decisiones/ADR-001…008`). Los specs quedan desbloqueados.
+
+1. ~~¿Se invierte la estrategia del núcleo a E-IND con E-DIR como variante?~~ —
+   **SÍ (ADR-001)**; el experimento del doc 04 corre igual y cuantifica.
+2. ~~¿Granularidad G0 como núcleo y G1 condicionada?~~ — **SÍ, con G1 demostrativa
+   (ADR-002)**: tracker de la rama `mati` portado al media-plane, sin métricas MOT.
+3. ~~¿Canal de distribución demostrativo: Telegram o MQTT?~~ — **MQTT (ADR-005)**,
+   módulo en repo propio.
+4. ~~¿Semántica de corrida del control-plane en EBE: 1:1?~~ — **SÍ (ADR-007)**;
+   ventanas propias quedan como trabajo futuro declarado.
 5. ~~Confirmar el "won't" de fine-tuning/TN~~ — **RESUELTO 2026-07-07**: exclusión
    formalizada como E-04 en `10-registro-alcance-y-exclusiones.md` (razón: presupuesto
    de tiempo, no falta de recursos ni de datos — Mendieta y el split train_v2 ya

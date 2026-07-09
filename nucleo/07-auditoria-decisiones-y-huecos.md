@@ -209,13 +209,15 @@ de entrada a mantener.
 | H7 | Contingencia "CR-02 no funciona con ninguna estrategia". | ✎ Agregada al doc 04 §8: núcleo mínimo defendible = CR-01 + CR-02 con límites declarados. |
 | H8 | Consentimiento/licencias de evidencia visual del clip bench. | Cubierto por H2 (grabación propia + registry). Extender `license_registry.md` con la categoría "clips temporales". |
 | H9 | Escritura del informe concentrada al final. | Corrección de proceso en I2: sección redactada al cierre de cada experimento desde semana 5. |
-| H10 | **La documentación de `projects/docs/` no está versionada** (el workspace no es un repo según CLAUDE.md, aunque existe un `.git` vacío en la raíz — inconsistencia en sí misma). Riesgo de pérdida del set completo. | Decisión del usuario pendiente: (a) versionar `docs/` en un repo propio, o (b) moverla al repo del informe/TFG. Recomendado (a) ya mismo. Sin commit hasta que lo pidas — regla del workspace. |
+| H10 | **La documentación de `projects/docs/` no está versionada** (el workspace no es un repo según CLAUDE.md, aunque existe un `.git` vacío en la raíz — inconsistencia en sí misma). Riesgo de pérdida del set completo. | ✎ **RESUELTO 2026-07-09** (pedido explícito del usuario): opción (a) — repo git propio en `docs/`, baseline `571652c`. Sin remote aún; el `.git` cascarón de la raíz sigue ahí (inofensivo: el repo real de `docs/` tiene precedencia). |
 | H11 | Las 3 preguntas abiertas del doc 06 (§20) quedaron sin dueño. | Cerradas por decisiones posteriores: Q1 plantilla de notificación → fija en código (recorte D5); Q2 alcance dashboard → absorbido por webconsole (D5); Q3 `t-alert-notification` en DBE → wall-clock etiquetado DBE o N/A (política D6). ✎ Reflejado aquí; el doc 06 se conserva como diseño original sin editar. |
 
 ## Parte IV — Qué queda genuinamente abierto después de esta auditoría
 
-1. Formalizar los ADRs D2–D6 (recomendaciones listas; son ~1 hora de escritura).
+1. ~~Formalizar los ADRs D2–D6~~ — ✎ **HECHO 2026-07-09**: `decisiones/ADR-001…008`
+   (incluye dos decisiones posteriores a esta auditoría: semántica 1:1 y
+   control-plane como servicio mínimo — la segunda amplía la contención de D4.1:
+   el runner CLI orquesta, pero ahora por HTTP contra ambos servicios).
 2. Correr el experimento D1 (semanas 3–4) — con el protocolo ya corregido.
 3. Mini-ADR H5 (modelo EBE) en semana 7 con datos de FPS.
-4. Decisión H10 (dónde versionar esta documentación) — única decisión nueva que
-   introduce esta auditoría y requiere al usuario.
+4. ~~Decisión H10~~ — ✎ resuelta (ver tabla): `docs/` versionada en repo propio.

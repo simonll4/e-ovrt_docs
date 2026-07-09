@@ -5,26 +5,12 @@
   relevamiento del control-plane, la revisión de Etapa 3 y la definición del norte
   hacia la defensa (~fines de septiembre 2026).
 
-> ⚠️ **`projects/docs/` NO está bajo control de versiones. No se commitea. No es un repo git.**
->
-> El workspace `projects/` completo **no es un repositorio git** (así lo declara
-> `projects/CLAUDE.md`). Los dos repos reales de la plataforma son sus hermanos
-> `e-ovrt_media-plane/` y `e-ovrt_experimental-setup/` — `docs/` no vive dentro de
-> ninguno de los dos, así que ningún `git add`/`commit` desde ahí la alcanza.
->
-> Hay un `.git/` en la raíz de `projects/`, pero es un cascarón vacío (solo
-> `.git/info/exclude`, sin `HEAD` ni `objects` ni `refs` — `git status`/`git log` fallan
-> con "not a git repository"). **No lo tomes como señal de que hay versionado real**; es
-> justamente el hueco H10 (doc 07): *"la documentación de `projects/docs/` no está
-> versionada... existe un `.git` vacío en la raíz — inconsistencia en sí misma"*.
->
-> **Consecuencia práctica:** todo lo que se escribe en `docs/` (este índice incluido) es
-> perdible — no hay historial, no hay backup, no hay forma de deshacer un `rm`. Está
-> pendiente que el usuario decida (a) versionarla en un repo propio o (b) moverla al
-> repo del informe/TFG. Hasta entonces, **no ejecutar `git init`, `git add` ni
-> `git commit` en `projects/` ni en `docs/`** sin que el usuario lo pida explícitamente
-> en ese turno — regla general del workspace (`CLAUDE.md` §"Git conventions"), reforzada
-> acá porque `docs/` es, de las dos, la parte con más riesgo de pérdida silenciosa.
+> ✅ **`docs/` es un repo git propio desde 2026-07-09** (hueco H10 resuelto, opción (a),
+> a pedido explícito del usuario; baseline `571652c`). Sigue rigiendo la regla del
+> workspace: **no commitear salvo pedido explícito en ese turno** (`CLAUDE.md`
+> §"Git conventions"). Pendiente: definir remote para backup fuera del disco.
+> El `.git/` cascarón de la raíz de `projects/` sigue existiendo; es inofensivo
+> (el repo real de `docs/` tiene precedencia), pero no versiona nada del workspace.
 
 ## Cómo está organizado
 
@@ -35,6 +21,8 @@ entre sí como "doc 04", "doc 07", etc. Las carpetas agrupan por **rol**, no por
 |---|---|---|
 | `informe/` | **El TFG en sí** (`.docx`) y su texto extraído (serie 90-). Es nuestro entregable, no una fuente externa. | Viva — se reescribe al final |
 | `nucleo/` | 01–11. La narrativa principal, en orden de lectura. | Viva — se corrige y amplía |
+| `decisiones/` | ADR-001…008. Las decisiones formalizadas (D1–D6 + 1:1 + servicio). **Un ADR solo se revisa con causa registrada** (p. ej. el experimento D1). | Cerrada — se agrega, no se re-litiga |
+| `specs/` | Serie 40-. Specs de Etapa 4 por módulo, escritos **sin alternativas** a partir de los ADRs. | En construcción |
 | `contingencia/` | Serie 20-. Trabajo **fuera del plan**, por si sobra tiempo. No reabre exclusiones. | Congelada salvo que se active |
 | `operacion/` | Serie 30-. Runbooks y mediciones sobre el host local. `operacion/datos/` guarda evidencia cruda (JSON, scripts). | Viva — se re-mide |
 | `herramientas/` | Diseño y plan de utilidades del entorno de desarrollo. No es documentación de la plataforma. | Independiente |
@@ -79,6 +67,18 @@ el `.docx`. Y un cambio del informe puede invalidar un doc del núcleo. Ninguno 
 
 **Lectura mínima si hay poco tiempo:** 02 (norte) → 03 (decisiones) → 07 (riesgos) → 08 (alineación con el informe) → 09 (defensa).
 
+### `decisiones/` — ADRs (2026-07-09)
+
+Las 8 decisiones formalizadas: D1–D6 del tablero + semántica 1:1 + control-plane
+como servicio mínimo. Tabla completa en `decisiones/README.md`. Se leen después del
+doc 03 (que explica cada dimensión) y antes de cualquier spec.
+
+### `specs/` — Etapa 4 por módulo (serie 40, en construcción)
+
+Cola y reglas en `specs/README.md`: 40 plataforma, 41 control-plane, 42 media-plane,
+43 clip bench (mayor lead time), 44 experimental-setup, 45 distribución (repo nuevo).
+Se escriben sin alternativas, citando los ADRs.
+
 ### `contingencia/` — fuera del plan
 
 | # | Documento | Qué responde |
@@ -121,14 +121,19 @@ desalineaciones).
 
 ## Estado del tablero de decisiones (espejo de 03 §9 — actualizar allí primero)
 
-| # | Dimensión | Estado | Resolución |
-|---|---|---|---|
-| D1 | Estrategia del núcleo (E-IND / E-DIR / E-HYB) | Abierta | Experimento pre-registrado (doc 04), cierre fin de semana 4 |
-| D2 | Granularidad del patrón (G0 escena / G1 sujeto) | Abierta | ADR semana 1 — recomendación: G0 núcleo, G1 condicionada |
-| D3 | Bus media→control | Abierta | ADR semana 1 — recomendación: ZeroMQ PUB/SUB, broker diferido |
-| D4 | Config paraguas / experiment_id | Abierta | ADR semana 1 — recomendación: manifiesto en experimental-setup |
-| D5 | Distribución de alertas + canal | **Decidida: MQTT** (2026-07-06) | Falta formalizar ADR |
-| D6 | Reporte consolidado + métricas | Abierta | ADR semana 2 — recomendación: adoptar Camino B (Etapa 3) |
+**2026-07-09 — TABLERO CERRADO.** Todas las decisiones formalizadas en
+`decisiones/` (ver su [README](decisiones/README.md) para la tabla completa):
+
+| # | Dimensión | Estado |
+|---|---|---|
+| D1 | Estrategia del núcleo | **ADR-001** — E-IND (encuadre); el experimento del doc 04 cuantifica y es lo único que puede revisarla |
+| D2 | Granularidad del patrón | **ADR-002** — G0 núcleo + G1 demostrativa (tracker portado al media-plane, sin métricas MOT) |
+| D3 | Bus media→control | **ADR-003** — ZeroMQ PUB/SUB; broker diferido |
+| D4 | Config paraguas / experiment_id | **ADR-004** — manifiesto en experimental-setup; runner CLI orquesta por HTTP |
+| D5 | Distribución + canal | **ADR-005** — recorte, MQTT, **repo propio** |
+| D6 | Reporte consolidado + métricas | **ADR-006** — Camino B + diccionario de métricas + criterio de relojes |
+| +  | Semántica de corrida EBE | **ADR-007** — 1:1 con el run del media-plane |
+| +  | Forma de ejecución del control-plane | **ADR-008** — servicio mínimo; webconsole cliente de ambos planos (excepción registrada en doc 10) |
 
 **Insumo nuevo para D1:** el doc 31 muestra que YOLOE no puede sostener CR-01 tal como está
 definida (`bare_head`). Si CR-01 sigue anclada a esa clase, YOLOE sale del espacio de
