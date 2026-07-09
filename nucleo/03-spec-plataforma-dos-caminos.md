@@ -181,11 +181,13 @@ posponen a ninguna decisión:
 
 > **2026-07-09 — TABLERO CERRADO.** Todas las filas quedaron decididas y
 > formalizadas como ADRs en `decisiones/` (D1 como encuadre: el experimento del
-> doc 04 corre igual y es lo único que puede revisarla). Se sumaron dos decisiones
-> fuera del tablero original: **ADR-007** (semántica de corrida 1:1 en EBE,
-> pregunta 4 del doc 02 §9) y **ADR-008** (control-plane como servicio mínimo —
-> excepción registrada en el doc 10). Los specs por módulo (doc 02 §8) se escriben
-> ya sin alternativas.
+> doc 04 corre igual y es lo único que puede revisarla; ajuste del mismo día:
+> E-HYB-or/and corre siempre en Fase 2). Se sumaron tres decisiones fuera del
+> tablero original: **ADR-007** (semántica de corrida 1:1 en EBE, pregunta 4 del
+> doc 02 §9), **ADR-008** (control-plane como servicio mínimo — excepción
+> registrada en el doc 10) y **ADR-009** (config experimental centralizada en
+> experimental-setup + webconsole como superficie de gestión, doc 10 ítem 11).
+> Los specs por módulo (doc 02 §8) se escriben ya sin alternativas.
 
 | # | Dimensión | Mecanismo | Cuándo se cierra | Recomendación previa | Estado |
 |---|---|---|---|---|---|

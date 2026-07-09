@@ -8,7 +8,9 @@
 > ✅ **`docs/` es un repo git propio desde 2026-07-09** (hueco H10 resuelto, opción (a),
 > a pedido explícito del usuario; baseline `571652c`). Sigue rigiendo la regla del
 > workspace: **no commitear salvo pedido explícito en ese turno** (`CLAUDE.md`
-> §"Git conventions"). Pendiente: definir remote para backup fuera del disco.
+> §"Git conventions"). **Sin remote por decisión del usuario (2026-07-09): todo
+> local, no se crea nada en GitHub.** Si se quiere redundancia, copia manual del
+> directorio a otro disco.
 > El `.git/` cascarón de la raíz de `projects/` sigue existiendo; es inofensivo
 > (el repo real de `docs/` tiene precedencia), pero no versiona nada del workspace.
 
@@ -64,14 +66,16 @@ el `.docx`. Y un cambio del informe puede invalidar un doc del núcleo. Ninguno 
 | 09 | `nucleo/09-justificacion-ovd-y-defensa.md` | ¿Por qué OVD si un modelo cerrado detecta cascos mejor? Reencuadre de la tesis, 5 argumentos de defensa, Q&A hostil, estructura del cierre del informe, y qué mostrar en la presentación (4 números, videos V1–V4, overlay renderer, gestión de riesgo de demo). | Defensa |
 | 10 | `nucleo/10-registro-alcance-y-exclusiones.md` | Cierre formal del alcance: la lista cerrada de lo que SÍ se implementa (núcleo validable + EBE ya construido + distribución mínima) y el registro E-01…E-13 de todo lo excluido, cada uno con estado, regla del informe que lo ampara, rastro documental y frase de declaración. **Documento rector del alcance.** | Alcance |
 | 11 | `nucleo/11-relevamiento-media-plane.md` | Relevamiento completo del media-plane (estado 2026-07-09): API, módulos, flujos single-host/two-node, historia de ramas, y las novedades sin commitear (visibilidad two-node en webconsole validada E2E). Hallazgo: `VideoAnnotationWriter` ya cubre media pieza del overlay renderer del doc 09. | Relevamiento |
+| 12 | `nucleo/12-diseno-prompts-y-fusion-ehyb.md` | Bajada operativa de D1 (complementa el doc 04, se congela con él): prompt sets `eind_v1`/`edir_v1` desde Tabla C.1, reglas de comparabilidad (variable única, calib/test, aislado-vs-completo), **fusión E-HYB** (dual-run, gating por persona, or/and con factor de ventana), medición en 3 niveles contra Tabla D.4, protecciones del núcleo validable. | Diseño experimental |
 
 **Lectura mínima si hay poco tiempo:** 02 (norte) → 03 (decisiones) → 07 (riesgos) → 08 (alineación con el informe) → 09 (defensa).
 
 ### `decisiones/` — ADRs (2026-07-09)
 
-Las 8 decisiones formalizadas: D1–D6 del tablero + semántica 1:1 + control-plane
-como servicio mínimo. Tabla completa en `decisiones/README.md`. Se leen después del
-doc 03 (que explica cada dimensión) y antes de cualquier spec.
+Las 9 decisiones formalizadas: D1–D6 del tablero + semántica 1:1 + control-plane
+como servicio mínimo + config centralizada/webconsole. Tabla completa en
+`decisiones/README.md`. Se leen después del doc 03 (que explica cada dimensión) y
+antes de cualquier spec.
 
 ### `specs/` — Etapa 4 por módulo (serie 40, en construcción)
 
@@ -134,6 +138,7 @@ desalineaciones).
 | D6 | Reporte consolidado + métricas | **ADR-006** — Camino B + diccionario de métricas + criterio de relojes |
 | +  | Semántica de corrida EBE | **ADR-007** — 1:1 con el run del media-plane |
 | +  | Forma de ejecución del control-plane | **ADR-008** — servicio mínimo; webconsole cliente de ambos planos (excepción registrada en doc 10) |
+| +  | Config y gestión de la plataforma | **ADR-009** — config experimental centralizada en experimental-setup; webconsole superficie de gestión primaria (+mejora UX); runner CLI para campañas (doc 10 ítem 11) |
 
 **Insumo nuevo para D1:** el doc 31 muestra que YOLOE no puede sostener CR-01 tal como está
 definida (`bare_head`). Si CR-01 sigue anclada a esa clase, YOLOE sale del espacio de

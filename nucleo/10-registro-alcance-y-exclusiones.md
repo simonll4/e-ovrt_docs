@@ -31,8 +31,8 @@
    bus/replay → motor de patrones (pattern set v2 alineado a Tabla 24) → alerta
    interna → reporte consolidado con estados de aplicabilidad.
 2. **Experimento D1** (protocolo de prompts §17.1.5.4 / Tabla C.1): estrategia
-   directa vs indirecta (vs híbrida simple solo si los datos de Fase 1 muestran
-   complementariedad).
+   directa vs indirecta, **con la híbrida simple (or/and) como rama experimental
+   de primera clase en la Fase 2** (ajuste 2026-07-09, ADR-001; vote sigue E-13).
 3. **Clip bench** con GT temporal (grabación escenificada, doble anotación 20%+kappa)
    y evaluación de alertas contra umbrales Tabla D.4.
 4. **EBE complementario sobre la infraestructura two-node ya construida** (Nodo A =
@@ -52,11 +52,16 @@
 10. **G1 demostrativa** (ADR-002, 2026-07-09): tracker de labs portado al
     media-plane (`track_id` opcional aditivo), demostrada en 2–3 clips. Sin
     métricas MOT (E-10 sigue "no aplicable"). Redefine E-03.
+11. **Config centralizada + webconsole como superficie de gestión** (ADR-009,
+    2026-07-09): configuración experimental de ambos planos versionada en
+    experimental-setup; webconsole gestiona configs y dispara corridas en los dos
+    servicios, con mejora de UI/organización UX (navegación por experimento).
 
 Nada fuera de esta lista entra a implementación. Si algo de la lista peligra por
-tiempo, el orden de sacrificio es: **10 → 9 (queda el runner CLI; el runtime live
-no se sacrifica) → 8 → 7 (se reemplaza por overlays simples) → 5 (se reduce a
-`mosquitto_sub`)** — nunca 1, 2 ni 3.
+tiempo, el orden de sacrificio es: **11-UX (la mejora visual; la centralización de
+config no se sacrifica — la usa el runner) → 10 → 9 (queda el runner CLI; el
+runtime live no se sacrifica) → 8 → 7 (se reemplaza por overlays simples) → 5 (se
+reduce a `mosquitto_sub`)** — nunca 1, 2 ni 3.
 
 ## 3. Registro de exclusiones
 
@@ -273,12 +278,21 @@ declaración → condición de habilitación futura.
 
 ## 6. Ajustes que este registro aplica al resto del set
 
+*(Vigentes al cierre de esta auditoría, 2026-07-07. **Superados por decisiones
+posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
+`ADR-001`/doc 12; se conservan como registro histórico de por qué se pensó así.)*
+
 - **Doc 02 §5 (recorte):** G1/tracker sale de "should" y pasa a exclusión E-03
   (especificada); el "should" queda solo con refinamientos menores del motor
   (cooldown) y el segundo canal se elimina (E-06). ✎ Aplicado.
 - **Doc 03 (tablero):** sin cambios de decisiones; D2 queda reforzada (G0 sin
-  vía G1 en este proyecto).
+  vía G1 en este proyecto). **✎ Superado 2026-07-09 (ADR-002):** D2 se cerró
+  como G0 núcleo **+ G1 demostrativa** (tracker portado al media-plane, 2–3
+  clips, sin métricas MOT) — ver E-03 arriba (§3), ya redefinida en consecuencia.
 - **Doc 04:** E-HYB limitada a or/and condicionada a complementariedad; vote → E-13.
-  (Ya estaba condicionada así; sin edición necesaria.)
+  (Ya estaba condicionada así; sin edición necesaria.) **✎ Superado 2026-07-09
+  (ADR-001, doc 12):** la condición de complementariedad se retira — E-HYB-or/and
+  corre siempre en la Fase 2 como rama experimental de primera clase; vote sigue
+  excluida (E-13, sin cambios).
 - **Plan 12 semanas:** las semanas 7–8 pierden el ítem "G1 sobre 2–3 clips si sobra
   agenda" — ese margen se reasigna a overlay renderer + guion de grabación.

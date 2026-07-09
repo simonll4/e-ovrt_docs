@@ -17,6 +17,15 @@ igual (semanas 3–4) para cuantificar la brecha, darle a E-DIR la oportunidad j
 con sus propias formulaciones (Tabla 45) y detectar complementariedad E-HYB. Si el
 resultado contradijera el encuadre (criterios doc 04 §8 mandan), este ADR se revisa.
 
+**Ajuste 2026-07-09 (usuario): E-HYB sube a rama experimental de primera clase.**
+Las fusiones simples **E-HYB-or y E-HYB-and se corren en la Fase 2 siempre** (no
+solo si la Fase 1 muestra complementariedad — ese umbral pasa de condición de
+ejecución a *predicción a contrastar*). Fundamento: el resultado híbrido agrega
+valor propio a la tesis (R2: "¿la señal semántica corrobora a la heurística
+espacial?") gane quien gane. Sin cambios en: los criterios de adopción como núcleo
+(doc 04 §8.3 — E-HYB solo es núcleo si supera por ≥0.05 y se explica en un párrafo)
+ni la exclusión de **E-HYB-vote** (E-13).
+
 ## Alternativas consideradas
 
 - **E-DIR como núcleo** (lo que adopta §17.3.9.2): descartada como núcleo por la
@@ -38,8 +47,9 @@ resultado contradijera el encuadre (criterios doc 04 §8 mandan), este ADR se re
 
 - Redline a §17.3.9.2 del informe (agenda de doc 02 §4.8 / doc 08).
 - Prompt set del núcleo = `eind_v1` (canonical_v2); `edir_v1` se crea solo para el
-  experimento.
+  experimento. Construcción, comparabilidad y mecánica de fusión E-HYB: **doc 12**.
 
 ## Referencias
 
-Doc 02 §4.1, doc 04 (protocolo completo), doc 07 D1, doc 31.
+Doc 02 §4.1, doc 04 (protocolo completo), doc 07 D1, doc 12 (bajada operativa de
+prompts y fusión), doc 31.

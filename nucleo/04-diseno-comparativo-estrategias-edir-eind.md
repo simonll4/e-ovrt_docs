@@ -203,6 +203,15 @@ fusión en el evaluador. Se decide *después* de ver los resultados individuales
 si E-DIR resulta inútil, E-HYB muere solo; si E-DIR es débil pero complementaria,
 E-HYB-and es probablemente la conclusión del capítulo.
 
+> **Ajuste 2026-07-09 (decisión del usuario, ADR-001):** E-HYB-or/and se corren en
+> la Fase 2 **siempre** como rama experimental de primera clase — el umbral de
+> complementariedad (>15%) deja de ser condición de ejecución y pasa a predicción a
+> contrastar. E-HYB-vote sigue excluida (E-13). Los criterios de adopción del §8
+> no cambian. **La bajada operativa completa está en el doc 12**: mecánica dual-run
+> (fusión de corridas separadas, no vocabulario unión), gating por persona de la
+> señal E-DIR, funciones de fusión pre-registradas (or / and con factor de ventana
+> de confirmación) y medición en tres niveles.
+
 ## 6. Evidencia disponible hoy (punto de partida, no conclusión)
 
 | Evidencia | Fuente | Lectura |
@@ -247,10 +256,13 @@ fuente (BENCH v2, 196 imgs), resolución, postproceso, umbrales de NMS. Variable
 7. Atajo: las corridas de Sprint 2 sobre BENCH pueden reutilizarse desde `runs/` para
    el scoring de E-IND sin re-inferir; solo `edir_v1` requiere inferencia nueva.
 
-**Gate:** si el F1 de E-DIR < 50% del F1 de E-IND en ambas condiciones, E-DIR se
-declara no viable como núcleo, se documenta, y la Fase 2 corre solo E-IND + se evalúa
-E-HYB-and únicamente si hubo complementariedad (>15% de los errores de E-IND
-recuperados por E-DIR).
+**Gate (ajustado 2026-07-09, ADR-001):** si el F1 de E-DIR < 50% del F1 de E-IND en
+ambas condiciones, E-DIR se declara no viable **como candidata a núcleo** y se
+documenta. La Fase 2 corre E-IND **más las fusiones E-HYB-or/and como rama
+experimental en todos los casos** (valor de tesis R2); la complementariedad de
+Fase 1 (>15% de los errores de E-IND recuperados por E-DIR) se reporta como
+predicción contrastada, no condiciona la ejecución. Como candidata a *núcleo*,
+E-HYB sigue atada a los criterios del §8.3.
 
 ### Fase 2 — Cadena completa sobre clips (días 5–10)
 

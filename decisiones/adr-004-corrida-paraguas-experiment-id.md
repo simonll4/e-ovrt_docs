@@ -18,6 +18,11 @@
   corridas como cliente de ambos servicios; no mantiene estado de orquestación
   propio.
 
+> **Ampliado por ADR-009 (2026-07-09):** toda la configuración experimental se
+> centraliza en experimental-setup y la webconsole pasa a ser la superficie de
+> gestión primaria (editar configs, disparar, monitorear). El runner sigue siendo
+> el camino reproducible para campañas; ambos usan las mismas APIs y configs.
+
 ## Alternativas consideradas
 
 - **`RunConfig` monolítico** (Camino B literal, §17.3.6/Tabla 44): contradice la
