@@ -103,14 +103,20 @@ Se escriben sin alternativas, citando los ADRs.
 |---|---|---|
 | 30 | `operacion/30-runbook-local.md` | Cómo levantar media-plane + webconsole en local sin Docker, con hot-reload, para iterar rápido: comandos por terminal, refs de modelo, lanzar una corrida RTSP, y las trampas conocidas (`dist/` viejo servido en silencio, run "succeeded" con cámara caída). |
 | 31 | `operacion/31-benchmark-modelos-host-local.md` | Benchmark de las 6 variantes GDINO/YOLOE: BENCH v2 val con GT (mAP@0.5, AP por clase, recall CR-01) + cámara RTSP en vivo (keep-up, latencia, VRAM). **Hallazgo clave: YOLOE es ciego a `bare_head` (recall CR-01 ≈ 0), y el mAP oculta que GDINO-base gana en CR-01 y `vest` pese a perder en mAP.** |
-| 32 | `operacion/32-handoff-arranque-tramo-plataforma.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR.** Estado congelado de los repos (ramas, venvs, tests), orden de lectura, reglas del workspace, el **Paso 0** (re-correr Fase 0 con el motor `mati`, con baseline y trampas), el orden de trabajo con sus gates, las decisiones que no se re-litigan y lo pendiente del usuario. |
+| 32 | `operacion/32-handoff-arranque-tramo-plataforma.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR.** Estado congelado de los repos (ramas, venvs, tests), orden de lectura, reglas del workspace, el **Paso 0** (ya ejecutado, ver 33), el orden de trabajo con sus gates, las decisiones que no se re-litigan y lo pendiente del usuario. |
+| 33 | `operacion/33-fase0-rerun-motor-mati.md` | **Paso 0, cerrado (2026-07-09).** Fase 0 re-ejecutada con el motor de `mati`. **Hallazgo clave: las alertas no cambian (137 = 137) y es correcto** — el BENCH tiene cero EPP disputado entre personas, así que el matching 1:1 es un no-op sobre imágenes; demostrarlo exige el clip bench. Captura el warning de `det_NNN` (evidencia de G0) con una corrida diagnóstica aparte, y corrige dos afirmaciones del doc 32. |
+| 34 | `operacion/34-implementacion-g0-resultados-y-deuda.md` | **G0 implementado (2026-07-10), gate alcanzado** (F1=1.0 en ambas granularidades, verificado significativo). ADR-012 **confirmado** por par discriminante. El BENCH baja de 137 a 77 alertas por diseño (invariante Σ`subjects_in_evidence_max` = 137 exacto). **Corrobora empíricamente la limitación D2.2 del doc 07**: un riesgo transitorio adelanta el reloj del episodio de escena. Deuda: nadie produce `track_id` (⇒ modo `subject` inerte), el overlay pinta una caja por escena, y el motor no tiene purga de estado. |
+| 35 | `operacion/35-verificacion-e2e-video-rtsp-real.md` | **Cierra la brecha del doc 34: inferencia real, no simulada.** Media-plane levantado con GDINO-tiny real en GPU sobre el video crudo (733 frames, 0 fallos) y sobre la cámara RTSP real (192.168.1.5, 3 frames, reloj de pared real) → encadenado al motor G0. Confirma en t=4000/7000ms exacto sobre video; aliasing de `det_NNN` medido de nuevo (1831px de recorrido) sobre esta corrida fresca. El camino EBE con bus en vivo sigue sin existir. |
+| 36 | `operacion/36-handoff-plan2-bus-y-live.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR (reemplaza al 32).** Estado congelado post-G0: qué está hecho (con evidencia), qué leer, el plan 2 (MediaEventSource → bus ZeroMQ → runtime live, con sus gates), la deuda que debe absorber, trampas operativas verificadas y lo pendiente del usuario. |
 
-Evidencia cruda del doc 31, para que los números sean auditables y re-generables:
+Evidencia cruda de los docs 31 y 33, para que los números sean auditables y re-generables:
 
 | Archivo | Qué es |
 |---|---|
 | `operacion/datos/31-benchmark-modelos-host-local.datos.json` | Salida cruda de las 12 corridas (6 modelos × 2 suites), con `run_id`, latencias y evaluación. |
 | `operacion/datos/31-benchmark-modelos-host-local.driver.py` | Script que las reproduce: levanta y baja un servicio por modelo. |
+| `operacion/datos/33-fase0-rerun-motor-mati.datos.json` | Los tres `summary.json` (motor viejo, motor nuevo, probe de persistencia) y el conteo de items disputados. |
+| `operacion/datos/33-fase0-rerun-motor-mati.probe.py` | Script que reproduce el conteo de items EPP disputados (el que explica la igualdad). |
 
 ### `informe/` — el TFG, en desarrollo
 
@@ -150,6 +156,8 @@ desalineaciones).
 | +  | Config y gestión de la plataforma | **ADR-009** — config experimental centralizada en experimental-setup; webconsole superficie de gestión primaria (+mejora UX); runner CLI para campañas (doc 10 ítem 11) |
 | +  | Orden de ejecución del proyecto | **ADR-010** — tramo plataforma primero (servicios, bus, trazabilidad, instrumentación); el clip bench (spec 43) se dispara al cierre del spec 44 (la distribución no lo bloquea); Fase 2 de D1 y R3 se mueven con él; material crudo de videos en armado paralelo |
 | +  | Frontera de política de alertas | **ADR-011** — el motor emite en cada confirmación; cooldown y supresión de re-notificación pasan al módulo de distribución; el evaluador cuenta `re_alerts`, no los penaliza como FP |
+| +  | Qué sostiene G0 sin identidad | **ADR-012** — la memoria de cobertura EPP es inaplicable bajo escena (se ignora con causa declarada; la histéresis la subsume) y sobrevive solo en G1; la expiración de sujetos sí se reinterpreta a escena. **Falsable por test** (gate F1=1.0 + test de parpadeo) |
+| +  | Qué mide cada tipo de fuente | **ADR-013** — imágenes → percepción y asociación espacial; video → patrones con GT temporal; RTSP → patrones + métricas end-to-end. La plataforma detecta la temporalidad por `source_type` y declara `not_applicable / non_temporal_source` sola; sobre imágenes un patrón con persistencia **no puede alertar** (medido: doc 33 §4) |
 
 **Insumo nuevo para D1:** el doc 31 muestra que YOLOE no puede sostener CR-01 tal como está
 definida (`bare_head`). Si CR-01 sigue anclada a esa clase, YOLOE sale del espacio de

@@ -132,7 +132,7 @@ no lo sustituyen (fundamento en §5.2 y doc 08 §2.2 adenda).
 |---|---|---|---|---|
 | **G2A** | captura/lectura del frame | resultado algorítmico disponible | ms | siempre (media-plane); presupuesto **50–250 ms** |
 | **t_alert-system** (principal) | **inicio anotado** del evento (GT) | alerta confirmada y registrada | s | requiere GT temporal (tramo evaluación) |
-| **t_capture→alert** (§5.2 — derivada, propia) | captura del frame de **primera evidencia** del episodio | `AlertEvent` registrado | ms | **sin GT**; `computed` en fuente viva (EBE); en DBE-archivo → `not_interpretable / dbe_media_time` (ver §5.2.3) |
+| **t_capture→alert** (§5.2 — derivada, propia) | captura del frame de **primera evidencia** del episodio | `AlertEvent` registrado | ms | **sin GT**; `computed` en fuente viva (EBE); en DBE-video → `not_interpretable / dbe_media_time`; en dataset de imágenes → `not_applicable / non_temporal_source` (ver §5.2.3) |
 | **t_compute-budget** (§5.2 — derivada, propia) | — | `t_capture→alert` − `T_persistencia_efectiva` | ms | **siempre** (monotónico, independiente de la fuente) |
 | **t_alert-notification** | alerta confirmada | entrega efectiva por canal | ms | solo con trayecto de distribución instrumentado; en DBE se etiqueta wall-clock-DBE |
 | **TTFD** | inicio anotado (GT) | captura del frame de primera evidencia positiva (criterio declarado, §5.2.2) | s | requiere GT temporal |
@@ -187,11 +187,11 @@ métrica principal sin ningún GT**; cuando el clip bench llegue (spec 43), obte
 `t_alert-system` es sumar TTFD. Esta identidad se verifica numéricamente en la
 primera corrida con GT y se reporta como control de consistencia.
 
-#### 5.2.3 Aplicabilidad (ADR-006) — dos casos que hay que declarar
+#### 5.2.3 Aplicabilidad (ADR-006) — tres casos que hay que declarar
 
-1. **DBE sobre archivo:** los `timestamp_ms` de la fuente son **tiempo de medio**,
-   no reloj de pared; el replay consume el archivo más rápido (o más lento) que
-   tiempo real. `t_capture→alert` se reporta `not_interpretable` con causa
+1. **DBE sobre archivo de video:** los `timestamp_ms` de la fuente son **tiempo de
+   medio**, no reloj de pared; el replay consume el archivo más rápido (o más lento)
+   que tiempo real. `t_capture→alert` se reporta `not_interpretable` con causa
    `dbe_media_time`. **`t_compute-budget` sí es válido** (se mide con relojes
    monotónicos del proceso) y es el número que vale en DBE.
 2. **EBE two-node:** la captura ocurre en el Nodo A y el `AlertEvent` se registra
@@ -199,6 +199,14 @@ primera corrida con GT y se reporta como control de consistencia.
    sincronización (chrony/NTP) con su error estimado, o la métrica cae a
    `not_interpretable / clock_skew`. En EBE single-host es un solo reloj y sale
    `computed` sin condiciones.
+3. **Fuente no temporal (dataset de imágenes, ADR-013):** `source_type: "image"`,
+   `timestamp_ms: None`, `source_clock: none`. No hay episodio ni "primera evidencia
+   en el tiempo", de modo que `t_capture→alert` es **`not_applicable` con causa
+   `non_temporal_source`** — no `not_interpretable`: la métrica no está mal medida,
+   no existe. `t_compute-budget` sigue `computed`. Toda la evaluación de patrones de
+   esa corrida es `not_applicable / non_temporal_source`: sobre imágenes el plano de
+   control corre como smoke de contrato y diagnóstico del evaluador espacial, no como
+   evaluación de patrones.
 
 #### 5.2.4 Instrumentación requerida (quién persiste qué)
 

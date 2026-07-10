@@ -6,6 +6,13 @@
   vivo) para las 6 variantes de GDINO y YOLOE disponibles.
 - **Datos crudos:** `datos/31-benchmark-modelos-host-local.datos.json`
 - **Script reproducible:** `datos/31-benchmark-modelos-host-local.driver.py`
+
+> **Estado de los artefactos (2026-07-10).** Los 12 directorios de corrida que este
+> documento cita (`e-ovrt_media-plane/runs/run_20260709_16*`) fueron **podados** en una
+> limpieza de `runs/` (git-ignored). No se perdió información: los números de las 6
+> variantes —con métricas de BENCH y de RTSP— viven en el `datos.json` de arriba, y el
+> `driver.py` re-ejecuta el benchmark completo levantando y bajando un servicio por
+> modelo. Los `run_id` citados en las tablas ya no resuelven a un directorio en disco.
 - **Alcance:** este documento mide **modelos zero-shot sin fine-tuning** (E-04 sigue
   excluido, ver doc 10). No decide D1 — es insumo para el pre-registro del doc 04.
 

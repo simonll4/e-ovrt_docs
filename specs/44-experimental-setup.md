@@ -115,6 +115,24 @@ UI (ADR-009 §4).
   Si falta `first_evidence_unit_id` en una alerta ⇒ `applicable_not_computed /
   missing_join_key` para esa alerta (no aborta el reporte).
 
+## 4.1 Aplicabilidad por temporalidad de la fuente (ADR-013)
+
+El reporte lee `pattern_evaluation.state` del `summary.json` del control-plane y
+`source_clock` del summary del media-plane. Cuando la fuente es no temporal
+(`source_clock: none` / `source_type: "image"`), el reporte **omite y explica** —nunca
+reporta en cero— las métricas de naturaleza temporal:
+
+| Métrica | Sobre dataset de imágenes |
+|---|---|
+| `t_capture→alert` | `not_applicable / non_temporal_source` |
+| `t_compute-budget` | **`computed`** (monotónico, independiente de la fuente) |
+| TTFA interna, latencias de confirmación | `not_applicable / non_temporal_source` |
+| `re_alerts` por episodio, estabilidad | `not_applicable / non_temporal_source` |
+| G2A, mAP, AP por clase, recall por persona | `computed` — son métricas de percepción |
+
+La corrida se rotula en el reporte como **diagnóstico espacial / smoke de contrato**, no
+como evaluación de patrones.
+
 ## 5. Webconsole: superficie de gestión de la plataforma (ADR-009)
 
 ### 5.1 Alcance funcional nuevo
@@ -126,6 +144,7 @@ UI (ADR-009 §4).
 | **Disparo orquestado** | Botón "ejecutar experimento" = la misma secuencia del runner (§3), implementada llamando a las mismas APIs; para campañas largas la UI recomienda el runner. |
 | **Vista de alertas** | Lee `GET /api/runs/{id}/alerts` del control-plane (spec 41 §5) — polling; sin ZeroMQ en la consola (spec 40 §3.3). Tabla: condición, severidad, estado, timestamps de hitos, subject/escena. |
 | **Agrupación por experimento** | `experiment_id` como eje: un experimento muestra sus dos corridas (+ distribución cuando exista), su manifiesto, su reporte. |
+| **Detección de fuente no temporal** (ADR-013) | Al seleccionar un data source, la consola **detecta el tipo** (`type: image_folder` en la config; re-confirmado por `source_type` en el primer evento) y lo comunica **antes de correr**: rotula la corrida como diagnóstico espacial / smoke, deshabilita los controles de umbrales temporales (inertes sobre imágenes), oculta las vistas de métricas temporales, y **advierte** si el pattern set elegido configura persistencia — esa corrida no podrá alertar. La detección es automática: no hay un toggle que el operador pueda contradecir. |
 
 ### 5.2 Rediseño UX (la parte declarada sacrificable — doc 10 ítem 11)
 

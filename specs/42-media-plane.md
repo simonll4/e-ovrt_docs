@@ -41,6 +41,14 @@ bus: { enabled: false, endpoint: "tcp://0.0.0.0:5557", hwm: 1000 }
 
 ## 3. Tracker liviano y `track_id` (ADR-002)
 
+> **Bloqueante para el modo `subject`, verificado el 2026-07-10 (doc 34 §4.1).** Hoy
+> **nadie produce `track_id`**: `eovrt_labs/perception/tracking.py:311` escribe el id del
+> tracker en `detection_id`, que tras G0 ya no se usa como identidad, y el media-plane no
+> emite el campo. Consecuencia: un patrón `granularity: subject` **siempre degrada a escena**
+> con causa `no_track_id`, y `generate-detections --track` quedó inerte para el motor. El
+> port de esta sección es lo que devuelve la vida al modo `subject` (G1) y a los overlays por
+> persona.
+
 - **Origen:** puerto de `eovrt_labs/perception/tracking.py` (control-plane, rama
   `mati`): IoU greedy + gates de centro/área + ventanas `max_lost` (ms y frames)
   + firma de apariencia del torso. Se porta el algoritmo con sus tests; labs
@@ -106,13 +114,23 @@ alerta**, así que estos campos van **por unidad** en `metrics.jsonl`, con
 | `g2a_ms` | compuesta de esta unidad (no solo sus componentes) |
 
 **Semántica de la captura por fuente** (importa para la aplicabilidad, spec 40
-§5.2.3): en `RtspSource` el instante de captura es wall-clock real de llegada del
-frame → `t_capture→alert` es una latencia genuina. En `VideoFileSource` /
-`ImageFolderSource` el `timestamp_ms` es **tiempo de medio**: se persiste igual
-(`capture_monotonic_ns` marca cuándo lo leyó el proceso), pero el reporte etiqueta
-la métrica `not_interpretable / dbe_media_time`. El media-plane **declara qué tipo
-de reloj emite cada fuente** en el summary (`source_clock: wallclock | media`) —
-sin ese campo el reporte no puede decidir el estado de aplicabilidad.
+§5.2.3, y para ADR-013). Tres regímenes, no dos:
+
+| Fuente | `source_type` | `timestamp_ms` | `source_clock` | `t_capture→alert` |
+|---|---|---|---|---|
+| `RtspSource` | `video_frame` | wall-clock de llegada del frame | `wallclock` | latencia genuina → `computed` |
+| `VideoFileSource` | `video_frame` | **tiempo de medio** | `media` | `not_interpretable / dbe_media_time` |
+| `ImageFolderSource` | `image` | **`None`** (unidades independientes, sin tiempo) | `none` | `not_applicable / non_temporal_source` |
+
+En los tres casos `capture_monotonic_ns` marca cuándo el proceso leyó la unidad, de
+modo que `t_compute-budget` es siempre `computed`.
+
+El media-plane **declara qué tipo de reloj emite cada fuente** en el summary
+(`source_clock: wallclock | media | none`) — sin ese campo el reporte no puede
+decidir el estado de aplicabilidad. `none` es la declaración de fuente **no
+temporal**: sobre ella la evaluación de patrones es `not_applicable` (ADR-013), y
+`source_type: "image"` es la señal que ya viaja en cada `DetectionEvent` para que el
+control-plane lo detecte sin configuración adicional.
 
 ## 6. Orden de implementación sugerido
 

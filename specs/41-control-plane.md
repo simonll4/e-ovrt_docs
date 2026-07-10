@@ -30,9 +30,10 @@ Campo nuevo en `PatternDefinition`: `granularity: scene | subject`
 (default **`scene`** = G0, el núcleo).
 
 - **`scene` (G0):** clave de estado `(pattern_id, source_id)`. La evidencia por
-  unidad se computa igual que hoy (por persona: matching 1:1, región, memoria de
-  cobertura) y luego se **agrega**: la escena está "en evidencia" si ≥1 sujeto la
-  aporta. El episodio registra `subjects_in_evidence` (máximo y por unidad) como
+  unidad se computa igual que hoy (por persona: matching 1:1, región) y luego se
+  **agrega**: la escena está "en evidencia" si ≥1 sujeto la aporta. **La memoria de
+  cobertura no interviene bajo escena** (ADR-012): requiere identidad de sujeto, que
+  G0 no tiene; se ignora declarando `coverage_memory_unsupported_scene`. El episodio registra `subjects_in_evidence` (máximo y por unidad) como
   metadato — insumo del GT `clip_gt.v2` y de la limitación declarada (doc 07
   D2.2: alternancia de personas dentro de un episodio de escena).
 - **`subject` (G1, demostrativa):** clave `(pattern_id, source_id, subject_id)`
@@ -50,6 +51,42 @@ Campo nuevo en `PatternDefinition`: `granularity: scene | subject`
 - Conservar una variante del fixture **con `track_id`** para testear G1 y el
   fallback. **Gate de regresión: F1 = 1.0 en ambas granularidades** sobre el
   fixture — condición para cualquier merge del motor (regla de la rama `mati`).
+
+### 2.3 Temporalidad de la fuente y aplicabilidad de la evaluación (ADR-013)
+
+El control-plane **detecta** la temporalidad de la fuente; no se configura. La señal es
+`DetectionEventSource.source_type`, que ya viaja en cada evento:
+
+- `source_type: "image"` ⇒ **fuente no temporal** (unidades independientes;
+  `timestamp_ms` y `frame_index` son `None`; bajo G0 cada imagen es su propia escena,
+  porque `source_id` es el archivo). La semántica de patrón —episodio, persistencia,
+  histéresis, resolución, re-alertas— **no aplica**.
+- `source_type: "video_frame"` ⇒ fuente temporal. La evaluación de patrones aplica.
+
+`RunSummary` gana el campo aditivo:
+
+```json
+"pattern_evaluation": { "state": "not_applicable", "causes": ["non_temporal_source"] }
+```
+
+con `state` del vocabulario de ADR-006 y `causes` como lista. Dos estados más que la
+detección distingue (ADR-013): sin unidades procesadas ⇒
+`applicable_not_computed / no_units_processed`; corrida con `source_type` mezclados ⇒
+`not_interpretable / mixed_source_types`. Sobre una fuente no temporal, los umbrales
+temporales del pattern set caen en dos categorías distintas (ADR-013): `confirm_after_frames > 1`
+vuelve la alerta **inalcanzable** (`hit_count` nunca supera 1 ⇒ causa
+`persistence_unreachable_on_non_temporal_source`); los demás (`confirm_after_ms`,
+`resolve_after_*`, `subject_absent_timeout_*`) se **ignoran en silencio** ⇒ causa
+`inert_temporal_thresholds`. No confundirlas: un patrón con `confirm_after_ms: 4000`
+sobre imágenes **sí alerta**, una vez por imagen.
+
+**La corrida no se rechaza.** Sobre imágenes el plano de control conserva dos usos
+legítimos: smoke de contrato/plumbing (`errors_count: 0`, N unidades parseadas) y
+diagnóstico del evaluador espacial por frame (región, matching 1:1, asociación
+EPP↔persona; recall por persona contra `person_gt` del BENCH). Los `AlertEvent` se
+emiten y persisten, pero significan **"condición espacial detectada en este frame"**, no
+"episodio confirmado": el estado de aplicabilidad del summary fija la lectura, y el
+reporte (spec 44) omite las métricas temporales en vez de reportarlas en cero.
 
 ## 3. Fuentes: `MediaEventSource` (doc 05 §4.2)
 
@@ -136,8 +173,12 @@ evidence:
 
 ## 7. Pattern set `cr01_cr02_v2` (doc 08 §2.1 — desalineación más importante)
 
-Partir de `cr01_cr02_field_v1` (perfil de campo de `mati`: memoria de cobertura y
-expiración de sujetos — semántica de patrón que SE CONSERVA) y alinear al informe
+Partir de `cr01_cr02_field_v1` (perfil de campo de `mati`) y alinear al informe.
+**De su semántica de patrón se conserva la expiración de sujetos** (reinterpretada a
+nivel escena); **la memoria de cobertura NO se aplica bajo `granularity: scene`** —
+sin identidad de sujeto no hay a qué colgarla, y la histéresis de `resolve_after_ms`
+la subsume a esta escala temporal (**ADR-012**, falsable por test). Queda como
+capacidad de G1 y perfil de labs. Alinear al informe
 (Tabla 24/D.4). **Sin cooldown (ADR-011):** `realert_cooldown_ms/frames` quedan
 sin configurar — el motor emite un `AlertEvent` en cada transición a `confirmed`;
 la supresión de re-notificación es política del tramo de distribución (spec 45).

@@ -1,5 +1,10 @@
 # Handoff — arranque del tramo plataforma
 
+> **SUPERADO (2026-07-10).** Todo lo que este doc mandaba ejecutar está hecho: Paso 0
+> (doc 33) y G0 completo con verificación real (docs 34–35). **El punto de entrada
+> vigente es [`operacion/36-handoff-plan2-bus-y-live.md`](36-handoff-plan2-bus-y-live.md).**
+> Este doc queda como registro del arranque.
+
 - **Fecha de congelamiento:** 2026-07-09
 - **Para quién:** la sesión que empieza a **implementar** (hasta acá el trabajo fue
   documental: 11 ADRs + 6 specs). Este doc dice **dónde estamos, qué leer, qué
@@ -49,6 +54,13 @@ por `ModuleNotFoundError: numpy` — importa contratos del media-plane cross-rep
 
 ## 4. PASO 0 — Re-correr la Fase 0 con el motor de `mati` (primero, sin código)
 
+> **EJECUTADO el 2026-07-09. Paso 0 CERRADO.** Resultados, hallazgos y correcciones a
+> esta sección en [`operacion/33-fase0-rerun-motor-mati.md`](33-fase0-rerun-motor-mati.md).
+> Dos avisos, si estás leyendo esto para ejecutarlo de nuevo: la predicción de §4.3 **falló
+> y era la predicción la que estaba mal** (el BENCH no contiene EPP disputado entre personas,
+> así que el matching 1:1 es un no-op y las alertas se mantienen en 137); y el criterio 3 de
+> §4.4 **es inalcanzable con `cr01_cr02_v1`** — requiere una corrida diagnóstica aparte.
+
 **Por qué:** la Fase 0 del 2026-07-06 corrió con el **motor viejo** (matching por
 contención). El doc 01 §12.4.6 exige re-ejecutarla con el motor nuevo **antes de
 calibrar nada**. No necesita una sola línea de código y entrega tres cosas:
@@ -89,16 +101,25 @@ cd /home/simonll4/projects/e-ovrt_control-plane
 | `alerts_count` | **137** |
 | `avg_processing_ms` | 0.129 |
 
-**Qué esperar del motor nuevo:** menos alertas de CR-02 (el matching bipartito 1:1
-elimina el "robo" de EPP entre personas superpuestas, que era la causa dominante de
-falsos CR-02 según el experimento del 2026-06-26). Si las alertas **no bajan**,
-investigar antes de seguir. Registrar los números en un doc de la serie 30.
+~~**Qué esperar del motor nuevo:** menos alertas de CR-02 (…). Si las alertas **no bajan**,
+investigar antes de seguir.~~
+
+**CORREGIDO (doc 33 §3).** Se esperaba menos alertas de CR-02 por el matching bipartito 1:1.
+**No bajan, y es correcto que no bajen:** se midió el input y tiene **cero** items de EPP
+disputados (ningún casco ni chaleco cae en la región de más de una persona), de modo que
+sobre este corpus el matching 1:1 y el matching por contención son la misma función. El
+BENCH de imágenes no sirve para demostrar el valor del matching 1:1; eso requiere material
+con personas superpuestas (clip bench, spec 43). El resultado esperado es **137 = 137**.
 
 ### 4.4 Criterio de terminado del Paso 0
 
-- [ ] Corrida completa sin errores de contrato (`errors_count: 0`).
-- [ ] Tabla comparativa viejo-vs-nuevo (alertas por condición) escrita.
-- [ ] Warning de ids inestables (`det_NNN`) capturado como evidencia.
+- [x] Corrida completa sin errores de contrato (`errors_count: 0`).
+- [x] Tabla comparativa viejo-vs-nuevo (alertas por condición) escrita → doc 33 §2.
+- [x] Warning de ids inestables (`det_NNN`) capturado como evidencia → doc 33 §4.
+      **Ojo:** el warning está gateado por `confirm_after_frames > 1`, así que **no puede
+      dispararse con `cr01_cr02_v1`**. Se capturó con una corrida diagnóstica aparte
+      (`configs/fase0_dbe_gdino_bench_persistence_probe.yaml`), para no contaminar la
+      comparación de motores, que exige variable única.
 
 ## 5. Hacia dónde vamos: el tramo plataforma
 

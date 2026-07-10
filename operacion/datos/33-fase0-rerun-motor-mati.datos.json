@@ -1,0 +1,120 @@
+{
+  "generado": "2026-07-09",
+  "doc": "operacion/33-fase0-rerun-motor-mati.md",
+  "input_detections": "e-ovrt_media-plane/runs/run_20260704_205708_dbe_grounding_dino_96b2b0/detections.jsonl",
+  "control_plane_head": "443712b",
+  "summaries": {
+    "motor_viejo": {
+      "schema_version": "control.summary.v1",
+      "control_run_id": "fase0_dbe_gdino_bench_20260706",
+      "media_run_ids": [
+        "run_20260704_205708_dbe_grounding_dino_96b2b0"
+      ],
+      "scenario": "DBE",
+      "pattern_set_id": "cr01_cr02_v1",
+      "active_pattern_ids": [
+        "CR-01",
+        "CR-02"
+      ],
+      "units_processed": 82,
+      "units_failed": 0,
+      "pattern_events_count": 137,
+      "alerts_count": 137,
+      "errors_count": 0,
+      "avg_processing_ms": 0.12889319516877393,
+      "output_files": {
+        "effective_config": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/effective_config.yaml",
+        "pattern_events": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/pattern_events.jsonl",
+        "alerts": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/alerts.jsonl",
+        "metrics": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/metrics.jsonl",
+        "errors": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/errors.jsonl",
+        "summary": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_20260706/summary.json"
+      },
+      "started_at": "2026-07-07T00:43:13.781060+00:00",
+      "finished_at": "2026-07-07T00:43:13.800596+00:00"
+    },
+    "motor_nuevo": {
+      "schema_version": "control.summary.v1",
+      "control_run_id": "fase0_dbe_gdino_bench_mati_20260709",
+      "media_run_ids": [
+        "run_20260704_205708_dbe_grounding_dino_96b2b0"
+      ],
+      "scenario": "DBE",
+      "pattern_set_id": "cr01_cr02_v1",
+      "active_pattern_ids": [
+        "CR-01",
+        "CR-02"
+      ],
+      "units_processed": 82,
+      "units_failed": 0,
+      "pattern_events_count": 137,
+      "alerts_count": 137,
+      "errors_count": 0,
+      "avg_processing_ms": 0.7539157568982507,
+      "output_files": {
+        "effective_config": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/effective_config.yaml",
+        "pattern_events": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/pattern_events.jsonl",
+        "alerts": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/alerts.jsonl",
+        "alerts_csv": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/alerts.csv",
+        "metrics": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/metrics.jsonl",
+        "errors": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/errors.jsonl",
+        "summary": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_mati_20260709/summary.json"
+      },
+      "warnings": [],
+      "started_at": "2026-07-09T20:08:57.117864+00:00",
+      "finished_at": "2026-07-09T20:08:57.198117+00:00"
+    },
+    "probe_persistencia": {
+      "schema_version": "control.summary.v1",
+      "control_run_id": "fase0_dbe_gdino_bench_persistence_probe_20260709",
+      "media_run_ids": [
+        "run_20260704_205708_dbe_grounding_dino_96b2b0"
+      ],
+      "scenario": "DBE",
+      "pattern_set_id": "cr01_cr02_persistence_probe",
+      "active_pattern_ids": [
+        "CR-01",
+        "CR-02"
+      ],
+      "units_processed": 82,
+      "units_failed": 0,
+      "pattern_events_count": 137,
+      "alerts_count": 0,
+      "errors_count": 0,
+      "avg_processing_ms": 0.10112931713371015,
+      "output_files": {
+        "effective_config": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/effective_config.yaml",
+        "pattern_events": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/pattern_events.jsonl",
+        "alerts": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/alerts.jsonl",
+        "alerts_csv": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/alerts.csv",
+        "metrics": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/metrics.jsonl",
+        "errors": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/errors.jsonl",
+        "summary": "/home/simonll4/projects/e-ovrt_control-plane/runs/fase0_dbe_gdino_bench_persistence_probe_20260709/summary.json"
+      },
+      "warnings": [
+        "Persistencia temporal inactiva: los patrones exigen confirmacion multi-frame pero ninguna persona trae detection_id estable (solo fallback det_NNN). El motor no podra confirmar condiciones; genera detecciones con tracking (eovrt-labs generate-detections --track) o publica IDs estables desde el media-plane."
+      ],
+      "started_at": "2026-07-09T20:12:23.772743+00:00",
+      "finished_at": "2026-07-09T20:12:23.796873+00:00"
+    }
+  },
+  "items_disputados": {
+    "metodo": "centro del item EPP dentro de la region de >1 persona; unica situacion donde matching 1:1 difiere de contencion",
+    "CR-01": {
+      "units": 82,
+      "units_multisubject": 27,
+      "items": 101,
+      "items_1owner": 72,
+      "items_0owner": 29,
+      "items_disputados": 0
+    },
+    "CR-02": {
+      "units": 82,
+      "units_multisubject": 27,
+      "items": 61,
+      "items_1owner": 54,
+      "items_0owner": 7,
+      "items_disputados": 0
+    }
+  }
+}
