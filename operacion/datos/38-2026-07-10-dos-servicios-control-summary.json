@@ -1,0 +1,41 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "e2e_dos_servicios_20260710T080858Z_2e2c92",
+  "media_run_ids": [
+    "run_20260710_080858_dbe_mock_786638"
+  ],
+  "scenario": "EBE",
+  "pattern_set_id": "cr01_cr02_v1",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 30,
+  "units_failed": 0,
+  "pattern_events_count": 6,
+  "alerts_count": 3,
+  "errors_count": 0,
+  "avg_processing_ms": 0.16569350021503246,
+  "output_files": {
+    "effective_config": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/effective_config.yaml",
+    "pattern_events": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/pattern_events.jsonl",
+    "alerts": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/alerts.jsonl",
+    "alerts_csv": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/alerts.csv",
+    "metrics": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/metrics.jsonl",
+    "errors": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/errors.jsonl",
+    "summary": "/tmp/e2e2/control_runs/e2e_dos_servicios_20260710T080858Z_2e2c92/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260710_080858_dbe_mock_786638",
+  "experiment_id": "exp-dos-servicios",
+  "source": "bus",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-07-10T08:08:58.959207+00:00",
+  "finished_at": "2026-07-10T08:08:59.742721+00:00"
+}

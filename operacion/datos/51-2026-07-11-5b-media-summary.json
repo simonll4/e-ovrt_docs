@@ -1,0 +1,70 @@
+{
+  "schema_version": "media.summary.v2",
+  "run_id": "run_20260711_001354_dbe_mock_5718a3",
+  "scenario": "DBE",
+  "model_name": "mock",
+  "prompt_set_id": "cr",
+  "source_type": "video_file",
+  "source_count": 300,
+  "units_processed": 300,
+  "units_failed": 0,
+  "total_detections": 1358,
+  "detections_by_label": {
+    "person": 484,
+    "vest": 453,
+    "helmet": 421
+  },
+  "detections_by_prompt_id": {
+    "person": 484,
+    "vest": 453,
+    "helmet": 421
+  },
+  "avg_latency_ms": 1.5,
+  "p50_latency_ms": 1.45,
+  "p95_latency_ms": 2.06,
+  "p99_latency_ms": 2.61,
+  "fps_effective": 50.25,
+  "gpu_memory_peak_mb": 0.0,
+  "device": "cpu",
+  "duration_seconds": 5.97,
+  "started_at": "2026-07-11T00:13:54.542254+00:00",
+  "finished_at": "2026-07-11T00:14:00.512734+00:00",
+  "units_dropped": 0,
+  "backpressure_wait_ms": 18.72,
+  "max_staleness_observed_ms": 0.0,
+  "run_descriptor": {
+    "scenario": "DBE",
+    "topology": "single_host",
+    "transport": {
+      "backend": "memory",
+      "payload_format": "uint8_rgb"
+    },
+    "rate_control": {
+      "policy": "deterministic",
+      "stride": 1,
+      "max_queue_size": 8
+    },
+    "source_kind": "pulleable",
+    "model": "mock",
+    "prompt_set": "cr",
+    "device": "cpu",
+    "code_version": "e12b56a"
+  },
+  "source_clock": "media",
+  "g2a": {
+    "state": "computed",
+    "causes": [],
+    "count": 300,
+    "warmup_units": 0,
+    "avg_ms": 15.482,
+    "p50_ms": 15.355,
+    "p95_ms": 20.574,
+    "p99_ms": 28.392,
+    "budget_min_ms": 50.0,
+    "budget_max_ms": 250.0,
+    "p95_within_budget": true
+  },
+  "status": "succeeded",
+  "stop_cause": null,
+  "error": null
+}

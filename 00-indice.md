@@ -1,6 +1,6 @@
 # Índice de lectura — Documentación de la plataforma E-OVRT-VDP
 
-- **Última actualización:** 2026-07-09
+- **Última actualización:** 2026-07-10
 - **Propósito:** guía de lectura ordenada del set de documentos generados durante el
   relevamiento del control-plane, la revisión de Etapa 3 y la definición del norte
   hacia la defensa (~fines de septiembre 2026).
@@ -23,10 +23,10 @@ entre sí como "doc 04", "doc 07", etc. Las carpetas agrupan por **rol**, no por
 |---|---|---|
 | `informe/` | **El TFG en sí** (`.docx`) y su texto extraído (serie 90-). Es nuestro entregable, no una fuente externa. | Viva — se reescribe al final |
 | `nucleo/` | 01–11. La narrativa principal, en orden de lectura. | Viva — se corrige y amplía |
-| `decisiones/` | ADR-001…011. Las decisiones formalizadas (D1–D6 + 1:1, servicio, config/gestión, secuenciación, frontera de alertas). **Un ADR solo se revisa con causa registrada** (p. ej. el experimento D1). | Cerrada — se agrega, no se re-litiga |
+| `decisiones/` | ADR-001…014. Las decisiones formalizadas (D1–D6 + 1:1, servicio, config/gestión, secuenciación, frontera de alertas, memoria G0, temporalidad de fuente, layout de artefactos por experimento). **Un ADR solo se revisa con causa registrada** (p. ej. el experimento D1). | Cerrada — se agrega, no se re-litiga |
 | `specs/` | Serie 40-. Specs de Etapa 4 por módulo, escritos **sin alternativas** a partir de los ADRs. | **Serie completa escrita (2026-07-09)**; 43 diferido en ejecución (ADR-010) |
 | `contingencia/` | Serie 20-. Trabajo **fuera del plan**, por si sobra tiempo. No reabre exclusiones. | Congelada salvo que se active |
-| `operacion/` | Serie 30-. Runbooks y mediciones sobre el host local. `operacion/datos/` guarda evidencia cruda (JSON, scripts). | Viva — se re-mide |
+| `operacion/` | Serie 30- (llena: 30–39; **continúa en la serie 50-**, porque la 40- pertenece a `specs/`). Runbooks, mediciones y handoffs sobre el host local. `operacion/datos/` guarda evidencia cruda (JSON, scripts). | Viva — se re-mide |
 | `herramientas/` | Diseño y plan de utilidades del entorno de desarrollo. No es documentación de la plataforma. | Independiente |
 
 **Cómo se relacionan `informe/` y `nucleo/`.** No hay una carpeta que sea "la verdad" y
@@ -46,8 +46,9 @@ plataforma y nuestros documentos deben leerse.* El flujo es bidireccional:
 Corolario práctico: **una crítica del núcleo no se pierde**, se agenda como redline sobre
 el `.docx`. Y un cambio del informe puede invalidar un doc del núcleo. Ninguno manda solo.
 
-> Recordatorio: **`docs/` no está bajo git** — ver el aviso al principio de este índice
-> y el hueco H10 en `nucleo/07-auditoria-decisiones-y-huecos.md`.
+> Recordatorio: **`docs/` es un repo git propio (local, sin remote) desde 2026-07-09** —
+> ver el aviso al principio de este índice; el hueco H10 de
+> `nucleo/07-auditoria-decisiones-y-huecos.md` quedó resuelto con eso.
 
 ## Orden de lectura recomendado
 
@@ -103,13 +104,18 @@ Se escriben sin alternativas, citando los ADRs.
 |---|---|---|
 | 30 | `operacion/30-runbook-local.md` | Cómo levantar media-plane + webconsole en local sin Docker, con hot-reload, para iterar rápido: comandos por terminal, refs de modelo, lanzar una corrida RTSP, y las trampas conocidas (`dist/` viejo servido en silencio, run "succeeded" con cámara caída). |
 | 31 | `operacion/31-benchmark-modelos-host-local.md` | Benchmark de las 6 variantes GDINO/YOLOE: BENCH v2 val con GT (mAP@0.5, AP por clase, recall CR-01) + cámara RTSP en vivo (keep-up, latencia, VRAM). **Hallazgo clave: YOLOE es ciego a `bare_head` (recall CR-01 ≈ 0), y el mAP oculta que GDINO-base gana en CR-01 y `vest` pese a perder en mAP.** |
-| 32 | `operacion/32-handoff-arranque-tramo-plataforma.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR.** Estado congelado de los repos (ramas, venvs, tests), orden de lectura, reglas del workspace, el **Paso 0** (ya ejecutado, ver 33), el orden de trabajo con sus gates, las decisiones que no se re-litigan y lo pendiente del usuario. |
+| 32 | `operacion/32-handoff-arranque-tramo-plataforma.md` | *(Reemplazado por el 36 → 50; registro histórico.)* Estado congelado de los repos al arranque del tramo, orden de lectura, reglas del workspace, el **Paso 0** (ya ejecutado, ver 33), el orden de trabajo con sus gates, las decisiones que no se re-litigan y lo pendiente del usuario. |
 | 33 | `operacion/33-fase0-rerun-motor-mati.md` | **Paso 0, cerrado (2026-07-09).** Fase 0 re-ejecutada con el motor de `mati`. **Hallazgo clave: las alertas no cambian (137 = 137) y es correcto** — el BENCH tiene cero EPP disputado entre personas, así que el matching 1:1 es un no-op sobre imágenes; demostrarlo exige el clip bench. Captura el warning de `det_NNN` (evidencia de G0) con una corrida diagnóstica aparte, y corrige dos afirmaciones del doc 32. |
 | 34 | `operacion/34-implementacion-g0-resultados-y-deuda.md` | **G0 implementado (2026-07-10), gate alcanzado** (F1=1.0 en ambas granularidades, verificado significativo). ADR-012 **confirmado** por par discriminante. El BENCH baja de 137 a 77 alertas por diseño (invariante Σ`subjects_in_evidence_max` = 137 exacto). **Corrobora empíricamente la limitación D2.2 del doc 07**: un riesgo transitorio adelanta el reloj del episodio de escena. Deuda: nadie produce `track_id` (⇒ modo `subject` inerte), el overlay pinta una caja por escena, y el motor no tiene purga de estado. |
 | 35 | `operacion/35-verificacion-e2e-video-rtsp-real.md` | **Cierra la brecha del doc 34: inferencia real, no simulada.** Media-plane levantado con GDINO-tiny real en GPU sobre el video crudo (733 frames, 0 fallos) y sobre la cámara RTSP real (192.168.1.5, 3 frames, reloj de pared real) → encadenado al motor G0. Confirma en t=4000/7000ms exacto sobre video; aliasing de `det_NNN` medido de nuevo (1831px de recorrido) sobre esta corrida fresca. El camino EBE con bus en vivo sigue sin existir. |
-| 36 | `operacion/36-handoff-plan2-bus-y-live.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR (reemplaza al 32).** Estado congelado post-G0: qué está hecho (con evidencia), qué leer, el plan 2 (MediaEventSource → bus ZeroMQ → runtime live, con sus gates), la deuda que debe absorber, trampas operativas verificadas y lo pendiente del usuario. |
+| 36 | `operacion/36-handoff-plan2-bus-y-live.md` | *(Reemplazado por el 50 al ejecutarse el plan 2; registro histórico del arranque.)* Estado congelado post-G0: qué estaba hecho, qué leer, el plan 2 (MediaEventSource → bus ZeroMQ → runtime live, con sus gates), la deuda a absorber, trampas operativas y lo pendiente del usuario. Su §3 lleva el tablero tachado al día. |
+| 37 | `operacion/37-plan2-bus-y-live-resultados.md` | **Plan 2 ejecutado (2026-07-10): ítems 2–3 del orden.** `MediaEventSource` + bus ZeroMQ (`bus.envelope.v1`, XPUB, `seq` monótono) + runtime live 1:1. Gate de paridad replay↔stream en verde y **verificado significativo por mutación** (bbox 1 px ⇒ falla; dropout 1 frame ⇒ lo absorbe la histéresis). E2E real: 40/40 unidades, 0 perdidas, cierre por `run_finished`, y el mismo run releído offline da **artefactos byte-idénticos** (ADR-003 demostrado). §6: los 9 defectos del plan que la revisión atrapó. §7.2: **corrección medida** — la purga de estado del motor NO bloquea el live (el estado crece con `source_id` distintos, no con el tiempo). |
+| 38 | `operacion/38-servicio-minimo-control-plane.md` | **Ítem 4 ejecutado (2026-07-10).** El control-plane como servicio FastAPI :8081 (`eovrt-control serve`): 7 endpoints, un run activo (409), config por payload o referencia (ADR-009). Invariante central: **el 201 de `mode: live` implica `BusSource` ya suscripto** — el primer gate era vacuo (probado con mutación) y se reemplazó por uno estructural. Parada cooperativa (`request_stop()`) para no morir con el SIGABRT de libzmq. E2E con **los dos servicios hablándose**: 30/30 unidades, 0 perdidas, orden del spec 44 respetado. §6: 8 defectos corregidos (path traversal por `run.id`, run fantasma por `BaseException`, 500 por config inválida, reuso de `run.id`…). |
+| 39 | `operacion/39-instrumentacion-g2a-media-plane.md` | **Ítem 5, mitad media-plane, ejecutado (2026-07-10).** Insumos de `t_capture→alert` (spec 40 §5.2.4): instante de captura estampado al leer la unidad (viaja por el canal y el wire two-node), `source_clock` por fuente, `g2a_ms` por `unit_id` en `metrics.jsonl`, bloque `g2a` en el summary (percentiles, warm-up declarado, presupuesto 50–250 ms). **En two-node `g2a_ms` es `null` y el bloque `not_interpretable / cross_node_monotonic_clock`** — los relojes monotónicos de dos hosts no se restan. Corrida real: P50 14.7 ms / P95 31.8 ms, dentro de presupuesto. |
+| 50 | `operacion/50-reporte-estado-tramo-plataforma.md` | **PUNTO DE ENTRADA PARA IMPLEMENTAR (reemplaza al 36).** Reporte consolidado del tramo al 2026-07-10: tablero de ítems (1–5a hechos), qué se construyó con su evidencia, los gates verificados por mutación, los 22 defectos que atrapó la revisión adversarial, las reglas duras del dominio, el inventario de lo **no commiteado** (79 rutas en 3 repos), y lo que falta en orden: ítem 5b detallado (mitad control-plane + `cr01_cr02_v2` + publisher de alertas), specs 44/45/43, deuda técnica y pendientes del usuario. |
+| 51 | `operacion/51-instrumentacion-5b-control-plane.md` | **Ítem 5b ejecutado (2026-07-11).** Mitad control-plane de `t_capture→alert` (spec 40 §5.2.4): `ts_receive_ms`, hitos `first_evidence_*`, `alert_registered_ms`, `experiment_id` en los tres eventos, percentiles + TTFA interna en el summary, y el `join` con estados de aplicabilidad (ADR-006). Pattern set oficial **`cr01_cr02_v2`** (CR-01 high 4000ms / CR-02 medium 7000ms, escena, sin cooldown/cobertura). Publisher de alertas `control.alert.v1` (espejo del media-plane, persiste-primero). **177 passed**, revisión final LISTO PARA MERGE. E2E real por bus: 300 unidades, 2 alertas, 0 perdidas, join `not_interpretable/dbe_media_time` (correcto para DBE video). §3: byte-paridad rota por `exclude_none` en el sketch del plan, gate sin cableado real, flicker vacuo — los tres corregidos. |
 
-Evidencia cruda de los docs 31 y 33, para que los números sean auditables y re-generables:
+Evidencia cruda, para que los números sean auditables y re-generables:
 
 | Archivo | Qué es |
 |---|---|
@@ -117,6 +123,9 @@ Evidencia cruda de los docs 31 y 33, para que los números sean auditables y re-
 | `operacion/datos/31-benchmark-modelos-host-local.driver.py` | Script que las reproduce: levanta y baja un servicio por modelo. |
 | `operacion/datos/33-fase0-rerun-motor-mati.datos.json` | Los tres `summary.json` (motor viejo, motor nuevo, probe de persistencia) y el conteo de items disputados. |
 | `operacion/datos/33-fase0-rerun-motor-mati.probe.py` | Script que reproduce el conteo de items EPP disputados (el que explica la igualdad). |
+| `operacion/datos/37-2026-07-10-live-e2e-*.json` / `*-alerts.jsonl` | Doc 37 §4: summaries de la corrida live (media + control), del replay byte-idéntico, y sus alertas. |
+| `operacion/datos/38-2026-07-10-dos-servicios-*.json` / `*-alerts.jsonl` | Doc 38 §4: summaries y alertas de la corrida E2E con los dos servicios HTTP. |
+| `operacion/datos/39-2026-07-10-g2a-video-summary.json` | Doc 39 §3: summary de la corrida real de G2A sobre video (`source_clock: media`, percentiles). |
 
 ### `informe/` — el TFG, en desarrollo
 
@@ -158,6 +167,7 @@ desalineaciones).
 | +  | Frontera de política de alertas | **ADR-011** — el motor emite en cada confirmación; cooldown y supresión de re-notificación pasan al módulo de distribución; el evaluador cuenta `re_alerts`, no los penaliza como FP |
 | +  | Qué sostiene G0 sin identidad | **ADR-012** — la memoria de cobertura EPP es inaplicable bajo escena (se ignora con causa declarada; la histéresis la subsume) y sobrevive solo en G1; la expiración de sujetos sí se reinterpreta a escena. **Falsable por test** (gate F1=1.0 + test de parpadeo) |
 | +  | Qué mide cada tipo de fuente | **ADR-013** — imágenes → percepción y asociación espacial; video → patrones con GT temporal; RTSP → patrones + métricas end-to-end. La plataforma detecta la temporalidad por `source_type` y declara `not_applicable / non_temporal_source` sola; sobre imágenes un patrón con persistencia **no puede alertar** (medido: doc 33 §4) |
+| +  | Dónde caen los resultados de un run global | **ADR-014** — run global (con `experiment_id`) → resultados **consolidados** en `experimental-setup/runs/<experiment_id>/` (git-ignored) con **híbrido selectivo**: copia lo liviano (configs, summaries, metrics, alerts, report), referencia por `run_id` los `detections.jsonl` pesados (fuente de verdad = `runs/` del plano, DA-03). Run de test de un módulo → `runs/` local, sin consolidar; "sellado" opt-in materializa los crudos para archivado permanente |
 
 **Insumo nuevo para D1:** el doc 31 muestra que YOLOE no puede sostener CR-01 tal como está
 definida (`bare_head`). Si CR-01 sigue anclada a esa clase, YOLOE sale del espacio de

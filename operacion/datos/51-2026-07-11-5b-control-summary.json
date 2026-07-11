@@ -1,0 +1,51 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "control_5b_e2e_v2_20260711T001347Z_008076",
+  "media_run_ids": [
+    "run_20260711_001354_dbe_mock_5718a3"
+  ],
+  "scenario": "EBE",
+  "pattern_set_id": "cr01_cr02_v2",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 300,
+  "units_failed": 0,
+  "pattern_events_count": 6,
+  "alerts_count": 2,
+  "errors_count": 0,
+  "avg_processing_ms": 0.19856769038597122,
+  "processing_ms_percentiles": {
+    "p50": 0.17444200057070702,
+    "p95": 0.3163207438774408,
+    "p99": 0.5417038433370146
+  },
+  "ttfa_internal_ms_percentiles": {
+    "p50": 3231.792137488723,
+    "p95": 3953.3303144469855,
+    "p99": 4017.4670412877203
+  },
+  "output_files": {
+    "effective_config": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/effective_config.yaml",
+    "pattern_events": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/pattern_events.jsonl",
+    "alerts": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/alerts.jsonl",
+    "alerts_csv": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/alerts.csv",
+    "metrics": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/metrics.jsonl",
+    "errors": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/errors.jsonl",
+    "summary": "/tmp/e2e5b/control_runs/control_5b_e2e_v2_20260711T001347Z_008076/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260711_001354_dbe_mock_5718a3",
+  "experiment_id": "exp-5b-e2e",
+  "source": "bus",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-07-11T00:13:47.636607+00:00",
+  "finished_at": "2026-07-11T00:14:00.525743+00:00"
+}

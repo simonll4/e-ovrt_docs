@@ -1,10 +1,18 @@
 # Handoff — continuar el tramo plataforma (plan 2: fuentes, bus y runtime live)
 
+> **SUPERADO EL 2026-07-10.** Todo lo que este handoff pedía está **ejecutado** — el plan 2
+> (ítems 2–3: `MediaEventSource`, bus ZeroMQ, runtime live 1:1), el ítem 4 (servicio mínimo
+> :8081) y la mitad media-plane del ítem 5 (instrumentación G2A). **El punto de entrada ahora
+> es `operacion/50-reporte-estado-tramo-plataforma.md`** (reporte consolidado: hecho, evidencia,
+> defectos, deuda y lo que falta). Detalle por tramo: docs 37 (bus/live), 38 (servicio),
+> 39 (G2A). Este doc se conserva como registro del punto de partida; su §3 lleva el tablero
+> tachado al día.
+
 - **Fecha de congelamiento:** 2026-07-10
 - **Para quién:** la sesión que continúa la implementación. **Este doc reemplaza al
   doc 32 como punto de entrada** — aquel describía el arranque (Paso 0 + G0), que ya
   está ejecutado y commiteado.
-- **Regla de oro (sin cambios):** las decisiones están cerradas (ADR-001…013). Si algo
+- **Regla de oro (sin cambios):** las decisiones están cerradas (ADR-001…014). Si algo
   parece ambiguo, la respuesta está en un ADR o un spec — no re-litigar, buscar. Si de
   verdad falta una decisión, se escribe un ADR nuevo (así nacieron ADR-012 y ADR-013).
 
@@ -35,23 +43,23 @@
 
 ## 3. LO QUE SIGUE: plan 2 (el camino crítico)
 
-Orden de trabajo (spec 41 §10), con el ítem 1 ya hecho:
+Orden de trabajo (spec 41 §10), con los ítems 1–4 y la mitad del 5 ya hechos:
 
-1. ~~G0~~ ✅
-2. **`MediaEventSource` (jsonl/memory)** — interfaz iterador `event | error | END`;
-   `JsonlSource` = renombre de `sources/media_jsonl.py` (dejar alias de compat);
-   `MemorySource` para tests. **Gate: replay actual intacto** (los 57 tests siguen verdes).
-3. **Bus + runtime live**: `BusPublishingArtifactWriter` en el media-plane (spec 42 §2:
-   decorador del `RunArtifactWriter`, hermano de `EventEmittingArtifactWriter` en
-   `service/events.py:67`; envelope msgpack `bus.envelope.v1` con `seq` monótono,
-   `topic=media.detection.v1.<run_id>`, ZeroMQ PUB no bloqueante con HWM, config
-   `bus: {enabled, endpoint, hwm}`, y `run.lifecycle.v1/run_finished` al cierre) +
-   `BusSource` y `runtime/live.py` en el control-plane (suscripción ANTES de aceptar,
-   huecos de `seq` → `bus_dropped_events` + corrida degradada, fallback por polling).
-   **Gate: test de paridad replay↔stream** (mismo fixture por ambas vías → mismos
-   `pattern_events`/`alerts` módulo timestamps; ZeroMQ inproc/localhost, test de integración).
-4. **Servicio mínimo** control-plane (spec 41 §5, :8081). Gate: smoke + 409.
-5. **Instrumentación `t_capture→alert`** (spec 40 §5.2.4) + pattern set `cr01_cr02_v2` oficial.
+1. ~~G0~~ ✅ (doc 34)
+2. ~~**`MediaEventSource` (jsonl/memory)**~~ ✅ (doc 37)
+3. ~~**Bus + runtime live**~~ ✅ (doc 37) — gate de paridad replay↔stream en verde,
+   verificado significativo por mutación; corrida live E2E sobre video real, 40 unidades,
+   0 perdidas, cierre 1:1 por `run_finished`, artefactos live≡replay.
+4. ~~**Servicio mínimo** control-plane (spec 41 §5, :8081)~~ ✅ (doc 38) — los 7 endpoints,
+   `eovrt-control serve`, corrida E2E con **los dos servicios** hablándose (30 unidades, 0
+   perdidas, 409 verificado, cierre 1:1). Gate de orden ("el 201 implica suscripto") verificado
+   discriminante por mutación.
+5. **Instrumentación `t_capture→alert`** (spec 40 §5.2.4) — ~~mitad media-plane~~ ✅ (doc 39:
+   instante de captura, `source_clock`, `g2a_ms` por unidad, bloque `g2a` en el summary).
+   **← ACÁ ESTAMOS: la mitad control-plane** (`ts_receive_ms`, hitos `first_evidence_*`,
+   `alert_registered_ms`, percentiles de `processing_ms`, TTFA) + pattern set `cr01_cr02_v2`
+   oficial (spec 41 §7: PR-01 high `confirm_after_ms: 4000`, PR-02 `7000`, sin cooldown) +
+   publisher `control.alert.v1.*` (spec 41 §8.6). Alcance completo en el **doc 50 §8.1**.
 6. **experimental-setup** (spec 44). 7. **Evaluadores D1** (necesita acta `edir_v1` del usuario).
 
 **Escribir el plan con superpowers:writing-plans antes de codear**, como se hizo con G0

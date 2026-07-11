@@ -1,0 +1,66 @@
+{
+  "schema_version": "media.summary.v2",
+  "run_id": "run_20260710_144331_dbe_mock_47e4b2",
+  "scenario": "DBE",
+  "model_name": "mock",
+  "prompt_set_id": "p",
+  "source_type": "video_file",
+  "source_count": 20,
+  "units_processed": 20,
+  "units_failed": 0,
+  "total_detections": 24,
+  "detections_by_label": {
+    "person": 24
+  },
+  "detections_by_prompt_id": {
+    "person": 24
+  },
+  "avg_latency_ms": 1.0,
+  "p50_latency_ms": 1.01,
+  "p95_latency_ms": 1.6,
+  "p99_latency_ms": 1.6,
+  "fps_effective": 35.52,
+  "gpu_memory_peak_mb": 0.0,
+  "device": "cpu",
+  "duration_seconds": 0.56,
+  "started_at": "2026-07-10T14:43:31.109621+00:00",
+  "finished_at": "2026-07-10T14:43:31.672629+00:00",
+  "units_dropped": 0,
+  "backpressure_wait_ms": 1.21,
+  "max_staleness_observed_ms": 0.0,
+  "run_descriptor": {
+    "scenario": "DBE",
+    "topology": "single_host",
+    "transport": {
+      "backend": "memory",
+      "payload_format": "uint8_rgb"
+    },
+    "rate_control": {
+      "policy": "deterministic",
+      "stride": 1,
+      "max_queue_size": 8
+    },
+    "source_kind": "pulleable",
+    "model": "mock",
+    "prompt_set": "p",
+    "device": "cpu",
+    "code_version": "e12b56a"
+  },
+  "source_clock": "media",
+  "g2a": {
+    "state": "computed",
+    "causes": [],
+    "count": 20,
+    "warmup_units": 0,
+    "avg_ms": 15.378,
+    "p50_ms": 14.656,
+    "p95_ms": 31.819,
+    "p99_ms": 31.819,
+    "budget_min_ms": 50.0,
+    "budget_max_ms": 250.0,
+    "p95_within_budget": true
+  },
+  "status": "succeeded",
+  "stop_cause": null,
+  "error": null
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "e2e_replay_control",
+  "media_run_ids": [
+    "run_20260710_062654_dbe_mock_757a73"
+  ],
+  "scenario": "DBE",
+  "pattern_set_id": "cr01_cr02_v1",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 40,
+  "units_failed": 0,
+  "pattern_events_count": 15,
+  "alerts_count": 6,
+  "errors_count": 0,
+  "avg_processing_ms": 0.12329652381595224,
+  "output_files": {
+    "effective_config": "/tmp/e2e/control_runs/e2e_replay_control/effective_config.yaml",
+    "pattern_events": "/tmp/e2e/control_runs/e2e_replay_control/pattern_events.jsonl",
+    "alerts": "/tmp/e2e/control_runs/e2e_replay_control/alerts.jsonl",
+    "alerts_csv": "/tmp/e2e/control_runs/e2e_replay_control/alerts.csv",
+    "metrics": "/tmp/e2e/control_runs/e2e_replay_control/metrics.jsonl",
+    "errors": "/tmp/e2e/control_runs/e2e_replay_control/errors.jsonl",
+    "summary": "/tmp/e2e/control_runs/e2e_replay_control/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260710_062654_dbe_mock_757a73",
+  "experiment_id": "exp-e2e-2026-07-10",
+  "source": "jsonl",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-07-10T06:27:26.693813+00:00",
+  "finished_at": "2026-07-10T06:27:26.702563+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "media.summary.v2",
+  "run_id": "run_20260710_080858_dbe_mock_786638",
+  "scenario": "DBE",
+  "model_name": "mock",
+  "prompt_set_id": "cr",
+  "source_type": "video_file",
+  "source_count": 30,
+  "units_processed": 30,
+  "units_failed": 0,
+  "total_detections": 122,
+  "detections_by_label": {
+    "vest": 48,
+    "helmet": 40,
+    "person": 34
+  },
+  "detections_by_prompt_id": {
+    "vest": 48,
+    "helmet": 40,
+    "person": 34
+  },
+  "avg_latency_ms": 1.12,
+  "p50_latency_ms": 1.11,
+  "p95_latency_ms": 1.7,
+  "p99_latency_ms": 1.76,
+  "fps_effective": 39.26,
+  "gpu_memory_peak_mb": 0.0,
+  "device": "cpu",
+  "duration_seconds": 0.76,
+  "started_at": "2026-07-10T08:08:58.968628+00:00",
+  "finished_at": "2026-07-10T08:08:59.732675+00:00",
+  "units_dropped": 0,
+  "backpressure_wait_ms": 1.82,
+  "max_staleness_observed_ms": 0.0,
+  "run_descriptor": {
+    "scenario": "DBE",
+    "topology": "single_host",
+    "transport": {
+      "backend": "memory",
+      "payload_format": "uint8_rgb"
+    },
+    "rate_control": {
+      "policy": "deterministic",
+      "stride": 1,
+      "max_queue_size": 8
+    },
+    "source_kind": "pulleable",
+    "model": "mock",
+    "prompt_set": "cr",
+    "device": "cpu",
+    "code_version": "e12b56a"
+  },
+  "status": "succeeded",
+  "stop_cause": null,
+  "error": null
+}

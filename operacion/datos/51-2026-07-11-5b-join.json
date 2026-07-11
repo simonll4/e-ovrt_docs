@@ -1,0 +1,21 @@
+{
+  "control_run_id": "control_5b_e2e_v2_20260711T001347Z_008076",
+  "media_run_id": "run_20260711_001354_dbe_mock_5718a3",
+  "source_clock": "media",
+  "join": [
+    {
+      "alert_id": "824407e5-8f6f-5fe7-ad45-60fb4bd78bc4",
+      "first_evidence_unit_id": "frame_000001",
+      "status": "not_interpretable",
+      "cause": "dbe_media_time",
+      "t_capture_to_alert_ms": null
+    },
+    {
+      "alert_id": "854719cb-6116-5098-971b-cfb7a3b0d54b",
+      "first_evidence_unit_id": "frame_000001",
+      "status": "not_interpretable",
+      "cause": "dbe_media_time",
+      "t_capture_to_alert_ms": null
+    }
+  ]
+}

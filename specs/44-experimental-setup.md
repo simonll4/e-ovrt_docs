@@ -25,8 +25,20 @@ e-ovrt_experimental-setup/
 ├── patterns/                     # NUEVO: pattern sets del control-plane
 │   ├── cr01_cr02_v2.yaml         # el alineado al informe (spec 41 §7)
 │   └── diagnostico/              # v1, field_v1 (perfiles de diagnóstico)
-└── tuning/                       # NUEVO: tuning sets (si la corrida usa labs)
+├── tuning/                       # NUEVO: tuning sets (si la corrida usa labs)
+└── runs/                         # NUEVO: resultados CONSOLIDADos por experimento (git-ignored)
+    └── <experiment_id>/          # una instancia (ADR-014): copia lo liviano,
+        ├── manifest.effective.yaml   #   referencia los detections.jsonl pesados
+        ├── media/ control/ report/
 ```
+
+> **`experiments/` vs `runs/` (ADR-014).** `experiments/` es la **declaración**
+> (manifiestos plantilla, versionados en git: "qué se estudia"). `runs/` son los
+> **resultados** de cada instancia (git-ignored: "qué salió"), consolidados por
+> `experiment_id`. Config versionada y datos git-ignored no se mezclan (ADR-009 §2). El
+> layout de `runs/<experiment_id>/` y el criterio híbrido (copiar lo liviano, referenciar
+> los `detections.jsonl` pesados que quedan en el `runs/` del plano como fuente de verdad,
+> DA-03) están en **ADR-014**.
 
 - **Frontera (ADR-009 §2):** acá vive lo que **varía entre corridas/experimentos**.
   Lo operacional (puertos, env, `EOVRT_MODEL_REF`, compose) queda en cada repo de
@@ -60,7 +72,10 @@ runs:
   control: { service: "http://localhost:8081", config: ./control_run.yaml,
              mode: live | replay }                # POST /api/runs (spec 41 §5)
 sequencing: control_first                         # suscripción previa (spec 40 §3.2)
-report: { output: ./report/ }
+# Los resultados NO caen junto al manifiesto plantilla (versionado): el runner los
+# consolida en runs/<experiment_id>/ (git-ignored, ADR-014). `output` es relativo a
+# ese dir de instancia; el runner lo deriva del experiment_id.
+report: { output: report/ }
 frozen: { prompt_set: eind_v1, pattern_set: cr01_cr02_v2,
           model_ref: gdino-tiny, notes: "hiperparámetros congelados doc 12 §3" }
 ```
@@ -89,12 +104,24 @@ en `mode: replay` apuntando al `detections.jsonl` del run. Las **campañas**
 (R1–R4, D1) son listas de manifiestos ejecutadas por el runner — nunca a mano por
 UI (ADR-009 §4).
 
-## 4. Generador de reporte consolidado (ADR-006; spec 40 §6)
+## 4. Consolidación de artefactos y generador de reporte (ADR-014, ADR-006; spec 40 §6)
 
+Dos operaciones distintas del runner, en este orden, **que no deben confundirse**:
+
+**(a) Consolidación de artefactos (ADR-014) — colección, no cómputo.** Tras el fin de
+ambas corridas, el runner arma `runs/<experiment_id>/` copiando los artefactos **livianos**
+de cada plano (`effective_config`, `summary.json`, `metrics.jsonl`, `alerts.jsonl`,
+`pattern_events.jsonl`) y el `manifest.effective.yaml`, y **referenciando** por `run_id`
+los `detections.jsonl` pesados (`media/detections.ref.json`), que quedan en el `runs/` del
+plano como fuente de verdad (DA-03). Es una **vista/snapshot** para leer/auditar/archivar,
+no una segunda fuente de verdad. El "sellado" opt-in (ADR-014 §4) materializa también los
+crudos para archivado permanente.
+
+**(b) Generador de reporte (ADR-006) — agrega, no recalcula.**
 `experimental-setup/report/` — script, no servicio:
 
-- Entrada: `experiment_id` (o path del manifiesto instanciado) → localiza los
-  `runs/` de ambos planos por los ids registrados.
+- Entrada: `experiment_id` → el dir consolidado `runs/<experiment_id>/` (o, si no se
+  consolidó, los `runs/` de ambos planos por los ids registrados).
 - Salida: `report.json` con el schema mapeado a la **Tabla D.6** (spec 40 §6) —
   identificación, modelo/variante, entrada, parámetros, hardware/entorno,
   temporalidad y criterio de relojes, hitos por alerta, resultados con el
@@ -143,7 +170,7 @@ como evaluación de patrones.
 | **CRUD de configs de experimento** | Crear/editar/instanciar manifiestos y configs de §1.1 (archivos del repo — el BFF escribe en el árbol versionado; git sigue siendo manual, regla del workspace). |
 | **Disparo orquestado** | Botón "ejecutar experimento" = la misma secuencia del runner (§3), implementada llamando a las mismas APIs; para campañas largas la UI recomienda el runner. |
 | **Vista de alertas** | Lee `GET /api/runs/{id}/alerts` del control-plane (spec 41 §5) — polling; sin ZeroMQ en la consola (spec 40 §3.3). Tabla: condición, severidad, estado, timestamps de hitos, subject/escena. |
-| **Agrupación por experimento** | `experiment_id` como eje: un experimento muestra sus dos corridas (+ distribución cuando exista), su manifiesto, su reporte. |
+| **Agrupación por experimento** | `experiment_id` como eje: un experimento muestra sus dos corridas (+ distribución cuando exista), su manifiesto, su reporte. **Origen único de la vista: el dir consolidado `runs/<experiment_id>/` (ADR-014)** — manifiesto + configs + summaries + alertas + reporte; cae al `runs/` del plano solo para el `detections.jsonl` bajo demanda. |
 | **Detección de fuente no temporal** (ADR-013) | Al seleccionar un data source, la consola **detecta el tipo** (`type: image_folder` en la config; re-confirmado por `source_type` en el primer evento) y lo comunica **antes de correr**: rotula la corrida como diagnóstico espacial / smoke, deshabilita los controles de umbrales temporales (inertes sobre imágenes), oculta las vistas de métricas temporales, y **advierte** si el pattern set elegido configura persistencia — esa corrida no podrá alertar. La detección es automática: no hay un toggle que el operador pueda contradecir. |
 
 ### 5.2 Rediseño UX (la parte declarada sacrificable — doc 10 ítem 11)
@@ -163,10 +190,12 @@ como evaluación de patrones.
 1. Estructura §1.1 + `edir_v1` (con revisión del usuario) + pattern set v2
    movido/creado acá. *(gate: media-plane y control-plane corren con configs
    servidas desde este repo por payload)*
-2. Manifiesto + runner modo DBE-replay. *(gate: Fase 0 real —media→control sobre
-   detecciones reales— ejecutada por el runner con `experiment_id` end-to-end)*
+2. Manifiesto + runner modo DBE-replay + **consolidación de artefactos (ADR-014)**.
+   *(gate: Fase 0 real —media→control sobre detecciones reales— ejecutada por el runner
+   con `experiment_id` end-to-end, y `runs/<experiment_id>/` armado con lo liviano copiado
+   y los `detections.jsonl` referenciados)*
 3. Generador de reporte. *(gate: `report.json` de esa Fase 0 con diccionario
-   completo y estados)*
+   completo y estados, leído desde el dir consolidado)*
 4. Runner modo live (cuando specs 41/42 entreguen el bus). *(gate: corrida EBE 1:1)*
 5. Webconsole: backend (cliente control-plane + endpoints de configs) → vista de
    alertas → agrupación por experimento → rediseño UX. *(gates por PR con la
