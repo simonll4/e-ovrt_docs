@@ -1,13 +1,16 @@
 # `evaluate-alerts` v2 — matching episodio en ms, `re_alerts` y aplicabilidad
 
-> **✎ Actualización 2026-07-11 (más tarde, doc 54):** el video-gt-lab generó el primer
-> GT real y la auditoría del contrato encontró que este evaluador **lo rechazaba**
-> (episodios sin `source_id`/`subject_key` — reparado del lado del productor) y que
-> ignoraba `provenance.pattern_set_ms`. `temporal.py` cambió **sin commitear**:
-> ventanas con prioridad caller > provenance > defaults + `effective_matching_windows`
-> (199 passed). Además, el "listo para su GT" del §5 es parcial: **SDR y TTFD no están
-> implementados** (faltan `detections_path` y la lógica) — v2 cubre 2 de las 5 métricas
-> del spec 43 §10. Detalle y pendientes: **doc 54 §4–§5**.
+> **✎ Actualización 2026-07-11 (fin del día, doc 54):** el video-gt-lab generó el
+> primer GT real y la auditoría del contrato encontró que este evaluador **lo
+> rechazaba** (episodios sin `source_id`/`subject_key` — reparado del lado del
+> productor) y que ignoraba `provenance.pattern_set_ms`. Todo lo que siguió quedó
+> **implementado, commiteado y pusheado** (`853f690`): ventanas caller >
+> provenance > defaults (`effective_matching_windows` con origen), **SDR y TTFD**
+> (`--detections`/`--patterns`, criterio positivo = `spatial_absence` del motor,
+> campos `avg_ttfd_ms`/`avg_sdr`/`ttfd_sdr_applicability`) — el evaluador emite
+> las **5 métricas** del spec 43 §10 — y umbrales default alineados al pattern
+> set oficial **4000/7000** (los 3000/5000 de este doc eran stale). Suite 212
+> passed, gate F1=1.0 intacto. Estado vigente: **doc 54 y su banner**.
 
 - **Fecha:** 2026-07-11
 - **Qué es:** resultados del evaluador temporal v2 del control-plane (spec 41 §8 item 7):

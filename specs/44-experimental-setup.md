@@ -223,5 +223,10 @@ como evaluación de patrones.
 - **Specs 41/42:** APIs de disparo/estado/alertas; config por payload.
 - **Spec 45:** el reporte incorpora `delivery` cuando el repo de distribución
   exista; la vista de alertas puede mostrar el outcome de entrega (fase 2).
-- **Spec 43 (diferido):** las campañas de evaluación son manifiestos que iteran
-  el manifest del clip bench; nada nuevo aquí.
+- **Spec 43:** las campañas de evaluación son manifiestos que iteran el manifest
+  del clip bench. **✎ 2026-07-11 (doc 54):** esto SÍ requirió piezas nuevas: el
+  manifiesto de experimento ganó `clip_id` y `ground_truth` (opcionales), el
+  runner inyecta `source_id = clip_id` en la fuente del media-plane (convención
+  del matching de escena del evaluador) y corre `evaluate-alerts` post-replay;
+  el reporte consolidado liga `experiment_id → clip_id → gt` y toma SDR/TTFD de
+  los campos nativos del evaluador.

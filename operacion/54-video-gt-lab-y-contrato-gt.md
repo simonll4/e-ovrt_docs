@@ -22,6 +22,9 @@
 > evidencia — ahora suaviza por segmento contiguo. Quedan pendientes del §5:
 > el roundtrip CVAT real (PC del usuario), la grabación A+C y el EBE-desde-clip.
 > Suites: datasets 102 · media-plane 520 · control-plane 212 · exp-setup 247.
+> **Todo el trabajo de este doc quedó COMMITEADO y PUSHEADO** (datasets
+> `f8a2f3bc`, media-plane `5653978`, control-plane `853f690`, exp-setup
+> `eda5736`) — el "SIN COMMITEAR" del cuerpo es el snapshot de la mañana.
 
 - **Fecha:** 2026-07-11
 - **Qué es:** resultados del **laboratorio generador de GT temporal de video** (el

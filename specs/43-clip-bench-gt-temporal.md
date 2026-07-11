@@ -1,6 +1,18 @@
 # Spec 43 — Clip bench con GT temporal
 
 - **Fecha:** 2026-07-09
+- **✎ 2026-07-11 (doc 54 de operación):** el **tooling de este spec ya está
+  construido y pusheado** (video-gt-lab: pre-anotación GDINO-base → CVAT →
+  derivación determinística → validación/kappa → promoción al banco) y el banco
+  arrancó: `datasets/processed/clip_bench/` contiene `cb_b01_p7` con **GT
+  preliminar** (revisión visual asistida, estado `gt_preliminary` — lo reemplaza
+  la pasada humana en CVAT). El smoke del §8.8 se ejecutó de verdad con las 5
+  métricas del §10. NO re-implementar nada de esto; lo que queda de este spec es
+  la EJECUCIÓN humana (grabación A+C, anotación controlada, consentimientos,
+  registry). Nota de umbrales: donde este spec cita "PR-01: 3 s / PR-02: 5 s"
+  como persistencias, el pattern set oficial implementado es **cr01_cr02_v2 =
+  4000/7000 ms** (Tabla 24/D.4); derive y evaluador usan 4000/7000 por default y
+  el GT graba los suyos en `provenance.pattern_set_ms`.
 - **Estado:** Escrito y congelado — **EJECUCIÓN DIFERIDA (ADR-010):** se dispara
   al **cierre del spec 44 (experimental-setup)** — corridas y configs trazables +
   runner + reporte operativos; el spec 45 (distribución) NO es prerequisito.
