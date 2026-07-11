@@ -109,9 +109,33 @@ escapaba un nivel) — cerrado con validación del id + containment `is_relative
 → 500 (no client-triggerable); el env de fakes no produce `consolidated_dir` real (limitación de
 test, no bug: los planos reales escriben `runs/`).
 
-## 8. Lo que sigue
+## 9. Plan C — webconsole frontend (spec 44 §5.2) — HECHO (2026-07-11)
 
-- **Plan C — frontend React (spec 44 §5.2, declarado sacrificable):** navegación por experimento,
-  vista de alertas, disparo orquestado desde la UI, detección no-temporal. Consume las rutas de B.
-- **Spec 45 — distribución (repo nuevo):** consume el publisher `control.alert.v1`, MQTT, cooldown
-  de notificación (ADR-011), ledger.
+El frontend React de la webconsole ganó las **vistas de experimento** (`webconsole/frontend`,
+**39→55 passed**, `tsc --noEmit` limpio, LISTO PARA MERGE), aditivo sobre las vistas de run
+existentes:
+
+- **Tipos + cliente de API** (`src/api.ts`/`src/types.ts`): 6 funciones a las rutas del backend B
+  (`getExperimentManifests`, `runExperiment`, `getCurrentExperiment` [404→null], `getExperiment`,
+  `getExperimentAlerts`, `getExperimentReport`).
+- **Helpers puros** (`src/experimentview.ts`): `isNonTemporal`/`alertSeverityColor`/`experimentStatusLabel`.
+- **`ExperimentsPage`**: lista los manifiestos paraguas, poll del experimento activo, y el **disparo
+  orquestado** (elegir slug → "Ejecutar experimento" → `runExperiment` → navega al detalle; 409 con
+  el `active_experiment_id`, 422/502 mapeados).
+- **`ExperimentDetailPage`**: estado, **tabla de alertas** (badge de severidad), **vista de reporte**
+  con el badge **no-temporal** (ADR-013) y las filas de `resultados` (métrica + status + causa);
+  404 por sección resiliente (el reporte no consolidado no rompe las alertas).
+
+**Defecto que la revisión atrapó** (con test): la columna de nombre de métrica leía `metrica`/`metric`
+en vez del campo real `name` del `MetricResult` → siempre "—"; corregido. Convenciones respetadas
+(Vitest+RTL, sin jest-dom, estilos inline). El **rediseño UX rico queda como deuda** (§5.2 lo declara
+sacrificable); los números reales del reporte llegan con el GT (spec 43, diferido).
+
+## 10. Lo que sigue
+
+**Spec 44 (ítem 6) está COMPLETO: backend (A1+A2+B) + frontend (C).** Lo único implementable que
+queda hacia la frontera GT es **spec 45 — distribución (repo nuevo MQTT):** consume el publisher
+`control.alert.v1` ya construido, cooldown de notificación (ADR-011), ledger. **Diferido a lo último
+por decisión del usuario** (2026-07-11): recién cuando media-plane y control-plane estén completos y
+testeados. De ahí en más, todo depende de la frontera GT (clips etiquetados spec 43, tracker/track_id,
+hardware OAK-D, acta `edir_v1`).
