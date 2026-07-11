@@ -1,5 +1,17 @@
 # Reporte de estado del tramo plataforma — hecho y pendiente
 
+> **✎ Actualización 2026-07-11 (docs 51–54):** este reporte es el snapshot del
+> 2026-07-10; el tablero del §1 quedó superado. Desde entonces: **5b** (doc 51),
+> **`evaluate-alerts` v2** (doc 52), **spec 44 completo** backend+frontend (doc 53)
+> — hechos, commiteados y **pusheados** — y el **video-gt-lab** (doc 54): el tooling
+> del spec 43 implementado + contrato GT↔evaluador reparado, **sin commitear** en
+> datasets/media-plane/control-plane. El §7 (inventario de no-commiteado) ya no
+> refleja el estado real: lo de docs 37–39/51–53 se pusheó; lo vigente sin commitear
+> es lo del doc 54. Pendiente implementable: ítems del doc 54 §5 (SDR/TTFD,
+> promoción al banco, `clip_id` en manifiesto) y spec 45 (para lo último, decisión
+> del usuario). El dataset con GT (ejecución del spec 43) sigue **pendiente** —
+> checklist en doc 54 §5.
+
 - **Fecha:** 2026-07-10
 - **Qué es:** el reporte consolidado de todo el trabajo del tramo plataforma (ADR-010,
   orden operativo del handoff 36 derivado de spec 41 §10) al cierre de la sesión del

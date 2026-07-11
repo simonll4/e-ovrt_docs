@@ -1,5 +1,14 @@
 # `evaluate-alerts` v2 — matching episodio en ms, `re_alerts` y aplicabilidad
 
+> **✎ Actualización 2026-07-11 (más tarde, doc 54):** el video-gt-lab generó el primer
+> GT real y la auditoría del contrato encontró que este evaluador **lo rechazaba**
+> (episodios sin `source_id`/`subject_key` — reparado del lado del productor) y que
+> ignoraba `provenance.pattern_set_ms`. `temporal.py` cambió **sin commitear**:
+> ventanas con prioridad caller > provenance > defaults + `effective_matching_windows`
+> (199 passed). Además, el "listo para su GT" del §5 es parcial: **SDR y TTFD no están
+> implementados** (faltan `detections_path` y la lógica) — v2 cubre 2 de las 5 métricas
+> del spec 43 §10. Detalle y pendientes: **doc 54 §4–§5**.
+
 - **Fecha:** 2026-07-11
 - **Qué es:** resultados del evaluador temporal v2 del control-plane (spec 41 §8 item 7):
   matching alerta↔episodio por ventana en ms (spec 43 §4.1), `re_alerts` (ADR-011),
