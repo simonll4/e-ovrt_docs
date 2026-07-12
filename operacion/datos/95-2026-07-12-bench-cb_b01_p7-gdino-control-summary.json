@@ -1,0 +1,51 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "bench_cb_b01_p7_gdino_20260712_20260712T232146Z",
+  "media_run_ids": [
+    "run_20260711_211647_dbe_grounding_dino_6114c6"
+  ],
+  "scenario": "DBE",
+  "pattern_set_id": "cr01_cr02_v2",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 733,
+  "units_failed": 0,
+  "pattern_events_count": 6,
+  "alerts_count": 2,
+  "errors_count": 0,
+  "avg_processing_ms": 0.165133463975746,
+  "processing_ms_percentiles": {
+    "p50": 0.15559999155811965,
+    "p95": 0.2741196134593337,
+    "p99": 0.36083456245250994
+  },
+  "ttfa_internal_ms_percentiles": {
+    "p50": 50.55292351543903,
+    "p95": 64.73185245543719,
+    "p99": 65.99220169454813
+  },
+  "output_files": {
+    "effective_config": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/effective_config.yaml",
+    "pattern_events": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/pattern_events.jsonl",
+    "alerts": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/alerts.jsonl",
+    "alerts_csv": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/alerts.csv",
+    "metrics": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/metrics.jsonl",
+    "errors": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/errors.jsonl",
+    "summary": "/home/simonll4/projects/e-ovrt_control-plane/runs/bench_cb_b01_p7_gdino_20260712_20260712T232146Z/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
+  "experiment_id": null,
+  "source": "jsonl",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-07-12T23:21:46.849754+00:00",
+  "finished_at": "2026-07-12T23:21:47.079699+00:00"
+}

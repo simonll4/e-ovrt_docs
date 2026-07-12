@@ -1,0 +1,70 @@
+{
+  "schema_version": "media.summary.v2",
+  "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
+  "scenario": "DBE",
+  "model_name": "grounding_dino",
+  "prompt_set_id": "cr01_cr02_v2_short_inline",
+  "source_type": "video_file",
+  "source_count": 733,
+  "units_processed": 733,
+  "units_failed": 0,
+  "total_detections": 15914,
+  "detections_by_label": {
+    "person": 8056,
+    "helmet": 5861,
+    "vest": 1997
+  },
+  "detections_by_prompt_id": {
+    "person": 8056,
+    "helmet": 5861,
+    "vest": 1997
+  },
+  "avg_latency_ms": 227.19,
+  "p50_latency_ms": 220.21,
+  "p95_latency_ms": 266.79,
+  "p99_latency_ms": 318.39,
+  "fps_effective": 4.39,
+  "gpu_memory_peak_mb": 1745.02,
+  "device": "cuda",
+  "duration_seconds": 167.06,
+  "started_at": "2026-07-11T21:16:47.040599+00:00",
+  "finished_at": "2026-07-11T21:19:34.099883+00:00",
+  "units_dropped": 0,
+  "backpressure_wait_ms": 153423.97,
+  "max_staleness_observed_ms": 0.0,
+  "run_descriptor": {
+    "scenario": "DBE",
+    "topology": "single_host",
+    "transport": {
+      "backend": "memory",
+      "payload_format": "uint8_rgb"
+    },
+    "rate_control": {
+      "policy": "deterministic",
+      "stride": 1,
+      "max_queue_size": 8
+    },
+    "source_kind": "pulleable",
+    "model": "grounding_dino",
+    "prompt_set": "cr01_cr02_v2_short_inline",
+    "device": "cuda",
+    "code_version": "3d55ddb"
+  },
+  "source_clock": "media",
+  "g2a": {
+    "state": "computed",
+    "causes": [],
+    "count": 733,
+    "warmup_units": 0,
+    "avg_ms": 2253.011,
+    "p50_ms": 2214.242,
+    "p95_ms": 2604.059,
+    "p99_ms": 2845.9,
+    "budget_min_ms": 50.0,
+    "budget_max_ms": 250.0,
+    "p95_within_budget": false
+  },
+  "status": "succeeded",
+  "stop_cause": null,
+  "error": null
+}

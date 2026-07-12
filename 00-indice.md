@@ -130,19 +130,26 @@ Evidencia cruda, para que los números sean auditables y re-generables:
 | `operacion/datos/37-2026-07-10-live-e2e-*.json` / `*-alerts.jsonl` | Doc 37 §4: summaries de la corrida live (media + control), del replay byte-idéntico, y sus alertas. |
 | `operacion/datos/38-2026-07-10-dos-servicios-*.json` / `*-alerts.jsonl` | Doc 38 §4: summaries y alertas de la corrida E2E con los dos servicios HTTP. |
 | `operacion/datos/39-2026-07-10-g2a-video-summary.json` | Doc 39 §3: summary de la corrida real de G2A sobre video (`source_clock: media`, percentiles). |
+| `operacion/datos/95-2026-07-12-bench-cb_b01_p7-gdino-*` | **El benchmark del clip, con detector real** (GDINO-tiny sobre `cb_b01_p7`, GT preliminar): `temporal_evaluation.json` (P 0,50 · R 1,00 · F1 0,667 · TTFD 0 ms · **SDR 0,9986**), `alerts.jsonl` (CR-01 a los 4000,0 ms exactos), summaries de ambos planos y la config de replay que lo reproduce. **Archivado el 2026-07-12**: hasta entonces el número estrella del TFG no tenía artefacto en el repo (el único en disco era el smoke con `mock`, SDR 0,803). |
 
 ### `informe/` — el TFG, en desarrollo
 
 Nuestro entregable. **No es fuente de verdad cerrada**: se lo critica desde `nucleo/` y se
 lo reescribe al final, cuando estén tomadas las decisiones (D1–D6) y corridos los
-experimentos. Los redlines pendientes viven en los docs 02 (§4.8, erratas) y 08 (§2,
-desalineaciones).
+experimentos. **Los redlines pendientes están consolidados en el doc 91** (que supera y agrega a
+los docs 02 §4.8 —erratas— y 08 §2 —desalineaciones—, escritos cuando casi nada estaba construido);
+el material concreto para escribirlos está en el doc 92.
 
 | # | Documento | Qué es |
 |---|---|---|
 | — | `informe/E-OVRT-VDP_v1.1_05062026-sin-indice.docx` | El informe completo del TFG (Etapas 1–2 + consolidación metodológica §17.1 + Etapa 3 previa). Aporta el protocolo metodológico contra el que se leen los docs 01–11. |
 | — | `informe/E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` | El capítulo 17.3 standalone (versión más reciente de Etapa 3). Insumo del doc 02, que lo revisa críticamente. |
 | 90 | `informe/90-etapa3-texto-extraido.md` | Texto plano de Etapa 3, **solo para búsqueda y cita rápida**. Es una extracción derivada: al editar, se edita el `.docx`, no este archivo. |
+| 91 | `informe/91-relevamiento-etapa3-vs-implementacion.md` | **Relevamiento completo del capítulo contra los cuatro repos** (2026-07-12) + respuesta a la observación del tutor técnico. Tres contradicciones a reparar (E-IND, cooldown, RunConfig), diez elementos nuevos que el capítulo no refleja, el caveat semántico de G0, el inventario de evidencia ya medida, el registro honesto de lo no hecho, y el plan de acción en cuatro bloques (A: contradicciones, B: concreción, C: evidencia, D: erratas). |
+| 92 | `informe/92-anexo-concrecion-tecnica.md` | **El material técnico verificado**: tabla contrato-preliminar ↔ artefacto real, clases y DTOs serializados reales (`media.detection.v1`, `control.alert.v1`, `control.pattern_state.v1`), las APIs HTTP de los dos servicios, la **regla de evolución aditiva del evento de detección** (tracking/velocidad/pose/segmentación — el pedido del tutor), valores efectivos de config, definiciones operacionales de las métricas y layout de artefactos. Todo con ruta:línea. Es la **fuente** de la que se escriben los docs 93 y 94. |
+| 93 | `informe/93-redlines-etapa3.md` | **La hoja de trabajo de la reescritura**: los 24 redlines del capítulo (R-01…R-24), en orden del documento, cada uno con lo que dice hoy (cita literal), lo que debe decir, la evidencia que lo respalda y una casilla de decisión. Tablero de control por prioridad. **El `.docx` no se toca desde el repo**: los redlines se resuelven en el Google Docs. |
+| 94 | `informe/94-secciones-nuevas-etapa3.md` | **El texto nuevo ya redactado** en registro de informe, listo para copiar: contratos concretos (§17.3.11), evolución del contrato de inferencia (el pedido del tutor), transporte concreto, figura de vista de procesos, diccionario de métricas, temporalidad de la fuente, verificación con números reales, registro de lo no implementado y **extensibilidad medida** (el argumento central de la tesis). |
+| 95 | `informe/95-auditoria-y-plan-de-cierre.md` | **La auditoría adversarial de los docs 91–94** (verificación factual contra código, consistencia, alcance) y el **plan de cierre a 11 semanas**. Documenta los 10 errores encontrados y reparados —incluido un DTO fabricado y una cifra estrella sin artefacto— la regla estructural que los evita, las 3 decisiones que dependen del usuario esta semana, y el orden de sacrificio. **Punto de entrada si venís a cerrar el informe.** |
 
 ### `herramientas/` — entorno de desarrollo
 
