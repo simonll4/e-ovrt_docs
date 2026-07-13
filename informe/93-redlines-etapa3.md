@@ -333,11 +333,13 @@ viaja en el payload, ruptura sólo por cambio de significado); **(b)** **mostrar
 de crecimiento** —los campos futuros como opcionales, explícitos en el esquema—; **(c)** declarar
 **honestamente** el estado de cada extensión.
 
-**El hallazgo que hay que contar (y que juega a favor):** `track_id` **ya existe en el contrato del
-consumidor** y el motor de patrones ya lo usa como identidad — pero **el plano de medios todavía no lo
-emite**. La costura está abierta del lado consumidor y cerrada del lado productor. Decirlo así demuestra
-exactamente lo que el tutor quiere ver: que el contrato fue **diseñado para crecer**, y que sabemos dónde
-está parado hoy.
+**El hallazgo que hay que contar (y que juega a favor):** `track_id` existe **en ambos contratos** —el
+consumidor lo usa como identidad en el motor de patrones desde antes; el productor lo incorporó el
+2026-07-13 (commit `0133d38` del media-plane, como campo aditivo con tests de serialización)— pero **nadie
+lo puebla todavía**: el tracker no está implementado, el campo vale `None` y no aparece en los artefactos.
+La distinción para el informe es exactamente esa: **el contrato está completo; la capacidad que lo
+alimenta, no**. Decirlo así demuestra lo que el tutor quiere ver: que el contrato fue **diseñado para
+crecer** (y se puede mostrar el esquema, no prometerlo), y que sabemos dónde está parado hoy.
 
 **→ Texto completo en `94-secciones-nuevas-etapa3.md` §2.**
 

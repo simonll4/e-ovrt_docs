@@ -167,18 +167,22 @@ latencias.** Quedó como **R-26** y su texto está en el doc 94 §9.
 | **2** | **ADR-015 — recorte final de alcance** | Los docs 94/91 declaran como "no implementados" el **tracker/G1** y la **distribución MQTT**… pero el **doc 10 los tiene DENTRO del alcance** (ítems 10 y 5). Son, literalmente, los dos primeros de tu propio orden de sacrificio — pero un sacrificio ejecutado en el informe **sin actualizar doc 10** deja tres documentos diciendo cosas distintas. **1 hora de trabajo.** |
 | **3** | **Empezar a grabar el banco de clips** | Es **la única tarea con lead time irreductible** y la única que no puedo hacer yo. Todo R3, la campaña de estrategias y los videos de la defensa dependen de clips que **todavía no existen**. Si esto se corre más allá de la semana 4, la defensa está en riesgo. |
 
-### 5.2 Una decisión de código, chica y de alto rendimiento
+### 5.2 Una decisión de código, chica y de alto rendimiento — ✅ **HECHA (2026-07-13)**
 
-**Agregar `track_id` (y un bolsillo `attributes`) al contrato del plano de medios: media jornada.**
+**`track_id` agregado al contrato del plano de medios** — commit `0133d38` en `feature/inference-service`
+del media-plane, pusheado. El campo es aditivo (`str | None = None`), sin bump de `media.detection.v1`, con
+comentario que declara la semántica ("única identidad válida entre frames; `detection_id` NO lo es") y dos
+tests que fijan el contrato: ausente por default **no se serializa** (byte-compat del JSONL y del bus
+intacta — verificado: `exclude_none=True` en ambos escritores) y presente **sí**. Suite completa: 522
+tests en verde, lint limpio.
 
-Hoy la situación es asimétrica y débil: el contrato del **consumidor** tiene `track_id` y el motor lo usa,
-pero el contrato del **productor** no tiene **ningún** campo opcional ni bolsillo de extensión. El redline
-R-07 —la respuesta al pedido más profundo del tutor— enuncia la regla *"las capacidades nuevas entran como
-campo opcional"* y **no puede mostrarla del lado que importa**.
+La situación asimétrica quedó resuelta: la regla del redline R-07 —"las capacidades nuevas entran como
+campo opcional"— ahora **se muestra en el esquema del productor** en vez de prometerse. Lo que sigue
+pendiente, y así se declara en el informe, es la **emisión**: el tracker (spec 42 §3) no está implementado,
+y su implementación queda donde el orden de sacrificio la puso (§5.5, ítem 1: no se hace).
 
-Con el campo presente (aditivo, sin bump de versión, **sin implementar el tracker**), la afirmación pasa de
-*"prometemos que el contrato crece"* a *"mirá el esquema"*. Es la diferencia entre una promesa y una
-demostración, y cuesta una línea. **Recomendado. Decidilo vos.**
+*Nota: se descartó el bolsillo genérico `attributes` que la primera versión de esta sección sugería — no
+está en ninguna spec, y la regla aditiva de spec 40 §1 pide campos tipados y opcionales, no una bolsa débil.*
 
 ### 5.3 Qué se puede escribir YA (no depende de datos): ~85 % de los redlines
 

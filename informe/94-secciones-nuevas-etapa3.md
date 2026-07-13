@@ -250,7 +250,7 @@ declara qué falta. Esa honestidad **es** el argumento.
 >
 > | Capacidad | Materialización prevista en el contrato | Estado en el prototipo |
 > |---|---|---|
-> | **Identidad de sujeto** (seguimiento) | Campo opcional de identidad en la detección. Es la **única identidad válida entre frames**. | **Contrato definido y consumido**: el motor de patrones ya lo utiliza como clave de estado bajo granularidad de sujeto. **El plano de medios no lo emite en la versión evaluada**, y en consecuencia el núcleo opera sobre granularidad de escena. |
+> | **Identidad de sujeto** (seguimiento) | Campo opcional de identidad en la detección. Es la **única identidad válida entre frames**. | **Contrato completo en ambos planos**: el campo está definido en el esquema del productor —opcional, con la propiedad verificada de que su ausencia no altera la serialización— y el motor de patrones ya lo utiliza como clave de estado bajo granularidad de sujeto. **El componente que lo puebla (el seguidor) no está implementado**, y en consecuencia el núcleo opera sobre granularidad de escena. |
 > | **Velocidad y dirección** | Campos opcionales derivados. No requieren información nueva del detector: se derivan de la identidad de sujeto y de las marcas temporales **que el evento ya transporta**. | Especificado, no implementado. |
 > | **Pose** | Campo opcional de puntos clave. | No implementado. El evaluador de patrones **sí parametriza la región de búsqueda según la geometría del sujeto** —la región se extiende a altura completa cuando la relación de aspecto sugiere una postura no erguida—, pero se trata de una heurística geométrica y **no de información de pose**. |
 > | **Segmentación** | Campo opcional de máscara, **junto** al bounding box y no en su reemplazo, para no invalidar a los consumidores existentes. | Especificado, no implementado. |
@@ -537,7 +537,7 @@ cosas distintas — inaceptable, justamente acá. Ocho ítems, y son estos ocho.
 >
 > | Capacidad | Estado | Consecuencia declarada |
 > |---|---|---|
-> | **Identidad persistente de sujeto** | Contrato definido y consumido por el motor; **el productor no la emite** | El núcleo opera bajo granularidad de escena; la granularidad de sujeto degrada a escena con causa declarada. La visualización de evidencia representa la condición a nivel de escena y no por individuo. |
+> | **Identidad persistente de sujeto** | Contrato completo en ambos planos; **el componente que la produce no está implementado** | El núcleo opera bajo granularidad de escena; la granularidad de sujeto degrada a escena con causa declarada. La visualización de evidencia representa la condición a nivel de escena y no por individuo. |
 > | **Comparación de estrategias de detección** (directa, indirecta, híbrida) | **Especificada; evaluadores no implementados** | La estrategia indirecta se adopta como núcleo con la fundamentación expuesta en §17.3.9.2. La comparación cuantitativa entre estrategias queda especificada como protocolo experimental y su ejecución se declara según el alcance final del trabajo. |
 > | **Distribución de alertas** (canal de notificación) | Especificada, no implementada | La latencia de notificación se reporta como **no aplicable**, con causa. La alerta interna —métrica principal por decisión DA-13— no resulta afectada. |
 > | **Latencia captura-a-resultado en topología de dos nodos** | Instrumentada; **no computable** | Los relojes monotónicos de hosts distintos no son comparables: la métrica se declara **no interpretable**, con causa, en lugar de publicarse. |
