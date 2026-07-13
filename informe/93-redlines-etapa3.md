@@ -697,9 +697,11 @@ tracker no implementado, E-03).
 **DEBE DECIR** — dos precisiones honestas:
 
 1. **La fuente viva ya se ejercitó realmente**: cámara IP por RTSP, con timestamps de reloj de pared
-   verificados. El EN candidato del informe (OAK-D Pro PoE) **no estuvo disponible**, y se ejerció la
-   **contingencia oficial ya prevista** en §17.1.4.2.4 (cámara IP convencional). Conviene decirlo así: la
-   contingencia estaba escrita **antes** de necesitarla.
+   verificados. El EN candidato del informe (OAK-D Pro PoE) no estuvo disponible al inicio y se ejerció la
+   **contingencia oficial ya prevista** en §17.1.4.2.4 (cámara IP convencional). **Update 2026-07-13: el
+   hardware llegó y quedó integrado y verificado E2E como fuente `oak_d`** — la narrativa para el informe
+   es doble y más fuerte: la contingencia estaba escrita antes de necesitarla, Y el EN candidato terminó
+   funcionando como estaba previsto (captura en la OAK, inferencia en el host; EN-2 sigue fuera de alcance).
 2. **Queda una brecha declarada**: comparar DBE y EBE **sobre la misma fuente** (reproducir un clip anotado
    como stream) requiere un ancla de sincronización entre el reloj de pared del stream y el tiempo de medio
    del ground truth. Está identificada, no resuelta.

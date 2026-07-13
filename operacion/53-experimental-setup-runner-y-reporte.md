@@ -138,4 +138,4 @@ queda hacia la frontera GT es **spec 45 — distribución (repo nuevo MQTT):** c
 `control.alert.v1` ya construido, cooldown de notificación (ADR-011), ledger. **Diferido a lo último
 por decisión del usuario** (2026-07-11): recién cuando media-plane y control-plane estén completos y
 testeados. De ahí en más, todo depende de la frontera GT (clips etiquetados spec 43, tracker/track_id,
-hardware OAK-D, acta `edir_v1`).
+acta `edir_v1`; el hardware OAK-D ya está integrado desde 2026-07-13).

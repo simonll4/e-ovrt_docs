@@ -169,8 +169,9 @@ de prompts" se parte en Fase 1 temprana / Fases 2–3 con el clip bench al final
 
 ### 2.6 Matiz para H4 (fuente EBE)
 
-El informe define el EN candidato (OAK-D Pro PoE, hoy no disponible) **con plan de
-contingencia oficial: cámara IP convencional** (§17.1.4.2.4). Para la corrida EBE de
+El informe define el EN candidato (OAK-D Pro PoE — **disponible e integrado desde
+2026-07-13** como fuente `oak_d` del media-plane) **con plan de contingencia
+oficial: cámara IP convencional** (§17.1.4.2.4), que se ejerció primero. Para la corrida EBE de
 la defensa, una cámara IP/webcam real es más fiel al diseño que el RTSP sintético;
 mediamtx+ffmpeg queda como (a) herramienta de desarrollo y (b) vía de
 reproducibilidad DBE↔EBE con fuente idéntica. Actualiza la prioridad de H4:

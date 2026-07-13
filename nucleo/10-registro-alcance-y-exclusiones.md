@@ -182,8 +182,11 @@ declaración → condición de habilitación futura.
 - **Justificación:** la inferencia OVD en borde está excluida del flujo base por el
   propio informe (§17.1.4.2.3: "no forma parte del flujo base"; EN limitado a 1.4
   TOPS); la preselección EN-2 es condicionada con riesgo de pérdida de evidencia
-  (DA-11, Tabla 57). El hardware OAK-D no está disponible; el plan de contingencia
-  oficial es cámara IP (§17.1.4.2.4) — que es lo que se usa.
+  (DA-11, Tabla 57). **Update 2026-07-13:** el hardware OAK-D Pro PoE ya está
+  disponible e integrado al media-plane **como fuente RGB** (plugin `oak_d`,
+  verificado E2E); la contingencia cámara IP (§17.1.4.2.4) se ejerció antes y
+  sigue vigente como alternativa. Lo que sigue excluido es la **inferencia en el
+  borde** (EN-2): la OAK solo captura, el modelo corre en el host.
 - **Rastro documental:** modos EN-0/1/2 especificados (Tabla 56); contingencia
   documentada en el informe; el two-node implementado ya materializa EN-0/EN-1.
 - **Declaración:** "El rol EN opera en modos EN-0/EN-1 (captura y preprocesamiento no
@@ -256,7 +259,7 @@ declaración → condición de habilitación futura.
 | E-04 | Fine-tuning / TN | Condicionada no ejercida | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
-| E-07 | Borde / EN-2 / OAK-D | Condicionada no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1 |
+| E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13); EN-2 (inferencia en borde) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1 |
 | E-08 | Zonas / calibración | Especificada | §17.1.5.2.4 | §17.1.5.3.6 |
 | E-09 | Prompts multilingües | Prevista no ejercida | §17.1.5.4.3 | — |
 | E-10 | Métricas MOT estándar | No aplicable | Tabla D.2; §17.1.7.8.2 | reporte con estado |

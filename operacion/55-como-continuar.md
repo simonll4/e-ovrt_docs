@@ -89,7 +89,7 @@ tipo de resultado que la plataforma existe para medir.
 | 4 | **Spec 45** — distribución de alertas por MQTT (repo nuevo) | Claude | nada (lo dejaste para el final) |
 | 5 | **Evaluadores D1** (E-IND vs E-DIR) | Claude | **bloqueado por el acta `edir_v1`** (la tenés que firmar vos) |
 | 6 | **EBE-desde-clip** (comparación DBE↔EBE con fuente idéntica, H4) | Claude | nada (brecha de diseño documentada: falta el ancla wallclock↔media) |
-| 7 | Tracker / `track_id` (spec 42 §3), OAK-D | Claude | métricas G1 (no son del núcleo) |
+| 7 | Tracker / `track_id` (spec 42 §3) | Claude | métricas G1 (no son del núcleo). OAK-D: ✅ integrada 2026-07-13 (fuente `oak_d` del media-plane, verificada E2E con hardware) |
 
 ---
 

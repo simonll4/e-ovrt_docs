@@ -53,8 +53,8 @@ Todo el contenido de las ramas anteriores está incluido en `feature/inference-s
   (`media.detection.v1`) / `MetricSample` (sin cambios: la compatibilidad con el
   control-plane verificada el 2026-07-06 sigue vigente).
 - `sources/` — `ImageFolderSource`, `VideoFileSource` (decodificación secuencial,
-  commit `a2672ef`), `RtspSource` (wall-clock + reconexión), `OakDSource` (difiere,
-  `NotImplementedError`).
+  commit `a2672ef`), `RtspSource` (wall-clock + reconexión), `OakDSource` (implementada 2026-07-13: DepthAI v2, IP fija, wall-clock,
+  reconexión, stop cooperativo).
 - `models/` — adaptadores GDINO / YOLOE / mock vía `BaseDetectorAdapter`; device auto.
 - `runtime/` — `pipeline.py` (single-host: productor+consumidor sobre
   `MemoryTransportAdapter`), `two_node.py` (nodo A edge / nodo B GPU sobre ZeroMQ

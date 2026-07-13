@@ -99,7 +99,9 @@ Las fuentes vivas generan **runs infinitos**: se cortan a mano con "■ Detener"
 vista del run. Al guardar un manifiesto, las credenciales se escriben **redactadas**
 (`rtsp://***:***@...`); tenés que recompletar usuario y clave al re-lanzar.
 
-`oak_d` aparece en el desplegable pero deshabilitado, hasta tener el hardware.
+`oak_d` está habilitado (implementado 2026-07-13): requiere la cámara OAK-D Pro PoE
+en la LAN con IP fija y el SDK DepthAI (`pip install -e ".[edge]"` en el media-plane).
+Ver `e-ovrt_media-plane/docs/contexto/oak-d-integration.md`.
 
 Si `configs/runs/local/rtsp_camera.env` no existe (p. ej. clon nuevo del repo),
 recrealo con:
@@ -175,4 +177,5 @@ devuelve `409`. Pará el anterior primero.
 - **control-plane**: se integra más adelante (bus de eventos, D3 del doc 03).
 - **Docker / two-node**: `infra/twonode/` (media-plane) e `infra/platform/`
   (experimental-setup). Este runbook es explícitamente el camino sin contenedores.
-- **oak_d**: sin hardware.
+- **oak_d**: implementado; el run real requiere la cámara conectada a la LAN
+  (ver `e-ovrt_media-plane/docs/contexto/oak-d-integration.md`).
