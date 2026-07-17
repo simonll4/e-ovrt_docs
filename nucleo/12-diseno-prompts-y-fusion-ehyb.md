@@ -2,7 +2,8 @@
 
 - **Fecha:** 2026-07-09
 - **Estado:** Diseño pre-registrado (complementa el protocolo del doc 04; se congela
-  junto con él antes de correr)
+  junto con él antes de correr). **Enmienda 2026-07-17** (§3): pista doble de modelo
+  GDINO-tiny primaria + YOLOE-26s réplica, con línea de corte a favor de la primaria.
 - **Decisiones que baja a tierra:** ADR-001 (E-IND núcleo + E-HYB-or/and siempre en
   Fase 2) y los requisitos del protocolo de prompts del informe (§17.1.5.4, Anexo C
   Tabla C.1; relevados en doc 08 §2.3/§5.1)
@@ -62,7 +63,15 @@ Reglas:
 **Variable única = estrategia/prompt set** (regla §17.3.6.5). Todo lo demás,
 congelado e idéntico entre corridas:
 
-- **Congelado:** modelo (GDINO-tiny baseline), resolución de inferencia, NMS,
+- **Congelado:** modelo **por pista** (enmienda 2026-07-17: el núcleo corre en dos
+  pistas de modelo congeladas e independientes — GDINO-tiny como **primaria** y
+  YOLOE-26s como **réplica de robustez**; dentro de cada pista la variable única
+  sigue siendo la estrategia/prompt set; entre pistas no se comparan prompts, se
+  reporta si el ranking de estrategias se sostiene entre familias. La pista YOLOE
+  se sacrifica completa antes que cualquier fase de la pista GDINO si el time-box
+  se corta — se reporta "no ejecutada con causa". Diseño:
+  `experimental-setup/docs/superpowers/specs/2026-07-17-prompt-strategy-design.md`),
+  resolución de inferencia, NMS,
   postproceso, BENCH v2 (mitades calib/test estratificadas, doc 07 H3), tuning YAML
   de labs si la generación usa labs (doc 04 §8.6), pattern set del motor
   (`cr01_cr02_v2` alineado al informe: PR-01 alto/3–5 s, PR-02 medio/5–10 s —
