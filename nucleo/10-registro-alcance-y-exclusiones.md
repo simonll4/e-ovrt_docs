@@ -186,12 +186,26 @@ declaración → condición de habilitación futura.
   disponible e integrado al media-plane **como fuente RGB** (plugin `oak_d`,
   verificado E2E); la contingencia cámara IP (§17.1.4.2.4) se ejerció antes y
   sigue vigente como alternativa. Lo que sigue excluido es la **inferencia en el
-  borde** (EN-2): la OAK solo captura, el modelo corre en el host.
+  borde** (EN-2): la OAK solo captura, el modelo corre en el host. **Update
+  2026-07-15:** la preselección EN-2 (que no es inferencia OVD, sino una
+  compuerta con un detector cerrado liviano) dejó de ser condicionada-no-ejercida:
+  se implementó como variante opcional de corrida sobre la OAK-D, apagada por
+  defecto (`e-ovrt_media-plane/docs/superpowers/specs/2026-07-15-oak-d-prefilter-en2-design.md`),
+  cumpliendo las tres condiciones de DA-11/Tabla 57 (criterio conservador
+  fail-open, registro de descartes en `summary.json`, corrida A/B de
+  comparación contra el flujo sin preselector). La inferencia OVD (EN-3) sigue
+  sin ejercerse: el modelo de vocabulario abierto sigue corriendo en el CPN. En
+  la topología two-node los contadores de descarte de EN-2 todavía no viajan al
+  nodo de referencia y quedan declarados no disponibles (v1).
 - **Rastro documental:** modos EN-0/1/2 especificados (Tabla 56); contingencia
-  documentada en el informe; el two-node implementado ya materializa EN-0/EN-1.
+  documentada en el informe; el two-node implementado ya materializa EN-0/EN-1;
+  EN-2 implementada y documentada en el spec 2026-07-15 y en Tabla 56 actualizada
+  del media-plane.
 - **Declaración:** "El rol EN opera en modos EN-0/EN-1 (captura y preprocesamiento no
-  semántico), materializados en la topología two-node; EN-2 e inferencia en borde
-  quedan como variantes condicionadas conforme DA-11 y §17.1.4.2.3."
+  semántico), materializados en la topología two-node, y EN-2 (preselección
+  liviana conservadora), implementada como variante opcional apagada por
+  defecto conforme DA-11 y Tabla 57; la inferencia en borde (EN-3) permanece
+  fuera de alcance conforme §17.1.4.2.3."
 
 ### E-08 — Zonas, geofences y calibración de escena
 
@@ -259,7 +273,7 @@ declaración → condición de habilitación futura.
 | E-04 | Fine-tuning / TN | Condicionada no ejercida | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
-| E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13); EN-2 (inferencia en borde) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1 |
+| E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15); inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2 |
 | E-08 | Zonas / calibración | Especificada | §17.1.5.2.4 | §17.1.5.3.6 |
 | E-09 | Prompts multilingües | Prevista no ejercida | §17.1.5.4.3 | — |
 | E-10 | Métricas MOT estándar | No aplicable | Tabla D.2; §17.1.7.8.2 | reporte con estado |
