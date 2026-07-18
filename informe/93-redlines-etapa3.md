@@ -701,7 +701,10 @@ tracker no implementado, E-03).
    **contingencia oficial ya prevista** en §17.1.4.2.4 (cámara IP convencional). **Update 2026-07-13: el
    hardware llegó y quedó integrado y verificado E2E como fuente `oak_d`** — la narrativa para el informe
    es doble y más fuerte: la contingencia estaba escrita antes de necesitarla, Y el EN candidato terminó
-   funcionando como estaba previsto (captura en la OAK, inferencia en el host; EN-2 sigue fuera de alcance).
+   funcionando como estaba previsto (captura en la OAK, inferencia en el host). **Update 2026-07-15/18:
+   además, EN-2 quedó implementada como variante opcional on-device** (gate de personas en la cámara,
+   fail-open, default off; A/B real con GDINO: 87 % de drop on-device) — ver nucleo/10 E-07 y doc 56 §2.1;
+   la afirmación previa "EN-2 sigue fuera de alcance" quedó superada.
 2. **Queda una brecha declarada**: comparar DBE y EBE **sobre la misma fuente** (reproducir un clip anotado
    como stream) requiere un ancla de sincronización entre el reloj de pared del stream y el tiempo de medio
    del ground truth. Está identificada, no resuelta.

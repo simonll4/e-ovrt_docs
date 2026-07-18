@@ -1,7 +1,15 @@
 # Spec 42 — media-plane
 
+> **✎ Enmienda 2026-07-18 (doc 56):** la precondición operativa de abajo ya se cumplió
+> (working tree de doc 11 §8 commiteado y pusheado) y la mención "hoy hay REQ/REP" del
+> §2 quedó vieja: el publisher PUB del bus está implementado y probado (docs 37/50/51).
+> El §3 sigue vigente: **nadie produce `track_id` todavía**. Además el media-plane
+> implementó piezas que este spec no pedía: `OakDSource` + prefilter EN-2, ledger de
+> descartes, sesiones de preview en vivo, `DELETE /api/runs` — inventario en
+> [`operacion/56`](../operacion/56-relevamiento-plataforma-2026-07-18.md) §2.1/§3.2.
+
 - **Fecha:** 2026-07-09
-- **Estado:** Escrito
+- **Estado:** Escrito (núcleo implementado; tracker/`track_id` pendiente)
 - **Repo dueño:** `e-ovrt_media-plane` (base: `feature/inference-service` — servicio
   Fase 1 + two-node Fase 2 + visibilidad; doc 11. **Precondición operativa:
   commitear/pushear el working tree pendiente de doc 11 §8 antes de empezar.**)

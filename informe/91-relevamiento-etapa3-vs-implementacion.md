@@ -1,5 +1,18 @@
 # Relevamiento del informe (Etapa 3) frente a la implementación real — y respuesta a la observación del tutor técnico
 
+> **✎ Actualización 2026-07-18 (doc 56):** desde este relevamiento (07-12) la plataforma
+> sumó elementos arquitectónicos que el capítulo tampoco refleja y que se suman a la
+> lista del §4 al escribir: (a) **OAK-D Pro PoE como fuente viva** + **prefilter EN-2
+> on-device** opcional (fail-open, 87 % drop A/B) + métrica `capture_to_host_ms`;
+> (b) **ledger por-frame de descartes** `media.dropped_unit.v1`; (c) **progreso parcial
+> de patrones** `control.pattern_progress.v1` (observabilidad sin tocar la máquina de
+> estados); (d) **vista correlacionada media↔control** por `unit_id` en la consola
+> (evidencia visual de la trazabilidad extremo a extremo — argumento de extensibilidad);
+> (e) **sesiones de preview en vivo** (posicionamiento de cámara + prueba de prompts sin
+> corrida persistida); (f) gestión completa del ciclo de corridas desde la consola
+> (borrado orquestado, `DELETE` en ambos planos). Fuente:
+> [`operacion/56`](../operacion/56-relevamiento-plataforma-2026-07-18.md).
+
 - **Fecha:** 2026-07-12
 - **Insumo primario:** `informe/E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (§17.3.1–17.3.18, docx del 2026-07-06),
   texto plano en `informe/90-etapa3-texto-extraido.md`. **Es la versión vigente**: la Etapa 3 embebida

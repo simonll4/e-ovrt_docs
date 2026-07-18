@@ -1,5 +1,13 @@
 # Reporte de estado del tramo plataforma — hecho y pendiente
 
+> **✎ Actualización 2026-07-18 (doc 56):** el punto de entrada vigente es
+> [`operacion/56`](56-relevamiento-plataforma-2026-07-18.md) (relevamiento integral
+> al 07-18). Además de lo del banner del 07-11, la deuda #5 del §8.3 quedó superada:
+> el control-plane hoy tiene `GET /api/runs` (con `?media_run_id=`),
+> `GET /runs/{id}/pattern-progress`, `GET /runs/{id}/received-units` y
+> `DELETE /api/runs/{id}`. Los conteos de tests del §6 también quedaron cortos
+> (ver doc 56 §4).
+
 > **✎ Actualización 2026-07-11 (docs 51–54, fin del día):** este reporte es el
 > snapshot del 2026-07-10; el tablero del §1 y el inventario del §7 quedaron
 > superados. Desde entonces, TODO **hecho, commiteado y pusheado**: **5b**

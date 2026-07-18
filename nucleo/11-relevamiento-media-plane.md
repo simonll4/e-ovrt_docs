@@ -1,5 +1,14 @@
 # Relevamiento: e-ovrt_media-plane (estado 2026-07-09)
 
+> **✎ Actualización 2026-07-18 (doc 56):** este relevamiento es la foto del 07-09 y
+> varias de sus afirmaciones quedaron superadas: el working tree del §8 **ya se
+> commiteó y pusheó**; `two_node_local` fue **eliminado** el 07-18 (`f16cf8c`), no
+> "deshabilitado"; la suite pasó de ~380 a **626 tests**; y desde entonces existen
+> `OakDSource` + prefilter EN-2, el ledger de descartes `media.dropped_unit.v1`,
+> `track_id` opcional en `Detection` y las **sesiones de preview en vivo**
+> (`/api/preview`). La foto vigente es
+> [`operacion/56`](../operacion/56-relevamiento-plataforma-2026-07-18.md) §2.1/§3.2.
+
 - **Fecha:** 2026-07-09
 - **Repo:** `e-ovrt_media-plane` (remote `simonll4/e-ovrt_media-plane`)
 - **Rama actual:** `feature/inference-service` — 2 commits adelante de origin

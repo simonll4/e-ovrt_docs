@@ -4,10 +4,19 @@
 - **Qué es:** el mapa para retomar el proyecto. Qué está construido y probado, qué
   falta, y el **orden concreto** de los próximos pasos con los comandos reales.
   Si volvés después de un tiempo y no te acordás de nada, **leé este doc y el 50**.
-- **Estado de commits:** todo pusheado. `e-ovrt_datasets@f8a2f3bc`,
-  `e-ovrt_media-plane@5653978`, `e-ovrt_control-plane@853f690`,
-  `e-ovrt_experimental-setup@031e10a`. El repo `docs` queda **local sin remote**
-  (decisión tuya del 07-09).
+- **Estado de commits (✎ refrescado 2026-07-18, doc 56 §1/§5):** HEADs actuales
+  `e-ovrt_datasets@42cfff37` (en sync), `e-ovrt_media-plane@eddeb89` (**ahead 2**),
+  `e-ovrt_control-plane@a53e95e` (**ahead 1**), `e-ovrt_experimental-setup@cb72425`
+  (**ahead 15**). Hay 18 commits sin pushear y 4 working trees con trabajo terminado
+  sin commitear — inventario exacto en el doc 56 §5. El repo `docs` sigue **local sin
+  remote** (decisión tuya del 07-09).
+- **✎ 2026-07-18:** desde que se escribió esta guía la plataforma sumó: OAK-D +
+  prefilter EN-2, ledger de descartes, progreso parcial de patrones, consola
+  rediseñada con **vista correlacionada media↔control**, borrado orquestado de runs,
+  y la ventana **Cámaras** con preview en vivo (posicionar cámara + probar prompts
+  sin corrida). Nada de eso cambia los PASOS 1–5 de esta guía, que siguen vigentes.
+  La foto completa está en
+  [`operacion/56`](56-relevamiento-plataforma-2026-07-18.md).
 
 ---
 

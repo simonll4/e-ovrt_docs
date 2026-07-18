@@ -1,7 +1,16 @@
 # Spec 44 — experimental-setup (config centralizada, runner, reporte, webconsole)
 
+> **✎ Enmienda 2026-07-18 (doc 56):** implementado y **ampliado más allá del spec**. El
+> §5.2 ("rediseño UX, sacrificable") se ejecutó completo (tokens + kit UI + shell) y se
+> le sumaron piezas no previstas acá: **vista correlacionada media↔control** por
+> `unit_id`, **borrado orquestado de runs** (control primero, media al final), ventana
+> **Cámaras** con preview en vivo y CRUD de presets, y ciclo de vida de prompt sets con
+> badge `frozen`. El manifiesto real es `experiment.manifest.v1` (con `sequencing`,
+> `clip_id`, `ground_truth`). Detalle en
+> [`operacion/56`](../operacion/56-relevamiento-plataforma-2026-07-18.md) §2.3/§3.4.
+
 - **Fecha:** 2026-07-09
-- **Estado:** Escrito
+- **Estado:** Escrito (implementado 07-11; ampliado 07-17/18)
 - **Repo dueño:** `e-ovrt_experimental-setup` (contiene `prompts/`, `experiments/`,
   `webconsole/` — BFF FastAPI + frontend React, ya cliente del media-plane)
 - **Decisiones que implementa:** ADR-004 (manifiesto + `experiment_id` + runner),
