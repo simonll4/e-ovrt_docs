@@ -13,6 +13,13 @@
   como persistencias, el pattern set oficial implementado es **cr01_cr02_v2 =
   4000/7000 ms** (Tabla 24/D.4); derive y evaluador usan 4000/7000 por default y
   el GT graba los suyos en `provenance.pattern_set_ms`.
+- **✎ 2026-07-19 (`operacion/57`):** las duraciones de clip de la matriz §3 quedaron
+  **precisadas y validadas contra la práctica externa** (i-LIDS/TRECVID): la duración
+  correcta es bimodal (~15 s escenarios de ausencia P3/P5, ~25–30 s escenarios de
+  alerta P1/P2/P4/P6/P7/P8), con onset guionado en t≈3–4 s (nunca en t=0, o el TTFD
+  colapsa a 0 como artefacto de recorte). El doc 57 trae la fórmula de
+  dimensionamiento, plantillas de timeline y un chequeo `dimensioning_warning`
+  propuesto para el validador de `clip_gt.v2`. Leer antes de grabar el Bloque A.
 - **Estado:** Escrito y congelado — **EJECUCIÓN DIFERIDA (ADR-010):** se dispara
   al **cierre del spec 44 (experimental-setup)** — corridas y configs trazables +
   runner + reporte operativos; el spec 45 (distribución) NO es prerequisito.

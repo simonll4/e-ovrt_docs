@@ -198,12 +198,23 @@ con las métricas y la trazabilidad. Está probado contra servicios reales.
 Esto es lo que desbloquea los resultados de la tesis (R3, Fase 2 de D1).
 El guion completo está en **`specs/43-clip-bench-gt-temporal.md` §3**. Resumen:
 
+> **✎ 2026-07-19 — antes de grabar, leer `operacion/57`.** Las duraciones "10–60 s"
+> de abajo quedaron **precisadas por escenario** tras una validación contra la
+> práctica externa (i-LIDS/TRECVID): la duración correcta es **bimodal** — ~15 s
+> para P3/P5 (veredicto de ausencia) y **~25–30 s** para P1/P2/P4/P6/P7/P8
+> (veredicto de alerta medida), con el **onset guionado en t≈3–4 s, nunca en t=0**
+> (si no, TTFD colapsa a 0 como artefacto — es lo que le pasó a `video16_clip10`).
+> El doc 57 §6.3 trae plantillas de timeline listas para guionar.
+
 1. **Consentimientos por escrito** de cada persona grabada (Ley 25.326) — *bloqueante
    legal, no lo saltees*. Archivalos y registralos en `license_registry.md`.
-2. **8–10 clips escenificados (Bloque A)** de 10–60 s, cámara fija en trípode, con la
+2. **8–10 clips escenificados (Bloque A)** de duración **según escenario (ver
+   `operacion/57` §2/§6.3, no 10–60 s parejo)**, cámara fija en trípode, con la
    matriz de escenarios: P1 (sin casco persistente), P2 (sin chaleco), P3 (transitorio
    que NO debe alertar), P4 (se pone el casco), P5 (cumplimiento total = negativo),
-   P6 (doble condición), P7 (multi-persona), P8 (sale y vuelve).
+   P6 (doble condición), P7 (multi-persona), P8 (sale y vuelve). **Sumar 1–2 clips
+   "soak" de 5–10 min** de obra en cumplimiento normal (doc 57 §3.2 G1, habilita
+   medir FAR/hora).
 3. **3 clips de la defensa (Bloque C)**: V1 (cadena completa), V2 (clase nueva por
    config), V3 (cumplimiento → no-alerta). Se graban en la misma sesión.
 4. Variá entre clips: distancia (5–10 m y 10–20 m), iluminación (interior y exterior).
