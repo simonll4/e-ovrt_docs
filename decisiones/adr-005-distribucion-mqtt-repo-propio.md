@@ -1,5 +1,10 @@
 # ADR-005 — Distribución de alertas: recorte, canal MQTT y repo propio
 
+> **✎ Estado de implementación (2026-07-18):** NO implementado, a propósito — la
+> ejecución del spec 45 quedó para lo último por decisión del usuario. Solo existe la
+> frontera de salida (`control.alert.v1`, publisher del control-plane). Detalle:
+> [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+
 - **Fecha:** 2026-07-09 (canal decidido 2026-07-06)
 - **Estado:** Aceptada
 - **Dimensión que atiende:** D5 (doc 03 §6) + ubicación del módulo (doc 06 §4)

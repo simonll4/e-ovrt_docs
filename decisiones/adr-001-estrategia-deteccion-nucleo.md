@@ -1,5 +1,9 @@
 # ADR-001 — Estrategia de detección del núcleo: E-IND (encuadre)
 
+> **✎ Estado de implementación (2026-07-18):** E-IND implementada como encuadre en toda
+> la plataforma; el experimento D1 sigue SIN correr (bloqueado por el acta `edir_v1`).
+> Detalle: [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+
 - **Fecha:** 2026-07-09
 - **Estado:** Aceptada como encuadre — el cierre definitivo lo da el experimento D1
 - **Dimensión que atiende:** D1 (doc 03 §2)

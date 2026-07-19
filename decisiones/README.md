@@ -4,6 +4,17 @@ Registro de decisiones de arquitectura y alcance. Cada ADR cierra una fila del
 tablero del doc 03 §9 (dimensiones D1–D6) o una decisión posterior. Formato: corto —
 decisión, alternativas, fundamento, impacto, referencias.
 
+> **✎ 2026-07-18 — dos lecturas obligatorias junto con esta carpeta:**
+> **(1)** las siglas y jerga de los ADRs (DBE/EBE, G0/G1, D1–D6, E-NN, DA-NN, R1–R4,
+> Tablas D.4/44/45…) están definidas en el **doc 13**
+> (`../13-glosario-y-convenciones-de-lectura.md`) — los ADRs no las re-definen.
+> **(2)** los ADRs se escribieron ANTES de implementar y expresan su impacto en
+> futuro; **cómo terminó implementada cada decisión** (rutas reales, endpoints,
+> evidencia medida, condicionales resueltos — p. ej. la falsación del ADR-012 quedó
+> superada) está en [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+> El "Estado" de la tabla de abajo significa *decisión aceptada*, no *implementada*:
+> el estado de implementación real se lee en ese companion.
+
 **Convención de ubicación:** los ADRs viven acá (el set documental versionado es el
 registro rector). Cuando la implementación de una decisión arranca en un repo de
 código, ese repo puede llevar una copia o un puntero a este archivo — la verdad es

@@ -1,5 +1,11 @@
 # ADR-012 — Memoria de cobertura bajo G0: inaplicable sin identidad; la histéresis la subsume
 
+> **✎ Estado de implementación (2026-07-18):** implementado y **falsación SUPERADA**
+> (2026-07-10, doc 34): los dos tests condición-de-merge pasaron (gate F1=1.0
+> verificado significativo + test de parpadeo) y un par discriminante confirmó la
+> decisión; la reversión prevista no se activó. Detalle:
+> [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+
 - **Fecha:** 2026-07-09
 - **Estado:** Aceptada — **sujeta a falsación por test** (ver §"Criterio de falsación")
 - **Decisión que atiende:** hueco detectado al bajar el spec 41 §2 a plan de

@@ -1,5 +1,10 @@
 # ADR-006 — Reporte consolidado y aplicabilidad de métricas
 
+> **✎ Estado de implementación (2026-07-18):** implementado (doc 53). El condicional
+> de relojes two-node quedó resuelto con la opción declarativa
+> (`not_interpretable/cross_node_monotonic_clock`, doc 39) — no se implementó NTP.
+> Detalle: [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+
 - **Fecha:** 2026-07-09
 - **Estado:** Aceptada
 - **Dimensión que atiende:** D6 (doc 03 §7)
