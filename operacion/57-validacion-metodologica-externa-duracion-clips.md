@@ -99,7 +99,7 @@ Se contrastó el diseño contra el único estándar gubernamental/industrial de
 evaluación de sistemas de alarma por video (**i-LIDS**, UK Home Office),
 **TRECVID SED** (NIST), la literatura de detección temporal de acciones
 (THUMOS/ActivityNet), la de detección de inicio de acción en streaming (**ODAS**),
-y la literatura específica de PPE. Fuentes en §6.
+y la literatura específica de PPE. Fuentes en §8.
 
 ### 3.1 Lo que la práctica externa VALIDA
 
@@ -299,7 +299,8 @@ métricas concluyen (§3.2 G2). Objetivo mínimo defendible:
 | Bloque | Contenido | Duración/clip | Aporte a métricas |
 |---|---|---|---|
 | Clips de alerta | ≥2 P1, ≥2 P2, 1 P4, 1 P6, 2–3 P7, 1 P8 | 20–30 s | recall, t_alert, SDR, TTFD (n≈12–15 episodios) |
-| Clips de ausencia | ≥1 P3, ≥1 P5 (=V3), 1 P9 confusables | ~15 s | precision (FP verdadero vs sub-umbral) |
+| Clips de ausencia | ≥1 P3, ≥1 P5 (=V3) | ~15 s | precision (FP verdadero vs sub-umbral) |
+| Clips confusables (P9) | 1–2 | **18–20 s** (rige el floor de episodio CR-01: 3+10+2+2=17 s) | **recall bajo estrés semántico** — ✎ corrección 07-19: gorra sin casco / campera naranja sin chaleco **SON infracciones reales** (GT con episodio); el confusable testea si el modelo **pierde** la alerta (falso cumplimiento), no FP |
 | **Clips soak** (G1) | 1–2 tomas de obra normal en cumplimiento | **5–10 min** | **FAR/hora** (denominador temporal real) |
 
 Con esto: las métricas por-episodio se reportan como **mediana + rango + muestra
@@ -324,19 +325,343 @@ Los puntos del pipeline del video-gt-lab (doc 54) donde esto se materializa:
    `duration_ms ≥ episodes[0].start_ms + target_upper(patrón) + resolve + 2000`.
    Un clip que no lo cumple se marca `dimensioning_warning` en `provenance` (no
    bloquea, pero queda auditado).
+   **Implementado (A1, 2026-07-19):** `dimensioning_warnings(gt)` en
+   `derive_clip_gt.py` computa el floor **por episodio** — cada episodio con su
+   propio `start_ms` y el `target_upper`/`resolve` de *su* condición — no un único
+   floor sobre `episodes[0]`. Es estrictamente más estricto (nunca omite un caso
+   que la fórmula de un solo floor marcaría, porque `episodes[0].start_ms` es el
+   mínimo) y atribuye la advertencia al episodio afectado, alineado con el
+   `metric_censored` per-episodio del evaluador (A2). Va en
+   `provenance.dimensioning_warnings` + aviso en el timeline impreso.
 
 ### 6.6 Conclusión operativa para el banco
 
 - **Grabar** cada escena de alerta como toma de **~30–35 s**; recortar al objetivo
   del escenario (**20 s** alto / **30 s** medio); onset en **t=3–4 s** siempre.
-- **Clips de ausencia/confusables a ~15 s.** **Sumar 1–2 clips soak de 5–10 min.**
+- **Clips de ausencia a ~15 s; confusables (P9) a 18–20 s** (✎ 07-19: P9 es
+  infracción real, rige su floor). **Sumar 1–2 clips soak de 5–10 min.**
 - Esta receta hace que las 5 métricas sean **no-censuradas** (buen sistema se ve
   bien) y **no-sesgadas** (FP medibles) — que es la única forma de "mostrar buenos
   resultados" que sobrevive a la defensa.
 
+### 6.7 Banco estratificado: mezcla de duraciones y censura por métrica
+
+**Contexto real (2026-07-18):** los videos públicos de obra disponibles rondan los
+12 s; los >20 s escasean. **Esto no compromete el banco**, por dos razones:
+
+1. **Los largos no dependen de internet.** El núcleo de veredicto temporal es el
+   Bloque A (grabación propia, §6.3) — ahí la duración la controlamos nosotros.
+   Internet/Intel es el Bloque B, cuyo rol declarado es *complementar* con
+   diversidad, no sostener veredictos temporales.
+2. **La censura es por métrica y por patrón, no por clip.** Un clip corto no es
+   inválido: es válido para un subconjunto de métricas. Lo que aporta un 12 s
+   re-ventaneado (onset en t≈2–3 s):
+
+| Métrica | PR-01 (alto) | PR-02 (medio) |
+|---|---|---|
+| TTFD (<3 s / <10 s) | ✅ sobra ventana | ⚠️ marginal (~9–10 s post-onset) |
+| t_alert-system (≤10 / ≤20 s) | ⚠️ marginal (observa hasta onset+9–10 s) | ❌ censurado |
+| SDR | ✅ sobre el intervalo anotado | ⚠️ intervalo corto ⇒ ruidoso |
+| Recall/precision de alertas | ⚠️ solo si la alerta cabe | ❌ un miss no es concluyente |
+| Negativos / P3 | ✅ | ✅ |
+| Diversidad C.2 | ✅ | ✅ |
+
+**El mecanismo que evita la contaminación ya existe:** los estados de
+aplicabilidad de `evaluate-alerts` (ADR-006). Extensión propuesta: estado
+**`metric_censored`** — el clip es demasiado corto para que el veredicto de esa
+métrica/patrón sea concluyente ⇒ el episodio **sale del denominador** de esa
+métrica en vez de contarse como `missed`. La condición es computable con el mismo
+gate de §6.5.3 evaluado **por métrica** (`duration_ms ≥ start_ms + target_upper +
+resolve + 2000`, con el `target_upper` de cada métrica). El reporte declara el n
+por métrica: *"t_alert PR-02: n=X episodios evaluables (clips ≥29 s)"*.
+
+**Dos reglas duras:** (a) **no concatenar cortos** para fabricar un largo — el
+corte de escena crea onsets artificiales y rompe la semántica del episodio;
+(b) **P2/P4/P6/P8 no se rellenan con cortos**: si faltan, se graban (Bloque A).
+
+Resultado: 10 largos + relleno de cortos no es un banco degradado sino
+**estratificado** — largos para veredictos temporales, cortos para diversidad y
+especificidad, denominadores limpios por aplicabilidad.
+
+### 6.8 Dimensionamiento del banco para el equipo real (3 personas, defensa ~sept)
+
+La cantidad óptima se fija por **episodios evaluables por patrón** (~8–10 por
+patrón para que mediana+rango sea defendible), no por cantidad de videos. El
+recurso escaso son los **episodios PR-02-evaluables** (exigen clips ≥29 s).
+
+| Bloque | Contenido | Cant. | Duración | Origen |
+|---|---|---|---|---|
+| A — núcleo guionado | 2 P1, **3 P2**, 1 P3, 1 P4, 1 P5(=V3), 1 P6, 2 P7, 1 P8, 1 P9 | **13** | 15–30 s según rol | grabación propia, **una jornada** |
+| C — defensa | V1, V2 (V3=P5) | 2 | 20–30 s | misma sesión |
+| B — relleno | P1-diagnóstico, negativos, diversidad | 5–8 | 12–15 s re-ventaneados | internet/Intel |
+| Soak (G1) | obra normal en cumplimiento | 1–2 | **5–10 min** | trípode y dejar correr |
+
+**Total ≈ 21–25 clips**, que rinden: PR-01 ~9–10 episodios (P1×2 + P4 + P6 +
+P7×2 + P8×2 — P8 aporta 2 porque la salida/reentrada corta el episodio), PR-02
+~4–5 (P2×3 + P6 — por eso P2 sube de 2 a 3: es el denominador más flaco y la toma
+extra cuesta 2 min de rodaje), TTFD n≈15+, precision/FAR de ausencia+soak.
+
+**Esfuerzo para 3 personas:** rodaje = media jornada (1 cámara/director con el
+timeline planificado, 2 actores; P7 necesita 2–3 en cuadro — rotan). **Grabar 2
+tomas por guion** y promover la mejor (toma de respaldo para la demo, doc 09).
+Anotación = 2–3 tardes (GT temporal por episodio ~10–15 min/clip salvo los P7
+subject-level); la doble anotación ≥20% (mín. 3 clips) sale cruzándose entre dos
+con el tercero de árbitro.
+
+**No ir más allá de ~25:** de 22 a 35 clips ninguna conclusión cambia (la mediana
+sobre n=15 vs n=25 episodios se mueve poco) pero la anotación se duplica — y el
+cuello real del proyecto es la pasada humana en CVAT (todo el GT sigue
+`gt_preliminary`). **Piso de seguridad:** el spec 43 declara n≥8 válido con A+C
+solamente — el plan tolera ~40% de caída del rodaje sin comprometer validez.
+
+### 6.9 Rol de los videos de internet: especificidad sí, recall no
+
+Si los videos públicos muestran obras **en cumplimiento** (todos con casco y
+chaleco), **no sirven para recall**: recall = episodios detectados / episodios
+existentes, y un video en cumplimiento tiene **0 episodios** — no aporta al
+numerador ni al denominador. La sensibilidad solo se mide con eventos; la
+especificidad solo con no-eventos; ningún clip paga por el otro lado.
+
+Pero NO se descartan — son exactamente **la mitad del banco que no se puede
+guionar fácil**:
+
+| Aporte | Métrica que alimenta |
+|---|---|
+| P5/negativos | precision (¿alucina `bare_head` donde no hay?) |
+| **Soak / FAR-hora (G1)** | el denominador temporal de FP — lo más caro de conseguir actuado |
+| Confusables naturales (gorras, camperas naranjas, cascos colgados) | material P9 gratis |
+| Diversidad C.2 | robustez visual que el rodaje único no tiene |
+
+División limpia y defendible del banco: **positivos guionados y controlados
+(Bloque A) / negativos reales y salvajes (internet)** — los negativos salvajes son
+más duros contra el sistema que negativos actuados.
+
+**Minado de positivos con la propia plataforma:** antes de rendirse con los
+positivos de internet, pasar los videos largos por el media-plane con prompts
+`bare_head`/sin-chaleco como **prefiltro** y revisar a ojo solo los segmentos
+candidatos. Una infracción real no actuada vale oro (episodio de validación
+externa, no guionado); si no aparece ninguna, el costo fue casi nulo.
+
 ---
 
-## 7. Fuentes
+## 7. Frontera de atribución: métricas de la detección vs métricas del sistema completo
+
+> **Análisis 2026-07-19.** El diccionario de métricas (spec 40 §5.1, del informe
+> §17.1.7 + Tablas 35/D.4) define bien cada métrica pero **nunca declara a qué
+> componente se atribuye cada una**. Sin esa atribución, un resultado malo no dice
+> *qué* arreglar y un resultado bueno no dice *qué* defender. Esta sección traza
+> la frontera, critica el uso que el informe insinúa y fija la decisión.
+
+### 7.1 La frontera ya está trazada — solo hay que declararla
+
+La identidad del spec 40 §5.2.2 **es** la frontera:
+
+```
+t_alert-system  =  TTFD  +  t_capture→alert
+                   ─────    ────────────────
+                 DETECCIÓN     PLATAFORMA
+              (media-plane +  (bus + persistencia
+               prompt/modelo)  + motor + registro)
+```
+
+El punto de corte es **el frame de primera evidencia positiva** (el `t1` de TTFD
+se define en su instante de captura — spec 40 §5.2.2). Todo lo que ocurre *antes*
+de que ese frame exista (que el modelo vea la condición, con qué prompt, cuán
+rápido, cuán sostenido) se atribuye a la **detección**; todo lo que ocurre
+*después* (bus, ventana de persistencia, motor, registro) se atribuye a la
+**plataforma**. La identidad hace la frontera verificable numéricamente.
+
+### 7.2 Decisión: tres canastas
+
+**Nivel A — Detección (media-plane + estrategia de prompts):**
+
+| Métrica | Banco | Qué mide |
+|---|---|---|
+| AP@0.5 por clase, recall CR-01 | BENCH imágenes (196) | calidad espacial zero-shot (gate; ya corrido en Sprint 2) |
+| **TTFD** | banco temporal | reactividad de la detección al onset |
+| **SDR** | banco temporal | sostenimiento de la detección en el episodio |
+| G2A + sub-etapas (P50/P95/P99), FPS efectivo, drops, drop-rate prefilter EN-2 | toda corrida | costo computacional |
+
+**Nivel B — Sistema completo (por episodio, contra GT temporal):**
+
+| Métrica | Qué mide |
+|---|---|
+| P/R/F1 de alertas + re-alertas / inesperadas / sub-umbral alertadas | corrección end-to-end (análisis de errores R3) |
+| **t_alert-system** (principal, vs Tabla D.4) | latencia end-to-end oficial |
+| t_capture→alert / t_compute-budget (derivadas propias) | descomposición: cuánto es plataforma, cuánto persistencia |
+| **FAR/hora** (sobre soak, §3.2 G1) | tasa de falsas alarmas operativa |
+
+**Condicionales / excluidas (ADR-006 — con estado y causa, nunca omitidas):**
+`t_alert-notification` → solo con spec 45 implementado (para lo último);
+`ΔFP_tracker` → solo labs G1 con tracker (en la plataforma G0: excluida con
+causa); TTFA interna → diagnóstico, no se reporta como resultado.
+
+**Regímenes de reporte (cierra G2):** Nivel A por-frame/por-unidad ⇒ percentiles
+P50/P95/P99; TTFD/SDR y todo Nivel B son por-episodio ⇒ **mediana + rango +
+muestra completa**, con n declarado por métrica (§6.7). Gate de validez de
+corrida (no son métricas): `bus_dropped_events`, warm-up declarado,
+`source_clock`.
+
+### 7.3 Crítica al informe (correcciones para Etapa 4)
+
+1. **`t_alert-system` NO sirve para comparar modelos/estrategias (D1)** — y el
+   informe no lo advierte. Está dominada por la constante de persistencia
+   (4000/7000 ms), idéntica entre corridas comparadas: dos modelos con TTFD 0.5 s
+   vs 2.5 s dan t_alert ~4.5 vs ~6.5 s — la diferencia relativa se aplasta. **El
+   discriminante de D1 es TTFD/SDR/AP (Nivel A); `t_alert-system` valida la
+   plataforma con modelo fijo (Nivel B).** Cruzarlos es un error metodológico
+   señalable por el jurado.
+2. **La matriz diagnóstica SDR×recall es el retorno de la separación** (hoy no
+   escrita en ningún lado):
+
+   | | recall alto | recall bajo |
+   |---|---|---|
+   | **SDR alto** | ✅ todo sano | ⚠️ **plomería**: bus/matching/motor pierde lo que la detección ve |
+   | **SDR bajo** | ✅ **motor robusto a huecos** de detección (resultado defendible) | ❌ la detección no ve la condición (modelo/prompt) |
+
+   Más: TTFD alto ⇒ modelo/prompt lento en ver; t_compute-budget alto ⇒ overhead
+   de plataforma. Cuatro diagnósticos distintos, **cero instrumentación extra**
+   (todo sale de `detections.jsonl` + `alerts.jsonl`, que ya son la verdad).
+3. **No mezclar bancos:** AP@0.5 vive en el BENCH de imágenes; TTFD/SDR/t_alert
+   viven en el banco temporal. Datasets distintos, roles distintos (gate espacial
+   vs evaluación temporal); el informe debe presentarlos como niveles, no como un
+   pool único de métricas.
+
+### 7.4 Definición cerrada (2026-07-19) y protocolo de dos etapas
+
+Formulación definitiva de los dos niveles — **Nivel A responde "¿el modelo OVD ve
+la condición?"; Nivel B responde "¿la plataforma alerta cuando debe y calla
+cuando debe?"**:
+
+**Nivel A — Rendimiento de los modelos OVD (media-plane).**
+
+| Métrica | Banco | Qué responde del modelo |
+|---|---|---|
+| AP@0.5 por clase (`person`,`helmet`,`vest`,`bare_head`) | BENCH imágenes (196) | ¿localiza bien las clases? |
+| Recall espacial CR-01 | BENCH imágenes | ¿ve la condición cuando está en el frame? |
+| TTFD | banco temporal | ¿cuánto tarda en verla desde el onset? |
+| SDR | banco temporal | ¿la sigue viendo sostenido o parpadea? |
+| G2A, FPS efectivo, drops | toda corrida | ¿a qué costo? |
+
+*Regla de uso:* comparar **modelos/estrategias de prompts** (D1: E-DIR vs E-IND;
+GDINO-tiny vs base) con la **plataforma congelada** (umbrales 4000/7000, motor y
+clips idénticos). Solo varía el modelo/prompt.
+
+**Nivel B — Comportamiento de alertado de la plataforma.**
+
+| Métrica | Qué responde de la plataforma |
+|---|---|
+| Recall de episodios | ¿alerta cuando debe? |
+| Precision + FAR/hora (soak) | ¿da falsas alertas? (conteo y tasa operativa) |
+| P3/P5 en cero alertas | ¿calla cuando debe? — **P3 es la prueba pura de la lógica de persistencia**: el modelo VE la infracción sub-umbral y la plataforma igual NO debe alertar (✎ 07-19: P9 salió de esta fila — es infracción real, mide recall bajo confusables, Nivel A) |
+| t_alert-system (vs Tabla D.4) | ¿alerta a tiempo para la severidad? |
+| t_compute-budget | ¿cuánto es overhead nuestro vs persistencia declarada? |
+| re_alerts / inesperadas / sub-umbral alertadas | análisis de errores R3 |
+
+*Regla de uso:* validar la **plataforma** con el **modelo fijo** (el ganador del
+Nivel A). Solo varía la configuración de plataforma.
+
+**Protocolo de dos etapas (decisión operativa):**
+
+1. **Etapa A — elegir el modelo:** correr candidatos sobre ambos bancos; comparar
+   por AP/TTFD/SDR/G2A; sale un ganador o el trade-off explícito (calidad vs FPS).
+2. **Etapa B — validar la plataforma:** congelar ese modelo; correr banco completo
+   + soak; reportar recall/precision/FAR/t_alert contra Tabla 35/D.4.
+
+**Valor para la defensa:** ante el ataque "el modelo detecta mal" (p. ej.
+`bare_head` débil, conocido del Sprint 2), la respuesta es: *eso es Nivel A,
+medido y declarado; la tesis se juzga en Nivel B — la plataforma alerta
+correctamente dado lo que el modelo ve (matriz SDR×recall, §7.3.2)*. La
+separación convierte la debilidad conocida del modelo en un **resultado medido**
+en vez de una vulnerabilidad.
+
+### 7.5 Alineación con el informe: dependencia métrica↔material y qué debe declarar Etapa 4
+
+**Principio explícito: cada métrica depende del material que el banco consiga.**
+
+| Métrica | Material del que depende | Escasez real |
+|---|---|---|
+| AP@0.5 / recall espacial | BENCH imágenes (196) | ✅ ya existe |
+| TTFD, SDR | clips con pre-roll + evento largo | media (rodaje propio) |
+| Recall, t_alert PR-01 | episodios en clips ≥17–20 s | media |
+| Recall, t_alert **PR-02** | episodios en clips **≥29 s** | 🔴 la más escasa — solo rodaje propio |
+| Precision | negativos + confusables + cola | baja (internet ayuda) |
+| **FAR/hora** | tiempo soak (5–10 min obra normal) | 🔴 hoy **cero material** |
+
+El seguro ante material insuficiente: aplicabilidad + `metric_censored` (§6.7) —
+una métrica con poco material se reporta con n reducido o censurada, **nunca se
+fabrica**.
+
+**Veredicto de alineación (chequeado contra nucleo/08, 2026-07-19): sin
+contradicciones.** Todo el doc 57 se *deriva* de las constantes del informe
+(Tablas 24/35/D.4, t0=inicio anotado, C.2, doble anotación); el informe **nunca
+fijó duraciones de clips ni composición del banco** — este doc llena un hueco, no
+pisa una definición. Pero Etapa 4 debe hacer **cinco declaraciones**:
+
+1. **FAR/hora** es derivada propia (no del §17.1.7) — declararla con el mismo
+   estatuto epistemológico que `t_capture→alert` (spec 40 §5.2: "no sustituye,
+   descompone/complementa"). Motivación citable: TRECVID NDCR / i-LIDS.
+2. **Régimen estadístico (G2):** el "P50/P95/P99 + promedio" del informe se
+   cumple para métricas por-frame; para las por-episodio (n≈10–15) rige
+   mediana+rango+muestra — amparado por la **cláusula del propio informe**
+   (§17.1.5.4.2: piso ~200 instancias *o* "tamaño efectivo + intervalos de
+   confianza"). Citar la cláusula, no pedir perdón.
+3. **`metric_censored`** — extensión de ADR-006; el informe no contempla censura
+   por duración porque no fijó duraciones.
+4. **P9 confusables + clips soak** — adiciones a la matriz C.2 (que solo tiene
+   variables de captura), declaradas como extensión de la campaña EBE.
+5. **"t_alert-system no compara modelos"** (§7.3.1) es crítica nuestra, no está
+   en el informe — escribirla. Chequeo asociado: verificar que el pre-registro D1
+   (doc 04) no la use como criterio de comparación **antes de correr D1** (por
+   nucleo/08 §2.3 el protocolo D1 trabaja con métricas espaciales y ejes de
+   prompts, así que probablemente ya está bien — verificar igual).
+
+**Lo que el desarrollo preliminar no había registrado (honesto):**
+
+- **El piso de ~200 instancias positivas** (§17.1.5.4.2) nunca se cruzó con el
+  banco de video. Resolución: el piso aplica a evaluación **espacial/de prompts**
+  (instancias por frame — lo cubren el BENCH de imágenes y los miles de frames de
+  los clips), **no** a episodios; las por-episodio van por la vía "n efectivo +
+  IC". Sin esta distinción explícita, se podría leer que el banco necesita 200
+  episodios — inviable y falso.
+- **El Bloque B se recortó a 12 s sin pre-roll** antes de que existiera la regla
+  de dimensionamiento (de ahí el TTFD=0 artefactual). La regla ahora existe y el
+  gate la hace falsable.
+- **El denominador FAR quedó en cero** porque nadie derivó que precision sobre
+  clips guionados no alcanza — hasta la validación externa (§3.2 G1).
+
+### 7.6 Principio rector del cierre (decisión del equipo, 2026-07-19)
+
+**El núcleo validable se cierra con las métricas que el material efectivamente
+cubra — la cobertura decide el conjunto final de métricas reportadas, no al
+revés.** En concreto:
+
+1. **Ninguna métrica bloquea el cierre.** Una métrica cuyo material no se
+   consiguió (o quedó corto) se reporta con su estado de aplicabilidad y causa
+   (ADR-006 + `metric_censored`, §6.7) — jamás detiene la entrega ni se fabrica.
+2. **La dirección del ajuste es material→métrica, no métrica→material.** Primero
+   se releva qué clips/escenas se pudieron obtener (tabla §7.5); recién entonces
+   se fija qué métricas entran al reporte final con qué n. Todo lo que choque
+   entre lo planeado y lo implementado **se corrige ahora, en este cierre** — no
+   se arrastra.
+3. **La prioridad de adquisición se ordena por métricas desbloqueadas por unidad
+   de esfuerzo:** hoy eso significa (a) tomas P2 largas (desbloquean el
+   denominador PR-02 completo: recall + t_alert + SDR medio) y (b) footage soak
+   (desbloquea FAR/hora, la única métrica con material en cero). Un clip que no
+   desbloquea ninguna métrica nueva no se prioriza.
+4. **El reporte declara la cobertura como resultado, no como disculpa:** "estas
+   métricas se cierran con este n y este material; estas otras quedan declaradas
+   `censored`/`not_applicable` con causa" — formato ya soportado por el evaluador
+   (ADR-006) y coherente con la cláusula "n efectivo + IC" del informe
+   (§17.1.5.4.2, cuyo piso de ~200 aplica a **instancias/imágenes** del plano
+   espacial, no a episodios).
+
+Este principio gobierna las decisiones de banco y reporte de aquí al cierre; los
+docs 55/56 (guía de desarrollo) lo referencian.
+
+---
+
+## 8. Fuentes
 
 - Perimeter Intrusion Detection by Video Surveillance: A Survey (Sensors 2022) —
   protocolo i-LIDS (TP dentro de 10 s, warm-up 5 min, crítica al conteo de FP),

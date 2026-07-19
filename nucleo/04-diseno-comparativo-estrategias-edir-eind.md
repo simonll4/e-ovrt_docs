@@ -285,14 +285,32 @@ E-HYB sigue atada a los criterios del §8.3.
 
 ## 8. Criterios de decisión (fijados antes de correr)
 
+> **✎ Enmienda al pre-registro 2026-07-19 (A5 del plan de cierre, doc 58; antes de
+> correr D1 — sigue bloqueado por el acta `edir_v1`).** El desempate del criterio 2
+> decía "menor **latencia de alerta**" (t_alert-system). La validación metodológica
+> del doc 57 §7.3.1 mostró que **`t_alert-system` NO discrimina estrategias**: está
+> dominada por la constante de persistencia del motor (CR-01 4000 ms / CR-02
+> 7000 ms), que es **idéntica entre las corridas comparadas** (D1 varía la
+> generación de detecciones, no el motor). Dos estrategias con TTFD 0.5 s vs 2.5 s
+> dan t_alert ~4.5 s vs ~6.5 s: la diferencia real se diluye en la constante. El
+> discriminante correcto de la latencia por estrategia es **TTFD** (Nivel A,
+> `t_alert-system = TTFD + t_capture→alert`; el segundo término es común). Por eso
+> el desempate pasa a TTFD. Enmienda hecha **antes** de cualquier corrida de D1 (no
+> es un cambio post-hoc de goalposts): corrige una métrica que no mide lo que el
+> criterio pretendía. La latencia de alerta se sigue **midiendo y reportando**
+> (Fase 2), pero como caracterización de la plataforma (Nivel B), no como
+> discriminante entre estrategias.
+
 Se elige como **núcleo** la estrategia con mejor F1 de alertas sobre el clip bench,
 con estos desempates y vetos, en orden:
 
 1. **Veto de precisión:** una estrategia con precision de alertas < 0.5 no puede ser
    núcleo aunque gane en F1 (un sistema asistivo que alerta mal más de la mitad de
    las veces no es defendible).
-2. **Empate técnico** (ΔF1 < 0.05): gana la de menor latencia de alerta; si persiste,
-   gana E-IND por auditabilidad de evidencia y costo de vocabulario.
+2. **Empate técnico** (ΔF1 < 0.05): gana la de menor **TTFD** (latencia de detección,
+   Nivel A — no `t_alert-system`, dominada por la persistencia constante e idéntica
+   entre estrategias, doc 57 §7.3.1/§7.4); si persiste, gana E-IND por auditabilidad
+   de evidencia y costo de vocabulario.
 3. **E-HYB** solo se adopta como núcleo si supera a la mejor individual en F1 por
    ≥ 0.05 **y** su explicación cabe en un párrafo (criterio de defensa).
 4. Pase lo que pase, la estrategia no elegida queda documentada como variante

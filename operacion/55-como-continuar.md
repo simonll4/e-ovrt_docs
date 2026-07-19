@@ -204,17 +204,40 @@ El guion completo está en **`specs/43-clip-bench-gt-temporal.md` §3**. Resumen
 > para P3/P5 (veredicto de ausencia) y **~25–30 s** para P1/P2/P4/P6/P7/P8
 > (veredicto de alerta medida), con el **onset guionado en t≈3–4 s, nunca en t=0**
 > (si no, TTFD colapsa a 0 como artefacto — es lo que le pasó a `video16_clip10`).
-> El doc 57 §6.3 trae plantillas de timeline listas para guionar.
+> El doc 57 §6.3 trae plantillas de timeline listas para guionar; §6.8 la
+> composición realista para el equipo de 3 (~21–25 clips, **P2×3** porque es el
+> denominador flaco, 2 tomas por guion, + **1–2 clips soak de 5–10 min** para
+> FAR/hora). Y rige el **principio de cierre por cobertura (doc 57 §7.6, decisión
+> del equipo 2026-07-19): el núcleo validable se cierra con las métricas que el
+> material efectivamente cubra** — ninguna métrica bloquea el cierre (se declara
+> `censored`/`not_applicable` con causa), y la prioridad de adquisición se ordena
+> por métricas desbloqueadas (P2 largos y soak primero).
+>
+> **✎ 2026-07-19 (más tarde): la mitad de internet YA ESTÁ.** Lote de 14 videos
+> en `datasets-videos/raw/` (doc 58 §B.2.1): **soak de 6:10 sin cortes** + 12
+> negativos de 20 s–1:45 + **`4.1.mp4` = episodio CR-01 espontáneo evaluable**
+> (onset t≈6 s, ~11 s de infracción, sale en t≈17 s — primer TTFD real del
+> banco). Las cuotas de internet quedaron **cubiertas** — no buscar más cortos
+> salvo hueco C.2 identificado (confusables/diurno). Lo que este PASO 4 sigue
+> aportando y nada más puede aportar: **los positivos guionados P1–P9** (P2×3
+> el crítico) y el soak propio. El prefiltro A7 ya corrió (hallazgo: GDINO
+> sobre-marca `bare_head` a distancia — los negativos quedan verificados a ojo);
+> falta solo licencias en registry (usuario) y anotar. **Para la sesión de
+> grabación, llevar impreso el `operacion/59-guion-grabacion-bloque-a.md`**
+> (shot-list con casillas, reconciliado 07-19 con estos números).
 
 1. **Consentimientos por escrito** de cada persona grabada (Ley 25.326) — *bloqueante
    legal, no lo saltees*. Archivalos y registralos en `license_registry.md`.
-2. **8–10 clips escenificados (Bloque A)** de duración **según escenario (ver
-   `operacion/57` §2/§6.3, no 10–60 s parejo)**, cámara fija en trípode, con la
-   matriz de escenarios: P1 (sin casco persistente), P2 (sin chaleco), P3 (transitorio
-   que NO debe alertar), P4 (se pone el casco), P5 (cumplimiento total = negativo),
-   P6 (doble condición), P7 (multi-persona), P8 (sale y vuelve). **Sumar 1–2 clips
-   "soak" de 5–10 min** de obra en cumplimiento normal (doc 57 §3.2 G1, habilita
-   medir FAR/hora).
+2. **13 clips escenificados (Bloque A — composición doc 57 §6.8; antes decía
+   8–10, el piso n≥8 sigue vigente como mínimo de validez)** de duración **según
+   escenario (ver `operacion/57` §2/§6.3, no 10–60 s parejo)**, cámara fija en
+   trípode, con la matriz de escenarios: 2× P1 (sin casco persistente), **3× P2**
+   (sin chaleco — es el denominador flaco, la toma extra cuesta 2 min), P3
+   (transitorio que NO debe alertar), P4 (se pone el casco), P5 (cumplimiento
+   total = negativo), P6 (doble condición), 2× P7 (multi-persona), P8 (sale y
+   vuelve), P9 (confusables: gorra≠casco, campera naranja≠chaleco). **Grabar 2
+   tomas por guion** y promover la mejor. **Sumar 1–2 clips "soak" de 5–10 min**
+   de obra en cumplimiento normal (doc 57 §3.2 G1, habilita medir FAR/hora).
 3. **3 clips de la defensa (Bloque C)**: V1 (cadena completa), V2 (clase nueva por
    config), V3 (cumplimiento → no-alerta). Se graban en la misma sesión.
 4. Variá entre clips: distancia (5–10 m y 10–20 m), iluminación (interior y exterior).

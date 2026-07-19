@@ -11,6 +11,25 @@
   faltaban (severidades, ventanas, umbrales, nombres de métricas, protocolo de
   prompts). Hay ~8 ajustes concretos a aplicar y una autocorrección de la auditoría.
 
+> **✎ Adenda 2026-07-19 — dimensionamiento del banco y frontera de métricas
+> (`operacion/57`).** El doc 57 completa esta alineación por el lado del **dataset
+> de video**: duraciones de clips derivadas de las ventanas/targets de este doc
+> (bimodal 15 / 25–30 s), validación externa contra i-LIDS/TRECVID (la estructura
+> episodio+ventana+`re_alerts` resulta ser la versión *corregida* del estándar), y
+> la **frontera de atribución de métricas** (§7: Nivel A = rendimiento OVD
+> [AP/TTFD/SDR/G2A], Nivel B = alertado de la plataforma [P/R/F1, t_alert,
+> FAR/hora]; `t_alert-system` **no** compara modelos — D1 se decide en Nivel A).
+> Su §7.5 lista las **cinco declaraciones** que Etapa 4 debe hacer (FAR/hora como
+> derivada propia; mediana+rango por-episodio amparado en la cláusula "n efectivo
+> + IC" de §17.1.5.4.2; `metric_censored`; P9+soak como extensión de C.2; la
+> advertencia sobre t_alert) y aclara que el **piso de ~200 instancias** aplica a
+> lo espacial/prompts (instancias/imágenes), no a episodios. Sin contradicciones
+> con este doc: llena el hueco de duraciones/composición que el informe no fijó.
+> Su §7.6 fija el **principio rector del cierre** (decisión del equipo
+> 2026-07-19): el núcleo validable se cierra con las métricas que el material
+> efectivamente cubra — cobertura decide el set reportado; lo no cubierto se
+> declara con estado y causa (ADR-006), nunca bloquea ni se fabrica.
+
 ## 1. Lo que el informe valida (y refuerza)
 
 1. **El experimento D1 ya estaba mandado por la metodología.** §17.1.5.4.2 (eje
