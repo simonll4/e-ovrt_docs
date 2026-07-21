@@ -214,6 +214,22 @@ una corrida EBE **sin GT**. Escenas live mínimas: **1× P1, 1× P2, 1× P3**.
 **El día ANTES (dry-run obligatorio):**
 - [ ] Servicios `:8080` + `:8081` arriba; cámara con preset y encuadre verificado
       en la ventana Cámaras (preview)
+- [ ] **Grabación verificada con las dos cámaras**: una toma de 60 s con la RTSP y
+      otra con la OAK-D desde la ventana Cámaras. Chequear en el sidecar
+      `.rec.json`: `measured.fps` cercano al pedido, `measured.resolution` la
+      esperada (si sale < 1280 de ancho, el preset apunta al substream del DVR),
+      `truncated: false`.
+- [ ] **Etapa 0 sobre un master grabado**: `prepare_clip.sh` sobre la toma de
+      prueba emite un `info.json` con `n_frames` coherente. **Trampa verificada:
+      `--to` es relativo a `--ss` (funciona como duración, NO como punto de corte
+      absoluto)**. Ejemplo real (ffmpeg 8.0.1, fuente de 20 s): `--ss 5 --to 8`
+      da un clip de **8 s** (240 cuadros a 30 fps), no de 3 s. Para extraer del
+      segundo 12 al 32 del master hay que escribir `--ss 12 --to 20` (duración =
+      32 − 12 = 20), nunca `--to 32`. Si se escribe mal **no falla**: el clip
+      queda más largo y el evento desalineado respecto de las anotaciones. Si
+      esto no cierra, el material del rodaje no entra al banco.
+- [ ] **Espacio en disco**: ≥ 5 GB libres (la consola lo exige) y destino en el
+      filesystem nativo de WSL, nunca bajo `/mnt/c`.
 - [ ] Config live con pattern set **`cr01_cr02_v2`** (4000/7000, NO el v1)
 - [ ] Modelo `gdino-tiny` cargado; disco libre para `runs/`
 - [ ] **Smoke live**: actor se quita el casco ~6 s → alerta CR-01 confirmada a
