@@ -1,0 +1,84 @@
+{
+  "grounding-dino/gdino-tiny": {
+    "run_id": "run_20260723_020952_dbe_grounding_dino_de0bae",
+    "status": "succeeded",
+    "eval": {
+      "type": "perception",
+      "run_id": "run_20260723_020952_dbe_grounding_dino_de0bae",
+      "benchmark": "construction_site_safety_bench",
+      "iou_threshold": 0.5,
+      "per_class": [
+        {
+          "class_name": "person",
+          "AP50": 0.6179,
+          "n_gt": 174,
+          "n_det": 138
+        },
+        {
+          "class_name": "helmet",
+          "AP50": 0.7955,
+          "n_gt": 110,
+          "n_det": 101
+        },
+        {
+          "class_name": "vest",
+          "AP50": 0.2351,
+          "n_gt": 61,
+          "n_det": 61
+        },
+        {
+          "class_name": "bare_head",
+          "AP50": 0.0303,
+          "n_gt": 41,
+          "n_det": 39
+        }
+      ],
+      "cr01_detection_recall": 0.3659,
+      "evaluated_at": "2026-07-23T02:10:08.990760+00:00",
+      "mAP50": 0.4197,
+      "model": "grounding_dino",
+      "bench_split": "bench_v2_test"
+    }
+  },
+  "grounding-dino/gdino-tiny-560": {
+    "run_id": "run_20260723_021021_dbe_grounding_dino_120bf5",
+    "status": "succeeded",
+    "eval": {
+      "type": "perception",
+      "run_id": "run_20260723_021021_dbe_grounding_dino_120bf5",
+      "benchmark": "construction_site_safety_bench",
+      "iou_threshold": 0.5,
+      "per_class": [
+        {
+          "class_name": "person",
+          "AP50": 0.6813,
+          "n_gt": 174,
+          "n_det": 172
+        },
+        {
+          "class_name": "helmet",
+          "AP50": 0.778,
+          "n_gt": 110,
+          "n_det": 110
+        },
+        {
+          "class_name": "vest",
+          "AP50": 0.2395,
+          "n_gt": 61,
+          "n_det": 76
+        },
+        {
+          "class_name": "bare_head",
+          "AP50": 0.0909,
+          "n_gt": 41,
+          "n_det": 65
+        }
+      ],
+      "cr01_detection_recall": 0.4146,
+      "evaluated_at": "2026-07-23T02:10:33.397637+00:00",
+      "mAP50": 0.4474,
+      "model": "grounding_dino",
+      "bench_split": "bench_v2_test"
+    }
+  }
+}

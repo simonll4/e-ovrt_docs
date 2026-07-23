@@ -269,3 +269,29 @@ sin costo.
 - [ ] Ninguna toma arranca ya en infracción (regla de oro 1)
 - [ ] Todas las tomas tienen cola > resolve (regla de oro 2)
 - [ ] Copia de seguridad del material crudo antes de salir de la locación
+
+## 9. Revisión 2026-07-23 (tramo 3 del doc 60 §8, con lo aprendido en dry-run/L0)
+
+Estas reglas ENMIENDAN lo anterior; ante conflicto, gana esta sección.
+
+1. **Config oficial de las corridas (S2/G1 cerrados):** modelo
+   `EOVRT_MODEL_REF=grounding-dino/gdino-tiny-560` (campeón, doc 64); prompt set
+   **`cr01_cr02_v2_short` CONGELADO** (sha `df81fd48…`); pattern set `cr01_cr02_v2`;
+   prefilter EN-2 APAGADO (D-61.2); sin cascada (D-61.1). Presupuesto real medido:
+   ~3,3 fps live y g2a ~310 ms con caption de 3 clases (doc 65) — dentro de lo que
+   la persistencia 4000/7000 tolera.
+2. **Regla dura del `starting` (F-DR6):** NADIE actúa hasta que la UI de grabación
+   salga de `starting` (la OAK-D tarda ~9 s en conectar). El operador lo dice en voz
+   alta ("grabando") antes de que el actor entre en escena.
+3. **Cantar el evento (doc 60 §9):** el actor u operador canta en voz alta el inicio
+   y fin de cada infracción actuada ("me saco el casco… casco puesto"). Queda en la
+   hoja de registro y desambigua el onset en CVAT.
+4. **Seguridad de escena (regla nueva, explícita):** toda infracción se actúa a
+   nivel de piso, lejos de bordes, huecos y maquinaria; el EPP real está disponible
+   en escena para el estado cumplidor; consentimientos firmados ANTES de la primera
+   toma; nadie actúa una infracción real de altura ni de proximidad a equipos.
+5. **Trampas operativas del día** (doc 65/67): servicios lanzados DESDE la raíz de
+   su repo; orden EBE control-primero (`subscribed:true`); terminal = `succeeded`;
+   409 en control = reusar el run activo; Ctrl+Shift+R tras cambios de frontend;
+   entrar a la consola por `/`; verificar `bus_dropped_events=0` ANTES de desarmar
+   cada escena live; inventario contra §8 antes de liberar a los actores.
