@@ -39,17 +39,54 @@ operativas del día (servicios desde su repo, orden EBE, etc.).
 (`docs` no tiene remote por decisión vigente). Working trees limpios verificados
 2026-07-23 — no hay material irrepetible en riesgo por árboles sucios.
 
-### ⏳ GATE ABIERTO antes de declarar "todo ok"
+### ✅ GATE CERRADO (2026-07-23, ensayo con cámaras reales)
 
-**G2 — L0 tramo 2: ensayo mecánico de doble toma (necesita al usuario, ~1 h con cámaras).**
-Único gate pendiente — todos los demás (config, guion, higiene de repos) ya están resueltos.
-1. Toma A: grabar desde la consola → `prepare_clip.sh` → clip listo (circuito completo).
-2. Toma B: corrida live 1:1 inmediata (misma escena).
-3. Claqueta de prueba (palmada + hora anotada) → decidir si el stretch `t_alert = TTFD +
-   t_capture→alert` entra al rodaje.
-4. Medir tiempos de setup por escena → dimensionar la jornada del doc 59.
+**G2 — L0 tramo 2: ensayo mecánico de doble toma. CERRADO.** Los 4 pasos, con la OAK-D real
+(192.168.1.50) y la EZVIZ verificada por ping:
+1. **Toma A**: grabada desde la consola (`P1-a-take2.mp4`, 40.4 s) → `prepare_clip.sh` →
+   `ensayo-g2-tomaA.mp4` (1920x1080, 30 fps CFR, 1212 frames). Circuito completo OK.
+2. **Toma B**: corrida live 1:1 con `gdino-tiny-560` + `cr01_cr02_v2_short` sobre OAK-D. Orden
+   control-first respetado, `subscribed:true` confirmado antes de disparar media. Alerta CR-01
+   real emitida (persona sin casco, severidad `high`), `bus_dropped_events: 0`, cierre 1:1
+   (`succeeded`/`stopped`) referenciando el mismo `media_run_id`.
+3. **Claqueta de prueba**: primer intento **falló** — la palmada llegó 4.5 s antes de que la
+   OAK-D entregara el primer frame (conexión ~9 s), confirmando en carne propia por qué existe
+   la regla dura del `starting` (F-DR6, doc 59 §9: nadie actúa hasta que la fuente salga de
+   "starting"). Repetido esperando la conexión: la palmada quedó anclada a **222 ms** del
+   `capture_wallclock_ms` del frame más cercano — confirma que `t_alert = TTFD +
+   t_capture→alert` es reconstruible con un ancla externa (una claqueta física real en el
+   rodaje da precisión sub-frame, mejor que el margen de chat de este ensayo).
+**Hallazgo de vestuario y sobre-marca `vest` (F-G2.1, con corrida de verificación):** la
+campera deportiva del usuario (oscura con franjas amarillas) se detectó como `vest` conf
+~0.54 en el **98-100% de los frames** de las tres primeras corridas — CR-02 completamente
+suprimida (solo CR-01 disparó). Corrida de verificación **sin la campera** (ropa lisa,
+`run_20260723_215516…0d0abb`, 585 unidades): el modelo siguió alucinando `vest` débil
+(~0.31) sobre el torso liso durante ~4 min — por encima del umbral de evidencia del motor
+(`min_absent_class_confidence: 0.25`), así que el episodio CR-02 siguió sin abrir; cuando la
+alucinación cesó (frames 2217+), el episodio abrió, sostuvo los 7000 ms y **CR-02 confirmó**
+(`medium`, score 0.56) — las dos alertas (CR-01 + CR-02) en el mismo run, `bus_dropped: 0`.
+Lecturas: (a) **el circuito CR-02 live funciona de punta a punta**; (b) la sobre-marca de
+`vest` es un fenómeno real del modelo (escena doméstica nocturna, fuera de dominio) que
+retrasa o suprime CR-02 — es exactamente lo que las Fases T/P van a caracterizar con
+material real, y un caso documentable de falso cumplimiento (P9). **Regla para el rodaje:**
+el estado "sin chaleco" se actúa con ropa lisa sin franjas ni colores hi-vis (para que CR-02
+sea medible), y se guarda además una toma deliberada con ropa a franjas como caso P9
+documentado. Los `helmet` FPs fueron esporádicos (13/463, 11/93) y la persistencia de
+4000 ms los filtró: CR-01 confirmó en todas las corridas.
 
-**G5 — Checklist del día (recorrerla en G2, ejecutarla el día):**
+4. **Tiempos de setup por escena** (medidos, no estimados):
+   - control→`subscribed:true`: <1 s
+   - media→primer frame OAK-D (conexión): **8.3 s** (consistente con el ~9 s de doc 61)
+   - ventana mínima de actuación para confirmar CR-01: ≥4 s sostenidos (`confirm_after_ms`)
+   - `stop()`→ambos planos en terminal: 6.4 s
+   - **overhead mecánico fijo por toma live: ~15 s** (fuera del tiempo de actuación) — con
+     ~12-15 episodios del shot-list son ~3-4 min acumulados en el día, manejable.
+
+**G5 — Checklist del día**, recorrida en este ensayo (disco 901 GB libres, servicios
+levantados cada uno desde la raíz de su repo, orden EBE control-primero verificado dos veces,
+consola up en `:5173`/BFF `:8090`, ambas cámaras responden ping) — falta ejecutarla completa
+recién **el día del rodaje** (ítems 7-8 son por escena/al cierre, no aplican a un ensayo sin
+actores):
 1. Disco: ≥20 GB libres en el destino de `datasets-videos/raw/` (y ojo tmpfs de `/tmp`).
 2. Servicios **desde la raíz de su repo** (trampa doc 65: artefactos fuera de lugar).
 3. `EOVRT_MODEL_REF=grounding-dino/gdino-tiny-560`; smoke `/healthz`+`/readyz`.
@@ -62,14 +99,16 @@ operativas del día (servicios desde su repo, orden EBE, etc.).
 8. Al cierre: inventario de tomas vs shot-list ANTES de que los colegas se vayan (el doc 59
    §6 define el mínimo por escenario — es más barato repetir en el momento).
 
-## Secuencia (actualizada 2026-07-23: G1/G3/G4 cerrados)
+## Secuencia (actualizada 2026-07-23: G1-G5 cerrados, solo falta el rodaje en sí)
 
 1. ~~Claude, ya: G1 + B1/B2 del doc 66~~ — **HECHO** (G1 congelado; B1 descartado en
    auditoría, B2/B4/B5 completados con `bench_v3`, doc 66).
-2. **Usuario + Claude, próxima sesión con cámaras (~1 h)**: **G2** (ensayo doble toma) +
-   recorrer G5. Único paso que falta.
+2. ~~Usuario + Claude, sesión con cámaras (~1 h)~~ — **HECHO** (G2 ensayo doble toma + G5
+   recorrida, misma noche).
 3. ~~Usuario: G4~~ — **HECHO** (los 5 repos commiteados y pusheados).
-4. **Día del rodaje**: ejecutar G5; Claude opera los planos y el inventario en vivo.
+4. **Día del rodaje**: ejecutar G5 completa (ítems 7-8, por escena y al cierre); Claude opera
+   los planos y el inventario en vivo. Sin gates técnicos pendientes — lo que falta es
+   administrativo (consentimientos, colegas, EPP) y del lado del rodaje mismo.
 
 Del lado del usuario sigue pendiente (fuera del alcance de estos gates): consentimientos
 firmados, coordinación de colegas y EPP físico, pasada humana CVAT de los videos de internet,
