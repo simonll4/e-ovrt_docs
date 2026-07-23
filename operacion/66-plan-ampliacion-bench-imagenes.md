@@ -13,7 +13,19 @@ bench** antes de incorporar imágenes nuevas. Las corridas de calibración del c
 estrategia de prompts usan EXCLUSIVAMENTE material que no esté en ningún bench (p.ej. DEMO
 split o el train de CHV no promovido).
 
-## B1 — Promover CSS-train curado (la ganancia grande, misma fuente)
+## B1 — Promover CSS-train: **DESCARTADO tras auditoría (2026-07-23)**
+
+La auditoría S0 previa a promover (18 imgs con GT dibujado + verificación objetiva) mostró
+que **el train split de CSS está 100% aumentado por el export de Roboflow**: collages mosaic
+2×2, parches cutout negros y variantes en escala de grises horneadas en los archivos, con
+selfies COVID dentro de los collages. Verificación objetiva: densidad 14,4 anotaciones/img
+vs 3,8 en test/val (≈4× = collage 2×2 en casi todo el split). La política del repo
+(`class_mapping.yaml`: "no data augmentation sobre BENCH/DEMO") lo prohíbe y no hay forma
+confiable de recuperar los originales del export. **Los conteos prometedores del plan
+original (NO-Hardhat 2318, etc.) eran anotaciones de derivados aumentados.** El principio
+auditar-antes-de-promover evitó contaminar el bench por segunda vez.
+
+## ~~B1 (plan original, invalidado)~~ Promover CSS-train curado
 
 `construction_site_safety/train`: 2.603 imgs con GT completo: Person 9.691, Hardhat 3.362,
 **NO-Hardhat 2.318** (→ bare_head + `has_helmet=false`), Safety Vest 3.156, **NO-Safety Vest
@@ -33,7 +45,13 @@ split o el train de CHV no promovido).
 Advertencia declarada: sigue siendo LA MISMA fuente Roboflow — sube n y precisión de los IC,
 NO independencia. La independencia la aportan B2/B4.
 
-## B2 — CHV a rol BENCH (segunda fuente, académica)
+## B2 — CHV a rol BENCH (segunda fuente, académica) — **AUDITADO APTO (2026-07-23)**
+
+Auditoría visual (12 imgs con GT dibujado): obra e industrial real, cajas prolijas y ceñidas
+(cascos/chalecos/personas), sin augmentations (densidad 5 labels/img, mediana). Salvedades a
+declarar: algunas imágenes de stock con watermark y 1–2 de estudio con fondo blanco; dominio
+mixto obra/aula-industrial (consistente con el scoring original "parcial"). Entra como
+estrato propio.
 
 CHV (ZijianWang, PPE_detection, 1.330 imgs, YOLO): person + helmet(4 colores) + vest. Está
 en rol TRAIN, pero **no entrenamos**: reasignarlo a BENCH es legítimo si (a) los prompts ya
