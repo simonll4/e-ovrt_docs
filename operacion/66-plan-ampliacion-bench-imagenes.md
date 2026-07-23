@@ -116,7 +116,7 @@ visualmente algo más); (c) watermarks de portales de noticias chinos en una fra
 `face`/`head_with_helmet`/los 8 `person` sueltos se descartan. Próximo paso: entrada
 `shel5k` en `configs()` de `convert_datasets.py` (TDD) + estrato en bench_v3 (B5).
 
-## B5 — Conversión + re-puntuación: EJECUTADO PARCIAL (2026-07-23, sesión interrumpida)
+## B5 — Conversión + re-puntuación + consolidación: COMPLETO (2026-07-23)
 
 **Hecho, con TDD (suite datasets 125 passed):**
 
@@ -139,8 +139,8 @@ visualmente algo más); (c) watermarks de portales de noticias chinos en una fra
 4. **COCOs por estrato fusionados** (`bench_stratum_{shel5k,chv}.json`, ids remapeados,
    basenames verificados únicos).
 
-**Re-puntuación parcial (2 de 3 modelos candidatos, corte deliberado por tiempo — `yoloe-26x`
-NO corrió, sesión se retoma mañana):**
+**Re-puntuación completa (3/3 modelos candidatos × 2 estratos nuevos + re-lectura corregida
+del estrato `bench_obra`):**
 
 | Modelo | Estrato | person | helmet | vest | bare_head | recall CR-01 |
 |---|---|---|---|---|---|---|
@@ -148,51 +148,57 @@ NO corrió, sesión se retoma mañana):**
 | gdino-tiny-560 | chv (n=1330) | 0.862 | 0.886 | **0.553** | — | — |
 | gdino-base-560 | shel5k (n=5000) | 0.693 | 0.415 | — | **0.399** | **0.602** |
 | gdino-base-560 | chv (n=1330) | 0.783 | 0.453 | **0.576** | — | — |
+| yoloe-26x | shel5k (n=5000) | 0.785 | 0.715 | — | 0.000 | 0.000 |
+| yoloe-26x | chv (n=1330) | 0.785 | 0.888 | 0.243 | — | — |
 
 (`—` = clase sin GT en ese estrato: vest no existe en SHEL5K, bare_head no existe en CHV;
 recall CR-01 en CHV sale `None` por falta de `person_gt` propio, esperado.)
 
-**Lectura preliminar (NO reabre la decisión S2 — la matriz de calidad completa fue en
-`bench_obra`; esto es evidencia adicional por estrato, a consolidar en B5 con los 3 modelos):**
+**Trampa cazada al consolidar: el `eval_perception.json` de las corridas `bench_obra` de S1**
+tenía el recall CR-01 con el bug de denominador (el fix del CLI, doc 64, llegó después de
+esas corridas puntuales) — **0.415/0.471** en vez de los valores correctos ya validados a
+mano en doc 64 (test 7/30=0.2333, val 17/35=0.4857 para tiny-560; análogo para base-560).
+Causa de fondo: el mecanismo `restrict_gt_to_detections` del CLI restringe el `person_gt` a
+los basenames del `detections.jsonl` del run — pero esas corridas de S1 procesaron el
+`bench_v2_test` SIN curar (82 imgs), no el `bench_obra_test` curado (62 imgs), así que el
+restrict conserva violadores de las 20 imágenes fuera de dominio que la curación excluye. El
+AP por clase (que sí restringe por el `--bench-coco` pasado) no se ve afectado — solo el
+recall CR-01. Se usaron los valores manualmente verificados de doc 64 para el agregado.
 
-- **`gdino-base-560` es notablemente mejor en `bare_head` y recall CR-01 sobre SHEL5K**
-  (0.399 / 0.602) que sobre `bench_obra` (AP≈0.03, recall 0.40) — con n=6.120 vs 61, este
-  número pesa mucho más y sugiere que la debilidad "universal" de bare_head en los sprints
-  anteriores era en parte artefacto del n chico, no solo del modelo. A confirmar cuando entre
-  al agregado ponderado.
-- **CHV es el estrato más favorable a vest** para ambos modelos (0.55–0.58, el mejor AP de
-  vest medido en todo el proyecto) — refuerza la decisión B2 de incorporarlo.
-- `gdino-tiny-560` sigue mejor en person/helmet; `gdino-base-560` sigue especialista en
-  bare_head/vest/CR-01 — el patrón de doc 64 (tiny=generalista, base=especialista CR-02) se
-  sostiene con datos independientes.
+## `bench_v3` ensamblado y congelado
 
-**Pendiente para retomar (orden):**
-1. Correr `yoloe-26x` sobre los 2 estratos (mismo harness, `b5_rescore.py` en el scratchpad
-   de la sesión — o rehacerlo, es corto).
-2. Ensamblar `bench_v3`: agregado ponderado de los 3 estratos (`bench_obra` 147 + `chv` 1.330
-   + `shel5k` 5.000 = **6.477 imgs**), manifest con sha256, congelamiento.
-3. Actualizar doc 64 (S2) con la tabla consolidada de 3 fuentes si el campeón se sostiene (o
-   documentar el cambio si `gdino-base-560` desplaza a `tiny-560` en el agregado — el
-   desempate pre-registrado de doc 62 §2 sigue siendo mAP50 con recall CR-01 como criterio).
-4. Registro humano en `datasets/registry/` (mismo patrón que `curation_bench_obra.md`).
+Script nuevo con TDD (`datasets/scripts/curate/build_bench_v3.py`, 6 tests):
+fusiona los 4 COCOs curados (`bench_obra_test` + `bench_obra_val` + `chv` + `shel5k`) con ids
+globales únicos, cada imagen con su campo `stratum`. Salida:
+`processed/coco/bench/curated/bench_v3.json` (**6.477 imgs, 55.165 anotaciones**) +
+`bench_v3_manifest.json` (conteos por estrato, sha256 de cada fuente y del bench fusionado —
+congelamiento verificable). Integridad verificada: 0 colisiones de id, 0 basenames duplicados
+entre estratos. Registro humano: `datasets/registry/bench_v3.md`.
 
-Crudos de esta corrida parcial: `datos/b5_rescore_partial_2026-07-23.jsonl` (4 registros,
-todos `succeeded`, ninguno a mitad).
+Agregado ponderado por n_gt/n_violadores real (`datasets/scripts/curate/bench_v3_report.py`,
+4 tests — ignora clases ausentes en un estrato en vez de contarlas como cero):
 
-## B5 — Consolidación: `bench_v3` estratificado y congelado
+| Modelo | mAP50 (n=6.477) | recall CR-01 (n=5.313) |
+|---|---|---|
+| **gdino-tiny-560** | **0.551** | 0.308 |
+| gdino-base-560 | 0.525 | **0.599** |
+| yoloe-26x | 0.442 | 0.000 |
 
-- Estructura: estratos por fuente (`css_testval`, `css_train`, `chv`, `externo?`) con
-  métricas reportables por estrato Y agregadas; n por clase declarado siempre.
-- El bench_obra actual (147) queda como **estrato núcleo verificado** — es el único con
-  pasada visual completa; el resto entra como "curado por muestreo" hasta pasada humana.
-- Congelamiento con manifest + sha256 antes de re-correr campeones (S1 NO se re-corre entero:
-  solo `gdino-tiny-560`, `gdino-base-560` y `yoloe-26x` como contraste, sobre el bench ampliado).
-- Registro en `datasets/registry/` (mismo patrón que `curation_bench_obra.md`).
+**Resultado: el campeón se sostiene idéntico** (`gdino-tiny-560`, 1º en mAP50 tanto en
+`bench_obra` solo —147 imgs— como en `bench_v3` —6.477—, robusto a la fuente). El hallazgo de
+`gdino-base-560` como especialista CR-02/bare_head, casi empatado en `bench_obra` (0.400 vs
+0.369, n=65), **se separa con claridad** al sumar el n grande de SHEL5K (0.599 vs 0.308,
+n=5.313): no era ruido de denominador chico, es un efecto real que ahora tiene respaldo
+estadístico sólido para el reporte de cierre. Detalle y decisión formal en doc 64 (sección
+"Confirmación B5").
 
-## Esfuerzo estimado y orden
+Crudos: `datos/b5_rescore_partial_2026-07-23.jsonl` (6 registros: los 3 modelos × 2 estratos,
+pese al nombre "partial" del archivo — quedó así por continuidad con la corrida de anoche).
 
-B1 (medio día, mayormente automatizable) → B2 (2-3 h) → B5 parcial (re-correr campeones,
-~1 h GPU) → B4 si el informe da un ganador (1 día incl. descarga+auditoría) → B3 solo si
-sobra tiempo. Con B1+B2 solos: vest pasa de n=79 a ~2.000+, bare_head de 61 a ~1.500+,
-violadores CR-01 de 65 a ~1.000+ — los IC bajan de ±0.12 a ±0.03. **El rodaje no se toca ni
-se retrasa por esto: es trabajo de Claude en paralelo.**
+## Esfuerzo real vs estimado
+
+Estimado originalmente: B1 medio día + B2 2-3h + B4 1 día + B5 ~1h GPU. Real: B1 se descartó
+en la propia auditoría (30 min), B2/B4/B5 se completaron en una sesión partida en dos noches
+(la descarga de SHEL5K y el cómputo GPU fueron la parte lenta, no el análisis). Bench de
+imágenes pasó de 147 imgs / 1 fuente a **6.477 imgs / 3 fuentes independientes** — el IC del
+recall CR-01 baja de ±0.12 (n=65) a ~±0.014 (n=5.313). El rodaje no se tocó ni se retrasó.

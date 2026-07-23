@@ -72,3 +72,21 @@ default.)*
 - MM-GDINO fuera del resto del plan. YOLOE-26x se reporta como contraste, no compite en T/P.
 - Reporte de cierre (Q1): números del marco `bench_obra` con n=147 y la contaminación
   declarada (doc 63); el BENCH completo solo como apéndice.
+
+## Confirmación B5 (2026-07-23, `bench_v3`, n=6.477 — ver doc 66 §B5)
+
+Los 3 campeones se re-corrieron sobre `bench_v3` (bench_obra + chv + shel5k, 44× más
+imágenes que solo `bench_obra`). **El campeón se sostiene idéntico:**
+
+| Modelo | mAP50 (n=6.477) | recall CR-01 (n=5.313) |
+|---|---|---|
+| **gdino-tiny-560** | **0.551** (1º, igual que doc 64 original) | 0.308 |
+| gdino-base-560 | 0.525 | **0.599** (1º, brecha AHORA clara) |
+| yoloe-26x | 0.442 | 0.000 |
+
+**gdino-tiny-560 gana mAP50 en bench_obra solo (147) Y en bench_v3 (6.477) — robusto a la
+fuente.** El hallazgo de `gdino-base-560` como especialista CR-02/bare_head, que en
+`bench_obra` era casi empate (0.400 vs 0.369, n=65), **se separa con claridad** al sumar el
+n grande de SHEL5K (0.599 vs 0.308, n=5.313): no era ruido de denominador chico, es un efecto
+real. Decisión S2 sin cambios; el hallazgo del especialista queda más fuerte para el reporte
+de cierre. Ver `datasets/registry/bench_v3.md` para la composición y salvedades del bench.
