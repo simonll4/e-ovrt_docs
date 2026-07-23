@@ -116,6 +116,69 @@ visualmente algo más); (c) watermarks de portales de noticias chinos en una fra
 `face`/`head_with_helmet`/los 8 `person` sueltos se descartan. Próximo paso: entrada
 `shel5k` en `configs()` de `convert_datasets.py` (TDD) + estrato en bench_v3 (B5).
 
+## B5 — Conversión + re-puntuación: EJECUTADO PARCIAL (2026-07-23, sesión interrumpida)
+
+**Hecho, con TDD (suite datasets 125 passed):**
+
+1. **Mapping SHEL5K corregido en el conversor** — la entrada previa (de junio) tenía dos
+   errores que la auditoría del B4 destapó: mapeaba `head_with_helmet→helmet` (verificado:
+   97% de solape con una caja `helmet` separada — habría duplicado ~16k cajas de GT) y no
+   mapeaba `head` en absoluto por una lectura conservadora del guard D9. Verificación empírica
+   sobre 400 XML: las cajas `head` están 82% contenidas en `person_no_helmet` y solo 2% en
+   `person_with_helmet` (existe `head_with_helmet` aparte) — es la anotación EXPLÍCITA de
+   cabeza descubierta del paper, no una derivación por resta. El guard `assert_no_derived_bare_head`
+   ganó una exención tipada `bare_head_explicit_sources` (documentada, exige verificación
+   empírica citada) sin debilitar la regla general.
+2. **Conversión `canonical_v2` ejecutada**: SHEL5K (5.000 imgs: person 20.023, helmet 19.252,
+   **bare_head 6.120**) y CHV (1.330: person 3.887, helmet 3.538, **vest 1.784**).
+3. **`person_gt_shel5k.json` generado** (script nuevo con TDD,
+   `datasets/scripts/bench/build_person_gt_shel5k.py`): 20.015 personas con `has_helmet`
+   directo de las clases compuestas → **5.248 violadores CR-01** (vs 65 en bench_obra).
+   `has_vest` deliberadamente ausente — SHEL5K no lo anota; fabricarlo en `false` inventaría
+   violadores CR-02 que no existen en el dataset.
+4. **COCOs por estrato fusionados** (`bench_stratum_{shel5k,chv}.json`, ids remapeados,
+   basenames verificados únicos).
+
+**Re-puntuación parcial (2 de 3 modelos candidatos, corte deliberado por tiempo — `yoloe-26x`
+NO corrió, sesión se retoma mañana):**
+
+| Modelo | Estrato | person | helmet | vest | bare_head | recall CR-01 |
+|---|---|---|---|---|---|---|
+| gdino-tiny-560 | shel5k (n=5000) | 0.770 | 0.707 | — | **0.133** | 0.308 |
+| gdino-tiny-560 | chv (n=1330) | 0.862 | 0.886 | **0.553** | — | — |
+| gdino-base-560 | shel5k (n=5000) | 0.693 | 0.415 | — | **0.399** | **0.602** |
+| gdino-base-560 | chv (n=1330) | 0.783 | 0.453 | **0.576** | — | — |
+
+(`—` = clase sin GT en ese estrato: vest no existe en SHEL5K, bare_head no existe en CHV;
+recall CR-01 en CHV sale `None` por falta de `person_gt` propio, esperado.)
+
+**Lectura preliminar (NO reabre la decisión S2 — la matriz de calidad completa fue en
+`bench_obra`; esto es evidencia adicional por estrato, a consolidar en B5 con los 3 modelos):**
+
+- **`gdino-base-560` es notablemente mejor en `bare_head` y recall CR-01 sobre SHEL5K**
+  (0.399 / 0.602) que sobre `bench_obra` (AP≈0.03, recall 0.40) — con n=6.120 vs 61, este
+  número pesa mucho más y sugiere que la debilidad "universal" de bare_head en los sprints
+  anteriores era en parte artefacto del n chico, no solo del modelo. A confirmar cuando entre
+  al agregado ponderado.
+- **CHV es el estrato más favorable a vest** para ambos modelos (0.55–0.58, el mejor AP de
+  vest medido en todo el proyecto) — refuerza la decisión B2 de incorporarlo.
+- `gdino-tiny-560` sigue mejor en person/helmet; `gdino-base-560` sigue especialista en
+  bare_head/vest/CR-01 — el patrón de doc 64 (tiny=generalista, base=especialista CR-02) se
+  sostiene con datos independientes.
+
+**Pendiente para retomar (orden):**
+1. Correr `yoloe-26x` sobre los 2 estratos (mismo harness, `b5_rescore.py` en el scratchpad
+   de la sesión — o rehacerlo, es corto).
+2. Ensamblar `bench_v3`: agregado ponderado de los 3 estratos (`bench_obra` 147 + `chv` 1.330
+   + `shel5k` 5.000 = **6.477 imgs**), manifest con sha256, congelamiento.
+3. Actualizar doc 64 (S2) con la tabla consolidada de 3 fuentes si el campeón se sostiene (o
+   documentar el cambio si `gdino-base-560` desplaza a `tiny-560` en el agregado — el
+   desempate pre-registrado de doc 62 §2 sigue siendo mAP50 con recall CR-01 como criterio).
+4. Registro humano en `datasets/registry/` (mismo patrón que `curation_bench_obra.md`).
+
+Crudos de esta corrida parcial: `datos/b5_rescore_partial_2026-07-23.jsonl` (4 registros,
+todos `succeeded`, ninguno a mitad).
+
 ## B5 — Consolidación: `bench_v3` estratificado y congelado
 
 - Estructura: estratos por fuente (`css_testval`, `css_train`, `chv`, `externo?`) con
