@@ -14,6 +14,11 @@
 > El `.git/` cascarón de la raíz de `projects/` sigue existiendo; es inofensivo
 > (el repo real de `docs/` tiene precedencia), pero no versiona nada del workspace.
 
+> 📋 **[`GUIA-CIERRE.md`](GUIA-CIERRE.md) — tu checklist personal hasta la defensa.**
+> Documento sin número (no forma parte de la serie `operacion/NN-`): lista tachable de lo
+> que falta, en orden, cada ítem derivando al doc con el detalle de ejecución. Si solo
+> querés saber "¿qué hago ahora?", empezá ahí en vez de por este índice.
+
 ## Cómo está organizado
 
 El **número del documento es su identidad** y no cambia: en todo el set se referencian
