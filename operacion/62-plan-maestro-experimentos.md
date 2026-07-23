@@ -112,7 +112,7 @@ del experimental-setup (`experiment_id → clip_id → gt`, consolidación ADR-0
 precision/recall/F1 por episodio (matching bipartito A4, `re_alerts` no son FP), FAR/hora con
 `observed_duration_ms` (A3), t_alert-system, t_compute-budget, con **n declarado por métrica**
 y estados de aplicabilidad. Deuda a cablear antes: `far_per_hour`/`censored_episodes` al
-reporte del experimental-setup (anotada en doc 58 A-deuda).
+reporte del experimental-setup — detalle en §9 "Deuda de implementación".
 
 ## 6. Fase L — EBE live
 
@@ -162,17 +162,55 @@ doc 2026-07-17). Complemento: mini-piloto MOCS de clase nueva (argumento A3 de l
 
 ## 9. Secuencia, responsables y exclusiones
 
-| Orden | Qué | Quién | Depende de |
-|---|---|---|---|
-| 1 (YA) | S0 auditoría BENCH + S1 matriz 20 corridas + S2 tabla campeones | Claude | nada |
-| 2 (YA) | L0 ensayo EBE pre-rodaje | Claude (+usuario si quiere mirar) | cámaras arriba |
-| 3 | Pasada humana CVAT videos internet + acta `edir_v1` + consentimientos | **Usuario** | — |
-| 4 | Rodaje (doc 59) con L1 embebido | Usuario + Claude | 2 y 3 |
-| 5 | GT CVAT del rodaje (equipo de 3, 58 §B.3) | Usuario | 4 |
-| 6 | T banco temporal → P plataforma → D si hay acta | Claude | 3/5 |
-| 7 | Análisis de errores + reporte de cierre | Claude | 6 |
+**Estado 2026-07-23** — actualizado tras el cierre de S/S0/S1/S2 (docs 63/64), la ampliación
+del bench (doc 66, `bench_v3` congelado) y L0 tramo 1 (doc 65).
 
-**Exclusiones vigentes (no re-litigar):** cascada E-HYB (D-61.1, trabajo futuro), EN-2 en
-corridas evaluativas (D-61.2), GDINO 1.5/1.6 (API-only), MM-GDINO-tiny (bug), fine-tuning,
-spec 45 MQTT para lo último (decisión usuario). Regla transversal: nada se commitea sin
-pedido explícito.
+| Orden | Qué | Estado | Quién | Depende de |
+|---|---|---|---|---|
+| 1 | S0 auditoría BENCH + S1 matriz 20/30 corridas + S2 campeón + B5 `bench_v3` | ✅ **CERRADO** | Claude | nada |
+| 2 | L0 ensayo EBE pre-rodaje | 🟡 **tramo 1 hecho** (doc 65, VERDE); **tramo 2 pendiente** (doc 67 G2: doble toma + claqueta, ~1h) | Claude + **usuario** | cámaras arriba |
+| 3 | Pasada humana CVAT videos internet + acta `edir_v1` + consentimientos | ⏳ pendiente | **Usuario** | — |
+| 4 | Rodaje (doc 59, guion §9 cerrado) con L1 embebido | ⏳ pendiente | Usuario + Claude | 2 y 3 |
+| 5 | GT CVAT del rodaje (equipo de 3, 58 §B.3) | ⏳ pendiente | Usuario | 4 |
+| 6 | T banco temporal → P plataforma → D si hay acta | ⏳ bloqueado | Claude | 3/5 |
+| 7 | Análisis de errores + reporte de cierre | ⏳ bloqueado | Claude | 6 |
+
+### Deuda de implementación (Claude, sin bloqueo de material — ejecutable ya)
+
+Ninguna bloquea el rodaje; se pueden tomar en cualquier momento libre antes de la Fase P:
+
+1. **Cablear `far_per_hour`/`censored_episodes` al reporte del experimental-setup** (ítem 6,
+   deuda desde doc 51/58; ya calculados en `_evaluate_v2` del control-plane, A3/A2 — falta
+   que el generador de `report.json`/`report.md` los lea y los muestre). Requisito de Fase P
+   (§5); mejor resuelta antes de que la Fase P arranque, no durante.
+2. **B3 — auditoría de `ppe_siabar`** (doc 66, prioridad baja): scoring original lo marca
+   `dominio_obra_civil: no`; 20 imgs con GT dibujado deciden si entra a `bench_v3` como 4º
+   estrato o queda fuera. ~30 min.
+3. **Bug de denominador gemelo en `datasets/scripts/bench/evaluate_bench.py` (standalone,
+   NO el CLI del media-plane que ya está arreglado).** `evaluate_cr01()` recibe
+   `images_by_filename` como parámetro pero nunca lo usa para restringir `person_gt_records`
+   — sin ningún flag de opt-in (a diferencia del CLI del media-plane, que hoy sí restringe
+   por default). Mitigado porque `CLAUDE.md` raíz ya recomienda el CLI del media-plane sobre
+   este script; igual es una trampa latente si alguien lo invoca directo con un
+   `--person-gt` más ancho que su `--bench-coco`. Fix: aplicar el mismo patrón
+   `restrict_gt_to_detections` o, más simple, deprecar el script standalone a favor del CLI.
+4. **Promoción laboratorio→banco** (`processed/clip_bench/` no existe aún, gap doc 54 §6) —
+   necesaria para la Fase T; puede prepararse (script, tests) antes de que llegue el GT.
+
+### Exclusiones vigentes (no re-litigar)
+
+Cascada E-HYB (D-61.1, trabajo futuro), EN-2 en corridas evaluativas (D-61.2), GDINO 1.5/1.6
+(API-only), MM-GDINO-tiny/large (bug de bboxes reproducido dos veces), fine-tuning, CSS-train
+como fuente de bench (100% aumentado por Roboflow, doc 66 B1), spec 45 MQTT para lo último
+(decisión usuario). Regla transversal: nada se commitea sin pedido explícito.
+
+### Lo único que falta del lado del usuario (resumen ejecutivo)
+
+1. **G2**: coordinar ~1h con cámaras para el ensayo de doble toma (doc 67).
+2. **Pasada humana CVAT** de los 14 videos de internet (desbloquea Fase T sola, sin esperar
+   el rodaje).
+3. **Rodaje**: consentimientos + coordinación de colegas + EPP físico (doc 59 guion listo).
+4. **Acta `edir_v1`** (desbloquea Fase D; no bloquea T/P).
+
+Todo lo demás — selección de modelo, plataforma de medición, bench de imágenes, config del
+rodaje, preparación EBE — está **cerrado y verificado** (auditoría de cierre 2026-07-23).
