@@ -95,6 +95,27 @@ obra + licencia citable + descarga viva; links y licencias verificados uno a uno
 
 Registro completo del informe: agregarlo a `datasets/registry/` al ejecutar B4.
 
+### B4 ejecutado (2026-07-23): SHEL5K descargado y AUDITADO APTO con salvedades
+
+Descarga verificada desde el endpoint oficial de Mendeley (`public-api/zip/9rcv8mm682/download/4`,
+zip 1,23 GiB íntegro conservado): 5.000 PNG + 5.000 XML VOC, correspondencia 1:1 perfecta.
+Conteos reales: helmet 19.252, head_with_helmet 16.048, person_with_helmet 14.767,
+**head 6.120 (= bare_head nativo)**, person_no_helmet 5.248, face 14.135, + 8 labels `person`
+sueltos (ruido de anotación, se ignoran en el mapping).
+
+**Auditoría S0 (18 imgs con GT + 300 verificadas estadísticamente): dominio obra/industrial
+real** (túneles, andamios, excavadoras, líneas eléctricas, aplanadoras) — **sin aulas en la
+muestra** (la herencia SCUT-HEAD era de SHWD, no de esta base). Salvedades a declarar como
+estrato: (a) **resolución 416×416** en todo el dataset (base Roboflow preprocesada — estrato
+de baja resolución, objetos chicos gruesos); (b) **mirror-padding horneado en ~2–10%** de las
+imágenes, con GT anotado también sobre las franjas espejadas (detector estricto: 7/300;
+visualmente algo más); (c) watermarks de portales de noticias chinos en una fracción.
+
+**Mapping canónico decidido**: `person` = person_with_helmet ∪ person_no_helmet (con
+`has_helmet` gratis por la clase compuesta), `helmet` = helmet, `bare_head` = head;
+`face`/`head_with_helmet`/los 8 `person` sueltos se descartan. Próximo paso: entrada
+`shel5k` en `configs()` de `convert_datasets.py` (TDD) + estrato en bench_v3 (B5).
+
 ## B5 — Consolidación: `bench_v3` estratificado y congelado
 
 - Estructura: estratos por fuente (`css_testval`, `css_train`, `chv`, `externo?`) con
