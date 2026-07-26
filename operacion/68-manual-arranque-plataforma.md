@@ -39,10 +39,61 @@ Tras cambios de frontend: Ctrl+Shift+R en el navegador. Entrar por `/`
 
 | Cámara | IP | Nota |
 |---|---|---|
-| RTSP DVR (EZVIZ) | 192.168.1.5 | tope real ~15 fps |
-| OAK-D Pro PoE | 192.168.1.50 | preset `fps: 30` → ~13 fps reales; tarda ~9 s en conectar |
+| RTSP DVR (EZVIZ) | **169.254.31.140** | estática en su **interfaz Ethernet**; medido 1920×1080, ~18 fps |
+| OAK-D Pro PoE | **169.254.31.137** | estática en bootloader; preset `fps: 30` → ~22 fps; tarda ~9 s en conectar |
 
-- `ping` a ambas antes de arrancar.
+### 2.1 Red directa (sin router) — configuración del rodaje
+
+Montaje: **switch PoE** entre la PC y las cámaras. El switch cumple dos funciones y las
+dos son necesarias: **alimenta la OAK-D** (es PoE 802.3af — el puerto Ethernet de la PC
+no entrega corriente, con un cable común la cámara ni enciende) y **reparte** el único
+puerto Ethernet físico de la PC entre los dos dispositivos.
+
+**Las dos cámaras tienen IP estática en el rango link-local `169.254.0.0/16`**
+(configuradas 2026-07-25). La elección es deliberada: **es el mismo rango que Windows se
+autoasigna cuando no hay DHCP**, así que con el cable directo puesto, la PC y las cámaras
+quedan en la misma subred **sin configurar absolutamente nada**:
+
+- **No hace falta fijar IP a mano** en la interfaz Ethernet (requeriría permisos de
+  administrador, que WSL no tiene).
+- **No hace falta apagar el Wi-Fi**: al no compartir subred con la LAN doméstica/de obra,
+  no hay ruteo ambiguo. **El Wi-Fi sigue dando internet en paralelo** (verificado).
+- **No puede colisionar** con la red del lugar del rodaje, sea cual sea.
+
+Si la IP que Windows se autoasigna coincidiera con la de una cámara, el propio protocolo
+APIPA (RFC 3927) lo detecta por ARP y elige otra: verificado en la práctica el 07-25,
+Windows tomó `169.254.235.239` sin intervención.
+
+**Historial de IPs** (por si algo no responde y hay que rastrearlo): OAK-D `192.168.1.50`
+(DHCP) → `192.168.1.50` (estática) → **`169.254.31.137`**. DVR: `192.168.1.5` (DHCP) →
+`192.168.1.51` (estática) → **`169.254.31.140`**. Backups del bootloader de la OAK-D en
+`e-ovrt_experimental-setup/cameras/oakd_bootloader_backup_*.json`.
+
+Pasos en la PC, antes de conectar:
+
+1. **Conectar el cable** PC → switch PoE → cámaras. Nada más.
+2. Esperar a que la interfaz `Ethernet` tome IP en `169.254.x.x` (unos segundos; Windows
+   la asigna solo al no encontrar DHCP).
+3. **Bajar las VPN**: NordLynx, WireGuard (`sllamosas_*`) y ZeroTier pueden capturar rutas.
+4. Verificar: `ping 169.254.31.137` (OAK-D) y `ping 169.254.31.140` (DVR).
+5. **Si Windows llega a la cámara pero WSL no**, es la caché de red de WSL tras el cambio
+   de interfaz: `wsl --shutdown` desde PowerShell y reabrir la terminal. Después de eso
+   hay que **volver a levantar los tres servicios** (§1). Hacer este paso ANTES de
+   arrancar los servicios, no en medio del rodaje.
+
+> **Trampa del DVR (mordió el 07-25):** el DVR EZVIZ tiene **interfaces Wi-Fi y Ethernet
+> con configuración de red separada**. Si se edita la IP en la pantalla equivocada, el
+> equipo sigue respondiendo en su IP vieja **por Wi-Fi** — lo que parece "la config no se
+> guardó" o "revirtió sola", cuando en realidad el puerto Ethernet nunca se tocó. La IP
+> del preset es la de la **interfaz Ethernet**, que es la que va al switch PoE. Su UI web
+> está cerrada: solo expone `554` (RTSP) y `8000` (SDK), la config se hace desde el menú
+> local del equipo (monitor + mouse).
+
+- `ping` a ambas antes de arrancar. **Si falla el primero, reintentar** (la interfaz
+  tarda en levantar; pasó el 2026-07-25 y dio un falso negativo).
+- **Desde WSL, el descubrimiento por broadcast de DepthAI no funciona** (el UDP no
+  cruza el NAT): `getAllAvailableDevices()` devuelve vacío aunque la cámara esté
+  perfecta. **Siempre por IP explícita**, que es lo que hace el preset. No buscarla.
 - Presets en `e-ovrt_experimental-setup/cameras/*.yaml` (gitignorado: credenciales
   RTSP en claro). El `{plugin, config}` del preset mapea 1:1 al bloque `ingest`.
 - Encuadre: usar el preview de la consola (`/cameras`). Preview y run son
@@ -102,3 +153,54 @@ cd ~/projects/e-ovrt_control-plane
 4. Servicios levantados fuera de la raíz de su repo → artefactos perdidos.
 5. `--patterns` con el JSONL de eventos revienta la evaluación.
 6. OAK-D viene de fábrica con IP estática 169.254.1.222 (no DHCP).
+7. **`warmup_frames` es por-run y su default es `0`** (`schemas.py:218`): NO viene
+   del preset de cámara — el preset trae solo `{plugin, config}` de la cámara, y el
+   campo se escribe a mano en el paso 1 de "Nueva corrida". **Si se deja vacío, los
+   primeros frames de la OAK-D (exposición sin converger, cuadro oscuro) entran al
+   pipeline** y contaminan el arranque de la toma. Valor de referencia: **20** (a los
+   ~13 fps reales de la OAK-D ≈ 1,5 s). Solo aplica a fuentes vivas: ponerlo en una
+   fuente `video_file` es error de validación, no se ignora en silencio.
+8. **Un run live del control NO se puede cancelar por API.** No hay endpoint de
+   stop/cancel: `DELETE /api/runs/{id}` sobre un run activo devuelve **409** y
+   `shutdown()` solo corre al apagar el servicio. Si se disparó el control (paso 1) y
+   el media nunca arrancó, quedan **dos salidas**: (a) la del guion — **reusar el
+   `active_run_id`** y disparar el media contra ese run (es lo normal y lo barato: el
+   SUB ya está suscripto); (b) si hay que cambiar la config del control, esperar el
+   **`idle_timeout_s` = 300 s** (verificado 2026-07-25: cierra a los 300 s exactos con
+   `BusIdleTimeout`) o reiniciar el control-plane. **En el rodaje, siempre (a).**
+
+### Trampas nuevas del día de rodaje (2026-07-25 — todas mordieron; detalle: doc 71 §3)
+
+9. **"Nueva corrida" (Composición) lanza SOLO el plano de medios** — su payload ni
+   tiene campo `bus`; el control-plane nunca ve los eventos y la corrida sale **sin
+   ninguna alerta, sin error visible**. Costó dos pruebas (r1, rt1) antes de
+   detectarse. Toda corrida de plataforma completa va por **Experimentos** (el runner
+   hace control-first + `SubscriptionNotConfirmed`). La UI ahora tiene
+   **`+ Nuevo experimento`** en el sidebar para crear la config sin editar YAML.
+10. **El BFF en :8090 sirve el `dist/` del frontend si existe** — un build viejo tapa
+    todos los cambios de UI aunque el dev server (:5173/:5199) esté al día, y ni el
+    modo incógnito lo salva. Regla: **cambio de frontend ⇒ `npm run build`** antes de
+    mirar por :8090. El BFF tampoco recarga Python solo: cambio de backend ⇒
+    reiniciar el proceso uvicorn.
+11. **Detener una corrida da `stopped`, y la consolidación NO corre con `stopped`.**
+    El fix del 2026-07-25 hizo que `stopped` sea terminal para el runner (antes el
+    experimento quedaba "corriendo" 300 s y bloqueaba el próximo lanzamiento con "hay
+    un experimento en curso"), pero `ok` exige `succeeded` en ambos planos: una toma
+    live cortada a mano **no genera dir consolidado ni report paraguas** — los datos
+    quedan completos en los `runs/` de cada plano. Decisión pendiente si un `stopped`
+    limpio debería consolidar.
+12. **El modelo es del proceso, no del run** (`EOVRT_MODEL_REF` al arrancar el
+    media-plane). Cambiar de modelo = bajar y relevantar el servicio. Tras la
+    comparación GDINO/YOLOE del 2026-07-25 el media-plane quedó apagado con
+    `yoloe/yoloe-26x`: **al relevantar, volver a
+    `EOVRT_MODEL_REF=grounding-dino/gdino-tiny-560`** (campeón, doc 64).
+13. **La card Alertas del detalle de experimento carga UNA vez y no se refresca** —
+    mirarla durante la corrida muestra "Sin alertas." o `error 404` aunque la alerta
+    ya haya saltado. El estado en vivo real es el **banner de riesgo activo** (rojo,
+    arriba, se enciende al confirmar y se apaga al resolver — nuevo 2026-07-25);
+    para la tabla de alertas, **recargar la página** cuando ambos planos estén
+    terminales.
+14. **`pytest` del backend de la consola deja basura en `experimental-setup/runs/`**
+    (dirs `exp_*_orq_*` / `gate_orq` de la suite de orquestación, ~5 por corrida de
+    suite). No romper la cabeza buscando qué experimento fue: si el slug es `orq_*`,
+    es un test. Pendiente aislar la suite y limpiar (~74 dirs del 2026-07-25).

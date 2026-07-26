@@ -1,5 +1,12 @@
 # Guion de grabación — Bloque A (episodios de alerta, grabación propia)
 
+> ⚠️ **PARA EL DÍA DEL RODAJE, USAR EL DOC 69** (`69-guion-operativo-rodaje.md`): es el
+> documento de campo, autocontenido, adaptado al equipo real (3 personas, 2 cascos, 2
+> chalecos, 1–2 personas en cuadro) y con la plataforma ya verificada de punta a punta.
+> **Este documento 59 queda como la referencia metodológica**: por qué existe cada
+> escena, de dónde salen las duraciones y los umbrales, y el registro de las revisiones.
+> Ante conflicto operativo, gana el 69.
+
 > **Propósito**: shot-list operativo para la sesión de grabación con el equipo.
 > Derivado de `57-validacion-metodologica-externa-duracion-clips.md` (§1–§2, §6.3–§6.4)
 > y spec 43 §3.1. Este documento se lleva impreso a la obra/locación: cada toma tiene
@@ -231,22 +238,66 @@ una corrida EBE **sin GT**. Escenas live mínimas: **1× P1, 1× P2, 1× P3**.
 - [ ] **Espacio en disco**: ≥ 5 GB libres (la consola lo exige) y destino en el
       filesystem nativo de WSL, nunca bajo `/mnt/c`.
 - [ ] Config live con pattern set **`cr01_cr02_v2`** (4000/7000, NO el v1)
-- [ ] Modelo `gdino-tiny` cargado; disco libre para `runs/`
+- [ ] Modelo **`EOVRT_MODEL_REF=grounding-dino/gdino-tiny-560`** cargado (campeón S2,
+      doc 64 — no el `gdino-tiny` a 800); disco libre para `runs/` (checklist completo
+      del día: doc 67 G5 — ≥20 GB, servicios desde la raíz de su repo)
 - [ ] **Smoke live**: actor se quita el casco ~6 s → alerta CR-01 confirmada a
       ~4 s, `bus_dropped_events = 0`, cierre `run_finished`. Si falla, se
       arregla HOY, no en el rodaje.
 
-**Por cada escena live en la sesión:**
-- [ ] 1. Disparar control-plane: `POST :8081/api/runs` con `mode: live` →
-      esperar **201** (implica suscripto — orden NO negociable)
-- [ ] 2. Disparar media-plane: `POST :8080/api/runs` con `bus.enabled: true`
-      (ideal: vía runner del experimental-setup, con `experiment_id`)
-- [ ] 3. Ejecutar la coreografía (mismo guion que la toma grabada)
-- [ ] 4. Cortar → verificar cierre 1:1 (`run_finished`) y `bus_dropped = 0`
-- [ ] 5. Anotar en la hoja: `experiment_id`, escena, hora, ¿alertó cuando debía?
-      (P1/P2 sí a ~4/7 s del onset; **P3 NO debe alertar**), incidencias
-- [ ] 6. **NO borrar `runs/`** — el JSONL live se re-evalúa offline después
-      (paridad live↔offline con contenido real = evidencia citable)
+**Qué produce cada toma (para que nadie dude por qué se hace dos veces):** la
+**toma A grabada** es el material re-corrible — sobre ella corre después TODO lo
+offline (banco DBE, GT en CVAT, comparación de modelos, E-DIR vs E-IND, cualquier
+prompt set futuro), infinitas veces. La **toma B live** produce las métricas que
+SOLO existen en vivo (`t_capture→alert`, G2A live, salud del bus) y no se pueden
+regenerar después. Por eso: **si una toma B sale mal, se repite EN EL MOMENTO** —
+es la única parte del experimento que no tiene segunda oportunidad.
+
+**Secuencia por escena live (doble toma, orden fijo A→B, verificada en el ensayo
+G2 del 2026-07-23 — doc 67):**
+
+*Toma A (grabada):*
+- [ ] 1. Grabar desde la ventana Cámaras de la consola. **NADIE actúa hasta que
+      la UI salga de `starting`** (la OAK-D tarda ~9 s en conectar) y el operador
+      cante "grabando" (regla F-DR6, §9).
+- [ ] 2. Coreografía completa del guion: pre-roll en cumplimiento 3–4 s → onset
+      cantado → infracción sostenida (≥14 s P1 / ≥22 s P2) → reversión cantada →
+      cola ≥3 s. **Cortar cámara recién a ~33 s.**
+- [ ] 3. Chequear el sidecar `.rec.json` (`measured.fps`/`resolution` esperados,
+      `truncated: false`). El recorte fino (`prepare_clip.sh`) es POST-rodaje,
+      no se hace en la sesión.
+
+*Toma B (live, misma coreografía, inmediatamente después):*
+- [ ] 4. Disparar control-plane: `POST :8081/api/runs` `{mode: live}` → esperar
+      **201 con `subscribed: true`** en el estado (orden NO negociable: control
+      SIEMPRE antes que media). Un **409** = ya hay run activo → **reusar** el
+      `active_run_id`, no borrarlo. La clave del estado es `control_run_id` y el
+      terminal es `succeeded`.
+- [ ] 5. Disparar media-plane: `POST :8080/api/runs` con `bus.enabled: true` y
+      el prompt set congelado **`cr01_cr02_v2_short`** (vía consola/runner con
+      `experiment_id` — el runner hace los dos POST en el orden correcto).
+      **Antes de lanzar, revisar que `warmup_frames` NO esté vacío** (poner **20**):
+      es un ajuste por-run con default `0`, no viene del preset de cámara, y en
+      blanco deja entrar los primeros frames oscuros de la OAK-D (doc 68, trampa 7).
+- [ ] 6. **Regla del primer frame (hermana de la del `starting`, aprendida en la
+      claqueta fallida del G2): NADIE entra a escena hasta que
+      `progress.units_processed > 0`** en `GET :8081/api/runs/{control_run_id}`
+      (la OAK-D tarda ~8–9 s en conectar tras el POST; actuar antes = actuar
+      para nadie). El operador lo canta ("pipeline vivo").
+- [ ] 7. Coreografía idéntica a la toma A (mismos tiempos, mismos cantos).
+- [ ] 8. Cortar: `POST :8080/api/runs/{media_run_id}/stop` → esperar terminal en
+      AMBOS planos (media `stopped`, control `succeeded`; tarda ~6 s). Overhead
+      mecánico total medido de una toma B: **~15 s** + coreografía.
+- [ ] 9. **ANTES de desarmar la escena**, verificar en el estado del control:
+      `bus_dropped_events = 0` **Y la alerta esperada emitida** (`alerts_count`
+      se ve en caliente): P1 → CR-01 a ~4 s del onset; P2 → CR-02 a ~7 s;
+      **P3 → NINGUNA alerta** (esa es la demo). Si P2 no alertó → F-G2.1:
+      ¿algo con franjas o colores hi-vis en cuadro? → corregir vestuario y
+      **repetir la toma B ahora** (es barata; después es imposible).
+- [ ] 10. Hoja de registro: `experiment_id`, `media_run_id` + `control_run_id`,
+      escena, hora, ¿alertó cuando debía?, incidencias. **NO borrar `runs/`** —
+      el JSONL live se re-evalúa offline después (paridad live↔offline con
+      contenido real = evidencia citable).
 
 **Opcional (stretch):** 1 escena con **claqueta** (palmada visible a cámara +
 anotar la hora exacta) → habilita GT live anclado y la verificación numérica de

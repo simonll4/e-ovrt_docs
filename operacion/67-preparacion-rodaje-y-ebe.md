@@ -15,7 +15,7 @@ memoria del dry-run (F-DR2..10).
 | Pipeline live sin drops de arranque | pre-flight `prepare_run` (doc 61 adenda), verificado live en L0 (frame0 711 ms sin cascada) |
 | EBE 1:1 dos planos punta a punta | L0 tramo 1 (doc 65): control-first `subscribed:true`, 30/30, `bus_dropped=0`, `cr01_cr02_v2`, alerta CR-01 real emitida |
 | Config live del control-plane | `configs/live_ebe_cr01_cr02.yaml` con pattern set **v2** (F-DR9) |
-| OAK-D | IP fija 192.168.1.50, connect ~9 s conocido, preset `fps: 30` (~13 fps reales), prefilter EN-2 APAGADO en evaluativo (D-61.2) |
+| OAK-D | IP fija **169.254.31.137** (link-local desde 07-25; era `192.168.1.50`), connect ~9 s conocido, preset `fps: 30` (~13 fps reales con luz de laboratorio, ~22 medidos 07-25), prefilter EN-2 APAGADO en evaluativo (D-61.2) |
 | Modelo del carril live | **`grounding-dino/gdino-tiny-560`** — campeón S2 validado en BENCH (doc 64) y en live (docs 61/65) |
 | Suites | media 636 / control 246+ / datasets 119 / webconsole verde al 07-23 |
 
@@ -93,9 +93,18 @@ actores):
 4. Orden EBE: control-plane primero (`subscribed:true`), media después; terminal `succeeded`;
    409 al reintentar = reusar el run activo.
 5. Consola: Ctrl+Shift+R tras cualquier cambio de frontend; entrar por `/` (deep-link 404).
-6. Cámaras: ping a 192.168.1.5 y .50; EZVIZ tope 15 fps (no hay más); preset OAK-D fps 30.
+6. Cámaras: ping a **169.254.31.137** (OAK-D) y **169.254.31.140** (EZVIZ) — ambas con IP
+   estática **link-local** desde 07-25. Con el cable directo PC→switch PoE **no hay que
+   configurar nada** en la PC (Windows se autoasigna una IP del mismo `/16`) ni apagar el
+   Wi-Fi. EZVIZ ~18 fps medidos; preset OAK-D fps 30 → ~22 fps. Detalle y trampas
+   (interfaces Wi-Fi/Ethernet separadas del DVR): doc 68 §2.1.
 7. Por escena: grabar toma A (esperar fin de `starting` → actuar → cantar el evento) → toma
-   B live 1:1 → verificar `bus_dropped_events=0` antes de desarmar la escena.
+   B live 1:1 → **antes de desarmar la escena, verificar DOS cosas en el estado del
+   control-plane**: `bus_dropped_events=0` **y que la alerta esperada del escenario se
+   emitió** (`alerts_count` se ve en caliente en `GET /api/runs/{id}`). Motivo (F-G2.1): la
+   sobre-marca de `vest` puede suprimir CR-02 en silencio — una escena P2 live sin su alerta
+   CR-02 es una corrida perdida que solo es barata de repetir en el momento. Si la alerta no
+   salió: revisar vestuario (¿algo con franjas/colores hi-vis en cuadro?) y repetir la toma.
 8. Al cierre: inventario de tomas vs shot-list ANTES de que los colegas se vayan (el doc 59
    §6 define el mínimo por escenario — es más barato repetir en el momento).
 
