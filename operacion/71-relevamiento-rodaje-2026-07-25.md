@@ -373,6 +373,14 @@ El material está adquirido; el cuello es el GT humano, no la plataforma. En ord
 
 ### 7.3 Aumentar el procesamiento de frames (FPS) — palancas reales, en orden de retorno
 
+> **⚠️ CORREGIDA POR EL DOC 73 (2026-07-27).** Se ejecutó el protocolo de la palanca 1 y
+> su paso (a) la descartó: la rama de texto es **8,2%** del forward (techo 1,09×) y **no
+> crece** con el nº de clases. La palanca 3 rinde **−5,8%**, no −25–30%. Y la hipótesis
+> térmica del §4.2 **no se sostiene** contra los propios datos del día (17:50 → 201 ms,
+> 17:58 → 445 ms). La causa real del techo de fps es **contención de GIL** (F-RT3): un
+> hilo Python puro que no toca la GPU triplica la latencia de inferencia medida. Leer el
+> doc 73 antes de usar las estimaciones de esta sección.
+
 Diagnóstico base (medido): el costo es 100% inferencia (normalize ~10 ms), GPU en uso
 real pero no saturada (SM 6–41%, perfil transformer batch=1), fp16 ya activo, 560px ya
 elegido. Palancas, de mayor a menor retorno esperado:

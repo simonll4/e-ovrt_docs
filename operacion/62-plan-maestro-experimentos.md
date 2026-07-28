@@ -169,9 +169,9 @@ del bench (doc 66, `bench_v3` congelado) y L0 tramo 1 (doc 65).
 |---|---|---|---|---|
 | 1 | S0 auditoría BENCH + S1 matriz 20/30 corridas + S2 campeón + B5 `bench_v3` | ✅ **CERRADO** | Claude | nada |
 | 2 | L0 ensayo EBE pre-rodaje | 🟡 **tramo 1 hecho** (doc 65, VERDE); **tramo 2 pendiente** (doc 67 G2: doble toma + claqueta, ~1h) | Claude + **usuario** | cámaras arriba |
-| 3 | Pasada humana CVAT videos internet + acta `edir_v1` + consentimientos | ⏳ pendiente | **Usuario** | — |
-| 4 | Rodaje (doc 59, guion §9 cerrado) con L1 embebido | ⏳ pendiente | Usuario + Claude | 2 y 3 |
-| 5 | GT CVAT del rodaje (equipo de 3, 58 §B.3) | ⏳ pendiente | Usuario | 4 |
+| 3 | Pasada humana CVAT videos internet + acta `edir_v1` + consentimientos | 🔄 **etiquetado CVAT en proceso** (2026-07-28) | **Usuario** | — |
+| 4 | Rodaje (doc 59, guion §9 cerrado) con L1 embebido | ✅ **EJECUTADO 2026-07-25** (doc 71: 35/35 tomas; recorte doc 72) | Usuario + Claude | 2 y 3 |
+| 5 | GT CVAT del rodaje (equipo de 3, 58 §B.3) | 🔄 **en proceso** — insumo completo 2026-07-28: **48/48 clips pre-anotados** (34 rodaje + 14 internet, GDINO-base + ByteTrack, 0 fallidos) + 48 fichas `.clip.yaml` + ficha de eventos; falta la corrección humana (`GUIA-CVAT.md`) | Usuario | 4 |
 | 6 | T banco temporal → P plataforma → D si hay acta | ⏳ bloqueado | Claude | 3/5 |
 | 7 | Análisis de errores + reporte de cierre | ⏳ bloqueado | Claude | 6 |
 
