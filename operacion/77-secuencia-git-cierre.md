@@ -73,7 +73,7 @@ preferís no hacerlo, saltá esas dos líneas y el resto vale igual.
 cd ~/projects/e-ovrt_media-plane
 git add -A && git commit -m "docs: implementation-status al día (646 tests, features de julio) y venv 3.12"
 
-git merge perf/producer-pil-roundtrip          # fast-forward (estás en feature/inference-service)
+git merge perf/producer-pil-roundtrip          # merge normal (divergen 1 commit c/u desde el 29/07: docs vs fix; archivos disjuntos, sin conflicto esperable)
 git worktree remove .claude/worktrees/pil-roundtrip
 git branch -d perf/producer-pil-roundtrip && git push origin --delete perf/producer-pil-roundtrip
 
