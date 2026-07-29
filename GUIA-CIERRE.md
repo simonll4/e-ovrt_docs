@@ -229,7 +229,7 @@ duraciones) y `67-preparacion-rodaje-y-ebe.md` §G5 (estado de los gates).
 
 ---
 
-### 4. [ ] Acta `edir_v1` (ahora es solo revisar y aprobar, ~10 min)
+### 4. [x] Acta `edir_v1` — **CERRADO 2026-07-29 (doc 76)**: revisión del usuario + revisión técnica delegada; `edir_v1` y `eind_v1` `frozen` con sha256, Fase D desbloqueada
 
 **Qué es:** congelar los prompt sets del experimento E-DIR vs E-IND (Fase D). **El borrador
 ya existe** (2026-07-24): `e-ovrt_experimental-setup/prompts/edir_v1.yaml`, construido

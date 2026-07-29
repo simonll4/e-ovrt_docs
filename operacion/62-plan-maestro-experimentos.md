@@ -162,6 +162,12 @@ doc 2026-07-17). Complemento: mini-piloto MOCS de clase nueva (argumento A3 de l
 
 ## 9. Secuencia, responsables y exclusiones
 
+> ⚠️ **Esta sección quedó congelada al 2026-07-23 y está SUPERADA.** El tablero
+> vigente de pendientes es **`operacion/75`** (vivo, actualizado con cada cierre):
+> L0 tramo 2 y el rodaje (L1) se ejecutaron, el acta `edir_v1`+`eind_v1` se firmó
+> (doc 76) y la pasada CVAT está en curso. Lo de abajo se conserva como registro
+> histórico del plan.
+
 **Estado 2026-07-23** — actualizado tras el cierre de S/S0/S1/S2 (docs 63/64), la ampliación
 del bench (doc 66, `bench_v3` congelado) y L0 tramo 1 (doc 65).
 
