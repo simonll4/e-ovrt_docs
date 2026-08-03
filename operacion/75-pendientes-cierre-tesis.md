@@ -140,11 +140,15 @@ commits del trabajo del 29/07, push PRIMERO de la rama huérfana, merges a `main
   76) y `docs/prompt-sets.md` §4 re-escrito veraz con los 5 sets y fecha.
   `docs/experiments.md` sigue sin cubrir los 10 manifiestos v1 — pendiente menor,
   ligado a la decisión §5 sobre su destino.
-- **datasets: licencia de CHV en estado `Parcial`** (sin LICENSE en el ZIP) y aporta
-  **1.330/6.477 imgs (20,5%) del bench congelado**; `bench_v3.md` no refleja ese
-  estado. Además el vocabulario de `license_registry.md` está roto: define
-  `Pendiente/Aprobado/Bloqueado` pero ninguna fila dice `Aprobado`. Resolver la
-  verificación o declarar el estrato "uso interno, no redistribuible" en la tesis.
+- ~~**datasets: licencia de CHV en estado `Parcial`**~~ **CERRADO 2026-07-29**
+  (verificación contra la fuente): GitHub API `license: None` (sin LICENSE, repo
+  activo) + README verbatim *"The dataset is open for free use"* con cita requerida
+  `wang2021ppe`. Estado → `Aprobado (uso académico/evaluación, SIN redistribución de
+  imágenes)` — restricción ya cumplida por construcción (raw gitignorado).
+  Evidencia y declaración para la tesis en `license_registry.md` §"Verificación CHV";
+  `bench_v3.md` ahora refleja el estado; vocabulario del registry normalizado (las
+  4 fuentes en uso dicen `Aprobado`). Resta del usuario: visto bueno + cita
+  `wang2021ppe` en la bibliografía.
 - Menores, estado al 29/07: banner de `00-indice.md` ✅; `CLAUDE.md` Python 3.12 ✅
   (repo y workspace); doc 62 §9 ✅ (banner agregado apuntando a este doc como
   tablero vigente).
@@ -186,6 +190,10 @@ commits del trabajo del 29/07, push PRIMERO de la rama huérfana, merges a `main
   cuando exista la pasada humana; hasta entonces TODO resultado temporal es preliminar.
 
 ## 7. TABLERO RESTANTE (2026-07-29, tras el cierre de §1.4–1.6, §2 completo y §3.3)
+
+> **La lista operativa corta y al día es el doc 78** (`operacion/78-lo-que-falta.md`)
+> — incluye además el frente nuevo `front-design` (colega). Este §7 queda como
+> registro del estado al cierre de la jornada del 29/07.
 
 **Del usuario:**
 
