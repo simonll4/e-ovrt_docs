@@ -194,5 +194,35 @@ persistencia + TTFD + intermitencia). En CR-01, t_alert medio 4.314 ≈ 4.000 +
 - **Lote de internet** (cuando salga de CVAT): misma cadena, un comando; aporta
   soak → FAR/hora, y material no guionado (L4).
 
-Pendiente inmediato: commits (control-plane: fixes+tests; datasets: splitter,
-adjudicador, banco; docs: 80/81+datos) — los arma el usuario cuando lo pida.
+## 7. Dónde viven los resultados (y los de las próximas campañas)
+
+Esta campaña quedó registrada como **T1** en la estructura de campañas:
+
+```
+e-ovrt_experimental-setup/results/clip_bench/
+  index.md      ← TABLA COMPARATIVA, lo que va al informe
+  README.md     ← estructura, reglas de agregación y cómo agregar una campaña
+  t1_gdinotiny560_v2short_scene/
+    campaign.yaml   la COMBINACIÓN declarada + procedencia (shas, commit del evaluador)
+    metrics.json    agregado normalizado (clip_campaign_metrics.v1)
+    evals/          eval_<clip>.json ×34
+    provenance.json clip_id → media_run_id
+```
+
+El agregado lo produce `datasets/scripts/bench/aggregate_clip_campaign.py` (TDD,
+9 tests) con las reglas que este doc justifica: negativos fuera de
+precision/recall (F-EV1) y dentro del control de FP, censurados fuera del
+denominador (A2), `re_alerts` no FP (ADR-011), desglose por escenario **siempre**
+(L5), micro y macro por separado, FAR/hora solo con soak (L1). Verificado:
+reproduce exacto los números de §4.
+
+`datos/81-*` se conserva como la **evidencia cruda** de esta campaña (control-runs
+completos, log, runner); `results/clip_bench/` es la vista comparable.
+
+**Nota de comparabilidad:** T1 se evaluó con F-EV1/2/3 aplicados (control-plane
+`c1cbb56`). Una campaña anterior a ese commit no es comparable sin re-evaluar —
+`datos/81-reevaluar.py` lo hace en segundos desde los artefactos guardados.
+
+**Commiteado y pusheado 2026-08-03:** control-plane `c1cbb56`, datasets `f7a27fe6`
++ `9618a0ef`, experimental-setup `1acd19f`; docs local `8feed26` (sin remote, por
+decisión vigente).
