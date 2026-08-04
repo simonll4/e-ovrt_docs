@@ -1,0 +1,7 @@
+# Bytecode de los scripts de evidencia de operacion/datos/
+__pycache__/
+*.pyc
+
+# Los control_runs crudos de una campaña pesan ~20 MB y se re-derivan del replay
+# (barato: CPU). Se commitea su tar.gz — convención establecida por el doc 81.
+operacion/datos/*/control_runs/

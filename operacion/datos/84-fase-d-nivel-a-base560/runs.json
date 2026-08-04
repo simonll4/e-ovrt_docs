@@ -1,0 +1,278 @@
+[
+  {
+    "arm": "eind",
+    "variant": "eind_v1_full",
+    "condition": "both",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005204_dbe_grounding_dino_9cdf75",
+    "status": "succeeded",
+    "prompt_set_id": "eind_v1",
+    "phrases": [
+      "person",
+      "helmet",
+      "vest"
+    ],
+    "units_processed": 114,
+    "total_detections": 297,
+    "seconds": 30.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_neg",
+    "condition": "CR-01",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005234_dbe_grounding_dino_a6a4d6",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without hard hat"
+    ],
+    "units_processed": 114,
+    "total_detections": 118,
+    "seconds": 30.1
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_spec",
+    "condition": "CR-01",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005304_dbe_grounding_dino_da473d",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "construction worker without safety helmet"
+    ],
+    "units_processed": 114,
+    "total_detections": 232,
+    "seconds": 30.1
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_obs",
+    "condition": "CR-01",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005334_dbe_grounding_dino_9b8421",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person with bare head on construction site"
+    ],
+    "units_processed": 114,
+    "total_detections": 200,
+    "seconds": 30.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_neg",
+    "condition": "CR-02",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005404_dbe_grounding_dino_89be40",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without safety vest"
+    ],
+    "units_processed": 114,
+    "total_detections": 120,
+    "seconds": 35.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_spec",
+    "condition": "CR-02",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005439_dbe_grounding_dino_5ab7c9",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "construction worker without reflective vest"
+    ],
+    "units_processed": 114,
+    "total_detections": 198,
+    "seconds": 35.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_obs",
+    "condition": "CR-02",
+    "stratum": "bench_obra_val",
+    "run_id": "run_20260804_005514_dbe_grounding_dino_4b6a92",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without bright colored safety clothing"
+    ],
+    "units_processed": 114,
+    "total_detections": 130,
+    "seconds": 30.0
+  },
+  {
+    "arm": "eind",
+    "variant": "eind_v1_full",
+    "condition": "both",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005544_dbe_grounding_dino_16a068",
+    "status": "succeeded",
+    "prompt_set_id": "eind_v1",
+    "phrases": [
+      "person",
+      "helmet",
+      "vest"
+    ],
+    "units_processed": 82,
+    "total_detections": 326,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_neg",
+    "condition": "CR-01",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005604_dbe_grounding_dino_accc8d",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without hard hat"
+    ],
+    "units_processed": 82,
+    "total_detections": 89,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_spec",
+    "condition": "CR-01",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005624_dbe_grounding_dino_94f5f1",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "construction worker without safety helmet"
+    ],
+    "units_processed": 82,
+    "total_detections": 176,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_obs",
+    "condition": "CR-01",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005644_dbe_grounding_dino_e28bbd",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person with bare head on construction site"
+    ],
+    "units_processed": 82,
+    "total_detections": 151,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_neg",
+    "condition": "CR-02",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005705_dbe_grounding_dino_a9f87c",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without safety vest"
+    ],
+    "units_processed": 82,
+    "total_detections": 90,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_spec",
+    "condition": "CR-02",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005725_dbe_grounding_dino_218791",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "construction worker without reflective vest"
+    ],
+    "units_processed": 82,
+    "total_detections": 146,
+    "seconds": 20.0
+  },
+  {
+    "arm": "edir",
+    "variant": "cr02_obs",
+    "condition": "CR-02",
+    "stratum": "bench_obra_test",
+    "run_id": "run_20260804_005745_dbe_grounding_dino_329b96",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without bright colored safety clothing"
+    ],
+    "units_processed": 82,
+    "total_detections": 96,
+    "seconds": 20.0
+  },
+  {
+    "arm": "eind",
+    "variant": "eind_v1_full",
+    "condition": "both",
+    "stratum": "shel5k",
+    "run_id": "run_20260804_005805_dbe_grounding_dino_f0b357",
+    "status": "succeeded",
+    "prompt_set_id": "eind_v1",
+    "phrases": [
+      "person",
+      "helmet",
+      "vest"
+    ],
+    "units_processed": 5000,
+    "total_detections": 40417,
+    "seconds": 1285.8
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_neg",
+    "condition": "CR-01",
+    "stratum": "shel5k",
+    "run_id": "run_20260804_011930_dbe_grounding_dino_57e81e",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person without hard hat"
+    ],
+    "units_processed": 5000,
+    "total_detections": 6883,
+    "seconds": 950.6
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_spec",
+    "condition": "CR-01",
+    "stratum": "shel5k",
+    "run_id": "run_20260804_013521_dbe_grounding_dino_ecf2e9",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "construction worker without safety helmet"
+    ],
+    "units_processed": 5000,
+    "total_detections": 19599,
+    "seconds": 770.4
+  },
+  {
+    "arm": "edir",
+    "variant": "cr01_obs",
+    "condition": "CR-01",
+    "stratum": "shel5k",
+    "run_id": "run_20260804_014811_dbe_grounding_dino_720df5",
+    "status": "succeeded",
+    "prompt_set_id": "edir_v1",
+    "phrases": [
+      "person with bare head on construction site"
+    ],
+    "units_processed": 5000,
+    "total_detections": 19596,
+    "seconds": 755.4
+  }
+]
