@@ -153,6 +153,19 @@ y la literatura específica de PPE. Fuentes en §8.
 | **G3** | **Distractores/confusables semánticos casi ausentes** de la matriz C.2 (solo variables de captura: resolución, distancia, luz, oclusión). | i-LIDS guiona fuentes de confusión (animales, sombras). Para OVD la confusión semántica es más crítica: gorra≠casco, campera naranja≠chaleco, casco en la mano. | Agregar escenario **P9 "confusables"**; alimenta además los argumentos A1–A5 de la defensa (nucleo/09). | 1–2 clips |
 | **G4** | **Bug A del matching greedy** (deflación de recall en P8 con ventanas solapadas) pasa de "pendiente" a **bloqueante** al scorear P8 reales. | El fix correcto (matching bipartito óptimo) es literalmente cómo TRECVID alinea alarma↔evento. | Implementar matching bipartito antes de scorear P8 reales (ya identificado en operacion/52 §bug A). | Implementación acotada |
 
+> **✎ Enmienda 2026-08-04 a la fila G1 (doc 90 D-90.1 + registry `clip_bench.md` L1).**
+> Dos correcciones medidas en la práctica: **(1)** la estimación de esfuerzo
+> *"≈0 anotación"* del material soak es **falsa** — un soak de obra en cumplimiento
+> tiene gente en cuadro, y certificar que *nadie* viola exige trackear a todos frame a
+> frame (el clip de 6,2 min llevó más de una jornada; el `--allow-empty` de
+> `derive_clip_gt` cubre el caso contrario, clips *sin* personas). **(2)** Con el
+> material alcanzable (0,10–0,26 h) la cota superior de FAR/hora queda en 11–30 FA/h,
+> que no sostiene ninguna afirmación operativa → **FAR/hora se declara limitación
+> (L1) y no se reporta como métrica de rendimiento**; la evidencia de falsas alarmas
+> del informe es el **control de negativos por campaña** (evidencia comparativa
+> pareada entre combinaciones, no una tasa absoluta). La mecánica pre-registrada no
+> cambia: el agregador ya emitía `far_per_hour: null` sin soak, con la base declarada.
+
 **Nota (a favor):** la tolerancia de borde de anotación que el survey agrega
 (npre/npost de 1–5 frames, porque marcar el frame exacto de inicio es imposible)
 en nuestro caso está **absorbida** por el borde inferior `start_ms +

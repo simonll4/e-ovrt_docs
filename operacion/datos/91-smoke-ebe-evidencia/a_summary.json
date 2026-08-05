@@ -1,0 +1,51 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "smoke_ebe_a_20260805T003533Z_1593d8",
+  "media_run_ids": [
+    "run_20260805_003533_dbe_grounding_dino_3246e1"
+  ],
+  "scenario": "EBE",
+  "pattern_set_id": "cr01_cr02_v2",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 150,
+  "units_failed": 0,
+  "pattern_events_count": 6,
+  "alerts_count": 2,
+  "errors_count": 0,
+  "avg_processing_ms": 0.21399041333211244,
+  "processing_ms_percentiles": {
+    "p50": 0.15000650000729365,
+    "p95": 0.4878319499766802,
+    "p99": 1.02745908999736
+  },
+  "ttfa_internal_ms_percentiles": {
+    "p50": 5575.063911000005,
+    "p95": 6918.663909300012,
+    "p99": 7038.095020260013
+  },
+  "output_files": {
+    "effective_config": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/effective_config.yaml",
+    "pattern_events": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/pattern_events.jsonl",
+    "alerts": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/alerts.jsonl",
+    "alerts_csv": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/alerts.csv",
+    "metrics": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/metrics.jsonl",
+    "errors": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/errors.jsonl",
+    "summary": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_ebe_a_20260805T003533Z_1593d8/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260805_003533_dbe_grounding_dino_3246e1",
+  "experiment_id": null,
+  "source": "bus",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-08-05T00:35:33.612382+00:00",
+  "finished_at": "2026-08-05T00:36:21.841033+00:00"
+}

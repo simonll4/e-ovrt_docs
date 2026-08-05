@@ -5,3 +5,9 @@ __pycache__/
 # Los control_runs crudos de una campaña pesan ~20 MB y se re-derivan del replay
 # (barato: CPU). Se commitea su tar.gz — convención establecida por el doc 81.
 operacion/datos/*/control_runs/
+operacion/datos/*/*/control_runs/
+
+# Derivados puros de corridas ya registradas: se regeneran con merge_dual_run.py
+# (E-HYB, 53 MB) y track_detections (G1, 47 MB) desde los run_id de provenance.json.
+operacion/datos/*/fusion/
+operacion/datos/*/tracked/

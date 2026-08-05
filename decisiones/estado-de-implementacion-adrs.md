@@ -68,10 +68,17 @@
   2026-07-13 (media-plane `0133d38`).
 - **Evidencia:** doc 34 completo; corroboración empírica de la limitación D2.2 (un
   riesgo transitorio adelanta el reloj del episodio de escena).
-- **Pendiente:** **G1 no está portado**: el `SimpleIoUTracker` existe solo en
-  `e-ovrt_control-plane/src/eovrt_labs/perception/tracking.py` (paquete experimental)
-  y **nadie produce `track_id`** ⇒ el modo `subject` del motor está inerte (deuda del
-  spec 42 §3, vigente).
+- ~~**Pendiente:** G1 no está portado, nadie produce `track_id`, el modo `subject` está
+  inerte~~ → **RESUELTO 2026-08-04 por otra vía (adenda del ADR, pendiente de
+  ratificación).** El productor de `track_id` se implementó **en el control-plane como
+  decorador de fuente** (`sources/tracking.py`, `input.track_persons`, opt-in) en vez
+  de portarlo al media-plane. Cubre **DBE y EBE/live** por igual porque decora
+  cualquier `MediaEventSource`, y no toca el pipeline congelado del media-plane. El
+  modo `subject` dejó de estar inerte: **campaña G1 sobre los 34 clips, F1 0,789 →
+  0,930** con las mismas detecciones (doc 89). Verificado que el camino config-driven
+  reproduce la campaña **exacto**. La deuda del spec 42 §3 (tracker en el media-plane,
+  `track_id` embebido en `detections.jsonl`) queda **abierta pero ya no bloqueante**:
+  es una cuestión de dónde vive la identidad, no de si existe.
 
 ### ADR-003 — Bus media→control: ZeroMQ PUB/SUB
 

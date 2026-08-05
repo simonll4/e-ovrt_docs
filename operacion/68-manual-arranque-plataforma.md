@@ -81,6 +81,30 @@ Pasos en la PC, antes de conectar:
    hay que **volver a levantar los tres servicios** (§1). Hacer este paso ANTES de
    arrancar los servicios, no en medio del rodaje.
 
+> **✎ 2026-08-05 — el paso 5 NO alcanza si WSL está en modo NAT (doc 91).** El
+> `wsl --shutdown` limpia caché de rutas, pero **no cambia el modo de red**. En NAT (el
+> default) WSL solo ve su subred `172.22.0.0/20` y **nunca** va a alcanzar el
+> link-local `169.254.0.0/16`, por más reinicios que se hagan.
+>
+> **Diagnóstico correcto — el `ping` MIENTE:** en NAT, la OAK-D "responde" al ping pero
+> la respuesta viene `via 172.22.0.1` con **`ttl=63`** (es el gateway de Windows, no la
+> cámara) y sus puertos dan *Connection refused*. Verificar siempre con
+> `ip route get 169.254.31.137` (debe salir `dev eth1`, **sin** `via`), `ttl=64` en el
+> ping, y para la OAK-D el chequeo definitivo:
+> ```bash
+> cd e-ovrt_media-plane && .venv/bin/python -c "
+> import depthai as dai
+> with dai.Device(dai.DeviceInfo('169.254.31.137')) as d: print(d.getDeviceName(), d.getMxId())"
+> ```
+>
+> **Fix:** en `C:\Users\<user>\.wslconfig` poner `[wsl2]` + `networkingMode=mirrored` y
+> `wsl --shutdown`. WSL levanta `eth1` con `169.254.x.x` y rutea directo. Requiere
+> WSL ≥ 2.0.0 y Windows 11 22H2+. **Caveat:** el modo espejo cambia la red de WSL
+> globalmente; el punto de fricción conocido es Docker (`infra/twonode/`). Se revierte
+> vaciando el archivo y repitiendo el shutdown. Si el archivo aparece **vacío (0 bytes)**
+> es probablemente una regresión de entorno: el 2026-07-25 el live funcionó con estas
+> mismas IPs, así que el modo espejo estaba puesto.
+
 > **Trampa del DVR (mordió el 07-25):** el DVR EZVIZ tiene **interfaces Wi-Fi y Ethernet
 > con configuración de red separada**. Si se edita la IP en la pantalla equivocada, el
 > equipo sigue respondiendo en su IP vieja **por Wi-Fi** — lo que parece "la config no se
