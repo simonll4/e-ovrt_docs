@@ -144,6 +144,35 @@ de "cambiar la granularidad" (lo arregla, F-89.1).
 | **FAR/hora** | — | 🔴 **limitación declarada (D-90.1), no se reporta** |
 | Generalización a no-guionado (L4) | — | 🔴 pendiente del lote de internet (CVAT) |
 | Latencia operativa live | humos EBE (65/67/91) | ✅ funcional verificada; caracterización en docs 73/74 |
+| **Calidad bajo densidad del live (eje DBE↔EBE)** | R1–R6 (doc 96), 34 clips × 3 densidades × 2 gran. | ✅ **medida (✎ 2026-08-05)** — ver adenda abajo |
+
+### ✎ Adenda 2026-08-05 — el eje DBE↔EBE quedó medido (doc 96, R1–R6)
+
+Después de cerrado este doc se detectó y cerró el hueco que dejaba al eje DBE↔EBE
+medido en un solo escenario: las 6 campañas de arriba corrieron todas a 30 fps de
+evidencia, y el camino live entrega 1,16–4,42 fps. Las campañas R1–R6 (3 densidades
+ancladas a mediciones del live × 2 granularidades, mismo GT/evaluador, guards de
+stride y de comparabilidad verificados) agregan al capítulo:
+
+- **F-96.4 (se suma a Q3 como cuarta capa):** la ganancia de la identidad (G1)
+  **excluye el cero en las cuatro densidades** (bootstrap pareado por clip) y el
+  tracker no se fragmenta — la capa que más agrega, agrega también bajo la
+  restricción del tiempo real. Los deltas de densidad del agregado, en cambio, no
+  excluyen el cero: el costo del tiempo real es tendencia con mecanismo (P2), no
+  efecto establecido.
+- **F-96.2 (matiza la capa 1 de Q3):** el rescate de la histéresis (F-81.1) tiene
+  un límite de cadencia — CR-02/P2 cae 1,00→0,60→0,20 al bajar la densidad.
+- **Dos reglas de lectura nuevas para el informe:** el SDR no se compara entre
+  cadencias (F-96.6, ~100% artefacto del instrumento, verificado por decimación de
+  las mismas detecciones) y el `t_alert` agregado no se compara entre densidades
+  sin control de supervivencia (F-96.5 corregido: entre supervivientes comunes
+  crece +0,7–1,3 s).
+
+Y sobre el §7 de este doc: el punto 3 (ratificación de la adenda ADR-002 y
+aceptación de `hyb_and`-con-causa) quedó **cerrado el mismo día** — D-90.2/D-90.4
+ejecutadas, ver doc 95 §2. El punto 4 (redacción) tiene ahora su insumo final en el
+**doc 98** (conclusiones transversales, escala de afirmación AF-1…AF-11) y en
+`results/index.md`.
 
 ## 5. Limitaciones que el informe declara (sin novedad, consolidadas)
 
@@ -156,8 +185,13 @@ tracker no está medido en obra real) · `run_descriptor` sin variante de modelo
 
 ## 6. Dónde está cada número
 
+- **⬅️ PUNTO DE ENTRADA: `e-ovrt_experimental-setup/results/index.md`** — ata los
+  cuatro índices por material (imágenes / Nivel A / video / realtime), el recorrido
+  del argumento en cuatro números, las reglas de lectura no negociables y las
+  limitaciones declaradas. Es el mapa del capítulo de resultados.
 - **Tabla comparativa de campañas** (la que va al informe):
-  `e-ovrt_experimental-setup/results/clip_bench/index.md` (+ `results/bench_nivel_a/`).
+  `results/clip_bench/index.md` (+ `results/bench_nivel_a/`,
+  `results/bench_imagenes/`, `results/realtime/`).
 - Mecanismo de fallas por campaña: `datos/85-mecanismo-de-fallas.py` (reproducible).
 - Docs por campaña: 81 (T1), 84 (T2+réplica), 85 (D1), 87 (H1), 88 (B1), 89 (G1),
   83 (Nivel A), 91 (live).

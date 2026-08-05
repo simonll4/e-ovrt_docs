@@ -1,5 +1,20 @@
 # 56 — Relevamiento integral de la plataforma (2026-07-18)
 
+> ## ✎ FOTO HISTÓRICA — REEMPLAZADO POR EL DOC 97 (2026-08-05)
+>
+> **No citar el cuerpo de este documento como estado actual de la plataforma.** Es la
+> foto verificada al **2026-07-18**; desde entonces entraron 85 commits en los 4 repos.
+> Lo que quedó superado, en concreto:
+>
+> - GT de video `gt_preliminary` → **`gt_ready`** con adjudicación humana (doc 80).
+> - BENCH v2 (196 imgs) → **`bench_v3`** (6.477 imgs, 3 fuentes independientes).
+> - Métrica estrella `cb_b01_p7` (1 clip) → **34 clips, 13 campañas** con GT humano.
+> - Solo granularidad de escena → **G1 por sujeto**, verificada en vivo (doc 91).
+> - Solo ausencia espacial → **4 estrategias de evidencia, 3 implementadas**.
+>
+> **Las cifras de §9 están superadas en su totalidad.** La fuente vigente de estado es
+> `docs/operacion/97`; la de cifras, `e-ovrt_experimental-setup/results/index.md`.
+
 - **Fecha:** 2026-07-18
 - **Tipo:** relevamiento consolidado / memoria de implementación
 - **Reemplaza como punto de entrada a:** doc 50 (reporte del tramo) y complementa al doc 55

@@ -1,0 +1,102 @@
+{
+  "runs": {
+    "clase_nueva_bench_obra_val": {
+      "run_id": "run_20260805_030630_dbe_grounding_dino_8ae17c",
+      "units": 114,
+      "detections": 420,
+      "by_label": {
+        "person": 171,
+        "vest": 94,
+        "helmet": 91,
+        "machinery": 64
+      }
+    },
+    "clase_nueva_bench_obra_test": {
+      "run_id": "run_20260805_030726_dbe_grounding_dino_37c041",
+      "units": 82,
+      "detections": 412,
+      "by_label": {
+        "person": 174,
+        "helmet": 115,
+        "vest": 64,
+        "machinery": 59
+      }
+    },
+    "clase_nueva_mocs_valid": {
+      "run_id": "run_20260805_030810_dbe_grounding_dino_8593f0",
+      "units": 151,
+      "detections": 771,
+      "by_label": {
+        "person": 456,
+        "tower_crane": 155,
+        "excavator": 143,
+        "dump_truck": 17
+      }
+    },
+    "vehiculo_aislado": {
+      "veh_val": "run_20260805_031006_dbe_grounding_dino_082b63",
+      "veh_test": "run_20260805_031106_dbe_grounding_dino_446e27"
+    }
+  },
+  "scores": {
+    "bench_obra/machinery": {
+      "class": "machinery",
+      "AP50": 0.6618,
+      "n_gt": 99,
+      "n_det": 111,
+      "n_tp": 73,
+      "n_fp": 38,
+      "recall": 0.7374,
+      "precision": 0.6577
+    },
+    "bench_obra/vehicle": {
+      "class": "vehicle",
+      "AP50": 0.0,
+      "n_gt": 76,
+      "n_det": 0,
+      "n_tp": 0,
+      "n_fp": 0,
+      "recall": 0.0,
+      "precision": 0.0
+    },
+    "mocs/person_vs_worker": {
+      "class": "person",
+      "AP50": 0.6101,
+      "n_gt": 507,
+      "n_det": 456,
+      "n_tp": 342,
+      "n_fp": 114,
+      "recall": 0.6746,
+      "precision": 0.75
+    },
+    "mocs/maquinas_sin_gt": {
+      "imgs_total": 151,
+      "excavator": {
+        "imgs_con_deteccion@0.30": 118,
+        "imgs_con_deteccion@0.50": 62,
+        "total_detecciones": 143
+      },
+      "dump_truck": {
+        "imgs_con_deteccion@0.30": 14,
+        "imgs_con_deteccion@0.50": 4,
+        "total_detecciones": 17
+      },
+      "tower_crane": {
+        "imgs_con_deteccion@0.30": 93,
+        "imgs_con_deteccion@0.50": 34,
+        "total_detecciones": 155
+      }
+    },
+    "bench_obra/vehicle_sin_machinery": {
+      "class": "vehicle",
+      "AP50": 0.0257,
+      "n_gt": 76,
+      "n_det": 106,
+      "n_tp": 13,
+      "n_fp": 93,
+      "recall": 0.1711,
+      "precision": 0.1226
+    }
+  },
+  "wall_clock_s": 180.3
+}

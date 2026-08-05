@@ -1,0 +1,2307 @@
+[
+  {
+    "clip_id": "a_p1_c02",
+    "media_run_id": "run_20260805_035103_dbe_grounding_dino_3b6761",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c02_20260805T035118Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c02.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 2,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 1,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 37433.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4967.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 967.0,
+      "avg_sdr": 0.54157,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 967.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.5415695670725703,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035103_dbe_grounding_dino_3b6761/detections.jsonl"
+    },
+    "frames": 75,
+    "frames_totales": 1123,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.45,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p1_c03",
+    "media_run_id": "run_20260805_035118_dbe_grounding_dino_fc0631",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c03",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c03_20260805T035126Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c03.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 20600.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4767.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 767.0,
+      "avg_sdr": 0.88008,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 767.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.8800795898063825,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035118_dbe_grounding_dino_fc0631/detections.jsonl"
+    },
+    "frames": 42,
+    "frames_totales": 618,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.47,
+    "seconds": 8.5
+  },
+  {
+    "clip_id": "a_p1_c04",
+    "media_run_id": "run_20260805_035127_dbe_grounding_dino_f6f7c4",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c04",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c04_20260805T035139Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c04.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 30667.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 5367.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 1367.0,
+      "avg_sdr": 0.942724,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 1367.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.942724263627603,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035127_dbe_grounding_dino_f6f7c4/detections.jsonl"
+    },
+    "frames": 62,
+    "frames_totales": 920,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.46,
+    "seconds": 12.7
+  },
+  {
+    "clip_id": "a_p1_c05",
+    "media_run_id": "run_20260805_035139_dbe_grounding_dino_b75117",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c05",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c05_20260805T035147Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c05.json",
+      "expected_alerts_count": 2,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 1,
+      "observed_duration_ms": 21667.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 9600.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [
+        "metric_censored: 1 de 2 episodios quedan fuera del denominador de recall/t_alert por clip demasiado corto (doc 57 §6.7) — recall se reporta sobre los evaluables."
+      ],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [
+        {
+          "episode_id": "ep2",
+          "condition_id": "CR-01",
+          "cause": "clip_too_short_for_t_alert_window",
+          "duration_ms": 21667.0,
+          "required_ms": 23300.0
+        }
+      ],
+      "avg_ttfd_ms": 150.0,
+      "avg_sdr": 0.674242,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 100.0,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "ttfd_ms": 200.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.6818181818181818,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "sdr": 0.6666666666666666,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035139_dbe_grounding_dino_b75117/detections.jsonl"
+    },
+    "frames": 44,
+    "frames_totales": 650,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.54,
+    "seconds": 8.5
+  },
+  {
+    "clip_id": "a_p1_c06",
+    "media_run_id": "run_20260805_035148_dbe_grounding_dino_cb5789",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c06",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c06_20260805T035158Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c06.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 25167.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4167.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 167.0,
+      "avg_sdr": 0.990494,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 167.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.99049353902203,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035148_dbe_grounding_dino_cb5789/detections.jsonl"
+    },
+    "frames": 51,
+    "frames_totales": 755,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.76,
+    "seconds": 10.5
+  },
+  {
+    "clip_id": "a_p1_c07",
+    "media_run_id": "run_20260805_035158_dbe_grounding_dino_89d3fb",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c07",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c07_20260805T035207Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c07.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 20500.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4700.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 700.0,
+      "avg_sdr": 0.849775,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 700.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.8497746249907633,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035158_dbe_grounding_dino_89d3fb/detections.jsonl"
+    },
+    "frames": 41,
+    "frames_totales": 615,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.41,
+    "seconds": 8.5
+  },
+  {
+    "clip_id": "a_p1_c08",
+    "media_run_id": "run_20260805_035207_dbe_grounding_dino_3a773c",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c08",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c08_20260805T035217Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c08.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 2,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 1,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 23633.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4500.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 500.0,
+      "avg_sdr": 0.767732,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 500.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.7677316482607925,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035207_dbe_grounding_dino_3a773c/detections.jsonl"
+    },
+    "frames": 48,
+    "frames_totales": 709,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.53,
+    "seconds": 10.6
+  },
+  {
+    "clip_id": "a_p1_c09",
+    "media_run_id": "run_20260805_035217_dbe_grounding_dino_4f8516",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c09",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c09_20260805T035228Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c09.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 24067.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4567.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 567.0,
+      "avg_sdr": 0.929981,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 567.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9299814003719925,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035217_dbe_grounding_dino_4f8516/detections.jsonl"
+    },
+    "frames": 49,
+    "frames_totales": 722,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.64,
+    "seconds": 10.5
+  },
+  {
+    "clip_id": "a_p1_c10",
+    "media_run_id": "run_20260805_035228_dbe_grounding_dino_3a9568",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c10",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c10_20260805T035240Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c10.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 28633.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4233.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 233.0,
+      "avg_sdr": 0.95057,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 233.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9505703422053232,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035228_dbe_grounding_dino_3a9568/detections.jsonl"
+    },
+    "frames": 58,
+    "frames_totales": 859,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.7,
+    "seconds": 12.6
+  },
+  {
+    "clip_id": "a_p1_c11",
+    "media_run_id": "run_20260805_035241_dbe_grounding_dino_b195b3",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c11",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c11_20260805T035251Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c11.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 25933.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4333.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 333.0,
+      "avg_sdr": 0.971996,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 333.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9719960069353228,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035241_dbe_grounding_dino_b195b3/detections.jsonl"
+    },
+    "frames": 52,
+    "frames_totales": 778,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.45,
+    "seconds": 10.6
+  },
+  {
+    "clip_id": "a_p1_c12",
+    "media_run_id": "run_20260805_035251_dbe_grounding_dino_0926f8",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p1_c12",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p1_c12_20260805T035301Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p1_c12.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 25067.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4500.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 500.0,
+      "avg_sdr": 0.951087,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 500.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9510869565217391,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035251_dbe_grounding_dino_0926f8/detections.jsonl"
+    },
+    "frames": 51,
+    "frames_totales": 752,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.6,
+    "seconds": 10.6
+  },
+  {
+    "clip_id": "a_p2_c01",
+    "media_run_id": "run_20260805_035302_dbe_grounding_dino_8910e1",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p2_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p2_c01_20260805T035316Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p2_c01.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 36433.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 5567.0,
+      "avg_sdr": 0.060079,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 5567.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.06007930468218048,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035302_dbe_grounding_dino_8910e1/detections.jsonl"
+    },
+    "frames": 73,
+    "frames_totales": 1093,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.59,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p2_c02",
+    "media_run_id": "run_20260805_035316_dbe_grounding_dino_0f3c30",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p2_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p2_c02_20260805T035331Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p2_c02.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 38167.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 8400.0,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 900.0,
+      "avg_sdr": 0.40146,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 900.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.40145985401459855,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035316_dbe_grounding_dino_0f3c30/detections.jsonl"
+    },
+    "frames": 77,
+    "frames_totales": 1145,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.63,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p2_c03",
+    "media_run_id": "run_20260805_035331_dbe_grounding_dino_b3de1d",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p2_c03",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p2_c03_20260805T035347Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p2_c03.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 37500.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 1700.0,
+      "avg_sdr": 0.23166,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 1700.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.23166023166023167,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035331_dbe_grounding_dino_b3de1d/detections.jsonl"
+    },
+    "frames": 75,
+    "frames_totales": 1125,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.32,
+    "seconds": 16.6
+  },
+  {
+    "clip_id": "a_p2_c04",
+    "media_run_id": "run_20260805_035347_dbe_grounding_dino_b20f1a",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p2_c04",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p2_c04_20260805T035404Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p2_c04.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 42333.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 1467.0,
+      "avg_sdr": 0.059524,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 1467.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.05952380952380952,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035347_dbe_grounding_dino_b20f1a/detections.jsonl"
+    },
+    "frames": 85,
+    "frames_totales": 1270,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.57,
+    "seconds": 16.6
+  },
+  {
+    "clip_id": "a_p2_c05",
+    "media_run_id": "run_20260805_035404_dbe_grounding_dino_e3072f",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p2_c05",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p2_c05_20260805T035420Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p2_c05.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 1,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 39467.0,
+      "far_per_hour": 91.215446,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "461ef9c2-3976-53aa-aee3-87d207cdc12d",
+          "condition_id": "CR-01",
+          "subject_key": "CR-01:a_p2_c05",
+          "frame_index": 870,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 2767.0,
+      "avg_sdr": 0.122519,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 2767.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.12251899044351874,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035404_dbe_grounding_dino_e3072f/detections.jsonl"
+    },
+    "frames": 79,
+    "frames_totales": 1184,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.6,
+    "seconds": 16.6
+  },
+  {
+    "clip_id": "a_p3_c01",
+    "media_run_id": "run_20260805_035421_dbe_grounding_dino_e23368",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p3_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p3_c01_20260805T035429Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p3_c01.json",
+      "expected_alerts_count": 0,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 18400.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "not_applicable",
+      "applicability_cause": "negative_clip_no_episodes",
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {},
+      "warnings": [
+        "clip negativo (0 episodios en el GT): precision/recall/F1 no son evaluables (denominador 0) y NO deben promediarse. Lo que si es dato real: 0 falso(s) positivo(s) y far_per_hour — este clip es control de falsos positivos, no de recall."
+      ],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": null,
+      "avg_sdr": null,
+      "ttfd_by_episode": [],
+      "sdr_by_episode": [],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035421_dbe_grounding_dino_e23368/detections.jsonl"
+    },
+    "frames": 37,
+    "frames_totales": 552,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.32,
+    "seconds": 8.6
+  },
+  {
+    "clip_id": "a_p3_c02",
+    "media_run_id": "run_20260805_035429_dbe_grounding_dino_e419f5",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p3_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p3_c02_20260805T035437Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p3_c02.json",
+      "expected_alerts_count": 0,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 18500.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "not_applicable",
+      "applicability_cause": "negative_clip_no_episodes",
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {},
+      "warnings": [
+        "clip negativo (0 episodios en el GT): precision/recall/F1 no son evaluables (denominador 0) y NO deben promediarse. Lo que si es dato real: 0 falso(s) positivo(s) y far_per_hour — este clip es control de falsos positivos, no de recall."
+      ],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": null,
+      "avg_sdr": null,
+      "ttfd_by_episode": [],
+      "sdr_by_episode": [],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035429_dbe_grounding_dino_e419f5/detections.jsonl"
+    },
+    "frames": 37,
+    "frames_totales": 555,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.4,
+    "seconds": 8.6
+  },
+  {
+    "clip_id": "a_p4_c01",
+    "media_run_id": "run_20260805_035438_dbe_grounding_dino_40f8d9",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p4_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p4_c01_20260805T035450Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p4_c01.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 29733.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4433.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 433.0,
+      "avg_sdr": 0.884229,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 433.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.8842291416661403,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035438_dbe_grounding_dino_40f8d9/detections.jsonl"
+    },
+    "frames": 60,
+    "frames_totales": 892,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.48,
+    "seconds": 12.6
+  },
+  {
+    "clip_id": "a_p4_c02",
+    "media_run_id": "run_20260805_035450_dbe_grounding_dino_271495",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p4_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p4_c02_20260805T035503Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p4_c02.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 31667.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4567.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 567.0,
+      "avg_sdr": 0.9671,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 567.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9670999187652315,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035450_dbe_grounding_dino_271495/detections.jsonl"
+    },
+    "frames": 64,
+    "frames_totales": 950,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.7,
+    "seconds": 12.6
+  },
+  {
+    "clip_id": "a_p5_c01",
+    "media_run_id": "run_20260805_035503_dbe_grounding_dino_d020a4",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p5_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p5_c01_20260805T035519Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p5_c01.json",
+      "expected_alerts_count": 0,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 39167.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "not_applicable",
+      "applicability_cause": "negative_clip_no_episodes",
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {},
+      "warnings": [
+        "clip negativo (0 episodios en el GT): precision/recall/F1 no son evaluables (denominador 0) y NO deben promediarse. Lo que si es dato real: 0 falso(s) positivo(s) y far_per_hour — este clip es control de falsos positivos, no de recall."
+      ],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": null,
+      "avg_sdr": null,
+      "ttfd_by_episode": [],
+      "sdr_by_episode": [],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035503_dbe_grounding_dino_d020a4/detections.jsonl"
+    },
+    "frames": 79,
+    "frames_totales": 1175,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.57,
+    "seconds": 16.6
+  },
+  {
+    "clip_id": "a_p5_c02",
+    "media_run_id": "run_20260805_035520_dbe_grounding_dino_7b68c5",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p5_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p5_c02_20260805T035540Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p5_c02.json",
+      "expected_alerts_count": 0,
+      "observed_alerts_count": 0,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 52767.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "not_applicable",
+      "applicability_cause": "negative_clip_no_episodes",
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {},
+      "warnings": [
+        "clip negativo (0 episodios en el GT): precision/recall/F1 no son evaluables (denominador 0) y NO deben promediarse. Lo que si es dato real: 0 falso(s) positivo(s) y far_per_hour — este clip es control de falsos positivos, no de recall."
+      ],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": null,
+      "avg_sdr": null,
+      "ttfd_by_episode": [],
+      "sdr_by_episode": [],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035520_dbe_grounding_dino_7b68c5/detections.jsonl"
+    },
+    "frames": 106,
+    "frames_totales": 1583,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.56,
+    "seconds": 20.6
+  },
+  {
+    "clip_id": "a_p6_c01",
+    "media_run_id": "run_20260805_035540_dbe_grounding_dino_fa8ee8",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p6_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p6_c01_20260805T035556Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p6_c01.json",
+      "expected_alerts_count": 2,
+      "observed_alerts_count": 2,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 1,
+      "duplicate_alerts_count": 0,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 43200.0,
+      "far_per_hour": 83.333333,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4367.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        },
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "d0a6ca69-9249-5293-9999-f0ee3d228a29",
+          "condition_id": "CR-02",
+          "subject_key": "CR-02:a_p6_c01",
+          "frame_index": 960,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 783.5,
+      "avg_sdr": 0.59223,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 367.0,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "ttfd_ms": 1200.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.989908433469904,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "sdr": 0.19455252918287938,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035540_dbe_grounding_dino_fa8ee8/detections.jsonl"
+    },
+    "frames": 87,
+    "frames_totales": 1296,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.57,
+    "seconds": 16.6
+  },
+  {
+    "clip_id": "a_p6_c02",
+    "media_run_id": "run_20260805_035557_dbe_grounding_dino_8d6e18",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p6_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p6_c02_20260805T035617Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p6_c02.json",
+      "expected_alerts_count": 2,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.666667,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 56500.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 3967.0,
+      "effective_matching_windows": {
+        "CR-02": {
+          "persistencia_min_ms": 7000.0,
+          "t_alert_max_ms": 20000.0,
+          "origin": "gt_provenance"
+        },
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 350.0,
+      "avg_sdr": 0.58977,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 467.0,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "ttfd_ms": 233.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9939719090963892,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "sdr": 0.1855689233909628,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035557_dbe_grounding_dino_8d6e18/detections.jsonl"
+    },
+    "frames": 113,
+    "frames_totales": 1695,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.64,
+    "seconds": 20.6
+  },
+  {
+    "clip_id": "a_p7_c01",
+    "media_run_id": "run_20260805_035617_dbe_grounding_dino_d32a7d",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p7_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p7_c01_20260805T035632Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p7_c01.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 1,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 36167.0,
+      "far_per_hour": 99.538253,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "89bffdea-7991-5fd9-8450-6bb2d56dc870",
+          "condition_id": "CR-01",
+          "subject_key": "CR-01:a_p7_c01",
+          "frame_index": 135,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 467.0,
+      "avg_sdr": 0.948572,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 467.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9485720163198135,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035617_dbe_grounding_dino_d32a7d/detections.jsonl"
+    },
+    "frames": 73,
+    "frames_totales": 1085,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.59,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p7_c02",
+    "media_run_id": "run_20260805_035632_dbe_grounding_dino_3fbfaa",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p7_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p7_c02_20260805T035646Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p7_c02.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 2,
+      "matched_alerts_count": 0,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 1,
+      "duplicate_alerts_count": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 1,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 33767.0,
+      "far_per_hour": 106.612965,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": null,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "18414416-a1fa-5d4e-993c-18422e8cbae8",
+          "condition_id": "CR-02",
+          "subject_key": "CR-02:a_p7_c02",
+          "frame_index": 465,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 800.0,
+      "avg_sdr": 0.941746,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 800.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9417461588873516,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035632_dbe_grounding_dino_3fbfaa/detections.jsonl"
+    },
+    "frames": 68,
+    "frames_totales": 1013,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.53,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p7_c03",
+    "media_run_id": "run_20260805_035647_dbe_grounding_dino_16dd42",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p7_c03",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p7_c03_20260805T035701Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p7_c03.json",
+      "expected_alerts_count": 2,
+      "observed_alerts_count": 3,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 2,
+      "duplicate_alerts_count": 0,
+      "precision": 0.333333,
+      "recall": 0.5,
+      "f1": 0.4,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 32533.0,
+      "far_per_hour": 221.313743,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4500.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "573698cf-d4d8-59ab-908b-1841c0507315",
+          "condition_id": "CR-01",
+          "subject_key": "CR-01:a_p7_c03",
+          "frame_index": 450,
+          "reason": "outside_all_episode_windows"
+        },
+        {
+          "alert_id": "08a757b7-03a9-51e6-9f90-4245543768c3",
+          "condition_id": "CR-02",
+          "subject_key": "CR-02:a_p7_c03",
+          "frame_index": 450,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 700.0,
+      "avg_sdr": 0.844776,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 500.0,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "ttfd_ms": 900.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9013222814288534,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "sdr": 0.7882291119285338,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035647_dbe_grounding_dino_16dd42/detections.jsonl"
+    },
+    "frames": 66,
+    "frames_totales": 976,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.49,
+    "seconds": 14.6
+  },
+  {
+    "clip_id": "a_p7_c04",
+    "media_run_id": "run_20260805_035701_dbe_grounding_dino_fdbbc8",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p7_c04",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p7_c04_20260805T035713Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p7_c04.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 32800.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4233.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 233.0,
+      "avg_sdr": 0.991015,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 233.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9910153086800602,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035701_dbe_grounding_dino_fdbbc8/detections.jsonl"
+    },
+    "frames": 66,
+    "frames_totales": 984,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.71,
+    "seconds": 12.6
+  },
+  {
+    "clip_id": "a_p8_c01",
+    "media_run_id": "run_20260805_035714_dbe_grounding_dino_7a50f5",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p8_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p8_c01_20260805T035732Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p8_c01.json",
+      "expected_alerts_count": 2,
+      "observed_alerts_count": 2,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 1,
+      "unexpected_alerts_count": 1,
+      "duplicate_alerts_count": 0,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 47167.0,
+      "far_per_hour": 76.324549,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4433.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [
+        {
+          "alert_id": "407f0cad-0965-59d0-bc70-6ae785c406e0",
+          "condition_id": "CR-02",
+          "subject_key": "CR-02:a_p8_c01",
+          "frame_index": 870,
+          "reason": "outside_all_episode_windows"
+        }
+      ],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 416.5,
+      "avg_sdr": 0.903756,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 433.0,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "ttfd_ms": 400.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.8894801789295079,
+          "cause": null
+        },
+        {
+          "episode_id": "ep2",
+          "sdr": 0.9180327868852459,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035714_dbe_grounding_dino_7a50f5/detections.jsonl"
+    },
+    "frames": 95,
+    "frames_totales": 1415,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.52,
+    "seconds": 18.6
+  },
+  {
+    "clip_id": "a_p9_c01",
+    "media_run_id": "run_20260805_035732_dbe_grounding_dino_b84fcd",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p9_c01",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p9_c01_20260805T035743Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p9_c01.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 26600.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 4800.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 300.0,
+      "avg_sdr": 0.98553,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 300.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9855303139921864,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035732_dbe_grounding_dino_b84fcd/detections.jsonl"
+    },
+    "frames": 54,
+    "frames_totales": 798,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.6,
+    "seconds": 10.5
+  },
+  {
+    "clip_id": "a_p9_c02",
+    "media_run_id": "run_20260805_035743_dbe_grounding_dino_366a34",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p9_c02",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p9_c02_20260805T035755Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p9_c02.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 25667.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 3900.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 400.0,
+      "avg_sdr": 0.929686,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 400.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.9296864013500211,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035743_dbe_grounding_dino_366a34/detections.jsonl"
+    },
+    "frames": 52,
+    "frames_totales": 770,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 4.9,
+    "seconds": 12.6
+  },
+  {
+    "clip_id": "a_p9_c03",
+    "media_run_id": "run_20260805_035756_dbe_grounding_dino_92a6a9",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p9_c03",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p9_c03_20260805T035806Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p9_c03.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 23567.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 3800.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 300.0,
+      "avg_sdr": 0.893048,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 300.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.893048128342246,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035756_dbe_grounding_dino_92a6a9/detections.jsonl"
+    },
+    "frames": 48,
+    "frames_totales": 707,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.38,
+    "seconds": 10.5
+  },
+  {
+    "clip_id": "a_p9_c06",
+    "media_run_id": "run_20260805_035806_dbe_grounding_dino_e7eb4c",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p9_c06",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p9_c06_20260805T035816Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p9_c06.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 24567.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 5500.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 1500.0,
+      "avg_sdr": 0.587199,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 1500.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.5871990604815033,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035806_dbe_grounding_dino_e7eb4c/detections.jsonl"
+    },
+    "frames": 50,
+    "frames_totales": 737,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.55,
+    "seconds": 10.5
+  },
+  {
+    "clip_id": "a_p9_c08",
+    "media_run_id": "run_20260805_035817_dbe_grounding_dino_930a10",
+    "eval": {
+      "schema_version": "control.eval.temporal.v1",
+      "scenario_id": "a_p9_c08",
+      "alerts_path": "/home/simonll4/projects/docs/operacion/datos/96-rt-stride15/control_runs/control_rt_s15_a_p9_c08_20260805T035827Z/alerts.jsonl",
+      "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/a_p9_c08.json",
+      "expected_alerts_count": 1,
+      "observed_alerts_count": 1,
+      "matched_alerts_count": 1,
+      "missed_alerts_count": 0,
+      "unexpected_alerts_count": 0,
+      "duplicate_alerts_count": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_latency_frames_from_first_evidence": null,
+      "avg_latency_ms_from_first_evidence": null,
+      "re_alerts_count": 0,
+      "sub_threshold_count": 0,
+      "censored_episodes_count": 0,
+      "observed_duration_ms": 22700.0,
+      "far_per_hour": 0.0,
+      "applicability_state": "computed",
+      "applicability_cause": null,
+      "avg_latency_ms_from_episode_start": 3700.0,
+      "effective_matching_windows": {
+        "CR-01": {
+          "persistencia_min_ms": 4000.0,
+          "t_alert_max_ms": 10000.0,
+          "origin": "gt_provenance"
+        }
+      },
+      "warnings": [],
+      "matches": [],
+      "missed_alerts": [],
+      "unexpected_alerts": [],
+      "censored_episodes": [],
+      "avg_ttfd_ms": 200.0,
+      "avg_sdr": 0.695941,
+      "ttfd_by_episode": [
+        {
+          "episode_id": "ep1",
+          "ttfd_ms": 200.0,
+          "cause": null
+        }
+      ],
+      "sdr_by_episode": [
+        {
+          "episode_id": "ep1",
+          "sdr": 0.6959408098109765,
+          "cause": null
+        }
+      ],
+      "ttfd_sdr_applicability": "computed",
+      "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+      "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_035817_dbe_grounding_dino_930a10/detections.jsonl"
+    },
+    "frames": 46,
+    "frames_totales": 681,
+    "stride": 15,
+    "fps_eq": 2.0,
+    "fps_effective": 5.23,
+    "seconds": 10.9
+  }
+]
