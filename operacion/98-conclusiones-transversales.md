@@ -185,7 +185,10 @@ el resultado, solo la densidad de evidencia** — y esa densidad ya está medida
 
 **Lo que queda abierto y se declara:** no hay campaña EBE de punta a punta por el bus
 sobre los 34 clips (falta el ancla de sincronización); el decimado de R1–R6 es regular
-y el descarte live es irregular.
+y el descarte live es irregular — **✎ este segundo punto quedó cerrado por el doc 101
+(2026-08-05)**: la irregularidad se midió (CV 0,22 hoy / 0,36 rodaje) y el eje
+re-corrido con decimado empírico no muestra efecto detectable; la ganancia de la
+identidad conserva el signo en 6/6 realizaciones (F-101.1/3/4).
 
 ## 6. Limitaciones, ordenadas por cuánto duelen
 
@@ -195,12 +198,20 @@ y el descarte live es irregular.
 2. **L1 — FAR/hora no reportable.** Harían falta 3 h de cumplimiento anotado; el banco
    llega a 0,10–0,26 h. Se reemplaza por el control de negativos, que discrimina
    (T1/T2/G1 dan 0 FP de 4; D1/H1/B1 dan 2–3).
-3. **CR-02 a Nivel A no cerrada** — un solo estrato, IC solapados.
+3. **L8 — CR-02 a Nivel A no cerrada** — un solo estrato, IC solapados.
 4. **L5 — escenarios desbalanceados**: obliga a reportar siempre por escenario.
 5. **L2 — sin doble anotación ni kappa** (decisión declarada, no omisión).
-6. **El tracker no está medido en obra real con multitud** — G1 se verificó en vivo con
-   pocos sujetos.
-7. **Licencia de `chv` parcial** (20,5% del bench de imágenes).
+6. **L6 — el tracker no está medido en obra real con multitud** — G1 se verificó en vivo
+   con pocos sujetos; el `track_id` es post-hoc/decorador.
+7. **L7 — licencia de `chv` parcial** (20,5% del bench de imágenes).
+8. **L3 — seis bordes del GT adjudicados** por oclusión, con firma en `clip.yaml`.
+
+> ✎ **2026-08-05 — lista canónica cerrada en L1–L8.** Esta lista tenía siete ítems y solo
+> cuatro con etiqueta; se completaron las tres que faltaban (L6, L7, L8) y se agregó L3,
+> que no estaba. La versión de referencia, con el texto largo de cada una, es
+> `e-ovrt_experimental-setup/results/index.md` §Limitaciones declaradas. **Al citar `L1`,
+> escribir "limitación L1"**: la Fase L del doc 62 usa `L0`/`L1` para sus hitos (ensayo y
+> rodaje) y se confunden a simple vista.
 
 ## 7. Qué se puede escribir ya, y qué espera
 

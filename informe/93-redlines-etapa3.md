@@ -493,7 +493,20 @@ pregunta.
 ## R-13 · Sección nueva al cierre · EVIDENCIA · alta → **texto completo en doc 94 §8**
 ### Registro de lo no implementado
 
-**DEBE DECIR** — un capítulo "verificable" también declara sus límites, **antes** de que los encuentre el
+> ✎ **2026-08-05 — DESBLOQUEADO, y la lista de abajo quedó vieja.** Este ítem esperaba
+> ADR-015 (doc 95 §5.3), que ya está escrito:
+> [`decisiones/adr-015-cierre-de-alcance.md`](../decisiones/adr-015-cierre-de-alcance.md)
+> (✅ aceptada el 2026-08-05). **De los 8 ítems de abajo, 5 están resueltos**
+> — auditados uno por uno contra artefacto en el **ADR-015 §3**, que es de donde hay que
+> redactar: `track_id` (G1 es capacidad operativa medida), evaluadores de D1 (corrió: veto
+> de precisión), GT preliminar (el banco está `gt_ready`), matching greedy (es bipartito
+> desde la enmienda A4) e inventario de datasets (al día, `operacion/99`).
+> **Sobreviven 3**: distribución no implementada, brecha del ancla EBE (precisada) y G2A
+> no computable entre dos hosts (ahora agravada por F-101.8). **Y el tramo experimental
+> agregó 9 límites nuevos** (L1–L8 + el registro de licencias de video). Publicar la lista
+> de abajo tal cual sería declarar como límites cosas ya resueltas.
+
+**DECÍA (julio 2026, superado)** — un capítulo "verificable" también declara sus límites, **antes** de que los encuentre el
 tribunal. Ocho ítems: sin productor de `track_id`; distribución no implementada; evaluadores de D1
 pendientes; GT preliminar; brecha de sincronización en EBE-desde-clip; G2A no computable en dos nodos;
 matching greedy que puede deflacionar recall; inventario de datasets desactualizado.
@@ -674,6 +687,17 @@ efectiva es más fuerte que la previsión original. Los tres principales:
 
 ## R-21 · Tablas 58 y 59 (backlog) · EVIDENCIA · alta
 ### El backlog ya no es un backlog: es un estado
+
+> ✎ **2026-08-05 — DESBLOQUEADO, con una corrección sustantiva.** Este ítem esperaba
+> ADR-015 (doc 95 §5.3), ya escrito:
+> [`decisiones/adr-015-cierre-de-alcance.md`](../decisiones/adr-015-cierre-de-alcance.md)
+> (✅ aceptada el 2026-08-05). **El resumen de estado de abajo tiene un punto FALSO al cierre:** dice
+> *"MOT ✗ (especificado, tracker no implementado, E-03)"*. La granularidad por sujeto **sí
+> está implementada y medida** — es el mejor resultado del banco (F1 0,930 sobre 34 clips,
+> más verificación en vivo). Lo excluido son las **métricas** MOT (E-10, "no aplicable"),
+> no la capacidad. Corregir esa fila al transcribir; el resto del resumen (11/11 del
+> núcleo, EBE ✅, rol EN ✅, inspección ✅, fine-tuning ✗ E-04) se sostiene. Estado
+> completo por exclusión: **ADR-015 §2a**.
 
 Los 16 ítems del backlog tienen hoy un estado real y verificable. Propuesta: **convertir las Tablas 58/59 en
 una tabla de estado** (ítem → entregable → **estado** → evidencia), que es exactamente el tipo de tabla que

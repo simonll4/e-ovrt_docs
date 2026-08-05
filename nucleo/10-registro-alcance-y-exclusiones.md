@@ -1,5 +1,19 @@
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
 
+> ✎ **2026-08-05 — el alcance final NO es exactamente el de este doc.** El tramo
+> experimental completo (docs 61–101) movió cuatro exclusiones, y eso está registrado en
+> **[ADR-015 — Cierre de alcance](../decisiones/adr-015-cierre-de-alcance.md)**
+> (✅ **aceptada el 2026-08-05, y ya aplicada abajo**: ítem 10 de la lista de alcance +
+> filas E-03/E-04/E-07/E-13 de la tabla de exclusiones):
+> **E-03** — G1 dejó de ser "demostrativa en 2–3 clips": es **capacidad operativa medida
+> en 34/34 clips** (F1 0,930 vs 0,789 de G0) y verificada en vivo. Sigue excluido el GT de
+> identidades y la validación MOT · **E-07** — parcial (OAK-D como fuente + EN-2 con 87%
+> de descarte on-device) · **E-13** — E-HYB-or **ejecutada y refutada**; `hyb_and` no
+> ejecutada con causa · **E-04** — sigue no ejercida, pero por secuenciación, no por falta
+> de preparación. **E-10 no cambia** (métricas MOT siguen "no aplicable"), y las otras
+> ocho exclusiones tampoco. ADR-015 además **cierra la puerta**: ninguna capacidad nueva
+> de acá a la defensa, y la distribución MQTT queda declarada NO implementada.
+
 - **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones formalizadas en
   `decisiones/` (ADR-001…011). Tres ADRs amplían el alcance de forma acotada y
   quedan registrados acá: **ADR-002** (G1 demostrativa — ítem 10, redefine E-03),
@@ -52,9 +66,11 @@
 9. **Control-plane como servicio mínimo** (ADR-008, 2026-07-09): cáscara HTTP sobre
    el runtime live (disparo, estado, config efectiva) + webconsole como cliente de
    ambos planos. Sin sesiones/auth/concurrencia (E-12 sigue vigente).
-10. **G1 demostrativa** (ADR-002, 2026-07-09): tracker de labs portado al
-    media-plane (`track_id` opcional aditivo), demostrada en 2–3 clips. Sin
-    métricas MOT (E-10 sigue "no aplicable"). Redefine E-03.
+10. **G1 — capacidad operativa medida** (ADR-002 + **ADR-015**, actualizado 2026-08-05;
+    *decía "G1 demostrativa … demostrada en 2–3 clips"*): granularidad por sujeto
+    **config-driven**, medida sobre **los 34 clips del banco** (F1 0,930 vs 0,789 de G0,
+    con las detecciones bit a bit idénticas) y verificada en vivo. El tracker vive en el
+    control-plane. Sin métricas MOT (E-10 sigue "no aplicable"). Redefine E-03.
 11. **Config centralizada + webconsole como superficie de gestión** (ADR-009,
     2026-07-09): configuración experimental de ambos planos versionada en
     experimental-setup; webconsole gestiona configs y dispara corridas en los dos
@@ -269,17 +285,17 @@ declaración → condición de habilitación futura.
 |---|---|---|---|---|
 | E-01 | CR-03/CR-04 | Especificada, no implementada | Tabla 17; Tabla C.3 (0 fuentes); Tabla 38 | Tabla 24, Anexo C |
 | E-02 | CR-05/CR-06 | Especificada (criterios de activación) | Tabla 23; §17.1.5.2.4 | §17.1.5.3.6, Anexo C |
-| E-03 | G1 como modo del núcleo / GT de identidades | Acotada: G1 demostrativa SÍ se implementa (ADR-002); validación MOT excluida | DA-06; §17.1.10.2 | ADR-002; docs 03/04/05; Tabla D.2 |
-| E-04 | Fine-tuning / TN | Condicionada no ejercida | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados |
+| E-03 | G1 como modo del núcleo / GT de identidades | ✎ **Ampliada (ADR-015, 2026-08-05)**: G1 no es demostrativa — es **capacidad operativa medida en los 34 clips** (F1 0,930) y verificada en vivo. **Sigue excluido**: GT de identidades y validación MOT | DA-06; §17.1.10.2 | ADR-002 + adenda 08-04; **ADR-015**; doc 89; `results/clip_bench/g1_*` |
+| E-04 | Fine-tuning / TN | ✎ **Condicionada no ejercida (ADR-015)**: se mantiene fuera, pero **por secuenciación, no por falta de preparación** — splits materializados, camino operacionalizado, costo medido ≤1 GPU-h en A30 | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados; doc 100; **ADR-015** |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
-| E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15); inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2 |
+| E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO; inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2; **ADR-015** |
 | E-08 | Zonas / calibración | Especificada | §17.1.5.2.4 | §17.1.5.3.6 |
 | E-09 | Prompts multilingües | Prevista no ejercida | §17.1.5.4.3 | — |
 | E-10 | Métricas MOT estándar | No aplicable | Tabla D.2; §17.1.7.8.2 | reporte con estado |
 | E-11 | Evidencia visual runtime | Excluida por diseño | DA-08/09 | overlay offline |
 | E-12 | DB / hardening | Fuera de alcance de prototipo | ADR-0003; §17.3.3 | ADRs control-plane |
-| E-13 | Modelos extra / E-HYB-vote | Acotada por protocolo | §17.1.9.2; Tabla 38 | R1/Sprint 2; doc 04 §5 |
+| E-13 | Modelos extra / E-HYB-vote | ✎ **Ejercida más de lo previsto (ADR-015)**: modelo especialista corrido (T2/B1) y **E-HYB-or ejecutada y REFUTADA** (F-87.2: la unión de evidencia no es monótona en un motor temporal). **`hyb_and` no ejecutada con causa** (D-90.4: no medible contra este banco sin romper la comparabilidad de las 6 campañas). E-HYB-vote sigue fuera | §17.1.9.2; Tabla 38 | R1/Sprint 2; doc 04 §5; docs 84/87/88; **ADR-015** |
 
 ## 5. Reglas de redacción para que el cierre no suene a deuda
 

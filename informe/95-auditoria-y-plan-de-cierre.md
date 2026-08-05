@@ -1,5 +1,22 @@
 # Auditoría adversarial de los docs 91–94, y plan de cierre a 11 semanas
 
+> ✎ **LEER PRIMERO — este doc es mitad vigente, mitad histórico (marcado 2026-08-05).**
+>
+> - **VIGENTE, y es lo más valioso del doc:** §2 (las 11 correcciones de la auditoría,
+>   con §2.1 "el número estrella sin respaldo en el repo" como falla de referencia),
+>   **§3 (la regla que evita que vuelva a pasar)**, §4 y **§5.5 (el orden de
+>   sacrificio)**. La regla de §3 es la que gobierna hoy la jerarquía de fuentes del
+>   brief de redacción (doc 97 §2).
+> - **HISTÓRICO — no leer como pendiente:** todo el **cronograma de §5** (§5.1 "tres
+>   cosas que dependen de vos, esta semana", §5.3 y **§5.4 "Secuencia", que pone
+>   "GRABAR EL BANCO" en la semana 2–3**). Es un plan **pre-rodaje**: el rodaje se
+>   ejecutó el **2026-07-25**, el banco quedó en **34 clips con GT humano
+>   (`gt_ready`)** y el tramo experimental cerró completo (docs 80/81/83/85–101). El
+>   "~11 semanas" del encabezado es del 2026-07-12.
+> - **Para el estado real de hoy:** `operacion/95` (tramo experimental completo),
+>   `operacion/97` (plataforma), `operacion/98` (conclusiones) y los cuatro índices de
+>   `e-ovrt_experimental-setup/results/`.
+
 - **Fecha:** 2026-07-12 · **Defensa:** ~fin de septiembre 2026 (**quedan ~11 semanas**)
 - **Qué es esto:** el resultado de auditar **con hostilidad** todo lo que se generó en el relevamiento del
   informe (docs 91–94): verificación factual contra código y artefactos, consistencia interna entre los
@@ -158,6 +175,12 @@ latencias.** Quedó como **R-26** y su texto está en el doc 94 §9.
 ---
 
 ## 5. Plan de cierre a 11 semanas
+
+> ✎ **HISTÓRICO (pre-rodaje) salvo §5.5.** Fechado 2026-07-12. El cronograma de §5.1 /
+> §5.3 / §5.4 ya se cumplió o quedó superado: el rodaje se grabó el 2026-07-25 y el
+> tramo experimental cerró (banco de 34 clips `gt_ready`, 6 campañas de Nivel B, Fase D,
+> Fase L). **No usar como lista de pendientes.** Sigue vigente **§5.5**, el orden de
+> sacrificio. Estado real: `operacion/95`/`97`/`98` + `results/`.
 
 ### 5.1 Tres cosas que dependen de vos, esta semana
 

@@ -1,0 +1,28 @@
+[j7] distribución grounding_dino@2026-08-05: 338 huecos, factor de reescalado 0.962
+=== j7 · scene — 34 clips ===
+  [6] a_p1_c07 GUARD(b): densidad realizada 7.41 frames/hueco, objetivo 7.0
+  [8] a_p1_c09 GUARD(b): densidad realizada 7.44 frames/hueco, objetivo 7.0
+  -> 32/34 OK en 101-rt-j7-seed202
+=== j7 · subject — 34 clips ===
+  [6] a_p1_c07 GUARD(b): densidad realizada 7.41 frames/hueco, objetivo 7.0
+  [8] a_p1_c09 GUARD(b): densidad realizada 7.44 frames/hueco, objetivo 7.0
+  -> 32/34 OK en 101-rt-j7-seed202-subject
+[j12] distribución grounding_dino@2026-07-25: 1280 huecos, factor de reescalado 1.000
+=== j12 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed202
+=== j12 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed202-subject
+
+Total: 1.2 min — CON FALLAS (ver arriba)
+[j7] distribución grounding_dino@2026-08-05: 338 huecos, factor de reescalado 0.962
+=== j7 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j7-seed202
+=== j7 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j7-seed202-subject
+[j12] distribución grounding_dino@2026-07-25: 1280 huecos, factor de reescalado 1.000
+=== j12 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed202
+=== j12 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed202-subject
+
+Total: 0.0 min — todo OK

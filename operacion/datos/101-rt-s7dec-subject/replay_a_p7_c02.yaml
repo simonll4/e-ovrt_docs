@@ -1,0 +1,22 @@
+run:
+  id: null
+  scenario: DBE
+  name: c101_s7dec_subject_a_p7_c02
+  description: "Decimado empirico doc 101 — a_p7_c02, c101_s7dec_subject."
+input:
+  type: media_jsonl
+  path: /home/simonll4/projects/docs/operacion/datos/101-rt-s7dec-subject/tracked/a_p7_c02.jsonl
+patterns:
+  file: /home/simonll4/projects/e-ovrt_control-plane/configs/patterns/cr01_cr02_v2_subject.yaml
+  active_ids:
+    - CR-01
+    - CR-02
+outputs:
+  base_dir: /home/simonll4/projects/docs/operacion/datos/101-rt-s7dec-subject/control_runs
+  save_pattern_events_jsonl: true
+  save_alerts_jsonl: true
+  save_metrics_jsonl: true
+  save_errors_jsonl: true
+  save_summary_json: true
+logging:
+  level: WARNING

@@ -1,0 +1,12 @@
+[j7] distribución grounding_dino@2026-08-05: 338 huecos, factor de reescalado 0.962
+=== j7 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j7-seed303
+=== j7 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j7-seed303-subject
+[j12] distribución grounding_dino@2026-07-25: 1280 huecos, factor de reescalado 1.000
+=== j12 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed303
+=== j12 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-seed303-subject
+
+Total: 1.3 min — todo OK

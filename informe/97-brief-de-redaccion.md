@@ -1,11 +1,18 @@
 # 97 — Brief de redacción del informe final
 
-- **Fecha:** 2026-07-18
+- **Fecha:** 2026-07-18 · **§5 reescrita el 2026-08-05 y relevada contra disco el mismo
+  día** (ver el banner de esa sección: la tabla anterior citaba un clip retirado del
+  banco). El relevamiento cotejó una por una las 4 filas de §5.1, las 3 de §5.2, §5.3,
+  los tres sha256 y el número de A1 contra el `metrics.json`/`manifest` correspondiente:
+  **coinciden todas**. Las cifras de §5.1 de D1/H1/T2/B1 son las únicas que
+  `96-verificar-indices.py` **no** chequea (solo cubre T1, G1 y R1–R6), así que se
+  verificaron a mano.
 - **Propósito:** las reglas de redacción para escribir/reescribir el informe (el
   `.docx`/Google Docs) a partir de este set documental. Pensado como instrucción
   operativa para el asistente (LLM) que ayude a redactar en el Project de claude.ai.
 - **Complementa:** doc 13 (glosario y jerarquía de verdad), doc 93 (los redlines a
-  resolver), doc 94 (el texto modelo), doc 92 (las cifras canónicas).
+  resolver), doc 94 (el texto modelo), y **para cifras los cuatro índices de
+  `results/`** (ver §2 y §5).
 
 ---
 
@@ -30,30 +37,60 @@
 
 ## 2. Jerarquía de fuentes al redactar
 
-1. **Cifras y contratos:** SOLO del doc 92 (tabla canónica, con ruta:línea) o del
-   doc 56 §9. Si un número no está ahí, **no existe** para el informe (regla del
-   doc 95: ninguna cifra estrella sin artefacto).
-2. **Estado de la plataforma:** doc 56. Nunca del cuerpo de docs 32/36/50 ni de
-   fragmentos sin banner.
+1. **Cifras y contratos** (✎ actualizado 2026-08-05): de los **cuatro índices de
+   `e-ovrt_experimental-setup/results/`** — que son los que se verifican
+   mecánicamente contra los `metrics.json` en disco
+   (`operacion/datos/96-verificar-indices.py`) — con la §5 de este doc como atajo, y
+   `operacion/98` para las conclusiones transversales. Si un número no está ahí,
+   **no existe** para el informe (regla del doc 95: ninguna cifra estrella sin
+   artefacto). *El doc 92 de `informe/` y el 56 de `operacion/` quedaron superados
+   como fuente de cifras: 92 es la extracción del texto de Etapa 3 y el 56 fue
+   reemplazado por `operacion/97`.*
+2. **Estado de la plataforma:** **`operacion/97`** (reemplaza al 56). Nunca del cuerpo
+   de docs 32/36/50 ni de fragmentos sin banner.
 3. **Decisiones y sus porqués:** ADR-001…014 + doc 10 (alcance/exclusiones). Las
    decisiones **no se re-litigan** en el informe: se declaran con su justificación.
 4. **Protocolo y definiciones metodológicas:** §17.1 (doc 96b). El informe nuevo debe
    ser consistente con ella; si la implementación se desvió del protocolo, la
    desviación **se declara** (los casos conocidos ya están relevados en docs 91/93).
-5. **Qué escribir:** el doc 93 es el tablero — 24 redlines (R-01…R-24) con "dice hoy /
-   debe decir / evidencia". El doc 94 ya trae texto redactado listo para adaptar.
+5. **Qué escribir:** el doc 93 es el tablero — **26** redlines (**R-01…R-26**) con "dice
+   hoy / debe decir / evidencia". El doc 94 ya trae texto redactado listo para adaptar.
+   *(✎ corregido 2026-08-05: acá decía "24 (R-01…R-24)". R-25 y R-26 se agregaron
+   después, y el propio doc 93 marca a **R-26 como "la más valiosa"** (§17.3.17/18, texto
+   en doc 94 §9) — con el número viejo se saltaban los dos mejores sin enterarse.)*
+6. **Figuras, tablas, reproducibilidad, licencias, limitaciones y mecanismos:**
+   `informe/99-materiales-de-cierre.md` (2026-08-05). Trae el inventario de figuras y
+   tablas con su artefacto de origen, el anexo de reproducibilidad con los sha256
+   verificados, las citas obligatorias por dataset, las limitaciones L1–L8 y el catálogo
+   de mecanismos. **Su §6 lista 6 decisiones abiertas**, una bloqueante para el lote de
+   internet.
 
 ## 3. Reglas de honestidad experimental (no negociables)
 
-- **GT preliminar:** mientras el clip bench tenga GT `gt_preliminary`, sus métricas se
-  presentan como *verificación de la mecánica de evaluación*, nunca como resultado.
-  Fórmula tipo: "sobre un GT preliminar pendiente de adjudicación humana, la
-  plataforma produjo…".
-- **Lo no hecho se registra, no se esconde:** tracker sin productor de `track_id`
-  (modo sujeto inerte), distribución MQTT (spec 45) no implementada, D1 sin correr
-  (bloqueada por el acta `edir_v1`), EBE-desde-clip sin ancla de sincronización,
-  pasada humana CVAT pendiente. El registro honesto ya está redactado en doc 91 §7 y
-  doc 94 (sección "registro de lo no implementado").
+- **GT del banco: ✎ ya NO es preliminar (actualizado 2026-08-05).** Los **34 clips del
+  rodaje están `gt_ready`** en el manifest, con pasada humana de CVAT y seis bordes
+  adjudicados con firma (docs 80/81; `clip_gt.v2` con `provenance.xml_sha256`). O sea
+  que **sus métricas SE REPORTAN COMO RESULTADO**, no como verificación de la mecánica.
+  La regla anterior —presentarlas como "verificación" mientras el GT fuera
+  `gt_preliminary`— **ya no aplica al banco y no debe usarse**: aplicarla hoy
+  subestimaría el resultado principal del trabajo. Sí sigue vigente para material sin
+  pasada humana: **los 14 clips del lote de internet están cortados pero sin GT**
+  (esperando CVAT), y cualquier cifra sobre ellos es provisoria hasta que se integren.
+- **Lo no hecho se registra, no se esconde** (✎ lista actualizada 2026-08-05):
+  distribución MQTT (spec 45) no implementada · **campaña EBE de punta a punta por el
+  bus contra GT** no ejecutada (falta el ancla wallclock↔media **como ingeniería de
+  campaña**, doc 101 §3; el ancla *puntual* sí quedó cerrada con reloj externo en el
+  humo anclado del doc 101 §5.4 —las 4 patas, ancla física +1.066 ms—, que es una toma,
+  no un banco: **no confundir las dos cosas al redactar**; el eje se cubre por proxy de
+  densidad + humos verdes) · `hyb_and` **no ejecutada con causa** (no medible
+  contra este banco sin romper la comparabilidad, D-90.4) · **CR-02 a Nivel A no
+  cerrado** (un estrato, IC solapados) · tracker **no medido en obra real con
+  multitud** (L4) · FAR/hora **limitación declarada**, no métrica (D-90.1). *Quedaron
+  obsoletos en esta lista: "tracker sin productor de `track_id`" (G1 es capacidad
+  operativa config-driven, verificada en DBE 34/34 y en vivo, doc 91), "D1 sin correr"
+  (corrió: veto de precisión, doc 85) y "pasada humana CVAT pendiente" (hecha para el
+  rodaje).* El registro honesto se redacta desde `operacion/98` §6 y los índices de
+  `results/`, no desde el doc 91 §7, que es anterior al tramo experimental.
 - **Estados de aplicabilidad:** cuando una métrica no aplica, el informe usa el
   lenguaje del ADR-006/013 ("se declara `not_applicable/non_temporal_source`"), no
   frases vagas ("no se pudo medir").
@@ -68,25 +105,137 @@
 - El `.docx` **no se edita desde el repo**: los redlines se resuelven en Google Docs.
   El chat produce texto listo para pegar + la casilla del redline que salda.
 - Al redactar una sección: (1) identificar el redline del doc 93 que la cubre, (2)
-  levantar la evidencia del doc 92/56, (3) partir del texto del doc 94 si existe,
-  (4) devolver el texto final + qué redline queda saldado.
+  levantar la evidencia **de los cuatro índices de `results/` + `operacion/97`** (✎
+  corregido 2026-08-05: **no** del doc 92/56, que §2.1 ya derogó como fuente de cifras;
+  este paso decía "doc 92/56" y contradecía la jerarquía), (3) partir del texto del
+  doc 94 si existe, (4) devolver el texto final + qué redline queda saldado.
 - Trabajar por bloques del plan del doc 91 §8: A contradicciones → B concreción →
-  C evidencia → D erratas. El plan de cierre y el orden de sacrificio están en el
-  doc 95.
+  C evidencia → D erratas. Del doc 95 sigue vigente **§5.5 (el orden de sacrificio)**;
+  su cronograma (§5.1 y §5.4, con "GRABAR EL BANCO" en la semana 2–3) es **histórico
+  pre-rodaje** y no debe leerse como pendiente.
 - Si el asistente detecta una contradicción entre docs, **no la resuelve en silencio**:
   la señala, propone la resolución según la jerarquía del doc 13 §1, y la registra
   como pendiente si no puede decidirse con lo disponible.
 
 ## 5. Números canónicos de referencia rápida
 
-(Fuente: doc 92/56 §9 — verificar allí antes de citar; esta tabla es solo un índice.)
+> ✎ **ACTUALIZADA 2026-08-05 · RELEVADA CONTRA DISCO EL MISMO DÍA.** La versión anterior de esta tabla (fechada
+> 2026-07-18) quedó superada por el tramo experimental completo y **encabezaba con un
+> número inválido**: el benchmark del clip `cb_b01_p7`, que fue **retirado del banco el
+> 2026-08-03** (licencia/consentimiento sin registrar + GT generado por IA; ver
+> `datasets/processed/clip_bench/_retired/cb_b01_p7/MOTIVO.md`). Citar de ahí habría
+> reintroducido exactamente la falla que el doc 95 §2.1 denunció ("el número estrella
+> del TFG no tenía respaldo en el repo"). También estaban superados el mAP del BENCH v2
+> y el split `BENCH 196` (auditado 20-25% fuera de dominio, doc 63).
+>
+> **Fuente de verdad actualizada:** los cuatro índices de
+> `e-ovrt_experimental-setup/results/` (`bench_imagenes/`, `bench_nivel_a/`,
+> `clip_bench/`, `realtime/`) + doc 98 (conclusiones transversales) y doc 97 de
+> `operacion/` (estado de plataforma, reemplaza al 56). **Los índices se verifican
+> mecánicamente** con `operacion/datos/96-verificar-indices.py` (chequea que cada cifra
+> citada coincida con el `metrics.json` en disco): correrlo antes de volcar cifras.
+> Esta tabla sigue siendo **solo un índice**: verificar en el artefacto antes de citar.
+
+### 5.1 Alertas sobre video — Nivel B, el resultado principal (banco de 34 clips)
+
+Banco: 34 clips del rodaje 2026-07-25, 35 episodios (CR-01 28 / CR-02 7), GT humano,
+`manifest.yaml` sha256 `cef5082e…`. Micro por episodio; los 4 clips negativos quedan
+fuera de P/R/F1 y se reportan como control de FP (F-EV1).
+
+> **Al citar el denominador, decir "34 episodios evaluables sobre 35".** Las 12
+> campañas traen `episodes_censored: 1` / `episodes_evaluable: 34`: hay un episodio
+> censurado que no entra al micro (mecanismo `metric_censored`, enmienda A2 del doc 58).
+> Escribir "35 episodios evaluados" es incorrecto.
+
+| Campaña | Combinación | Recall | Prec. | **F1** | t_alert | TTFD | FP neg |
+|---|---|---|---|---|---|---|---|
+| **T1** | tiny-560 + `v2_short` + escena (**núcleo**) | 0,824 | 0,757 | **0,789** | 5.327 ms | 168 ms | 0/4 |
+| **G1** | ídem + granularidad por sujeto (**mejor del banco**) | 0,971 | 0,892 | **0,930** | 5.236 ms | 168 ms | 0/4 |
+| D1 | `edir_v1` (E-DIR) | 0,176 | 0,146 | 0,160 | 6.611 ms | 847 ms | 2/4 |
+| H1 | fusión `hyb_or` | 0,353 | 0,255 | 0,296 | 6.956 ms | 113 ms | 2/4 |
+
+Artefacto: `results/clip_bench/<campaign_id>/metrics.json` (+ `evals/`, `campaign.yaml`,
+`provenance.json`). Tabla completa con T2/B1 y desglose por escenario/condición:
+`results/clip_bench/index.md`.
+
+**Veredicto del eje (criterios pre-registrados en `nucleo/04` §8):** E-IND **0,789**
+núcleo · E-DIR **0,160** descartada por **veto de precisión** (0,146 < 0,5) · E-HYB-or
+**0,296** no supera a la mejor individual. `hyb_and` **no ejecutada con causa**
+(D-90.4). **La ganancia de G1 es 100% del motor**: SDR y TTFD idénticos a T1 porque las
+detecciones son bit a bit las mismas.
+
+### 5.2 Percepción sobre imágenes — banco `bench_v3`
+
+Banco congelado 2026-07-23: **6.477 imágenes**, 3 fuentes independientes
+(`bench_obra` 147 = 85 val + 62 test · `chv` 1.330 · `shel5k` 5.000), 55.165
+anotaciones, sha256 `4557024e…`. **Reportar siempre por estrato y agregado, nunca solo
+el agregado** (L5: el agregado está dominado por `shel5k`, 77%).
+
+| Modelo | mAP50 `bench_v3` | mAP50 `bench_obra` | recall CR-01 (n=5.313) |
+|---|---|---|---|
+| **`gdino-tiny-560`** (campeón) | **0,551** | 0,503 | 0,308 |
+| `gdino-base-560` (especialista CR-02/`bare_head`) | 0,525 | 0,474 | **0,599** |
+| `yoloe-26x` | 0,442 | 0,405 | **0,000** |
+
+Artefacto: doc 64 (selección S1/S2 + confirmación B5) y doc 66; índice:
+`results/bench_imagenes/index.md`.
+
+### 5.3 Estado por persona — Nivel A
+
+CR-01 E-IND: F1 **0,546** (`shel5k`, n=2.487 violadores, IC no solapados) / **0,408**
+(`bench_obra`, n=28). CR-02 E-IND: F1 **0,479** (`bench_obra`, n=82) — **CR-02 NO está
+cerrado a Nivel A**: un solo estrato con IC solapados, se declara. Umbrales calibrados
+en mitad A, métricas sobre mitad B. Artefacto: doc 83/84 + `results/bench_nivel_a/`.
+
+### 5.4 Tiempo real y latencia
 
 | Resultado | Valor | Artefacto |
 |---|---|---|
-| Benchmark clip `cb_b01_p7` (GDINO-tiny, **GT preliminar**) | P 0,50 · R 1,00 · F1 0,667 · t_alert 4000,0 ms · TTFD 0 ms · SDR 0,9986 | `operacion/datos/95-2026-07-12-bench-cb_b01_p7-gdino-*` |
-| G2A single-host | P50 14,7 ms / P95 31,8 ms (presupuesto 50–250 ms) | `operacion/datos/39-*` |
-| Prefilter EN-2 (A/B real con GDINO) | 87 % drop on-device | doc 10 E-07 / doc 56 |
-| Paridad replay↔stream | byte-idéntica (verificada por mutación) | doc 37 + datos |
-| BENCH v2 imágenes | GDINO-tiny mAP 0,441; YOLOE recall CR-01 ≈ 0 (`bare_head`) | `operacion/datos/31-*` |
-| Splits v2 | TRAIN 5540 / BENCH 196 / DEMO 1064 | registry datasets |
-| Umbrales oficiales | CR-01 4000 ms / CR-02 7000 ms (resolve 2000/3000) | `cr01_cr02_v2.yaml` |
+| G2A single-host (video) | p50 **14,7 ms** / p95 **31,8 ms** (presupuesto 50–250 ms) | `operacion/datos/39-*` |
+| G2A live GDINO sobre OAK-D | p95 **630–890 ms** → **fuera** de presupuesto | doc 71 §2.1 |
+| G2A live YOLOE sobre OAK-D | p95 **225–249 ms** → dentro, pero **inservible para la condición** (F-RT2) | doc 71 §2.1/2.3 |
+| Techo de fps y su causa | contención de **GIL** (F-RT3); palanca F-RT5 aplicada: **3,75 → 4,42 fps**, −14,4% latencia, p = 0,0195 | docs 73/74 |
+| **Calidad bajo densidad del live** | escena: 0,794 @4,29 fps → 0,646 @1,15 · sujeto: 0,866 → 0,742. **F-96.4: la ganancia de la identidad excluye el cero en las 4 densidades** | doc 96 + `results/clip_bench/` §densidad |
+| Verificación temporal en vivo (claqueta) | política **4.142 ms** vs `confirm_after_ms` 4.000 · relojes de los dos procesos con **4 ms** de residuo · ancla física tono→fotón **+1.066 ms** | doc 101 §5.4 |
+| Prefilter EN-2 (A/B real con GDINO) | **87% drop** on-device (solo `source.type: oak_d`) | doc 10 E-07 |
+| Paridad replay↔stream | **byte-idéntica** (verificada por mutación); `bus_dropped_events = 0` en las 6 corridas del rodaje, L0 y regresión | docs 37/65/71/91 |
+
+> ⚠ **F-101.8 — advertencia obligatoria al citar G2A** (doc 101 §5.5): `G2A` se mide
+> desde el **dequeue en el host**, no desde la captura del fotón. La latencia
+> vidrio→alerta suma `capture_to_host_ms`, que varía un orden de magnitud con el estado
+> de la fuente: **202–217 ms** (medianas de las 6 corridas del rodaje) y **1.600 ms** en
+> las tomas del 08-05. Está instrumentado por frame, así que **es declarable**; no
+> presentar G2A como latencia vidrio→alerta sin este término.
+
+### 5.5 Extensibilidad — el número de A1
+
+**0 entrenamientos · 1 archivo de 48 líneas · 9 minutos · 0 GT nuevo anotado**, y
+`machinery` **AP@0.5 0,662** zero-shot (n=99 cajas) sobre clases que la plataforma
+jamás configuró — **supera el mAP50 agregado del campeón con sus clases configuradas**.
+Artefacto: doc 94 + `datos/94-piloto-clase-nueva/`.
+
+> **F-94.1, el contrapeso que va junto al número:** la palabra debe alinear con la
+> taxonomía del despliegue (`vehicle` junto a `machinery` da 0 detecciones; aislada, AP
+> 0,026 porque el 67% cae sobre lo que ese GT llama `machinery`). Versión fuerte de A1:
+> agregar la clase cuesta minutos **y validar la palabra también**. Segundo caso
+> independiente medido el 2026-08-05 (`gloves` sobre el material del rodaje: 252
+> detecciones, **ninguna sobre un guante** — caían sobre el casco amarillo;
+> `experimental-setup/defensa/README.md` §V2).
+
+### 5.6 Configuración y datos de referencia
+
+| Ítem | Valor | Artefacto |
+|---|---|---|
+| Umbrales oficiales | CR-01 `confirm_after_ms` 4000 / `resolve_after_ms` 2000 · CR-02 7000 / 3000 | `cr01_cr02_v2.yaml` (**nunca `v1`**) |
+| Pattern set vigente | `cr01_cr02_v2` (escena) / `cr01_cr02_v2_subject` (sujeto) | control-plane `configs/patterns/` |
+| Prompt set congelado | `cr01_cr02_v2_short`, `frozen_sha256 df81fd48…` | `experimental-setup/prompts/` + acta doc 76 |
+| Splits de imágenes v2 | TRAIN **5.540** / DEMO **1.064** (el viejo "BENCH 196" está **descartado**: 20–25% fuera de dominio, doc 63 — el banco de evaluación es `bench_v3`) | registry `datasets` |
+| FAR/hora | **NO es una métrica de este trabajo** (D-90.1): limitación declarada con causa cuantificada. La evidencia de falsas alarmas es el **control de negativos** | doc 90 D-90.1 |
+
+### 5.7 Lo que puede cambiar cuando llegue el GT del lote de internet
+
+Pendiente externo (14 clips ya cortados, sin GT). Al integrarse **como estrato B con
+desglose obligatorio** (recomendación D-90.6) puede moverse: el **agregado** del clip
+bench, el texto de **L4** (la limitación más citable — un solo bloque guionado), y el
+contexto de soak. **No se mueven**: los mecanismos (F-81.x, F-85.x, F-87.2, F-88.x,
+F-89.x, F-96.x, F-101.x), el veredicto del eje ni las cifras por estrato ya publicadas.

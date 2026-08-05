@@ -1,0 +1,12 @@
+{
+ "fecha": "2026-08-05",
+ "beep_wallclock_ms": 1785951262318.0,
+ "beep_monotonic_ms": 7741308.995922297,
+ "media_run_id": "run_20260805_173354_dbe_grounding_dino_780a1c",
+ "control_run_id": "smoke_claqueta_20260805T173350Z_b9c64e",
+ "control_run_dir": "/home/simonll4/projects/e-ovrt_control-plane/runs/smoke_claqueta_20260805T173350Z_b9c64e",
+ "media_run_dir": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260805_173354_dbe_grounding_dino_780a1c",
+ "en_cuadro_s": 18,
+ "modo": "con_ancla_humana",
+ "nota": "El beep es el instante conocido en wallclock. La entrada a cuadro debe coincidir con él; la reacción humana (~200-300 ms, doc 67 midió 222 ms) es el límite de precisión del ancla y se declara."
+}

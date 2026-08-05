@@ -250,16 +250,37 @@ que ya usás.
 
 ## COLA FIJA — tuyas, sin dependencia técnica (del doc 82, siguen pendientes)
 
-### D-90.7 — Videos V1–V3 de la defensa: las 3 preguntas del doc 79 §4
+### ~~D-90.7~~ → **RESUELTA 2026-08-05 por delegación del usuario** ("respondelas vos de acuerdo a lo que mejor se alinea a la tesis")
 
-El renderer post-hoc quedó más cerca: el tracking post-hoc **ya existe**
-(`tools/track_detections`, hecho para G1) — falta solo la mitad de composición visual.
-Las preguntas de alcance siguen abiertas y son tuyas:
-1. ¿V1–V3 con una persona o con N>1 en escena?
-2. ¿Identidad visible por persona (color/ID) o alcanzan cajas + estado de escena?
-3. ~~¿G1 como capacidad ejecutable o diseño con fixtures?~~ — **parcialmente resuelta
-   por el doc 89**: G1 ya es capacidad ejecutada con resultado medido (post-hoc); solo
-   queda decidir si además se muestra en vivo (= D-90.3b).
+**Principio rector de la resolución (doc 81 §1): los videos ilustran combinaciones
+MEDIDAS, no montajes ideales.** Cada video muestra exactamente la combinación cuyos
+números están en las tablas del informe — así ningún jurado puede preguntar "¿y esto
+que estoy viendo, dónde está medido?".
+
+1. **V1–V3: UNA persona, granularidad de ESCENA, sin identidad visible.** Son la
+   ilustración del núcleo medido (T1: `gdino-tiny-560` + `v2_short` + escena,
+   F1 0,789): P1 para V1 (la cadena completa), P3 para V3 (el silencio correcto,
+   verificado 2/2 en vivo — doc 71). Menos capas sobreimpresas = el mensaje temporal
+   se lee mejor; y evita consumir `supporting_*`, la mitad cara del renderer.
+2. **Identidad visible: SÍ, pero en una pieza propia (V-G1, ~20 s), no en V1–V3.**
+   El mejor resultado del banco (G1, F1 0,930) merece su evidencia visual, y el lugar
+   donde el mecanismo SE VE es P7 (multitud): bajo escena el motor "miraba a otra
+   persona" (F-89.1, recall 0,400) y bajo sujeto las mismas detecciones bit a bit dan
+   1,000. V-G1 es el único video con N>1 y con color/ID por sujeto — ahí la identidad
+   ES el mensaje, en V1–V3 sería ruido. (Doc 09 §6.2 preveía "3 esenciales + 1 bonus";
+   V-G1 se agrega como segundo bonus porque G1 se midió DESPUÉS de escribir ese doc.)
+3. ~~¿G1 capacidad ejecutable o diseño?~~ — **cerrada del todo**: capacidad operativa
+   config-driven verificada en DBE (34/34 campo a campo) y en vivo (doc 91).
+
+**V2 (open-vocabulary) sigue PENDIENTE y su clase la decide el usuario.** El intento
+de Claude con `gloves` (iniciativa propia, fuera de lo delegado) se **descartó por
+falso**: auditadas las 252 detecciones, las de mayor confianza caen sobre el **casco
+amarillo** y el resto sobre manga/cabeza/chaleco/piso — cero guantes (evidencia:
+corrida `run_20260805_180847…9357a7`; detalle en
+`experimental-setup/defensa/README.md` §V2). Es un **segundo caso independiente de
+F-94.1** y como tal es citable en el informe. **Requisito que queda fijado: auditar
+visualmente la clase nueva antes de renderizar o de afirmar nada — un conteo de
+detecciones no es evidencia de que funcione.**
 
 ### D-90.8 — Administrativo del rodaje
 Consentimientos archivados (pendiente desde doc 82 item 5).
@@ -286,7 +307,7 @@ la ejecutás vos o la pedís).
 | ~~D-90.4~~ | ~~`hyb_and`~~ | **ACEPTADA: no es falta de tiempo — no es medible contra este banco sin romper la comparabilidad de las 6 campañas** | cerrada 08-05 |
 | D-90.5 | Arrancar el informe | **sí, ya** | esta semana |
 | D-90.6 | Encuadre del lote de internet | estrato B con desglose | al llegar el GT |
-| D-90.7 | Alcance videos V1–V3 | responder las 2 preguntas restantes | antes del armado de defensa |
+| ~~D-90.7~~ | ~~Alcance videos V1–V3~~ | **RESUELTA por delegación: V1–V3 = 1 persona/escena/sin identidad (ilustran T1); + V-G1 (P7, multitud, color por sujeto — ilustra G1). 4 videos listos; V2 pendiente: el intento con `gloves` se descartó por falso** | cerrada 08-05 (V2 abierto) |
 | D-90.8 | Consentimientos | — | cola |
 | D-90.9 | Backup `docs` | git bundle | cola (creciente) |
 | D-90.10 | Merge a `main` | receta doc 77 | antes del cierre |

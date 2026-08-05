@@ -1,0 +1,18 @@
+{
+ "media_run": "run_20260805_173354_dbe_grounding_dino_780a1c",
+ "control_run": "smoke_claqueta_20260805T173350Z_b9c64e",
+ "beep_wallclock_ms": 1785951262318.0,
+ "ancla_ms": -63.8974609375,
+ "frame_ancla": "frame_000050",
+ "ttfd_externo_ms": 2715.965576171875,
+ "cadencia_media_ms": 277.70425669352215,
+ "alertas": [
+  {
+   "condition_id": "CR-01",
+   "subject_key": "CR-01:smoke_claqueta",
+   "politica_ms": 4142.302447999828,
+   "first_evidence_unit_id": "frame_000060",
+   "unit_id": "frame_000075"
+  }
+ ]
+}

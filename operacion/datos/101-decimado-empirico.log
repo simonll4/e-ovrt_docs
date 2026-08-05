@@ -1,0 +1,22 @@
+=== s7dec · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-s7dec
+=== s7dec · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-s7dec-subject
+[j7] distribución grounding_dino@2026-08-05: 338 huecos, factor de reescalado 0.962
+=== j7 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j7
+=== j7 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j7-subject
+=== s12 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-s12
+=== s12 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-s12-subject
+[j12] distribución grounding_dino@2026-07-25: 1280 huecos, factor de reescalado 1.000
+=== j12 · scene — 34 clips ===
+  -> 34/34 OK en 101-rt-j12
+=== j12 · subject — 34 clips ===
+  -> 34/34 OK en 101-rt-j12-subject
+GUARD(a) EQUIVALENCIA: 34/34 clips — decimado ≡ re-inferencia (frames, timestamps y detecciones idénticos)
+GUARD(a) EVALS: 34/34 idénticos a R1 en matched/missed/FP/re_alerts/P/R/F1
+
+Total: 0.0 min — todo OK

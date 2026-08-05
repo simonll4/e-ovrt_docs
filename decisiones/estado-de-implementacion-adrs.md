@@ -30,6 +30,7 @@
 | 012 | Bajo G0 la memoria de cobertura EPP **se ignora con causa declarada** (la histéresis subsume el parpadeo) | **Implementado y FALSACIÓN SUPERADA** (los dos tests condición-de-merge pasaron) |
 | 013 | La plataforma **detecta la temporalidad de la fuente** y declara sola la no-aplicabilidad de métricas temporales | **Implementado con evidencia medida** (137 eventos / 0 alertas sobre imágenes) |
 | 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementado** (consolidación + reporte); "sellado" opt-in sin ejercitar |
+| **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados** |
 
 ## 1. Detalle por ADR
 
@@ -266,6 +267,28 @@
   corrida real (sin evidencia de uso; verificar su cableado cuando se archive el
   primer experimento definitivo).
 
+### ADR-015 — Cierre de alcance al final del tramo experimental (✅ Aceptada 2026-08-05)
+
+- **Decisión:** registrar que el alcance **creció** respecto del doc 10 en E-03 (G1 pasa
+  de demostrativa a capacidad operativa medida), E-07 (OAK-D + EN-2, parcial) y E-13
+  (E-HYB-or ejecutada y refutada; `hyb_and` no ejecutada con causa); **cerrar la puerta**
+  (ninguna capacidad nueva de acá a la defensa) y declarar la distribución MQTT como NO
+  implementada, resolviendo el condicional del ADR-005.
+- **Cómo quedó:** **es el único ADR que no describe implementación** — no toca código ni
+  cambia una sola cifra medida. Reordena qué se declara como alcance y qué como límite.
+- **Por qué existe:** el doc 95 §5.1 lo pidió como *"recorte final de alcance"* porque los
+  docs 91/94 declaraban el tracker/G1 como no implementado. **La premisa se invirtió**: G1
+  terminó siendo el mejor resultado del banco (F1 0,930). Cumplir el pedido literal habría
+  obligado a esconder ese resultado o declararlo fuera de alcance.
+- **Qué desbloquea:** **R-13** (la lista de límites: de sus 8 ítems, 5 estaban resueltos —
+  auditados uno por uno en el ADR §3) y **R-21** (la tabla de estado del backlog, que
+  afirma "MOT ✗ tracker no implementado" y es falso al cierre: lo excluido son las
+  métricas MOT, E-10, no la capacidad).
+- **Cerrado:** aceptado por el usuario el **2026-08-05** y **aplicado al doc 10** — su
+  encabezado apunta a este ADR, el **ítem 10** de la lista de alcance quedó reescrito y las
+  filas **E-03/E-04/E-07/E-13** de la tabla de exclusiones llevan su estado real con
+  evidencia. Registro de alcance y resultados ya dicen lo mismo.
+
 ## 2. Vista por tema (resuelve la superposición de ADRs)
 
 Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
@@ -282,7 +305,7 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 
 | ADR | Condicional que dejaba abierto | Resolución |
 |---|---|---|
-| 001 | "el cierre definitivo lo da el experimento D1" | **Sigue abierto** (acta `edir_v1` pendiente); el encuadre E-IND rige mientras tanto |
+| 001 | "el cierre definitivo lo da el experimento D1" | ✎ **RESUELTO (corregido 2026-08-05; esta fila decía "sigue abierto")**: el acta se firmó el 2026-07-29 (doc 76 — `edir_v1` `a1278d0c…` y `eind_v1` `7a0126f4…` congelados con sha256) y **D1 corrió en los dos niveles**: Nivel A pasó el gate parcialmente (doc 83) y **Nivel B descartó E-DIR por veto de precisión** (0,146 < 0,5 — doc 85). El encuadre E-IND queda confirmado con número, no por defecto |
 | 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) |
 | 007 | ventanas de evaluación propias "trabajo futuro" | No hicieron falta: la evaluación temporal v2 (doc 52) cubre el caso |
 | 012 | "sujeta a falsación por test" | **Falsación superada** (doc 34); la reversión no se activó |
