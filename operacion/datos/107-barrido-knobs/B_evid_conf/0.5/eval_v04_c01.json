@@ -1,0 +1,127 @@
+{
+  "schema_version": "control.eval.temporal.v1",
+  "scenario_id": "v04_c01",
+  "alerts_path": "/home/simonll4/projects/docs/operacion/datos/107-barrido-knobs/B_evid_conf/0.5/control_runs/knobs_B_evid_conf_0.5_v04_c01_20260806T231932Z/alerts.jsonl",
+  "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/v04_c01.json",
+  "expected_alerts_count": 1,
+  "observed_alerts_count": 17,
+  "matched_alerts_count": 1,
+  "missed_alerts_count": 0,
+  "unexpected_alerts_count": 10,
+  "duplicate_alerts_count": 0,
+  "precision": 0.090909,
+  "recall": 1.0,
+  "f1": 0.166667,
+  "avg_latency_frames_from_first_evidence": null,
+  "avg_latency_ms_from_first_evidence": null,
+  "re_alerts_count": 6,
+  "sub_threshold_count": 0,
+  "censored_episodes_count": 0,
+  "observed_duration_ms": 19067.0,
+  "far_per_hour": 1888.07888,
+  "applicability_state": "computed",
+  "applicability_cause": null,
+  "avg_latency_ms_from_episode_start": 4133.0,
+  "effective_matching_windows": {
+    "CR-01": {
+      "persistencia_min_ms": 4000.0,
+      "t_alert_max_ms": 10000.0,
+      "origin": "gt_provenance"
+    }
+  },
+  "warnings": [],
+  "matches": [],
+  "missed_alerts": [],
+  "unexpected_alerts": [
+    {
+      "alert_id": "c5e6ec5f-b7f5-5a73-b793-284fd66eac3a",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:v04_c01:subject_002",
+      "frame_index": 120,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "3923c6b9-4961-5b58-a045-d8b5fda3c980",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:v04_c01:subject_003",
+      "frame_index": 120,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "3ef8cbbb-949e-50e4-9c25-17ca61f52952",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:v04_c01:subject_004",
+      "frame_index": 120,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "146df774-87a2-5315-94b6-c3c8f260afd8",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:v04_c01:subject_007",
+      "frame_index": 121,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "8f62e729-610a-5079-8cf6-7a8201aba8c7",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_002",
+      "frame_index": 210,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "3da59f3c-3c51-53c4-9630-8d82ff299d1b",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_003",
+      "frame_index": 210,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "b0fcf4d4-4b43-50f4-b860-2a7c878bdece",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_020",
+      "frame_index": 356,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "16b814e3-ca35-530f-afc5-a4825dfb1de0",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_019",
+      "frame_index": 382,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "3e0c0ea7-cc6a-51f1-8db8-dc46c500b10b",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_023",
+      "frame_index": 402,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "d27c854f-2d90-59d8-883b-e73cd150555b",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v04_c01:subject_025",
+      "frame_index": 453,
+      "reason": "outside_all_episode_windows"
+    }
+  ],
+  "censored_episodes": [],
+  "avg_ttfd_ms": 33.0,
+  "avg_sdr": 1.0,
+  "ttfd_by_episode": [
+    {
+      "episode_id": "ep1",
+      "ttfd_ms": 33.0,
+      "cause": null
+    }
+  ],
+  "sdr_by_episode": [
+    {
+      "episode_id": "ep1",
+      "sdr": 1.0,
+      "cause": null
+    }
+  ],
+  "ttfd_sdr_applicability": "computed",
+  "positive_criterion": "spatial_absence(cr01_cr02_v2_subject_evid50) >=1 evidencia",
+  "detections_path": "/home/simonll4/projects/docs/operacion/datos/102-i2-internet-subject-clips/tracked/v04_c01.jsonl"
+}

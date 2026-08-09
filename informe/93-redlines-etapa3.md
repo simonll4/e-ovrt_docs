@@ -32,6 +32,12 @@ numeradas **61 a 67** en el doc 94; al transcribir, verificá que no colisionen 
 > ⚠️ **v2 — 2026-07-12, tras auditoría adversarial.** Se corrigieron tres citas que no eran literales
 > (R-01, R-04, R-15), el matiz del `cooldown` (R-02), y se agregaron **R-25** y **R-26**. Todas las cifras
 > remiten ahora a la tabla canónica del doc 92 §10. Detalle en `95-auditoria-y-plan-de-cierre.md`.
+>
+> ✎ **2026-08-06 — sobre esa remisión:** "doc 92 §10" es **`informe/92`** (serie del
+> informe, no `operacion/92`) y quedó **derogado como fuente de números el
+> 2026-08-05**: al transcribir un redline, las cifras se toman de los **4 índices de
+> `e-ovrt_experimental-setup/results/`** (verificados con
+> `operacion/datos/96-verificar-indices.py`) vía el brief `informe/97` §5.
 
 ---
 
@@ -761,6 +767,11 @@ tracker no implementado, E-03).
 ## R-24 · fuera del §17.3 · PRECISA · media
 ### Inventario de datasets desactualizado
 
+> ✎ **2026-08-06 — el insumo ya existe (escritura pura):** el inventario quedó **al
+> día el 2026-08-05** (`operacion/99` — relevamiento completo de datasets de imágenes,
+> registry actualizado), como ya lo registró la anotación de R-13. El redline sigue
+> siendo transcribir la selección efectiva al informe; la evidencia está lista.
+
 El inventario del informe (SH17, SHEL5K, CHV, Pictor-PPE, Construction-PPE, GDUT-HWD, SHWD, SODA, MOCS) es
 **anterior a la selección efectiva**. Los tres conjuntos realmente utilizados son
 `construction_site_safety`, `chv` y `ppe_siabar`. El documento final debe declarar **qué candidatos se
@@ -831,6 +842,14 @@ La tabla de costos de extensión, con su frontera declarada:
 
 **El contraste entre las dos primeras filas es la contribución arquitectónica del trabajo**: delimita la
 frontera real de la extensibilidad por lenguaje, en vez de prometer que "todo es configurable".
+
+> ✎ **2026-08-06 — DESBLOQUEADO: A1 YA CORRIÓ (2026-08-05, `operacion/94`).** El
+> condicional de abajo quedó viejo — el número existe y es AF-4 del doc 98:
+> **0 entrenamientos · 1 archivo de 48 líneas · 9 minutos · 0 GT nuevo anotado**,
+> `machinery` **AP@0.5 0,662 zero-shot** (n=99 cajas), por encima del agregado del
+> campeón con las clases configuradas. Con el contrapeso obligatorio **F-94.1**
+> (validar la palabra: `vehicle` junto a `machinery` = 0 detecciones; el bench lo
+> expone en ~3 min). Cifras: `results/bench_imagenes/index.md` §4.
 
 Si el **mini-experimento A1** (costo marginal de una condición nueva, doc 10 ítem 8) llega a correrse, su
 número va acá: *N líneas de configuración, T minutos, una corrida registrada*. Vale más, en la defensa, que

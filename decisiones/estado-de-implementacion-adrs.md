@@ -16,11 +16,11 @@
 
 | ADR | Decisión (una frase) | Estado de implementación |
 |---|---|---|
-| 001 | La estrategia de detección del núcleo es **indirecta** (detectar persona+EPP y razonar la ausencia), no prompts de infracción directa | **Implementada como encuadre**; cierre experimental (D1) pendiente del acta `edir_v1` |
-| 002 | El patrón se evalúa **por escena (G0)**, sin identidad de personas; el modo por-sujeto (G1) es solo demostrativo | **G0 implementado y verificado** (gate F1=1.0); G1 **no portado** (deuda) |
+| 001 | La estrategia de detección del núcleo es **indirecta** (detectar persona+EPP y razonar la ausencia), no prompts de infracción directa | **Implementada como encuadre y cerrada experimentalmente** (✎ 2026-08-06; *decía "pendiente del acta `edir_v1`"*): acta firmada 2026-07-29 (doc 76) y **D1 corrió en los dos niveles** — E-DIR vetada por precisión (0,146 < 0,5) |
+| 002 | El patrón se evalúa **por escena (G0)**, sin identidad de personas; el modo por-sujeto (G1) es capacidad operativa medida (adenda 08-04 + ADR-015) | **G0 implementado y verificado** (gate F1=1.0); **G1 implementado y medido** (✎ 2026-08-06; *decía "no portado (deuda)"*): decorador de fuente en el control-plane, F1 0,930 en 34 clips — ver §1 (RESUELTO 2026-08-04) |
 | 003 | El acople live media→control es **bus ZeroMQ PUB/SUB + msgpack**, broker diferido | **Implementado y demostrado** (paridad byte-idéntica replay↔stream) |
 | 004 | La corrida experimental es un **manifiesto paraguas** con `experiment_id` propagado, orquestada por un runner HTTP | **Implementado** (runner + manifiesto + propagación a ambos planos) |
-| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **NO implementado** (diferido para lo último por decisión del usuario); solo existe la frontera de salida (`control.alert.v1`) |
+| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **NO implementado — exclusión ejercida y cerrada** (✎ 2026-08-06, ADR-015 §2c; *decía "diferido para lo último"*): el condicional quedó resuelto en **no** y no se reabre antes de la defensa; solo existe la frontera de salida (`control.alert.v1`) |
 | 006 | El reporte consolidado junta ambos planos por `experiment_id` y **cada métrica declara su aplicabilidad** con causa | **Implementado** (report.json/md + estados en todos los evaluadores) |
 | 007 | En vivo, la corrida del control-plane es **1:1** con el run del media-plane y cierra por `run_finished` | **Implementado y verificado E2E** |
 | 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) |
@@ -44,15 +44,19 @@
   `e-ovrt_control-plane/src/eovrt_control/engine/evaluators/spatial_absence.py`
   (regiones `upper_body`/`torso` del pattern set `cr01_cr02_v2`). Los prompt sets del
   experimento existen con ciclo de vida en `e-ovrt_experimental-setup/prompts/`:
-  `eind_v1` está **`frozen_pending_review`** (espera el acta del usuario) y los sets
-  E-DIR exploratorios quedaron en `prompts/_archive/`. La bajada operativa completa
+  `eind_v1` y `edir_v1` quedaron **congelados con acta firmada** (2026-07-29, doc 76,
+  sha256 registrados; ✎ *decía "`frozen_pending_review`, espera el acta del
+  usuario"*) y los sets E-DIR exploratorios quedaron en `prompts/_archive/`. La bajada operativa completa
   (comparabilidad, calib/test, fusión) es el doc 12.
 - **Evidencia:** benchmark de modelos doc 31 (insumo: YOLOE ciego a `bare_head` ⇒
   restringe el espacio de búsqueda de D1); toda la plataforma corre E-IND en los E2E
   de docs 35/37/38/51.
-- **Pendiente:** el **experimento D1 no se corrió** (bloqueado por el acta `edir_v1`).
-  Este es el único punto que puede revisar el ADR. Insumo nuevo: el comparativo de 3
-  backends sobre `video16_clip10` (doc 56 §2.2).
+- **Pendiente:** ninguno. (✎ 2026-08-06; *decía "el experimento D1 no se corrió
+  (bloqueado por el acta `edir_v1`)" y "`eind_v1` está `frozen_pending_review`"*):
+  el acta se firmó el 2026-07-29 (doc 76, ambos sets congelados con sha256) y **D1
+  corrió en los dos niveles** — a Nivel A E-IND gana por el criterio pre-registrado
+  y a Nivel B E-DIR quedó **vetada por precisión** (0,146 < 0,5, campaña D1 del clip
+  bench). El único punto que podía revisar el ADR se ejerció y lo confirmó.
 
 ### ADR-002 — Granularidad G0 núcleo + G1 demostrativa
 
@@ -121,14 +125,19 @@
 - **Decisión:** el módulo de distribución se recorta a un canal demo MQTT con ledger
   de idempotencia, en un **repo hermano propio**, consumiendo las alertas confirmadas
   por bus.
-- **Cómo quedó:** **NO implementado, a propósito**: el spec 45 está escrito y su
-  ejecución quedó **para lo último** por decisión del usuario (registrada en
-  ADR-010/doc 55). Lo único construido es la **frontera de salida** del control-plane
-  que el módulo consumirá: el publisher `control.alert.v1`
+- **Cómo quedó:** **NO implementado — exclusión ejercida y cerrada** (✎ 2026-08-06,
+  ADR-015 §2c; *decía "su ejecución quedó para lo último"*): el condicional "¿MQTT sí
+  o no?" se resolvió en **no** y no se reabre antes de la defensa; el informe lo
+  declara como exclusión con causa, no como deuda. El spec 45 queda escrito como
+  diseño. Lo único construido es la **frontera de salida** del control-plane que un
+  módulo futuro consumiría: el publisher `control.alert.v1`
   (`e-ovrt_control-plane/src/eovrt_control/transport/alert_bus.py`, XPUB,
-  persiste-primero, apagado por default) — doc 51.
-- **Pendiente:** todo el módulo (repo, canal MQTT, `NotificationEnvelope`, ledger,
-  vista en consola). No bloquea al clip bench (ADR-010).
+  persiste-primero, apagado por default) — doc 51. Existe además un repo hermano
+  scaffoldeado (`e-ovrt_alert-distribution/`, 2026-07-18): **esqueleto sin lógica ni
+  commits** (paquetes vacíos + spec de diseño), se declara para que no aparezca solo.
+- **Pendiente:** ninguno — el módulo (repo, canal MQTT, `NotificationEnvelope`,
+  ledger, vista en consola) queda **fuera del alcance** por ADR-015 §2c. No bloquea
+  al clip bench (ADR-010).
 
 ### ADR-006 — Reporte consolidado y aplicabilidad de métricas
 
@@ -308,5 +317,6 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | 001 | "el cierre definitivo lo da el experimento D1" | ✎ **RESUELTO (corregido 2026-08-05; esta fila decía "sigue abierto")**: el acta se firmó el 2026-07-29 (doc 76 — `edir_v1` `a1278d0c…` y `eind_v1` `7a0126f4…` congelados con sha256) y **D1 corrió en los dos niveles**: Nivel A pasó el gate parcialmente (doc 83) y **Nivel B descartó E-DIR por veto de precisión** (0,146 < 0,5 — doc 85). El encuadre E-IND queda confirmado con número, no por defecto |
 | 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) |
 | 007 | ventanas de evaluación propias "trabajo futuro" | No hicieron falta: la evaluación temporal v2 (doc 52) cubre el caso |
+| 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: NO (ADR-015 §2c, 2026-08-05; fila agregada 2026-08-06)** — se declara **no implementada** en el informe como exclusión ejercida con causa, y no se reabre antes de la defensa. Construida solo la frontera `control.alert.v1` |
 | 012 | "sujeta a falsación por test" | **Falsación superada** (doc 34); la reversión no se activó |
-| 002/008/009 | recortes "si la agenda aprieta" (G1-demo, cáscara HTTP, mejora UX) | Ninguno se ejerció; al revés: servicio y UX se ampliaron. G1 sigue sin portar pero por orden de prioridad, no por recorte |
+| 002/008/009 | recortes "si la agenda aprieta" (G1-demo, cáscara HTTP, mejora UX) | Ninguno se ejerció; al revés: servicio y UX se ampliaron. (✎ 2026-08-06; *decía "G1 sigue sin portar pero por orden de prioridad"*): G1 terminó **implementada y medida** — decorador en el control-plane, F1 0,930 en 34 clips (adenda ADR-002 ratificada + ADR-015 E-03) |

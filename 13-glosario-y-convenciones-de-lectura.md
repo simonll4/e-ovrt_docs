@@ -1,6 +1,9 @@
 # 13 — Glosario y convenciones de lectura del set documental
 
-- **Fecha:** 2026-07-18
+- **Fecha:** 2026-07-18 · **✎ Actualizado 2026-08-06** (relevamiento integral: se
+  corrigieron las reglas 1/3/5/6/7 y las entradas G1, D1 y ADR-NNN que habían quedado
+  pre-ADR-015, y se agregaron las convenciones **AF-x**, **limitación L1–L8 vs hito
+  L0/L1** y **las dos series de ADR**)
 - **Propósito:** definir en un solo lugar toda la sigla y jerga del proyecto, y las
   reglas para leer este set **sin contexto previo** (pensado para humanos que se suman
   y para LLMs que reciben los documentos fragmentados, p. ej. en un Project de
@@ -10,29 +13,42 @@
 
 ## 1. Convenciones de lectura (las reglas de oro)
 
-1. **El número del documento es su identidad** y es único en todo el set ("doc 04",
-   "doc 56"). Las carpetas agrupan por rol: `nucleo/` 01–12 narrativa, `decisiones/`
-   ADRs, `specs/` serie 40, `operacion/` series 30 y 50, `informe/` serie 90,
-   `contingencia/` serie 20.
+1. **El número del documento es su identidad** ("doc 04", "doc 56"). Las carpetas
+   agrupan por rol: `nucleo/` 01–12 narrativa, `decisiones/` ADRs, `specs/` serie 40,
+   `operacion/` series 30 y 50–101, `informe/` serie 90, `contingencia/` serie 20.
+   **✎ 2026-08-06 — excepción que muerde:** desde el 90 las series de `operacion/` y
+   de `informe/` **colisionan** (existen `operacion/93` ≠ `informe/93`,
+   `operacion/95` ≠ `informe/95`, `operacion/92` ≠ `informe/92`…). Al citar un doc
+   ≥90, **decir siempre la serie**: "operacion/95" o "informe/95", nunca "doc 95" a
+   secas.
 2. **El banner ✎ manda sobre el cuerpo.** Muchos docs son la foto de su fecha y llevan
    arriba banners de actualización posteriores. Si un fragmento del cuerpo contradice
    un banner (o un doc más nuevo), **vale el banner / el doc más nuevo**. Nunca citar
    el cuerpo de un doc histórico como estado actual sin verificar su banner.
-3. **Jerarquía de verdad para el estado actual de la plataforma:**
-   doc **56** (foto integral 2026-07-18) > banners ✎ > doc 92 (cifras y contratos
-   verificados con ruta:línea) > cuerpo de docs de operación > specs (lo *pedido*, no
-   necesariamente lo *construido*).
+3. **Jerarquía de verdad para el estado actual de la plataforma** (✎ actualizada
+   2026-08-06; *decía doc 56 > … > doc 92*): **`operacion/97`** (foto integral
+   2026-08-05, reemplaza al 56) > banners ✎ > **los 4 índices de
+   `e-ovrt_experimental-setup/results/`** (cifras verificadas mecánicamente con
+   `operacion/datos/96-verificar-indices.py`) > cuerpo de docs de operación > specs
+   (lo *pedido*, no necesariamente lo *construido*). `informe/92` y `operacion/56`
+   quedaron **derogados como fuente de números** (2026-08-05).
 4. **Docs de registro histórico** (no describen el presente): 32, 36, 50 (reemplazados
    en cadena por el 56), y los cuerpos de 33–39 (sus resultados siguen válidos como
    evidencia de esa fecha).
-5. **Los ADRs no se re-litigan.** Una decisión formalizada (ADR-001…014) solo se
+5. **Los ADRs no se re-litigan.** Una decisión formalizada (ADR-001…**015**) solo se
    revisa con causa registrada. Si un texto propone reabrir una, es un error.
-6. **Ninguna cifra sin artefacto.** Todo número citable tiene su archivo en
-   `operacion/datos/` o su ruta en el doc 92. Un número sin artefacto no va al informe.
-7. **El GT de video es preliminar.** Mientras el estado sea `gt_preliminary` (GT
-   generado por revisión visual de Claude, sin pasada humana en CVAT), las métricas
-   del clip bench se citan solo como *verificación de mecánica*, nunca como resultado
-   de la tesis.
+   ADR-015 además **cierra la puerta**: ninguna capacidad nueva hasta la defensa.
+6. **Ninguna cifra sin artefacto.** Todo número citable tiene su `metrics.json` (o
+   artefacto equivalente) referenciado desde los 4 índices de
+   `e-ovrt_experimental-setup/results/`, o su archivo en `operacion/datos/`. Un
+   número sin artefacto no va al informe. (✎ 2026-08-06: *decía "o su ruta en el doc
+   92"* — derogado como fuente de números.)
+7. **El estatuto del GT depende del material** (✎ actualizado 2026-08-06; *decía "el
+   GT de video es preliminar"*): el GT del **banco del rodaje** (34 clips, 35
+   episodios) es **humano y `gt_ready` desde 2026-08-03** — sus métricas se reportan
+   como **RESULTADO** de la tesis. La regla vieja ("solo verificación de mecánica")
+   aplica únicamente a material cuyo GT siga `gt_preliminary` — hoy, el **lote de
+   internet** (14 clips, en anotación CVAT).
 8. **Registro:** los docs de operación usan voseo informal a propósito (son memoria de
    trabajo). El informe se redacta en registro formal impersonal — el modelo de estilo
    es el doc 94.
@@ -66,7 +82,7 @@ sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 | **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta ambos planos por HTTP (ADR-004), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
 | **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy de ambos planos. Superficie de gestión primaria (ADR-009). |
 | **runner** | CLI del experimental-setup que dispara una corrida en ambos planos en el orden correcto: live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero. |
-| **G0 / G1 / (G2)** | Granularidades del patrón (ADR-002): **G0 = escena** (sin identidad de personas; el núcleo validable), **G1 = sujeto** (con tracker; solo demostrativa, sin métricas MOT). |
+| **G0 / G1 / (G2)** | Granularidades del patrón (ADR-002): **G0 = escena** (sin identidad de personas; el núcleo validable), **G1 = sujeto** (con tracker IoU como decorador en el control-plane). ✎ 2026-08-06: G1 es **capacidad operativa medida** — F1 0,930 sobre los 34 clips del banco, el mejor resultado, con detecciones bit a bit idénticas a G0 (adenda ADR-002 + ADR-015 E-03; *decía "solo demostrativa"*). Siguen excluidas las métricas MOT (E-10). |
 | **G2A** | "Glass-to-algorithm": latencia captura→resultado algorítmico en el media-plane (`g2a_ms` por unidad; presupuesto 50–250 ms). Parte de la métrica `t_capture→alert` (spec 40 §5.2.4). |
 | **t_alert** | Latencia de alerta del sistema: desde que la condición se sostiene hasta que el patrón confirma. Con umbral 4000 ms, el valor ideal medido fue 4000,0 ms exactos. |
 | **TTFD** | Time To First Detection: ms desde el inicio del episodio GT hasta la primera detección de la evidencia correspondiente. |
@@ -74,13 +90,15 @@ sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 | **re_alerts** | Alertas repetidas de un mismo episodio (el motor emite en cada confirmación, ADR-011); el evaluador las cuenta aparte y **no** las penaliza como falsos positivos. |
 | **Estados de aplicabilidad** | ADR-006/013: cuando una métrica no corresponde, se declara con causa en vez de omitirse: `not_applicable/non_temporal_source` (imágenes), `not_interpretable/dbe_media_time` (video DBE), `not_interpretable/cross_node_monotonic_clock` (two-node), `not_applicable/no_ground_truth`, etc. |
 | **D1…D6** | Las seis dimensiones de decisión del doc 03 (estrategia de detección, granularidad, bus, config paraguas, distribución, reporte), formalizadas en ADR-001…006. |
-| **E-IND / E-DIR / E-HYB** | Estrategias de detección de D1: **E-IND** = indirecta (detectar persona + EPP y razonar la ausencia — la adoptada como encuadre, ADR-001), **E-DIR** = directa (prompt que describe la infracción, variantes negación/observable), **E-HYB** = fusión de ambas (dual-run con gating por persona). El experimento del doc 04/12 las compara; D1 está **bloqueada por el acta `edir_v1`** del usuario. |
+| **E-IND / E-DIR / E-HYB** | Estrategias de detección de D1: **E-IND** = indirecta (detectar persona + EPP y razonar la ausencia — la adoptada como encuadre, ADR-001), **E-DIR** = directa (prompt que describe la infracción, variantes negación/observable), **E-HYB** = fusión de ambas (dual-run con gating por persona). El experimento del doc 04/12 las comparó. ✎ 2026-08-06: **D1 corrió en los dos niveles** (acta firmada 2026-07-29, doc 76; *decía "bloqueada por el acta `edir_v1`"*): E-IND queda como núcleo (F1 0,789), E-DIR **vetada por precisión** (0,146 < 0,5) y E-HYB-or refutada (F-87.2); `hyb_and` no ejecutada con causa (D-90.4). |
 | **E-01…E-13** | El registro de **exclusiones** de alcance del doc 10 (qué NO se implementa y bajo qué regla del informe). E-07 es el nodo de borde: OAK-D quedó integrada y EN-2 implementada opcional. |
 | **EN / CPN / TN** | Nodos del entorno experimental (§17.1.4): Edge Node (captura; OAK-D Pro PoE), Central Processing Node (GPU de inferencia), Training Node (fine-tuning — excluido del núcleo). |
 | **EN-2** | Variante de borde con **inferencia parcial en el dispositivo**: prefilter de personas corriendo EN la OAK-D (blob `person-detection-retail-0013`), fail-open, default off. Medido: 87 % de drop on-device en A/B real. |
 | **R1…R4** | Los cuatro resultados defendibles del plan (doc 02): plataforma E2E, números DBE, números EBE/latencia, extensibilidad. |
-| **A1…A5** | Los cinco argumentos de defensa de OVD del doc 09 (con videos V1–V4). |
-| **ADR-NNN** | Architecture Decision Record en `decisiones/` (001–014). Cerrados; ver README de la carpeta y su companion `estado-de-implementacion-adrs.md` (cómo quedó implementado cada uno). |
+| **A1…A5** | Los cinco argumentos de defensa de OVD del doc 09 (con videos V1–V4). **No confundir con AF-x** (fila siguiente). |
+| **AF-1…AF-11** | Las once **afirmaciones** de la escala de conclusiones transversales (`operacion/98` §2), cada una con su fuerza declarada (establecida / direccional / tendencia / no cerrada / limitación). Prefijo **AF** justamente para no colisionar con los argumentos A1–A5 del doc 09. |
+| **L1…L8 (limitaciones)** | La lista canónica de **limitaciones declaradas** del trabajo, cerrada el 2026-08-05; la referencia es `e-ovrt_experimental-setup/results/index.md` §Limitaciones. **Colisión a evitar:** la **Fase L** del plan maestro (doc 62) usa `L0`/`L1` para sus *hitos* (L0 = ensayo pre-rodaje, L1 = el rodaje). Al citar, escribir **"limitación L1"** para la lista y **"hito L1" / "el rodaje"** para la fase — nunca `L1` a secas. |
+| **ADR-NNN (dos series)** | Architecture Decision Record. Hay **dos series que se confunden**: **`ADR-001…015`** del proyecto (3 dígitos, en `docs/decisiones/`; cerrados — ver README de la carpeta y su companion `estado-de-implementacion-adrs.md`) y **`ADR-0001…0013`** internos del control-plane (4 dígitos, en `e-ovrt_control-plane/docs/decisions/`; el 0005 no existe). Se solapan en tema con número distinto (p. ej. aplicabilidad = ADR-006 del proyecto vs ADR-0006 del control-plane). **Al citar, decir siempre la serie** ("ADR-0003 del control-plane"). |
 | **DA-01…DA-13** | Las **decisiones arquitectónicas iniciales** del capítulo de diseño del informe (§17.3.3.4, tabla completa en el doc 90). Las que más citan los ADRs: **DA-01** separar plano de medios y plano de control; **DA-02** publicar la evidencia perceptiva como eventos normalizados; **DA-03** diferenciar el canal de eventos del repositorio persistente (⇒ el JSONL del plano es la fuente de verdad); **DA-10** priorizar DBE antes de EBE; **DA-13** registrar la alerta interna antes de cualquier notificación externa. |
 | **specs serie 40** | Los specs de Etapa 4 por módulo: 40 plataforma (normativa transversal), 41 control-plane, 42 media-plane, 43 clip bench/GT temporal, 44 experimental-setup, 45 distribución MQTT (para lo último). Escritos sin alternativas a partir de los ADRs. |
 | **superpowers** | Metodología de trabajo con specs/planes/revisiones que usó Claude para implementar; sus artefactos viven en `docs/superpowers/` o `docs/_archive/superpowers/` de cada repo de código. No confundir con este repo `docs/`. |

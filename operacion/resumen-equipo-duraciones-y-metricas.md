@@ -1,5 +1,13 @@
 # Resumen para el equipo — duraciones de los clips y qué métricas podemos medir
 
+> ## ✎ HISTÓRICO — RESUMEN PRE-RODAJE (banner agregado 2026-08-06)
+>
+> Foto del 2026-07-20, **anterior al rodaje** (2026-07-25): su §8 ("estado del
+> material") y §9 ("qué sigue") describen en futuro cosas ya ejecutadas — el rodaje
+> se hizo, el GT del banco está `gt_ready` (34 clips, doc 80) y el tramo experimental
+> está completo (docs 92/98). No usar como estado; para el presente, entrar por
+> `00-indice.md` o `operacion/95`.
+
 **Fecha:** 2026-07-20 · **Fuentes:** docs/operacion/57 (metodología), 58 (plan de cierre), 59 (guion de grabación).
 Este documento es un resumen de lectura. La fuente de verdad sigue siendo 57/58/59.
 

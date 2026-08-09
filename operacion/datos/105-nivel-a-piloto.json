@@ -1,0 +1,173 @@
+{
+  "schema_version": "clip_person_state.v1",
+  "operating_point": {
+    "person_conf": 0.35,
+    "evidence_conf": 0.25,
+    "pattern_set": "cr01_cr02_v2 (desplegado)",
+    "sin_barrido": "puntuado en el punto de operacion, no calibrado"
+  },
+  "stride": 15,
+  "unknown_policy": "person-frames con atributo unknown EXCLUIDAS del denominador",
+  "por_clip": [
+    {
+      "clip_id": "video02_clip07",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 110,
+          "fn": 0,
+          "n_gt": 256,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 256,
+          "person_frames_excluidas_unknown": 80,
+          "ratio_unknown": 0.2381
+        },
+        "CR-02": {
+          "tp": 8,
+          "fp": 159,
+          "fn": 16,
+          "n_gt": 263,
+          "n_gt_positive": 24,
+          "precision": 0.04790419161676647,
+          "recall": 0.3333333333333333,
+          "f1": 0.08376963350785341,
+          "person_frames_evaluadas": 263,
+          "person_frames_excluidas_unknown": 73,
+          "ratio_unknown": 0.2173
+        }
+      }
+    },
+    {
+      "clip_id": "video15_clip01",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 15,
+          "fn": 0,
+          "n_gt": 93,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 93,
+          "person_frames_excluidas_unknown": 3,
+          "ratio_unknown": 0.0312
+        },
+        "CR-02": {
+          "tp": 24,
+          "fp": 53,
+          "fn": 25,
+          "n_gt": 96,
+          "n_gt_positive": 49,
+          "precision": 0.3116883116883117,
+          "recall": 0.4897959183673469,
+          "f1": 0.38095238095238093,
+          "person_frames_evaluadas": 96,
+          "person_frames_excluidas_unknown": 0,
+          "ratio_unknown": 0.0
+        }
+      }
+    },
+    {
+      "clip_id": "video16_clip10",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 1,
+          "fp": 22,
+          "fn": 2,
+          "n_gt": 185,
+          "n_gt_positive": 3,
+          "precision": 0.043478260869565216,
+          "recall": 0.3333333333333333,
+          "f1": 0.07692307692307691,
+          "person_frames_evaluadas": 185,
+          "person_frames_excluidas_unknown": 45,
+          "ratio_unknown": 0.1957
+        },
+        "CR-02": {
+          "tp": 3,
+          "fp": 46,
+          "fn": 23,
+          "n_gt": 185,
+          "n_gt_positive": 26,
+          "precision": 0.061224489795918366,
+          "recall": 0.11538461538461539,
+          "f1": 0.08,
+          "person_frames_evaluadas": 185,
+          "person_frames_excluidas_unknown": 45,
+          "ratio_unknown": 0.1957
+        }
+      }
+    },
+    {
+      "clip_id": "video16_clip14",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 43,
+          "fn": 0,
+          "n_gt": 172,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 172,
+          "person_frames_excluidas_unknown": 21,
+          "ratio_unknown": 0.1088
+        },
+        "CR-02": {
+          "tp": 4,
+          "fp": 88,
+          "fn": 17,
+          "n_gt": 135,
+          "n_gt_positive": 21,
+          "precision": 0.043478260869565216,
+          "recall": 0.19047619047619047,
+          "f1": 0.07079646017699115,
+          "person_frames_evaluadas": 135,
+          "person_frames_excluidas_unknown": 58,
+          "ratio_unknown": 0.3005
+        }
+      }
+    }
+  ],
+  "agregado": {
+    "CR-01": {
+      "tp": 1,
+      "fp": 190,
+      "fn": 2,
+      "n_gt": 706,
+      "n_gt_positive": 3,
+      "person_frames_evaluadas": 706,
+      "person_frames_excluidas_unknown": 149,
+      "precision": 0.005235602094240838,
+      "recall": 0.3333333333333333,
+      "f1": 0.010309278350515464,
+      "ratio_unknown": 0.1743
+    },
+    "CR-02": {
+      "tp": 39,
+      "fp": 346,
+      "fn": 81,
+      "n_gt": 679,
+      "n_gt_positive": 120,
+      "person_frames_evaluadas": 679,
+      "person_frames_excluidas_unknown": 176,
+      "precision": 0.1012987012987013,
+      "recall": 0.325,
+      "f1": 0.15445544554455445,
+      "ratio_unknown": 0.2058
+    }
+  }
+}

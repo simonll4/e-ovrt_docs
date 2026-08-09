@@ -1,0 +1,22 @@
+run:
+  id: null
+  scenario: DBE
+  name: control_internet_subject_v09_c01
+  description: "Estrato B (lote de internet) — v09_c01, granularidad subject."
+input:
+  type: media_jsonl
+  path: /home/simonll4/projects/docs/operacion/datos/110-estrato-b-gen3/subject/tracked/v09_c01.jsonl
+patterns:
+  file: /home/simonll4/projects/e-ovrt_control-plane/configs/patterns/cr01_cr02_v2_subject.yaml
+  active_ids:
+    - CR-01
+    - CR-02
+outputs:
+  base_dir: /home/simonll4/projects/docs/operacion/datos/110-estrato-b-gen3/subject/control_runs
+  save_pattern_events_jsonl: true
+  save_alerts_jsonl: true
+  save_metrics_jsonl: true
+  save_errors_jsonl: true
+  save_summary_json: true
+logging:
+  level: WARNING

@@ -1,0 +1,19 @@
+run:
+  id: null
+  scenario: DBE
+  name: gate_subject_g400_v10_c01
+  description: "barrido gate juzgabilidad subject_g400 — doc 104"
+input:
+  type: media_jsonl
+  path: /home/simonll4/projects/docs/operacion/datos/102-i2-internet-subject-clips/tracked/v10_c01.jsonl
+patterns:
+  file: /home/simonll4/projects/docs/operacion/datos/104-barrido-gate/subject/g400/patterns_gate400.yaml
+  active_ids:
+    - CR-01
+    - CR-02
+outputs:
+  base_dir: /home/simonll4/projects/docs/operacion/datos/104-barrido-gate/subject/g400/control_runs
+  save_alerts_jsonl: true
+  save_summary_json: true
+logging:
+  level: ERROR

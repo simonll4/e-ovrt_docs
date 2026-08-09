@@ -17,8 +17,9 @@
 - **§6 es lo importante si vas con poco tiempo:** los 6 hallazgos que este armado destapó.
   **Cuatro quedaron cerrados el mismo día** (procedencia del lote de internet ·
   consentimiento del rodaje · ADR-015 escrito, aceptado y aplicado · lista canónica de
-  limitaciones L1–L8). **Siguen abiertos dos, chicos:** los catálogos de modelos no
-  registran licencia, y hay que fijar la convención para citar las dos series de ADR.
+  limitaciones L1–L8) **y el de las dos series de ADR se cerró el 2026-08-06**
+  (convención bajada al glosario doc 13). **Sigue abierto uno, chico:** los catálogos
+  de modelos no registran licencia (+ el residual de URL por video del hallazgo 1).
 
 ---
 
@@ -243,7 +244,9 @@ exactamente el tipo de dato que no se declara de memoria.
 Verificado el 2026-08-05 (antes de que se aportara el origen), tres cosas independientes:
 
 1. Los **14 `clip.yaml` del lote de internet no tienen cláusula de licencia** (a
-   diferencia de `cb_b01_p7`, que sí llevaba la condición escrita).
+   diferencia de `cb_b01_p7`, que sí llevaba la condición escrita). ✎ 08-06: los 3
+   promovidos (`v04_c01`/`v06_c01`/`v10_c01`) **ya la llevan** (bloque `license:` con
+   `video_url: TODO` — la URL por video sigue pendiente, hallazgo 2 de §6).
 2. El `license_registry.md` **no tiene ninguna entrada de video** — ni rodaje, ni banco
    de clips, ni lote de internet.
 3. **No hay URL de origen registrada** para los 14 masters (`raw/1.1.mp4` … `10.1.mp4`).
@@ -281,9 +284,10 @@ lo puede hacer quien sepa de dónde salieron los videos.
   **procedencia desconocida en el repo**. Riesgo alto: si no se puede acreditar el origen
   y sus términos, el material no entra al capítulo — exactamente como `cb_b01_p7`.
 
-**Lo que se puede hacer sin esperar a nadie:** registrar en `license_registry.md` la
-entrada de video que hoy no existe (rodaje + banco + lote), con URL de origen y términos
-por master, y el sha256 en el manifest. Si el lote no acredita, el capítulo **se sostiene
+**Lo que se puede hacer sin esperar a nadie** (✎ 2026-08-06: la entrada de video **ya
+se creó** ese mismo día — §3.3; lo que sigue faltando del bloque es solo **URL + fecha
+de acceso por master**): completar en `license_registry.md` §Material de VIDEO la URL
+de origen y términos por master, y el sha256 en el manifest. Si el lote no acredita, el capítulo **se sostiene
 igual** con L4 declarada — es la regla del doc 57 §7.6: *el cierre lo decide la cobertura
 del material; lo no cubierto se declara con causa, nunca se fabrica*.
 
@@ -305,7 +309,7 @@ sueltas. Ahora las ocho tienen código en los dos lugares, con `results/index.md
 
 | ID | Limitación | Estado | Fuente |
 |---|---|---|---|
-| **L4** | **Un solo bloque guionado, sin obra real en video.** La más citable: mismos actores, misma locación, escenarios guionados | declarada; **la levanta el lote de internet** si acredita licencia (§3.3) | `operacion/98` §6 |
+| **L4** | **Un solo bloque guionado, sin obra real en video.** La más citable: mismos actores, misma locación, escenarios guionados | declarada; **la levanta el lote de internet** si acredita licencia (§3.3) ✎ 08-06: licencia registrada (08-05) **y GT humano listo** — 3 clips promovidos, banco 34→37 (doc `operacion/102`); queda **parcialmente levantada** (n = 2 episodios ⇒ fila aparte, D-90.6) a falta de los runs I1/I2 | `operacion/98` §6 |
 | **L1** | **FAR/hora no reportable.** Harían falta 3 h de cumplimiento anotado; el banco llega a 0,10–0,26 h. Se reemplaza por el **control de negativos**, que discrimina (T1/T2/G1: 0 FP de 4; D1/H1/B1: 2–3) | declarada con causa cuantificada (D-90.1) | `operacion/98` §6 |
 | **L5** | **Escenarios desbalanceados** ⇒ obliga a reportar siempre por escenario y por estrato | declarada; es regla de lectura, no solo limitación | `results/index.md` |
 | **L2** | **Sin doble anotación ni kappa** — decisión declarada, no omisión | declarada | `results/index.md` |
@@ -319,23 +323,26 @@ es una limitación del sistema sino del **instrumento**, y ya tiene su advertenc
 obligatoria en el doc 97 §5.4. Decidir si entra a la lista con etiqueta propia o queda
 solo como caveat de la tabla de latencia.
 
-### 4.2 ADRs: dos series, y una que falta
+### 4.2 ADRs: dos series que se confunden
 
 **Trampa de numeración, va al informe:** hay **dos** series de ADR y se confunden a
 simple vista.
 
-- `docs/decisiones/` → **ADR-001…ADR-014** (3 dígitos): las decisiones **del proyecto**.
+- `docs/decisiones/` → **ADR-001…ADR-015** (3 dígitos): las decisiones **del proyecto**
+  (✎ 2026-08-06: *decía "…014"*; el 015 es el cierre de alcance).
 - `e-ovrt_control-plane/docs/decisions/` → **ADR-0001…ADR-0013** (4 dígitos, falta 0005):
   las decisiones **internas del control-plane**.
 
 Se solapan en tema y difieren en número (p. ej. aplicabilidad de métricas es ADR-006 del
-proyecto y ADR-0006 del control-plane). **Al citar, decir siempre la serie.** Los docs
-`nucleo/01` y `nucleo/10` ya citan la serie de 4 dígitos sin aclararlo.
+proyecto y ADR-0006 del control-plane). **Al citar, decir siempre la serie.**
+✎ 2026-08-06: **la convención quedó fijada en el glosario (doc 13 §3, entrada
+"ADR-NNN (dos series)")** y las citas sin serie de `nucleo/01` y `nucleo/10` fueron
+aclaradas en el lugar.
 
 > Queda saldado otro ítem del doc 75: reclamaba **8 ADRs inexistentes**
 > (`ADR-0006..0013` del control-plane). **Existen los 8**, verificado hoy.
 
-**Los 14 del proyecto**, con dónde aterrizan:
+**Los del proyecto** (ADR-015 va en prosa aparte, §5/§6), con dónde aterrizan:
 
 | ADR | Decisión | Dónde se declara |
 |---|---|---|
@@ -459,12 +466,12 @@ afirmación del capítulo.
 
 | # | Hallazgo | Quién decide |
 |---|---|---|
-| 1 | ✅ **RESUELTO 2026-08-05.** El origen del lote de internet es el canal público `@HospitalConstruction` y se cita como fuente; registrado en `license_registry.md` §Material de VIDEO. **Quedan dos salvedades chicas** (§3.3): chequear si los videos son CC BY o *Standard* —cambia lo que el informe puede afirmar— y anotar URL + fecha de acceso por video | vos (chequeo barato) |
+| 1 | ✅ **RESUELTO 2026-08-05.** El origen del lote de internet es el canal público `@HospitalConstruction` y se cita como fuente; registrado en `license_registry.md` §Material de VIDEO. **Queda UNA salvedad chica** (✎ 2026-08-06: la otra —¿CC BY o *Standard*?— ya estaba resuelta en §3.3: es *Standard YouTube License*, **nunca** presentarlo como CC): anotar **URL + fecha de acceso por video** (evidencia perecedera — mejor ahora que después) | vos (chequeo barato) |
 | 2 | ✅ **CERRADO 2026-08-05 por declaración**: en los 34 clips del rodaje aparecen **los propios integrantes del proyecto**, actuando según guion y sin terceros en cuadro — sujetos y responsables son los mismos. Lo administrativo lo maneja el equipo; la identificación del responsable va en el informe. Entrada de video creada en el registry; plantilla de consentimiento disponible por si la facultad la pide | — |
 | 3 | **Los catálogos de modelos no registran licencia.** El informe cita tres familias de pesos sin términos anotados | verificar y registrar |
 | 4 | ✅ **CERRADO 2026-08-05**: ADR-015 escrito, **aceptado** y **aplicado al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). Registra que el alcance creció, cierra la puerta a capacidad nueva, declara MQTT no implementada y **desbloquea R-13 y R-21** — R-13 con los 8 límites auditados (5 estaban resueltos) y R-21 con la corrección de "MOT ✗ tracker no implementado", falso al cierre | — |
 | 5 | ✅ **CERRADO 2026-08-05**: lista canónica **L1–L8**, con las tres que faltaban etiquetadas (L6/L7/L8) y L3 agregada. Aplicada en `results/index.md` (referencia) y `operacion/98` §6. Se mantiene el prefijo `L` y se desambigua en prosa (**"limitación L1"**), porque la Fase L usa `L0`/`L1` para sus hitos | — |
-| 6 | **Dos series de ADR** (`ADR-001…014` del proyecto vs `ADR-0001…0013` del control-plane) que se confunden a simple vista; hay docs citando la de 4 dígitos sin aclararlo | convención de cita |
+| 6 | ✅ **CERRADO 2026-08-06.** **Dos series de ADR** (`ADR-001…015` del proyecto vs `ADR-0001…0013` del control-plane): la convención de cita ("decir siempre la serie") quedó **escrita en el glosario doc 13 §3** —el doc que el manifiesto manda usar como vocabulario— y las citas sin serie de `nucleo/01` y `nucleo/10` se aclararon en el lugar | — |
 
 **Saldados en este pasada** (eran ítems abiertos de la auditoría del doc 75): el sha256 de
 `bench_v3` **sí** es verificable con `sha256sum` (§2.1) y los **8 ADRs del control-plane

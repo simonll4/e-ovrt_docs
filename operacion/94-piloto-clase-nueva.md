@@ -7,7 +7,8 @@
   ~20 líneas de configuración, minutos — debe medirse y reportarse como resultado, no
   solo afirmarse"* — y que **no estaba medido en ninguna parte**: toda la evidencia
   del trabajo era sobre CR-01/CR-02, el catálogo que ya existía.
-- **Estado:** ejecutado completo. **Sin commitear.**
+- **Estado:** ejecutado completo. ~~Sin commitear.~~ (✎ commiteado al cierre del
+  2026-08-05.)
 
 ## 1. El número de A1
 

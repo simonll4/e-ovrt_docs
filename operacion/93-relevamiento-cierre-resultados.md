@@ -20,7 +20,7 @@
 | Fase D Nivel A — E-DIR vs E-IND por persona | ✅ **CERRADO** | CR-02 con IC solapados (declarado) | — |
 | Fase T/P — Nivel B, 6 campañas sobre 34 clips | ✅ **CERRADO** | — | — |
 | Fase L — EBE live | ✅ **CERRADO sin opcionales** | — (la re-toma P2 quedó cumplida por el humo del doc 91: 2 CR-02 live limpias, 0 sobre-marcas en 309 frames) | — |
-| **Lote de internet** | 🔴 **ABIERTO** — 0/14 con GT | corrección CVAT de 14 clips | **usuario** |
+| **Lote de internet** | 🔴 **ABIERTO** — 0/14 con GT ✎ 2026-08-06: **3/14 con GT humano, promovidos — banco 34→37 (doc 102)**; runs I1/I2 armados sin correr | corrección CVAT de 14 clips | **usuario** |
 | Videos V1–V3 de defensa | 🟡 scopeado, sin construir | 2 preguntas de alcance + renderer | usuario decide, yo implemento |
 | FAR/hora | ⚫ **cerrado como limitación** (D-90.1) | nada — no se reporta | — |
 
@@ -34,8 +34,8 @@
 |---|---|
 | Clips preparados (`clips/v*.mp4`) | ✅ **14/14** |
 | Pre-anotación automática (`preann/v*.xml`) | ✅ **14/14** (GDINO-base + ByteTrack) |
-| **Corrección humana en CVAT (`corrected/v*.xml`)** | 🔴 **0/14** |
-| GT derivado (`gt/v*.json`) | 🔴 **0/14** |
+| **Corrección humana en CVAT (`corrected/v*.xml`)** | 🔴 **0/14** ✎ 08-06: **3/14** (`v04_c01`, `v06_c01`, `v10_c01` — doc 102) |
+| GT derivado (`gt/v*.json`) | 🔴 **0/14** ✎ 08-06: **3/14**, validados y promovidos |
 
 O sea: **todo lo automatizable está hecho y lo que falta es exclusivamente trabajo
 humano de CVAT.** Del lado de la plataforma no hay nada pendiente — cuando existan los
@@ -78,6 +78,13 @@ levantada con material real —un clip de cumplimiento largo y uno con infracci�
 resto se declara como cobertura no ejecutada con causa.
 
 ### Runbook para cuando salgan de CVAT (tu parte termina en el paso 1)
+
+> ✎ **2026-08-06 — ejecutado para los 3 primeros (doc 102), con una corrección al
+> paso 2:** los exports llegaron a nivel **TASK**, no proyecto, así que
+> `split_cvat_project.py` NO se aplica (habría sido el error simétrico). La regla
+> queda: **mirar `meta/task` vs `meta/project` en el XML antes de decidir**. El resto
+> de la cadena corrió tal cual está escrita. Runner del estrato B:
+> `datos/102-ciclo-internet-runner.py` + `datos/102-cerrar-campanas-internet.sh`.
 
 1. **Corregir en CVAT** (`GUIA-CVAT.md` en `datasets-videos/`) y **exportar como
    "CVAT for video 1.1"**. Recordar la trampa madre (doc 80): el export de proyecto

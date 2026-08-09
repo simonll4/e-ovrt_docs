@@ -8,8 +8,9 @@
 - **Qué NO es:** un resumen. El doc 92 responde Q1–Q4 del plan maestro; los índices de
   `results/` traen las tablas. Acá se decide **qué se puede afirmar y con qué fuerza**,
   que es lo que un tribunal va a apretar.
-- **Insumos:** `results/index.md` y sus 4 índices, docs 92 (Q1–Q4), 96 (tiempo real),
-  97 (implementación), 83–89 (campañas), 71/73/91 (live).
+- **Insumos:** `results/index.md` y sus 4 índices, docs 92 (Q1–Q4 — **solo narrativa:
+  derogado como fuente de números, tiene banner**), 96 (tiempo real), 97
+  (implementación), 83–89 (campañas), 71/73/91 (live), 101 (blindaje EBE).
 
 ---
 
@@ -36,15 +37,15 @@ estatuto**, y decirlo es más fuerte que aplanarlo.
 
 | # | Afirmación | Respaldo | Fuerza |
 |---|---|---|---|
-| AF-1 | La granularidad por sujeto mejora el F1 de alertas | ΔF1 +0,141, IC 95% [+0,032, +0,258]; y **excluye el cero en las 4 densidades** medidas | **Establecida** |
+| AF-1 | La granularidad por sujeto mejora el F1 de alertas | ΔF1 +0,141, IC 95% [+0,032, +0,258]; y **excluye el cero en las 4 densidades** medidas **bajo decimado regular, conservando la dirección bajo el descarte irregular medido del live (6/6 realizaciones — doc 101 §3, formulación obligatoria al citar F-96.4)** | **Establecida** |
 | AF-2 | E-DIR no sirve como núcleo | Veto pre-registrado de precisión (0,146 < 0,5); brecha F1 0,63; mecanismo identificado (ceguera al atributo, 54% de los FP) | **Establecida** (criterio fijado antes de correr) |
 | AF-3 | `gdino-tiny-560` es el campeón | mAP50 1º en las dos escalas (147 y 6.477 imgs, 3 fuentes) | **Establecida** (robusta a la fuente) |
 | AF-4 | Agregar una condición nueva no cuesta entrenar | 0 entrenamientos, 48 líneas, 9 min, `machinery` AP 0,662 zero-shot | **Establecida** (medida, no afirmada) |
-| AF-5 | `gdino-base-560` es el especialista de CR-02/`bare_head` | recall CR-01 0,599 vs 0,308 (n=5.313); CR-02 SDR 0,281→0,920 | **Establecida** |
+| AF-5 | `gdino-base-560` es el especialista, en dos ejes: `bare_head` (evidencia de CR-01) y `vest`/CR-02 (✎ 2026-08-06: *decía "especialista de CR-02/`bare_head`"*, etiqueta que mezclaba los ejes) | recall CR-01 0,599 vs 0,308 (n=5.313); vest AP 0,582 vs 0,520; CR-02 SDR 0,281→0,920 | **Establecida** |
 | AF-6 | La histéresis temporal rescata percepción intermitente | CR-02 recall 1,000 con SDR 0,281, pagando t_alert | **Establecida**, con límite (AF-7) |
 | AF-7 | Ese rescate tiene un límite de cadencia | P2 cae 1,00 → 0,60 → 0,20 al bajar la densidad | **Establecida** direccionalmente (n=5 episodios) |
 | AF-8 | El costo del tiempo real sobre el agregado | Estimaciones puntuales +0,005 / −0,050 / −0,143 — decrecientes a partir del techo de hoy, **pero ningún IC excluye el cero** | **Tendencia con mecanismo**, no efecto establecido |
-| AF-9 | La fusión E-HYB-or no ayuda | Predicción pre-registrada refutada (recall 0,824→0,353), mecanismo F-87.2 | **Establecida** (refutación de predicción propia) |
+| AF-9 | La fusión E-HYB-or no ayuda | Predicción pre-registrada refutada (recall 0,824→0,353), mecanismo F-87.2. (`hyb_and` **no se ejecutó, con causa** — D-90.4: no medible contra este banco sin romper la comparabilidad de las 6 campañas) | **Establecida** (refutación de predicción propia) |
 | AF-10 | CR-02 a Nivel A | Un solo estrato, **IC solapados** | **No cerrada** — declarado |
 | AF-11 | FAR/hora | Ninguna cota alcanzable sostiene afirmación | **Limitación**, no métrica (D-90.1) |
 
@@ -175,7 +176,7 @@ porque sus errores producen números plausibles.
 | Integridad | repositorio = fuente de verdad | **`bus_dropped_events = 0`** en todas las corridas |
 | Paridad | — | **byte-idéntica** con replay (verificada por mutación) |
 | Calidad contra GT | 13 campañas, 34 clips | por **proxy de densidad** (R1–R6) + confirmaciones live |
-| Latencia | no aplica (ADR-013) | G2A p95 630–890 ms GDINO ✗ / 225–249 ms YOLOE ✓ |
+| Latencia | no aplica (ADR-013) | G2A p95 630–890 ms GDINO ✗ / 225–249 ms YOLOE ✓ — **⚠ F-101.8, advertencia obligatoria al citar: el G2A se mide desde el dequeue en el host, no desde el fotón; vidrio→alerta suma `capture_to_host` (202–217 ms en el rodaje, hasta 1,6 s degradado)** |
 | Throughput | irrelevante por diseño | 1,16–4,42 fps, causa diagnosticada (GIL) |
 | Confirmaciones de patrón en vivo | — | **7 CR-01** (4,1–4,6 s) + **3 CR-02** (≥7,1 s) |
 
@@ -195,6 +196,11 @@ identidad conserva el signo en 6/6 realizaciones (F-101.1/3/4).
 1. **L4 — un solo bloque guionado, sin obra real en video.** La más citable. Mismos
    actores, misma locación, escenarios guionados. La levanta el lote de internet
    cuando tenga GT; hoy el capítulo se sostiene sin él, pero con la limitación dicha.
+   ✎ 08-06: **el GT llegó y I1/I2 corrieron** (3 clips, banco 34→37, doc 102) —
+   parcialmente levantada, PERO con un hallazgo nuevo que hay que nombrar: `v06_c01`
+   (127 personas GT) rompió `scene` (recall 0,000, F-81.2(a) extremo) y `subject`
+   (recall 1,000, precision 0,010) por densidad de escena, algo que el rodaje
+   (máx. 14 personas/clip) nunca pudo ejercer. Detalle y decisión pendiente: doc 103.
 2. **L1 — FAR/hora no reportable.** Harían falta 3 h de cumplimiento anotado; el banco
    llega a 0,10–0,26 h. Se reemplaza por el control de negativos, que discrimina
    (T1/T2/G1 dan 0 FP de 4; D1/H1/B1 dan 2–3).
@@ -235,7 +241,9 @@ la cobertura del material; lo no cubierto se declara con causa, nunca se fabrica
 
 - **Punto de entrada:** `e-ovrt_experimental-setup/results/index.md` (4 índices por
   material, verificados con `datos/96-verificar-indices.py`).
-- **Q1–Q4 del plan maestro:** doc 92 (con adenda ✎ del eje de tiempo real).
+- **Q1–Q4 del plan maestro:** doc 92 (con adenda ✎ del eje de tiempo real) — **como
+  narrativa: está derogado como fuente de números (banner 2026-08-06); toda cifra se
+  toma de los índices de `results/`**.
 - **Estado de implementación:** doc 97 (reemplaza al 56).
 - **Campañas:** docs 81 (T1), 83/84 (Nivel A + T2), 85 (D1), 87 (H1), 88 (B1),
   89 (G1), 96 (R1–R6).

@@ -1,0 +1,81 @@
+{
+  "schema_version": "control.eval.temporal.v1",
+  "scenario_id": "v01_c01",
+  "alerts_path": "/home/simonll4/projects/docs/operacion/datos/110-estrato-b-gen3/scene/control_runs/control_internet_scene_v01_c01_20260809T053738Z/alerts.jsonl",
+  "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/v01_c01.json",
+  "expected_alerts_count": 1,
+  "observed_alerts_count": 2,
+  "matched_alerts_count": 0,
+  "missed_alerts_count": 0,
+  "unexpected_alerts_count": 2,
+  "duplicate_alerts_count": 0,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "avg_latency_frames_from_first_evidence": null,
+  "avg_latency_ms_from_first_evidence": null,
+  "re_alerts_count": 0,
+  "sub_threshold_count": 0,
+  "censored_episodes_count": 1,
+  "observed_duration_ms": 37200.0,
+  "far_per_hour": 193.548387,
+  "applicability_state": "not_applicable",
+  "applicability_cause": "all_episodes_metric_censored",
+  "avg_latency_ms_from_episode_start": null,
+  "effective_matching_windows": {
+    "CR-01": {
+      "persistencia_min_ms": 4000.0,
+      "t_alert_max_ms": 10000.0,
+      "origin": "gt_provenance"
+    }
+  },
+  "warnings": [
+    "metric_censored: 1 de 1 episodios quedan fuera del denominador de recall/t_alert por clip demasiado corto (doc 57 §6.7) — recall se reporta sobre los evaluables."
+  ],
+  "matches": [],
+  "missed_alerts": [],
+  "unexpected_alerts": [
+    {
+      "alert_id": "bd11f35a-9c0e-5d2f-b82c-61506dfad7ad",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:v01_c01",
+      "frame_index": 120,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "2824970b-38cc-5612-9795-858363b6f093",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:v01_c01",
+      "frame_index": 219,
+      "reason": "outside_all_episode_windows"
+    }
+  ],
+  "censored_episodes": [
+    {
+      "episode_id": "ep1",
+      "condition_id": "CR-01",
+      "cause": "clip_too_short_for_t_alert_window",
+      "duration_ms": 37200.0,
+      "required_ms": 41567.0
+    }
+  ],
+  "avg_ttfd_ms": 33.0,
+  "avg_sdr": 0.994081,
+  "ttfd_by_episode": [
+    {
+      "episode_id": "ep1",
+      "ttfd_ms": 33.0,
+      "cause": null
+    }
+  ],
+  "sdr_by_episode": [
+    {
+      "episode_id": "ep1",
+      "sdr": 0.9940813065861892,
+      "cause": null
+    }
+  ],
+  "ttfd_sdr_applicability": "computed",
+  "positive_criterion": "spatial_absence(cr01_cr02_v2) >=1 evidencia",
+  "detections_path": "/home/simonll4/projects/e-ovrt_media-plane/runs/run_20260809_053403_dbe_grounding_dino_30c227/detections.jsonl"
+}

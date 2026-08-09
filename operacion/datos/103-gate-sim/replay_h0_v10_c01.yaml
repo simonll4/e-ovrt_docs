@@ -1,0 +1,19 @@
+run:
+  id: null
+  scenario: DBE
+  name: gatesim_h0_v10_c01
+  description: "simulacion gate juzgabilidad h0 — exploratorio doc 103"
+input:
+  type: media_jsonl
+  path: /home/simonll4/projects/docs/operacion/datos/103-gate-sim/v10_c01.h0.jsonl
+patterns:
+  file: /home/simonll4/projects/e-ovrt_control-plane/configs/patterns/cr01_cr02_v2_subject.yaml
+  active_ids:
+    - CR-01
+    - CR-02
+outputs:
+  base_dir: /home/simonll4/projects/docs/operacion/datos/103-gate-sim/control_runs
+  save_alerts_jsonl: true
+  save_summary_json: true
+logging:
+  level: ERROR

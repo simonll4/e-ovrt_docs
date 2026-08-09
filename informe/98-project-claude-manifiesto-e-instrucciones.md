@@ -40,7 +40,7 @@ knowledge del Project no tiene carpetas.
 | `informe/96b-informe-v11-17-1-consolidacion-metodologica.md` | El protocolo (§17.1) contra el que todo se lee. |
 | `informe/96a-informe-v11-frontmatter-intro-objetivos-plan.md` | Intro, objetivos, etapas: el marco del documento. |
 | `nucleo/10-registro-alcance-y-exclusiones.md` | El alcance cerrado y las exclusiones E-01…E-13. |
-| `decisiones/README.md` + los 14 ADRs | Las decisiones formalizadas y sus porqués. |
+| `decisiones/README.md` + los **15** ADRs (✎ 2026-08-06: *decía "14"* — sin el ADR-015 no subía justamente el cierre de alcance) | Las decisiones formalizadas y sus porqués, incluido **ADR-015** (cierre de alcance: MQTT no implementada, G1 capacidad medida, R-13/R-21 desbloqueados). |
 | `decisiones/estado-de-implementacion-adrs.md` | **El cierre decisión→implementación**: cómo quedó implementado cada ADR, vista por tema y condicionales resueltos. Leer SIEMPRE junto a los ADRs. |
 
 ### Nivel 2 — recomendados (contexto de diseño y defensa)
@@ -106,9 +106,11 @@ REGLAS DE LECTURA (obligatorias):
    precision/recall/F1 (su métrica son los FP); se reporta siempre por estrato y
    por escenario, nunca solo el agregado; el SDR no se compara entre cadencias;
    los "re_alerts" no son falsos positivos.
-6. Las decisiones ADR-001…014 están cerradas: se declaran y justifican, no se
-   re-litigan. Ojo: hay DOS series de ADR — ADR-001…014 del proyecto y
-   ADR-0001…0013 internos del control-plane; al citar, decí la serie.
+6. Las decisiones ADR-001…015 están cerradas: se declaran y justifican, no se
+   re-litigan (ADR-015 además cierra la puerta: ninguna capacidad nueva hasta la
+   defensa, MQTT declarada no implementada). Ojo: hay DOS series de ADR —
+   ADR-001…015 del proyecto y ADR-0001…0013 internos del control-plane; al citar,
+   decí la serie (convención en el glosario, doc 13).
    La tesis NO es "OVD detecta mejor" (ver doc 09): es la plataforma
    que mide qué se logra especificando condiciones en lenguaje, sin entrenar.
 
@@ -132,10 +134,16 @@ CÓMO TRABAJAR:
 
 ## 3. Flujo de trabajo sugerido en el chat
 
+0. ⚠️ **Puerta de secuencia (orden del usuario 2026-08-05, `informe/99` §7):** la
+   redacción de §17.x **no arranca** hasta que estén (1) los runs/evals del lote de
+   internet (estrato B) y (2) los videos V1–V3 — y con eso, el `informe-project-kit`
+   se regenera. Si el Project se abre antes, el trabajo es de preparación (planes,
+   verificación de materiales), no de redacción.
 1. **Sesión inicial:** pedir al asistente un plan de redacción a partir del doc 93
    (tablero de 26 redlines) + `informe/99` (inventario de figuras/tablas), priorizado
    por bloques A–D. ✎ **No** desde el doc 95 §5: ese cronograma es histórico pre-rodaje
-   (sí sirve su §5.5, el orden de sacrificio).
+   (sí sirve su §5.5, el orden de sacrificio — **salvo su ítem 1, derogado**: G1 se
+   implementó y midió, ADR-015 E-03).
 2. **Por sección:** "redactá la sección que salda R-NN" → pegar en Google Docs →
    marcar la casilla en el doc 93 local.
 3. **Al llegar resultados nuevos** (el GT del lote de internet, corridas nuevas): se

@@ -4,9 +4,14 @@
 >
 > - **VIGENTE, y es lo más valioso del doc:** §2 (las 11 correcciones de la auditoría,
 >   con §2.1 "el número estrella sin respaldo en el repo" como falla de referencia),
->   **§3 (la regla que evita que vuelva a pasar)**, §4 y **§5.5 (el orden de
->   sacrificio)**. La regla de §3 es la que gobierna hoy la jerarquía de fuentes del
->   brief de redacción (doc 97 §2).
+>   **§3 (la regla que evita que vuelva a pasar — como PRINCIPIO)**, §4 y **§5.5 (el
+>   orden de sacrificio)**. ✎ 2026-08-06, dos precisiones: (a) del §3 sigue vigente el
+>   **principio** ("una sola fuente por tipo de contenido; ninguna cifra sin
+>   artefacto"), pero su **tabla quedó vieja**: la fuente canónica de cifras ya NO es
+>   el 92 §10 (derogado 2026-08-05) sino los **4 índices de
+>   `e-ovrt_experimental-setup/results/`** (jerarquía vigente: doc 97 §2). (b) Del
+>   §5.5 quedó **derogado su ítem 1** ("el tracker no se hace"): G1 se implementó y
+>   es el mejor resultado del banco (F1 0,930, ADR-015 E-03); los demás ítems siguen.
 > - **HISTÓRICO — no leer como pendiente:** todo el **cronograma de §5** (§5.1 "tres
 >   cosas que dependen de vos, esta semana", §5.3 y **§5.4 "Secuencia", que pone
 >   "GRABAR EL BANCO" en la semana 2–3**). Es un plan **pre-rodaje**: el rodaje se
@@ -200,9 +205,12 @@ intacta — verificado: `exclude_none=True` en ambos escritores) y presente **s�
 tests en verde, lint limpio.
 
 La situación asimétrica quedó resuelta: la regla del redline R-07 —"las capacidades nuevas entran como
-campo opcional"— ahora **se muestra en el esquema del productor** en vez de prometerse. Lo que sigue
-pendiente, y así se declara en el informe, es la **emisión**: el tracker (spec 42 §3) no está implementado,
-y su implementación queda donde el orden de sacrificio la puso (§5.5, ítem 1: no se hace).
+campo opcional"— ahora **se muestra en el esquema del productor** en vez de prometerse. (✎ 2026-08-06:
+*lo que sigue de esta oración quedó derogado por los hechos* — el tracker se implementó como decorador en
+el control-plane y G1 es capacidad operativa medida, F1 0,930 en 34 clips, ADR-015 E-03. La deuda que
+subsiste es solo la **emisión de `track_id` en el pipeline online del media-plane**, spec 42 §3, abierta y
+no bloqueante. *Decía: "el tracker (spec 42 §3) no está implementado, y su implementación queda donde el
+orden de sacrificio la puso (§5.5, ítem 1: no se hace)".*)
 
 *Nota: se descartó el bolsillo genérico `attributes` que la primera versión de esta sección sugería — no
 está en ninguna spec, y la regla aditiva de spec 40 §1 pide campos tipados y opcionales, no una bolsa débil.*
@@ -237,9 +245,11 @@ mide y se escribe.**
 
 En orden, y **es tu propio orden de sacrificio del doc 10**:
 
-1. **El tracker / G1 demostrativa.** Quedate **sólo con el campo opcional en el contrato**: rinde el 100 %
+1. ~~**El tracker / G1 demostrativa.** Quedate **sólo con el campo opcional en el contrato**: rinde el 100 %
    del argumento del tutor ("el evento crece sin romperse") al 5 % del costo. El tracker corriendo no agrega
-   un solo punto de defensa.
+   un solo punto de defensa.~~ (✎ **2026-08-06 — DEROGADO por los hechos, el único ítem de esta lista que
+   lo está**: el tracker corrió y G1 es **el mejor resultado del banco** — F1 0,930 vs 0,789, ADR-015 E-03.
+   La predicción "no agrega un solo punto de defensa" quedó refutada por medición.)
 2. **La distribución MQTT.** Cuesta 3–5 días y su único rédito es una métrica que **queda mejor declarada
    como "no aplicable / no hay canal"** — porque ese "no aplicable" **es** tu diferencial metodológico.
    Sacrificarla no te resta: **te ilustra la política de aplicabilidad**.

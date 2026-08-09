@@ -1,0 +1,74 @@
+{
+  "schema_version": "clip_person_state.v1",
+  "operating_point": {
+    "person_conf": 0.35,
+    "evidence_conf": 0.25,
+    "pattern_set": "cr01_cr02_v2 (desplegado)",
+    "sin_barrido": "puntuado en el punto de operacion, no calibrado"
+  },
+  "stride": 15,
+  "unknown_policy": "person-frames con atributo unknown EXCLUIDAS del denominador",
+  "por_clip": [
+    {
+      "clip_id": "v04_c02",
+      "frames_puntuados": 56,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 2,
+          "fp": 27,
+          "fn": 49,
+          "n_gt": 218,
+          "n_gt_positive": 51,
+          "precision": 0.06896551724137931,
+          "recall": 0.0392156862745098,
+          "f1": 0.05,
+          "person_frames_evaluadas": 218,
+          "person_frames_excluidas_unknown": 26,
+          "ratio_unknown": 0.1066
+        },
+        "CR-02": {
+          "tp": 7,
+          "fp": 67,
+          "fn": 44,
+          "n_gt": 242,
+          "n_gt_positive": 51,
+          "precision": 0.0945945945945946,
+          "recall": 0.13725490196078433,
+          "f1": 0.112,
+          "person_frames_evaluadas": 242,
+          "person_frames_excluidas_unknown": 2,
+          "ratio_unknown": 0.0082
+        }
+      }
+    }
+  ],
+  "agregado": {
+    "CR-01": {
+      "tp": 2,
+      "fp": 27,
+      "fn": 49,
+      "n_gt": 218,
+      "n_gt_positive": 51,
+      "person_frames_evaluadas": 218,
+      "person_frames_excluidas_unknown": 26,
+      "precision": 0.06896551724137931,
+      "recall": 0.0392156862745098,
+      "f1": 0.05,
+      "ratio_unknown": 0.1066
+    },
+    "CR-02": {
+      "tp": 7,
+      "fp": 67,
+      "fn": 44,
+      "n_gt": 242,
+      "n_gt_positive": 51,
+      "person_frames_evaluadas": 242,
+      "person_frames_excluidas_unknown": 2,
+      "precision": 0.0945945945945946,
+      "recall": 0.13725490196078433,
+      "f1": 0.112,
+      "ratio_unknown": 0.0082
+    }
+  }
+}

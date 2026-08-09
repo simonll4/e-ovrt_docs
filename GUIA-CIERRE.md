@@ -2,7 +2,14 @@
 
 Documento vivo, **sin número** (no forma parte de la serie `operacion/NN-`), pensado para
 que lo abras, vayas tachando, y cada ítem te mande al documento con el detalle completo para
-ejecutarlo. Última actualización: 2026-07-25.
+ejecutarlo. Última actualización: **2026-08-06**.
+
+> ✎ **Estado 2026-08-06 en una línea:** el rodaje (3), su GT (5) y todo el tramo
+> experimental T→P→D con reporte de cierre están **HECHOS** (docs 71, 80, 92/98);
+> **lo único abierto de esta lista es el punto 1** (CVAT del lote de internet, en
+> manos del equipo) + los residuales administrativos del punto 2. Después del 1
+> vienen los runs/evals del estrato B, los videos V1–V3 y recién ahí la redacción
+> (orden del usuario 2026-08-05, `informe/99` §7).
 
 **Cómo usarlo:** marcá `[x]` a medida que cerrás cada punto. El orden de la lista es el orden
 recomendado (hay dependencias reales entre algunos ítems, marcadas donde corresponde). Si en
@@ -173,22 +180,28 @@ Es exactamente el chequeo del paso 9 del checklist.
 
 ## Lo que falta — en orden
 
-### 1. [ ] Pasada humana en CVAT — los 14 videos de internet
+### 1. [ ] Pasada humana en CVAT — los 14 videos de internet **(EN CURSO — el único ítem abierto)**
 
-**Qué es:** corregir el GT preliminar de los videos que ya tenemos descargados. Esto
-**desbloquea la Fase T sola**, sin esperar al rodaje — es lo más barato que podés hacer para
-destrabar evaluación real.
+**Qué es (✎ actualizado 2026-08-06):** corregir la pre-anotación de los 14 clips del
+lote de internet. Ya no "desbloquea la Fase T" (T→P→D están completas sobre el banco
+del rodaje): hoy este ítem **levanta la limitación L4** (video no guionado) y amplía
+el control de FP. Prioridad interna (doc 93): **`v06_c01`** (6,2 min, denominador
+temporal) y **`v04_c01`** (único positivo — el único recall no guionado posible); los
+12 restantes son marginales y pueden declararse fuera de alcance sin que caiga
+ninguna conclusión.
 
-**Detalle completo (paso a paso, con comandos):**
-`docs/operacion/55-como-continuar.md`, **PASO 1** (probar CVAT con el clip que ya está, medio
-día) y **PASO 2** (reemplazar el GT preliminar por el tuyo).
-Guía técnica de la herramienta: `e-ovrt_datasets/datasets-videos/GUIA-CVAT.md` (cómo levantar
-CVAT con Docker, protocolo de corrección) y el complemento conceptual
-`e-ovrt_datasets/datasets-videos/docs/etiquetado-cvat.md` (qué significa cada track/atributo).
+**Cuando salgan de CVAT, la cadena es el runbook de `docs/operacion/93` §"Runbook"**
+(también en `informe/99` §2.3): export "CVAT for video 1.1" → **`split_cvat_project.py`
+SIEMPRE** (el export de proyecto numera frames en espacio global: sin el split el GT
+sale negativo EN SILENCIO) → `derive_clip_gt.py` (mismos umbrales 4000/7000) →
+`validate` → `promote` → campaña DBE (ajuste de un glob) → `aggregate` → fila nueva
+como **estrato B** en `results/clip_bench/index.md` (D-90.6).
+Guía técnica de la herramienta: `e-ovrt_datasets/datasets-videos/GUIA-CVAT.md` y
+`e-ovrt_datasets/datasets-videos/docs/etiquetado-cvat.md`.
 
 ---
 
-### 2. [ ] Consentimientos + coordinar colegas + EPP físico
+### 2. [x] Consentimientos + coordinar colegas + EPP físico — **CERRADO en lo operativo (el rodaje se hizo, 2026-07-25); residual administrativo: el consentimiento quedó resuelto POR DECLARACIÓN (sujetos = integrantes del equipo, `informe/99` §3; plantilla en `registry/plantilla-consentimiento-audiovisual.md` si la facultad pide el formulario firmado)**
 
 **Qué es:** lo administrativo del rodaje — consentimientos firmados **antes** de grabar (no
 después), coordinar quién actúa, y tener casco/chaleco reales disponibles para las tomas
@@ -199,7 +212,7 @@ contexto de qué se graba y por qué).
 
 ---
 
-### 3. [ ] Ejecutar el rodaje (día completo, con tus colegas)
+### 3. [x] Ejecutar el rodaje — **CERRADO 2026-07-25 (doc 71): jornada completa, tomas A+B, 6 corridas live con `bus_dropped_events = 0`**
 
 **Qué es:** la jornada de grabación en sí — el shot-list completo (P1 a P9), con la config ya
 cerrada y las corridas EBE live embebidas. Cada escena se hace **dos veces, en orden fijo
@@ -246,25 +259,33 @@ decisión pre-registrados).
 
 ---
 
-### 5. [ ] GT en CVAT del material del rodaje (después de grabar)
+### 5. [x] GT en CVAT del material del rodaje — **CERRADO 2026-08-03 (doc 80): 34 clips / 35 episodios en `gt_ready`, GT humano ⇒ se reporta como RESULTADO**
 
-**Qué es:** la misma tarea que el punto 1, pero sobre las tomas del rodaje propio en vez de
-los videos de internet. Con equipo de 3, doble anotación en una porción para medir acuerdo.
+**Qué es:** la misma tarea que el punto 1, pero sobre las tomas del rodaje propio.
+(✎ La doble anotación con kappa prevista acá **no se hizo — decisión declarada**, es
+la **limitación L2**; 6 clips con bordes adjudicados por oclusión = limitación L3.)
 
-**Detalle completo:** `docs/operacion/58-plan-cierre-implementacion-experimentacion.md` §B.3.
+**Detalle completo:** `docs/operacion/80-gt-rodaje-desde-cvat.md` (incluida la trampa
+madre del export a nivel proyecto).
 
 ---
 
 ## Después de esto, lo hago yo (sin que haga falta que intervengas)
 
-Con el punto 1 (CVAT internet) ya alcanza para arrancar la Fase T. El resto de la cadena:
+✎ **2026-08-06 — la cadena T → P → D ya corrió entera** sobre el banco del rodaje,
+con análisis de errores y reporte de cierre incluidos (docs 80/81 → 83–90 → 92/96/98;
+conclusiones = escala AF-1…AF-11 del doc 98; cifras = los 4 índices de
+`e-ovrt_experimental-setup/results/`). Lo que queda cuando cierre el punto 1:
 
-**T** (banco temporal) → **P** (validación de la plataforma) → **D** (E-DIR vs E-IND, si ya
-está el punto 4) → análisis de errores → reporte de cierre.
+1. **Integrar el estrato B** (lote de internet) al banco ya reportado — runbook del
+   punto 1; encuadre según D-90.6 cuando llegue el GT.
+2. **Videos V1–V3 de la defensa** (pausados por decisión del usuario; 2 preguntas de
+   alcance abiertas, D-90.7).
+3. **Recién ahí, la redacción de §17.x** + regenerar el `informe-project-kit`
+   (orden del usuario 2026-08-05, `informe/99` §7). Nada de lo pendiente cambia una
+   conclusión (doc 98 §7).
 
-Metodología completa de estas fases: `docs/operacion/62-plan-maestro-experimentos.md` §4-8.
-Estado y deuda de implementación pendiente (no bloquea nada, la voy tomando en tiempo
-libre): mismo doc, §9.
+Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experimentos.md`.
 
 ---
 

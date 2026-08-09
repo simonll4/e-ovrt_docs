@@ -24,8 +24,9 @@ persistencia temporal de la condición.
 - Python 3.11+, Pydantic, PyYAML, Typer/Rich. Dev: pytest, ruff. Package `eovrt_control`,
   entry point `eovrt-control`.
 - **Modo único actual: replay offline DBE** sobre `detections.jsonl` del plano de medios
-  (ADR-0004). Sin servicio HTTP, sin broker, sin DB (JSONL append-only por corrida,
-  ADR-0003).
+  (ADR-0004, serie del control-plane). Sin servicio HTTP, sin broker, sin DB (JSONL
+  append-only por corrida, ADR-0003 del control-plane — serie de 4 dígitos, no
+  confundir con los ADR-00X del proyecto en `docs/decisiones/`).
 - CLI: `eovrt-control replay <config.yaml>`, `validate-config`, `evaluate-alerts`.
 - Una corrida escribe `runs/<control_run_id>/`: `effective_config.yaml`,
   `pattern_events.jsonl`, `alerts.jsonl`, `metrics.jsonl`, `errors.jsonl`, `summary.json`.

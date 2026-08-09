@@ -48,8 +48,11 @@
    reemplazado por `operacion/97`.*
 2. **Estado de la plataforma:** **`operacion/97`** (reemplaza al 56). Nunca del cuerpo
    de docs 32/36/50 ni de fragmentos sin banner.
-3. **Decisiones y sus porqués:** ADR-001…014 + doc 10 (alcance/exclusiones). Las
-   decisiones **no se re-litigan** en el informe: se declaran con su justificación.
+3. **Decisiones y sus porqués:** ADR-001…**015** + doc 10 (alcance/exclusiones). (✎
+   2026-08-06: *decía "…014"* — faltaba el **ADR-015**, cierre de alcance del
+   2026-08-05: el alcance CRECIÓ en E-03/E-07/E-13, MQTT declarada NO implementada,
+   puerta cerrada hasta la defensa.) Las decisiones **no se re-litigan** en el
+   informe: se declaran con su justificación.
 4. **Protocolo y definiciones metodológicas:** §17.1 (doc 96b). El informe nuevo debe
    ser consistente con ella; si la implementación se desvió del protocolo, la
    desviación **se declara** (los casos conocidos ya están relevados en docs 91/93).
@@ -62,8 +65,11 @@
    `informe/99-materiales-de-cierre.md` (2026-08-05). Trae el inventario de figuras y
    tablas con su artefacto de origen, el anexo de reproducibilidad con los sha256
    verificados, las citas obligatorias por dataset, las limitaciones L1–L8 y el catálogo
-   de mecanismos. **Su §6 lista 6 decisiones abiertas**, una bloqueante para el lote de
-   internet.
+   de mecanismos. **Su §6 lista 6 hallazgos: 4 CERRADOS el 2026-08-05** (incluida la
+   procedencia del lote de internet, que era la bloqueante) **y 2 abiertos** —
+   licencias de los catálogos de modelos, y la convención de cita de las dos series de
+   ADR (✎ esta última bajada al glosario doc 13 el 2026-08-06). *(✎ corregido
+   2026-08-06: decía "6 decisiones abiertas, una bloqueante".)*
 
 ## 3. Reglas de honestidad experimental (no negociables)
 
@@ -102,6 +108,12 @@
 
 ## 4. Mecánica de trabajo en el Project
 
+> ⚠️ **Puerta de secuencia (orden del usuario, 2026-08-05 — `informe/99` §7): la
+> redacción de §17.x NO arranca todavía.** Primero (1) el CVAT del lote de internet
+> con sus runs/evals (estrato B), después (2) los videos V1–V3, y **recién ahí** la
+> redacción + regenerar el `informe-project-kit`. Esta mecánica describe cómo se va a
+> trabajar cuando la puerta se abra, no una invitación a arrancar hoy.
+
 - El `.docx` **no se edita desde el repo**: los redlines se resuelven en Google Docs.
   El chat produce texto listo para pegar + la casilla del redline que salda.
 - Al redactar una sección: (1) identificar el redline del doc 93 que la cubre, (2)
@@ -110,7 +122,9 @@
   este paso decía "doc 92/56" y contradecía la jerarquía), (3) partir del texto del
   doc 94 si existe, (4) devolver el texto final + qué redline queda saldado.
 - Trabajar por bloques del plan del doc 91 §8: A contradicciones → B concreción →
-  C evidencia → D erratas. Del doc 95 sigue vigente **§5.5 (el orden de sacrificio)**;
+  C evidencia → D erratas. Del doc 95 sigue vigente **§5.5 (el orden de sacrificio)
+  — salvo su ítem 1, derogado por los hechos: G1 se implementó y es el mejor
+  resultado del banco (ADR-015 E-03)**;
   su cronograma (§5.1 y §5.4, con "GRABAR EL BANCO" en la semana 2–3) es **histórico
   pre-rodaje** y no debe leerse como pendiente.
 - Si el asistente detecta una contradicción entre docs, **no la resuelve en silencio**:
@@ -154,6 +168,12 @@ fuera de P/R/F1 y se reportan como control de FP (F-EV1).
 | D1 | `edir_v1` (E-DIR) | 0,176 | 0,146 | 0,160 | 6.611 ms | 847 ms | 2/4 |
 | H1 | fusión `hyb_or` | 0,353 | 0,255 | 0,296 | 6.956 ms | 113 ms | 2/4 |
 
+**La cifra de la histéresis (F-81.1), que esta tabla no muestra:** en T1, **CR-02
+confirma 7/7 = recall 1,000 con SDR 0,281** — la evidencia de chaleco aparece en ~1 de
+cada 6 frames y el patrón temporal la acumula igual, pagando `t_alert` (8.572 vs
+4.314 ms de CR-01). SDR por campaña: T1/G1 0,698 · T2 0,819 · D1 0,210 · H1 0,738 ·
+B1 0,940.
+
 Artefacto: `results/clip_bench/<campaign_id>/metrics.json` (+ `evals/`, `campaign.yaml`,
 `provenance.json`). Tabla completa con T2/B1 y desglose por escenario/condición:
 `results/clip_bench/index.md`.
@@ -174,7 +194,7 @@ el agregado** (L5: el agregado está dominado por `shel5k`, 77%).
 | Modelo | mAP50 `bench_v3` | mAP50 `bench_obra` | recall CR-01 (n=5.313) |
 |---|---|---|---|
 | **`gdino-tiny-560`** (campeón) | **0,551** | 0,503 | 0,308 |
-| `gdino-base-560` (especialista CR-02/`bare_head`) | 0,525 | 0,474 | **0,599** |
+| `gdino-base-560` (especialista en `bare_head` —evidencia de CR-01— y en `vest`/CR-02; ✎ 2026-08-06, *la etiqueta "CR-02/`bare_head`" mezclaba los ejes*) | 0,525 | 0,474 | **0,599** |
 | `yoloe-26x` | 0,442 | 0,405 | **0,000** |
 
 Artefacto: doc 64 (selección S1/S2 + confirmación B5) y doc 66; índice:

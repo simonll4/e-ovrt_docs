@@ -72,8 +72,12 @@ def clasificar(eval_path: Path) -> list[dict]:
                 tipo, delta = "tardia", t_ms - fin
             else:
                 tipo, delta = "sin_episodio_activo", None
+        # Escenario: del nombre en el rodaje (`a_pX_cYY`); si el naming no lo trae
+        # (clips del lote de internet, `vNN_cNN`), del propio GT. ✎ doc 107.
+        m_esc = re.search(r"_p(\d)_", clip_id)
+        escenario = m_esc.group(1) if m_esc else str(gt.get("scenario", "?")).lstrip("P")
         filas.append({
-            "clip_id": clip_id, "escenario": re.search(r"_p(\d)_", clip_id).group(1),
+            "clip_id": clip_id, "escenario": escenario,
             "condicion": cond, "t_s": round(t_ms / 1000.0, 1),
             "tipo": tipo, "delta_s": round(delta / 1000.0, 1) if delta is not None else None,
         })

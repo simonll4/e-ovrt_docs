@@ -50,16 +50,23 @@
 2. **Experimento D1** (protocolo de prompts §17.1.5.4 / Tabla C.1): estrategia
    directa vs indirecta, **con la híbrida simple (or/and) como rama experimental
    de primera clase en la Fase 2** (ajuste 2026-07-09, ADR-001; vote sigue E-13).
-3. **Clip bench** con GT temporal (grabación escenificada, doble anotación 20%+kappa)
-   y evaluación de alertas contra umbrales Tabla D.4.
+3. **Clip bench** con GT temporal (grabación escenificada) y evaluación de alertas
+   contra umbrales Tabla D.4. (✎ 2026-08-06: el GT quedó `gt_ready` **sin doble
+   anotación ni kappa** — es la **limitación L2**, decisión declarada y no omisión;
+   *decía "doble anotación 20%+kappa"*, que volvía a L2 un incumplimiento de esta
+   definición de terminado.)
 4. **EBE complementario sobre la infraestructura two-node ya construida** (Nodo A =
    EN-0/EN-1, Nodo B = CPN) con fuente viva de contingencia oficial (cámara IP/webcam
    o RTSP simulado). Se implementa porque ya existe (Fase 2 verificada) y produce R4
    con costo marginal bajo — no es una ampliación de alcance sino capitalización de
    trabajo hecho.
-5. **Distribución mínima**: un canal (MQTT) + ledger de idempotencia + vista de
-   alertas en la webconsole existente. **En repo propio**, consumiendo el bus
-   control→distribución (ADR-005).
+5. **Distribución mínima — NO IMPLEMENTADA, exclusión ejercida** (ADR-015 §2c,
+   2026-08-05; ✎ propagado acá 2026-08-06; *decía "un canal (MQTT) + ledger de
+   idempotencia + vista de alertas en la webconsole existente, en repo propio,
+   consumiendo el bus control→distribución (ADR-005)"*): el condicional del ADR-005
+   quedó resuelto en **no** — lo construido es la frontera de salida del control-plane
+   (`control.alert.v1`); el canal MQTT (spec 45) se declara no implementado en el
+   informe y no se reabre antes de la defensa.
 6. **Bus ZeroMQ media→control** (necesario para el punto 4).
 7. **Overlay renderer** offline (videos V1–V3 de la defensa + figuras del informe).
 8. **Mini-experimento A1** (costo marginal de una condición nueva por configuración).
@@ -81,6 +88,11 @@ tiempo, el orden de sacrificio es: **11-UX (la mejora visual; la centralización
 config no se sacrifica — la usa el runner) → 10 → 9 (queda el runner CLI; el
 runtime live no se sacrifica) → 8 → 7 (se reemplaza por overlays simples) → 5 (se
 reduce a `mosquitto_sub`)** — nunca 1, 2 ni 3.
+
+> ✎ **2026-08-06 — el orden de sacrificio quedó obsoleto** (ADR-015 §2b cerró la
+> agenda de implementación): el ítem 10 terminó **creciendo** (G1 medida, el mejor
+> resultado del banco) y el ítem 5 se declaró **no implementado** con causa. Se
+> conserva como registro de cómo se priorizó; ya no es una lista de candidatos.
 
 ## 3. Registro de exclusiones
 
@@ -128,19 +140,33 @@ declaración → condición de habilitación futura.
   (2–3 clips, comparación de episodios G0 vs G1). **Lo excluido queda acotado a:**
   (a) G1 como modo del núcleo (el núcleo evalúa en G0, escena/fuente), y (b) las
   métricas MOT estándar y el GT de identidades que exigirían (Tabla D.2 → E-10).
+- **Cambio de situación (3 — adenda ADR-002 ratificada + ADR-015, 2026-08-05; ✎
+  propagado acá 2026-08-06):** dos correcciones sobre el punto anterior. (a) El
+  tracker **no** se portó al media-plane: se implementó **en el control-plane como
+  decorador de fuente** (adenda ADR-002; la deuda del spec 42 §3 queda abierta pero
+  no bloqueante). (b) G1 **dejó de ser demostrativa**: es capacidad operativa
+  config-driven **medida sobre los 34 clips del banco** (F1 0,930 vs 0,789 de G0,
+  con detecciones bit a bit idénticas — F-89.1) y verificada en vivo. Lo excluido no
+  cambia: G1 como modo del núcleo, y las métricas MOT / GT de identidades (E-10).
 - **Justificación (ajustada):** el núcleo sigue sin exigir identidad persistente por
   definición metodológica (§17.1.10.2); G1 se muestra como extensión operativa del
-  contrato sin prometer atribución por sujeto validada — la demo no requiere GT MOT
-  y es lo primero que se sacrifica si la agenda aprieta (§2, orden de sacrificio).
+  contrato sin prometer atribución por sujeto validada — no requiere GT MOT.
+  (✎ 2026-08-06: *decía además "la demo … es lo primero que se sacrifica si la
+  agenda aprieta"* — obsoleto: ADR-015 §2b cerró la agenda y G1 terminó siendo el
+  mejor resultado del banco.)
 - **Rastro documental:** decisión D2 con análisis (doc 03 §3); contrato `track_id`
   opcional especificado (docs 03/05); métrica ΔFP_tracker definida y con regla de
   aplicación (Tabla D.2) para cuando se habilite; semántica G1 descrita (doc 04 §
   granularidad, doc 07 D2).
-- **Declaración:** "El núcleo evalúa a nivel de patrón por fuente y condición,
-  conforme §17.1.10.2. La atribución por sujeto individual se implementa como
-  capacidad demostrativa (contrato `track_id` opcional, tracker liviano IoU) y se
-  ilustra sobre clips seleccionados; su validación rigurosa (métricas MOT, GT de
-  identidades) queda fuera del alcance conforme Tabla D.2."
+- **Declaración (✎ reescrita 2026-08-06 conforme ADR-015 E-03):** "El núcleo evalúa
+  a nivel de patrón por fuente y condición, conforme §17.1.10.2. La atribución por
+  sujeto individual se implementa como **capacidad operativa config-driven**
+  (contrato `track_id` opcional, tracker IoU liviano como decorador en el
+  control-plane), **medida sobre los 34 clips del banco** (F1 0,930) y verificada en
+  vivo; su validación con métricas MOT y GT de identidades queda fuera del alcance
+  conforme Tabla D.2 (E-10)." (*Decía: "…se implementa como capacidad demostrativa …
+  y se ilustra sobre clips seleccionados; su validación rigurosa … queda fuera del
+  alcance…"*)
 - **Habilitación futura:** GT de identidad + ΔFP_tracker con unidad de FP declarada,
   solo si se exigen métricas MOT estándar (E-10).
 
@@ -153,16 +179,22 @@ declaración → condición de habilitación futura.
   está caracterizado en §17.1.4.3) ni por falta de datos (el split train_v2 con 5540
   imágenes ya está generado en el repo datasets — evidencia de preparación). Riesgo
   que evita: ciclo costoso con "retorno metodológico débil" (Tabla 37) y erosión de
-  la capacidad open-vocabulary (§15.2.4.5).
+  la capacidad open-vocabulary (§15.2.4.5). (✎ 2026-08-06, ADR-015 E-04: el motivo
+  declarable es **secuenciación** — la exclusión no se ejerció por orden de
+  prioridades del tramo, no por costo: el costo quedó **medido** en ≈1 GPU-h en A30,
+  doc 100, con F-100.1 como único bloqueo operativo. *Decía "presupuesto de tiempo
+  del proyecto"*, la lectura que ADR-015 corrige.)
 - **Rastro documental:** protocolo comparativo completo especificado (Tabla 32:
   ΔAP/ΔRecall/ΔPrecision/ΔSDR, retención generalista, costo de entrenamiento);
   particiones sin leakage definidas y **materializadas** (splits v2 del repo);
   candidatos acotados (GDINO/YOLOE, §17.1.9.2).
-- **Declaración:** "Rama comparativa condicionada no ejercida: la baseline zero-shot
-  fue establecida (requisito de la Tabla 37), el protocolo comparativo y las
-  particiones quedaron especificados y materializados, y la ejecución del ajuste se
-  difirió por presupuesto del proyecto sin afectar la pregunta central, que evalúa
-  precisamente el desempeño sin entrenamiento."
+- **Declaración (✎ ajustada 2026-08-06 conforme ADR-015 E-04):** "Rama comparativa
+  condicionada no ejercida: la baseline zero-shot fue establecida (requisito de la
+  Tabla 37), el protocolo comparativo y las particiones quedaron especificados y
+  materializados, el costo de ejecución quedó medido (≈1 GPU-h en A30, doc 100), y
+  el ajuste no se ejecutó **por secuenciación del tramo experimental**, sin afectar
+  la pregunta central, que evalúa precisamente el desempeño sin entrenamiento."
+  (*Decía "se difirió por presupuesto del proyecto"*.)
 - **Habilitación futura:** disponibilidad de Mendieta + ganancia exigible según
   Tabla 37; todo lo demás ya está listo. **La contingencia quedó armada** (2026-07-09):
   investigación completa con escalera de ejecución T1–T3 y criterios go/no-go
@@ -189,9 +221,14 @@ declaración → condición de habilitación futura.
 - **Rastro documental:** diseño completo del módulo (doc 06: 4 canales, retry,
   dead-letter, dashboard) conservado como anexo de diseño; recorte D5 con
   fundamentos (docs 02 §4.7, 03 §6).
-- **Declaración:** "Se implementa el tramo de distribución con un canal demostrativo
-  (MQTT) y ledger de idempotencia; los canales restantes quedan diseñados (anexo) y
-  su incorporación no altera la semántica de la alerta (DA-13)."
+- **Declaración (✎ reescrita 2026-08-06 conforme ADR-015 §2c):** "El tramo de
+  distribución queda en la frontera de salida del control-plane (`control.alert.v1`);
+  el canal demostrativo (MQTT), el ledger de idempotencia y los canales restantes
+  quedan **diseñados y no implementados** (spec 45 + anexo doc 06, exclusión
+  ejercida), y su incorporación futura no altera la semántica de la alerta (DA-13)."
+  (*Decía: "Se implementa el tramo de distribución con un canal demostrativo (MQTT) y
+  ledger de idempotencia…"* — contradicción con ADR-015 detectada en el relevamiento
+  del 2026-08-06.)
 
 ### E-07 — Inferencia en borde, preselección EN-2 y OAK-D Pro PoE
 
@@ -240,13 +277,21 @@ declaración → condición de habilitación futura.
 
 ### E-10 — Métricas MOT estándar (HOTA, DetA/AssA, IDF1, MOTA, IDSW/Frag) y benchmarks MOT17/OVT-B
 
-- **Justificación:** condicionadas a tracker habilitado + GT con identidades
-  persistentes (Tabla D.2, §17.1.7.8.2); sin E-03 son **no aplicables** por
-  definición del propio framework — este es el caso ejemplar de la taxonomía de
-  aplicabilidad.
-- **Declaración:** "No aplicables: tracker no habilitado en el núcleo (§17.1.10.2);
-  condición de aplicación no satisfecha conforme §17.1.7.8.2." (En el reporte
-  consolidado deben figurar con ese estado, no omitirse.)
+- **Justificación (✎ actualizada 2026-08-06 conforme ADR-015 §2e / R-21):**
+  condicionadas a **GT con identidades persistentes**, que no existe (Tabla D.2,
+  §17.1.7.8.2). El antecedente viejo ("sin E-03 son no aplicables") ya no corre: el
+  tracker **está habilitado y medido** (G1, F1 0,930 en 34 clips). Lo excluido son
+  las **métricas** MOT y el GT de identidades, **no la capacidad**. El fundamento
+  ahora es medido, no solo definicional: la ganancia de G1 se mide en alertas porque
+  las detecciones son bit a bit idénticas (F-89.1) — la mejora no es de percepción y
+  no se expresaría en MOTA/IDF1.
+- **Declaración (✎ reescrita 2026-08-06; la anterior es la formulación que ADR-015
+  §2e marca como FALSA al cierre):** "No aplicables: no existe GT de identidades
+  persistentes, condición de aplicación no satisfecha conforme §17.1.7.8.2; la
+  granularidad por sujeto está implementada y medida a nivel de alertas (E-03,
+  F-89.1), y su validación con métricas MOT queda fuera del alcance." (*Decía: "No
+  aplicables: tracker no habilitado en el núcleo (§17.1.10.2)…"*. En el reporte
+  consolidado deben figurar con estado `not_applicable:<causa>`, no omitirse.)
 
 ### E-11 — Evidencia visual automática por alerta (clips/snapshots en runtime)
 
@@ -264,7 +309,8 @@ declaración → condición de habilitación futura.
   robusta puede incorporarse cuando la lógica esté estabilizada"); el prototipo es
   experimental, no productivo (§17.3.3). Un run activo por vez es una simplificación
   declarada del media-plane.
-- **Declaración:** "Persistencia experimental append-only conforme ADR-0003;
+- **Declaración:** "Persistencia experimental append-only conforme ADR-0003 (serie
+  del control-plane, 4 dígitos);
   capacidades operacionales de producto (DB, concurrencia, autenticación, retención)
   fuera del alcance del prototipo experimental."
 
@@ -272,9 +318,14 @@ declaración → condición de habilitación futura.
 
 - **Justificación:** los candidatos de trabajo quedaron acotados a GDINO y YOLOE por
   el propio protocolo (§17.1.9.2) tras la comparación de 5 variantes en R1/Sprint 2
-  (que ya cumplió el rol de barrido de modelos). E-HYB-vote (fusión ponderada) solo
-  se justificaría con evidencia de complementariedad que la Fase 1 de D1 debe
-  mostrar; sin ella, agregarla sería complejidad sin retorno (Tabla 38, riesgo 4).
+  (que ya cumplió el rol de barrido de modelos). (✎ 2026-08-06, ADR-015 E-13: la
+  condición sobre E-HYB **ya se resolvió por medición** — E-HYB-or se **ejecutó y
+  quedó refutada** (recall 0,824→0,353; mecanismo F-87.2: la unión de evidencia no
+  es monótona en un motor temporal) y **`hyb_and` no se ejecutó con causa** (D-90.4:
+  no medible contra este banco sin romper la comparabilidad de las 6 campañas).
+  *Decía en futuro: "evidencia de complementariedad que la Fase 1 de D1 debe
+  mostrar"*.) E-HYB-vote (fusión ponderada) sigue fuera: sin complementariedad
+  demostrada, agregarla sería complejidad sin retorno (Tabla 38, riesgo 4).
 - **Declaración:** "El barrido de modelos se realizó en la baseline (R1); el
   protocolo concentra la comparación en dos candidatos que representan los polos del
   trade-off expresividad-latencia (§17.1.9.2)."
@@ -292,7 +343,7 @@ declaración → condición de habilitación futura.
 | E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO; inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2; **ADR-015** |
 | E-08 | Zonas / calibración | Especificada | §17.1.5.2.4 | §17.1.5.3.6 |
 | E-09 | Prompts multilingües | Prevista no ejercida | §17.1.5.4.3 | — |
-| E-10 | Métricas MOT estándar | No aplicable | Tabla D.2; §17.1.7.8.2 | reporte con estado |
+| E-10 | Métricas MOT estándar | ✎ **No aplicable, con fundamento medido (ADR-015)**: lo excluido son las **métricas** y el GT de identidades, no la capacidad (el tracker está medido — E-03); la ganancia de G1 se mide en alertas porque las detecciones son bit a bit idénticas (F-89.1) | Tabla D.2; §17.1.7.8.2 | reporte con estado; **ADR-015**; doc 89 |
 | E-11 | Evidencia visual runtime | Excluida por diseño | DA-08/09 | overlay offline |
 | E-12 | DB / hardening | Fuera de alcance de prototipo | ADR-0003; §17.3.3 | ADRs control-plane |
 | E-13 | Modelos extra / E-HYB-vote | ✎ **Ejercida más de lo previsto (ADR-015)**: modelo especialista corrido (T2/B1) y **E-HYB-or ejecutada y REFUTADA** (F-87.2: la unión de evidencia no es monótona en un motor temporal). **`hyb_and` no ejecutada con causa** (D-90.4: no medible contra este banco sin romper la comparabilidad de las 6 campañas). E-HYB-vote sigue fuera | §17.1.9.2; Tabla 38 | R1/Sprint 2; doc 04 §5; docs 84/87/88; **ADR-015** |

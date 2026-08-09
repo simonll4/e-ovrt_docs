@@ -1,0 +1,19 @@
+run:
+  id: null
+  scenario: DBE
+  name: knobs_B_evid_conf_0.4_v10_c01
+  description: "barrido knobs doc 107 — B_evid_conf_0.4"
+input:
+  type: media_jsonl
+  path: /home/simonll4/projects/docs/operacion/datos/102-i2-internet-subject-clips/tracked/v10_c01.jsonl
+patterns:
+  file: /home/simonll4/projects/docs/operacion/datos/107-barrido-knobs/B_evid_conf/0.4/patterns.yaml
+  active_ids:
+    - CR-01
+    - CR-02
+outputs:
+  base_dir: /home/simonll4/projects/docs/operacion/datos/107-barrido-knobs/B_evid_conf/0.4/control_runs
+  save_alerts_jsonl: true
+  save_summary_json: true
+logging:
+  level: ERROR

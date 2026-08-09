@@ -11,3 +11,18 @@ operacion/datos/*/*/control_runs/
 # (E-HYB, 53 MB) y track_detections (G1, 47 MB) desde los run_id de provenance.json.
 operacion/datos/*/fusion/
 operacion/datos/*/tracked/
+
+# ✎ 2026-08-09 — dos huecos que aparecieron al commitear el tramo de video (doc 112):
+#
+# 1) `tracked/` a DOS niveles. La regla de arriba cubre `datos/<campaña>/tracked/`,
+#    pero las campañas del estrato B anidan por fase: `datos/<campaña>/<fase>/tracked/`.
+#    Son los streams con track_id post-hoc que produce `track_detections` a partir de
+#    las detecciones de la fase scene: se regeneran con el runner desde el `media_run_id`
+#    que guarda `resultados.json`. `v06_c01` solo pesa 82 MB.
+operacion/datos/*/*/tracked/
+#
+# 2) Los streams FILTRADOS del barrido de gate (`103-gate-sim.py`): una copia completa
+#    de las detecciones por cada umbral probado (4 umbrales × 3 clips = 300 MB). Son
+#    derivados puros y deterministas del script + los streams de I2; lo que se cita del
+#    barrido son los `eval_*.json` y `resumen.json`, que sí quedan versionados.
+operacion/datos/103-gate-sim/*.jsonl

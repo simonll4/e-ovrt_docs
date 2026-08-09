@@ -6,7 +6,7 @@
   de 34 clips, mismo GT, mismo evaluador: tres densidades de evidencia × dos
   granularidades.
 - **Estado:** 6/6 campañas 34/34 clips, cero fallos de guard. ~27 min de GPU.
-  **Sin commitear.**
+  ~~Sin commitear.~~ (✎ commiteado al cierre del 2026-08-05.)
 - **Marco de lectura (doc 81 §1):** cada número es el rendimiento medido de UNA
   combinación. El contraste entre combinaciones ES el experimento; nada de esto es
   una nota de aprobación.

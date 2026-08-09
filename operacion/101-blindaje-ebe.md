@@ -10,8 +10,11 @@ probaron hasta donde cada una lo justificaba con causa medida; **un re-rodaje no
 cierra ningún hueco real** — y los dos refuerzos que sí valían la pena se ejecutaron
 en este doc **sin cámara ni equipo**: la irregularidad del descarte live quedó
 **medida** (F-101.1) y las conclusiones del eje de densidad quedaron **verificadas
-contra esa irregularidad** (F-101.2/3/4). Queda un opcional ejecutable en solitario
-(humo claqueta, §5).
+contra esa irregularidad** (F-101.2/3/4). ✎ El opcional que quedaba (humo claqueta)
+**también se cerró la misma jornada** (§5: las cuatro patas verificadas con hardware
+real y reloj externo — ancla física +1.066 ms, F-101.8/9). **EBE queda cerrado SIN
+pendientes** (*el veredicto original decía "queda un opcional ejecutable en
+solitario"; la cabecera no se había actualizado al cerrarse §5*).
 
 ---
 

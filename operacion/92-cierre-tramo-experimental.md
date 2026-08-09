@@ -1,5 +1,16 @@
 # 92 — Cierre del tramo experimental sobre el banco del rodaje (insumo R2)
 
+> ## ✎ DEROGADO COMO FUENTE DE NÚMEROS (2026-08-05; banner agregado 2026-08-06)
+>
+> **Las cifras del informe salen de los 4 índices de
+> `e-ovrt_experimental-setup/results/`** (verificados mecánicamente con
+> `operacion/datos/96-verificar-indices.py`), **no de este documento** — misma
+> derogación que `informe/92` y `operacion/56` (jerarquía de fuentes:
+> `informe/97-brief-de-redaccion.md` §2). Este doc **sigue vigente como narrativa**:
+> las respuestas Q1–Q4 del plan maestro, la matriz diagnóstica SDR×recall y la
+> actualización de las 5 declaraciones de Etapa 4 se leen de acá — pero cualquier
+> número que se vaya a citar se toma del índice correspondiente de `results/`.
+
 - **Fecha:** 2026-08-05.
 - **Qué es:** el "análisis de errores y reporte de cierre" que el plan maestro dejó
   como fase final (doc 62 §8), ejecutado sobre el tramo que quedó completo: **6

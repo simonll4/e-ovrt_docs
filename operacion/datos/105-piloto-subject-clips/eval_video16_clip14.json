@@ -1,0 +1,92 @@
+{
+  "schema_version": "control.eval.temporal.v1",
+  "scenario_id": "video16_clip14",
+  "alerts_path": "/home/simonll4/projects/docs/operacion/datos/105-piloto-subject-clips/control_runs/control_internet_subject_video16_clip14_20260806T230035Z/alerts.jsonl",
+  "ground_truth_path": "/home/simonll4/projects/e-ovrt_datasets/datasets-videos/gt/video16_clip14.json",
+  "expected_alerts_count": 1,
+  "observed_alerts_count": 6,
+  "matched_alerts_count": 1,
+  "missed_alerts_count": 0,
+  "unexpected_alerts_count": 5,
+  "duplicate_alerts_count": 0,
+  "precision": 0.166667,
+  "recall": 1.0,
+  "f1": 0.285715,
+  "avg_latency_frames_from_first_evidence": null,
+  "avg_latency_ms_from_first_evidence": null,
+  "re_alerts_count": 0,
+  "sub_threshold_count": 0,
+  "censored_episodes_count": 0,
+  "observed_duration_ms": 12000.0,
+  "far_per_hour": 1500.0,
+  "applicability_state": "computed",
+  "applicability_cause": null,
+  "avg_latency_ms_from_episode_start": 7099.67,
+  "effective_matching_windows": {
+    "CR-02": {
+      "persistencia_min_ms": 7000.0,
+      "t_alert_max_ms": 20000.0,
+      "origin": "gt_provenance"
+    }
+  },
+  "warnings": [],
+  "matches": [],
+  "missed_alerts": [],
+  "unexpected_alerts": [
+    {
+      "alert_id": "703ce948-7408-5889-a51a-a4fbb9baffac",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:video16_clip14:subject_007",
+      "frame_index": 153,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "9af07b45-b0e9-537f-ac74-21604778ccf4",
+      "condition_id": "CR-01",
+      "subject_key": "CR-01:video16_clip14:subject_004",
+      "frame_index": 175,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "b172e477-f65a-538f-ab7a-3c5c4a3ccea3",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:video16_clip14:subject_014",
+      "frame_index": 227,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "52a15d55-6836-5ea1-b774-abe75fc8d042",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:video16_clip14:subject_004",
+      "frame_index": 238,
+      "reason": "outside_all_episode_windows"
+    },
+    {
+      "alert_id": "28f24163-54b8-501d-9b7f-c62bc9d4c8f9",
+      "condition_id": "CR-02",
+      "subject_key": "CR-02:video16_clip14:subject_007",
+      "frame_index": 252,
+      "reason": "outside_all_episode_windows"
+    }
+  ],
+  "censored_episodes": [],
+  "avg_ttfd_ms": 33.0,
+  "avg_sdr": 1.0,
+  "ttfd_by_episode": [
+    {
+      "episode_id": "ep1",
+      "ttfd_ms": 33.0,
+      "cause": null
+    }
+  ],
+  "sdr_by_episode": [
+    {
+      "episode_id": "ep1",
+      "sdr": 1.0,
+      "cause": null
+    }
+  ],
+  "ttfd_sdr_applicability": "computed",
+  "positive_criterion": "spatial_absence(cr01_cr02_v2_subject) >=1 evidencia",
+  "detections_path": "/home/simonll4/projects/docs/operacion/datos/105-piloto-subject-clips/tracked/video16_clip14.jsonl"
+}

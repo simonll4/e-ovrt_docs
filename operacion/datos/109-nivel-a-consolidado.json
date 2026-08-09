@@ -1,0 +1,305 @@
+{
+  "schema_version": "clip_person_state.v1",
+  "operating_point": {
+    "person_conf": 0.35,
+    "evidence_conf": 0.25,
+    "pattern_set": "cr01_cr02_v2 (desplegado)",
+    "sin_barrido": "puntuado en el punto de operacion, no calibrado"
+  },
+  "stride": 15,
+  "unknown_policy": "person-frames con atributo unknown EXCLUIDAS del denominador",
+  "por_clip": [
+    {
+      "clip_id": "v04_c01",
+      "frames_puntuados": 39,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 20,
+          "fp": 131,
+          "fn": 8,
+          "n_gt": 103,
+          "n_gt_positive": 28,
+          "precision": 0.13245033112582782,
+          "recall": 0.7142857142857143,
+          "f1": 0.223463687150838,
+          "person_frames_evaluadas": 103,
+          "person_frames_excluidas_unknown": 126,
+          "ratio_unknown": 0.5502
+        },
+        "CR-02": {
+          "tp": 0,
+          "fp": 130,
+          "fn": 0,
+          "n_gt": 185,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 185,
+          "person_frames_excluidas_unknown": 44,
+          "ratio_unknown": 0.1921
+        }
+      }
+    },
+    {
+      "clip_id": "v04_c02",
+      "frames_puntuados": 56,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 2,
+          "fp": 27,
+          "fn": 49,
+          "n_gt": 218,
+          "n_gt_positive": 51,
+          "precision": 0.06896551724137931,
+          "recall": 0.0392156862745098,
+          "f1": 0.05,
+          "person_frames_evaluadas": 218,
+          "person_frames_excluidas_unknown": 26,
+          "ratio_unknown": 0.1066
+        },
+        "CR-02": {
+          "tp": 7,
+          "fp": 67,
+          "fn": 44,
+          "n_gt": 242,
+          "n_gt_positive": 51,
+          "precision": 0.0945945945945946,
+          "recall": 0.13725490196078433,
+          "f1": 0.112,
+          "person_frames_evaluadas": 242,
+          "person_frames_excluidas_unknown": 2,
+          "ratio_unknown": 0.0082
+        }
+      }
+    },
+    {
+      "clip_id": "v06_c01",
+      "frames_puntuados": 739,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 2,
+          "fp": 894,
+          "fn": 7,
+          "n_gt": 6200,
+          "n_gt_positive": 9,
+          "precision": 0.002232142857142857,
+          "recall": 0.2222222222222222,
+          "f1": 0.004419889502762431,
+          "person_frames_evaluadas": 6200,
+          "person_frames_excluidas_unknown": 667,
+          "ratio_unknown": 0.0971
+        },
+        "CR-02": {
+          "tp": 3,
+          "fp": 3173,
+          "fn": 7,
+          "n_gt": 6442,
+          "n_gt_positive": 10,
+          "precision": 0.0009445843828715365,
+          "recall": 0.3,
+          "f1": 0.0018832391713747645,
+          "person_frames_evaluadas": 6442,
+          "person_frames_excluidas_unknown": 425,
+          "ratio_unknown": 0.0619
+        }
+      }
+    },
+    {
+      "clip_id": "v10_c01",
+      "frames_puntuados": 119,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 101,
+          "fn": 0,
+          "n_gt": 472,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 472,
+          "person_frames_excluidas_unknown": 0,
+          "ratio_unknown": 0.0
+        },
+        "CR-02": {
+          "tp": 0,
+          "fp": 269,
+          "fn": 0,
+          "n_gt": 233,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 233,
+          "person_frames_excluidas_unknown": 239,
+          "ratio_unknown": 0.5064
+        }
+      }
+    },
+    {
+      "clip_id": "video02_clip07",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 110,
+          "fn": 0,
+          "n_gt": 256,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 256,
+          "person_frames_excluidas_unknown": 80,
+          "ratio_unknown": 0.2381
+        },
+        "CR-02": {
+          "tp": 8,
+          "fp": 159,
+          "fn": 16,
+          "n_gt": 263,
+          "n_gt_positive": 24,
+          "precision": 0.04790419161676647,
+          "recall": 0.3333333333333333,
+          "f1": 0.08376963350785341,
+          "person_frames_evaluadas": 263,
+          "person_frames_excluidas_unknown": 73,
+          "ratio_unknown": 0.2173
+        }
+      }
+    },
+    {
+      "clip_id": "video15_clip01",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 15,
+          "fn": 0,
+          "n_gt": 93,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 93,
+          "person_frames_excluidas_unknown": 3,
+          "ratio_unknown": 0.0312
+        },
+        "CR-02": {
+          "tp": 24,
+          "fp": 53,
+          "fn": 25,
+          "n_gt": 96,
+          "n_gt_positive": 49,
+          "precision": 0.3116883116883117,
+          "recall": 0.4897959183673469,
+          "f1": 0.38095238095238093,
+          "person_frames_evaluadas": 96,
+          "person_frames_excluidas_unknown": 0,
+          "ratio_unknown": 0.0
+        }
+      }
+    },
+    {
+      "clip_id": "video16_clip10",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 1,
+          "fp": 22,
+          "fn": 2,
+          "n_gt": 185,
+          "n_gt_positive": 3,
+          "precision": 0.043478260869565216,
+          "recall": 0.3333333333333333,
+          "f1": 0.07692307692307691,
+          "person_frames_evaluadas": 185,
+          "person_frames_excluidas_unknown": 45,
+          "ratio_unknown": 0.1957
+        },
+        "CR-02": {
+          "tp": 3,
+          "fp": 46,
+          "fn": 23,
+          "n_gt": 185,
+          "n_gt_positive": 26,
+          "precision": 0.061224489795918366,
+          "recall": 0.11538461538461539,
+          "f1": 0.08,
+          "person_frames_evaluadas": 185,
+          "person_frames_excluidas_unknown": 45,
+          "ratio_unknown": 0.1957
+        }
+      }
+    },
+    {
+      "clip_id": "video16_clip14",
+      "frames_puntuados": 24,
+      "stride": 15,
+      "por_condicion": {
+        "CR-01": {
+          "tp": 0,
+          "fp": 43,
+          "fn": 0,
+          "n_gt": 172,
+          "n_gt_positive": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": 0.0,
+          "person_frames_evaluadas": 172,
+          "person_frames_excluidas_unknown": 21,
+          "ratio_unknown": 0.1088
+        },
+        "CR-02": {
+          "tp": 4,
+          "fp": 88,
+          "fn": 17,
+          "n_gt": 135,
+          "n_gt_positive": 21,
+          "precision": 0.043478260869565216,
+          "recall": 0.19047619047619047,
+          "f1": 0.07079646017699115,
+          "person_frames_evaluadas": 135,
+          "person_frames_excluidas_unknown": 58,
+          "ratio_unknown": 0.3005
+        }
+      }
+    }
+  ],
+  "agregado": {
+    "CR-01": {
+      "tp": 25,
+      "fp": 1343,
+      "fn": 66,
+      "n_gt": 7699,
+      "n_gt_positive": 91,
+      "person_frames_evaluadas": 7699,
+      "person_frames_excluidas_unknown": 968,
+      "precision": 0.01827485380116959,
+      "recall": 0.27472527472527475,
+      "f1": 0.03427004797806717,
+      "ratio_unknown": 0.1117
+    },
+    "CR-02": {
+      "tp": 49,
+      "fp": 3985,
+      "fn": 132,
+      "n_gt": 7781,
+      "n_gt_positive": 181,
+      "person_frames_evaluadas": 7781,
+      "person_frames_excluidas_unknown": 886,
+      "precision": 0.012146752602875557,
+      "recall": 0.27071823204419887,
+      "f1": 0.023250296559905098,
+      "ratio_unknown": 0.1022
+    }
+  }
+}
