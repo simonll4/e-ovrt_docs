@@ -21,6 +21,20 @@ un clip fresco **refutó la mejor palanca** → llegaron 8 clips más → se reo
 con fuente única → y la corrida final **encontró un bug de métrica que ya estaba
 publicado**.
 
+> ✎ **Tres imprecisiones de este arco (2026-08-09, doc 113 §A4):**
+> - **El orden está invertido:** la reorganización con fuente única (doc 109) es del
+>   **08-07** y **precede** a los 8 clips, que llegaron el **08-09**. Y falta un eslabón:
+>   entre medio se integró **`v03_c02` (doc 110)**, con la primera corrección hacia
+>   `unknown`.
+> - **"El GT desmintió la mitad de las etiquetas de curación" quedó a medias:** de los
+>   dos escenarios que el doc 102 dio por corregidos, **el de `v06_c01` (P5) resultó
+>   correcto** — ahí el error estaba en la anotación, no en la curación (ver banner del
+>   102). Sobrevive `v04_c01` (P8→P1).
+> - **"4 jornadas":** las fechas de los docs son **tres** (08-06 → 102–108, 08-07 → 109
+>   y 110, 08-09 → 111). Solo son cuatro si la maratón del 06 se cuenta como dos
+>   sesiones, y eso no es verificable con los documentos. Vale para el encabezado y para
+>   §7.4, donde el argumento del ritmo no cambia (10 docs en 3 días es aún más denso).
+
 ## 2. Lo que se hizo, por jornada
 
 | doc | qué produjo |
@@ -47,6 +61,14 @@ con `previous_value`, `track_id` y `--check`, 16 tests) · `109-verificar-organi
 
 ## 3. Los resultados
 
+> ⚠️ **2026-08-09, después de este doc:** la revisión ciega del GT (doc 113 §B) tiró
+> **3 de los 5 episodios** del estrato (los 2 de `v04_c02` y el de `v01_c01` — estados
+> no observables). **Todas las cifras del estrato B de esta sección quedaron
+> supersedidas**: las vigentes son `scene` F1 **0,333** / `subject` **0,190** sobre
+> **2 evaluables** (Nivel B) y CR-01 **0,031** / CR-02 **0,018** (Nivel A, 17 clips).
+> FAR sin cambio (29,2 / 1.850,8). Detalle: banner del doc 111 y los índices de
+> `results/`. La cuenta de calidad del GT quedó en **5 de 7 declaraciones erróneas**.
+
 ### 3.1 Nivel B — estrato B (13 clips, gen. 3)
 
 | | `scene` | `subject` | rodaje T1 / G1 |
@@ -65,6 +87,19 @@ con `previous_value`, `track_id` y `--check`, 16 tests) · `109-verificar-organi
 
 El derrumbe es **de precision**: el recall se sostiene en 0,37 / 0,27.
 
+> ✎ **Salvedad metodológica que esta tabla necesita (2026-08-09, doc 113 §A4/§F).**
+> Las dos filas **no aíslan una sola variable**: `bench_obra` son **imágenes del dominio
+> del rodaje**, y los 17 clips son **video de pilotos + internet**. La caída
+> 0,408 → 0,039 mezcla, entonces, **cambio de modalidad** (imagen → video, con su
+> muestreo por frames y sujetos en movimiento) con **cambio de dominio** (obra guionada →
+> obra real no guionada, más densa y peor iluminada). No existe Nivel A sobre video del
+> rodaje que permita separarlos limpiamente.
+>
+> **Lo que sí separa parcialmente los factores es F-108.3:** en `v04_c02` el Nivel B es
+> perfecto y el Nivel A pésimo **en el mismo clip y con las mismas detecciones** — es
+> decir, buena parte de la brecha es **de la métrica y su exigencia por frame**, no del
+> material. Citar las dos filas juntas sin esta salvedad invita una objeción evitable.
+
 ### 3.3 Los hallazgos con nombre
 
 | | qué dice |
@@ -79,6 +114,15 @@ El derrumbe es **de precision**: el recall se sostiene en 0,37 / 0,27.
 | **F-109.1** | El pipeline DBE es **determinista**, verificado dos veces |
 | **F-111.1/2** | Con el lote completo `scene` le gana a `subject`; y el FAR/hora corregido es estable entre generaciones |
 
+> ✎ **Dos aclaraciones sobre esta tabla (2026-08-09, doc 113 §A2/§A4):**
+> - **Es una selección, no el inventario completo** de hallazgos del tramo. Quedan fuera
+>   F-102.1/2, F-105.1, F-107.4, F-108.3/4/5 y los F-110.x. El que más se extraña es
+>   **F-108.3 — Nivel A pésimo con Nivel B perfecto en el mismo clip (`v04_c02`)**: es la
+>   clave para leer §3.2 sin confundir los dos niveles.
+> - **F-111.1 quedó ENMENDADO** (doc 111, bloque ✎ bajo el hallazgo). Lo que se sostiene
+>   es la asimetría de FP (6× en positivos, 14× en negativos); lo que **no** se sostiene
+>   con n=4 es el ranking por F1 ni que "la brecha se agranda". Ver §7.1 acá abajo.
+
 ## 4. Lo que se corrigió (y estuvo mal publicado)
 
 Tres cosas se midieron mal antes de detectarse. Las tres están corregidas, con banner en
@@ -90,8 +134,16 @@ los docs originales:
 2. **El GT de `v03_c02`** tenía un episodio CR-01 de 4.000 ms **exactos** sostenido por
    atributos no observables (operador en cabina). Corregido a `unknown`.
 3. **`far_per_hour` estaba mal calculado** en el agregador: numerador de todos los
-   negativos, denominador de solo los soak. Inflaba **7×** con 9 negativos. Las cifras
-   publicadas (48,7 y 2.045,6) eran incorrectas; las correctas son **29,2 y 1.850,8**.
+   negativos, denominador de solo los soak. Las cifras publicadas (48,7 y 2.045,6) eran
+   incorrectas; las correctas son **29,2 y 1.850,8**.
+
+   > ✎ **2026-08-09 (doc 113 §A4).** La redacción original decía *"inflaba **7×** con 9
+   > negativos"* pegado a las cifras publicadas, lo que induce a leer que **lo publicado**
+   > estaba inflado 7×. Falso. El factor es `FP de todos los negativos / FP del soak`, así
+   > que varía por generación y granularidad: **lo que llegó a publicarse (gen. 2) estaba
+   > inflado 1,67× (escena) y 1,11× (sujeto)**; el **7×** es de `scene` en la **gen. 3**,
+   > un número que nunca se publicó — su rareza fue lo que delató el bug. Tabla completa:
+   > doc 111 §6.3.
 
 ---
 
@@ -148,10 +200,24 @@ inverso.
 
 ### 7.2 El GT tiene un sesgo en la misma dirección que el error del modelo
 
-De los **5 episodios positivos** que el lote produjo, **2 resultaron errores de
+De los episodios positivos que el lote produjo, **2 resultaron errores de
 anotación** (`v06_c01` y `v03_c02`), ambos detectados por revisión visual **después** de
 haber producido resultados, y ambos en sujetos difíciles de juzgar (persona al borde del
 plano; operador en cabina). En los dos casos la corrección **eliminó** una violación.
+
+> ✎ **La aritmética original de este párrafo estaba mal (2026-08-09, doc 113 §A4).**
+> Decía "de los **5** episodios positivos… 2 resultaron errores", pero **5 es el conteo
+> POSTERIOR a las correcciones**: el lote produjo **7 declaraciones de episodio
+> positivo** (`v04_c01` · `v06_c01` · `v04_c02` ×2 · `v03_c02` · `v01_c01` · `v01_c02`),
+> menos las 2 erróneas = **5 vigentes** = 4 evaluables + 1 censurado. El "5" original era
+> una foto al 08-07 que coincide por casualidad con el 5 de hoy, y **no es el mismo
+> conjunto**. **La cifra para el informe es "2 de 7 producidas" (~29%)** — que además es
+> más contundente, no menos.
+>
+> ✎ **Actualización, mismo día (doc 113 §B):** la revisión CIEGA de los 5 vigentes tiró
+> 3 más (`v04_c02` ×2 y `v01_c01`). **Cuenta final: 5 de 7 declaraciones producidas
+> eran errores (~71%), todas sobre-declarando donde el estado no era observable.**
+> Sobreviven 2, verificadas con evidencia de frame. Esa es la cifra del informe.
 
 Eso es un patrón, no dos casualidades: **el anotador sobre-declaró violaciones justamente
 donde el estado no era observable** — el mismo error que comete el motor. Es coherente
@@ -164,9 +230,29 @@ edificio). **Si también es error, el estrato B se queda con 3 episodios evaluab
 episodios del estrato fueron corregidos tras revisión visual — es un dato de calidad del
 GT que fortalece, no debilita, si se dice de frente.
 
+> ✎ **Dos correcciones a este cierre (2026-08-09, doc 113 §A4/§B):**
+> 1. **"Si también es error, quedan 3 evaluables" no cierra con la semántica de censura.**
+>    `v01_c01` **ya está censurado por A1** y por lo tanto **no está entre los 4
+>    evaluables** (que son `v01_c02`, `v04_c01` y los 2 de `v04_c02`). Si su episodio
+>    cae, los **vigentes** bajan de 5 a 4 y los **evaluables siguen en 4**. Lo que
+>    cambiaría es la frase de calidad del GT: "3 de 7 producidas".
+>    *(✎ resuelto el mismo día: v01_c01 CAYÓ — y también los 2 de `v04_c02`, que esta
+>    nota daba por firmes. Evaluables finales: **2**. La aritmética condicional de
+>    arriba era correcta pero el escenario real fue peor.)*
+> 2. **La sugerencia se queda corta y arrastra el error de arriba.** Al informe va
+>    **"2 de 7"**, no "2 de 5". Y revisar solo `v01_c01` no resuelve el problema de
+>    fondo: las dos correcciones se dispararon **porque el resultado del modelo llamó la
+>    atención**, es decir, solo se re-escrutó donde el modelo discrepaba — los episodios
+>    donde GT y motor coinciden nunca recibieron la misma mirada. Eso es **circularidad**,
+>    y con n=5 la salida es barata: **re-revisión CIEGA de los 5 episodios vigentes**
+>    (protocolo en doc 113 §B). La constancia "N/5 confirmados a ciegas" es lo que mata
+>    la objeción en la defensa; revisar solo el sospechoso, no.
+
 ### 7.3 El bug de `far_per_hour` es una señal, no un incidente aislado
 
-Estuvo mal, se publicó en tres documentos, y **se detectó de casualidad**: porque al
+Estuvo mal, se publicó en tres lugares —**docs 108 y 109, y
+`results/clip_bench/index.md`** (el registry fue un cuarto); los tres corregidos con
+banner o reescritura— y **se detectó de casualidad**: porque al
 pasar de 2 a 9 clips negativos el número quedó raro. Con la composición anterior la
 distorsión era 1,2× y era invisible. El agregador **tenía tests** y el bug pasó igual,
 porque ninguno ejercitaba la combinación "varios negativos + un solo soak".
@@ -203,7 +289,25 @@ no se puede delegar al final. La tentación va a reaparecer con los videos V1–
   y `docs` no tiene remoto por decisión del proyecto. **El backup a otro disco sigue
   pendiente desde el 05-08.**
 
+> ✎ **Estado real de las dos, verificado el 2026-08-09 (doc 113 §A4/§C):**
+> - **La deuda git se saldó el mismo día**, horas después de escribir esto: los 5 repos
+>   quedaron en 0 archivos pendientes, con los commits del tramo (`05f715b` docs ·
+>   `907d50fa` datasets · `ff5c22b` exp-setup · `b9a5e79` control-plane) y push en sync.
+>   **Lo que sigue pendiente es solo el backup a otro disco** — y ahí lo que importa es
+>   lo que el commit NO protege: los ~734 MB de evidencia gitignorada, los `.mp4` de
+>   `datasets-videos/` y el `.git` de `docs`, que no tiene remoto.
+> - **Las URLs son peor de lo que dice el párrafo: son 18 yamls**, no 14 — los 14 del
+>   lote (incluido `v08_c01`) **más los 4 del piloto recuperado** —, y además **las 13
+>   copias promovidas** en `processed/clip_bench/meta/` arrastran el `TODO`, así que
+>   arreglarlo exige re-promover, no editar a mano. La "media hora" es optimista: ~1 h.
+
 ## 8. Qué haría yo, en orden
+
+> ✎ **Este orden fue revisado y ejecutado parcialmente (2026-08-09).** El paso a paso
+> vigente —con lo que la revisión crítica encontró después de escribir esto— es el
+> **doc 113**, que ya cerró los ítems documentales (banners, enmienda a F-111.1, celda
+> combinada, esta fe de erratas) y reordenó el resto. Lo de abajo se conserva como
+> registro del criterio original.
 
 1. **Revisar `v01_c01`** (15 min): define si el estrato tiene 4 o 3 episodios.
 2. **Anotar las URLs** de los 13 videos (30 min): cierra la deuda de evidencia perecedera.
@@ -218,9 +322,11 @@ material dice lo que tiene para decir.
 
 ## 9. Balance
 
-El tramo de video entregó **más de lo que el plan pedía**: no solo levantó L4, sino que
-produjo una caracterización mecanística de dónde y por qué el sistema deja de funcionar
-— que es un resultado más interesante que un F1 alto sobre material fácil.
+El tramo de video entregó **más de lo que el plan pedía**: no solo precisó L4 (✎
+2026-08-09, D-113.1 — se precisa la etiqueta existente, no se levanta del todo ni se
+crea una nueva: sigue habiendo solo 4 episodios evaluables), sino que produjo una
+caracterización mecanística de dónde y por qué el sistema deja de funcionar — que es un
+resultado más interesante que un F1 alto sobre material fácil.
 
 El riesgo no está en los datos ni en el método: **está en el calendario y en el
 encuadre.** Los números son malos y hay que contarlos como lo que son —una frontera

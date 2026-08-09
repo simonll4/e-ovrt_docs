@@ -196,11 +196,15 @@ identidad conserva el signo en 6/6 realizaciones (F-101.1/3/4).
 1. **L4 — un solo bloque guionado, sin obra real en video.** La más citable. Mismos
    actores, misma locación, escenarios guionados. La levanta el lote de internet
    cuando tenga GT; hoy el capítulo se sostiene sin él, pero con la limitación dicha.
-   ✎ 08-06: **el GT llegó y I1/I2 corrieron** (3 clips, banco 34→37, doc 102) —
-   parcialmente levantada, PERO con un hallazgo nuevo que hay que nombrar: `v06_c01`
-   (127 personas GT) rompió `scene` (recall 0,000, F-81.2(a) extremo) y `subject`
-   (recall 1,000, precision 0,010) por densidad de escena, algo que el rodaje
-   (máx. 14 personas/clip) nunca pudo ejercer. Detalle y decisión pendiente: doc 103.
+   ✎ **08-09 — CERRADO el tramo de video (docs 102→112, decisión D-113.1): L4 queda
+   PRECISADA, no reemplazada por una etiqueta nueva.** El lote de internet aportó
+   13 clips de obra real no guionada (banco 47): Nivel B `scene` F1 0,500 / `subject`
+   0,200 sobre 4 episodios evaluables (n insuficiente para ranking — F-111.1
+   enmendado), Nivel A CR-01 0,039 / CR-02 0,020 sobre 17 clips de video. El hallazgo
+   que motivó la duda de nombre —`v06_c01` rompiendo `scene`/`subject` por densidad—
+   se consolidó como la **frontera de juzgabilidad** (tres ejes: escala ×
+   iluminación × oclusión, F-105.2/3/4), contenido de L4, no L9. Detalle: doc 112;
+   celda vigente: `results/index.md` §L4.
 2. **L1 — FAR/hora no reportable.** Harían falta 3 h de cumplimiento anotado; el banco
    llega a 0,10–0,26 h. Se reemplaza por el control de negativos, que discrimina
    (T1/T2/G1 dan 0 FP de 4; D1/H1/B1 dan 2–3).

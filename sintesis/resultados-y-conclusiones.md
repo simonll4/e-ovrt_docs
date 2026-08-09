@@ -1,5 +1,39 @@
 # Síntesis de resultados y conclusiones — E-OVRT-VDP
 
+> ## ✎ ESTADO AL 2026-08-09 — leer antes que el cuerpo
+>
+> Este documento se escribió el **08-06**, cuando el estrato B eran **3 clips**. El
+> tramo de video **se cerró** desde entonces: lote **13/14 con GT** (banco **47**, doc
+> `operacion/111`), campañas **re-corridas en gen. 3**, balance con lectura crítica
+> (`operacion/112`) y revisión de ese balance (`operacion/113`, que ejecutó las
+> correcciones documentales y lista lo que falta).
+>
+> **Cifras vigentes del estrato B (tras la revisión CIEGA del GT, doc 113 §B, 08-09
+> noche):** Nivel B `scene` F1 **0,333** / `subject` **0,190** sobre **2 episodios
+> evaluables**; Nivel A sobre 17 clips de video CR-01 **0,031** / CR-02 **0,018**; y
+> **FAR/hora computable por primera vez** — 29,2 y 1.850,8, que son **3 y 190 FP en
+> 6:09,6 del único clip soak**. La asimetría de FP entre granularidades es lo robusto:
+> 26 vs 323 sobre 11 negativos (12×).
+>
+> **El resultado más fuerte de la revisión ciega: 5 de las 7 declaraciones de episodio
+> que produjo el lote eran errores de anotación (~71%)** — v06_c01, v03_c02, v04_c02×2
+> y v01_c01, TODAS sobre-declarando violación donde el estado no era observable (cabina
+> de máquina, contraluz, borde del plano). Es la frontera de juzgabilidad medida
+> también en el anotador, y convierte la calidad del GT en un resultado auditado: los
+> 2 episodios que sobreviven están verificados a ciegas con evidencia de frame.
+>
+> **Cuatro cosas del cuerpo que ya no son ciertas:** (1) `v06_c01` **sí es negativo** —su
+> episodio CR-02 era error de anotación (doc 108 §6)— y es **el clip soak del banco**,
+> así que **L1 se precisa** en vez de quedar igual; (2) su escenario **P5 era correcto**,
+> el error estaba en la anotación y no en la curación — y lo mismo terminó valiendo para
+> `v04_c02` y `v01_c01`; (3) "ninguna lectura de cuál gana es válida" **sigue siendo
+> cierto**, hoy con más fuerza: `n` = **2 episodios** — F-111.1 quedó enmendado; (4)
+> `v04_c02` ya NO es "el único caso limpio del estrato": sus 2 episodios eran error y el
+> clip es negativo (banner del doc 108).
+>
+> **§11 está actualizado; el resto del cuerpo se conserva como estaba** y hay que leerlo
+> con la fecha del 08-06 en mente.
+
 - **Fecha:** 2026-08-06 · **Estado del proyecto:** tramo experimental **COMPLETO**
   sobre el banco del rodaje; ✎ mismo día, más tarde: **llegaron las anotaciones CVAT
   del lote de internet, el GT del estrato B se derivó y promovió (banco 34→37, doc
@@ -456,13 +490,13 @@ Los desfases corregidos fueron de **propagación y redacción**, no de datos:
 
 | Pendiente | Quién | Qué habilita |
 |---|---|---|
-| ~~**CVAT del lote de internet**~~ ✎ **HECHO 2026-08-06 (doc `operacion/102`)**: llegaron 3 (`v04_c01`, `v06_c01`, `v10_c01`), GT humano derivado/validado/promovido — banco 34→37, **L4 parcialmente levantada** (n = 2 episodios ⇒ fila aparte, D-90.6). Ojo: la trampa del runbook NO aplicó — estos exports eran **task-level** (`split_cvat_project.py` habría sido el error simétrico; mirar `meta/task` vs `meta/project`). Dos escenarios corregidos contra el GT (`v04_c01` P8→P1, `v06_c01` P5→P2); `v06_c01` **no salió negativo** ⇒ sigue sin haber soak y **L1 no se mueve**. Los 11 restantes: marginales (doc 93) | ~~equipo~~ | — |
-| ~~Runs/evals del estrato B~~ ✎ **HECHO 2026-08-06**: I1/I2 corrieron. **El resultado no cierra el banco con un número — abre un hallazgo nuevo** (doc `operacion/103`): en `v06_c01` (127 personas GT) `scene` recall 0,000 (F-81.2(a) extremo) y `subject` recall 1,000 / precision 0,010 (182 identidades del tracker con FP, más que las 127 reales). **Decisión pendiente del equipo:** si esto entra al informe como limitación nueva (densidad de escena) o como ampliación de L4/L6, y si vale anotar más clips en densidad intermedia | ~~Claude~~ / **equipo decide el encuadre** | nombra el límite real de G1/scene, no solo "material no guionado" |
+| ~~**CVAT del lote de internet**~~ ✎ **HECHO 2026-08-06 (doc `operacion/102`)**: llegaron 3 (`v04_c01`, `v06_c01`, `v10_c01`), GT humano derivado/validado/promovido — banco 34→37, **L4 parcialmente levantada** (n = 2 episodios ⇒ fila aparte, D-90.6). Ojo: la trampa del runbook NO aplicó — estos exports eran **task-level** (`split_cvat_project.py` habría sido el error simétrico; mirar `meta/task` vs `meta/project`). Dos escenarios corregidos contra el GT (`v04_c01` P8→P1, `v06_c01` P5→P2); `v06_c01` **no salió negativo** ⇒ sigue sin haber soak y **L1 no se mueve**. Los 11 restantes: marginales (doc 93). **✎ 2026-08-09 — CERRADO y con dos correcciones al registro de arriba** (docs `operacion/108` §6 y `111`): el lote quedó en **13 de 14 con GT** (banco **47**; `v08_c01` excluido con causa firmada), y de los dos escenarios que el GT parecía desmentir **solo `v04_c01` estaba mal** — el **P5 de `v06_c01` era correcto**: su episodio CR-02 era **error de anotación**, así que el clip **es negativo y es el único clip soak del banco** ⇒ **L1 sí se movió** (FAR/hora pasó a computable, aunque insuficiente para sostener una cota). Los "11 restantes" se anotaron salvo uno. Fuente de verdad del GT = las anotaciones versionadas del repo, no CVAT | ~~equipo~~ | — |
+| ~~Runs/evals del estrato B~~ ✎ **HECHO 2026-08-06**: I1/I2 corrieron. **El resultado no cierra el banco con un número — abre un hallazgo nuevo** (doc `operacion/103`): en `v06_c01` (127 personas GT) `scene` recall 0,000 (F-81.2(a) extremo) y `subject` recall 1,000 / precision 0,010 (182 identidades del tracker con FP, más que las 127 reales). **Decisión pendiente del equipo:** si esto entra al informe como limitación nueva (densidad de escena) o como ampliación de L4/L6, y si vale anotar más clips en densidad intermedia. **✎ 2026-08-09 — la gen. 3 corrió sobre el lote completo** (doc `operacion/111` §6) **y esa misma noche la revisión CIEGA del GT tiró 3 de los 5 episodios** (doc 113 §B): cifras vigentes `scene` F1 **0,333** vs `subject` **0,190** sobre **2 episodios evaluables** — el mecanismo se confirmó a escala, pero **ese `n` no sostiene ningún ranking entre granularidades** (F-111.1 enmendado); lo robusto es la **asimetría de FP** (~6× en positivos, **12× en los 11 negativos**: 26 vs 323). Nivel A de video: CR-01 **0,031** / CR-02 **0,018**. **Las dos preguntas de esta fila quedaron CERRADAS el 08-09 (D-113.1):** anotar más clips **NO** (doc 112 §8) y el encuadre es **precisar L4** — el set L1–L8 de `informe/99` §6 sigue cerrado, no se crea `L9`. Celda vigente: `results/index.md` §L4; doc 103 §3 cerrado con la misma decisión | ~~Claude~~ / ~~equipo decide el encuadre~~ ✅ decidido | nombra el límite real de G1/scene, no solo "material no guionado" |
 | **Videos V1–V3 de la defensa** (pausados; 2 preguntas de alcance, D-90.7) | usuario decide | material de defensa, no resultado |
 | Redacción §17.x + regenerar `informe-project-kit` | después de lo anterior (orden 2026-08-05) | el informe |
 | Corregir el §15 del informe (erratas + línea base EPP supervisada + backbone de cada cifra + cruce con evidencia propia — ver §7.1/§7.4 de este doc) | pase de redlines (misma puerta que §17.x) | estado del arte defendible |
 | Licencias de los catálogos de modelos (único hallazgo abierto de `informe/99` §6) | verificar y registrar | citar los modelos en el informe |
-| URL + fecha de acceso por video del lote (evidencia perecedera) | usuario | robustece la cita de la fuente |
+| URL + fecha de acceso por video del lote (evidencia perecedera) — ✎ **son 18 `clip.yaml` con `video_url: TODO`** (14 del lote + 4 del piloto) y **13 copias promovidas** que lo arrastran: se arregla re-promoviendo, no a mano (doc `operacion/113` §C1) | usuario | robustece la cita de la fuente |
 | Consentimiento escrito del rodaje (resuelto por declaración; plantilla disponible) | equipo/facultad | formalidad administrativa |
 | Backup de `docs/` a otro disco | usuario | redundancia (repo local sin remote) |
 

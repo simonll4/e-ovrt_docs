@@ -8,6 +8,48 @@ resultados finales del estrato B están en §6.
 Este doc es el que citan los `clip.yaml` de la tanda ("GT HUMANO 2026-08-09, doc 111")
 y el registry §1.1.
 
+
+> ## ⚠️ CORRECCIÓN POSTERIOR — leer antes que nada (2026-08-09, misma jornada; doc 113 §B)
+>
+> Horas después de este cierre corrió la **revisión CIEGA de los 5 episodios del
+> estrato** (protocolo del doc 113 Bloque B, verificación visual con la caja del track
+> dibujada sobre el frame — la identificación por "person N" de la UI de CVAT resultó
+> NO confiable). Resultado: **3 de los 5 episodios eran errores de anotación**, todos
+> sobre-declarando violación donde el estado no era observable:
+>
+> - **`v04_c02` (los 2 episodios, CR-01 y CR-02):** el único sujeto está en la cabina
+>   de una máquina TODO el clip — casco y chaleco → `unknown`. El clip es **negativo**.
+>   Con eso cae **"el único caso limpio del estrato"** (§6.1): sus alertas "acertadas"
+>   son ahora 3 FP (`scene`) / 4 FP (`subject`).
+> - **`v01_c01` (CR-01, ya censurado por A1):** cabeza a contraluz dentro del edificio
+>   → `unknown`. El clip es **negativo**.
+>
+> Correcciones firmadas en los `clip.yaml`, GT re-derivado, banco regenerado (**47
+> clips: 32 positivos / 15 negativos / 37 episodios**, manifest `3f14f50a…`). MISMAS
+> detecciones y alertas (11/11 clips sin cambio de GT dieron evals idénticos): solo se
+> re-corrió `evaluate-alerts` + agregación, con los 13 evals archivados por campaña.
+>
+> **Cifras VIGENTES del estrato B (supersedidas las de §6):**
+>
+> | | I1 `scene` | I2 `subject` |
+> |---|---|---|
+> | recall (**2** eps evaluables) | 0,500 | 1,000 |
+> | precision | 0,250 | 0,105 |
+> | **F1** | **0,333** | **0,190** |
+> | FP positivos / negativos (11) | 3 / 26 | 17 / 323 |
+> | FAR/hora (soak, sin cambio) | 29,2 | 1.850,8 |
+>
+> Nivel A (17 clips): CR-01 **0,031** (R 0,467) / CR-02 **0,018** (R 0,318) — el recall
+> SUBE al salir del denominador los no observables; la precision baja (regla D-113.2).
+>
+> **La cuenta final de calidad del GT del lote: 5 de las 7 declaraciones de episodio
+> producidas resultaron errores** (v06_c01, v03_c02, v04_c02×2, v01_c01) — todas en la
+> misma dirección. Sobreviven `v04_c01` y `v01_c02`, ambos verificados a ciegas con
+> evidencia de frame. Lo que NO cambia de este doc: la política de fuente de verdad
+> (§2), la exclusión de `v08_c01`, el determinismo (F-109.1), el bug de FAR (§6.3,
+> F-111.2) y la asimetría de FP de F-111.1-enmendado — que sobrevive intacta (12×/6×).
+
+
 ---
 
 ## 1. Qué entró
@@ -132,12 +174,37 @@ Por escenario: **P6 (`v04_c02`) es el único caso limpio de todo el estrato** �
 1,000 y **0 FP en ambas granularidades**. P1 (3 clips): `scene` 0,500 con 5 FP,
 `subject` 1,000 con 32 FP. P5 (9 negativos): 21 vs 304 FP.
 
+> ✎ **INVERTIDO por la revisión ciega (mismo día, banner arriba):** los 2 episodios de
+> `v04_c02` eran error de anotación (sujeto en cabina) — no hay "caso limpio": el clip
+> es negativo y esas mismas alertas son 3/4 FP.
+
 > **F-111.1 — con el lote completo, `scene` le gana a `subject` y la brecha se agranda.**
 > F1 0,500 vs 0,200 (en la gen. 2, con 4 clips, era 0,571 vs 0,400). `subject` compra el
 > episodio que falta —recall 0,750 → 1,000— pagando **6× más FP en positivos y 14× más
 > en negativos**. En el rodaje G1 dominaba con F1 0,930; en obra real no guionada, no.
 > Consolida F-108.1 desde el agregado del lote entero: **no hay una granularidad mejor;
 > hay una correcta para cada régimen de densidad.**
+>
+> ---
+>
+> ✎ **ENMIENDA 2026-08-09 (revisión crítica, doc 112 §7.1 y doc 113 §A2) — el
+> enunciado de arriba afirma más de lo que el `n` sostiene. Esta es la formulación
+> vigente; los números no cambian, cambia qué se puede afirmar con ellos:**
+>
+> - **Lo que SÍ se sostiene** (conteos grandes, no depende de los 4 episodios):
+>   `subject` paga **mucho más FP** que `scene` — 6× en positivos (32 vs 5) y **14× en
+>   los 9 negativos** (304 vs 21). Esa asimetría es robusta y es el hallazgo real.
+> - **Lo que NO se sostiene:** el **ranking por F1** (0,500 vs 0,200) y la afirmación de
+>   que **"la brecha se agranda"** respecto de la gen. 2. Ambas mezclan la precision
+>   —bien muestreada— con un recall medido sobre **4 episodios evaluables**, donde la
+>   diferencia entera es *un episodio* (3 vs 4 matched). Con ese `n` no hay intervalo que
+>   sostenga un orden, ni una tendencia entre generaciones.
+> - **Formulación para citar:** *en este régimen (obra real no guionada, densa), **la
+>   ventaja de la identidad que G1 mostró en el rodaje no se reproduce**, y `subject`
+>   incurre en un costo de falsos positivos un orden de magnitud mayor.* Sin afirmar el
+>   orden inverso.
+> - **F-108.1 no se toca:** "hay una granularidad correcta por régimen de densidad" se
+>   apoya en el mecanismo (fragmentación de identidades, F-103.2), no en este ranking.
 
 **Determinismo re-confirmado (F-109.1):** los 4 clips que ya se habían inferido en la
 gen. 2 dieron detecciones **idénticas** (572 / 840 / 11.087 / 1.771 frames).
@@ -160,10 +227,25 @@ agregador contaba **los FP de los 9 clips negativos** y los dividía por **las h
 "far_per_hour": _safe(neg_fp, soak_ms / 3_600_000.0)   # neg_fp = TODOS los negativos
 ```
 
-Con 1 soak y 1 negativo corto (gen. 2) la distorsión era 1,2× y pasó desapercibida; con
-9 negativos infla **7×**. **Corregido**: numerador y denominador salen del mismo
+Con 1 soak y 1 negativo corto (gen. 2) la distorsión era chica y pasó desapercibida; con
+9 negativos infla **7×** (escena). **Corregido**: numerador y denominador salen del mismo
 conjunto, y se expone `far_per_hour_all_negatives` como base informativa. Test de
 regresión que falla con el código viejo (suite 308).
+
+> ✎ **Precisión del factor de inflación (2026-08-09, doc 113 §A4).** El factor es
+> exactamente **`FP de todos los negativos / FP del soak`**, así que **depende de la
+> generación y de la granularidad** — no es un "7×" único:
+>
+> | | gen. 2 (lo que se publicó) | gen. 3 (nunca publicado: se cazó acá) |
+> |---|---|---|
+> | `scene` | 48,7 vs 29,2 = **1,67×** (5/3 FP) | 204,6 vs 29,2 = **7,00×** (21/3 FP) |
+> | `subject` | 2.045,6 vs 1.850,8 = **1,11×** (210/190) | 2.961,3 vs 1.850,8 = **1,60×** |
+>
+> Entonces: **las cifras que llegaron a publicarse estaban infladas 1,67× y 1,11×**; el
+> **7×** es de `scene` en la gen. 3 — y es justamente lo que volvió el número
+> lo bastante absurdo como para delatar el bug antes de publicarse. Decir "inflaba 7× lo
+> publicado" sería falso. (El "1,2×" de la línea de arriba era el ratio de *duraciones*
+> de la gen. 2, otra base: por eso se reemplazó por "chica".)
 
 | | publicado antes | **correcto** | informativo (todos los negativos) |
 |---|---|---|---|

@@ -190,6 +190,13 @@ doble de precision. Eso refuerza F-108.1 desde el agregado: **no hay una granula
 mejor, hay una correcta para cada densidad.** En el rodaje G1 dominaba; en este
 estrato, no.
 
+> ✎ **2026-08-09 — leer con la enmienda de F-111.1 (doc 111).** La comparación por F1
+> de este párrafo (y su versión gen. 3: 0,500 vs 0,200) descansa sobre un puñado de
+> episodios evaluables — **no establece un ranking entre granularidades**. Lo que se
+> sostiene es que la ventaja de la identidad no se reproduce en este régimen y que
+> `subject` paga una asimetría de FP de un orden de magnitud (6× en positivos, 14× en
+> negativos). F-108.1 no se toca: se apoya en el mecanismo, no en este orden.
+
 ### 9.3 Nivel A consolidado — y la cifra que estaba mal
 
 `na1_gdinotiny560_v2short_video`: 8 clips, agregado CR-01 F1 **0,034** / CR-02

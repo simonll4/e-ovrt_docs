@@ -9,6 +9,44 @@ del estrato B armadas y listas para correr.
 → runs/evals que surjan") queda **cumplido del lado del GT**. Faltan los runs: son
 GPU y están a un comando.
 
+
+> ## ⚠️ CORRECCIÓN POSTERIOR — leer antes que nada (2026-08-07, doc 108 §6)
+>
+> Este documento **publicó el GT original de `v06_c01`, con un episodio CR-02**
+> (342.400–355.533 ms). La revisión visual en CVAT determinó que **era un error de
+> anotación: la persona SÍ llevaba chaleco** (track 110, 394 cajas, corrección firmada
+> con `previous_value`). **El episodio no existe.**
+>
+> **Qué NO cambia:** la cadena de derivación y sus verificaciones (§1.1 exports a nivel
+> TASK y la regla de no aplicar `split_cvat_project.py` por reflejo, guard I2,
+> `validate_clip_gt` en 0 errores), el rescate del piloto de julio (§4) y F-102.1 /
+> F-102.2. Nada de eso depende del atributo corregido.
+>
+> **Qué SÍ cambia — cuatro afirmaciones de este doc quedan invertidas:**
+>
+> 1. **§2 (tabla y cierre):** `v06_c01` es **negativo**, no "1 ep CR-02". De los dos
+>    episodios del lote queda **uno** (`v04_c01`), y el cálculo de censura "entra por
+>    2,2 s" queda sin objeto.
+> 2. **§2.1:** el escenario **P5 era correcto** y el GT no lo desmentía. La lección
+>    ("los códigos `scenario` son expectativa de curación, no hechos") sobrevive por
+>    `v04_c01`, pero **acá el error estuvo en la anotación, no en la curación**.
+> 3. **§2.2 entera, empezando por su título:** `v06_c01` **sí salió negativo**, **sí es
+>    soak** (6:09,6 ≥ 5 min) y pasó a ser **el primer y único clip soak del banco** ⇒
+>    FAR/hora dejó de ser no computable. **D-90.1 no se deroga, se precisa:** con
+>    0,1027 h sigue faltando dos órdenes de magnitud para las 3,0 h de la regla de 3
+>    (doc 108 §6.3, doc 111 §6.3).
+> 4. **§2.3 (a):** esa adjudicación pendiente se resolvió **en la dirección opuesta a la
+>    que este doc anticipaba** — no era oclusión que ampliara el episodio a 24,5 s: no
+>    había violación. Es el caso testigo de F-108.4 y del sesgo que el doc 112 §7.2
+>    señala (sobre-declarar violaciones donde el estado no es observable).
+>
+> **§3 (el banco de 37):** la composición cambia — `v06_c01` pasa de positivo a negativo
+> y el banco gana su primer soak. Cifras vigentes (banco 47, estrato B cerrado):
+> `registry/clip_bench.md` §1 y `results/clip_bench/index.md`; procedencia en el doc 111.
+>
+> *(Banner agregado el 2026-08-09 — doc 113 §A1; faltaba desde la corrección.)*
+
+
 ---
 
 ## 1. Qué llegó, y qué NO era
@@ -81,6 +119,11 @@ trazabilidad) y el GT se volvió a derivar. Dejar `v06_c01` como P5 habría meti
 clip con infracción en la columna de negativos.
 
 ### 2.2 `v06_c01` no salió negativo — y eso toca el argumento de FAR/hora
+
+> ✎ **2026-08-07 (doc 108 §6): esta sección quedó invertida, título incluido.** El
+> episodio era error de anotación ⇒ `v06_c01` **sí es negativo, sí es soak** y el banco
+> pasó de 0 a 1 clip soak. Lo que sigue describe el estado previo a la corrección; el
+> argumento de fondo (D-90.1) no se deroga: 0,1027 h contra 3,0 h.
 
 Su propio `clip.yaml` decía *"el GT lo marcará `negative: true` si CVAT no deja ningún
 episodio"*. Dejó uno. Consecuencia mecánica: **un clip con episodio no es un clip

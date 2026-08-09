@@ -10,6 +10,32 @@ jornada.**
 completa corrió al cierre (integridad lab↔banco↔freeze, `validate_clip_gt` en sus dos
 modos, freeze 149/149, suite de datasets 283 verde, verificador de índices verde).
 
+
+> ## ⚠️ CORRECCIÓN POSTERIOR — leer antes que nada (2026-08-07, doc 108 §6)
+>
+> Este inventario cierra la jornada del 08-06, cuando el GT de **`v06_c01` tenía un
+> episodio CR-02**. La revisión visual determinó que **era un error de anotación** (la
+> persona sí llevaba chaleco, track 110, 394 cajas). El clip es **negativo** y pasó a
+> ser **el primer clip soak del banco**.
+>
+> **Qué NO cambia:** el inventario de artefactos verificados (§1), los 14 hallazgos
+> numerados del día y la **frontera de juzgabilidad de tres ejes** (§2, párrafo final) —
+> se midieron sobre las detecciones y sobre el `unknown` del anotador, que no cambiaron.
+>
+> **Qué SÍ cambia — la "tabla de bolsillo" del §2 quedó stale en sus dos mitades:**
+> - **Nivel B:** tras la corrección el estrato tenía **1 episodio evaluable, no 2**
+>   (queda `v04_c01`) ⇒ la fila "recall (2 eps)" **no es citable**.
+> - **Nivel A:** el "estrato B **0,002**" se puntuó con el XML previo (doc 109 §9.3: la
+>   única cifra publicada de esa jornada que estaba incorrecta).
+>
+> **Y el §3 ya no describe lo que está abierto:** los barridos que ofrecía se ejecutaron
+> (doc 107), el lote se cerró (13/14, banco 47) y las campañas se re-corrieron en gen. 3.
+> Estado vigente: doc **111**; balance del tramo: doc **112**; cifras: los índices de
+> `results/`.
+>
+> *(Banner agregado el 2026-08-09 — doc 113 §A1; faltaba desde la corrección.)*
+
+
 ---
 
 ## 0. El día en una pantalla
@@ -84,6 +110,12 @@ F-105.1/2/3/4, más D-90.1 confirmada y F-81.2(a)/F-89.1 replicadas fuera del gu
 
 **Nivel A (persona), CR-02 F1**: imágenes 0,41–0,55 → piloto **0,154** → estrato B
 **0,002**. Cae la precision; el recall (~0,33) se sostiene.
+
+> ✎ **Esta tabla de bolsillo NO es citable (2026-08-07, doc 108 §6).** Se armó con
+> `v06_c01` como positivo: tras la corrección el estrato tenía 1 episodio evaluable (no
+> los 2 del recall) y la celda de Nivel A se puntuó con el XML previo. La lectura
+> cualitativa —cae la precision, el recall se sostiene— es la que sobrevivió a la gen. 3.
+> Cifras vigentes: `results/clip_bench/index.md` y `results/bench_nivel_a/index.md`.
 
 **La frontera de juzgabilidad tiene tres ejes medidos**: escala (asociación de vest
 96–100% a ≥320 px diurno vs 0–17% bajo 160 px) × iluminación (nocturno 55% incluso

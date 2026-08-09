@@ -158,6 +158,15 @@ granularidades), no solo los `metrics.json` agregados.
 3. La fila en `results/clip_bench/index.md` (§6 abajo) queda escrita con este marco;
    revisarla si el equipo decide otra lectura.
 
+> ✎ **CERRADO 2026-08-09 (D-113.1, doc `operacion/113` §A5) — los dos ítems.**
+> **(1) Se precisa L4, no se crea `L9`**: el set L1–L8 de `informe/99` §6 sigue
+> cerrado; la frontera de juzgabilidad (tres ejes: escala × iluminación × oclusión,
+> F-105.2/3/4) es el contenido nuevo de L4, no una etiqueta aparte. Celda vigente:
+> `results/index.md` §L4. **(2) NO se anota más material en densidad intermedia** —
+> el lote se cerró en 13/14 (docs 109–111) y el doc 112 §8 lo ratifica: el material
+> dice lo que tiene para decir, y más clips es retorno decreciente sobre redacción
+> pendiente. El quiebre gradual-vs-abrupto queda **fuera de alcance de esta tesis**.
+
 ## 6. Fila para `results/clip_bench/index.md`
 
 Ya integrada (ver el índice) con el mismo encuadre de este doc: números completos +

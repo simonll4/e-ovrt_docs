@@ -6,6 +6,34 @@ clips vuelven a ser ejecutables, se les midió **Nivel A (estado por persona)** 
 scorer oficial contra su GT humano, y de ahí salió un resultado que **corrige y mejora
 la tesis de los docs 103/104**.
 
+
+> ## ⚠️ CORRECCIÓN POSTERIOR — leer antes que nada (2026-08-07, doc 108 §6)
+>
+> Este documento se puntuó cuando el GT de atributos de **`v06_c01` marcaba `has_vest =
+> false` en el track 110**. La revisión visual determinó que **la persona SÍ llevaba
+> chaleco** (394 cajas, corrección firmada). A Nivel A eso cambia **el GT contra el que
+> se midió**: `v06_c01` pasa de **37 a 10** person-frames violadoras de CR-02.
+>
+> **Qué NO cambia — el argumento de §4 y §4.1 se sostiene tal cual.** El `unknown` del
+> anotador en `v06_c01` sigue en **6,2%** y su F1 CR-02 sigue en **≈0,002**: el clip con
+> el segundo `unknown` más bajo sigue teniendo el peor F1, así que **F-105.4 queda en
+> pie** (la monotonía era un artefacto de mirar solo los 4 pilotos). Los tres ejes de
+> F-105.2/3 y el derrumbe de precision tampoco dependen del atributo corregido.
+> Salvedad honesta: esa celda ahora descansa sobre **10** violaciones, no 37.
+>
+> **Qué SÍ cambia — dos cifras publicadas acá estaban mal:**
+> - **§4.1, fila `v06_c01`:** violadores **37 → 10**, y el recall CR-02 del clip
+>   **0,108 → 0,300** (el F1 se mantiene ≈0,002 porque lo domina la precision).
+> - **§6, tabla ✎ "estrato B (3)":** su columna CR-02 (0,001 / 0,108 / 0,002) se puntuó
+>   con el XML previo a la corrección. **El doc 109 §9.3 la declaró "la única cifra
+>   publicada de la jornada que estaba incorrecta"**, no solo desactualizada.
+>
+> **Cifras vigentes de Nivel A sobre video** (17 clips, gen. 3: CR-01 F1 **0,039** /
+> CR-02 **0,020**): `results/bench_nivel_a/index.md` y doc 111 §6.
+>
+> *(Banner agregado el 2026-08-09 — doc 113 §A1; faltaba desde la corrección.)*
+
+
 ---
 
 ## 1. Recuperación y verificación
@@ -133,6 +161,11 @@ Con los 7 clips que hoy tienen GT humano y Nivel A medido:
 | `video16_clip14` | piloto | 30,0% | 138 px | 0,071 | 21 |
 | `v10_c01` | estrato B | 50,6% | 192 px | — | 0 |
 
+> ✎ **La fila de `v06_c01` quedó stale (2026-08-07, doc 108 §6):** sus violadores son
+> **10**, no 37, y su recall CR-02 es **0,300**, no 0,108 — se puntuó contra el XML
+> previo a la corrección firmada. Las dos columnas que sostienen el argumento de abajo
+> (`unknown` 6,2% y F1 0,002) **no cambian**.
+
 **`v06_c01` rompe la relación**: segundo `unknown` más bajo (6,2%) y el peor F1 con
 violadores reales (0,002). La monotonía era un artefacto de mirar solo los 4 pilotos.
 
@@ -160,6 +193,13 @@ modelo, no contra un anotador.
   dominada por los 190 FP contra un puñado de positivos. Es un número válido para
   hablar de **tasa de falsas alarmas**, no para hablar de la calidad del recall de
   CR-01, que es prácticamente inobservable con este material.
+
+  > ✎ **Regla declarada (2026-08-09, decisión D-113.2, doc `operacion/113` §D):**
+  > **48% de estos 190 FP (91) son predicciones sobre personas `unknown`** — la persona
+  > sale del denominador pero su predicción sí cuenta como FP, por decisión deliberada
+  > ("la alerta sobre una persona no juzgable suena igual"). No se recalculó nada: la
+  > cifra 0,005/190 sigue siendo la vigente con la regla declarada. Detalle:
+  > `results/bench_nivel_a/index.md`.
 - **Nada de esto entra al banco de Nivel B.** Los 4 clips siguen censurados por A1 y
   no producen recall temporal citable. Su lugar es Nivel A.
 - **No se re-calibró nada acá.** El punto de operación es el desplegado, a propósito.

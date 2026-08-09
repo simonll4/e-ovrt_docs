@@ -139,6 +139,32 @@ celda combinada `gate` + `min_subject_confidence 0,50` + persistencia **no se co
 propósito** para no sobre-ajustar in-sample. Los clips nuevos son la muestra fuera de
 calibración: se mide con los umbrales **ya fijados**, sin re-barrer.
 
+> ✎ **CERRADA SIN EJECUTAR, CON CAUSA (2026-08-09, doc 113 §A3).** Esta línea reabrió
+> como "pendiente" algo que el **doc 108 §3 ya había cerrado de hecho**, y así quedó en
+> limbo: el 111 corrió la gen. 3 sobre justamente estos clips y no la ejecutó ni la
+> mencionó. Se cierra acá, con la causa del 108:
+>
+> **F-108.2 refutó fuera de muestra la palanca central de la celda.** `min_subject_
+> confidence 0,50` —la mejor palanca in-sample, −48% FP con recall intacto— **costó un
+> episodio real** en `v04_c02`: la alerta CR-01 se corrió de 4,0 s a 18,3 s, cayó fuera
+> de ventana y produjo 1 `missed` + 1 FP (SDR 0,513 → 0,229). Combinar palancas
+> calibradas in-sample sobre el mismo material produciría una "configuración far-field"
+> recomendada que el primer clip fresco ya refutó.
+>
+> *(✎ 2026-08-09, más tarde: la revisión ciega del GT tiró los episodios de `v04_c02` —
+> el "episodio real" de F-108.2 ya no existe como tal, ver banner del doc 108. El
+> cierre de la celda se sostiene igual, por la razón de fondo: apilar palancas
+> calibradas in-sample sobre el mismo material es sobre-ajuste, y el efecto no
+> anticipado de la palanca sobre material fresco quedó demostrado de todos modos.)*
+>
+> **Estatuto vigente de las palancas: caracterización de mecanismos** (doc 108 §3), no
+> configuración recomendada. Ninguna cruza el umbral de operabilidad (doc 107). Esto es
+> coherente con el cierre del tramo (doc 112 §8: no más barridos) y con ADR-015.
+>
+> Lo que quedaría por hacer si alguna vez se retoma —**fuera del alcance de esta
+> tesis**— es re-calibrar sobre una partición y validar sobre otra, con material
+> anotado suficiente para que ambas tengan `n` propio.
+
 ## 5. Lo que hay que escribir a mano después de correr
 
 1. `campaign.yaml` de I1 e I2: entrada `generations:` **gen 3** (fecha, 5 clips, manifest

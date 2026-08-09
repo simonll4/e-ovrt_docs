@@ -5,6 +5,35 @@ segundo clip nocturno, pedido justamente para reforzar el eje que colgaba de `n=
 **Salida:** banco **38 clips**, y **dos resultados que cambian conclusiones del mismo
 día**.
 
+
+> ## ⚠️ CORRECCIÓN POSTERIOR — leer antes que nada (2026-08-09, doc 113 §B)
+>
+> La **revisión ciega del GT** determinó que los **2 episodios de `v04_c02` eran
+> errores de anotación**: el único sujeto (track 6) está en la cabina de una máquina
+> durante todo el clip y su estado (casco y chaleco) **no es observable** — ambos
+> atributos corregidos con firma a `unknown`; el clip es **NEGATIVO** (volvió a la
+> expectativa original de curación, P5). Eso toca las dos mitades de este doc:
+>
+> - **El "primer éxito limpio del estrato" (título incluido) queda invertido:** el
+>   recall 1,000 / 0 FP que este doc celebra medía contra episodios que no existían.
+>   Las mismas alertas son ahora **falsas alarmas sobre un negativo** (3 en `scene`,
+>   4 en `subject`) — y el caso pasa a ser el ejemplo más crudo de la frontera de
+>   juzgabilidad: **ni el anotador ni el motor podían juzgar, y los dos declararon
+>   violación.**
+> - **F-108.2 pierde su evidencia literal pero no su lección:** el "episodio real"
+>   que la palanca `min_subject_confidence 0,50` costó fuera de muestra ya no existe
+>   como episodio. Sigue siendo un HECHO que la palanca corrió la alerta de 4,0 s a
+>   18,3 s sobre el primer material fresco — comportamiento no anticipado por la
+>   calibración in-sample —, así que la conclusión operativa (ninguna configuración
+>   sale recomendada; la celda combinada cerrada sin ejecutar, doc 110 §4) se
+>   sostiene por esa razón, no por el "missed".
+>
+> Lo que NO cambia: §6 (la corrección de `v06_c01`, que esta misma revisión ciega
+> re-confirma como patrón), F-108.4, F-108.5 (con su nota de FAR ya corregida) y la
+> mecánica de F-108.1 (fragmentación por densidad). Cifras vigentes del estrato:
+> banner del doc 111 y `results/clip_bench/index.md`.
+
+
 ---
 
 ## 1. Integración
