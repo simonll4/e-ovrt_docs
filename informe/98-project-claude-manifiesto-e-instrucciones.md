@@ -44,6 +44,7 @@ knowledge del Project no tiene carpetas.
 | **`operacion/98-conclusiones-transversales.md`** | ✎ Las 4 conclusiones + la escala de afirmación **AF-1…AF-11** + las limitaciones. |
 | **`informe/99-materiales-de-cierre.md`** | ✎ Inventario de figuras/tablas con su artefacto, anexo de reproducibilidad, licencias y citas obligatorias, limitaciones L1–L8, ADRs y el catálogo de mecanismos. |
 | `informe/92-anexo-concrecion-tecnica.md` | Contratos, APIs y rutas:línea. ⚠ **Ya NO es fuente de cifras** (derogado, doc 97 §2.1): para números, los índices de `results/`. |
+| **`informe/92b-concrecion-distribucion-alertas.md`** | ✎ **AGREGADO 2026-08-10.** El **módulo de distribución de alertas** completo — es el material de **§17.3.10**. Estado declarado en su encabezado: **diseñado y especificado, implementación pendiente**; al redactar, describir el diseño y **declarar el estado**, nunca presentarlo como capacidad verificada (coherente con ADR-015 y `nucleo/10` E-06). |
 | `informe/93-redlines-etapa3.md` | El tablero de trabajo: los **26** redlines (R-01…R-26) con casillas. |
 | `informe/94-secciones-nuevas-etapa3.md` | Texto ya redactado en registro de informe (modelo de estilo). |
 | `informe/91-relevamiento-etapa3-vs-implementacion.md` | Qué contradice/falta en el capítulo, con plan A–D. |

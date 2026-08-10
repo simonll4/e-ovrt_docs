@@ -172,6 +172,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/92b-concrecion-distribucion-alertas.md` — diseño completo. **Ojo: está diseñado y especificado, no implementado** (ADR-015): se redacta describiendo el diseño y declarando el estado |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
 | Qué figura/tabla va en cada sección | `docs/informe/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
