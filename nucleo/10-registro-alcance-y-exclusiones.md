@@ -318,7 +318,20 @@ declaración → condición de habilitación futura.
 
 - **Justificación:** los candidatos de trabajo quedaron acotados a GDINO y YOLOE por
   el propio protocolo (§17.1.9.2) tras la comparación de 5 variantes en R1/Sprint 2
-  (que ya cumplió el rol de barrido de modelos). (✎ 2026-08-06, ADR-015 E-13: la
+  (que ya cumplió el rol de barrido de modelos).
+  > ✎ **2026-08-10 — trazabilidad de ese barrido, porque era la pata más débil de esta
+  > exclusión.** El "R1/Sprint 2" no tiene documento propio en la serie `docs/`; el
+  > artefacto **auditable** equivalente es **`operacion/31-benchmark-modelos-host-local.md`**
+  > (2026-07-09), que mide calidad en BENCH v2 val + rendimiento live. Dos precisiones que
+  > hay que hacer al citarlo: **(1)** el doc 31 barre **6 variantes**, no 5
+  > (`gdino-tiny`, `gdino-base`, `yoloe-26s/m/l/x`) — el "5" viene de `nucleo/02` y del
+  > ADR-001, y el propio ADR-001 los trata como artefactos distintos; **(2)** el doc 31 se
+  > declara **posterior** a Sprint 2 (hace *cross-check* contra él), así que no ES Sprint 2:
+  > es su reemplazo auditable. El barrido total sobre la familia OVD, sumando la selección
+  > S1/S2 del doc 64, llega a **10 configuraciones**. **Nada de esto cambia la exclusión**
+  > —Florence-2, OWL-ViT y YOLO-World nunca se probaron y siguen excluidos por alcance—,
+  > pero sí cambia **qué documento se cita**: citar `operacion/31` + `operacion/64`, no
+  > "Sprint 2" a secas, que remite a un artefacto fuera de esta serie. (✎ 2026-08-06, ADR-015 E-13: la
   condición sobre E-HYB **ya se resolvió por medición** — E-HYB-or se **ejecutó y
   quedó refutada** (recall 0,824→0,353; mecanismo F-87.2: la unión de evidencia no
   es monótona en un motor temporal) y **`hyb_and` no se ejecutó con causa** (D-90.4:

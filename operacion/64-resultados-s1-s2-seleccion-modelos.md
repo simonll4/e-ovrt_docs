@@ -51,9 +51,22 @@ default.)*
    (0.30→0.52 al limpiar). **El instrumento limpio cambia los números absolutos, no el
    campeón** — exactamente la salvedad prevista en doc 63. *(La afirmación original "~2×" de
    este hallazgo era un artefacto del bug de protocolo anotado bajo la tabla obra.)*
-4. **`gdino-base-560` = especialista CR-02/vest** (vest 0.582, recall CR-01 0.292, ambos los
-   mejores): pasa a Fase T como candidato secundario — si el banco temporal pondera CR-02,
-   puede disputar.
+4. **`gdino-base-560` = especialista en DOS EJES, con rol acotado** (vest AP 0.582 y recall
+   CR-01 **0.400** en `bench_obra`, ambos los mejores): pasa a Fase T como candidato
+   secundario — si el banco temporal pondera CR-02, puede disputar.
+   > ✎ **Dos correcciones a este hallazgo (2026-08-10).** (1) **El número**: decía recall
+   > CR-01 **0.292**, que era el valor **deflactado por el bug de denominador** anotado bajo
+   > la tabla obra; el valor corregido de esa misma tabla es **0.400** (y en el marco BENCH v2
+   > completo es 0.541). El 0.292 no correspondía a ninguna tabla vigente. (2) **La etiqueta**:
+   > decía *"especialista CR-02/vest"* y en §B5 más abajo *"especialista CR-02/`bare_head`"* —
+   > la segunda **mezcla los ejes**, porque `bare_head` es evidencia de **CR-01**, no de CR-02.
+   > Etiqueta canónica, ya vigente en `results/bench_imagenes/index.md` y en AF-5:
+   > **especialista en `bare_head` (evidencia de CR-01) y en `vest` (CR-02)**.
+   > **Salvedad que hay que decir al citarlo:** la ventaja en `bare_head` **no se ve en la
+   > tabla BENCH v2 de este doc** (base 0.01–0.03 vs tiny 0.02–0.09, base es PEOR); aparece
+   > con el n grande de `bench_v3`/`shel5k` — **AP `bare_head` 0,399 vs 0,133** y **recall
+   > CR-01 0,599 vs 0,308 (n=5.313)**. Lo robusto es el recall de la condición y el AP de
+   > `vest`; **nunca escribir "el mejor en `bare_head`" citando solo este doc.**
 5. **Familia MM-GDINO DESCARTADA entera con evidencia**: large reproduce el bug de bboxes
    degeneradas de Sprint 2 (sanity-check 2–3 degeneradas, mAP 0.003–0.027, 723 ms) y base es
    mediocre (0.360) sin ventaja en nada.
@@ -69,6 +82,21 @@ default.)*
 - **Fase T y P corren con `gdino-tiny-560` (primario) y `gdino-base-560` (secundario CR-02).**
 - **Fase L (live) corre con `gdino-tiny-560`** — validado en BENCH (este doc) y en live
   (doc 61). YOLOE-26m queda como referencia de piso de latencia si hace falta.
+  > ✎ **2026-08-10 — lo que efectivamente corrió en vivo fue `yoloe-26x`, no `26m`**
+  > (doc 71 §2.3 y §7). El cambio **fortalece** el descarte en vez de debilitarlo: se llevó a
+  > vivo la **mejor talla** de YOLOE por calidad (el campeón YOLOE del hallazgo 6 de este
+  > mismo doc), no la más rápida, y aun así dio **0/3 alertas confiables** con verdad de
+  > campo. La línea de arriba quedó como la única mención a `26m` en el doc; el resto ya
+  > hablaba de `26x`.
+- **Ninguna variante 800 px se lleva al banco temporal (video).** ✎ **Declarado
+  explícitamente el 2026-08-10** — hasta hoy era inferencia del lector. La causa es
+  **dominancia medida, no omisión**: 560 iguala o mejora el mAP con **−24% de latencia**
+  (D-61.4 y hallazgo 2 de este doc), así que llevar 800 a los clips habría gastado GPU para
+  medir una configuración dominada, y habría roto la variable única de las campañas
+  (todas comparten modelo/resolución contra T1). **Trabajo futuro con causa:** doc 103 §7.4
+  lista "800 px" entre las mitigaciones **no medidas** para el colapso de `vest` a
+  distancia — si ese frente se retoma, la resolución es la palanca a medir, y hoy **no**
+  figura en la enumeración de "palancas agotadas" del clip bench, a propósito.
 - MM-GDINO fuera del resto del plan. YOLOE-26x se reporta como contraste, no compite en T/P.
 - Reporte de cierre (Q1): números del marco `bench_obra` con n=147 y la contaminación
   declarada (doc 63); el BENCH completo solo como apéndice.
@@ -85,7 +113,9 @@ imágenes que solo `bench_obra`). **El campeón se sostiene idéntico:**
 | yoloe-26x | 0.442 | 0.000 |
 
 **gdino-tiny-560 gana mAP50 en bench_obra solo (147) Y en bench_v3 (6.477) — robusto a la
-fuente.** El hallazgo de `gdino-base-560` como especialista CR-02/bare_head, que en
+fuente.** El hallazgo de `gdino-base-560` como especialista en **`bare_head` (evidencia de
+CR-01) y en `vest` (CR-02)** — ✎ 2026-08-10: *decía "especialista CR-02/bare_head", etiqueta
+que mezclaba los ejes* —, que en
 `bench_obra` era casi empate (0.400 vs 0.369, n=65), **se separa con claridad** al sumar el
 n grande de SHEL5K (0.599 vs 0.308, n=5.313): no era ruido de denominador chico, es un efecto
 real. Decisión S2 sin cambios; el hallazgo del especialista queda más fuerte para el reporte

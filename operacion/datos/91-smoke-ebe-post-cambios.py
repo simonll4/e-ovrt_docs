@@ -29,17 +29,23 @@ Uso:
   python3 91-smoke-ebe-post-cambios.py --fase A --camera rtsp --seconds 45
   python3 91-smoke-ebe-post-cambios.py --fase B --camera rtsp --seconds 45
 """
-import argparse, json, sys, time, urllib.request
+import argparse, json, os, sys, time, urllib.request
 from pathlib import Path
 
 CONTROL = "http://127.0.0.1:8081"
 MEDIA = "http://127.0.0.1:8080"
 CP = Path("/home/simonll4/projects/e-ovrt_control-plane")
 
+# ✎ 2026-08-10: la URL traía la credencial del DVR en texto plano (se coló al
+# commitear; el resto de las cámaras van gitignoradas justamente por esto). Redactada
+# antes de publicar el repo — se toma de EZVIZ_RTSP_URL, mismo nombre que
+# operacion/30-runbook-local.md, formato `rtsp://usuario:clave@ip:554/stream`.
+EZVIZ_RTSP_URL = os.environ.get("EZVIZ_RTSP_URL")
+
 CAMERAS = {
     # cameras/rtsp_dvr_1.yaml y oak_d_lab.yaml (gitignorados: credenciales en claro)
     "rtsp": {"plugin": "rtsp",
-             "config": {"url": "rtsp://admin:KBXBIN@169.254.31.140:554/Streaming/Channels/1",
+             "config": {"url": EZVIZ_RTSP_URL,
                         "source_id": "smoke_ebe"}},
     # La clave es `url` (no `ip`): 1:1 con cameras/oak_d_lab.yaml. Con `ip` el
     # servicio devuelve 422 "Campos desconocidos en ingest.config".
@@ -78,13 +84,15 @@ def _get(base, path):
         return json.loads(r.read())
 
 
-def _precondiciones():
+def _precondiciones(camera):
     problemas = []
     for nombre, base in (("media-plane :8080", MEDIA), ("control-plane :8081", CONTROL)):
         try:
             _get(base, "/healthz")
         except Exception as e:
             problemas.append(f"{nombre} no responde ({type(e).__name__})")
+    if camera == "rtsp" and not EZVIZ_RTSP_URL:
+        problemas.append("falta EZVIZ_RTSP_URL en el entorno (ver comentario junto a CAMERAS)")
     return problemas
 
 
@@ -97,7 +105,7 @@ def main():
     fase = FASES[a.fase]
 
     print(f"=== FASE {a.fase}: {fase['que']}")
-    problemas = _precondiciones()
+    problemas = _precondiciones(a.camera)
     if problemas:
         print("PRECONDICIONES NO CUMPLIDAS:")
         for p in problemas:

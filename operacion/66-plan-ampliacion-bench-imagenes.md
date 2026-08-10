@@ -186,7 +186,9 @@ Agregado ponderado por n_gt/n_violadores real (`datasets/scripts/curate/bench_v3
 
 **Resultado: el campeón se sostiene idéntico** (`gdino-tiny-560`, 1º en mAP50 tanto en
 `bench_obra` solo —147 imgs— como en `bench_v3` —6.477—, robusto a la fuente). El hallazgo de
-`gdino-base-560` como especialista CR-02/bare_head, casi empatado en `bench_obra` (0.400 vs
+`gdino-base-560` como especialista en **`bare_head` (evidencia de CR-01) y en `vest` (CR-02)**
+— ✎ 2026-08-10: *decía "especialista CR-02/bare_head", etiqueta que mezclaba los ejes* —,
+casi empatado en `bench_obra` (0.400 vs
 0.369, n=65), **se separa con claridad** al sumar el n grande de SHEL5K (0.599 vs 0.308,
 n=5.313): no era ruido de denominador chico, es un efecto real que ahora tiene respaldo
 estadístico sólido para el reporte de cierre. Detalle y decisión formal en doc 64 (sección

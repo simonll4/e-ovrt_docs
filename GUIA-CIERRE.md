@@ -2,14 +2,29 @@
 
 Documento vivo, **sin número** (no forma parte de la serie `operacion/NN-`), pensado para
 que lo abras, vayas tachando, y cada ítem te mande al documento con el detalle completo para
-ejecutarlo. Última actualización: **2026-08-06**.
+ejecutarlo. Última actualización: **2026-08-09**.
 
-> ✎ **Estado 2026-08-06 en una línea:** el rodaje (3), su GT (5) y todo el tramo
-> experimental T→P→D con reporte de cierre están **HECHOS** (docs 71, 80, 92/98);
-> **lo único abierto de esta lista es el punto 1** (CVAT del lote de internet, en
-> manos del equipo) + los residuales administrativos del punto 2. Después del 1
-> vienen los runs/evals del estrato B, los videos V1–V3 y recién ahí la redacción
-> (orden del usuario 2026-08-05, `informe/99` §7).
+> ✎ **Estado 2026-08-09 en una línea:** el rodaje (3), su GT (5), todo el tramo
+> experimental T→P→D (docs 71, 80, 92/98) **y el punto 1 —el lote de internet— están
+> HECHOS**: 13 de 14 clips con GT humano, banco **47 clips**, campañas I1/I2 corridas y
+> re-evaluadas tras la **revisión ciega del GT** (`operacion/113` §B). **El tramo
+> experimental no tiene pendientes técnicos.** Quedan **tres ítems, los tres del
+> usuario**, en este orden: **C1** las URLs de los 18 `clip.yaml` (procedencia y
+> licencia por video — lo único que sigue abierto de `informe/99` §6), **E** el video de
+> defensa **V2**, y **F** la redacción de §17.x, que **no arranca hasta orden explícita**
+> (orden del 2026-08-05, ratificada el 08-09).
+>
+> **Entrá por `docs/operacion/113-manual-cierre-de-brechas-post-112.md`** — es el paso a
+> paso vigente de estos tres, y reemplaza al §8 del doc 112.
+>
+> ✎ **DECISIÓN DE SECUENCIACIÓN, 2026-08-10 (del usuario).** **C1 y E dejan de estar
+> delante de F.** Ninguno de los dos bloquea escribir: C1 es procedencia de citas y E es
+> material de defensa, y el tramo experimental ya está cerrado y verificado. Pasan a
+> **carril paralelo**: los resuelven el usuario y Claude **mientras los otros dos
+> integrantes del equipo redactan el informe** con la guía que se les deja lista. El orden
+> vigente ya no es C1 → E → F sino **F en el carril principal, C1 y E en paralelo**.
+> El único momento en que C1 vuelve a ser bloqueante es **antes de cerrar la versión final
+> del informe**, porque las URLs son la procedencia de las citas del estrato B.
 
 **Cómo usarlo:** marcá `[x]` a medida que cerrás cada punto. El orden de la lista es el orden
 recomendado (hay dependencias reales entre algunos ítems, marcadas donde corresponde). Si en
@@ -180,18 +195,37 @@ Es exactamente el chequeo del paso 9 del checklist.
 
 ## Lo que falta — en orden
 
-### 1. [ ] Pasada humana en CVAT — los 14 videos de internet **(EN CURSO — el único ítem abierto)**
+### 1. [x] Pasada humana en CVAT — los 14 videos de internet — **CERRADO 2026-08-09 (docs 102→113)**
 
-**Qué es (✎ actualizado 2026-08-06):** corregir la pre-anotación de los 14 clips del
-lote de internet. Ya no "desbloquea la Fase T" (T→P→D están completas sobre el banco
-del rodaje): hoy este ítem **levanta la limitación L4** (video no guionado) y amplía
-el control de FP. Prioridad interna (doc 93): **`v06_c01`** (6,2 min, denominador
-temporal) y **`v04_c01`** (único positivo — el único recall no guionado posible); los
-12 restantes son marginales y pueden declararse fuera de alcance sin que caiga
-ninguna conclusión.
+**Cómo cerró:** **13 de los 14** clips quedaron con GT humano (`v08_c01` excluido con
+causa firmada, `operacion/111`); el banco pasó a **47 clips = 32 positivos / 15
+negativos / 37 episodios** (manifest `3f14f50a…`). Las campañas **I1** (`scene`) e
+**I2** (`subject`) corrieron en gen. 3 y se re-evaluaron después de la **revisión ciega
+del GT** (`operacion/113` §B), que encontró que **5 de las 7 declaraciones de episodio
+del lote eran errores de anotación** —todas sobre-declarando donde el estado no era
+observable— y dejó **2 episodios evaluables**: `scene` F1 **0,333** / `subject`
+**0,190**, con la asimetría de FP 26 vs 323 en los 11 negativos como lo robusto.
 
-**Cuando salgan de CVAT, la cadena es el runbook de `docs/operacion/93` §"Runbook"**
-(también en `informe/99` §2.3): export "CVAT for video 1.1" → **`split_cvat_project.py`
+**Qué levantó, y qué no:** la **limitación L4** quedó **precisada, no levantada**
+(D-113.1): hay medición en obra real no guionada, pero acotada, y su aporte principal
+es caracterizar **la frontera de juzgabilidad** (escala × iluminación × oclusión). El
+clip soak `v06_c01` hizo a **FAR/hora computable** (L1 precisada) y puso al tracker en
+multitud real (L6, parte descriptiva levantada). **La calidad del GT terminó siendo un
+resultado en sí.**
+
+> **Residual abierto de este punto — es el ítem C1 del doc 113, y es tuyo:** los 18
+> `clip.yaml` (14 del lote + 4 del piloto) no tienen la **URL de origen ni el campo de
+> licencia** por video. Es el único hallazgo que sigue abierto en `informe/99` §6.
+> Cuando pases las URLs, la propagación a las copias promovidas + regenerar manifest y
+> registry es mecánica y delegable.
+
+*(Contexto histórico: cuando este ítem se escribió, la prioridad interna del doc 93 era
+`v06_c01` y `v04_c01`, con los 12 restantes declarables fuera de alcance. Terminaron
+entrando 13, y `v04_c01` es hoy el único positivo del estrato que sobrevive.)*
+
+**La cadena que se ejecutó** (runbook de `docs/operacion/93` §"Runbook", también en
+`informe/99` §2.3 — queda acá como referencia para reproducirla): export
+"CVAT for video 1.1" → **`split_cvat_project.py`
 SIEMPRE** (el export de proyecto numera frames en espacio global: sin el split el GT
 sale negativo EN SILENCIO) → `derive_clip_gt.py` (mismos umbrales 4000/7000) →
 `validate` → `promote` → campaña DBE (ajuste de un glob) → `aggregate` → fila nueva
@@ -272,18 +306,21 @@ madre del export a nivel proyecto).
 
 ## Después de esto, lo hago yo (sin que haga falta que intervengas)
 
-✎ **2026-08-06 — la cadena T → P → D ya corrió entera** sobre el banco del rodaje,
-con análisis de errores y reporte de cierre incluidos (docs 80/81 → 83–90 → 92/96/98;
+✎ **2026-08-09 — la cadena T → P → D corrió entera** sobre el banco del rodaje, con
+análisis de errores y reporte de cierre incluidos (docs 80/81 → 83–90 → 92/96/98;
 conclusiones = escala AF-1…AF-11 del doc 98; cifras = los 4 índices de
-`e-ovrt_experimental-setup/results/`). Lo que queda cuando cierre el punto 1:
+`e-ovrt_experimental-setup/results/`), **y el estrato B ya quedó integrado y
+re-evaluado** (docs 102→113). Lo que queda:
 
-1. **Integrar el estrato B** (lote de internet) al banco ya reportado — runbook del
-   punto 1; encuadre según D-90.6 cuando llegue el GT.
-2. **Videos V1–V3 de la defensa** (pausados por decisión del usuario; 2 preguntas de
-   alcance abiertas, D-90.7).
-3. **Recién ahí, la redacción de §17.x** + regenerar el `informe-project-kit`
-   (orden del usuario 2026-08-05, `informe/99` §7). Nada de lo pendiente cambia una
-   conclusión (doc 98 §7).
+1. ~~Integrar el estrato B~~ — **HECHO** (punto 1 de arriba). Sobrevive solo su
+   residual **C1**: las URLs y licencias de los 18 `clip.yaml`, que dependen de vos.
+2. **Videos V1–V3 de la defensa** (ítem **E** del doc 113): faltan los de **V2**.
+   Regla que dejó el intento fallido con `gloves`: **auditar visualmente la clase antes
+   de afirmar que funciona**.
+3. **Recién ahí, la redacción de §17.x** (ítem **F**) + regenerar el
+   `informe-project-kit` — **no arranca hasta orden explícita tuya** (orden del
+   2026-08-05, ratificada el 08-09; `informe/99` §7). Nada de lo pendiente cambia una
+   conclusión (doc 98 §7), y ya **no hay bloqueos técnicos**.
 
 Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experimentos.md`.
 
@@ -293,6 +330,9 @@ Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experiment
 
 | Necesitás | Doc |
 |---|---|
+| **Qué hago ahora (los 3 pendientes, paso a paso)** | **`docs/operacion/113-manual-cierre-de-brechas-post-112.md`** |
+| **Todas las cifras del desempeño, por material** | **`e-ovrt_experimental-setup/results/index.md`** (los 4 índices) |
+| El cierre del tramo de video y su lectura crítica | `docs/operacion/112` |
 | El panorama completo del proyecto de tesis | `docs/operacion/62-plan-maestro-experimentos.md` |
 | Por qué elegimos este modelo | `docs/operacion/64-resultados-s1-s2-seleccion-modelos.md` |
 | Cómo quedó armado el bench de imágenes | `docs/operacion/66-plan-ampliacion-bench-imagenes.md` |

@@ -23,15 +23,42 @@ RES = Path("/home/simonll4/projects/e-ovrt_experimental-setup/results")
 DOCS = Path("/home/simonll4/projects/docs")
 
 # (archivo del índice, cifra citada, ruta del metrics.json, camino de campos)
+#
+# COBERTURA: desde 2026-08-09 esta lista cubre las 16 campañas con artefacto
+# (14 de clip_bench + 2 de bench_nivel_a). El chequeo §2.1 falla si aparece una campaña
+# nueva sin fila acá, que es como este script se quedó atrás la primera vez.
+F1M = ["positives", "f1_micro"]
+
+
+def _na(estrato, cond):
+    """Camino del F1 del brazo E-IND en el metrics.json de Nivel A (otra forma)."""
+    return ["strata", estrato, "conditions", cond, "arms", "eind", "metrics", "f1"]
+
+
 CIFRAS = [
-    ("clip_bench/index.md", 0.789, "t1_gdinotiny560_v2short_scene", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.930, "g1_gdinotiny560_v2short_subject", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.794, "r1_gdinotiny560_v2short_scene_s7", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.866, "r2_gdinotiny560_v2short_subject_s7", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.738, "r3_gdinotiny560_v2short_scene_s15", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.875, "r4_gdinotiny560_v2short_subject_s15", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.646, "r5_gdinotiny560_v2short_scene_s26", ["positives", "f1_micro"]),
-    ("clip_bench/index.md", 0.742, "r6_gdinotiny560_v2short_subject_s26", ["positives", "f1_micro"]),
+    # --- clip_bench: las 6 de combinación ---
+    ("clip_bench/index.md", 0.789, "t1_gdinotiny560_v2short_scene", F1M),
+    ("clip_bench/index.md", 0.704, "t2_gdinobase560_v2short_scene", F1M),
+    ("clip_bench/index.md", 0.160, "d1_gdinotiny560_edirpair_scene", F1M),
+    ("clip_bench/index.md", 0.296, "h1_gdinotiny560_hybor_scene", F1M),
+    ("clip_bench/index.md", 0.930, "g1_gdinotiny560_v2short_subject", F1M),
+    ("clip_bench/index.md", 0.377, "b1_gdinobase560_barehead_scene", F1M),
+    # --- clip_bench: las 6 de densidad ---
+    ("clip_bench/index.md", 0.794, "r1_gdinotiny560_v2short_scene_s7", F1M),
+    ("clip_bench/index.md", 0.866, "r2_gdinotiny560_v2short_subject_s7", F1M),
+    ("clip_bench/index.md", 0.738, "r3_gdinotiny560_v2short_scene_s15", F1M),
+    ("clip_bench/index.md", 0.875, "r4_gdinotiny560_v2short_subject_s15", F1M),
+    ("clip_bench/index.md", 0.646, "r5_gdinotiny560_v2short_scene_s26", F1M),
+    ("clip_bench/index.md", 0.742, "r6_gdinotiny560_v2short_subject_s26", F1M),
+    # --- clip_bench: las 2 del estrato B (post revisión ciega del GT, doc 113 §B) ---
+    ("clip_bench/index.md", 0.333, "i1_gdinotiny560_v2short_scene_internet", F1M),
+    ("clip_bench/index.md", 0.190, "i2_gdinotiny560_v2short_subject_internet", F1M),
+    # --- bench_nivel_a: E-IND en los 3 cortes + el Nivel A sobre video ---
+    ("bench_nivel_a/index.md", 0.546, "d1_gdinotiny560_edir_vs_eind", _na("shel5k", "CR-01")),
+    ("bench_nivel_a/index.md", 0.408, "d1_gdinotiny560_edir_vs_eind", _na("bench_obra", "CR-01")),
+    ("bench_nivel_a/index.md", 0.479, "d1_gdinotiny560_edir_vs_eind", _na("bench_obra", "CR-02")),
+    ("bench_nivel_a/index.md", 0.031, "na1_gdinotiny560_v2short_video", ["agregado", "CR-01", "f1"]),
+    ("bench_nivel_a/index.md", 0.018, "na1_gdinotiny560_v2short_video", ["agregado", "CR-02", "f1"]),
 ]
 
 # cifras del doc 96 §4.1 que el índice raíz y el de realtime citan
@@ -80,6 +107,28 @@ def main():
               f"| disco {v:.6f}")
         if not ok:
             fallos += 1
+
+    print("\n## 2.1 Cobertura: ¿toda campaña con artefacto tiene cifra verificada?\n")
+    # Sin esto el script envejece en silencio: se agrega una campaña, nadie extiende la
+    # lista, y "todo verde" pasa a significar "verde sobre lo que miraba el año pasado".
+    cubiertas = {camp for _, _, camp, _ in CIFRAS}
+    en_disco = {
+        d.name
+        for fam in ("clip_bench", "bench_nivel_a")
+        for d in (RES / fam).iterdir()
+        if d.is_dir() and (d / "metrics.json").exists()
+    }
+    sin_cubrir = sorted(en_disco - cubiertas)
+    huerfanas = sorted(cubiertas - en_disco)
+    print(f"  {len(en_disco)} campañas con metrics.json en disco, "
+          f"{len(cubiertas & en_disco)} cubiertas por CIFRAS")
+    for c in sin_cubrir:
+        print(f"  SIN CIFRA  {c}  -> agregar una fila a CIFRAS")
+    for c in huerfanas:
+        print(f"  HUERFANA   {c}  -> CIFRAS la cita pero no existe en disco")
+    fallos += len(sin_cubrir) + len(huerfanas)
+    if not sin_cubrir and not huerfanas:
+        print("  ok   cobertura completa")
 
     print("\n## 3. Deltas del bootstrap citados vs 96-critica-verificacion.json\n")
     boot_p = DOCS / "operacion/datos/96-critica-verificacion.json"

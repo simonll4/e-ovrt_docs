@@ -1,5 +1,32 @@
 # 97 — Brief de redacción del informe final
 
+> # ⚠️ LEER ESTO ANTES QUE CUALQUIER OTRA COSA DE ESTE DOCUMENTO (2026-08-10)
+>
+> **Este brief quedó atrás del cierre experimental, y su §5 se autodeclara "cifras
+> canónicas relevadas contra disco". Lo era el 2026-08-05; hoy NO.** Entre el 08-06 y el
+> 08-09 entró todo el tramo de video (el lote de internet) y hubo una **revisión ciega del
+> GT** que cambió cifras publicadas. Si escribís el capítulo con las cifras de §5 tal como
+> están, escribís **la versión de hace tres jornadas con etiqueta de verificada**.
+>
+> **LA FUENTE DE CIFRAS ES `e-ovrt_experimental-setup/results/index.md` Y SUS 4 ÍNDICES.
+> SIEMPRE. Este §5 pasa a ser referencia histórica.**
+>
+> Lo que cambió, concretamente:
+>
+> | Este doc dice | Vigente |
+> |---|---|
+> | Banco de **34 clips**, 35 episodios, manifest `cef5082e…` (§5.1) | Banco de **47 clips** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…` |
+> | *"Al citar el denominador, decir **34 episodios evaluables sobre 35**"* (§5.1) | Esa regla vale **solo para el sub-banco del rodaje**. El banco completo son 47 clips; al citar hay que decir de qué bloque se habla (**A** = rodaje, **B** = lote de internet) |
+> | **12 campañas** | **16 campañas** con artefacto (14 en `clip_bench` + 2 en `bench_nivel_a`) |
+> | *"los 14 clips del lote de internet están cortados pero **sin GT**"* (§3, §5.7) | **13 de 14 tienen GT humano** desde el 08-09 (`v08_c01` excluido con causa firmada). §5.7 ya no describe un futuro: **ya pasó** |
+> | *"FAR/hora **NO es una métrica de este trabajo**"* (§5.6) | **Se computa y se reporta** (29,2 escena / 1.850,8 sujeto), pero **no sostiene una cota**. Fórmula de cita obligatoria: **"3 y 190 FP en 6:09,6 del único clip soak"**, con la tasa horaria como derivada (limitación **L1 precisada**, no derogada) |
+> | *"D1/H1/T2/B1 son las únicas que el verificador NO chequea"* (cabecera) | Desde el 08-09 el verificador cubre **19 cifras sobre las 16 campañas**, con un guard que falla si aparece una campaña sin verificar |
+> | §4: *"la redacción NO arranca todavía"* | ✎ **LEVANTADO el 2026-08-10**: la redacción **está habilitada** y es el carril principal |
+>
+> **Lo que este brief SÍ conserva vigente y hay que respetar:** §1 (registro y estilo),
+> §2 (jerarquía de fuentes), §3 (reglas de honestidad experimental) y §5.5 (el número de
+> A1). Son las partes que no dependen de qué se midió.
+
 - **Fecha:** 2026-07-18 · **§5 reescrita el 2026-08-05 y relevada contra disco el mismo
   día** (ver el banner de esa sección: la tabla anterior citaba un clip retirado del
   banco). El relevamiento cotejó una por una las 4 filas de §5.1, las 3 de §5.2, §5.3,
@@ -79,9 +106,19 @@
   que **sus métricas SE REPORTAN COMO RESULTADO**, no como verificación de la mecánica.
   La regla anterior —presentarlas como "verificación" mientras el GT fuera
   `gt_preliminary`— **ya no aplica al banco y no debe usarse**: aplicarla hoy
-  subestimaría el resultado principal del trabajo. Sí sigue vigente para material sin
-  pasada humana: **los 14 clips del lote de internet están cortados pero sin GT**
-  (esperando CVAT), y cualquier cifra sobre ellos es provisoria hasta que se integren.
+  subestimaría el resultado principal del trabajo. ~~Sí sigue vigente para material sin
+  pasada humana: los 14 clips del lote de internet están cortados pero sin GT (esperando
+  CVAT), y cualquier cifra sobre ellos es provisoria hasta que se integren.~~
+  > ✎ **2026-08-10 — esa salvedad ya no aplica: EL LOTE TIENE GT HUMANO.** 13 de 14 clips
+  > (`v08_c01` excluido con causa firmada), banco **47**. **Sus métricas también se
+  > reportan como RESULTADO**, no como provisorias. Y trajeron un resultado propio que hay
+  > que contar: la **revisión ciega del GT** (doc 113 §B) encontró que **5 de las 7
+  > declaraciones de episodio del lote eran errores de anotación**, todas sobre-declarando
+  > donde el estado no era observable ⇒ **la calidad del GT es un resultado en sí**, y el
+  > estrato quedó con **2 episodios evaluables**. Consecuencia de redacción, no negociable:
+  > **con n=2 no se rankean granularidades** (`scene` 0,333 vs `subject` 0,190 **no** es
+  > "escena gana": es ruido, F-111.1 enmendado). Lo robusto es la **asimetría de FP**:
+  > 26 vs 323 sobre 11 negativos (12×). Ver síntesis §5.1.
 - **Lo no hecho se registra, no se esconde** (✎ lista actualizada 2026-08-05):
   distribución MQTT (spec 45) no implementada · **campaña EBE de punta a punta por el
   bus contra GT** no ejecutada (falta el ancla wallclock↔media **como ingeniería de
@@ -108,11 +145,18 @@
 
 ## 4. Mecánica de trabajo en el Project
 
-> ⚠️ **Puerta de secuencia (orden del usuario, 2026-08-05 — `informe/99` §7): la
-> redacción de §17.x NO arranca todavía.** Primero (1) el CVAT del lote de internet
-> con sus runs/evals (estrato B), después (2) los videos V1–V3, y **recién ahí** la
-> redacción + regenerar el `informe-project-kit`. Esta mecánica describe cómo se va a
-> trabajar cuando la puerta se abra, no una invitación a arrancar hoy.
+> ✅ **PUERTA ABIERTA — 2026-08-10.** ~~*Puerta de secuencia (orden del usuario,
+> 2026-08-05 — `informe/99` §7): la redacción de §17.x NO arranca todavía. Primero (1) el
+> CVAT del lote de internet con sus runs/evals (estrato B), después (2) los videos V1–V3,
+> y recién ahí la redacción.*~~
+>
+> **Los dos precedentes se cumplieron o dejaron de bloquear:** (1) el CVAT del lote
+> **está hecho** —13 de 14 clips con GT, campañas corridas y re-evaluadas tras la revisión
+> ciega (`operacion/113` §B)—; (2) los videos V1–V3 y las URLs de los clips pasaron a
+> **carril paralelo** por decisión del usuario del 08-10, porque no bloquean escribir.
+> **La redacción es hoy el carril principal**, y la escriben **dos integrantes del equipo
+> que no participaron del tramo experimental** — de ahí que este brief haya necesitado el
+> banner de cabecera.
 
 - El `.docx` **no se edita desde el repo**: los redlines se resuelven en Google Docs.
   El chat produce texto listo para pegar + la casilla del redline que salda.
@@ -151,6 +195,13 @@
 > Esta tabla sigue siendo **solo un índice**: verificar en el artefacto antes de citar.
 
 ### 5.1 Alertas sobre video — Nivel B, el resultado principal (banco de 34 clips)
+
+> ⚠️ **Esta sub-tabla describe SOLO el Bloque A (el rodaje guionado), y sigue siendo
+> correcta para él.** Lo que falta acá es el **Bloque B (lote de internet, 13 clips)**,
+> que entró después. **Banco completo hoy: 47 clips / 37 episodios.** Las cifras del
+> estrato B y su lectura obligada están en `results/clip_bench/index.md` y en la
+> **síntesis §5.1**. Al citar, decir **de qué bloque** se habla: "34 evaluables sobre 35"
+> es el denominador del **rodaje**, no del banco.
 
 Banco: 34 clips del rodaje 2026-07-25, 35 episodios (CR-01 28 / CR-02 7), GT humano,
 `manifest.yaml` sha256 `cef5082e…`. Micro por episodio; los 4 clips negativos quedan
@@ -250,12 +301,34 @@ Artefacto: doc 94 + `datos/94-piloto-clase-nueva/`.
 | Pattern set vigente | `cr01_cr02_v2` (escena) / `cr01_cr02_v2_subject` (sujeto) | control-plane `configs/patterns/` |
 | Prompt set congelado | `cr01_cr02_v2_short`, `frozen_sha256 df81fd48…` | `experimental-setup/prompts/` + acta doc 76 |
 | Splits de imágenes v2 | TRAIN **5.540** / DEMO **1.064** (el viejo "BENCH 196" está **descartado**: 20–25% fuera de dominio, doc 63 — el banco de evaluación es `bench_v3`) | registry `datasets` |
-| FAR/hora | **NO es una métrica de este trabajo** (D-90.1): limitación declarada con causa cuantificada. La evidencia de falsas alarmas es el **control de negativos** | doc 90 D-90.1 |
+| FAR/hora | ⚠️ **FILA SUPERSEDIDA (✎ 2026-08-10).** Decía *"NO es una métrica de este trabajo"*. **D-90.1 quedó PRECISADA, no derogada** (limitación **L1**): con el clip soak del estrato B (0,1027 h) la métrica **se computa y se reporta** — **29,2** (escena) y **1.850,8** (sujeto) FA/hora — pero **no sostiene ninguna cota**, porque harían falta 3 h de cumplimiento anotado. **Fórmula de cita obligatoria: "3 y 190 FP en 6:09,6 del único clip soak", con la tasa horaria como derivada.** Nunca escribir "≤N FA/hora" ni la tasa desnuda. La evidencia principal sigue siendo el **control de negativos** | `results/index.md` §L1 |
 
-### 5.7 Lo que puede cambiar cuando llegue el GT del lote de internet
+### 5.7 ~~Lo que puede cambiar cuando llegue el GT del lote de internet~~ → **YA LLEGÓ: qué cambió de hecho**
 
-Pendiente externo (14 clips ya cortados, sin GT). Al integrarse **como estrato B con
-desglose obligatorio** (recomendación D-90.6) puede moverse: el **agregado** del clip
-bench, el texto de **L4** (la limitación más citable — un solo bloque guionado), y el
-contexto de soak. **No se mueven**: los mecanismos (F-81.x, F-85.x, F-87.2, F-88.x,
-F-89.x, F-96.x, F-101.x), el veredicto del eje ni las cifras por estrato ya publicadas.
+> ✎ **2026-08-10 — esta sección describía un futuro que ya ocurrió.** Se conserva la
+> predicción original abajo porque **acertó**, y eso es citable: lo que se dijo que se
+> movería se movió, y lo que se dijo que no, no.
+
+**Predicción original (2026-08-05):** *"Pendiente externo (14 clips ya cortados, sin GT).
+Al integrarse **como estrato B con desglose obligatorio** (recomendación D-90.6) puede
+moverse: el **agregado** del clip bench, el texto de **L4** (la limitación más citable —
+un solo bloque guionado), y el contexto de soak. **No se mueven**: los mecanismos (F-81.x,
+F-85.x, F-87.2, F-88.x, F-89.x, F-96.x, F-101.x), el veredicto del eje ni las cifras por
+estrato ya publicadas."*
+
+**Lo que efectivamente pasó:**
+
+- **Se movió lo previsto.** El banco pasó a **47 clips**; **L4 quedó precisada** (D-113.1:
+  hay obra real medida, pero acotada, y su contenido nuevo es la **frontera de
+  juzgabilidad** — escala × iluminación × oclusión); y el soak apareció (`v06_c01`,
+  0,1027 h), lo que movió **L1** de "no reportable" a "se reporta sin sostener cota".
+  Bonus no previsto: **L6** también se movió (el tracker quedó medido en multitud real).
+- **No se movió nada de lo que se dijo que no.** Los mecanismos, el veredicto del eje y
+  las cifras por estrato del rodaje están intactos.
+- **Lo que la predicción NO anticipó, y es el hallazgo mayor del tramo:** que la **calidad
+  del GT sería un resultado**. La revisión ciega encontró **5 de 7 declaraciones de
+  episodio erróneas**, todas sobre-declarando donde el estado no era observable. El
+  estrato quedó con **2 episodios evaluables** ⇒ **de ahí no sale ningún ranking**.
+
+**Fuente vigente de todo esto:** `results/clip_bench/index.md` §Estrato B y **síntesis
+§5.1**; el registro operativo, en `operacion/111`, `112` y `113` §B.

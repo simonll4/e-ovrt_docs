@@ -1,12 +1,18 @@
 # Síntesis de resultados y conclusiones — E-OVRT-VDP
 
-> ## ✎ ESTADO AL 2026-08-09 — leer antes que el cuerpo
+> ## ✎ ESTADO AL 2026-08-09 — el cuerpo está AL DÍA
 >
 > Este documento se escribió el **08-06**, cuando el estrato B eran **3 clips**. El
 > tramo de video **se cerró** desde entonces: lote **13/14 con GT** (banco **47**, doc
 > `operacion/111`), campañas **re-corridas en gen. 3**, balance con lectura crítica
 > (`operacion/112`) y revisión de ese balance (`operacion/113`, que ejecutó las
 > correcciones documentales y lista lo que falta).
+>
+> **✎ 08-09, noche — el estrato B ya está INTEGRADO AL CUERPO**, no solo a este banner:
+> **§4.1** (Nivel A sobre video) y **§5.1** (Nivel B sobre obra real no guionada y la
+> frontera de juzgabilidad) son secciones nuevas con las cifras vigentes. Este banner
+> queda como resumen de qué cambió y por qué; **ya no hay que leer el cuerpo "con la
+> fecha del 08-06 en mente"**.
 >
 > **Cifras vigentes del estrato B (tras la revisión CIEGA del GT, doc 113 §B, 08-09
 > noche):** Nivel B `scene` F1 **0,333** / `subject` **0,190** sobre **2 episodios
@@ -31,8 +37,9 @@
 > `v04_c02` ya NO es "el único caso limpio del estrato": sus 2 episodios eran error y el
 > clip es negativo (banner del doc 108).
 >
-> **§11 está actualizado; el resto del cuerpo se conserva como estaba** y hay que leerlo
-> con la fecha del 08-06 en mente.
+> **§4.1, §5.1 y §11 son posteriores a la revisión ciega y mandan sobre cualquier cifra
+> de estrato B anterior al 08-09.** El resto del cuerpo (imágenes, rodaje, tiempo real)
+> no se vio afectado por la revisión: esas mediciones son del Bloque A y no cambiaron.
 
 - **Fecha:** 2026-08-06 · **Estado del proyecto:** tramo experimental **COMPLETO**
   sobre el banco del rodaje; ✎ mismo día, más tarde: **llegaron las anotaciones CVAT
@@ -48,16 +55,22 @@
   — el gate `min_subject_area_px` YA EXISTÍA en 400 px², recalibrado FP −32% con recall
   intacto; `base-560` REFUTADO, no transfiere a sujetos chicos) y la recuperación de
   los 4 clips piloto desde CVAT con **Nivel A sobre video** (`operacion/105` — el
-  derrumbe confirmado con la métrica canónica: CR-02 F1 0,154 piloto / 0,002 estrato B
-  vs 0,41–0,55 en imágenes; la juzgabilidad tiene TRES ejes: escala × iluminación ×
-  oclusión; y la brecha humano/modelo es el contexto temporal, F-105.4).
+  derrumbe confirmado con la métrica canónica; la juzgabilidad tiene TRES ejes: escala ×
+  iluminación × oclusión; y la brecha humano/modelo es el contexto temporal, F-105.4).
+  *(✎ las cifras de Nivel A sobre video de ese doc —CR-02 F1 0,154 piloto / 0,002
+  estrato B— son de la gen. 2 y quedaron **supersedidas**; las vigentes, re-puntuadas
+  el 08-09 sobre los 17 clips, son **CR-01 0,031 / CR-02 0,018** contra 0,408/0,479 en
+  imágenes: `results/bench_nivel_a/`.)*
   **✎ 08-07/09:** artefactos reorganizados con fuente única (`operacion/109`),
   `v03_c02` integrado tras corrección a `unknown` (`operacion/110`) y **el lote de
   internet CERRADO: 13 de 14 con GT, banco 47 clips** (`operacion/111` — `v08_c01`
   excluido con causa; anotaciones del repo = fuente de verdad, guard `--check`).
-  **Campañas gen. 3 sobre los 13 clips LISTAS SIN CORRER** (`110-estrato-b-gen3.sh`,
-  ~82 min GPU): las cifras del estrato B publicadas hoy siguen siendo las de la gen. 2
-  (4 clips).
+  **✎ 08-09: las campañas gen. 3 CORRIERON** sobre los 13 clips, y después vino la
+  **revisión ciega del GT** (`operacion/113` §B) que tiró 3 de los 5 episodios del
+  estrato y obligó a re-derivar y re-evaluar. El banco quedó en **47 clips = 32
+  positivos / 15 negativos / 37 episodios** (manifest `3f14f50a…`) y las cifras
+  vigentes del estrato B son las del banner de arriba — **ninguna cifra de estrato B
+  anterior al 08-09 sigue en pie**.
 - **Qué es:** el "pasado en limpio" de todo lo medido y concluido, con el camino
   experimental que respalda cada número. Nace del **relevamiento integral de
   consistencia del 2026-08-06** (5 auditorías paralelas sobre conclusiones, redlines,
@@ -168,6 +181,31 @@ calibrados en mitad A y métricas solo sobre mitad B (anti-leakage), matching Io
 - **Limitación L8:** CR-02 a Nivel A **no está cerrado** (un solo estrato, n+=82, IC
   solapados). Declarado, no disimulado.
 
+### 4.1 El mismo Nivel A, sobre VIDEO — el derrumbe, y de qué está hecho
+
+**Camino experimental:** campaña `na1_gdinotiny560_v2short_video` (docs 105/111),
+**17 clips** (13 del lote de internet + 4 del piloto), re-puntuada el 2026-08-09 tras la
+revisión ciega del GT. Es la MISMA métrica de arriba —estado por persona, sin motor
+temporal— aplicada a obra real en movimiento.
+
+| Condición | Precision | Recall | **F1** | vs imágenes (`bench_obra`) |
+|---|---|---|---|---|
+| CR-01 (n+ = 92 de 10.356 person-frames) | 0,016 | 0,467 | **0,031** | 0,408 |
+| CR-02 (n+ = 170 de 10.361 person-frames) | 0,009 | 0,318 | **0,018** | 0,479 |
+
+- **El derrumbe es de PRECISION, no de recall.** El recall se sostiene en un rango
+  reconocible (0,47 / 0,32); lo que se hunde es la precisión, dos órdenes de magnitud.
+  El sistema **sigue viendo** lo que tiene que ver: lo que no puede es dejar de afirmar
+  sobre personas cuyo estado no es determinable.
+- **Regla declarada del scorer (D-113.2):** las person-frames que el anotador marcó
+  `unknown` **salen del denominador** (1.414 y 1.409 excluidas), pero la predicción del
+  modelo sobre esa persona **sí cuenta como FP** — "la alerta suena igual". Es una
+  decisión firmada, no un artefacto: inflar el denominador con lo no juzgable sería
+  premiar al sistema por acertar donde nadie puede verificar.
+- **Mecanismo, no anécdota:** esto es la **frontera de juzgabilidad** (§5.1) medida sin
+  motor temporal — el mismo fenómeno que a Nivel B, aislado de la histéresis y de la
+  identidad. Por eso las dos capas se leen juntas.
+
 ## 5. Nivel B — alertas contra GT temporal humano (el resultado principal)
 
 **Banco:** 34 clips del rodaje (2026-07-25), **35 episodios (28 CR-01 / 7 CR-02), 34
@@ -216,6 +254,53 @@ B1-eind 0,582 · B1 `bare_head` directo 0,480 (**F-88.2**: la vía del vocabular
 nativo tampoco alcanza, sobre las mismas detecciones) · D1 0,231. **F-88.1**: una
 clase más en el caption cuesta 0,082 de F1 (costo medido del caption). **F-88.3**: lo
 que ordena el eje es la formulación (etiqueta corta > frase negada), no el mecanismo.
+
+### 5.1 Estrato B — obra real NO guionada, y la frontera de juzgabilidad
+
+Todo lo de arriba es el **rodaje guionado**. El lote de internet es el contraste que
+faltaba: **13 clips de obra real** (uno de 14 excluido con causa), GT humano, la misma
+combinación intacta — la única variable es el material. Se reporta como **fila aparte,
+nunca fusionado al agregado del rodaje** (D-90.6). Banco resultante: **47 clips = 32
+positivos / 15 negativos / 37 episodios**.
+
+**Antes de las cifras, el resultado que las condiciona.** Una **revisión ciega** de los
+episodios del estrato (doc 113 §B) encontró que **5 de las 7 declaraciones de episodio
+que el lote produjo eran errores de anotación** (~71%), **todas sobre-declarando donde
+el estado no era observable**: el ex "caso limpio" `v04_c02` tenía a su único sujeto
+dentro de la cabina de una máquina, y `v01_c01` estaba a contraluz. **La calidad del GT
+es acá un resultado en sí, no un detalle de método**: la misma frontera que derrota al
+modelo derrota al anotador humano. Quedan **2 episodios evaluables**.
+
+| | I1 `scene` | I2 `subject` |
+|---|---|---|
+| recall (2 episodios) | 0,500 | **1,000** |
+| precision | **0,250** | 0,105 |
+| **F1** | **0,333** | 0,190 |
+| FP sobre los 11 negativos | **26** | **323** |
+
+- **La ganancia de la identidad NO se reproduce en este régimen.** G1 fue la mejor
+  combinación del banco del rodaje (+0,141 de F1); acá `subject` compra el episodio que
+  `scene` pierde (recall 0,500 → 1,000) pagando **un orden de magnitud más FP**: ~6× en
+  positivos y **12× en los negativos** (323 vs 26). **F-108.1: no hay una granularidad
+  mejor, hay una correcta para cada régimen de densidad.** El mecanismo es el de L6 —
+  el tracker fragmenta identidades en escena densa (182 identidades con FP contra 127
+  personas reales en `v06_c01`).
+- **Con n = 2, ningún ranking por F1 sale de acá** (F-111.1, enmendado). Lo robusto es
+  la **asimetría de FP**, que son conteos grandes y sobrevivió intacta a la corrección
+  del GT. Quien cite "0,333 le gana a 0,190" está leyendo ruido.
+- **Falsas alarmas, dicho con el denominador a la vista:** el clip soak `v06_c01`
+  (6:09,6 de obra real donde nadie infringe) da **3 FP en `scene` y 190 en `subject`**.
+  Las tasas derivadas (29,2 y 1.850,8 FA/hora) **se reportan pero no sostienen una
+  cota** — 0,1027 h están a dos órdenes de magnitud de las 3 h que exigiría afirmarla
+  (**limitación L1, precisada**). Ninguna configuración probada cruza a operable
+  (doc 107).
+- **Qué queda entonces, y es lo valioso:** la limitación **L4 se precisó, no se
+  levantó** (D-113.1). Hay medición en obra real, y su aporte es **caracterizar por
+  mecanismo dónde el sistema deja de ser evaluable** — tres ejes medidos (**escala ×
+  iluminación × oclusión**) y una propiedad negativa verificada: **el `unknown` del
+  anotador no predice la juzgabilidad** (F-105.2/3/4). No existe un índice escalar
+  barato para saber de antemano si el material es juzgable. Eso es un aporte
+  metodológico, no un número de rendimiento.
 
 ## 6. Tiempo real — qué sobrevive a la restricción del camino live
 
@@ -430,7 +515,7 @@ Regla aplicada: si la estimación puntual era vistosa pero el IC no excluía el 
 | AF-8 | El costo del tiempo real sobre el agregado | Estimaciones puntuales +0,005 / −0,050 / −0,143, decrecientes; ningún IC del agregado de escena excluye el cero | **Tendencia con mecanismo**, no efecto establecido |
 | AF-9 | La fusión E-HYB-or no ayuda | Predicción pre-registrada refutada (recall 0,824→0,353), mecanismo F-87.2; `hyb_and` no ejecutada con causa (D-90.4) | **Establecida** (refutación de predicción propia) |
 | AF-10 | CR-02 a Nivel A | Un solo estrato (n+=82), IC solapados | **No cerrada** — declarado (L8) |
-| AF-11 | FAR/hora | Ninguna cota alcanzable sostiene afirmación (harían falta 3 h anotadas; el banco llega a 0,10–0,26 h) | **Limitación** (L1), no métrica — la evidencia de FP es el control de negativos |
+| AF-11 | FAR/hora | Ninguna cota alcanzable sostiene afirmación (harían falta 3 h anotadas; el banco llega a 0,1027 h de soak sobre 0,2725 h negativas) | **Limitación L1, precisada — no derogada** (✎ 08-09): la métrica **se computa y se reporta** (29,2 escena / 1.850,8 sujeto), pero no sostiene una cota. Citar como **"3 y 190 FP en 6:09,6 del único clip soak"**, con la tasa horaria como derivada. La evidencia principal de FP sigue siendo el control de negativos |
 
 *(La escala usa prefijo **AF** para no confundirse con los argumentos de defensa
 A1–A5 de `nucleo/09` — convención en el glosario, doc 13.)*
@@ -495,7 +580,7 @@ Los desfases corregidos fueron de **propagación y redacción**, no de datos:
 | **Videos V1–V3 de la defensa** (pausados; 2 preguntas de alcance, D-90.7) | usuario decide | material de defensa, no resultado |
 | Redacción §17.x + regenerar `informe-project-kit` | después de lo anterior (orden 2026-08-05) | el informe |
 | Corregir el §15 del informe (erratas + línea base EPP supervisada + backbone de cada cifra + cruce con evidencia propia — ver §7.1/§7.4 de este doc) | pase de redlines (misma puerta que §17.x) | estado del arte defendible |
-| Licencias de los catálogos de modelos (único hallazgo abierto de `informe/99` §6) | verificar y registrar | citar los modelos en el informe |
+| ~~Licencias de los catálogos de modelos~~ ✅ **CERRADO 2026-08-10** — y **la premisa era falsa**: los 11 catálogos ya declaraban `license:` y `source:`. Lo que faltaba era el registro, ya escrito: sección **"PESOS DE MODELO"** en `license_registry.md` (GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0**, las tres verificadas contra evidencia independiente: model cards y la cadena embebida en el `.pt`), con la implicancia AGPL declarada. **Residual: los repos no tienen `LICENSE` propio** — decisión del usuario antes de publicar, no bloqueo de defensa | ~~verificar y registrar~~ ✅ | citar los modelos en el informe |
 | URL + fecha de acceso por video del lote (evidencia perecedera) — ✎ **son 18 `clip.yaml` con `video_url: TODO`** (14 del lote + 4 del piloto) y **13 copias promovidas** que lo arrastran: se arregla re-promoviendo, no a mano (doc `operacion/113` §C1) | usuario | robustece la cita de la fuente |
 | Consentimiento escrito del rodaje (resuelto por declaración; plantilla disponible) | equipo/facultad | formalidad administrativa |
 | Backup de `docs/` a otro disco | usuario | redundancia (repo local sin remote) |
@@ -508,7 +593,9 @@ clip bench, el texto de L4 y el contexto del control de FP.
 ---
 
 **Cómo re-verificar esta página:** correr
-`python3 docs/operacion/datos/96-verificar-indices.py` (cubre los F1 de clips y los
-deltas de bootstrap) y comparar el resto contra los 4 índices de
+`python3 docs/operacion/datos/96-verificar-indices.py` — desde el 2026-08-09 cubre
+**19 cifras sobre las 16 campañas con artefacto** (incluidas I1/I2 del estrato B y el
+Nivel A sobre video de §4.1/§5.1), los deltas de bootstrap, y un **guard de cobertura**
+que falla si aparece una campaña sin cifra verificada. Comparar el resto contra los 4 índices de
 `e-ovrt_experimental-setup/results/` — cada tabla de allá tiene su artefacto
 (`metrics.json`, `campaign.yaml` con sha256, `evals/`) y su doc de procedencia.

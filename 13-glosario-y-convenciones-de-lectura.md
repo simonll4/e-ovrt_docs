@@ -47,8 +47,17 @@
    GT de video es preliminar"*): el GT del **banco del rodaje** (34 clips, 35
    episodios) es **humano y `gt_ready` desde 2026-08-03** — sus métricas se reportan
    como **RESULTADO** de la tesis. La regla vieja ("solo verificación de mecánica")
-   aplica únicamente a material cuyo GT siga `gt_preliminary` — hoy, el **lote de
-   internet** (14 clips, en anotación CVAT).
+   aplica únicamente a material cuyo GT siga `gt_preliminary` — ~~hoy, el lote de
+   internet (14 clips, en anotación CVAT)~~.
+   > ✎ **2026-08-10 — ya NO queda material en `gt_preliminary`: la regla vieja no aplica a
+   > nada.** El lote de internet terminó su pasada humana (**13 de 14 con GT**, `v08_c01`
+   > excluido con causa firmada), así que **sus métricas también se reportan como
+   > RESULTADO**. Banco total: **47 clips / 37 episodios**.
+   > **Y trajo un resultado propio que hay que contar, no esconder:** la **revisión ciega**
+   > del GT (doc 113 §B) encontró que **5 de las 7 declaraciones de episodio del lote eran
+   > errores de anotación**, todas sobre-declarando donde el estado **no era observable**.
+   > ⇒ **la calidad del GT es un resultado en sí**, el estrato B quedó con **2 episodios
+   > evaluables**, y de un n así **no sale ningún ranking** (ver regla 9 y síntesis §5.1).
 8. **Registro:** los docs de operación usan voseo informal a propósito (son memoria de
    trabajo). El informe se redacta en registro formal impersonal — el modelo de estilo
    es el doc 94.
@@ -111,7 +120,7 @@ sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 | **`run_id`** | Corrida de un plano (`runs/<run_id>/` en cada repo). La corrida EBE es 1:1: un run de control por run de media (ADR-007). |
 | **`experiment_id`** | Corrida paraguas del experimental-setup (ADR-004): agrupa los runs de ambos planos y consolida artefactos en `runs/<experiment_id>/` (ADR-014: lo liviano se copia, `detections.jsonl` se referencia). |
 | **`source_id` / `clip_id`** | Identidad de la fuente. Convención del clip bench: **`source_id = clip_id`** — así el matching de escena del evaluador une alerta↔episodio GT. |
-| **`track_id`** | Identidad de sujeto (opcional en `Detection` desde 07-13). **Nadie lo produce aún**: el modo `subject` del motor está inerte (deuda del spec 42 §3). |
+| **`track_id`** | Identidad de sujeto (opcional en `Detection` desde 07-13). ✎ **2026-08-10 — corregido: decía "nadie lo produce aún, el modo `subject` está inerte". FALSO desde el 2026-08-04.** El modo `subject` **funciona y es el mejor resultado del banco**: la campaña **G1** llega a F1 **0,930** contra 0,789 de escena **con las mismas detecciones bit a bit** (la ganancia es 100% del motor). El `track_id` se produce **post-hoc** con `SimpleIoUTracker`, y el camino config-driven (`input.track_persons`) lo reproduce exacto. Lo que sigue sin existir son **métricas MOT** (E-10, excluida por ADR-015) y el port al pipeline online (decisión abierta, doc 89 §7). |
 | **`media.detection.v1`** | Evento de detección del media-plane (JSONL y bus). Evolución **aditiva** (se agregan campos opcionales, no se rompen — regla pedida por el tutor, doc 92). |
 | **`bus.envelope.v1`** | Envelope ZeroMQ (topic + `seq` monótono + payload msgpack). Huecos de `seq` = `bus_dropped_events` (degradan, nunca se silencian). |
 | **`control.alert.v1`** | Alerta confirmada publicada por el control-plane (persiste-primero). |
@@ -119,18 +128,72 @@ sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 | **`media.dropped_unit.v1`** | Ledger por-frame de descartes del media-plane (`rate_gate`, `queue_full`, `staleness_timeout`, `channel_closed`). |
 | **`clip_gt.v2`** | Contrato de ground truth temporal de un clip: episodios por condición con ventanas en ms, flag `negative`, `sub_threshold_events`, `provenance`. |
 
+### 4.1 Códigos que se citan en todo el set (✎ agregado 2026-08-10)
+
+Estos prefijos aparecen cientos de veces y **hasta hoy no estaban definidos en ninguna
+parte**. Sin esta tabla, un lector que no estuvo no puede resolver "F-113.1" ni "D-90.4".
+
+| Código | Qué es | Cómo se lee |
+|---|---|---|
+| **`F-NN.N`** | **Hallazgo** (*finding*) con mecanismo explicado | El número antes del punto es **el documento de `operacion/` donde nació**; el de después, el hallazgo dentro de ese doc. `F-87.2` = segundo hallazgo del doc 87. Excepciones históricas con letras: `F-EV1/2/3` (fixes del evaluador), `F-RT1/2` (realtime), `F-GT1` (ground truth), `F-G2.1` (ensayo G2) |
+| **`D-NNN.N`** | **Decisión firmada**, con causa y fecha | Misma convención: `D-90.4` = cuarta decisión del doc 90; `D-113.1` = primera del doc 113. **No se re-litigan al redactar: se declaran con su justificación** |
+| **`AF-1…AF-11`** | La **escala de conclusiones**: qué se afirma y **con qué fuerza** (establecida / direccional / tendencia / no cerrada) | Vive en síntesis §8 y `operacion/98`. **Es la tabla que hay que consultar antes de afirmar cualquier cosa en el informe** |
+| **`L1…L8`** | Las **limitaciones canónicas**, lista cerrada | Referencia vigente: **`results/index.md` §Limitaciones** (la de `informe/99` §4.1 y la de la síntesis §9 pueden estar atrás). ⚠️ **Colisión: la Fase L del plan maestro usa `L0`/`L1` para sus hitos.** Escribir **"limitación L1"** vs **"hito L1"** |
+| **`E-01…E-13`** | **Exclusiones de alcance** declaradas (`nucleo/10`) | Cada una con su justificación; ADR-015 las cerró |
+| **`DA-01…DA-13`** | **Decisiones de arquitectura** del set (distintas de los ADR) | — |
+| **`R-01…R-26`** | Los **redlines** del informe: "dice hoy / debe decir / evidencia" (`informe/93`) | ⚠️ **Colisión triple, la peor del set** — ver abajo |
+
+**⚠️ Las tres colisiones de símbolos. Un externo las pisa sí o sí si no se las avisan:**
+
+| Símbolo | Significado 1 | Significado 2 | Significado 3 |
+|---|---|---|---|
+| **`R…`** | **`R1–R4`** = los cuatro **resultados defendibles** (`nucleo/02`) | **`R1–R6`** = las seis **campañas de densidad** del clip bench | **`R-01…R-26`** = los **redlines** del informe (`informe/93`) |
+| **`D1`** | **Dimensión de decisión 1** del tablero | **Campaña de Nivel A** `d1_gdinotiny560_edir_vs_eind` | **Campaña de Nivel B** con `edir_v1` |
+| **`A1`** | **Primer argumento de defensa** (`nucleo/09`) | El **piloto de clase nueva** (`machinery`, doc 94) | El **gate A1** de censura de episodios cortos |
+
+**Al redactar: nunca usar estos símbolos desnudos.** Escribir "la campaña R1", "el redline
+R-13", "el argumento A1", "el piloto A1 de clase nueva".
+
+### 4.2 IDs de campaña (✎ agregado 2026-08-10)
+
+Las tablas de resultados usan estos IDs como filas, sin leyenda. Son **16 campañas con
+artefacto**; cada una es **una combinación concreta**, y el contraste entre filas *es* el
+experimento.
+
+| ID | Qué varía respecto de la línea de base | Nivel |
+|---|---|---|
+| **T1** | Nada — es la **línea de base** (`gdino-tiny-560` + `v2_short` + escena) | B |
+| **T2** | El **modelo** (`gdino-base-560`) | B |
+| **D1** | Los **prompts** (`edir_v1`, evidencia directa de ausencia) | B (y hay un **D1 de Nivel A**, otro experimento) |
+| **H1** | La **fusión** de estrategias (`hyb_or`) | B |
+| **G1** | La **granularidad** (por sujeto en vez de por escena) — **la mejor del banco** | B |
+| **B1** | El **vocabulario** (`bare_head` directo) | B |
+| **R1–R6** | La **densidad de evidencia** (`stride` 7/15/26 × escena/sujeto) | B |
+| **I1 / I2** | El **material**: estrato B (obra real no guionada), escena y sujeto | B |
+| **NA1** | Nivel A **sobre video** (17 clips) | A |
+
+### 4.3 Estrato A / estrato B — y el otro "estrato" (✎ agregado 2026-08-10)
+
+- **Estrato A (Bloque A)** = los **34 clips del rodaje guionado** del 2026-07-25. Es donde
+  vive el resultado principal.
+- **Estrato B (Bloque B)** = los **13 clips del lote de internet**, obra real **no
+  guionada**. Se reporta **como fila aparte, nunca fusionado al agregado del rodaje**
+  (D-90.6).
+- ⚠️ **No confundir con "estrato" del bench de IMÁGENES**, que son las tres fuentes de
+  `bench_v3` (`bench_obra` / `chv` / `shel5k`). Misma palabra, materiales distintos.
+
 ## 5. Datos, modelos y bancos
 
 | Término | Definición |
 |---|---|
 | **canonical_v2** | Vocabulario canónico de clases compartido entre repos: `person`, `helmet`, `vest`, `bare_head` (+ atributos `has_helmet`/`has_vest` solo en BENCH). Las vistas `*_cr01_cr02` están **eliminadas**. |
-| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). |
-| **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). Hoy: 1 clip promovido (`cb_b01_p7`) en estado `gt_preliminary`. Es el escenario EBE oficial del informe. |
+| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes en 3 fuentes independientes** (`bench_obra` 147 curadas · `chv` 1.330 · `shel5k` 5.000), congelado el 2026-07-23. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
+| **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). ✎ **2026-08-10 — corregido: decía "1 clip promovido (`cb_b01_p7`) en `gt_preliminary`". Doblemente falso**: ese clip fue **RETIRADO** el 2026-08-03 (licencia sin registrar + GT generado por IA) y **no debe citarse**. **Hoy el banco tiene 47 clips con GT HUMANO** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…`, en dos bloques: **A** = rodaje guionado (34) y **B** = lote de internet (13). Es el escenario EBE oficial del informe. |
 | **video-gt-lab** | El pipeline semiautomático de GT temporal: `prepare_clip` → preanotación (GDINO-**base** anti-circularidad + ByteTrack) → CVAT (humano) → `derive_clip_gt` → `validate` → `promote_clip`. |
 | **`gt_preliminary`** | Estado de un GT sin pasada humana (anotador `claude-vision-preliminary`). Ver regla de oro #7. |
-| **GDINO / MM-GDINO / YOLOE** | Las familias de modelos OVD evaluadas. Hallazgos clave: GDINO-tiny mejor mAP BENCH (0,441); **YOLOE es ciego a `bare_head`** (recall CR-01 ≈ 0); MM-GDINO-tiny descartado (bboxes rotas). Pista doble del núcleo (doc 12 §3): GDINO-tiny primaria + YOLOE-26s réplica. |
+| **GDINO / MM-GDINO / YOLOE** | Las tres familias de modelos OVD evaluadas. ✎ **2026-08-10 — cifra actualizada: el campeón es `gdino-tiny-560` con mAP50 0,551 sobre `bench_v3` (6.477 imgs)**, no el 0,441 del BENCH viejo. Licencias: GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0** (registro en `license_registry.md` §PESOS DE MODELO). Hallazgos clave: **YOLOE es ciego a `bare_head`** (recall CR-01 ≈ 0); MM-GDINO-tiny descartado (bboxes rotas). Pista doble del núcleo (doc 12 §3): GDINO-tiny primaria + YOLOE-26s réplica. |
 | **OAK-D Pro PoE** | Cámara edge con NPU (DepthAI). Fuente viva `oak_d` del media-plane; trae IP estática de fábrica 169.254.1.222. |
-| **prompt set** | Conjunto versionado de prompts con ciclo de vida (`exploratory` → `frozen`, con `frozen_sha256`). `eind_v1` está `frozen_pending_review` (espera el **acta** del usuario que desbloquea D1). |
+| **prompt set** | Conjunto versionado de prompts con ciclo de vida (`exploratory` → `frozen`, con `frozen_sha256`). ✎ **2026-08-10 — corregido: `eind_v1` y `edir_v1` están `frozen` con sha256 desde el 2026-07-29 (acta del usuario, doc 76). Ya no esperan nada.** Texto anterior: `eind_v1` está `frozen_pending_review` (espera el **acta** del usuario que desbloquea D1). |
 | **pattern set** | Conjunto versionado de patrones del control-plane. El oficial es **`cr01_cr02_v2`** (escena, 4000/7000 ms, sin cooldown ni memoria de cobertura). |
 
 ## 6. Nombres de repos y puertos

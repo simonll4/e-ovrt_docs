@@ -45,6 +45,19 @@ verifica, con UNA corrección de precisión** (abajo).
   motor — doc 71 §2.3/§2.5). Que no tenga campaña Nivel B es la salida *"no
   ejecutada con causa"* del pre-registro: un modelo que no puede expresar la
   condición no tiene nada que medir contra el GT de alertas.
+  > ✎ **2026-08-10 — el argumento se extiende a Nivel A sobre video**, que en su momento
+  > no existía y hoy sí (campaña NA1, `results/bench_nivel_a/`). YOLOE **tampoco corrió
+  > ahí**, y la causa es la misma llevada un paso más atrás: Nivel A puntúa **el estado
+  > "sin EPP" de cada persona** contra `has_helmet`/`has_vest`, y YOLOE **no produce
+  > ninguna de las dos evidencias** — `bare_head` AP 0,000 en las cuatro tallas y `vest`
+  > 0,14–0,18. No es que puntuaría mal: **no hay nada que puntuar**, el denominador de la
+  > métrica queda vacío por construcción. Podría haber producido `person`/`helmet` sueltos,
+  > pero eso es AP de detección —ya medido y reportado en el bench de imágenes— y no el
+  > estado por persona, que es lo que Nivel A define. **Ninguna de las dos ausencias
+  > (Nivel A ni Nivel B) es un hueco de cobertura: son la misma salida pre-registrada**
+  > (`nucleo/12` §3: *"la pista YOLOE se sacrifica completa… se reporta no ejecutada con
+  > causa"*), y el aporte de YOLOE al trabajo está en el plano realtime, donde es el
+  > **único modelo que entra en presupuesto** y donde produjo F-RT2.
 - **MM-GDINO**: descartada en la selección de modelos (bboxes rotas; Sprint 2,
   consolidado en la selección S1/S2 del doc 64).
 

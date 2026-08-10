@@ -1,5 +1,17 @@
 # 98 — Conclusiones transversales: qué quedó demostrado, con qué respaldo
 
+> ⚠️ **BANNER 2026-08-09 — leer antes que el cuerpo.** Este doc cerró el tramo de
+> resultados el **08-05**, **antes** del cierre del estrato B y de la **revisión ciega
+> del GT** (docs `operacion/109`–`113`). La **escala AF-1…AF-11 y las conclusiones
+> siguen en pie** —ninguna se movió—, pero **tres limitaciones que este doc cita
+> cambiaron de estado**: **L1** (FAR/hora pasó a computable y se reporta, sin sostener
+> una cota), **L4** (hay obra real medida, precisada por D-113.1) y **L6** (el tracker
+> sí quedó medido en multitud real). Además, las **cifras del estrato B que circulen
+> con fecha anterior al 08-09 están supersedidas**.
+> **Fuentes vigentes:** cifras = los 4 índices de `e-ovrt_experimental-setup/results/`;
+> limitaciones = `results/index.md`; lectura de una pasada =
+> `docs/sintesis/resultados-y-conclusiones.md` (§4.1 y §5.1 traen el estrato B).
+
 - **Fecha:** 2026-08-05.
 - **Qué es:** el cierre del tramo de resultados. Cruza los **tres materiales**
   (imágenes, video, tiempo real) y los **dos escenarios** (DBE, EBE) para responder la

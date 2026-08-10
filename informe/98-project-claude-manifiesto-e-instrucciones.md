@@ -23,10 +23,22 @@ knowledge del Project no tiene carpetas.
 > agregaron después, y el propio doc 93 marca a R-26 como *"la más valiosa"*. Con el número viejo, un
 > redactor se saltaba los dos mejores redlines sin enterarse.
 
+> ✎ **ACTUALIZADO OTRA VEZ, 2026-08-10 — faltaba TODO el tramo de video.** Este manifiesto
+> no listaba `docs/sintesis/` (donde vive la narrativa vigente y la escala AF) ni los docs
+> `operacion/102`–`113` (el lote de internet, la revisión ciega del GT y el cierre).
+> Agregados abajo. Y ojo con dos entradas de esta tabla: el **glosario** y el **brief**
+> siguen siendo obligatorios, pero **los dos llevan hoy banners de corrección** — hay que
+> leer esos banners, no solo el cuerpo.
+
 | Archivo | Rol en la redacción |
 |---|---|
-| `13-glosario-y-convenciones-de-lectura.md` | Siglas + jerarquía de verdad. **El asistente debe leerlo primero.** |
-| `informe/97-brief-de-redaccion.md` | Las reglas de redacción (registro, fuentes, honestidad) + **§5, las cifras canónicas verificadas contra disco**. |
+| **`GUIA-REDACTORES.md`** | ✎ **AGREGADO 2026-08-10. La puerta de entrada del redactor externo** — el proyecto en 5 minutos, orden de lectura, qué NO abrir, cómo citar una cifra y las 5 trampas. **Leerlo ANTES que todo lo demás.** |
+| **`sintesis/resultados-y-conclusiones.md`** | ✎ **AGREGADO 2026-08-10. La narrativa vigente de punta a punta**, con el estrato B integrado (§4.1 y §5.1) y la escala **AF-1…AF-11** con su columna de fuerza. **Es el documento por el que conviene empezar a leer.** |
+| **`sintesis/fundamentos-teoricos.md`** | ✎ **AGREGADO 2026-08-10.** La teoría sin cifras: qué es OVD, los tres niveles de medición, por qué el diseño es el que es. **Lo más pedagógico del set** para alguien que no participó. |
+| **`sintesis/inventario-de-metricas.md`** | ✎ **AGREGADO 2026-08-10.** Qué calcula la plataforma y en qué nivel. |
+| **`operacion/109`, `111`, `112`, `113`** | ✎ **AGREGADOS 2026-08-10.** El tramo de video: fuente única del material (109), cierre del lote (111), balance crítico (112) y **la revisión ciega del GT + el cierre de brechas (113)**. Sin estos, el capítulo no puede contar el estrato B. |
+| `13-glosario-y-convenciones-de-lectura.md` | Siglas + jerarquía de verdad + **§4.1/4.2/4.3: los códigos (`F-NN.N`, `D-NNN.N`, AF, L), los IDs de campaña y las tres colisiones de símbolos**. **Leerlo primero**, y prestar atención a sus banners ✎ de corrección. |
+| `informe/97-brief-de-redaccion.md` | Las reglas de redacción (registro, fuentes, honestidad). ⚠️ **Su §5 quedó SUPERSEDIDA** (banco de 34, FAR/hora, lote sin GT): tiene banner de cabecera con la tabla de qué cambió. **Las cifras salen de `results/`, no de §5.** |
 | **`results/index.md` + los 4 índices** (`bench_imagenes/`, `bench_nivel_a/`, `clip_bench/`, `realtime/`) | ✎ **La fuente de cifras del capítulo**, verificada mecánicamente con `96-verificar-indices.py`. Si un número no está acá, no existe para el informe. |
 | **`operacion/97-relevamiento-plataforma-2026-08-05.md`** | ✎ El estado verificado de la plataforma (**reemplaza al 56**). |
 | **`operacion/98-conclusiones-transversales.md`** | ✎ Las 4 conclusiones + la escala de afirmación **AF-1…AF-11** + las limitaciones. |
@@ -95,17 +107,26 @@ REGLAS DE LECTURA (obligatorias):
    contratos, APIs y rutas:línea, NO para cifras. Si un número no está en un
    índice, decí que no hay artefacto y no lo uses. Nunca inventes números,
    rutas ni nombres de campos.
-4. El GT del banco de 34 clips del rodaje es HUMANO y está "gt_ready" (pasada de
-   CVAT + seis bordes adjudicados con firma): sus métricas SE REPORTAN COMO
+4. TODO el GT de video es HUMANO y "gt_ready": sus métricas SE REPORTAN COMO
    RESULTADO. La regla vieja de presentarlas como "verificación de mecánica"
-   está DEROGADA — aplicarla subestimaría el resultado principal del trabajo.
-   Sigue vigente solo para material sin pasada humana: los 14 clips del lote de
-   internet, que están cortados pero sin GT.
-   Al citar el denominador: "34 episodios evaluables sobre 35" (hay 1 censurado).
-5. Reglas de lectura que no se pueden violar: los 4 clips negativos NO entran a
+   está DEROGADA y no aplica ya a NINGÚN material.
+   El banco tiene 47 clips = 32 positivos / 15 negativos / 37 episodios, en dos
+   bloques: A = rodaje guionado (34 clips, 35 episodios) y B = lote de internet
+   (13 clips, obra real no guionada). El estrato B se reporta como fila aparte,
+   NUNCA fusionado al agregado del rodaje.
+   Al citar un denominador, decí de qué bloque hablás: "34 episodios evaluables
+   sobre 35" es el del RODAJE (1 censurado), no el del banco.
+   El estrato B tiene solo 2 episodios evaluables tras una revisión ciega del GT
+   que encontró que 5 de las 7 declaraciones del lote eran errores de anotación.
+   Con n=2 NO se rankean granularidades: "scene 0,333 le gana a subject 0,190" es
+   ruido. Lo robusto de ese estrato es la asimetría de FP: 26 vs 323 en 11
+   negativos.
+5. Reglas de lectura que no se pueden violar: los clips negativos NO entran a
    precision/recall/F1 (su métrica son los FP); se reporta siempre por estrato y
    por escenario, nunca solo el agregado; el SDR no se compara entre cadencias;
-   los "re_alerts" no son falsos positivos.
+   los "re_alerts" no son falsos positivos; y FAR/hora se reporta pero NO sostiene
+   una cota: se cita como "3 y 190 FP en 6:09,6 del único clip soak", con la tasa
+   horaria (29,2 y 1.850,8) como derivada, nunca desnuda ni como "<=N FA/hora".
 6. Las decisiones ADR-001…015 están cerradas: se declaran y justifican, no se
    re-litigan (ADR-015 además cierra la puerta: ninguna capacidad nueva hasta la
    defensa, MQTT declarada no implementada). Ojo: hay DOS series de ADR —
@@ -134,11 +155,17 @@ CÓMO TRABAJAR:
 
 ## 3. Flujo de trabajo sugerido en el chat
 
-0. ⚠️ **Puerta de secuencia (orden del usuario 2026-08-05, `informe/99` §7):** la
-   redacción de §17.x **no arranca** hasta que estén (1) los runs/evals del lote de
-   internet (estrato B) y (2) los videos V1–V3 — y con eso, el `informe-project-kit`
-   se regenera. Si el Project se abre antes, el trabajo es de preparación (planes,
-   verificación de materiales), no de redacción.
+0. ✅ **PUERTA ABIERTA — 2026-08-10.** ~~*Puerta de secuencia (orden del usuario
+   2026-08-05, `informe/99` §7): la redacción de §17.x no arranca hasta que estén (1) los
+   runs/evals del lote de internet (estrato B) y (2) los videos V1–V3.*~~ **(1) está
+   hecho** —el lote cerró con GT humano y sus campañas corrieron y se re-evaluaron—, y
+   **(2) pasó a carril paralelo** porque no bloquea escribir. **La redacción es el carril
+   principal.**
+   ✅ ~~Lo que sí falta antes de usar este manifiesto: regenerar el
+   `informe-project-kit/`~~ — **regenerado el 2026-08-10 según este manifiesto §1**
+   (el paquete del 2026-07-18 quedó descartado; el vigente incluye `sintesis/`, la
+   `GUIA-REDACTORES`, los índices de `results/`, el tramo de video 109–113 y los 15
+   ADRs con el 015).
 1. **Sesión inicial:** pedir al asistente un plan de redacción a partir del doc 93
    (tablero de 26 redlines) + `informe/99` (inventario de figuras/tablas), priorizado
    por bloques A–D. ✎ **No** desde el doc 95 §5: ese cronograma es histórico pre-rodaje

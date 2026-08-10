@@ -44,18 +44,27 @@ pedido explícito del usuario.
 > de paso (13 evals archivados por campaña). Ver la CONSTANCIA en el Bloque B.**
 > **✅ C2 (backup a otro disco) HECHO por el usuario, 2026-08-09.**
 >
-> ### 📌 LO QUE QUEDA — TODO DEL USUARIO, y en este orden
+> ### 📌 LO QUE QUEDA — ✎ **RE-SECUENCIADO 2026-08-10 (decisión del usuario)**
 >
-> 1. **C1 — las URLs de los 18 `clip.yaml`** (14 del lote + 4 del piloto) y la
->    propagación a las 13 copias promovidas. Solo el usuario tiene las fuentes; la
->    propagación (re-promover, regenerar manifest, registry) es delegable una vez
->    que las URLs estén escritas. **Cierra el último hallazgo abierto de `informe/99`
->    §6 junto con el de licencias de catálogos de modelos.**
-> 2. **E — videos V1–V3** (falta V2; regla registrada: auditar visualmente la clase
->    antes de afirmar que funciona).
-> 3. **F — redacción §17.x.** **NO se arranca hasta que el usuario lo indique
->    explícitamente** (orden vigente desde el 08-05, ratificada el 08-09). Cuando se
->    arranque, entrar por el checklist de encuadre de 6 reglas del Bloque F.
+> **Se acabó la fila india.** El orden vigente ya **no** es C1 → E → F. C1 y E **no
+> bloquean la redacción** —uno es procedencia de citas, el otro material de defensa— y el
+> tramo experimental está cerrado y verificado, así que pasan a **carril paralelo**:
+>
+> - **Carril principal — F, la redacción del informe.** La escriben **los otros dos
+>   integrantes del equipo**, que **no participaron del tramo experimental**, con la guía
+>   que se les deja lista. Cuando arranque, entrar por el checklist de encuadre de 6 reglas
+>   del Bloque F. **Consecuencia directa: el kit de redacción ya no lo lee quien tiene el
+>   contexto — hay que escribirlo para alguien que llega de cero.**
+> - **Carril paralelo — C1 y E, del usuario + Claude**, mientras el informe avanza.
+>   1. **C1 — las URLs de los 18 `clip.yaml`** (14 del lote + 4 del piloto) y la
+>      propagación a las 13 copias promovidas. Solo el usuario tiene las fuentes; la
+>      propagación (re-promover, regenerar manifest, registry) es delegable una vez que las
+>      URLs estén escritas. ✎ **2026-08-10: el de licencias de modelos ya cerró** (§H, y su
+>      premisa era falsa) ⇒ **C1 es el ÚNICO hallazgo abierto de `informe/99` §6.**
+>      ⚠️ **Vuelve a ser bloqueante antes de cerrar la versión FINAL del informe**: son la
+>      procedencia de las citas del estrato B.
+>   2. **E — videos V1–V3** (falta V2; regla registrada: auditar visualmente la clase antes
+>      de afirmar que funciona). No toca el informe.
 >
 > **Nada de esto está commiteado** (regla del proyecto: el usuario maneja todo el git).
 
@@ -374,8 +383,9 @@ propagado con banner.
    nuevo hash en el registry con causa *"solo metadata de licencia; GT sin cambios"*
    (mismo patrón que el cambio de manifest del doc 102).
 4. Completar `license_registry.md` §Material de VIDEO con las URLs — esto **cierra el
-   hallazgo abierto "falta URL por video" de informe/99 §6** (quedaría abierto solo el
-   de licencias de catálogos de modelos).
+   hallazgo abierto "falta URL por video" de informe/99 §6**. ✎ **2026-08-10: con el de
+   licencias de modelos ya cerrado (§H), este es el ÚLTIMO** ⇒ al completarlo, `informe/99`
+   §6 queda **sin hallazgos abiertos**.
 5. Verificación: `grep -rn "video_url: TODO" e-ovrt_datasets/` → **0**;
    `109-verificar-organizacion.py` verde; suite verde.
 
@@ -585,6 +595,147 @@ capítulo del estrato B):
 [x] D-D  DECISIÓN D-113.2: regla `unknown` se MANTIENE, declarada en
         bench_nivel_a/index.md + doc 105                              ✅ 2026-08-09
 [x] D-G  cerrado con B: los 13 eval_*.json archivados en I1 e I2 (GT vigente) ✅ 08-09
+[x] G   PASE DE SINCRONIZACIÓN DE ÍNDICES + procedencia (§G)          ✅ 08-09
+[x] H   COBERTURA DE MODELOS + justificación de acotamientos (§H)     ✅ 08-10
+        └─ incluye licencias de pesos (el hallazgo de informe/99 §6,
+           cuya premisa resultó falsa) ⇒ C1 es el ÚNICO §6 abierto
 [ ] E   V1–V3 cerrados o recorte de V2 decidido y registrado
 [ ] F   §17.x arrancado con el checklist de encuadre de este doc
 ```
+
+---
+
+## §G — Pase de sincronización de índices y procedencia — ✅ **EJECUTADO 2026-08-09**
+
+Salió de un relevamiento completo de `results/` pedido por el usuario ("¿estamos listos
+para pasar los resultados en limpio?"). La respuesta fue **los datos sí, la presentación
+no**: la revisión ciega se había propagado al fondo de los documentos pero no a sus
+bordes —encabezados, censos, secciones de "qué falta"—, que es justo lo que se lee
+primero. **No se creó ningún directorio nuevo de resultados**: habría duplicado
+`results/index.md` y multiplicado las contradicciones. Se sincronizó lo existente.
+
+**Contradicciones cerradas (6).** Encabezado de `clip_bench/index.md` (declaraba banco
+vigente de **38** y manifest `4437eb6d…`; son **47** y `3f14f50a…`) · su fila de
+candidatas ("I1/I2 armadas, sin correr") y el encabezado huérfano duplicado del estrato
+B · el censo de `results/index.md` (34 clips / 12 campañas → **47 y 14**) · las **tres
+formulaciones divergentes de FAR/hora** (regla raíz vs L1 vs "DEROGADO" en clip_bench),
+unificadas en la de **L1**: se computa y se reporta, no sostiene cota · `realtime/index.md`
+§7, que contradecía a L1 y L6 · el cuerpo de la síntesis ("gen. 3 LISTAS SIN CORRER",
+CR-02 0,002) y su fila AF-11 · `GUIA-CIERRE.md`, que seguía en el 08-06 con el punto 1
+abierto. Banner de estado agregado a `operacion/98`.
+
+**F-113.1 — el hallazgo del pase, y es de reproducibilidad, no de redacción.** Los
+`metrics.json` de I1/I2 traían las cifras post-revisión (0,333 / 0,190) pero su bloque
+`campaign` declaraba el **freeze pre-corrección** (`299ccc19…`, commit `907d50fa`) y
+describía el estrato viejo (4 clips, 3 episodios, `v04_c02` positivo). **Quien
+reprodujera desde ese sha obtenía 0,500, no 0,333.** Causa: el agregador **copia
+`campaign.yaml` dentro de `metrics.json`**, así que re-evaluar sin re-agregar congela la
+procedencia. Corregidos los dos `campaign.yaml` y regenerados ambos `metrics.json`:
+**ninguna cifra se movió** (único bloque distinto, `campaign`). Regla incorporada al
+README de `clip_bench`: *después de tocar GT o `campaign.yaml`, re-correr el agregador y
+diffear* — con los `evals/` archivados cuesta segundos y no usa GPU.
+
+**Misma familia, tres huecos más de procedencia, los tres cerrados.** `provenance.json`
+de I1/I2 declaraba **4 corridas para 13 clips** (eran las de la gen. 2, y el doc 111 las
+listaba como completas) · **NA1 no tenía procedencia por corrida** · el `campaign.yaml`
+de NA1 seguía fechado 08-07. Regenerados con
+**`datos/113-regenerar-provenance-estrato-b.py`** (idempotente, con `--check`), que
+recupera `clip_id`/`media_run_id` del runs-map, `frames` del `summary.json` de cada run
+y el `eval` archivado — y deja **`seconds: null` con causa declarada** en vez de
+estimar un wall-clock que no es derivable. **Las 16 campañas con artefacto tienen hoy
+procedencia completa.**
+
+**Antienvejecimiento.** `96-verificar-indices.py` cubría 8 F1 de 14 campañas; ahora
+verifica **19 cifras sobre las 16 campañas** (incluidas I1/I2 y el Nivel A sobre video)
+y suma un **guard de cobertura** que **falla si aparece una campaña sin cifra
+verificada** — probado con una campaña ficticia. Es lo que impide que "todo verde"
+vuelva a significar "verde sobre lo que mirábamos hace tres meses".
+
+**Artefactos secundarios, ahora declarados.** Los 4 `.json` que conviven con su
+`metrics.json` no estaban nombrados en ningún índice (0 hits en el repo). **Solo 2 son
+supersedidos** (`metrics.gen2.json` de I1/I2, congelados a propósito por D3); los otros
+dos están **VIGENTES** y miden otra cosa: `metrics_eind_mismo_caption.json` es el
+control interno de B1 que sostiene F-88.1, y `metrics_base560_replica.json` es la
+réplica del doc 84 — que además **no declara su modelo por dentro**, así que la
+atribución quedó escrita en el `campaign.yaml` de D1.
+
+**El estrato B quedó integrado al CUERPO de la síntesis** (§4.1 Nivel A sobre video,
+§5.1 Nivel B y frontera de juzgabilidad), no solo a su banner: era el único documento
+donde un lector que salteara el banner se llevaba un número muerto.
+
+**Verificación:** `96` (19 cifras, cobertura 16/16), `109`, `113-regenerar-provenance
+--check` y la suite de `datasets` (**418 tests**), todo verde. **Nada commiteado.**
+
+---
+
+## §H — Cobertura de modelos y justificación de acotamientos — ✅ **CERRADO 2026-08-10**
+
+Pregunta del usuario antes de redactar: *"¿se probó con ambas familias de modelos y sus
+variantes? Toda elección o acotamiento tiene que estar justificado al 100%."* Se auditó la
+matriz **modelo × nivel** contra los catálogos del media-plane y la **cadena de
+justificación** de cada descarte. **Resultado: no queda ningún experimento por correr** —
+de 10 acotamientos técnicos, **9 ya tenían justificación pre-registrada o medida**. Lo que
+faltaba era tinta, y se escribió.
+
+**Cobertura confirmada.** Las **tres familias** catalogadas tienen resultados publicados:
+Grounding DINO (4 variantes, en los 4 niveles), YOLOE (4 tallas en el bench de imágenes y
+**en el plano realtime en vivo** — donde es el único que entra en presupuesto y produjo
+F-RT2) y MM-GDINO (3 variantes en S1, descartada entera). El diseño "un campeón +
+contrastes dirigidos" —en vez de la matriz completa en todos los niveles— **está
+pre-registrado en el doc 62 §2 antes de correr** y declarado en 6 documentos.
+
+**Lo corregido (7 ítems):**
+
+1. **H1 — Licencias de pesos: CERRADO, y la premisa del hallazgo era FALSA.** `informe/99`
+   §6 decía *"los catálogos de modelos no registran licencia"*; los **11 catálogos** sí
+   declaran `license:` y `source:` (el hallazgo se había escrito sin auditar los
+   subdirectorios por familia). Lo que faltaba era el registro: **nueva sección "PESOS DE
+   MODELO" en `license_registry.md`** — GDINO y MM-GDINO **Apache-2.0** (verificado contra
+   el frontmatter de los model cards descargados), YOLOE **AGPL-3.0** (verificado contra la
+   cadena embebida en el `.pt` y el paquete `ultralytics` 8.4.86). Las 3 declaraciones del
+   catálogo **coinciden** con la evidencia independiente. Implicancia AGPL declarada:
+   contraste medido y descartado, sin redistribución (`models/**` gitignoreado), y el
+   import confinado a `yoloe_adapter.py` dentro del extra opcional `gpu`. **Residual, y es
+   del usuario: los repos no tienen `LICENSE` propio** — hay que elegirlo antes de
+   publicar; no bloquea la defensa. ⇒ **`informe/99` §6 queda con C1 como único abierto.**
+2. **H2 — Número muerto en el doc 64.** El hallazgo 4 citaba recall CR-01 **0.292** para
+   `gdino-base-560`, valor **deflactado por el bug de denominador** que el propio doc
+   corrigió bajo la tabla obra; no coincidía con ninguna tabla vigente. Corregido a
+   **0.400** (y 0.541 en el marco BENCH v2).
+3. **H3 — Deriva de la etiqueta "especialista".** Convivían *CR-02/vest*,
+   *CR-02/`bare_head`* (mezcla los ejes: `bare_head` es evidencia de **CR-01**),
+   *CR-01/`bare_head`* y *"especialista en `bare_head`"* a secas. La corrección de dos ejes
+   ya estaba aplicada en `results/`, `98`, síntesis e `informe/97` desde el 08-06, pero **no
+   en los docs fuente**: normalizados **64** (2 lugares), **66** y el **`00-indice`**.
+   **Salvedad nueva y necesaria:** en la tabla BENCH v2 del doc 64 el AP de `bare_head` de
+   base es **PEOR** que el de tiny (0.01–0.03 vs 0.02–0.09); la ventaja aparece con el n
+   grande de `shel5k` (0,399 vs 0,133). **Nunca escribir "el mejor en `bare_head`" citando
+   solo el doc 64.**
+4. **H4 — Ninguna variante 800 px fue a video: ahora está DECLARADO.** No existía la frase;
+   era inferencia. Escrito en doc 64 §Decisiones S2, con corolario en
+   `bench_imagenes/index.md` y **fila propia "no ejecutada CON CAUSA" en la tabla de
+   candidatas del clip bench** — porque la enumeración de "palancas agotadas" no incluía la
+   resolución y ahora dice explícitamente que no la cuenta.
+5. **H5 — YOLOE ausente en video: el argumento cubría solo Nivel B.** Extendido en `101`
+   §1.2 a **Nivel A sobre video** (campaña NA1, que no existía cuando se escribió): YOLOE no
+   produce ninguna de las dos evidencias (`bare_head` AP 0,000, `vest` 0,14–0,18), así que
+   **no hay nada que puntuar** — el denominador queda vacío por construcción.
+6. **H6 — Talla de YOLOE en vivo.** El doc 64 decía *"YOLOE-26m queda como referencia de
+   piso de latencia"* y el rodaje corrió **`yoloe-26x`**. Anotado: el cambio **fortalece**
+   el descarte (se llevó la **mejor** talla, no la más rápida, y aun así 0/3 alertas
+   confiables).
+7. **H7 — Trazabilidad del "Sprint 2 / 5 variantes"** que sostiene E-13 (exclusión de
+   Florence-2 / OWL-ViT / YOLO-World). Ese barrido **no tiene doc en la serie**; el
+   artefacto auditable es **`operacion/31`** — que barre **6** variantes, no 5, y se declara
+   **posterior** a Sprint 2. Anotado en `nucleo/10` E-13: **citar `operacion/31` +
+   `operacion/64`, nunca "Sprint 2" a secas.**
+
+**Bonus (H8):** `bench_imagenes/index.md` nombraba el descarte de MM-GDINO "en dos pasos"
+omitiendo a **`mm-gdino-base`**, que sí se midió, y no tenía fila para **`gdino-base` (800)**.
+Agregada una tabla **"Las 6 configuraciones que NO llegaron a `bench_obra`"** con sus
+números de BENCH v2 y el marco declarado. Lectura que deja: de los 6 descartes, **3 por
+dominancia medida, 2 por defecto técnico verificado y 1 por mediocridad sin eje propio —
+ninguno por no haberse probado.**
+
+**Verificación:** `96`, `109`, `113-provenance --check` y la suite de `datasets`
+(**418 tests**), todo verde. **Nada commiteado.**

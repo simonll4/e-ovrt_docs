@@ -15,12 +15,15 @@
 > - **HISTÓRICO — no leer como pendiente:** todo el **cronograma de §5** (§5.1 "tres
 >   cosas que dependen de vos, esta semana", §5.3 y **§5.4 "Secuencia", que pone
 >   "GRABAR EL BANCO" en la semana 2–3**). Es un plan **pre-rodaje**: el rodaje se
->   ejecutó el **2026-07-25**, el banco quedó en **34 clips con GT humano
->   (`gt_ready`)** y el tramo experimental cerró completo (docs 80/81/83/85–101). El
->   "~11 semanas" del encabezado es del 2026-07-12.
-> - **Para el estado real de hoy:** `operacion/95` (tramo experimental completo),
->   `operacion/97` (plataforma), `operacion/98` (conclusiones) y los cuatro índices de
->   `e-ovrt_experimental-setup/results/`.
+>   ejecutó el **2026-07-25**, el **Bloque A** quedó en **34 clips con GT humano
+>   (`gt_ready`)** (✎ 08-10: el banco VIGENTE es de **47 clips / 37 episodios** — se le
+>   sumó el estrato B del lote de internet, docs 102–113) y el tramo experimental cerró
+>   completo (docs 80/81/83/85–113). El "~11 semanas" del encabezado es del 2026-07-12.
+> - **Para el estado real de hoy:** `sintesis/resultados-y-conclusiones.md` (la
+>   narrativa vigente), `operacion/97` (plataforma), `operacion/98` (conclusiones),
+>   `operacion/113` + `GUIA-CIERRE.md` (qué falta) y los cuatro índices de
+>   `e-ovrt_experimental-setup/results/` (✎ 08-10: *antes esta línea mandaba al
+>   `operacion/95`, superado por su propio banner*).
 
 - **Fecha:** 2026-07-12 · **Defensa:** ~fin de septiembre 2026 (**quedan ~11 semanas**)
 - **Qué es esto:** el resultado de auditar **con hostilidad** todo lo que se generó en el relevamiento del
