@@ -14,8 +14,13 @@
 ## 1. Convenciones de lectura (las reglas de oro)
 
 1. **El número del documento es su identidad** ("doc 04", "doc 56"). Las carpetas
-   agrupan por rol: `nucleo/` 01–12 narrativa, `decisiones/` ADRs, `specs/` serie 40,
+   agrupan por rol: `nucleo/` narrativa, `decisiones/` ADRs, `specs/` serie 40,
    `operacion/` series 30 y 50–101, `informe/` serie 90, `contingencia/` serie 20.
+   **✎ 2026-08-10 — `nucleo/` está partida por vigencia:** en la raíz lo actualizado a
+   lo implementado (`10` + la serie de relevamientos por servicio **`14`–`19`**); en
+   **`nucleo/historicos/`** los docs `01`–`09`, `11` y `12` (ninguno posterior al
+   2026-07-13), **con su número intacto** — una cita "nucleo/04" sigue siendo válida,
+   solo que el archivo vive un nivel más abajo.
    **✎ 2026-08-06 — excepción que muerde:** desde el 90 las series de `operacion/` y
    de `informe/` **colisionan** (existen `operacion/93` ≠ `informe/93`,
    `operacion/95` ≠ `informe/95`, `operacion/92` ≠ `informe/92`…). Al citar un doc
@@ -33,10 +38,15 @@
    (lo *pedido*, no necesariamente lo *construido*). `informe/92` y `operacion/56`
    quedaron **derogados como fuente de números** (2026-08-05).
 4. **Docs de registro histórico** (no describen el presente): 32, 36, 50 (reemplazados
-   en cadena por el 56), y los cuerpos de 33–39 (sus resultados siguen válidos como
-   evidencia de esa fecha).
-5. **Los ADRs no se re-litigan.** Una decisión formalizada (ADR-001…**015**) solo se
+   en cadena por el 56), los cuerpos de 33–39 (sus resultados siguen válidos como
+   evidencia de esa fecha), y **todo `nucleo/historicos/`** (✎ 2026-08-10; su
+   `README.md` dice qué conserva vigencia de cada uno — dos casos especiales: `04` y
+   `12` valen **por** no haberse actualizado, son el pre-registro de D1).
+5. **Los ADRs no se re-litigan.** Una decisión formalizada (ADR-001…**016**) solo se
    revisa con causa registrada. Si un texto propone reabrir una, es un error.
+   **✎ 2026-08-10 — el ejemplo de cómo se hace bien:** ADR-016 reabrió la distribución
+   derogando **puntualmente** ADR-015 §2b/§2c/§6 con causa firmada y ratificando el
+   resto — sucesión explícita, nunca enmienda tácita.
    ADR-015 además **cierra la puerta**: ninguna capacidad nueva hasta la defensa.
 6. **Ninguna cifra sin artefacto.** Todo número citable tiene su `metrics.json` (o
    artefacto equivalente) referenciado desde los 4 índices de
@@ -107,7 +117,7 @@ sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 | **A1…A5** | Los cinco argumentos de defensa de OVD del doc 09 (con videos V1–V4). **No confundir con AF-x** (fila siguiente). |
 | **AF-1…AF-11** | Las once **afirmaciones** de la escala de conclusiones transversales (`operacion/98` §2), cada una con su fuerza declarada (establecida / direccional / tendencia / no cerrada / limitación). Prefijo **AF** justamente para no colisionar con los argumentos A1–A5 del doc 09. |
 | **L1…L8 (limitaciones)** | La lista canónica de **limitaciones declaradas** del trabajo, cerrada el 2026-08-05; la referencia es `e-ovrt_experimental-setup/results/index.md` §Limitaciones. **Colisión a evitar:** la **Fase L** del plan maestro (doc 62) usa `L0`/`L1` para sus *hitos* (L0 = ensayo pre-rodaje, L1 = el rodaje). Al citar, escribir **"limitación L1"** para la lista y **"hito L1" / "el rodaje"** para la fase — nunca `L1` a secas. |
-| **ADR-NNN (dos series)** | Architecture Decision Record. Hay **dos series que se confunden**: **`ADR-001…015`** del proyecto (3 dígitos, en `docs/decisiones/`; cerrados — ver README de la carpeta y su companion `estado-de-implementacion-adrs.md`) y **`ADR-0001…0013`** internos del control-plane (4 dígitos, en `e-ovrt_control-plane/docs/decisions/`; el 0005 no existe). Se solapan en tema con número distinto (p. ej. aplicabilidad = ADR-006 del proyecto vs ADR-0006 del control-plane). **Al citar, decir siempre la serie** ("ADR-0003 del control-plane"). |
+| **ADR-NNN (dos series)** | Architecture Decision Record. Hay **dos series que se confunden**: **`ADR-001…016`** del proyecto (3 dígitos, en `docs/decisiones/`; cerrados — ver README de la carpeta y su companion `estado-de-implementacion-adrs.md`) y **`ADR-0001…0013`** internos del control-plane (4 dígitos, en `e-ovrt_control-plane/docs/decisions/`; el 0005 no existe). Se solapan en tema con número distinto (p. ej. aplicabilidad = ADR-006 del proyecto vs ADR-0006 del control-plane). **Al citar, decir siempre la serie** ("ADR-0003 del control-plane"). |
 | **DA-01…DA-13** | Las **decisiones arquitectónicas iniciales** del capítulo de diseño del informe (§17.3.3.4, tabla completa en el doc 90). Las que más citan los ADRs: **DA-01** separar plano de medios y plano de control; **DA-02** publicar la evidencia perceptiva como eventos normalizados; **DA-03** diferenciar el canal de eventos del repositorio persistente (⇒ el JSONL del plano es la fuente de verdad); **DA-10** priorizar DBE antes de EBE; **DA-13** registrar la alerta interna antes de cualquier notificación externa. |
 | **specs serie 40** | Los specs de Etapa 4 por módulo: 40 plataforma (normativa transversal), 41 control-plane, 42 media-plane, 43 clip bench/GT temporal, 44 experimental-setup, 45 distribución MQTT (para lo último). Escritos sin alternativas a partir de los ADRs. |
 | **superpowers** | Metodología de trabajo con specs/planes/revisiones que usó Claude para implementar; sus artefactos viven en `docs/superpowers/` o `docs/_archive/superpowers/` de cada repo de código. No confundir con este repo `docs/`. |

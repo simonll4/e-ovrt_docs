@@ -1,5 +1,20 @@
 # ADR-015 — Cierre de alcance al final del tramo experimental: el alcance creció, y se registra
 
+> **✎ 2026-08-10 — PARCIALMENTE DEROGADO por [ADR-016](adr-016-reapertura-acotada-distribucion.md).**
+> **Caen §2b** (ninguna capacidad nueva), **§2c** (la distribución MQTT declarada no
+> implementada y no reabierta) **y §6** (criterio de invalidación). El usuario decidió
+> construir el módulo de distribución para cerrar la arquitectura de la plataforma; ADR-016
+> lo autoriza con el recorte exacto de ADR-005 y vuelve a cerrar la puerta detrás.
+>
+> **SIGUEN VIGENTES Y RATIFICADOS: §2a, §3, §4 y §5** — la tabla del alcance que creció
+> (E-03/E-04/E-07/E-13) y **la lista de límites que reemplaza a R-13, con las limitaciones
+> L1–L8**, que son la fuente de la sección de límites del informe. Citar §3 de este
+> documento sigue siendo correcto.
+>
+> Lo único que cambia en §3 es la fila *"Distribución no implementada"*: deja de ser
+> exclusión cerrada y pasa a **trabajo comprometido**, con su estado al momento de la
+> entrega (ADR-016 §5).
+
 > **✅ ACEPTADA por el usuario el 2026-08-05.** Los cambios que este ADR mandaba ya se
 > aplicaron al doc 10: el **ítem 10** de la lista de alcance (G1 dejó de decir
 > "demostrativa … en 2–3 clips") y las filas **E-03 / E-04 / E-07 / E-13** de la tabla de
@@ -88,7 +103,7 @@ resolvieron**:
 | Ítem original de R-13 | Estado real al cierre |
 |---|---|
 | Sin productor de `track_id` | **RESUELTO / cambió de forma.** G1 es capacidad operativa config-driven y el tracker vive en el control-plane; no hace falta productor en el media-plane (ADR-002 adenda) |
-| Distribución no implementada | **SIGUE** — ahora como exclusión ejercida y cerrada, no como deuda (§2c) |
+| Distribución no implementada | ✎ **2026-08-10 (ADR-016): SIGUE sin implementar, pero como TRABAJO COMPROMETIDO**, no como exclusión cerrada. Se reporta con su estado al momento de la entrega. *Decía "exclusión ejercida y cerrada, no como deuda (§2c)"* — §2c fue derogada |
 | Evaluadores de D1 pendientes | **RESUELTO.** D1 corrió (doc 85): E-DIR descartada por **veto de precisión** (0,146 < 0,5) |
 | GT preliminar | **RESUELTO para el banco.** Los 34 clips están `gt_ready` (CVAT humano + 6 bordes adjudicados con firma). **Sigue** para los 14 clips del lote de internet |
 | Brecha de sincronización en EBE-desde-clip | **SIGUE**, y se precisa: falta el ancla wallclock↔media **como ingeniería de campaña** (doc 101 §3). El ancla *puntual* sí se cerró con reloj externo (doc 101 §5.4, las 4 patas) |
@@ -120,7 +135,7 @@ está en `e-ovrt_experimental-setup/results/index.md` §Limitaciones declaradas.
   (corregido de color y estabilizado por el autor) y las caras se difuminan si un frame va
   como figura. La velocidad real está verificada, así que las métricas temporales aplican.
 
-La lista consolidada y etiquetada está en `informe/99-materiales-de-cierre.md` §4.1.
+La lista consolidada y etiquetada está en `informe/ajustes/gobierno/99-materiales-de-cierre.md` §4.1.
 
 ## 4. Fundamento
 
@@ -173,5 +188,5 @@ ADR-015 y la dependencia de R-13/R-21) · doc 93 R-13 y R-21 · ADR-002 + su ade
 (campaña G1) · doc 85 (D1, veto de precisión) · doc 87 (E-HYB-or refutada) · doc 101 §3
 y §5.4/§5.5 (ancla y F-101.8) · doc 58 enmienda A4 (matching bipartito) · doc 100
 (camino de fine-tuning) · `operacion/99` (registry de datasets al día) ·
-`operacion/98` §6 (limitaciones) · `informe/99-materiales-de-cierre.md` §4
+`operacion/98` §6 (limitaciones) · `informe/ajustes/gobierno/99-materiales-de-cierre.md` §4
 (limitaciones y ADRs) · spec 43 §7 (marco legal del material de video).

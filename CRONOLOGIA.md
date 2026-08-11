@@ -16,6 +16,85 @@
 
 ---
 
+## 2026-08-10/11 — ADR-016 (distribución reabierta) + serie de relevamientos 14–19 + `nucleo/` partida por vigencia
+
+**El disparador:** el usuario encontró que `nucleo/01` §10 citaba como "pendientes" cinco
+ítems superados desde el 2026-07-29 — el relevamiento del control-plane era una foto del
+07-06 con **siete de once secciones vencidas** (la peor trampa: §8 daba como vigente el
+pattern set `v1`, deprecado por F-DR9). Auditado el set: `nucleo/11` (media-plane) estaba
+igual, y tres decisiones ya escritas eran inencontrables (la regla de archivado de
+`_archived/README.md`, la frontera de ADR-011, el "sube a Drive a mano" de
+`datasets-videos/README.md`) — el síntoma que la serie nueva viene a curar.
+
+**Tres frentes ejecutados:**
+
+1. **ADR-016 — reapertura acotada de la distribución.** El usuario decidió implementar el
+   módulo de distribución **antes de la defensa** para cerrar la arquitectura (dónde vive
+   el ciclo de vida de la alerta: cooldown, re-notificación, supresión). Colisionaba con
+   ADR-015 §2c/§6; ADR-016 deroga **puntualmente** §2b/§2c/§6 y ratifica §2a/§3/§4/§5
+   (la lista L1–L8 se sigue citando desde ahí). E-06 sigue excluida; **no bloquea el
+   informe** (si el módulo no llega, se declara como estaba). Propagado a 9 lugares
+   (ADR-005/015, README y estado de decisiones, `nucleo/10`, `informe/99`,
+   `GUIA-REDACTORES`).
+2. **Serie `nucleo/14–19`** — relevamientos por servicio, **contra git y código** (suites
+   corridas: control 312 · media 641 · datasets 418 · BFF 586), **cero cifras de
+   resultado** (las cifras siguen en `results/`; capacidades en `operacion/97`). `14`
+   mapa de la cadena · `15` setup · `16` datasets · `17` media (reemplaza al 11) · `18`
+   control (reemplaza al 01) · `19` **cierre de la arquitectura: el ciclo de vida de la
+   alerta** (consolida 06/ADR-005/ADR-011/spec 45/92b; deja anotado el desfase
+   `confirmed_at_ms` que el implementador va a chocar).
+3. **`nucleo/` partida por vigencia** (criterio del usuario: histórico = todo lo no
+   actualizado a lo implementado): raíz = `10` + `14`–`19`; **`nucleo/historicos/`** =
+   `01`–`09`, `11`, `12` (ninguno posterior al 07-13), con banner cada uno y `README.md`
+   con punteros. `04`/`12` marcados **"no se toca"** (pre-registro de D1, valen por no
+   actualizarse). **Hallazgo:** `09` (los argumentos A1–A5 de la defensa) quedó histórico
+   por el criterio — no incorpora los números medidos después (A1 se midió en
+   `operacion/94`); amerita sucesor. 25 rutas reescritas, enlaces verificados (73/73),
+   verificadores 96 y 109 **verdes** (el 96 ajustado para buscar también en
+   `historicos/`). De paso: 4 enlaces rotos preexistentes de la reorg de `informe/`
+   corregidos.
+
+**Relevamiento de consistencia de `informe/` (2026-08-11, tras ADR-016):** los siete docs
+de `informe/ajustes/` se pusieron al día con el estatuto nuevo de la distribución — AJ-0.01,
+el §5 del `03`, AJ-4.01/4.11 del `04` y AJ-6.04/6.05 del `06` dejaron de citar ADR-015 §2c
+(derogada) y dicen **trabajo comprometido con estado a la entrega**; en el `06`, la
+distribución **salió del trabajo futuro** (queda E-06). Se reparó además lo que la jornada
+de ADR-016 dejó a medio propagar: el **encabezado del `92b`** (todavía decía "coherente con
+ADR-015… no ejercida"), el rango de serie **`ADR-001…016`** en seis lugares (mapa AJ-0.02,
+`99` §4.2 y §6, `98` §2 ×2, glosario 13), el "15 ADRs" del `98` §1 y del índice (fila del 99
+y §decisiones), e insumos nuevos en el `04` (`nucleo/14`–`19`). Verificación: 0 links rotos
+en `informe/` completo, IDs `AJ-` 7+16+12+12+12+5 sin duplicados, verificadores 96/109
+verdes. **Kit refrescado**: 36 copias re-sincronizadas + 7 agregadas (`adr-016`,
+`nucleo-14…19`) — nivel1 55 / nivel2 17 / nivel3 21.
+
+**Crítica de extensión del informe (2026-08-11, pedido del usuario):** nuevo
+`informe/ajustes/07-critica-extension-y-poda.md` — no existía nada que midiera longitud
+(el 93 audita corrección, el 95 sacrificaba redlines contra tiempo). Medición por sección
+(`wc -w` por encabezado sobre los extractos): **~126.800 palabras escritas** con
+§17.4/17.5/17.6 aún vacías. Titular: **21.260 palabras (17%) cubren DOS VECES los dos
+temas menos alineados** — MOT (§15.3 2.484 + §16.4 2.769, con E-10 excluyendo las
+métricas) y streaming/arquitecturas/borde (§15.4 7.998 + §16.5.3–5 8.009, con la decisión
+colapsada a RTSP+ZeroMQ y EN-3 excluida). Otros hallazgos: §16.7 = 4.429 de meta-texto ·
+§17.1.6.2 = 5.054 de catálogo de datasets pre-`bench_v3` (se poda junto con R-24) ·
+§16.5.2 duplica el framework de métricas de §17.1.7. **18 podas `PODA-nn`** (serie
+verificada libre) con casilla de decisión, 5 criterios, **ahorro ~34.900 (~27%)**, orden
+recomendado (los 8 🔴 = 65% del ahorro) y 6 guardrails (16.2/16.3/17.1.5/17.1.7 intactas;
+lo pre-registrado no ejercido se comprime a decisión declarada, no se borra). Cableada en
+mapa (§1/§2), índices, GUIA-REDACTORES y kit.
+
+**Auditoría de material (mismo tramo):** clasificador de runs contra-verificado (4
+pasadas hasta converger): 670 runs, 434 citados, **236 no citados = solo 0,26 GiB**, cero
+huérfanos. Lo pesado está todo gitignoreado — lo que recibe quien clona son ~17.600
+archivos versionados (354 MB). `scripts/` (5,7 G, raíz del workspace) confirmado huérfano
+del intento inicial de descarga (0 de 16 IDs citados). El respaldo del material
+irremplazable (`datasets-videos/`, 8,4 G) a Drive **lo maneja el usuario** (carpeta
+privada, sin link público — de eso depende el "sin redistribución" del informe). Queda
+del usuario: C1 (URLs de los 18 `clip.yaml` — no reconstruible desde disco) y la decisión
+sobre la vista YOLO (6.338 archivos, sostiene el argumento de E-04). Spec del tramo:
+`herramientas/2026-08-10-relevamientos-por-servicio-design.md`.
+
+---
+
 ## 2026-08-10 — kit de redacción reparado para externos + reorganización del set
 
 **Contexto que cambió el requisito:** el informe lo redactan los otros dos integrantes
@@ -72,6 +151,54 @@ previa: verificadores 96 y 109 corridos en verde):
   se reescribió la historia** y es decisión deliberada: recuperaría solo 13,4 MB y
   cambiaría todos los hashes de commit, y hay **5 citas de hashes del repo `docs/`** en
   la propia documentación (`571652c` baseline, `924f972`, `a256250`).
+
+**Tercera pasada — `informe/` partida en dos, y los ajustes ordenados por etapa.** Hasta
+acá los ajustes al informe estaban dispersos: el `93` cubría **solo la Etapa 3** (26
+redlines), los de Etapa 2 vivían en `nucleo/08` §2, los de Etapa 1 en
+`sintesis/resultados-y-conclusiones.md` §7, y los de Etapa 5 en `informe/99` §1. **Nadie
+tenía la lista completa, y nadie había mirado las etapas 4 y 5 como frente propio.**
+
+- **La carpeta se partió en `entregable/` y `ajustes/`.** Los 17 archivos se movieron con
+  `git mv`; **ningún número cambió** (se sigue citando "el doc 93", "informe/99"), y las
+  ~30 referencias por ruta completa se corrigieron en `00-indice.md`, `GUIA-REDACTORES.md`,
+  `adr-015`, `operacion/92`, el `97`, el `91` y `results/index.md`. No había ningún link
+  markdown apuntando a esas rutas (verificado), así que no quedó nada roto.
+- **Hallazgo que ordenó todo el diseño:** cada etapa tiene una **sección exacta** del
+  informe, y **§17.4, §17.5 y §17.6 están literalmente vacías**
+  (`[Agregado futuro correspondiente a la Etapa 4/5/6]` en el `96e`). Eso parte el trabajo
+  en dos naturalezas distintas: etapas 1–3 son **corrección de texto existente**, etapas
+  4–5 son **redacción desde cero** — y son el camino crítico.
+- **Las etapas son seis, y se verificaron contra el Gantt.** Hubo un ida y vuelta: se
+  planteó que eran cinco (con "conclusiones" como última), y **la verificación lo resolvió**
+  — se extrajo `word/media/image5.jpg` del `.docx` y el **Gantt de la Figura 1 muestra seis
+  tareas con sus fechas**, coincidiendo 1:1 con §14.2.1–14.2.6 (y con el §14.3, que dice
+  textualmente *"las seis etapas descritas"*). El mapa quedó ordenado por las seis, con la
+  tabla del Gantt como lista canónica. **Detalle que conviene recordar: el Gantt numera las
+  tareas 0–5 y el §14.2 numera las etapas 1–6** — misma secuencia corrida en uno; en el set
+  se usa siempre la del §14.2.
+- **`AJ-0.06` nuevo:** **el informe está ordenado por sección y casi no menciona las
+  etapas**, así que el lector no puede mapear el plan de trabajo (§14) con el desarrollo del
+  producto (§17). Hay que meterle la tabla de correspondencia.
+- **El Gantt aportó un ajuste propio (`AJ-0.03`, ERRATA):** sus fechas están vencidas —
+  implementación MVP 20/03/26–29/05/26 y documentación/defensa 17/07/26–**21/08/26**,
+  cuando la implementación siguió hasta agosto, el tramo experimental cerró el 08-09 y la
+  defensa es ~fin de septiembre.
+- **7 documentos nuevos**: el `00-mapa-de-ajustes.md` (maestro) y uno por etapa (`01`–`06`).
+  Total relevado: **90 ajustes — 11 🔴 / 43 🟠 / 36 🟡-🟢**, con serie nueva `AJ-<etapa>.<nn>`
+  (prefijo elegido por estar libre y no chocar con `A1–A5`, `AF-1…AF-11`, `L1–L8`, `E-01…`
+  ni `T-68…T-84`). **`R-01…R-26` de Etapa 3 no se renumera**: se enruta.
+- **Dos huecos de relevamiento que aparecieron al hacer el mapa**, y quedaron declarados
+  como tales en vez de tapados: **`AJ-1.16`** — el **§16 Marco Teórico nunca se relevó**
+  contra el estado actual del proyecto (todo el pase de Etapa 1 fue sobre el §15 y el
+  Anexo A); y **`AJ-0.04`** — los **costos** (§17.2/§14.4) no se contrastaron nunca contra
+  lo efectivamente gastado.
+- **Categoría nueva de ajuste: 🚫 NO-TOCAR** — cinco cosas que *parecen* errores y
+  corregirlas empeora el informe (la más traicionera: los nombres de métrica que aparecen
+  vacíos en §17.1.7 y Tabla 33 **no** son una errata, son objetos de ecuación de Word que
+  la extracción XML no captura).
+- **Kit**: se sincronizaron las copias afectadas y se sumaron los 6 documentos nuevos al
+  Nivel 1 (`informe/98` §1 actualizado con las rutas nuevas y con el aviso de que los
+  nombres aplanados no cambian).
 
 ---
 

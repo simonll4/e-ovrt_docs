@@ -20,7 +20,7 @@
 | 002 | El patrón se evalúa **por escena (G0)**, sin identidad de personas; el modo por-sujeto (G1) es capacidad operativa medida (adenda 08-04 + ADR-015) | **G0 implementado y verificado** (gate F1=1.0); **G1 implementado y medido** (✎ 2026-08-06; *decía "no portado (deuda)"*): decorador de fuente en el control-plane, F1 0,930 en 34 clips — ver §1 (RESUELTO 2026-08-04) |
 | 003 | El acople live media→control es **bus ZeroMQ PUB/SUB + msgpack**, broker diferido | **Implementado y demostrado** (paridad byte-idéntica replay↔stream) |
 | 004 | La corrida experimental es un **manifiesto paraguas** con `experiment_id` propagado, orquestada por un runner HTTP | **Implementado** (runner + manifiesto + propagación a ambos planos) |
-| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **NO implementado — exclusión ejercida y cerrada** (✎ 2026-08-06, ADR-015 §2c; *decía "diferido para lo último"*): el condicional quedó resuelto en **no** y no se reabre antes de la defensa; solo existe la frontera de salida (`control.alert.v1`) |
+| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **NO implementado — implementación COMPROMETIDA** (✎ 2026-08-10, ADR-016; *decía "exclusión ejercida y cerrada" por ADR-015 §2c*): el condicional quedó resuelto en **sí**, con el recorte de ADR-005 y nada más, para cerrar la arquitectura. Hoy solo existe la frontera de salida (`control.alert.v1`); el repo hermano es esqueleto sin commits |
 | 006 | El reporte consolidado junta ambos planos por `experiment_id` y **cada métrica declara su aplicabilidad** con causa | **Implementado** (report.json/md + estados en todos los evaluadores) |
 | 007 | En vivo, la corrida del control-plane es **1:1** con el run del media-plane y cierra por `run_finished` | **Implementado y verificado E2E** |
 | 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) |
@@ -30,7 +30,8 @@
 | 012 | Bajo G0 la memoria de cobertura EPP **se ignora con causa declarada** (la histéresis subsume el parpadeo) | **Implementado y FALSACIÓN SUPERADA** (los dos tests condición-de-merge pasaron) |
 | 013 | La plataforma **detecta la temporalidad de la fuente** y declara sola la no-aplicabilidad de métricas temporales | **Implementado con evidencia medida** (137 eventos / 0 alertas sobre imágenes) |
 | 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementado** (consolidación + reporte); "sellado" opt-in sin ejercitar |
-| **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados** |
+| **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados**. ✎ **2026-08-10: §2b/§2c/§6 DEROGADOS por ADR-016**; §2a/§3/§4/§5 vigentes (la lista L1–L8 se sigue citando desde §3) |
+| **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre | **Aceptada (usuario, 2026-08-10)**. No es un ADR de implementación todavía: autoriza y acota. El cierre arquitectónico lo entrega `nucleo/19` con independencia del código; si el módulo no llega a tiempo se declara como estaba |
 
 ## 1. Detalle por ADR
 
@@ -125,19 +126,23 @@
 - **Decisión:** el módulo de distribución se recorta a un canal demo MQTT con ledger
   de idempotencia, en un **repo hermano propio**, consumiendo las alertas confirmadas
   por bus.
-- **Cómo quedó:** **NO implementado — exclusión ejercida y cerrada** (✎ 2026-08-06,
-  ADR-015 §2c; *decía "su ejecución quedó para lo último"*): el condicional "¿MQTT sí
-  o no?" se resolvió en **no** y no se reabre antes de la defensa; el informe lo
-  declara como exclusión con causa, no como deuda. El spec 45 queda escrito como
-  diseño. Lo único construido es la **frontera de salida** del control-plane que un
-  módulo futuro consumiría: el publisher `control.alert.v1`
+- **Cómo quedó:** **NO implementado — implementación COMPROMETIDA** (✎ 2026-08-10,
+  ADR-016; *decía "exclusión ejercida y cerrada" por ADR-015 §2c entre el 08-05 y el
+  08-10, y antes "su ejecución quedó para lo último"*). El condicional "¿MQTT sí o no?"
+  quedó resuelto en **sí**, con el recorte exacto de ADR-005 y nada más: el motivo es
+  **cerrar la arquitectura** de la plataforma, no una necesidad funcional. Lo único
+  construido es la **frontera de salida** del control-plane que el módulo consumirá: el
+  publisher `control.alert.v1`
   (`e-ovrt_control-plane/src/eovrt_control/transport/alert_bus.py`, XPUB,
-  persiste-primero, apagado por default) — doc 51. Existe además un repo hermano
-  scaffoldeado (`e-ovrt_alert-distribution/`, 2026-07-18): **esqueleto sin lógica ni
-  commits** (paquetes vacíos + spec de diseño), se declara para que no aparezca solo.
-- **Pendiente:** ninguno — el módulo (repo, canal MQTT, `NotificationEnvelope`,
-  ledger, vista en consola) queda **fuera del alcance** por ADR-015 §2c. No bloquea
-  al clip bench (ADR-010).
+  persiste-primero, apagado por default) — doc 51. El repo hermano
+  (`e-ovrt_alert-distribution/`, 2026-07-18) sigue siendo **esqueleto sin lógica ni
+  commits**: `src/eovrt_distribution/` son paquetes vacíos (`contracts/`, `channels/`,
+  `transport/`) y `tests/` solo tiene `conftest.py`; lo real es el spec de diseño.
+- **Pendiente:** **el módulo completo** — canal MQTT, `NotificationEnvelope`, ledger de
+  idempotencia, retry mínimo y vista en la webconsole existente (spec 45). **E-06
+  (canales extra + dashboard) sigue excluida.** No bloquea al clip bench (ADR-010) **ni
+  a la redacción del informe** (ADR-016 §2c: el cierre arquitectónico lo entrega
+  `nucleo/19`); si no llega a tiempo, se declara como estaba (ADR-016 §2d).
 
 ### ADR-006 — Reporte consolidado y aplicabilidad de métricas
 
@@ -276,13 +281,19 @@
   corrida real (sin evidencia de uso; verificar su cableado cuando se archive el
   primer experimento definitivo).
 
-### ADR-015 — Cierre de alcance al final del tramo experimental (✅ Aceptada 2026-08-05)
+### ADR-015 — Cierre de alcance al final del tramo experimental (✅ Aceptada 2026-08-05, ✎ parcialmente derogada 2026-08-10)
+
+> **✎ 2026-08-10 — ADR-016 deroga §2b, §2c y §6.** Lo que sigue abajo describe el ADR
+> como fue aceptado el 08-05. **Sus §2a, §3, §4 y §5 siguen vigentes y ratificados** (la
+> tabla del alcance que creció y la lista de límites L1–L8 que reemplaza a R-13). Lo que
+> cayó es el cierre de puerta y la declaración de MQTT como no implementada.
 
 - **Decisión:** registrar que el alcance **creció** respecto del doc 10 en E-03 (G1 pasa
   de demostrativa a capacidad operativa medida), E-07 (OAK-D + EN-2, parcial) y E-13
   (E-HYB-or ejecutada y refutada; `hyb_and` no ejecutada con causa); **cerrar la puerta**
   (ninguna capacidad nueva de acá a la defensa) y declarar la distribución MQTT como NO
-  implementada, resolviendo el condicional del ADR-005.
+  implementada, resolviendo el condicional del ADR-005. ✎ **Estas dos últimas cláusulas
+  (§2b y §2c) fueron derogadas por ADR-016 el 2026-08-10.**
 - **Cómo quedó:** **es el único ADR que no describe implementación** — no toca código ni
   cambia una sola cifra medida. Reordena qué se declara como alcance y qué como límite.
 - **Por qué existe:** el doc 95 §5.1 lo pidió como *"recorte final de alcance"* porque los
@@ -307,7 +318,7 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | **Rol de la webconsole** | 004 ("muestra") → 008 ("cliente de ambos planos") → **009 (rige: superficie de gestión primaria)** | Consola = gestión primaria (configs, prompts, cámaras, runs, experimentos); runner CLI = camino headless con las mismas APIs |
 | **Config** | 004 (manifiesto referencia) + **009 (rige: centralizada en experimental-setup)** | Config experimental centralizada, entregada por payload, `effective_config` persistido por cada plano |
 | **Artefactos/resultados** | 004 (`experiment_id`) + 006 (reporte) + **014 (rige: layout híbrido selectivo)** | Consolidado liviano + crudos referenciados; reporte con estados de aplicabilidad |
-| **Alertas y su política** | **011 (rige: motor emite todo)** + 005 (la política vive en distribución, no implementada) | Sin cooldown en plataforma; `re_alerts` contadas, no penalizadas |
+| **Alertas y su política** | **011 (rige: motor emite todo)** + 005/**016** (la política vive en distribución; módulo comprometido, aún no implementado) | Sin cooldown en plataforma; `re_alerts` contadas, no penalizadas |
 | **Qué mide cada corrida** | 006 (vocabulario de aplicabilidad) + **013 (rige: por temporalidad de fuente)** + 012 (causa específica de G0) | La plataforma declara sola qué aplica, con causa, sin rechazar corridas |
 
 ## 3. Condicionales de los ADRs: resolución registrada
@@ -317,6 +328,6 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | 001 | "el cierre definitivo lo da el experimento D1" | ✎ **RESUELTO (corregido 2026-08-05; esta fila decía "sigue abierto")**: el acta se firmó el 2026-07-29 (doc 76 — `edir_v1` `a1278d0c…` y `eind_v1` `7a0126f4…` congelados con sha256) y **D1 corrió en los dos niveles**: Nivel A pasó el gate parcialmente (doc 83) y **Nivel B descartó E-DIR por veto de precisión** (0,146 < 0,5 — doc 85). El encuadre E-IND queda confirmado con número, no por defecto |
 | 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) |
 | 007 | ventanas de evaluación propias "trabajo futuro" | No hicieron falta: la evaluación temporal v2 (doc 52) cubre el caso |
-| 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: NO (ADR-015 §2c, 2026-08-05; fila agregada 2026-08-06)** — se declara **no implementada** en el informe como exclusión ejercida con causa, y no se reabre antes de la defensa. Construida solo la frontera `control.alert.v1` |
+| 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: SÍ (ADR-016, 2026-08-10)** — se implementa con el recorte exacto de ADR-005 y nada más (E-06 sigue excluida), para **cerrar la arquitectura**. *Entre el 08-05 y el 08-10 estuvo resuelto en NO por ADR-015 §2c, cláusula hoy derogada.* Construida a la fecha solo la frontera `control.alert.v1`; **no bloquea la redacción** (ADR-016 §2c/§2d) |
 | 012 | "sujeta a falsación por test" | **Falsación superada** (doc 34); la reversión no se activó |
 | 002/008/009 | recortes "si la agenda aprieta" (G1-demo, cáscara HTTP, mejora UX) | Ninguno se ejerció; al revés: servicio y UX se ampliaron. (✎ 2026-08-06; *decía "G1 sigue sin portar pero por orden de prioridad"*): G1 terminó **implementada y medida** — decorador en el control-plane, F1 0,930 en 34 clips (adenda ADR-002 ratificada + ADR-015 E-03) |

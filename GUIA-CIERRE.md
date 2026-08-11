@@ -287,8 +287,8 @@ leer las 8 frases, ajustar si alguna te parece débil, y aprobar — con eso se 
 La revisión tuya es requisito metodológico (doc 07 D1.6: mitigación del sesgo del auditor),
 no una formalidad. No bloquea nada más — las Fases T y P corren sin esto.
 
-**Detalle completo:** `docs/nucleo/12-diseno-prompts-y-fusion-ehyb.md` §2.2 (construcción y
-reglas) y `docs/nucleo/04-diseno-comparativo-estrategias-edir-eind.md` §8 (criterios de
+**Detalle completo:** `docs/nucleo/historicos/12-diseno-prompts-y-fusion-ehyb.md` §2.2 (construcción y
+reglas) y `docs/nucleo/historicos/04-diseno-comparativo-estrategias-edir-eind.md` §8 (criterios de
 decisión pre-registrados).
 
 ---

@@ -22,7 +22,7 @@
 | 3 | `specs/README.md` | La cola y el orden de ejecución. |
 | 4 | `specs/40-plataforma-etapa4-integrador.md` | **Normativa transversal**: envelope del bus, `experiment_id`, criterio de relojes, diccionario de métricas (incl. §5.2, `t_capture→alert`). Todo lo demás lo cita. |
 | 5 | `specs/41-control-plane.md` | El spec que se implementa primero. |
-| 6 | `nucleo/01-relevamiento-control-plane.md` §12 | Qué hizo la rama `mati` (motor mejorado + labs). |
+| 6 | `nucleo/historicos/01-relevamiento-control-plane.md` §12 | Qué hizo la rama `mati` (motor mejorado + labs). |
 
 Lectura opcional según toque: `specs/42` (media-plane), `nucleo/05` (diseño del
 bus), `nucleo/12` (prompts y fusión E-HYB, para cuando toque el evaluador D1).

@@ -43,6 +43,27 @@ fracaso del proyecto: es el dato. **El contraste entre filas ES el experimento.*
 | **control-plane** | Consume detecciones y decide si hay que **alertar**, aplicando una ventana temporal (no alerta con un solo frame: exige que la condición persista) |
 | **experimental-setup** | La consola web y el runner de experimentos; también guarda los **resultados** |
 
+> **Hay un cuarto repo, y NO es una cuarta pieza.** `e-ovrt_alert-distribution`
+> (distribución de alertas confirmadas por MQTT, **§17.3.10**) está **diseñado y
+> especificado pero no implementado**. En disco es un esqueleto de paquetes vacíos, sin
+> lógica y **sin un solo commit**. **Ninguna cifra del informe sale de él.** Se redacta
+> desde `docs/informe/92b` *describiendo el diseño y declarando el estado* — nunca en
+> presente como si funcionara, aunque el 92b esté escrito en presente (es un documento de
+> diseño).
+>
+> ✎ **2026-08-10 — cambió su ESTATUTO, no su estado.** Hasta el 08-10 era *exclusión
+> ejercida y cerrada* (ADR-015 §2c). **[ADR-016](decisiones/adr-016-reapertura-acotada-distribucion.md)
+> derogó esa cláusula**: ahora es **trabajo comprometido**, con el recorte exacto de
+> ADR-005 (E-06 sigue excluida). Para quien redacta cambia una sola cosa: **no se declara
+> como algo que se decidió no hacer, sino como módulo en alcance con su estado al momento
+> de la entrega.** Sigue sin implementarse y sigue sin aportar una sola cifra. El cierre
+> **arquitectónico** —dónde vive el ciclo de vida de la alerta y sus políticas de
+> notificación— lo da `nucleo/19`, no el código.
+> Lo único construido de ese tramo es la **frontera de salida** que un módulo futuro
+> consumiría: el publisher `control.alert.v1` del control-plane, apagado por default.
+> Corolario: §17.3.10 **no tiene figuras ni tablas** en `informe/99` §1, y eso es
+> correcto — no hay nada medido que mostrar.
+
 ### Dos escenarios de despliegue
 
 - **DBE** — todo en un host, sobre archivos de video. Es el modo con el que se midió casi
@@ -75,6 +96,19 @@ plataforma y no solo el modelo.
    **AF-1…AF-11**: qué se afirma y **con qué fuerza**.
 5. **`e-ovrt_experimental-setup/results/index.md`** y sus cuatro índices — **la única
    fuente de cifras**. Cada tabla de ahí tiene su artefacto en disco.
+
+Cuando ya entendiste el trabajo y vas a **escribir**, el sexto paso es
+**`docs/informe/ajustes/00-mapa-de-ajustes.md`**: te dice, etapa por etapa (1 → 6), qué hay
+que corregir del texto que ya existe y qué hay que escribir desde cero. **Tres secciones del
+informe están vacías —§17.4 Implementación, §17.5 Evaluación y §17.6 Cierre—**, y ese mapa
+es el que dice qué va en cada una y de dónde sale.
+
+> **Las etapas son seis, y son la guía de desarrollo del proyecto** (Gantt del §14.3 =
+> §14.2): 1 investigación bibliográfica · 2 análisis metodológico · 3 diseño arquitectónico ·
+> 4 implementación MVP · 5 evaluación y validación · 6 documentación y defensa. **El informe
+> está ordenado por sección, no por etapa**, así que la correspondencia etapa → sección la
+> tenés en el §0 del mapa. Ojo con un detalle: **el Gantt numera las tareas 0–5 y el §14.2
+> numera las etapas 1–6** — misma secuencia, corrida en uno.
 
 Recién después, y solo si necesitás el detalle de un experimento puntual, vas al documento
 de `docs/operacion/NN` que la síntesis te indique.
@@ -172,12 +206,15 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/92b-concrecion-distribucion-alertas.md` — diseño completo. **Ojo: está diseñado y especificado, no implementado** (ADR-015): se redacta describiendo el diseño y declarando el estado |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño completo, y **`nucleo/19`** para el ciclo de vida de la alerta y sus fronteras. **Ojo: está diseñado y especificado, no implementado** — ✎ 2026-08-10 se redacta como **trabajo comprometido** (ADR-016), no como exclusión cerrada; describiendo el diseño y declarando el estado |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
-| Qué figura/tabla va en cada sección | `docs/informe/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
-| Qué hay que corregir del informe actual | `docs/informe/93` — los **26 redlines** (R-01…R-26) |
-| Texto ya redactado para adaptar | `docs/informe/94` |
+| Qué figura/tabla va en cada sección | `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
+| **Qué hay que cambiarle al informe, etapa por etapa** | ✎ **`docs/informe/ajustes/00-mapa-de-ajustes.md`** — el mapa de Etapa 1 a Etapa 6, con un documento por etapa (`01`…`06`). **Empezá por acá y no por el 93**: el 93 cubre solo la Etapa 3 |
+| Qué hay que corregir del **§17.3** (Etapa 3) | `docs/informe/93` — los **26 redlines** (R-01…R-26). Enrutados desde `informe/ajustes/03-etapa-3-diseno-arquitectonico.md` |
+| Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe. Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
+| Qué **recortar** del informe (está muy extenso) | ✎ `docs/informe/ajustes/07-critica-extension-y-poda.md` — 18 podas medidas (`PODA-nn`, ~27% del texto), con guardrails de qué NO tocar. Se aplica junto con los `AJ-`/`R-` de cada sección |
+| Texto ya redactado para adaptar | `docs/informe/94` (§1–§9: cubre 9 de los 26 redlines, y es el modelo de estilo) |
 | Por qué se decidió algo | Los **ADR** (`docs/decisiones/`) + `docs/nucleo/10` (alcance y exclusiones) |
 | El detalle de un experimento puntual | `docs/operacion/NN` — entrá por la síntesis, que te dice cuál |
 

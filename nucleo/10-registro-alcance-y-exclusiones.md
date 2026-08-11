@@ -13,6 +13,15 @@
 > de preparación. **E-10 no cambia** (métricas MOT siguen "no aplicable"), y las otras
 > ocho exclusiones tampoco. ADR-015 además **cierra la puerta**: ninguna capacidad nueva
 > de acá a la defensa, y la distribución MQTT queda declarada NO implementada.
+>
+> ✎ **2026-08-10 — esas dos últimas cláusulas están DEROGADAS por
+> [ADR-016](../decisiones/adr-016-reapertura-acotada-distribucion.md).** El usuario decidió
+> **implementar la distribución de alertas** para cerrar la arquitectura de la plataforma,
+> con el recorte exacto de ADR-005 y nada más (**E-06 sigue excluida**). Nada más se
+> reabre: E-04, EN-3, E-10 y las condiciones CR nuevas siguen cerradas. **La
+> implementación no bloquea el informe** — el cierre arquitectónico lo entrega
+> `nucleo/19`, y si el módulo no llega a tiempo se declara como estaba. Ver el **ítem 5**
+> más abajo, ya actualizado.
 
 - **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones formalizadas en
   `decisiones/` (ADR-001…011). Tres ADRs amplían el alcance de forma acotada y
@@ -60,13 +69,19 @@
    o RTSP simulado). Se implementa porque ya existe (Fase 2 verificada) y produce R4
    con costo marginal bajo — no es una ampliación de alcance sino capitalización de
    trabajo hecho.
-5. **Distribución mínima — NO IMPLEMENTADA, exclusión ejercida** (ADR-015 §2c,
-   2026-08-05; ✎ propagado acá 2026-08-06; *decía "un canal (MQTT) + ledger de
-   idempotencia + vista de alertas en la webconsole existente, en repo propio,
-   consumiendo el bus control→distribución (ADR-005)"*): el condicional del ADR-005
-   quedó resuelto en **no** — lo construido es la frontera de salida del control-plane
-   (`control.alert.v1`); el canal MQTT (spec 45) se declara no implementado en el
-   informe y no se reabre antes de la defensa.
+5. **Distribución mínima — EN ALCANCE, aún no implementada** (✎ reescrito 2026-08-10
+   conforme **ADR-016**; *decía "NO IMPLEMENTADA, exclusión ejercida" por ADR-015 §2c
+   entre el 08-05 y el 08-10, y antes de eso describía el alcance sin estado*): un canal
+   **MQTT** + `NotificationEnvelope` + ledger de idempotencia + retry mínimo + **vista de
+   alertas en la webconsole existente**, en repo propio, consumiendo el bus
+   control→distribución (ADR-005). El condicional del ADR-005 quedó resuelto en **sí**,
+   por un motivo **arquitectónico**: es donde se gestiona el ciclo de vida completo de la
+   alerta y su distribución, incluidas las políticas que ADR-011 sacó del motor
+   (cooldown, supresión por ventana, re-notificación, agrupación). **E-06 sigue
+   excluida** (canales adicionales y dashboard dedicado). Construido a la fecha: solo la
+   frontera de salida del control-plane (`control.alert.v1`). **No bloquea el informe**:
+   el cierre arquitectónico lo entrega `nucleo/19` y, si el módulo no llega a tiempo, se
+   declara como estaba (ADR-016 §2d).
 6. **Bus ZeroMQ media→control** (necesario para el punto 4).
 7. **Overlay renderer** offline (videos V1–V3 de la defensa + figuras del informe).
 8. **Mini-experimento A1** (costo marginal de una condición nueva por configuración).
@@ -324,7 +339,7 @@ declaración → condición de habilitación futura.
   > artefacto **auditable** equivalente es **`operacion/31-benchmark-modelos-host-local.md`**
   > (2026-07-09), que mide calidad en BENCH v2 val + rendimiento live. Dos precisiones que
   > hay que hacer al citarlo: **(1)** el doc 31 barre **6 variantes**, no 5
-  > (`gdino-tiny`, `gdino-base`, `yoloe-26s/m/l/x`) — el "5" viene de `nucleo/02` y del
+  > (`gdino-tiny`, `gdino-base`, `yoloe-26s/m/l/x`) — el "5" viene de `nucleo/historicos/02` y del
   > ADR-001, y el propio ADR-001 los trata como artefactos distintos; **(2)** el doc 31 se
   > declara **posterior** a Sprint 2 (hace *cross-check* contra él), así que no ES Sprint 2:
   > es su reemplazo auditable. El barrido total sobre la familia OVD, sumando la selección

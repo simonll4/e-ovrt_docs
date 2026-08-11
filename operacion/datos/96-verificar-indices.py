@@ -161,14 +161,18 @@ def main():
                 refs.add(int(n))
     # Un "doc N" puede vivir en operacion/ o en nucleo/ (dos series distintas):
     # p. ej. "doc 10 E-07" es `nucleo/10-registro-alcance-y-exclusiones.md`.
+    # Desde 2026-08-10 nucleo/ esta partida por vigencia: la raiz tiene lo actualizado
+    # a lo implementado y nucleo/historicos/ el resto. Un doc historico sigue siendo un
+    # doc referenciable, asi que se buscan las dos.
     faltantes = []
     for n in sorted(refs):
         en_op = list((DOCS / "operacion").glob(f"{n}-*.md"))
         en_nucleo = list((DOCS / "nucleo").glob(f"{n:02d}-*.md"))
-        if not en_op and not en_nucleo:
+        en_hist = list((DOCS / "nucleo" / "historicos").glob(f"{n:02d}-*.md"))
+        if not en_op and not en_nucleo and not en_hist:
             faltantes.append(n)
-    print(f"  {len(refs)} docs referenciados; sin archivo en operacion/ ni nucleo/: "
-          f"{faltantes if faltantes else 'ninguno'}")
+    print(f"  {len(refs)} docs referenciados; sin archivo en operacion/ ni nucleo/"
+          f"(+historicos/): {faltantes if faltantes else 'ninguno'}")
     fallos += len(faltantes)
 
     print(f"\n{'✅ Todo verificado' if not fallos else f'⚠️  {fallos} problemas'}")

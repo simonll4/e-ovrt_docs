@@ -1,9 +1,17 @@
 # ADR-005 — Distribución de alertas: recorte, canal MQTT y repo propio
 
-> **✎ Estado de implementación (2026-07-18):** NO implementado, a propósito — la
-> ejecución del spec 45 quedó para lo último por decisión del usuario. Solo existe la
-> frontera de salida (`control.alert.v1`, publisher del control-plane). Detalle:
-> [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
+> **✎ Estado de implementación (act. 2026-08-10):** **implementación COMPROMETIDA** por
+> [ADR-016](adr-016-reapertura-acotada-distribucion.md), con el recorte de §1 de este
+> documento y nada más (E-06 sigue excluida). *Decía "NO implementado, a propósito", y
+> entre el 2026-08-05 y el 2026-08-10 estuvo declarado como exclusión cerrada por
+> ADR-015 §2c — cláusula hoy derogada.*
+>
+> Construido a la fecha: **solo la frontera de salida** (`control.alert.v1`, publisher del
+> control-plane, apagado por default). El repo `e-ovrt_alert-distribution` existe con su
+> estructura pero **sin implementación** (cero commits; `src/eovrt_distribution/` son
+> paquetes vacíos). Estado detallado y ciclo de vida completo de la alerta:
+> [`../nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md`](../nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md).
+> Detalle por ADR: [`estado-de-implementacion-adrs.md`](estado-de-implementacion-adrs.md).
 
 - **Fecha:** 2026-07-09 (canal decidido 2026-07-06)
 - **Estado:** Aceptada
