@@ -97,6 +97,25 @@ Ambas anotaciones ya están escritas en el propio 93, en las fichas de R-13 y R-
 
 ---
 
+## 3b. ✎ 2026-08-11 — la regla de no-anacronismo y las redlines "al cierre"
+
+**La regla** (mapa, regla 5): una etapa temprana no menciona resultados de etapas
+posteriores. El §17.3 es Etapa 3 — **recibe correcciones de diseño y decisiones**
+(R-01…R-11, R-14…R-19, R-24, R-25: todas son eso), pero **no números de verificación**.
+Cuatro redlines quedan tocadas:
+
+- **R-12** ("verificación: qué funciona y cómo se midió") y **R-13** ("registro de lo no
+  implementado") fueron concebidas como *secciones nuevas al cierre* del §17.3 — cuando
+  §17.4/§17.5 no existían como plan. Hoy existen, y **ese material aterriza en §17.4**
+  (así lo enruta el doc de Etapa 4: `AJ-4.10` y `AJ-4.11` usan `94` §7–§8). El §17.3
+  queda, a lo sumo, con un puntero de una línea. El texto del `94` §7–§8 sirve igual —
+  cambia la sección de destino, no el contenido.
+- **R-20** (riesgos que se materializaron) y **R-22** (la cámara IP real ya se usó): la
+  parte *retrospectiva* ("cómo resultó") va como **nota fechada o remisión a §17.4**,
+  no como prosa del diseño reescrita en pasado profético.
+
+La decisión formal de cada caso queda donde siempre: en la casilla de la redline.
+
 ## 4. Cómo se trabaja este frente
 
 El 93 fue escrito para operarse ítem por ítem, con casilla de decisión por redline:

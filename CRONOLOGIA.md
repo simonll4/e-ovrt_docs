@@ -82,6 +82,22 @@ recomendado (los 8 🔴 = 65% del ahorro) y 6 guardrails (16.2/16.3/17.1.5/17.1.
 lo pre-registrado no ejercido se comprime a decisión declarada, no se borra). Cableada en
 mapa (§1/§2), índices, GUIA-REDACTORES y kit.
 
+**Regla de no-anacronismo (2026-08-11, fijada por el usuario):** *"las primeras etapas no
+tienen que mencionar resultados o experimentos de etapas posteriores — sería adivinar el
+futuro"*. El caso que la disparó: el borrador de `AJ-1.02` pedía meter en §15 el keep-up
+del Sprint 2 y los G2A live (datos de Etapa 4/5). Registrada como **regla 5 del mapa de
+ajustes**, con la frontera precisa: decisiones y correcciones de diseño SÍ se aplican
+hacia atrás; resultados medidos y refutaciones NO — la brecha se declara con literatura
+en §15/§16, el criterio en §17.1, y el cruce con lo medido vive en §17.5/§18 (los "tres
+tiempos" operan ahí y solo ahí). Barrido aplicado: `AJ-1.02` reescrito (la brecha se
+sostiene con ODinW + Chen 2025, cero números propios) · `AJ-1.11`/`AJ-1.13`/`AJ-1.15`
+precisados · `AJ-2.05`/`AJ-2.09`/`AJ-2.11` reescritos (el n efectivo, el cumplimiento de
+la instrumentación y el costo medido del fine-tuning aterrizan en §17.4/§17.5/§18) ·
+**doc 03 §3b nuevo: R-12/R-13 ("secciones al cierre" del §17.3) aterrizan en §17.4** —
+cambia el destino, no el texto del `94` §7–§8; R-20/R-22 con la parte retrospectiva como
+nota fechada · PODA-04/07/08 ajustadas (las justificaciones de decisión no van en
+§15/§16) · GUIA-REDACTORES con la regla en §2.
+
 **Auditoría de material (mismo tramo):** clasificador de runs contra-verificado (4
 pasadas hasta converger): 670 runs, 434 citados, **236 no citados = solo 0,26 GiB**, cero
 huérfanos. Lo pesado está todo gitignoreado — lo que recibe quien clona son ~17.600

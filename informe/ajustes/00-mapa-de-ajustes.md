@@ -58,6 +58,17 @@ hacerla explícita dentro del propio informe.
    frontmatter (§11–§14), que no pertenecen a ninguna. Están en el §3.
 4. **Ningún número se cita desde acá.** Las cifras salen de los cuatro índices de
    `e-ovrt_experimental-setup/results/`; el texto largo, de `94` y `92`/`92b`.
+5. **Regla de no-anacronismo (fijada por el usuario, 2026-08-11).** El informe narra
+   etapas en orden: **una etapa temprana no menciona resultados ni experimentos de
+   etapas posteriores** — sería adivinar el futuro. La frontera exacta:
+   **decisiones y correcciones de diseño SÍ se aplican hacia atrás** (un redline que
+   corrige §17.3 a "la estrategia es E-IND" corrige una decisión, no anticipa un
+   resultado); **resultados medidos, refutaciones empíricas y artefactos de evaluación
+   NO** — §15/§16 dejan la *brecha* declarada con literatura, §17.1 deja el *criterio*
+   o la *decisión* declarada, y **el cruce con lo medido vive en §17.5 y §18**
+   (la regla de tres tiempos, `AJ-1.15`/`AJ-5.11`, opera ahí y solo ahí). Caso testigo
+   que motivó la regla: el borrador de `AJ-1.02` pedía meter en §15 el keep-up del
+   Sprint 2 y los G2A live — datos de Etapa 4/5. Corregido.
 
 ---
 

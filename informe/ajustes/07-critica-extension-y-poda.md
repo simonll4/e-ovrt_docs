@@ -111,9 +111,11 @@ SRT, …) + 2.594 de comparativa de servidores de medios open source + criterios
 decisión final fue: **RTSP como ingesta, ZeroMQ+msgpack como bus interno (ADR-003),
 mediamtx solo como herramienta de desarrollo, archivo JSONL como verdad**. Ni WebRTC ni
 HLS ni la comparativa de servidores sostienen una sola decisión del sistema construido.
-Comprimir a ~1.200: por qué RTSP en la entrada, por qué el acople interno no es un
-protocolo de streaming sino un bus de eventos, y la brecha streaming×OVD (§15.4.3, que sí
-vale). **Ahorro: ~6.800** · DECISIÓN → [ ]
+Comprimir a ~1.200: panorama mínimo de protocolos de **ingesta** + la brecha
+streaming×OVD (§15.4.3, que sí vale). La *justificación de la decisión tomada*
+(RTSP en la entrada, bus de eventos adentro) no va acá: es material de §17.1/§17.3
+(regla de no-anacronismo — el §15 no relata elecciones del proyecto).
+**Ahorro: ~6.800** · DECISIÓN → [ ]
 
 **Lo que el §15 GANA mientras pierde esto:** la vara supervisada (AJ-1.01), el cruce con
 la evidencia propia (AJ-1.02) y la Vara 3 OVD×EPP (AJ-1.13). La poda no deja al §15 más
@@ -148,14 +150,16 @@ DECISIÓN → [ ]
 
 ### PODA-07 · §16.5.3 Arquitecturas de procesamiento de video (3.594) · C1/C2 · 🔴
 Survey de frameworks/arquitecturas de video analytics — y la plataforma es **un pipeline
-Python propio de dos servicios config-driven**. Comprimir a ~600: el patrón productor/
-consumidor que sí se usó y por qué no se adoptó un framework. **Ahorro: ~3.000** ·
+Python propio de dos servicios config-driven**. Comprimir a ~600: el patrón
+productor/consumidor como fundamento conceptual; la elección concreta (pipeline propio,
+no framework) se justifica en §17.3, no en el marco teórico. **Ahorro: ~3.000** ·
 DECISIÓN → [ ]
 
 ### PODA-08 · §16.5.4 Computación en el borde (2.729) · C1 · 🔴
 **EN-3 (inferencia en borde) está excluida.** Lo ejercido es el prefilter EN-2 on-device
-(87% de descarte medido) y la OAK-D como fuente. Comprimir a ~700: el fundamento del
-prefilter + por qué la inferencia quedó en el CPN. **Ahorro: ~2.000** · DECISIÓN → [ ]
+(87% de descarte medido) y la OAK-D como fuente. Comprimir a ~700: el fundamento
+**conceptual** del prefiltrado en el borde; la decisión de dónde vive la inferencia (y su
+resultado medido) pertenecen a §17.3 y §17.5. **Ahorro: ~2.000** · DECISIÓN → [ ]
 
 ### PODA-09 · §16.5.5 Criterios para protocolos y stacks de streaming (1.686) · C2 · 🔴
 Criterios de selección para una selección que ya ocurrió y colapsó (ver PODA-04). Un

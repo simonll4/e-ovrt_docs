@@ -109,6 +109,12 @@ es el que dice qué va en cada una y de dónde sale.
 > está ordenado por sección, no por etapa**, así que la correspondencia etapa → sección la
 > tenés en el §0 del mapa. Ojo con un detalle: **el Gantt numera las tareas 0–5 y el §14.2
 > numera las etapas 1–6** — misma secuencia, corrida en uno.
+>
+> **Y la regla que gobierna el tiempo narrativo (no-anacronismo, mapa regla 5): una etapa
+> temprana no menciona resultados de etapas posteriores.** §15/§16 dejan la brecha con
+> literatura; §17.1 deja decisiones y criterios; **todo número propio vive en §17.5/§18**.
+> Si al corregir §15 te ves escribiendo una cifra medida por el proyecto, estás en la
+> sección equivocada.
 
 Recién después, y solo si necesitás el detalle de un experimento puntual, vas al documento
 de `docs/operacion/NN` que la síntesis te indique.

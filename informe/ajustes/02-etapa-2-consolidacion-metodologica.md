@@ -10,6 +10,13 @@
 > código** (el pattern set `cr01_cr02_v2` existe y es el oficial). Lo que queda
 > pendiente es que **el informe lo diga** — el ajuste es documental, no de
 > implementación. Están marcados 🛠️ *ya resuelto en código*.
+>
+> ✎ **2026-08-11 — regla de no-anacronismo (mapa, regla 5), aplicada a esta etapa:**
+> el §17.1 es Etapa 2 y **se corrige como protocolo** — entran decisiones, definiciones
+> y criterios (valores de configuración elegidos dentro de rangos declarados incluidos);
+> **no entran resultados medidos** ni estados de implementación, que se reportan en
+> §17.4/§17.5. Los ajustes AJ-2.05, AJ-2.09 y AJ-2.11 se reescribieron para respetar
+> esa frontera.
 
 | Dónde | Qué |
 |---|---|
@@ -119,9 +126,9 @@ contemplaba:
 ### AJ-2.05 · §17.1.5.4 · PRECISA · 🟡 — el piso muestral
 
 El protocolo pide **~200 instancias positivas por condición**, o bien reportar tamaño
-efectivo **+ intervalos de confianza**. El trabajo cumplió por la **segunda vía**
-(bootstrap). El ajuste es declarar explícitamente el **n contra ese piso** y por qué se
-usó la vía del IC.
+efectivo **+ intervalos de confianza**. En **§17.1** el ajuste es declarar la vía
+elegida como decisión de protocolo (IC por bootstrap) — **el n efectivo contra ese piso
+se reporta en §17.5**, que es donde el n existe (regla de no-anacronismo, mapa regla 5).
 
 ---
 
@@ -174,8 +181,12 @@ patrón candidato · confirmado · alerta registrada · notificación**. Estado 
 - **Bitácora mínima por corrida** ≈ `report.json` consolidado + `effective_config`, ya
   cubierta.
 
-Su ficha canónica en Etapa 3 es **R-25** (§17.3.11 Tabla 50 y §17.3.13), que trae el
-contrato de GT temporal y los cinco hitos juntos.
+**Dónde aterriza cada cosa (no-anacronismo):** el §17.1.7.8 **ya exige** los cinco
+hitos — como protocolo casi no se edita. Los bullets de "estado real" de arriba son el
+**cumplimiento**, y eso se escribe en **§17.4** (qué se instrumentó, con sus huecos:
+percentiles solo promedio, primera evidencia derivable). Su ficha canónica en Etapa 3 es
+**R-25** (§17.3.11 Tabla 50 y §17.3.13), que trae el contrato de GT temporal y los cinco
+hitos juntos — a nivel de *diseño*, que sí corresponde a esa etapa.
 
 ---
 
@@ -193,9 +204,11 @@ fuente idéntica** — no como fuente experimental.
 ### AJ-2.11 · §17.1 y Tabla 37 · PRECISA · 🟡 — la exclusión del fine-tuning
 
 Reformular citando la Tabla 37 y aclarando que **el nodo de entrenamiento existe**
-(clúster Mendieta, CCAD-UNC): la exclusión es por **presupuesto de tiempo**, con costo
-**medido en ≈1 GPU-h** (`operacion/100`). ADR-015 la registra como **no ejercida por
-secuenciación** — no como imposibilidad ni como deuda.
+(clúster Mendieta, CCAD-UNC): la exclusión es por **presupuesto de tiempo** y por
+secuenciación (ADR-010) — no por imposibilidad. **En §17.1 va la decisión y su
+criterio**; el **costo medido (≈1 GPU-h, `operacion/100`)** es un dato posterior y se
+cita donde corresponde: §17.4 (estado) y §18 (trabajo futuro, `AJ-6.05`) — regla de
+no-anacronismo.
 
 ---
 

@@ -24,7 +24,8 @@ El §17.5 (Etapa 5) va a reportar **mAP@0,5 0,551 agregado** sobre `bench_v3`. U
 así, sin vara, no significa nada para un jurado — y hoy **el §15 no da la vara**: cita
 SHEL5K, CHV y SH17 únicamente como datasets, sin reportar ni una cifra de mAP de la
 literatura supervisada. Toda la defensa pivotea sobre ese contraste ("~63% del techo
-sin entrenar"), y el contraste se construye acá.
+sin entrenar"). **La vara se construye acá; el contraste se hace en §17.5/§18** — el
+§15 no cita resultados propios (regla de no-anacronismo, mapa regla 5).
 
 Los dos primeros ajustes son, por eso, los únicos 🔴 de esta etapa.
 
@@ -35,7 +36,7 @@ Los dos primeros ajustes son, por eso, los únicos 🔴 de esta etapa.
 | ID | Sección | Tipo | Pri | Enunciado |
 |---|---|---|---|---|
 | **AJ-1.01** | §15 | CONCRETA | 🔴 | **Hueco 1: falta la línea base de EPP supervisado.** Incorporar la Vara 1 con cifras, o declarar la ausencia como brecha. |
-| **AJ-1.02** | §15 / Tabla 3 | CONCRETA | 🔴 | **Hueco 2: el estado del arte y la evidencia propia no se cruzan nunca.** |
+| **AJ-1.02** | §15 / Tabla 3 | CONCRETA | 🔴 | **Hueco 2: el §15 no deja declarada la brecha que motiva el bench propio** — y la brecha se sostiene con literatura, sin adelantar resultados. |
 | **AJ-1.03** | §15 | ERRATA | 🟠 | El 52,5 AP de GDINO es del backbone **Swin-L** y el informe nunca lo declara; lo desplegado acá es **Swin-T**. |
 | **AJ-1.04** | §15 / tablas | ERRATA | 🟡 | OmDet-Turbo-Tiny "30,3 LVIS" (probable *mislabel* de ODinW-13) y 34,0 vs 34,7 entre tablas. |
 | **AJ-1.05** | §15 | ERRATA | 🟡 | El 53,4 COCO de OmDet-Turbo probablemente **no es zero-shot**. |
@@ -46,7 +47,7 @@ Los dos primeros ajustes son, por eso, los únicos 🔴 de esta etapa.
 | **AJ-1.10** | §15 / Referencias | ERRATA | 🟡 | Citas inconsistentes: Liu 2023/2024, Minderer, Xiao, Lin 2014/2015, Ren a/b/c. |
 | **AJ-1.11** | §15 | CONCRETA | 🟡 | **MM-Grounding-DINO no tiene ninguna cifra en el informe**, y el proyecto lo evaluó y lo descartó. |
 | **AJ-1.12** | §15 | PRECISA | 🟠 | **Advertencia de métrica**: AP 0,50:0,95 (COCO/LVIS) y mAP@0,5 (EPP y nuestro bench) **nunca en la misma columna**. |
-| **AJ-1.13** | §15 | CONCRETA | 🟠 | Incorporar la **Vara 3** — el cruce OVD×EPP, que está casi vacío y es el hueco que ocupa `bench_v3`. |
+| **AJ-1.13** | §15 | CONCRETA | 🟠 | Incorporar la **Vara 3** — el cruce OVD×EPP está casi vacío en la literatura: la brecha se declara acá; quién la ocupa se relata en §17.5. |
 | **AJ-1.14** | §15 | PRECISA | 🟠 | Corregir el uso de **Abdalwhab 2025**: es evidencia de brecha de vocabulario zero-shot, **no** del efecto de ajustar un OVD. |
 | **AJ-1.15** | §15 → §17.5 | PRECISA | 🟠 | Fijar la **regla de tres tiempos** para presentar conclusiones, y usar "adaptación" con precisión. |
 | **AJ-1.16** | **§16** | EVIDENCIA | 🟡 | **Hueco: el §16 Marco Teórico no fue relevado** contra lo que hoy sabemos. |
@@ -79,17 +80,34 @@ sin vara.
 
 ---
 
-### AJ-1.02 · §15 y Tabla 3 · CONCRETA · 🔴 — cruzar el estado del arte con la evidencia propia
+### AJ-1.02 · §15 y Tabla 3 · CONCRETA · 🔴 — declarar la brecha que motiva el bench propio (sin adelantar resultados)
 
-**Qué pasa hoy.** El dato más contundente del proyecto no está escrito en el §15:
-**YOLOE publica 35,9 AP en LVIS y acá midió recall CR-01 = 0,000.** Tampoco está el
-trade-off de latencia: §17.1.9.2 lo justifica con GPUs ajenas cuando ya existe medido
-en nuestro hardware (**G2A live 630–890 ms** GDINO vs **225–249 ms** YOLOE; keep-up
-**22%** vs **63–69%**, Sprint 2).
+> ✎ **2026-08-11 — reescrito por la regla de no-anacronismo** (mapa, regla 5). La
+> versión anterior de este ajuste pedía meter en §15 el cruce con la evidencia propia
+> (YOLOE recall 0,000; G2A live; keep-up del Sprint 2) — **datos de Etapa 4/5 que el
+> §15, siendo Etapa 1, no puede conocer**. El cruce se hace en §17.5/§18 (`AJ-5.11`,
+> `AJ-6.01`); acá queda solo lo que la literatura sostiene.
 
-**Qué debe decir.** Que los benchmarks generales **no predicen la condición de
-dominio** — y por eso la selección de modelo se hizo sobre un bench propio y no sobre
-LVIS. Es el argumento metodológico más fuerte del capítulo, y hoy no está.
+**Qué pasa hoy.** El §15 cataloga modelos por sus cifras COCO/LVIS y no deja escrita la
+pregunta que esas cifras no responden: **¿predicen los benchmarks generales el
+rendimiento sobre una condición de dominio específica?**
+
+**Qué debe decir — y todo se sostiene con literatura, sin un solo número propio:**
+
+- **ODinW**: GDINO-L cae de ~52 AP en COCO a **26,1 mean AP** sobre los 35 datasets de
+  ODinW [P] — la referencia publicada de cuánto colapsa un OVD fuera de distribución.
+- **Chen 2025** (arXiv:2508.11011): grounding con atributo/negación → **IoU <20%** [P]
+  — la evidencia publicada de que la composición léxica fina no la resuelve el
+  preentrenamiento.
+- Conclusión que el §15 puede firmar en su tiempo narrativo: *los benchmarks generales
+  no garantizan la condición de dominio, y no existe benchmark publicado del cruce
+  OVD×EPP* (→ AJ-1.13) — **esa brecha es la que justifica que el protocolo (§17.1.9.2)
+  exija baseline zero-shot propia y test congelado**.
+
+**Dónde queda el resto:** la *confirmación medida* de esta brecha (el caso YOLOE:
+35,9 AP LVIS publicado vs recall CR-01 = 0,000 acá; los G2A medidos en nuestro hardware
+vs la columna Latencia derivada de la Tabla 3) es material de **§17.5**, escrito en tres
+tiempos contra esta vara. El §15 planta la pregunta; el §17.5 la responde.
 
 ---
 
@@ -137,9 +155,11 @@ referencias del `96e`.
 
 ### AJ-1.11 · §15 · CONCRETA · 🟡 — MM-Grounding-DINO
 
-El proyecto lo **evaluó y lo descartó empíricamente** (bboxes roto en MM-GDINO-tiny), y
-el informe **no trae ninguna cifra suya**. Publicadas: **tiny 50,4–50,6 COCO zero-shot
-/ 35,7–41,4 LVIS** [P/S]. Sin la cifra, el descarte queda sin contexto.
+El informe **no trae ninguna cifra publicada** de MM-Grounding-DINO, siendo un candidato
+de la misma familia. Publicadas: **tiny 50,4–50,6 COCO zero-shot / 35,7–41,4 LVIS**
+[P/S]. **Al §15 va solo la cifra publicada** (es literatura); el descarte empírico del
+proyecto (bboxes roto en MM-GDINO-tiny) es un resultado y se relata en §17.5 — pero sin
+la cifra en el §15, ese relato posterior queda sin contexto.
 
 ---
 
@@ -167,8 +187,9 @@ Es el hueco que el trabajo ocupa, y hay que decirlo con las tres piezas:
   hard hats"* → **IoU <20%** [P] — la literatura confirma la "ceguera al atributo" de
   E-DIR que medimos.
 - **No existe paper 2023–2026** con GDINO o YOLO-World zero-shot medido sobre
-  SHEL5K/CHV, ni sobre un bench de EPP multi-fuente con protocolo COCO. **`bench_v3`
-  está esencialmente solo en ese cruce.**
+  SHEL5K/CHV, ni sobre un bench de EPP multi-fuente con protocolo COCO. **Esa es la
+  brecha, y el §15 la deja declarada como brecha** — que `bench_v3` la ocupa es la
+  lectura de §17.5/§18, no de acá (regla de no-anacronismo).
 
 Las fuentes externas verificadas el 2026-08-06 están listadas al final de
 `sintesis/resultados-y-conclusiones.md` §7.4 — reusar ese listado, no rearmarlo.
@@ -189,6 +210,11 @@ OVD. Como está citado hoy, sostiene una conclusión que el paper no sostiene.
 *qué dice la literatura* (cifra de la Vara) → *qué medimos nosotros* (cifra de
 `results/`) → *qué tipo de aporte queda*. **Nunca al revés**: empezar por el número
 propio sin vara es exactamente lo que hoy le pasa al §15.
+
+**Dónde opera la regla (no-anacronismo):** los tres tiempos se escriben **en §17.5 y
+§18**, que sí conocen los resultados. El rol del §15 en esta regla es pasivo: dejar la
+vara y la brecha listas para que el tercer capítulo las cite — **al §15 no entra ningún
+número propio**.
 
 **Y una precisión de vocabulario que hay que cuidar ante el jurado:** la tesis **no
 adapta los pesos** — el fine-tuning es E-04, no ejercida, con costo medido. Adapta los
