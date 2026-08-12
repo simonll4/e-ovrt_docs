@@ -10,6 +10,21 @@
   en los 4 índices de `e-ovrt_experimental-setup/results/`; las siglas, en el
   glosario (`docs/13`). Acá no hay cifras nuevas: hay **conceptos**.
 
+> ✎ **2026-08-12 — puesto al día al mundo post-estrato-B. Leer esto antes que el cuerpo.**
+> Este documento se escribió el **2026-08-06**, o sea **antes** del cierre del lote de
+> internet y de la **revisión ciega del GT** (`operacion/109`–`113`). Los conceptos no se
+> movieron —es lo que se esperaba de un documento teórico—, pero **tres estados sí**, y las
+> tres correcciones ya están aplicadas en el cuerpo:
+>
+> | Decía | Vigente |
+> |---|---|
+> | El clip bench es de **34 clips** | **47 clips** = 32 positivos / 15 negativos / **37 episodios**, en dos bloques: **A** rodaje guionado (34) y **B** lote de obra real (13). Los denominadores de 34 siguen siendo correctos **cuando se dicen del Bloque A** |
+> | **FAR/hora NO es métrica de este trabajo** | **Se mide y se reporta**, pero **no sostiene una cota** (limitación **L1**). Desde el 08-07 el banco tiene un clip de soak, así que la tasa **es computable** — y sigue faltando ~un orden de magnitud de exposición para afirmar nada operativo |
+> | **L4 la levanta el lote de internet** | **L4 se precisó, no se levantó** (D-113.1, firmada): hay medición en obra real no guionada, y su aporte es **caracterizar dónde el sistema deja de ser evaluable**, no validarlo sobre obra real |
+>
+> Estas tres son, literalmente, tres de las seis trampas de `GUIA-REDACTORES.md` §4. Si
+> encontrás una cuarta formulación vieja acá, gana el banner y hay que corregir el cuerpo.
+
 ---
 
 ## Parte I — El problema y el enfoque
@@ -131,7 +146,7 @@ con su GT y su métrica, porque responden preguntas distintas:
 |---|---|---|---|---|
 | **Imagen** (percepción espacial) | caja | ¿el detector ve personas/EPP? | AP@0.5, mAP50, recall | `bench_v3` (6.477 imgs) |
 | **Persona** (Nivel A) | persona-estado | ¿esta persona está "sin casco"? | P/R/F1 por violador | `person_gt` (atributos `has_helmet`/`has_vest`) |
-| **Alerta** (Nivel B) | episodio temporal | ¿la plataforma alertó cuando y donde debía? | recall/precision/F1 de episodios, t_alert, TTFD, SDR | clip bench (34 clips, GT temporal humano) |
+| **Alerta** (Nivel B) | episodio temporal | ¿la plataforma alertó cuando y donde debía? | recall/precision/F1 de episodios, t_alert, TTFD, SDR | clip bench (**47 clips**, GT temporal humano: 34 del rodaje + 13 de obra real) |
 
 La lógica de la cadena: un modelo puede ver bien (nivel imagen) y aun así razonar mal
 el estado (nivel persona); y un estado bien razonado puede producir malas alertas si
@@ -385,25 +400,35 @@ condición, dentro de la ventana derivada de la persistencia nominal):
 - **Censura:** un episodio más corto que la ventana necesaria para confirmar
   (`clip_too_short_for_t_alert_window`) **no puede** medirse — sale del denominador
   con causa, en vez de contarse como fallo. De ahí el denominador citable: **34
-  evaluables sobre 35**. (Teoría: análisis de datos censurados — excluir con registro
+  evaluables sobre 35 en el bloque del rodaje** (el calificador no es opcional: 34 es el
+  Bloque A, no el banco). (Teoría: análisis de datos censurados — excluir con registro
   es honesto; contar como miss sería sesgar en contra; contar como hit, a favor.)
 - **Negativos:** los clips de cumplimiento no entran a P/R/F1 (no hay episodios que
   recuperar) — su métrica son los **FP en negativos**, el control de falsas alarmas.
   Promediar su "F1" hundiría el agregado contando aciertos como catástrofes (F-EV1).
 
-**Por qué FAR/hora NO es métrica de este trabajo (limitación L1):** una tasa de
+**Por qué FAR/hora se reporta pero no sostiene una cota (limitación L1):** una tasa de
 falsas alarmas por hora es estadística de **eventos raros**: para afirmar
 "FAR ≤ 1/hora" observando 0 eventos hace falta una exposición de ~3 horas de
 cumplimiento anotado (regla de 3: con 0 eventos en T horas, el IC 95% superior de la
 tasa es ≈3/T). El banco junta 0,10–0,26 h ⇒ cualquier cota honesta (11–30 FA/h) no
-sostiene ninguna afirmación operativa. Se reemplaza por el **control comparativo de
-negativos**, que sí discrimina entre combinaciones (0 FP vs 2–3 FP sobre los mismos
+sostiene ninguna afirmación operativa. Por eso el peso lo lleva el **control comparativo
+de negativos**, que sí discrimina entre combinaciones (0 FP vs 2–3 FP sobre los mismos
 4 clips).
+
+> ✎ **2026-08-12 — precisión, y no es cosmética.** La formulación anterior decía que
+> *"FAR/hora NO es métrica de este trabajo"*, y de ahí salió una de las seis trampas de la
+> guía de redactores. **La tasa se mide y se reporta**: desde el 08-07 el banco tiene un
+> clip de soak (`v06_c01`, 0,1027 h), así que es computable. Lo que no cambia es la
+> conclusión —**no sostiene una cota**, faltan casi dos órdenes de magnitud de exposición—,
+> y ese es el contenido de **L1**. Al citarla nunca va la tasa desnuda: va el conteo de
+> falsos positivos con su duración observada, y la tasa horaria como derivada
+> (`GUIA-REDACTORES` §3).
 
 ### 16. La estadística de las comparaciones: bootstrap pareado e IC
 
 Comparar dos campañas por su F1 global esconde que ambas corrieron **sobre los mismos
-34 clips** — y que los clips varían muchísimo en dificultad. El método:
+34 clips del Bloque A** — y que los clips varían muchísimo en dificultad. El método:
 
 - **Bootstrap pareado por clip:** remuestrear clips con reposición (10.000 veces),
   recalculando el delta de F1 **entre las dos campañas sobre la misma muestra**. El
@@ -540,9 +565,10 @@ Tres instrumentos que conviene poder explicar como *metodología* (no como buroc
   y no excusa.
 - **Limitaciones L1–L8:** con código y citables ("limitación L4"), porque una
   limitación declarada es un resultado sobre el instrumento, no una vergüenza. Las
-  dos que más preguntas atraen: L4 (un solo bloque guionado — la levanta el lote de
-  internet) y L2 (sin doble anotación/kappa — decisión declarada de presupuesto de
-  anotación).
+  dos que más preguntas atraen: **L4** (un solo bloque guionado — ✎ el lote de obra real
+  la **precisó, no la levantó**: aporta medición no guionada y, sobre todo, caracteriza
+  **dónde el sistema deja de ser evaluable**) y **L2** (sin doble anotación/kappa —
+  decisión declarada de presupuesto de anotación).
 
 ### 22. Mapa mental para la defensa (una frase por eslabón)
 
@@ -570,9 +596,9 @@ baseline zero-shot era el prerequisito y ES la pregunta central; los resultados 
 limitaciones de la jornada se documentan con su estado a la entrega. *"¿un YOLO
 entrenado no haría esto mejor?"* → en su clase sí; la tesis mide otra cosa:
 condiciones en lenguaje, extensibilidad y el aporte de la capa temporal/identidad,
-que es agnóstica al detector. *"¿por qué no hay FAR/hora?"* → porque afirmarla sin
-3 h anotadas sería fabricar una cota; está declarada como limitación y reemplazada
-por el control comparativo de negativos. *"¿el tracker no necesita métricas MOT?"* →
+que es agnóstica al detector. *"¿cuál es el FAR/hora?"* → se mide y se reporta, pero
+**no sostiene una cota**: afirmarla sin ~3 h de cumplimiento anotado sería fabricarla.
+Está declarada como limitación L1, y el peso lo lleva el control comparativo de negativos. *"¿el tracker no necesita métricas MOT?"* →
 no hay GT de identidades y la ganancia es de atribución de alertas — F-89.1 lo
 fundamenta con detecciones bit a bit idénticas.
 

@@ -9,7 +9,8 @@
 > en 34/34 clips** (F1 0,930 vs 0,789 de G0) y verificada en vivo. Sigue excluido el GT de
 > identidades y la validación MOT · **E-07** — parcial (OAK-D como fuente + EN-2 con 87%
 > de descarte on-device) · **E-13** — E-HYB-or **ejecutada y refutada**; `hyb_and` no
-> ejecutada con causa · **E-04** — sigue no ejercida, pero por secuenciación, no por falta
+> ejecutada con causa · **E-04** — *(⚠️ esta línea quedó **derogada por ADR-017**, ver el
+> tercer banner: el encuadre por «secuenciación» está prohibido)* sigue no ejercida, pero por secuenciación, no por falta
 > de preparación. **E-10 no cambia** (métricas MOT siguen "no aplicable"), y las otras
 > ocho exclusiones tampoco. ADR-015 además **cierra la puerta**: ninguna capacidad nueva
 > de acá a la defensa, y la distribución MQTT queda declarada NO implementada.

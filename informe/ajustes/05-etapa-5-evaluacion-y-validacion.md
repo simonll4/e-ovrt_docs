@@ -10,12 +10,20 @@
 > 17 tablas y 6 figuras inventariadas con su artefacto en disco (`gobierno/99` §1), cuatro
 > índices de resultados verificados mecánicamente, GT humano del banco de clips, y la
 > escala de conclusiones con su nivel de fuerza. No falta ningún experimento para escribir
-> el §17.5.
+> el §17.5 — con **una excepción declarada**, la rama comparativa de fine-tuning (`AJ-5.13`),
+> que corre en paralelo y no bloquea al resto.
 >
 > **Lo que NO va acá:** las conclusiones (§18), el anexo de reproducibilidad y las
 > licencias (§19) y el repositorio (§17.6) son **Etapa 6** →
 > [`06-etapa-6-documentacion-y-cierre.md`](06-etapa-6-documentacion-y-cierre.md). El §17.5
 > reporta **qué se midió y cuánto dio**; qué significa es la etapa siguiente.
+
+> ⏳ **2026-08-12 — hay UN contenido de esta sección que está abierto: la rama comparativa
+> de fine-tuning (`AJ-5.13`).** La jornada de E-04 arrancó (ADR-017) y corre **en paralelo
+> a la redacción**: por ADR-017 §2f **no bloquea el informe**. Todo el resto de los insumos
+> del §17.5 sigue cerrado y congelado. **Mientras la jornada esté en curso, esa subsección
+> se deja reservada con su estado declarado** — no se escribe como exclusión, no se escribe
+> como hecha, y no se le pone un número que no salga de un artefacto.
 
 > ⚠️ **Los pocos números que aparecen en esta página son anclas de navegación, no fuente
 > de cita.** Toda cifra que entre al informe se transcribe **desde el artefacto** que
@@ -46,10 +54,11 @@
 | **AJ-5.06** | PRECISA | 🟠 | Las **reglas de lectura** que ninguna tabla puede violar. |
 | **AJ-5.07** | EVIDENCIA | 🟠 | El **estrato B** (obra real no guionada) y la **frontera de juzgabilidad**. |
 | **AJ-5.08** | PRECISA | 🟠 | **Dónde arranca el reloj** del tiempo real — y por qué no es el fotón. |
-| **AJ-5.09** | EVIDENCIA | 🟠 | **FAR/hora**: por qué no se reporta, y con qué se reemplaza. |
+| **AJ-5.09** | EVIDENCIA | 🟠 | **FAR/hora**: se reporta, pero no sostiene una cota — y cómo se cita. ✎ 08-12 |
 | **AJ-5.10** | PRECISA | 🟡 | El **eje de densidad** y sus dos trampas de instrumento. |
 | **AJ-5.11** | PRECISA | 🟡 | El **cierre del círculo con el §15**: la regla de tres tiempos. |
 | **AJ-5.12** | EVIDENCIA | 🟡 | La **estrategia híbrida**: una rama refutada y una no ejecutable. |
+| **AJ-5.13** | EVIDENCIA | 🟠 | ⏳ **PENDIENTE — la rama comparativa de fine-tuning (E-04)**, jornada **en curso**. La sección se reserva y se escribe con el estado a la entrega. ✎ 08-12 |
 
 El **anexo de reproducibilidad** (§19), del que el §17.5 depende para ser auditable, es
 `AJ-6.02` en la Etapa 6.
@@ -206,14 +215,25 @@ documentado con sus cuatro patas.
 
 ---
 
-### AJ-5.09 · 🟠 — FAR/hora: la limitación, no el número
+### AJ-5.09 · 🟠 — FAR/hora: se reporta, pero no sostiene una cota
 
-**No se reporta FAR/hora.** Harían falta ~3 h de cumplimiento anotado y el banco llega a
-~0,10–0,26 h. Es la **limitación L1**, declarada **con causa cuantificada** (D-90.1).
+> ✎ **2026-08-12 — corregido: este ajuste decía "no se reporta FAR/hora" y se contradecía
+> con su propio párrafo final.** La formulación vigente es la de `gobierno/99` §4 (L1,
+> precisada el 08-10) y la de `results/index.md`.
 
-**Con qué se reemplaza:** el **control de negativos**, que sí discrimina entre
-configuraciones. Y cuando se menciona el clip *soak*, se cita el recuento sobre su
-duración, con el denominador a la vista (ver `AJ-5.07`).
+**Se mide y se reporta.** Desde el 08-07 el banco tiene un clip de *soak* (`v06_c01`,
+0,1027 h), así que la tasa **es computable** — y por eso mismo hay que citarla bien.
+
+**Lo que no se puede hacer es sostener una cota:** harían falta ~3 h de cumplimiento
+anotado y el banco llega a ~0,10–0,26 h. Esa es la **limitación L1**, declarada **con
+causa cuantificada** (D-90.1, precisada por D-113.1).
+
+**Cómo se cita, sin excepción:** el **recuento de falsos positivos sobre su duración
+observada**, con el denominador a la vista, y la tasa horaria **como derivada** — nunca la
+tasa desnuda, que sugiere una hora observada que no existe (`GUIA-REDACTORES` §3).
+
+**Dónde va el peso de la evidencia:** en el **control comparativo de negativos**, que sí
+discrimina entre configuraciones sobre el mismo material (ver `AJ-5.07`).
 
 ---
 
@@ -258,6 +278,49 @@ Hay que declarar las dos con precisión distinta:
 - **`hyb_and`**: **no ejecutable por fundamento** — no es que no se llegó a correr, es que
   la conjunción no tiene sentido en el diseño. Hay que decir *por qué*, no dejarlo como
   pendiente.
+
+---
+
+### AJ-5.13 · 🟠 — ⏳ PENDIENTE: la rama comparativa de fine-tuning (E-04)
+
+> **Estado: jornada EN CURSO desde el 2026-08-12.** Este es el único contenido abierto del
+> §17.5. Se actualiza acá cuando cierre; hasta entonces, la subsección **se reserva**.
+
+**Por qué existe la subsección aunque no haya resultados.** ADR-017 sacó a E-04 de las
+exclusiones y la puso en alcance como **jornada experimental comprometida**. Un §17.5 que
+no la mencione la volvería a leer como exclusión, que es exactamente lo que la ADR derogó.
+
+**Cómo se escribe mientras la jornada corre** (ADR-017 §2f — *la jornada no bloquea el
+informe*):
+
+1. **Se declara el diseño, que ya está fijado**: escalera pre-registrada **T1 (linear
+   probing) → T2/T3**, con los go/no-go y la Tabla 37 gobernando el escalamiento;
+   entrenamiento en Mendieta; evaluación contra **`bench_v3`**. Eso se puede escribir hoy,
+   porque es diseño, no resultado.
+2. **Se declara el estado a la entrega, tal cual sea**, con **causa técnica**.
+3. **No se promete ningún tier** al que la escalera no haya llegado. Lo que los go/no-go no
+   habiliten es trabajo futuro y se dice así.
+
+**Las tres cosas que no se pueden escribir, y por qué cada una:**
+
+| 🚫 | Por qué |
+|---|---|
+| La causa **"falta de tiempo"** / "presupuesto de tiempo" / "secuenciación" como motivo de no-ejecución | **Prohibida por ADR-017 §2b.** El encuadre correcto: rama comparativa **condicionada desde el planteo por datos y protocolo** (Tabla 37: baseline primero; F-100.1; licencias). El cómputo nunca fue la restricción — Mendieta disponible, ≈1 GPU-h medido para T1. "Secuenciación" sobrevive **solo** como descripción del orden metodológico |
+| Fundir sus cifras con las del **núcleo zero-shot** | Es **otra rama**. Se rotula como comparativa y va en su propia subsección y sus propias tablas. Fundirlas destruye la pregunta de la tesis, que es cuánto rinde el stack **sin entrenar** |
+| Leer los go/no-go como **aprobado/fallado** | Son criterios de lectura y escalamiento (ADR-017 §2c). **Un desenlace negativo —sin ganancia exigible, o con erosión open-vocabulary medida— es un resultado documentable**, y de los valiosos: mediría el costo de adaptar |
+
+**De dónde saldrán las cifras cuando existan:** de un artefacto en
+`e-ovrt_experimental-setup/results/`, igual que todo el resto — **nunca de las notas de
+trabajo de la jornada**. Mientras no haya índice verificable, no hay cifra citable.
+
+**Puertas previas (son del tramo experimental, no de la redacción):** decisión del usuario
+sobre **F-100.1** y la checklist de `operacion/100` §6. No bloquean escribir el resto
+del §17.5.
+
+**Se lee junto a:** `decisiones/adr-017-fine-tuning-jornada-experimental.md` (§2 completo)
+· `contingencia/20` §6 (la escalera) · `01` (el encuadre en §15: rama comparativa, nunca
+descarte) · `02` (la escalera en §17.1) · `06` (cómo entra en las conclusiones: rotulada
+como rama comparativa, nunca fundida) · `operacion/100` §4/§6.
 
 ---
 

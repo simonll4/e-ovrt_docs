@@ -9,6 +9,7 @@
 |---|---|
 | **leer el informe tal como está hoy** (o el capítulo de Etapa 3) | [`entregable/`](entregable/00-el-informe-hoy.md) |
 | **saber qué hay que cambiarle, etapa por etapa** | [`ajustes/00-mapa-de-ajustes.md`](ajustes/00-mapa-de-ajustes.md) ← **el punto de entrada** |
+| **ponerte a aplicarlo** (dónde escribís, en qué orden, qué te toca, qué falta producir) | ✎ [`ajustes/08-manual-de-aplicacion.md`](ajustes/08-manual-de-aplicacion.md) ← **el documento del día 1** |
 
 ---
 
@@ -34,6 +35,7 @@ informe/
     ├── 05-etapa-5-evaluacion-y-validacion.md     evaluación → §17.5 (vacía)
     ├── 06-etapa-6-documentacion-y-cierre.md      cierre → §17.6 (vacía) · §18 · §19
     ├── 07-critica-extension-y-poda.md            transversal: qué ELIMINAR (18 PODA-nn, ~27%)
+    ├── 08-manual-de-aplicacion.md                ← CÓMO se aplica todo: orden, reparto, tablero
     ├── material-etapa-3/   91 · 92 · 92b · 93 · 94
     └── gobierno/           95 · 97 · 98 · 99
 ```

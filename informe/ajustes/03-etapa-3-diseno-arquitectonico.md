@@ -51,7 +51,7 @@ Prioridad y sección salen del tablero del 93; la última columna es el estado a
 | R-04 | 17.3.8.3.2 | PRECISA | 🔴 | Granularidad `scene\|subject` + caveat semántico de escena | — | reforzada: G1 (sujeto) terminó siendo **el mejor resultado del banco** |
 | R-05 | Tabla 45 / 17.3.6.4 | CONTRADICE | 🔴 | El vocabulario del núcleo es positivo (person/helmet/vest) | — | |
 | R-06 | 17.3.11 | CONCRETA | 🔴 | Partir el hedge en dos + tabla de correspondencia | **94 §1** | |
-| R-07 | 17.3.11.4 | CONCRETA | 🔴 | Regla de evolución del evento (el pedido del tutor) | **94 §2** | |
+| R-07 | 17.3.11.4 | CONCRETA | 🔴 | Regla de evolución del evento (el pedido del tutor) | **94 §2** | ✎ **08-12: la fila de identidad de sujeto estaba vieja y se corrigió** — ver §3c |
 | R-08 | 17.3.8.1 / .4 | CONCRETA | 🟠 | El bus existe y tiene tecnología: ZeroMQ + msgpack | **94 §3** | |
 | R-09 | 17.3.5 | CONCRETA | 🟠 | Figura nueva: vista de procesos (dos servicios HTTP) | **94 §4** | es la **FIG-A** del inventario de cierre |
 | R-10 | 17.3.13 | CONCRETA | 🟠 | Diccionario de métricas con t0/t1 + criterio de relojes | **94 §5** | cruza con `AJ-2.03` (§17.1) |
@@ -115,6 +115,28 @@ Cuatro redlines quedan tocadas:
   no como prosa del diseño reescrita en pasado profético.
 
 La decisión formal de cada caso queda donde siempre: en la casilla de la redline.
+
+## 3c. ✎ 2026-08-12 — R-07: la fila de identidad de sujeto había envejecido mal
+
+**R-07 es la redline que contesta el punto que el tutor técnico marcó como "muy
+importante"**: que el evento de inferencia dé soporte a datos que hoy no están —tracking,
+velocidad, dirección, pose, segmentación—. Su texto (doc `94` §2, Tabla 63) declaraba
+para identidad de sujeto que *"el componente que lo puebla no está implementado"*. **Era
+cierto el 12/07 y es falso desde el 2026-08-04.** El glosario (`13`, entrada `track_id`)
+ya llevaba la corrección desde el 08-10; el material de Etapa 3 no la había recibido.
+
+Corregido el 2026-08-12 en `94` §2 y en `92` §4.2 (con recuadro y ruta:línea), y la
+corrección **refuerza** la respuesta al tutor en lugar de debilitarla: de las cinco
+extensiones que él nombró, **una se recorrió de punta a punta, por configuración y sin
+tocar el contrato**, y quedó medida. El reparto entre etapas respeta la regla de
+no-anacronismo:
+
+- **§17.3.11.4** (acá): el mecanismo y el estado del contrato, **sin cifra**.
+- **§17.4**: la cifra y la comparación pareada (`AJ-4.12`, ampliado el mismo día).
+
+Dos honestidades que viajan con el dato y no se pueden recortar al transcribir: el
+`track_id` **no queda en el JSONL del plano de medios** sino en los artefactos del
+control, y **lo excluido por E-10 son las métricas MOT, no la capacidad**.
 
 ## 4. Cómo se trabaja este frente
 

@@ -6,7 +6,10 @@ sabido el contexto y cita códigos sin definirlos. Este archivo es la única pue
 entrada pensada para alguien que llega de cero y tiene que escribir el capítulo de
 resultados.
 
-- **Fecha:** 2026-08-10 · **Estado:** tramo experimental **cerrado y verificado**.
+- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-12** · **Estado:** tramo experimental **cerrado y
+  verificado**, con **una excepción declarada**: la **jornada de fine-tuning (E-04) está en
+  curso** y corre en paralelo. Por ADR-017 §2f **no bloquea la redacción**; su subsección de
+  resultados queda reservada (`informe/ajustes/05` → `AJ-5.13`). Todo lo demás está congelado.
 - **Qué NO vas a encontrar acá:** cifras. Las cifras tienen una sola fuente y está más
   abajo. Si un número aparece en este documento es como ejemplo de cómo citarlo, no como
   fuente.
@@ -189,6 +192,15 @@ la restricción (clúster Mendieta disponible, T1 ≈1 GPU-h medido) — y está
 **comprometida como jornada completa**, que se documenta con sus resultados,
 limitaciones y estado a la entrega, con causa técnica.
 
+> ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
+> bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
+> una subsección **reservada** para esa rama (`informe/ajustes/05` → `AJ-5.13`) — no la
+> borres ni la escribas como exclusión; **(2)** mientras no haya un artefacto en `results/`,
+> **no hay cifra citable** de esa rama; **(3)** sus resultados, cuando existan, van
+> **rotulados como rama comparativa y en tablas propias** — nunca fundidos con los del
+> núcleo zero-shot, porque la pregunta de la tesis es justamente cuánto rinde el stack
+> **sin entrenar**. Un desenlace negativo es un resultado documentable, no una omisión.
+
 ---
 
 ## 5. Cómo se decide qué se puede afirmar
@@ -226,6 +238,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
 | Qué figura/tabla va en cada sección | `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
 | **Qué hay que cambiarle al informe, etapa por etapa** | ✎ **`docs/informe/ajustes/00-mapa-de-ajustes.md`** — el mapa de Etapa 1 a Etapa 6, con un documento por etapa (`01`…`06`). **Empezá por acá y no por el 93**: el 93 cubre solo la Etapa 3 |
+| **Cómo se aplica todo eso: dónde escribís, en qué orden, qué te toca** | ✎ **`docs/informe/ajustes/08-manual-de-aplicacion.md`** — **es el documento del día 1.** Trae el reparto de trabajo, el orden con su dependencia dura (la vara del §15 antes que el §17.5), el loop repetible por sección, las cuatro puertas de cierre y el tablero de las 109 unidades. **Leelo después de esta guía y antes de tocar nada** |
 | Qué hay que corregir del **§17.3** (Etapa 3) | `docs/informe/93` — los **26 redlines** (R-01…R-26). Enrutados desde `informe/ajustes/03-etapa-3-diseno-arquitectonico.md` |
 | Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe. Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
 | Qué **recortar** del informe (está muy extenso) | ✎ `docs/informe/ajustes/07-critica-extension-y-poda.md` — 18 podas medidas (`PODA-nn`, ~27% del texto), con guardrails de qué NO tocar. Se aplica junto con los `AJ-`/`R-` de cada sección |

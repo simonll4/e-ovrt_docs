@@ -321,6 +321,13 @@ re-evaluado** (docs 102→113). Lo que queda:
    `informe-project-kit` — **no arranca hasta orden explícita tuya** (orden del
    2026-08-05, ratificada el 08-09; `informe/99` §7). Nada de lo pendiente cambia una
    conclusión (doc 98 §7), y ya **no hay bloqueos técnicos**.
+   ✎ **2026-08-12 — el arranque quedó preparado**, sin arrancar: el **cómo** aplicar los
+   108 ajustes está en **`informe/ajustes/08-manual-de-aplicacion.md`** (superficie de
+   edición, reparto entre las cuatro manos, orden con la dependencia dura resuelta, loop
+   por sección, cuatro puertas de cierre y tablero de estado). **Tiene tres decisiones
+   tuyas pendientes en su §2** (D-A dónde se escribe · D-B quién hace qué · D-C cuándo se
+   re-extrae la foto del `.docx`) y **cinco figuras por producir** (su §6). La orden de no
+   arrancar sigue vigente.
 
 Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experimentos.md`.
 

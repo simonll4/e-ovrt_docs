@@ -222,6 +222,29 @@ Dos mitades:
 contrapeso**: el hallazgo F-94.1 —una clase que parece detectarse y no se está
 detectando— es parte honesta del mismo resultado y va escrito junto, no aparte.
 
+**✎ 2026-08-12 — hay una tercera mitad, y es la que le contesta al tutor técnico.**
+La extensibilidad no se midió sólo sobre una **condición** nueva: también se midió sobre
+el **evento de percepción**, que es exactamente lo que el tutor pidió asegurar ("que den
+soporte a datos que hoy no están, pero mañana sí: tracking, velocidad, dirección, pose,
+segmentación"). De esa lista, **identidad de sujeto se recorrió de punta a punta**:
+
+- se materializó **por configuración**, como decorador de la fuente de eventos del plano
+  de control (`input.track_persons`, opt-in), **sin tocar el contrato ni el plano de
+  medios**, y sirve igual para el acople por archivo y por bus;
+- la campaña **G1** la midió **contra escena con las mismas detecciones bit a bit** — la
+  ganancia es íntegramente del motor — y resultó **el mejor resultado del banco**;
+- el camino config-driven **reproduce la campaña exacto**: el número es lo que rinde la
+  plataforma por YAML, no un script suelto.
+
+Esto convierte la regla de evolución de §17.3.11.4 (que allá se enuncia **sin cifra**, por
+no-anacronismo) en **capacidad verificada** acá. **La cifra se cita desde el índice de
+`results/`**, nunca desde una tabla-atajo. Va con sus dos honestidades: el `track_id` **no
+queda en el JSONL del plano de medios** sino en los artefactos del control (trazabilidad
+sostenida por el determinismo del seguidor y el orden del stream), y **lo excluido por
+E-10 son las métricas MOT, no la capacidad**.
+
+Insumo: `92` §4.2 y su recuadro · `94` §2 · `operacion/89` · `operacion/90` (D-90.3).
+
 ---
 
 ## 3. 🚫 Lo que no hay que escribir en el §17.4

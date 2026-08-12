@@ -10,6 +10,20 @@
 - **Regla de oro al copiar:** si un campo no está en el código, **no va al informe**. La única forma de
   que este anexo envejezca mal es que alguien "mejore" un esquema al transcribirlo.
 
+> ✎ **2026-08-12 — tres correcciones de propagación.** Este anexo estaba congelado en el 12/07 y el
+> sistema siguió andando. Antes de transcribir nada:
+>
+> 1. **La §10 quedó derogada como fuente de números el 2026-08-05.** Las cifras salen de los **cuatro
+>    índices de `e-ovrt_experimental-setup/results/`** (verificables con `operacion/datos/96-verificar-indices.py`).
+>    La §10 sirve todavía para saber **qué corrida produjo qué**, no para citar el valor.
+> 2. **La fila de tracking de la §4.2 decía que nadie puebla `track_id`. Es falso desde el 2026-08-04**
+>    (el glosario ya está corregido; este anexo no lo estaba). Corregida en su lugar — y la corrección
+>    **juega a favor**: es la única extensión del evento que se recorrió de punta a punta y se midió.
+> 3. **La distribución de alertas ya no es "exclusión declarada"**: ADR-016 (2026-08-10) la reabrió como
+>    **trabajo comprometido** antes de la defensa. Se redacta describiendo el diseño y **declarando el
+>    estado real al momento de la entrega**, nunca en presente como si funcionara. Filas afectadas: la
+>    última de la §1 y la última de la §9.
+
 ---
 
 ## 1. Tabla de correspondencia: contrato preliminar (Etapa 3) ↔ artefacto real
@@ -33,7 +47,7 @@ artefactos verificables, sin traicionar la lógica del diseño original.
 | Repositorio de eventos (§17.3.12) | **JSONL append-only por corrida** | `runs/<run_id>/*.jsonl` | cada plano |
 | Bus interno de eventos (§17.3.8.4) | **ZeroMQ XPUB/SUB + msgpack** | `bus.envelope.v1` | `media-plane/transport/bus.py:19` |
 | Reporte experimental (§17.3.13.4) | Reporte consolidado | `report.json` / `report.md` | `experimental-setup/runs/<experiment_id>/report/` |
-| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **spec 45 — no implementado; sigue preliminar** |
+| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **spec 45 — contrato preliminar; ✎ 2026-08-12, ADR-016: implementación comprometida antes de la defensa, se declara su estado a la entrega** |
 
 > **Frase para el capítulo:** *"Los contratos definidos en la Etapa 3 dejaron de ser denominaciones
 > preliminares para el núcleo validable: se materializaron como modelos de datos versionados, con
@@ -91,6 +105,13 @@ class Detection(BaseModel):           # contracts/detection.py:28
 > `frame_000120` — la unidad en la que el sistema confirma la alerta de CR-01, a los 4000 ms exactos.
 > **Único recorte:** de las 22 detecciones de esa unidad se muestran 2, y se indica el recorte.
 > **Regla: no se agrega, no se mejora, no se completa nada.**
+>
+> ⚠️ **✎ 2026-08-12 — el `source_id` de esta línea es `cb_b01_p7`, un clip RETIRADO del banco**
+> el 2026-08-03 (licencia sin registrar + GT por IA). Como ejemplo de **esquema** la línea es
+> válida —no se cita ningún resultado suyo—, pero **no debe entrar al informe con ese
+> identificador**. Se resuelve re-transcribiendo un replay sobre un clip del banco vigente, o
+> declarando la omisión del identificador. **No se edita a mano**: eso reintroduciría el
+> problema que la auditoría del 12/07 vino a cerrar. Detalle y opciones: `94` §1.3.
 
 ```json
 {
@@ -251,11 +272,37 @@ Este es el punto más sustantivo de la observación del tutor:
 
 | Extensión | Camino en el contrato | Estado hoy |
 |---|---|---|
-| **Tracking (`track_id`)** | Campo opcional de `Detection`, **presente en AMBOS contratos** desde 2026-07-13: del lado consumidor (`control-plane/contracts/media.py:11`, el motor lo usa como identidad en `state_key()`) y del lado productor (`media-plane/contracts/detection.py`, commit `0133d38`, con tests que fijan que ausente no se serializa —byte-compat— y presente sí). | **Contrato completo en ambos lados; emisión pendiente.** Ningún componente lo **puebla** todavía (el tracker de spec 42 §3 no está implementado), así que vale `None` y no aparece en el JSONL. Por eso `granularity: subject` degrada a escena con causa `no_track_id`. La regla aditiva ya no es una promesa: se puede mostrar el esquema del productor. |
+| **Tracking (`track_id`)** | Campo opcional de `Detection`, **presente en AMBOS contratos** desde 2026-07-13: del lado consumidor (`control-plane/contracts/media.py:15`, el motor lo usa como identidad en `state_key()`, `spatial_absence.py:144`) y del lado productor (`media-plane/contracts/detection.py:38`, commit `0133d38`, con tests que fijan que ausente no se serializa —byte-compat— y presente sí). | ✎ **2026-08-12 — CORREGIDO. Decía "ningún componente lo puebla todavía"; es falso desde el 2026-08-04.** Ver el recuadro de abajo: la extensión **se recorrió y se midió**. Lo que sigue siendo cierto es que **el productor no lo emite**: en `detections.jsonl` el campo no aparece. |
 | **Velocidad y dirección** | Campos opcionales derivados (`velocity_px_s`, `heading_deg`). No requieren cambiar el evento: requieren `track_id` + los timestamps **que ya viajan** (`source.timestamp_ms`, `capture_monotonic_ns`, `capture_wallclock_ms`). | Especificado; no implementado. |
 | **Pose** | Campo opcional (`keypoints`). ⚠️ **Corregido:** el motor **no tiene soporte de pose**. Lo que tiene es una **heurística geométrica**: la región de búsqueda de EPP se ensancha a altura completa cuando la relación de aspecto del bbox sugiere un sujeto no erguido (`full_height_aspect_ratio`, `PatternRegionConfig`, usado en `spatial_absence.py:58`). Decirle "costura de pose" invita a que te pidan el keypoint. | Heurística de aspecto en el evaluador; el evento no lleva keypoints. |
 | **Segmentación** | Campo opcional (`mask_rle` / `polygon`), junto al bbox, no en lugar de él. | Especificado; no implementado. |
 | **Detecciones asociadas** | Ya modelado, pero **en el plano de control, no en el evento de percepción**: `PatternEvidence` liga el sujeto con sus detecciones de soporte (`supporting[]`) y la clase ausente (`missing_class`). Esa es, por diseño, la capa que asocia detecciones entre sí. | **Implementado.** |
+
+> ✎ **2026-08-12 — la extensión de tracking dejó de ser hipotética, y es el mejor material que tenemos
+> para el tutor.** El pedido fue: *"que den soporte a datos que hoy no están, pero mañana sí"*. Para
+> identidad de sujeto, **ese mañana ya pasó y quedó medido**:
+>
+> - **Se implementó como decorador de FUENTE en el plano de control** —`sources/tracking.py::TrackingSource`,
+>   opt-in por `input.track_persons` (default `false`)—, no como paso del plano de medios. Decora cualquier
+>   `MediaEventSource`, así que **sirve igual para DBE (archivo) y para EBE (bus)**, y vuelve innecesario el
+>   port del `SimpleIoUTracker` que ADR-002 preveía (spec 42 §3).
+> - **Resultado medido (campaña G1, `operacion/89`): F1 0,789 → 0,930 con las MISMAS detecciones bit a bit.**
+>   La ganancia es 100% del motor: cambió la identidad, no la percepción. Es **el mejor resultado del banco**.
+>   Se verificó que el camino config-driven reproduce la campaña exacto ⇒ el 0,930 es lo que rinde la
+>   plataforma por YAML, no un script suelto.
+> - **Trade-off declarado, y hay que escribirlo:** el `track_id` **no queda en `detections.jsonl`** (la fuente
+>   de verdad del plano de medios) sino en los artefactos del control (`subject_key` de `pattern_events.jsonl`).
+>   La trazabilidad se conserva porque el tracker es determinista y el stream ordenado: un replay reproduce
+>   las mismas identidades. Quien necesite el artefacto con `track_id` embebido lo genera con
+>   `python -m eovrt_control.tools.track_detections`.
+> - **Lo que sigue sin existir:** las **métricas MOT** (exclusión E-10, ADR-015) y el port al pipeline online.
+>   No confundir una cosa con la otra: **lo excluido son las métricas, no la capacidad.**
+> - **El núcleo validable sigue siendo escena (G0)** por decisión (D-90.3): G1 se reporta como **capacidad
+>   medida**, no como configuración del núcleo.
+>
+> **Dónde va cada cosa (regla de no-anacronismo):** en **§17.3.11.4** (Etapa 3) va el **estado del contrato**
+> —completo en ambos planos, productor no emisor, identidad resuelta en el consumidor— **sin la cifra**. El
+> **0,930 y la comparación pareada van a §17.4/§17.5**, que es donde vive la verificación.
 
 ### 4.3 El evento, mostrado con su superficie de crecimiento
 
@@ -304,8 +351,9 @@ Este es el punto más sustantivo de la observación del tutor:
 > bumpean la versión del esquema, de modo que un consumidor escrito contra `media.detection.v1` sigue
 > siendo válido cuando el evento incorpora identidad de sujeto, cinemática, pose o segmentación. La
 > identidad de sujeto (`track_id`) ya está prevista en el contrato y consumida por el motor de patrones;
-> el productor no la emite en la versión evaluada, y por esa razón el núcleo opera sobre granularidad de
-> escena. Se declara explícitamente: `detection_id` es un índice por frame y **no** una identidad entre
+> el plano de medios no la emite, de modo que la identidad se resuelve como capacidad del consumidor y el
+> núcleo validable se define sobre granularidad de escena. Se declara explícitamente: `detection_id` es un
+> índice por frame y **no** una identidad entre
 > frames — usarlo como identidad produce aliasing medible: sobre una corrida de vídeo real, la etiqueta
 > `det_000001` recorre 1831 px del ancho del cuadro (de 1920 px) a lo largo de la corrida, con saltos de
 > hasta ~1750 px entre cuadros consecutivos."*
@@ -549,7 +597,7 @@ la configuración, el prompt set, el modelo y el commit que la produjeron.**
 | **Un modelo nuevo** | Subclase de `BaseDetectorAdapter` + rama en `create_adapter()` + un YAML en `configs/models/`. Hoy: `grounding_dino`, `yoloe`, `mock`. |
 | **Una condición de riesgo nueva** | **Sólo configuración**, si la condición es del tipo "sujeto sin EPP": una entrada declarativa en el pattern set (clase sujeto, clase ausente, región, umbrales, tiempos) + los prompts. **Cero código.** Este es el mini-experimento A1 (costo marginal de una condición nueva) y es un resultado de tesis en sí mismo. |
 | **Un tipo de patrón nuevo** (p. ej. relacional o zonal) | Un evaluador nuevo en `engine/evaluators/`. Hoy sólo existe `spatial_absence`. |
-| **Un canal de notificación** | Repo de distribución (spec 45): implementar el canal contra `NotificationEnvelope`. **No implementado.** |
+| **Un canal de notificación** | Repo de distribución (spec 45): implementar el canal contra `NotificationEnvelope`. ✎ **2026-08-12, ADR-016: trabajo comprometido antes de la defensa** (al 2026-08-10 el repo es un esqueleto de paquetes sin lógica ni commits). Se declara el estado a la entrega, no se escribe en presente. |
 
 El contraste entre las filas 3 y 4 es, en sí, un argumento de la tesis: **agregar una condición del núcleo
 cuesta configuración; agregar una familia nueva de condiciones cuesta un evaluador.** Esa es la frontera
@@ -558,11 +606,22 @@ configurable".
 
 ---
 
-## 10. Números canónicos — **la única fuente de verdad para citar cifras**
+## 10. Números canónicos — ~~la única fuente de verdad para citar cifras~~ **DEROGADA como fuente**
 
-> **Regla, tras la auditoría del 2026-07-12:** ninguna cifra entra a los docs 91/93/94 —ni al `.docx`— si
-> no está en esta tabla. Cada fila dice **qué corrida** la produjo y **con qué detector**, porque la mitad
-> de los errores encontrados venían de citar un número de una corrida y atribuirlo a otra.
+> 🚨 **✎ 2026-08-12 — esta sección quedó DEROGADA como fuente de números el 2026-08-05. No cites de acá.**
+> Las cifras del informe salen de los **cuatro índices de `e-ovrt_experimental-setup/results/`**
+> (`bench_imagenes/`, `bench_nivel_a/`, `clip_bench/`, `realtime/`), verificables con
+> `operacion/datos/96-verificar-indices.py`. La tabla de abajo es de **julio**, corrió sobre **GT
+> preliminar** y quedó ampliamente superada por el banco de 34 clips con GT humano.
+>
+> **Para qué sigue sirviendo:** para saber **qué corrida y qué detector produjeron un artefacto** — que es
+> el problema que esta sección vino a resolver. Esa función se conserva; la de citar valores, no.
+
+> **Regla original, tras la auditoría del 2026-07-12:** ninguna cifra entra a los docs 91/93/94 —ni al
+> `.docx`— si no está en esta tabla. Cada fila dice **qué corrida** la produjo y **con qué detector**, porque
+> la mitad de los errores encontrados venían de citar un número de una corrida y atribuirlo a otra.
+> *(El espíritu sigue vigente con la fuente cambiada: si una cifra no está en un índice verificable, no
+> entra.)*
 
 | Cifra | Valor | Corrida / detector | Artefacto |
 |---|---|---|---|

@@ -11,6 +11,20 @@
   documento tenía cifras mal atribuidas y un JSON fabricado; la auditoría los encontró. **Si una cifra no
   está en la §10 del doc 92, no entra acá.**
 
+> ✎ **2026-08-12 — dos correcciones antes de transcribir.**
+>
+> 1. **La regla de números de arriba está derogada en su parte de fuente.** Desde el 2026-08-05 las cifras
+>    salen de los **cuatro índices de `e-ovrt_experimental-setup/results/`** (verificables con
+>    `operacion/datos/96-verificar-indices.py`); la §10 del doc 92 sirve para saber **qué corrida produjo
+>    qué**, no para citar el valor. El espíritu de la regla no cambia: **si una cifra no está en un índice
+>    verificable, no entra acá.**
+> 2. **La fila de identidad de sujeto de la Tabla 63 (§2) estaba desactualizada y se corrigió.** Decía que
+>    el componente que puebla `track_id` no está implementado: es falso desde el 2026-08-04. La corrección
+>    está aplicada en su lugar, con el reparto de contenido entre §17.3 y §17.4 que exige la regla de
+>    no-anacronismo. Contexto completo: `92` §4.2.
+> 3. **La distribución de alertas ya no se redacta como exclusión** (§1.1 y Tabla 61): ADR-016 la reabrió
+>    como **trabajo comprometido**. Aplicado abajo.
+
 | § de este doc | Redline | Destino en el capítulo |
 |---|---|---|
 | §1 | R-06 | §17.3.11 — contratos concretos |
@@ -43,8 +57,13 @@ muestra. Así no parece que nos desdecimos: parece que cumplimos.
 > En consecuencia, esta sección presenta cada contrato del núcleo en dos planos: su **función
 > arquitectónica** —qué acuerda y entre qué componentes— y su **materialización efectiva** —qué estructura
 > de datos, qué versión de esquema y qué interfaz lo realizan—. Los contratos correspondientes a
-> capacidades **no implementadas**, en particular los del tramo de distribución de alertas, conservan su
-> carácter preliminar y se declaran explícitamente como tales.
+> capacidades **aún no materializadas**, en particular los del tramo de distribución de alertas, conservan
+> su carácter preliminar, y su estado de implementación se declara explícitamente en cada caso.
+
+*(✎ 2026-08-12 — la frase final decía "capacidades **no implementadas** … se declaran explícitamente como
+tales", redacción heredada de cuando la distribución era exclusión ejercida. **ADR-016 la reabrió como
+trabajo comprometido**: el contrato sigue siendo preliminar, pero el texto no puede clausurar la
+implementación. Al transcribir, ajustar según el estado real a la entrega — ver `03-etapa-3` §5.)*
 
 ## 1.2 Tabla de correspondencia — contrato preliminar ↔ artefacto real
 
@@ -68,11 +87,11 @@ muestra. Así no parece que nos desdecimos: parece que cumplimos.
 > | Repositorio de eventos | Archivos de sólo adición por corrida | — | Ambos planos |
 > | Referencia temporal de evaluación | Anotación de episodios por clip | `clip_gt.v2` | Soporte experimental |
 > | Reporte experimental | Reporte consolidado de corrida | — | Soporte experimental |
-> | Alerta distribuida | *(preliminar — no implementado)* | `control.notification.v1` | Módulo de distribución |
+> | Alerta distribuida | *(preliminar — pendiente de materialización)* | `control.notification.v1` | Módulo de distribución |
 >
 > *Nota.* Los contratos con versión de esquema declarada están implementados y verificados en corridas
-> registradas. El contrato de alerta distribuida conserva carácter preliminar, en coherencia con el alcance
-> declarado del prototipo.
+> registradas. El contrato de alerta distribuida conserva carácter preliminar; su estado de implementación
+> al momento de la entrega se declara en la sección correspondiente.
 
 ## 1.3 El contrato central, mostrado
 
@@ -90,6 +109,25 @@ muestra. Así no parece que nos desdecimos: parece que cumplimos.
 **Nota:** presentalo como *Figura N — Evento de percepción (extracto de artefacto real)*, en monoespaciado.
 Es lo que el tutor pidió con nombre propio ("un DTO"). **Este JSON es literal** — verificado contra
 `detections.jsonl`, unidad `frame_000120`. No lo "mejores" al pegarlo.
+
+> ⚠️ **2026-08-12 — RESOLVER ANTES DE PEGAR: el `source_id` es de un clip retirado.**
+> La corrida de la que sale esta línea se hizo el 2026-07-11 sobre **`cb_b01_p7`**, y ese clip
+> fue **retirado del banco el 2026-08-03** (licencia sin registrar + GT generado por IA;
+> `datasets/processed/clip_bench/_retired/cb_b01_p7/MOTIVO.md`). El JSON es impecable como
+> **ejemplo de esquema** —no se está citando ningún resultado suyo—, pero **mete en el informe
+> el identificador de un clip que no existe en el banco congelado**, y es exactamente lo que la
+> trampa 5 de `GUIA-REDACTORES` §4 manda no hacer.
+>
+> **No se arregla editando el identificador a mano**: eso rompería la garantía de transcripción
+> literal que costó una auditoría establecer (la v1 de este documento tenía un JSON fabricado).
+> Las dos salidas honestas:
+>
+> | Opción | Qué implica |
+> |---|---|
+> | **(a) Re-transcribir** ✅ recomendada | Correr un replay DBE sobre un clip **del banco vigente**, y transcribir esa línea literalmente. Es barato (replay, sin GPU nueva) y deja el ejemplo por encima de toda sospecha |
+> | (b) Redactar el identificador | Conservar la línea real y sustituir el `source_id` por `"<clip_id>"`, **declarando en el pie que el identificador fue omitido**. Sigue siendo honesto porque la omisión se declara, pero pierde el "esto salió tal cual de un artefacto" |
+>
+> Lo que **no** es opción: pegarlo tal cual y esperar que nadie pregunte qué es `cb_b01_p7`.
 
 > ```json
 > {
@@ -250,7 +288,7 @@ declara qué falta. Esa honestidad **es** el argumento.
 >
 > | Capacidad | Materialización prevista en el contrato | Estado en el prototipo |
 > |---|---|---|
-> | **Identidad de sujeto** (seguimiento) | Campo opcional de identidad en la detección. Es la **única identidad válida entre frames**. | **Contrato completo en ambos planos**: el campo está definido en el esquema del productor —opcional, con la propiedad verificada de que su ausencia no altera la serialización— y el motor de patrones ya lo utiliza como clave de estado bajo granularidad de sujeto. **El componente que lo puebla (el seguidor) no está implementado**, y en consecuencia el núcleo opera sobre granularidad de escena. |
+> | **Identidad de sujeto** (seguimiento) | Campo opcional de identidad en la detección. Es la **única identidad válida entre frames**. | **Contrato completo en ambos planos**: el campo está definido en el esquema del productor —opcional, con la propiedad verificada de que su ausencia no altera la serialización— y el motor de patrones lo utiliza como clave de estado bajo granularidad de sujeto. **Es, además, la única extensión de esta tabla efectivamente ejercida**: la identidad se materializó como decorador de la fuente de eventos en el plano de control, activable por configuración y aplicable por igual al acople por archivo y al acople por bus, **sin modificar el contrato ni el plano de medios**. El plano de medios no emite el campo, de modo que la evidencia perceptiva persistida permanece inalterada; el núcleo validable se define sobre granularidad de escena y la granularidad de sujeto se reporta como capacidad medida (§17.4). |
 > | **Velocidad y dirección** | Campos opcionales derivados. No requieren información nueva del detector: se derivan de la identidad de sujeto y de las marcas temporales **que el evento ya transporta**. | Especificado, no implementado. |
 > | **Pose** | Campo opcional de puntos clave. | No implementado. El evaluador de patrones **sí parametriza la región de búsqueda según la geometría del sujeto** —la región se extiende a altura completa cuando la relación de aspecto sugiere una postura no erguida—, pero se trata de una heurística geométrica y **no de información de pose**. |
 > | **Segmentación** | Campo opcional de máscara, **junto** al bounding box y no en su reemplazo, para no invalidar a los consumidores existentes. | Especificado, no implementado. |
@@ -270,6 +308,26 @@ declara qué falta. Esa honestidad **es** el argumento.
 > cuadro —de 1920 píxeles— a lo largo de la corrida, con desplazamientos de hasta 1749 píxeles entre
 > cuadros consecutivos. Es esa medición, y no una preferencia de diseño, la que fundamenta la adopción de
 > la granularidad de escena para el núcleo validable.
+
+**✎ 2026-08-12 — nota para el redactor sobre la fila de identidad de sujeto (leer antes de transcribir).**
+La versión anterior de esa fila decía *"el componente que lo puebla no está implementado"*. **Era cierta el
+12/07 y es falsa desde el 2026-08-04**, y da la casualidad de que es **la fila que más le importa al
+tutor**: él preguntó si el evento puede sostener datos que hoy no están —tracking el primero de su lista—.
+La respuesta honesta hoy es más fuerte que la que teníamos: **esa extensión se recorrió de punta a punta y
+se midió**, y salió el mejor resultado del banco (identidad de sujeto contra escena, **con las mismas
+detecciones bit a bit**: la ganancia es íntegramente del motor, no de la percepción).
+
+Cómo se reparte, por la **regla de no-anacronismo**:
+
+- **Acá (§17.3.11.4, Etapa 3)** va el **estado del contrato y el mecanismo**, sin cifra: contrato completo
+  en ambos planos, productor no emisor, identidad resuelta como capacidad del consumidor por configuración.
+  Eso es diseño, y corresponde a esta etapa.
+- **La cifra, la comparación pareada y el trade-off van a §17.4** (`AJ-4.12`) **y §17.5**. Ahí se cita desde
+  el índice de `results/`, y ahí se dice que el `track_id` **no queda en el JSONL del plano de medios** sino
+  en los artefactos del control, con la trazabilidad sostenida por el determinismo del seguidor.
+- **No confundir con la exclusión E-10:** lo excluido son las **métricas MOT**, no la capacidad.
+
+Insumo verificado contra código, con ruta y línea: `92` §4.2 y su recuadro.
 
 ---
 

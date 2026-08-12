@@ -11,6 +11,13 @@
 > *qué está mal o falta* y *de qué documento sale el texto o la cifra*. El texto y los
 > números viven en su fuente y no se duplican acá: es la única forma de que este mapa
 > no se desactualice.
+>
+> ✎ **2026-08-12 — este mapa dice QUÉ cambiar; el CÓMO aplicarlo está en
+> [`08-manual-de-aplicacion.md`](08-manual-de-aplicacion.md)**: la superficie de edición
+> (dónde se escribe cada cosa y por qué), el reparto entre las cuatro manos, el orden con
+> su única dependencia dura resuelta, el loop repetible por sección, las cuatro puertas de
+> cierre y **el tablero de estado de las 109 unidades**. **Es el documento del día 1** — el
+> §6 de acá sigue siendo el orden recomendado, y el manual lo aterriza.
 
 ---
 
@@ -81,7 +88,7 @@ hacerla explícita dentro del propio informe.
 | **2** Análisis | §17.1 · Anexos C y D | `entregable/96b`, `96e` §19.3–19.4 | 12 (`AJ-2.x`) | [`02-etapa-2-consolidacion-metodologica.md`](02-etapa-2-consolidacion-metodologica.md) |
 | **3** Diseño | §17.3 | `entregable/90` | 26 (`R-01…R-26`) | [`03-etapa-3-diseno-arquitectonico.md`](03-etapa-3-diseno-arquitectonico.md) → `material-etapa-3/93` |
 | **4** Implementación del prototipo | **§17.4** — *hoy vacía* | — | 12 (`AJ-4.x`) | [`04-etapa-4-implementacion.md`](04-etapa-4-implementacion.md) |
-| **5** Evaluación y validación | **§17.5** — *hoy vacía* | — | 12 (`AJ-5.x`) | [`05-etapa-5-evaluacion-y-validacion.md`](05-etapa-5-evaluacion-y-validacion.md) |
+| **5** Evaluación y validación | **§17.5** — *hoy vacía* | — | 13 (`AJ-5.x`) | [`05-etapa-5-evaluacion-y-validacion.md`](05-etapa-5-evaluacion-y-validacion.md) |
 | **6** Documentación y cierre | **§17.6** *(vacía)* · §18 · §19 | `entregable/96e` (§18 y §19) | 5 (`AJ-6.x`) | [`06-etapa-6-documentacion-y-cierre.md`](06-etapa-6-documentacion-y-cierre.md) |
 | **PODA** *(transversal)* | §15, §16, §17.1, §17.3, §19 | todo lo escrito (~127k palabras) | 18 (`PODA-nn`, ahorro ~34.900 ≈ 27%) | [`07-critica-extension-y-poda.md`](07-critica-extension-y-poda.md) |
 
@@ -146,9 +153,9 @@ Van acá porque no pertenecen a ninguna etapa: son el encuadre del documento.
 | 2 — análisis metodológico | 12 | 1 | 5 | 6 | parcial (`94` §5) | relevado (`nucleo/08`), sin pase hecho |
 | 3 — diseño arquitectónico | 26 | 7 | 10 | 9 | **9 de 26** (`94` §1–§9) | el único frente con hoja de trabajo y casillas |
 | 4 — implementación MVP | 12 | — | 8 | 4 | insumos completos (`92`, `92b`, `94` §7–§9) | **§17.4 vacía**: es redacción |
-| 5 — evaluación y validación | 12 | — | 9 | 3 | insumos completos (`99` §1, 4 índices) | **§17.5 vacía**: es redacción |
+| 5 — evaluación y validación | 13 | — | 10 | 3 | insumos completos (`99` §1, 4 índices); ⏳ `AJ-5.13` abierto (jornada E-04 en curso) | **§17.5 vacía**: es redacción |
 | 6 — documentación y cierre | 5 | — | 3 | 2 | insumos completos (`99` §2–§4) | **§17.6 vacía**; §18 escrito pre-resultados |
-| **Total** | **90** | **11** | **43** | **36** | 9 | |
+| **Total** | **91** | **11** | **44** | **36** | 9 | |
 
 **Ninguno de los ajustes está aplicado al `.docx`.** Lo que existe es el relevamiento y, en
 9 casos de Etapa 3, el texto listo para pegar.
