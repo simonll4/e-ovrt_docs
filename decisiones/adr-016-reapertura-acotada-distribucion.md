@@ -44,6 +44,9 @@ Un canal MQTT + `NotificationEnvelope` + ledger de idempotencia por
 **(b) No se reabre nada más.** Siguen cerradas, con el fundamento que ya tenían:
 fine-tuning (E-04), inferencia en borde (EN-3), métricas MOT (E-10) y toda condición CR
 nueva. **Esta cláusula reemplaza a ADR-015 §2b y cumple su misma función de freno.**
+(✎ 2026-08-11, [ADR-017](adr-017-fine-tuning-jornada-experimental.md): **E-04 sale de
+esta lista** — el fine-tuning se ejerce como jornada experimental comprometida. El freno
+sigue vigente para EN-3, E-10, E-06 y las condiciones CR nuevas.)
 
 **(c) La implementación no bloquea el informe.** La redacción arranca de inmediato. El
 cierre **arquitectónico** —que es el propósito declarado— lo entrega la documentación:

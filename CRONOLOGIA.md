@@ -16,6 +16,77 @@
 
 ---
 
+## 2026-08-11 — ADR-017: el fine-tuning deja de ser "exclusión" y pasa a jornada comprometida
+
+Orden del usuario sobre el encuadre del informe: el fine-tuning **nunca debe leerse
+como "descartado por falta de tiempo"** — es una **rama experimental desde las etapas
+iniciales** (la Tabla 37 ya lo decía: baseline primero, ajuste cuando vale la pena),
+condicionada por **datos y protocolo** (F-100.1, licencias/transporte, go/no-go), no
+por cómputo (Mendieta disponible, T1 ≈1 GPU-h medido) ni por plazo (el cronograma lo
+define el propio proyecto). Se acuñó
+**[ADR-017](decisiones/adr-017-fine-tuning-jornada-experimental.md)**: E-04 **se
+ejerce como jornada completa** — escalera T1→T2/T3 con go/no-go pre-registrados,
+entrenar en el clúster / evaluar local, resultados **y limitaciones** documentados con
+su estado a la entrega; no bloquea el informe. Deroga E-04 de la cláusula (b) de
+ADR-016 y de ADR-015 §2a; el freno sigue para EN-3/E-10/E-06/CR nuevas. **Propagado**:
+`nucleo/10` (ficha E-04 + banner + tabla), `contingencia/20` (de "si sobra tiempo" a
+plan de la jornada; §7 derogado), **AJ-2.11 reescrito** (decía "exclusión por
+presupuesto de tiempo"), `ajustes/00/01/04/06/07`, redlines `93`/`94` (incluida la
+prosa lista-para-pegar de R-13), `gobierno/98/99`, las dos síntesis (incluido el guion
+de la pregunta hostil *"¿por qué no fine-tuning?"*), glosario, índice, `nucleo/16/17`,
+`operacion/62/100` (D-100.2: condición cumplida), históricos `02/07/08` anotados, y el
+`informe-project-kit/` regenerado. Puertas técnicas previas a pedir turno en Mendieta:
+**decisión del usuario sobre F-100.1** + checklist doc 100 §6.
+
+## 2026-08-11 — el módulo de distribución, relevado ejecutándolo (doc 114)
+
+El usuario implementó el grueso de `e-ovrt_alert-distribution` (el módulo que ADR-016
+reabrió el día anterior) y pidió relevarlo. **Está funcionalmente completo**: 37 tests,
+ruff limpio, contratos idénticos a `92b` campo por campo — pero **con cero commits**.
+
+Lo relevante es que el relevamiento **no se hizo leyendo, se hizo corriéndolo** contra
+una prueba ya ejecutada (`v06_c01` del lote de internet, 193 alertas reales), y eso
+cerró **5 de los 6 criterios de terminado** de spec 45 §7:
+
+- **Replay DBE**: 23 delivered / 170 suppressed_cooldown; re-ejecución 23
+  `skipped_duplicate` ⇒ idempotencia verificada.
+- **Live EBE contra el publisher real del control-plane** — el criterio que el plan
+  había dado por *"fuera del alcance de este repo"*. 193/193 leídas del bus,
+  `bus_dropped_events 0`, cierre por el sentinel `run_finished`, `experiment_id`
+  end-to-end, y **resultado idéntico al del archivo ⇒ paridad DBE↔EBE**.
+- **Entrega MQTT real con QoS 1 y PUBACK**: como no hay Mosquitto ni Docker en esta WSL,
+  se escribió un broker MQTT 3.1.1 mínimo (80 líneas) — 23 mensajes en
+  `eovrt/alerts/medium`. **Es un smoke contra un stub de loopback: sus latencias no son
+  una cifra reportable** y no reemplazan la demo con `mosquitto_sub`.
+
+**El 6º no se cumple**: `report.json` no integra la distribución (`report.py:418` la
+tiene hardcodeada como `not_applicable`/`no_distribution`). Y lo que falta **no es el
+módulo, es su acople**: reporte, vista en la webconsole (que **ADR-016 §2a nombra
+explícitamente**) y Mosquitto en el compose.
+
+Tres asperezas más, **verificadas y no deducidas**: una alerta con JSON válido pero un
+campo faltante **aborta la corrida entera** (`KeyError`, exit 1, sin summary — contradice
+la garantía de `92b` §2 de que ninguna alerta desaparece en silencio); `notifications.jsonl`
+crece sin techo entre pasadas (193 → 386 líneas); y el `latency_mode` no llega al summary,
+que es justo el caveat que `92b` §8 manda declarar siempre.
+
+**Decisión de infra recomendada:** al compose va **solo el broker**; el distribuidor corre
+en el host igual que el control-plane —que tampoco está dockerizado—, y los artefactos
+entran como cuarto hermano `runs/exp_<id>/distribution/`. Ninguna cifra del tramo
+experimental se toca (ADR-016 §4).
+
+**Mismo día, siguiendo el orden recomendado — C3, C1 y A1 cerrados con TDD:**
+`distribution_summary.json` ahora agrega `talert_notification_ms` **por
+`latency_mode`** (nunca mezclado); una alerta con campo faltante ya no aborta la
+corrida (`skipped_invalid_alerts`, la corrida sigue); y `experimental-setup` integra
+el summary al `report.json` —cerrando el 6º criterio— con el mismo criterio que
+`t_capture->alert`/reloj de medio: **DBE wall-clock nunca se reporta como si fuera
+la latencia operativa real** (`not_interpretable`, no `computed`). Verificado contra
+una corrida consolidada real. Suites: alert-distribution 39+1 · backend
+experimental-setup 592. Sin commitear.
+
+---
+
 ## 2026-08-10/11 — ADR-016 (distribución reabierta) + serie de relevamientos 14–19 + `nucleo/` partida por vigencia
 
 **El disparador:** el usuario encontró que `nucleo/01` §10 citaba como "pendientes" cinco

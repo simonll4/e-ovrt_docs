@@ -40,7 +40,7 @@
 | **AJ-2.08** | §17.1.6 / Tabla 36 | PRECISA | 🟡 | Usar los **nombres de fase de la Tabla 36** y declarar la correspondencia 1:1 con lo ejecutado (con la nota ADR-010). |
 | **AJ-2.09** | §17.1.7.8 | CONCRETA | 🟠 | Instrumentación: los **cinco hitos por alerta**, **P50/P95/P99**, warm-up declarado por corrida, bitácora mínima. |
 | **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. |
-| **AJ-2.11** | §17.1 / Tabla 37 | PRECISA | 🟡 | Reformular la exclusión del **fine-tuning (I1)**: el nodo de entrenamiento existe; la exclusión es por presupuesto de tiempo, con **costo medido**. |
+| **AJ-2.11** | §17.1 / Tabla 37 | PRECISA | 🟡 | Reencuadrar el **fine-tuning (I1)** conforme **ADR-017**: rama experimental condicionada (Tabla 37) que **se ejerce como jornada completa**; condiciones de datos y protocolo, no de cómputo — la causa "presupuesto de tiempo" queda **prohibida**. |
 | **AJ-2.12** | §17.1.7 | PRECISA | 🟠 | Declarar los **estados de aplicabilidad** (`not_applicable:<causa>`, ADR-006/013) y las **reglas de lectura** que ninguna métrica puede violar. |
 
 ---
@@ -201,13 +201,26 @@ fuente idéntica** — no como fuente experimental.
 
 ---
 
-### AJ-2.11 · §17.1 y Tabla 37 · PRECISA · 🟡 — la exclusión del fine-tuning
+### AJ-2.11 · §17.1 y Tabla 37 · PRECISA · 🟡 — el encuadre del fine-tuning
 
-Reformular citando la Tabla 37 y aclarando que **el nodo de entrenamiento existe**
-(clúster Mendieta, CCAD-UNC): la exclusión es por **presupuesto de tiempo** y por
-secuenciación (ADR-010) — no por imposibilidad. **En §17.1 va la decisión y su
-criterio**; el **costo medido (≈1 GPU-h, `operacion/100`)** es un dato posterior y se
-cita donde corresponde: §17.4 (estado) y §18 (trabajo futuro, `AJ-6.05`) — regla de
+> ✎ **2026-08-11 — reescrito conforme
+> [ADR-017](../../decisiones/adr-017-fine-tuning-jornada-experimental.md)**; *decía "la
+> exclusión es por presupuesto de tiempo y por secuenciación"* — esa causa queda
+> **prohibida** en el informe.
+
+Reformular citando la Tabla 37 **tal como está escrita**: la regla *"no prescribe que
+el fine-tuning deba ejecutarse; define cuándo vale la pena"* — es decir, la rama es
+**experimental y condicionada desde el diseño metodológico**, no una exclusión ni un
+descarte. Aclarar que **el nodo de entrenamiento existe** (clúster Mendieta, CCAD-UNC)
+y que las condiciones que gobiernan la rama son **de datos y de protocolo**
+(disponibilidad de un split de validación con `bare_head` — F-100.1 —, licencias y
+transporte de los datasets, go/no-go de la propia Tabla 37), **no de cómputo ni de
+plazo**. La rama **se ejerce como jornada completa** (ADR-017): escalera T1→T2/T3 con
+sus criterios pre-registrados, documentando resultados y limitaciones. **En §17.1 va
+la regla y su criterio**; la jornada, el **costo medido (≈1 GPU-h, `operacion/100`)**
+y sus resultados son datos posteriores y se citan donde corresponde: §17.4 (estado a
+la entrega), la sección comparativa de resultados (si la jornada produjo datos a la
+entrega) y §18 (`AJ-6.05`: lo que quede más allá de la escalera) — regla de
 no-anacronismo.
 
 ---

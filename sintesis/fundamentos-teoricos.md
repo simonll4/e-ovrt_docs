@@ -562,8 +562,12 @@ Tres instrumentos que conviene poder explicar como *metodología* (no como buroc
    YAML — y validar la palabra contra la taxonomía es parte del costo (F-94.1).
 
 **Las preguntas hostiles previsibles y su eje de respuesta:** *"¿por qué no
-fine-tuning?"* → rama condicionada no ejercida por secuenciación, costo ya medido
-(≈1 GPU-h), baseline zero-shot era el prerequisito y ES la pregunta. *"¿un YOLO
+fine-tuning?"* → la pregunta parte de una premisa vieja: el fine-tuning **es una rama
+experimental del proyecto y se ejerce como jornada completa** (✎ 2026-08-11, ADR-017)
+— condicionada desde el diseño por la regla metodológica (Tabla 37: baseline primero)
+y por datos (F-100.1, licencias), no por cómputo (≈1 GPU-h medido) ni por tiempo; la
+baseline zero-shot era el prerequisito y ES la pregunta central; los resultados y
+limitaciones de la jornada se documentan con su estado a la entrega. *"¿un YOLO
 entrenado no haría esto mejor?"* → en su clase sí; la tesis mide otra cosa:
 condiciones en lenguaje, extensibilidad y el aporte de la capa temporal/identidad,
 que es agnóstica al detector. *"¿por qué no hay FAR/hora?"* → porque afirmarla sin

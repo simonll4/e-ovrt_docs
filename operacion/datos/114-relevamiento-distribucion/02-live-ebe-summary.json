@@ -1,0 +1,24 @@
+{
+  "schema_version": "control.distribution_summary.v1",
+  "control_run_id": "relevamiento_dist_live_v06_c01_20260811T043140Z",
+  "experiment_id": "relev-dist-2026-08-11",
+  "channel": "mqtt",
+  "mode": "dry_run",
+  "counts": {
+    "delivered": 23,
+    "suppressed_cooldown": 170
+  },
+  "source_stats": {
+    "read": 193,
+    "skipped_malformed": 0,
+    "backfill_read": 0,
+    "bus_dropped_events": 0,
+    "duplicates_from_backfill": 0
+  },
+  "talert_notification_ms": {
+    "count": 23,
+    "min": 0.750244140625,
+    "mean": 1.254182235054348,
+    "p95": 1.505126953125
+  }
+}

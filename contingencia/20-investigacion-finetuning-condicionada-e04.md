@@ -1,9 +1,15 @@
 # Investigación condicionada E-04: fine-tuning de GDINO y YOLOE sobre el dominio EPP
 
 - **Fecha:** 2026-07-09
-- **Estado:** FUERA DEL PLAN ACTUAL — contingencia armada. La exclusión E-04 (doc 10)
-  sigue vigente; este documento existe para que, si sobra tiempo, la rama se ejecute
-  sin investigación previa, con criterios go/no-go ya fijados.
+- **Estado:** ✎ **2026-08-11 — PLAN DE LA JORNADA COMPROMETIDA
+  ([ADR-017](../decisiones/adr-017-fine-tuning-jornada-experimental.md)).** Este doc
+  nació como contingencia; ADR-017 reabrió E-04 como **jornada experimental completa
+  comprometida**, así que sus recetas, presupuestos y criterios go/no-go pasan de
+  contingencia a **plan pre-registrado de ejecución**. Las condiciones de entrada
+  "por semanas libres" (§1/§6) quedan derogadas: la entrada es **T1 tras cerrar las
+  puertas del doc 100 §6** (decisión F-100.1 incluida), y el escalamiento T2/T3 lo
+  siguen gobernando los go/no-go. *Decía "FUERA DEL PLAN ACTUAL — contingencia
+  armada… para que, si sobra tiempo, la rama se ejecute sin investigación previa"*.
 - **Método:** análisis de activos propios (repos + informe Anexo B) + investigación
   web multi-fuente (harness de deep research: 5 ángulos, fuentes oficiales de
   OpenMMLab/MMDetection, Ultralytics, THU-MIG/yoloe y papers arXiv, con citas
@@ -12,6 +18,11 @@
   verificación se cortó por límite de sesión — se marcan (✓) las verificadas.
 
 ## 1. Resumen ejecutivo (go/no-go en tres líneas)
+
+> ✎ 2026-08-11 (ADR-017): las condiciones "semana(s) libre(s)" de este resumen eran
+> la regla de entrada de la *contingencia* y quedaron **derogadas** — la jornada está
+> comprometida. Siguen vigentes los costos estimados, los riesgos de ingeniería y los
+> go/no-go técnicos de cada tier.
 
 - **YOLOE linear probing: GO si aparece ≥1 semana libre** — costo ~horas en una A30
   (probablemente viable incluso en la RTX 4060), riesgo bajo, no toca la capacidad
@@ -140,7 +151,7 @@ vocabulario mucho más exótico que EPP), donde GDINO zero-shot colapsa a precis
    de fine-tuning de GDINO/YOLOE *específicamente en EPP/construcción* — si la rama
    se ejecutara, el resultado tendría valor de novedad genuino para el nicho.
 
-## 6. Escalera de ejecución condicionada (si aparece tiempo)
+## 6. Escalera de ejecución de la jornada (✎ 2026-08-11, ADR-017 — *decía "condicionada (si aparece tiempo)"*)
 
 Pre-condición de todas: BENCH congelado como eval (ya cumplido), tuning/hiperparámetros
 del resto del pipeline congelados, y bitácora Tabla D.6.
@@ -151,10 +162,13 @@ del resto del pipeline congelados, y bitácora Tabla D.6.
 | **T2** | YOLOE **full fine-tuning** + eval de retención en subset generalista (COCO val u OVDEval parcial) | 4–10 GPU-h · +2–3 días | Medio | Tabla 32 completa para YOLOE (Δ + retención + costo) |
 | **T3** | MM-GDINO-tiny **open-vocabulary fine-tuning** en Mendieta (ODVG ya listo; BERT congelado, 1x, early-stop) | 8–24 GPU-h · 1–2 semanas pared | Alto (entorno + adaptación 8×→1 GPU + overfitting) | La comparación estrella zero-shot vs tuned del modelo líder |
 
-**Regla de entrada** (coherente con Tabla 37 y el plan): T1 solo si el plan core va
-en fecha al inicio de la semana 9; T2 solo si T1 mostró ganancia exigible; T3 solo
-con ≥2 semanas libres — en la práctica, T3 es material de trabajo futuro/paper
-posterior, no de esta defensa.
+**Regla de entrada** (✎ 2026-08-11, reescrita conforme ADR-017 — *decía "T1 solo si
+el plan core va en fecha al inicio de la semana 9; T3 solo con ≥2 semanas libres"*):
+**T1 es la entrada de la jornada comprometida**, tras cerrar las puertas del doc 100
+§6 (decisión sobre F-100.1 incluida); T2 solo si T1 mostró ganancia exigible; T3 solo
+si T2 la sostiene y la logística del clúster lo permite (entorno MMDetection,
+adaptación 8×→1 GPU) — si los go/no-go no lo habilitan, T3 se declara trabajo futuro
+**con causa técnica, no temporal**.
 
 **Criterios go/no-go pre-registrados** (fijados ahora para no negociarlos después):
 
@@ -169,11 +183,20 @@ posterior, no de esta defensa.
 
 ## 7. Qué NO cambia por esta investigación
 
-- **E-04 sigue excluida del plan** — este documento es su anexo de preparación, no
+> ✎ **2026-08-11 — sección superada por ADR-017.** Lo tachado describía el estatuto
+> de julio (E-04 excluida, este doc como anexo de preparación). Desde ADR-017, E-04
+> **se ejerce como jornada comprometida** y este doc es su plan pre-registrado. La
+> causa "presupuesto de tiempo" queda **derogada como encuadre**: la rama fue
+> experimental y condicionada **por datos y protocolo** desde el planteo (Tabla 37,
+> F-100.1, licencias) — y esta investigación lo confirma: los datos están listos y
+> el TN alcanza.
+
+- ~~**E-04 sigue excluida del plan** — este documento es su anexo de preparación, no
   su reapertura. La declaración del doc 10 se mantiene; solo se enriquece la
-  "habilitación futura" con la escalera §6.
-- El won't se sigue declarando por presupuesto de tiempo (no por recursos ni datos —
-  esta investigación lo confirma: los datos están listos y el TN alcanza).
+  "habilitación futura" con la escalera §6.~~ (derogado, ADR-017)
+- ~~El won't se sigue declarando por presupuesto de tiempo (no por recursos ni datos —
+  esta investigación lo confirma: los datos están listos y el TN alcanza).~~
+  (derogado, ADR-017)
 
 ## 8. Fuentes principales
 

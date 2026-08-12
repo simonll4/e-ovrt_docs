@@ -318,3 +318,6 @@ sólo se corre, se mide y se escribe.**
    formalizada como E-04 en `10-registro-alcance-y-exclusiones.md` (razón: presupuesto
    de tiempo, no falta de recursos ni de datos — Mendieta y el split train_v2 ya
    están disponibles; protocolo comparativo completo dejado especificado).
+   (✎ 2026-08-11: el "won't" quedó **superado por ADR-017** — E-04 se ejerce como
+   jornada experimental comprometida, y la razón "presupuesto de tiempo" está
+   derogada como encuadre.)

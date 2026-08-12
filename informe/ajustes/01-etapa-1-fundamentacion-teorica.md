@@ -216,12 +216,14 @@ propio sin vara es exactamente lo que hoy le pasa al §15.
 vara y la brecha listas para que el tercer capítulo las cite — **al §15 no entra ningún
 número propio**.
 
-**Y una precisión de vocabulario que hay que cuidar ante el jurado:** la tesis **no
-adapta los pesos** — el fine-tuning es E-04, no ejercida, con costo medido. Adapta los
-modelos **operativamente**: resolución (560), formulación del vocabulario (prompt sets
-congelados) y las capas de plataforma alrededor (histéresis temporal, identidad por
-sujeto, política de alerta). **Medir cuánto rinde ese stack de adaptación sin entrenar
-es la perspectiva nueva** — decirlo así, y no "adaptamos los modelos".
+**Y una precisión de vocabulario que hay que cuidar ante el jurado:** el núcleo medido
+de la tesis **no adapta los pesos**. Adapta los modelos **operativamente**: resolución
+(560), formulación del vocabulario (prompt sets congelados) y las capas de plataforma
+alrededor (histéresis temporal, identidad por sujeto, política de alerta). **Medir
+cuánto rinde ese stack de adaptación sin entrenar es la perspectiva nueva** — decirlo
+así, y no "adaptamos los modelos". El fine-tuning (E-04) es una **rama experimental
+aparte, comprometida como jornada (ADR-017)**: sus resultados, si existen a la entrega,
+se rotulan como rama comparativa y nunca se funden con el núcleo zero-shot.
 
 ---
 

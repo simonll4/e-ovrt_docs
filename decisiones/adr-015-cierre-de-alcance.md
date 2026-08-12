@@ -56,7 +56,10 @@ real se movió en cuatro exclusiones, **sin que ninguna decisión lo registre**:
   tiempo.
 - **E-04** (fine-tuning) sigue no ejercida, pero cambió de estado: los splits están
   materializados y el camino está operacionalizado — es *decisión de no ejercerla*, no
-  falta de preparación.
+  falta de preparación. (✎ 2026-08-11,
+  [ADR-017](adr-017-fine-tuning-jornada-experimental.md): **E-04 se ejerce** — jornada
+  experimental completa comprometida; el encuadre del informe es rama experimental
+  condicionada por datos y protocolo, nunca por tiempo.)
 
 Y en paralelo, **la lista de "lo no implementado" que el capítulo iba a declarar (R-13)
 quedó vieja**: de sus 8 ítems, **5 ya no son ciertos**. Publicarla tal cual sería declarar
@@ -74,7 +77,7 @@ reflejan en el doc 10:
 | **E-10** — métricas MOT estándar | **No cambia: sigue "no aplicable"**, y ahora con fundamento medido — la ganancia de G1 se mide en la métrica de la plataforma (alertas), no en MOTA/IDF1, porque **las detecciones son bit a bit las mismas** (F-89.1) | doc 89; ADR-002 |
 | **E-07** — borde / EN-2 / OAK-D | **Parcial, ya registrado**: OAK-D como fuente (2026-07-13) y EN-2 opcional default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO. **Sigue excluido:** inferencia en borde (EN-3) | doc 10 E-07; doc 10 E-07 evidencia |
 | **E-13** — modelos extra / E-HYB-vote | **Ejercida más allá de lo previsto**: T2/B1 (modelo especialista) y **E-HYB-or ejecutada y refutada** (F-87.2: la unión de evidencia no es monótona). **`hyb_and` no ejecutada con causa** (D-90.4: no medible contra este banco sin romper la comparabilidad de las 6 campañas) | docs 84/87/88; `results/clip_bench/` |
-| **E-04** — fine-tuning / TN | **No se ejerce** (se mantiene). Cambia el motivo declarable: no es falta de preparación (splits materializados, camino operacionalizado, costo medido ≤1 GPU-h en A30) sino **decisión de secuenciación** | doc 100; ADR-010 |
+| **E-04** — fine-tuning / TN | **No se ejerce** (se mantiene). Cambia el motivo declarable: no es falta de preparación (splits materializados, camino operacionalizado, costo medido ≤1 GPU-h en A30) sino **decisión de secuenciación**. ✎ 2026-08-11: **fila derogada por [ADR-017](adr-017-fine-tuning-jornada-experimental.md)** — E-04 se ejerce como jornada experimental comprometida | doc 100; ADR-010; **ADR-017** |
 | E-01, E-02, E-05, E-06, E-08, E-09, E-11, E-12 | **Sin cambios.** Siguen como el doc 10 las declaró | doc 10 |
 
 **(b) No se agrega ninguna capacidad más.** Este ADR **cierra** el alcance: de acá al

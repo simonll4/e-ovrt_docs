@@ -217,7 +217,7 @@ Solo estas fuentes aparecen en los números del capítulo. El resto del
 | `construction_site_safety` (Roboflow) | estratos `bench_obra` (147 imgs) + split TRAIN | **CC BY 4.0** | atribución |
 | `chv` (GitHub `ZijianWang-ZW/PPE_detection`) | estrato `chv`, **1.330 imgs = 20,5% de `bench_v3`** | **sin licencia formal** (SPDX: none); grant informal de los autores: *"open for free use"* | **cita obligatoria `wang2021ppe`** + declarar *"dataset académico de terceros usado para evaluación bajo el grant de uso libre de sus autores, con cita; imágenes no redistribuidas"*. Se cumple por construcción: raw gitignorado, solo se versionan anotaciones derivadas |
 | **SHEL5K** (Mendeley) | estrato `shel5k`, **5.000 imgs (77% del agregado)** | **CC BY 4.0**, DOI `10.17632/9rcv8mm682.4` | atribución + DOI |
-| `ppe_siabar` (Roboflow) | split TRAIN | CC BY 4.0 | atribución (**y aclarar que no se entrenó**: el TRAIN se construyó, el fine-tuning quedó fuera) |
+| `ppe_siabar` (Roboflow) | split TRAIN | CC BY 4.0 | atribución (**y declarar el estado del entrenamiento a la entrega**: el TRAIN se construyó y la jornada de fine-tuning está **comprometida — ADR-017**; si a la entrega no se entrenó, se dice con causa técnica, nunca "quedó fuera") |
 | **MOCS** (copia Roboflow `mocs-bowib`) | piloto A1 (evidencia cualitativa + ancla `person`↔`Worker`) | CC BY 4.0 **declarada por el uploader de la copia**; el original de `anlab340` nunca se descargó ni se verificó | **citar el paper original de MOCS** + declarar que se usó una copia de terceros, sin redistribución |
 | **Rodaje propio 2026-07-25** | **el banco de 34 clips = el resultado principal** | material propio | consentimientos de los participantes (ver §3.3) |
 | **Lote de internet (14 clips — ✎ 08-10: 13 con GT humano, `v08_c01` excluido con causa firmada)** | estrato B del banco de clips (Bloque B); **precisa L4, no la levanta** (D-113.1) | ✎ **2026-08-05: origen registrado** — canal de YouTube **`@HospitalConstruction`** (https://www.youtube.com/@HospitalConstruction). **Es *Standard YouTube License*, no Creative Commons** ⇒ base de uso: **académico/evaluativo con cita y sin redistribución** (postura `chv`), **nunca presentado como licencia de libre uso** | **citar el canal como fuente de las escenas** + los caveats de §3.3 (no es cámara-nativo · caras difuminadas en figuras · velocidad real verificada) |
@@ -406,7 +406,9 @@ evidencia, y de qué sigue excluido**. Qué hace:
 - **Registra los cuatro movimientos**: E-03 (G1 de demostrativa a capacidad operativa
   medida en 34/34), E-07 (parcial: OAK-D + EN-2 con 87% de descarte), E-13 (E-HYB-or
   ejecutada y refutada; `hyb_and` no ejecutada con causa), E-04 (no ejercida, pero por
-  secuenciación). **E-10 y las otras ocho exclusiones no cambian.**
+  secuenciación — ✎ 2026-08-11: fila **superada por ADR-017**, E-04 es jornada
+  experimental comprometida y la causa temporal está derogada). **E-10 y las otras
+  ocho exclusiones no cambian.**
 - **Cierra la puerta** (§2b): ninguna capacidad nueva de acá a la defensa — es la parte
   que *restringe*, y es el riesgo que el doc 95 realmente quería cubrir.
 - **Resuelve el condicional del ADR-005**: distribución MQTT declarada **NO implementada**.

@@ -63,7 +63,7 @@ knowledge del Project no tiene carpetas.
 | `informe/entregable/96b-informe-v11-17-1-consolidacion-metodologica.md` | El protocolo (§17.1) contra el que todo se lee. |
 | `informe/entregable/96a-informe-v11-frontmatter-intro-objetivos-plan.md` | Intro, objetivos, etapas: el marco del documento. |
 | `nucleo/10-registro-alcance-y-exclusiones.md` | El alcance cerrado y las exclusiones E-01…E-13. |
-| `decisiones/README.md` + los **16** ADRs (✎ 2026-08-06: *decía "14"* — sin el ADR-015 no subía justamente el cierre de alcance; ✎ 2026-08-10: sumó **ADR-016**) | Las decisiones formalizadas y sus porqués, incluidos **ADR-015** (cierre de alcance: el alcance creció, G1 capacidad medida, R-13/R-21 desbloqueados) y **ADR-016** (reapertura acotada de la distribución: deroga §2b/§2c/§6 del 015 y ratifica el resto — la distribución pasa de exclusión cerrada a **trabajo comprometido**). |
+| `decisiones/README.md` + los **17** ADRs (✎ 2026-08-06: *decía "14"* — sin el ADR-015 no subía justamente el cierre de alcance; ✎ 2026-08-10: sumó **ADR-016**; ✎ 2026-08-11: sumó **ADR-017**) | Las decisiones formalizadas y sus porqués, incluidos **ADR-015** (cierre de alcance: el alcance creció, G1 capacidad medida, R-13/R-21 desbloqueados), **ADR-016** (reapertura acotada de la distribución: deroga §2b/§2c/§6 del 015 y ratifica el resto — la distribución pasa de exclusión cerrada a **trabajo comprometido**) y **ADR-017** (el fine-tuning E-04 pasa a **jornada experimental comprometida**, encuadrada por datos y protocolo — la causa "presupuesto de tiempo" queda prohibida en el informe). |
 | `decisiones/estado-de-implementacion-adrs.md` | **El cierre decisión→implementación**: cómo quedó implementado cada ADR, vista por tema y condicionales resueltos. Leer SIEMPRE junto a los ADRs. |
 
 ### Nivel 2 — recomendados (contexto de diseño y defensa)
@@ -139,11 +139,14 @@ REGLAS DE LECTURA (obligatorias):
    los "re_alerts" no son falsos positivos; y FAR/hora se reporta pero NO sostiene
    una cota: se cita como "3 y 190 FP en 6:09,6 del único clip soak", con la tasa
    horaria (29,2 y 1.850,8) como derivada, nunca desnuda ni como "<=N FA/hora".
-6. Las decisiones ADR-001…016 están cerradas: se declaran y justifican, no se
-   re-litigan (ADR-015 además cierra la puerta: ninguna capacidad nueva hasta la
-   defensa, MQTT declarada no implementada). Ojo: hay DOS series de ADR —
-   ADR-001…016 del proyecto y ADR-0001…0013 internos del control-plane; al citar,
-   decí la serie (convención en el glosario, doc 13).
+6. Las decisiones ADR-001…017 están cerradas: se declaran y justifican, no se
+   re-litigan. El cierre de alcance es ADR-015, con dos reaperturas acotadas y
+   firmadas: ADR-016 (distribución MQTT = trabajo comprometido, se declara con su
+   estado a la entrega) y ADR-017 (fine-tuning E-04 = jornada experimental
+   comprometida, encuadre por datos y protocolo — la causa "presupuesto/falta de
+   tiempo" está PROHIBIDA en el informe). Todo lo demás sigue cerrado. Ojo: hay DOS
+   series de ADR — ADR-001…017 del proyecto y ADR-0001…0013 internos del
+   control-plane; al citar, decí la serie (convención en el glosario, doc 13).
    La tesis NO es "OVD detecta mejor" (ver doc 09): es la plataforma
    que mide qué se logra especificando condiciones en lenguaje, sin entrenar.
 

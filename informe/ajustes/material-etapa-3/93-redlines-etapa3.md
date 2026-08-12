@@ -626,7 +626,7 @@ nodos:
 |---|---|---|
 | **EN** (modo EN-1) | Nodo A (contenedor de borde, sin GPU) | Ingesta, control de ritmo, normalización visual. **Sin semántica**: no ejecuta inferencia. |
 | **CPN** | Nodo B (contenedor con GPU) | Inferencia OVD, postproceso, publicación, evaluación de patrones, alertas, persistencia, observabilidad. |
-| **TN** | No materializado | Rol previsto, no ejercido (exclusión declarada E-04, por presupuesto de tiempo). |
+| **TN** | No materializado aún — jornada comprometida (ADR-017) | Rol previsto: se ejerce en la jornada de fine-tuning comprometida (clúster Mendieta como TN, E-04). El estado a la entrega se declara con causa técnica (puertas del doc 100 §6), nunca temporal. *(✎ 2026-08-11 — decía "no ejercido, exclusión declarada E-04, por presupuesto de tiempo".)* |
 
 Agregar también el hallazgo de relojes que surge de esta topología (ver R-10).
 
@@ -648,7 +648,7 @@ sugerida (a validar una por una):
 |---|---|---|---|
 | DA-03 | canal ≠ repositorio; tecnología diferida | **Tecnología fijada**: ZeroMQ + msgpack; broker excluido con costura documentada | Actualizar |
 | DA-06 | MOT opcional | **Acotada**: granularidad de sujeto especificada, tracker **no implementado** | Precisar |
-| DA-07 | fine-tuning condicionado | **No ejercida** — y la razón importa: por **presupuesto de tiempo**, no por falta de datos ni de recursos (el split de entrenamiento ya está generado) | Precisar la razón |
+| DA-07 | fine-tuning condicionado | **Comprometida (ADR-017)** — y la razón importa: rama condicionada **por datos y protocolo** (F-100.1, regla Tabla 37), no por falta de recursos (split generado, Mendieta disponible, ≈1 GPU-h medido); **se ejerce como jornada experimental completa**. *(✎ 2026-08-11 — decía "no ejercida por presupuesto de tiempo".)* | Reencuadrar conforme ADR-017 |
 | DA-11 | preselección en borde condicionada | **No ejercida** (E-07) | Confirmar |
 | DA-13 | alerta interna antes que notificación | **Adoptada y reforzada** por ADR-011 (el motor no suprime; la política vive aguas abajo) | Reforzar |
 
@@ -702,8 +702,10 @@ efectiva es más fuerte que la previsión original. Los tres principales:
 > está implementada y medida** — es el mejor resultado del banco (F1 0,930 sobre 34 clips,
 > más verificación en vivo). Lo excluido son las **métricas** MOT (E-10, "no aplicable"),
 > no la capacidad. Corregir esa fila al transcribir; el resto del resumen (11/11 del
-> núcleo, EBE ✅, rol EN ✅, inspección ✅, fine-tuning ✗ E-04) se sostiene. Estado
-> completo por exclusión: **ADR-015 §2a**.
+> núcleo, EBE ✅, rol EN ✅, inspección ✅) se sostiene. (✎ 2026-08-11: la fila
+> "fine-tuning ✗ E-04" **cambió por ADR-017** — jornada experimental comprometida, se
+> transcribe con su estado a la entrega, con causa técnica.) Estado
+> completo por exclusión: **ADR-015 §2a** + **ADR-017** para E-04.
 
 Los 16 ítems del backlog tienen hoy un estado real y verificable. Propuesta: **convertir las Tablas 58/59 en
 una tabla de estado** (ítem → entregable → **estado** → evidencia), que es exactamente el tipo de tabla que
@@ -713,7 +715,8 @@ Resumen del estado (a transcribir ítem por ítem): **de los 11 ítems del núcl
 (configuración, lectura DBE, prompts versionados, adaptador OVD, postproceso, instrumentación de medios,
 publicación y persistencia, evaluación de patrones, alertas por episodio, instrumentación de control,
 reporte consolidado). De las 5 extensiones: EBE ✅ (two-node dockerizado, verificado con cámara IP real),
-rol EN ✅ (Nodo A), inspección ✅ (webconsole), fine-tuning ✗ (excluido, E-04), MOT ✗ (especificado,
+rol EN ✅ (Nodo A), inspección ✅ (webconsole), fine-tuning → **jornada experimental comprometida**
+(E-04, ADR-017 — se transcribe con su estado a la entrega), MOT ✗ (especificado,
 tracker no implementado, E-03).
 
 **DECISIÓN:** [ ] acepto  [ ] modifico  [ ] rechazo

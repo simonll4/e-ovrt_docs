@@ -159,7 +159,7 @@ izquierda ya se escribió mal alguna vez.
 
 ---
 
-## 4. Las cinco trampas que más caro salen
+## 4. Las seis trampas que más caro salen
 
 **1. Escribir el capítulo sobre el banco de 34 clips.** Es el error más probable, porque
 varios documentos del kit fueron escritos cuando ese era el banco. **Vigente: 47 clips,
@@ -179,6 +179,15 @@ juzgabilidad.
 **5. Citar el "BENCH de 196 imágenes" o el clip `cb_b01_p7`.** Los dos están **retirados**:
 el primero por estar 20–25 % fuera de dominio, el segundo por licencia sin registrar y GT
 generado por IA. Si los ves citados en un doc, ese doc es viejo.
+
+**6. Encuadrar el fine-tuning como "descartado por falta de tiempo"** (o "por
+presupuesto de tiempo", o "por secuenciación" — la enmienda intermedia). Documentos
+viejos del kit lo dicen; **esa causa está prohibida (ADR-017)**. Vigente: el
+fine-tuning (E-04) es una **rama experimental condicionada por datos y protocolo desde
+el planteo** (Tabla 37: baseline primero; F-100.1; licencias) — el cómputo nunca fue
+la restricción (clúster Mendieta disponible, T1 ≈1 GPU-h medido) — y está
+**comprometida como jornada completa**, que se documenta con sus resultados,
+limitaciones y estado a la entrega, con causa técnica.
 
 ---
 

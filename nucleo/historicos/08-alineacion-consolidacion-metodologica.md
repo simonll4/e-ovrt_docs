@@ -67,7 +67,10 @@
    Matiz honesto a incorporar: el TN existe y está disponible (clúster Mendieta,
    CCAD-UNC, GPUs A30) — el won't se declara por **presupuesto de tiempo del
    proyecto**, no por falta de recursos, citando la regla de decisión de la Tabla 37
-   (ganancia exigible / costo operativo / prioridad del núcleo).
+   (ganancia exigible / costo operativo / prioridad del núcleo). (✎ 2026-08-11:
+   encuadre **superado por ADR-017** — la causa "presupuesto de tiempo" queda
+   derogada; E-04 se ejerce como jornada comprometida y el ajuste vigente es
+   AJ-2.11 reescrito.)
 7. **Si G1/tracker entra, la métrica correcta ya está definida:** ΔFP_tracker
    (§17.1.7.4.2) — diferencia de falsos positivos entre corridas con y sin tracker,
    **sin necesidad de GT de identidades**. Mucho más barata que HOTA/IDF1; la Tabla 38
@@ -170,7 +173,7 @@ El protocolo (§17.1.5.4.2/.5, 5 fases) agrega requisitos que el doc 04 no tení
 | Baseline DBE zero-shot | Ya ejecutada (Sprint 2) | Redactar como resultado R1 |
 | Sensibilidad de prompts | Semanas 3–4 (experimento D1) | Protocolo doc 04 + ajustes §2.3 |
 | Pipeline y tracking (G2A, FPS, ΔFP_tracker) | Semanas 5–6 | G2A explícito vs presupuesto 50–250 ms |
-| Fine-tuning condicionado | Won't (rama no ejercida, Tabla 37) | Declarar con la regla del informe |
+| Fine-tuning condicionado | Won't (rama no ejercida, Tabla 37) (✎ 2026-08-11: hoy **jornada comprometida**, ADR-017) | Declarar con la regla del informe |
 | EBE complementario | Semanas 7–8 (R4) | Escenificado + consentimientos |
 | Reporte | Semanas 9–12 (D6) | `report.json` + estados de aplicabilidad |
 
@@ -231,7 +234,9 @@ títulos de tabla pegados, oración duplicada en §17.3.15) siguen vigentes.
    inicio/fin de episodio; consentimientos escritos (§1.3).
 5. **Specs por módulo**: usar nombres de fases de Tabla 36 y métricas de §2.2.
 6. **Reformular I1** (won't fine-tuning) citando Tabla 37 y aclarando que el TN
-   (Mendieta) existe — la exclusión es por presupuesto de tiempo.
+   (Mendieta) existe — la exclusión es por presupuesto de tiempo. (✎ 2026-08-11:
+   superado por **ADR-017** — la causa temporal queda prohibida; ver AJ-2.11
+   reescrito en `informe/ajustes/02`.)
 7. G2A explícito en el reporte del media-plane contra el presupuesto 50–250 ms; H5 se
    decide contra esa banda.
 8. ~~Leer Anexos C y D~~ — **hecho** (2026-07-07); hallazgos en §5.

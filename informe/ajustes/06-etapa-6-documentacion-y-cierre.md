@@ -53,11 +53,15 @@ lo medido, y hay una forma correcta de hacerlo:
   medimos nosotros* → *qué tipo de aporte queda*. Nunca al revés.
 - **Las refutaciones son conclusiones.** E-DIR vetada por precisión con criterio
   pre-registrado, y E-HYB-or ejecutada y refutada, no son fracasos: son resultados.
-- **Sin capacidades nuevas.** ADR-015 cerró la puerta: el §18 no puede prometer ni insinuar
-  nada que no esté medido.
-- **La precisión sobre "adaptación"**: no se adaptaron los pesos (el fine-tuning es E-04,
-  no ejercida) — se adaptó **operativamente** (resolución 560, prompt sets congelados, las
-  capas de plataforma). Medir cuánto rinde ese stack sin entrenar **es** la contribución.
+- **Sin capacidades nuevas** fuera de las dos comprometidas por ADR firmado (016:
+  distribución; 017: jornada de fine-tuning): el §18 no puede prometer ni insinuar
+  nada más que no esté medido.
+- **La precisión sobre "adaptación"**: el núcleo medido **no adapta los pesos** — se
+  adaptó **operativamente** (resolución 560, prompt sets congelados, las capas de
+  plataforma). Medir cuánto rinde ese stack sin entrenar **es** la contribución. La
+  rama de fine-tuning (E-04) es una **jornada comprometida aparte** (ADR-017): sus
+  resultados, si existen a la entrega, se rotulan como rama comparativa — nunca se
+  mezclan con el núcleo zero-shot.
 
 La narrativa de la que sale este texto: `sintesis/resultados-y-conclusiones.md` §1 (la
 pregunta y la respuesta en una línea), §2 (el recorrido del argumento) y §11 (qué queda, y
@@ -123,9 +127,14 @@ Sección vacía. Qué tiene que decir:
 No hay que inventarlo: **el trabajo futuro son las exclusiones ejercidas, con su costo ya
 medido**, y eso es mucho más sólido que una lista de deseos.
 
-- **Fine-tuning (E-04)**: no ejercido **por secuenciación**, con **≈1 GPU-h medido** y nodo
-  de entrenamiento disponible (Mendieta, CCAD-UNC). Es la continuación más obvia y la única
-  con presupuesto calculado.
+- **El fine-tuning dejó de ser trabajo futuro** ✎ 2026-08-11: **ADR-017 lo puso en
+  alcance como jornada experimental comprometida** — escalera T1→T2/T3 con go/no-go
+  pre-registrados, **≈1 GPU-h medido** para T1 y nodo de entrenamiento disponible
+  (Mendieta, CCAD-UNC). Si a la entrega la jornada produjo resultados, se reportan como
+  rama comparativa con sus limitaciones; si quedó a medias, **lo pendiente se declara
+  como estado con causa técnica, no como promesa** — y lo que sí sigue siendo trabajo
+  futuro son los tiers que los go/no-go no habiliten (T2/T3 sin ganancia exigible
+  previa). *Decía "no ejercido por secuenciación; la continuación más obvia"*.
 - **La distribución de alertas dejó de ser trabajo futuro** ✎ 2026-08-10: ADR-016 la puso
   en alcance como **trabajo comprometido** antes de la defensa. Si a la entrega está
   implementada, se reporta en §17.4; si quedó incompleta, **lo pendiente se declara como
@@ -146,7 +155,7 @@ medido**, y eso es mucho más sólido que una lista de deseos.
 |---|---|---|
 | 1 | Conclusiones sin su nivel de fuerza | La escala `AF` existe justamente para eso; aplanarla debilita el capítulo. |
 | 2 | Capacidades o promesas nuevas | ADR-015 cerró el alcance hasta la defensa. |
-| 3 | "Adaptamos los modelos" a secas | Suena a fine-tuning, que **no** se hizo. Es adaptación **operativa**. |
+| 3 | "Adaptamos los modelos" a secas | La adaptación del núcleo es **operativa**, sin tocar pesos. La rama de fine-tuning es una jornada aparte (ADR-017): si tiene resultados se rotulan como rama comparativa, nunca se funden con el núcleo. |
 | 4 | El lote de internet como material CC | Es *Standard YouTube License*. |
 | 5 | El módulo de distribución como funcionando | Mientras no haya código verificado: es **trabajo comprometido** (ADR-016) que se reporta con su estado a la entrega. |
 | 6 | "L4 se levantó" | Se **precisó** (D-113.1). |
@@ -155,6 +164,6 @@ medido**, y eso es mucho más sólido que una lista de deseos.
 
 `gobierno/99` §2–§4 · `sintesis/resultados-y-conclusiones.md` §1, §2, §8, §9, §11 ·
 `nucleo/10-registro-alcance-y-exclusiones.md` · `nucleo/19` (ciclo de vida de la alerta) ·
-`decisiones/adr-005`, `adr-015`, `adr-016` ·
+`decisiones/adr-005`, `adr-015`, `adr-016`, `adr-017` ·
 `operacion/100` §6 (costo del fine-tuning), `operacion/113` §C1 (el residuo de licencias) ·
 `e-ovrt_datasets/datasets/registry/license_registry.md`.

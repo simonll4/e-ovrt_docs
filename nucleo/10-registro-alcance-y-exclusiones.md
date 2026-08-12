@@ -22,6 +22,16 @@
 > implementación no bloquea el informe** — el cierre arquitectónico lo entrega
 > `nucleo/19`, y si el módulo no llega a tiempo se declara como estaba. Ver el **ítem 5**
 > más abajo, ya actualizado.
+>
+> ✎ **2026-08-11 — E-04 sale de esa lista por
+> [ADR-017](../decisiones/adr-017-fine-tuning-jornada-experimental.md).** El fine-tuning
+> **se ejerce como jornada experimental completa** (escalera pre-registrada T1→T2/T3 con
+> go/no-go, entrenamiento en Mendieta, evaluación contra `bench_v3`, documentación de
+> resultados **y limitaciones**), y su encuadre pasa a **rama experimental condicionada
+> por datos y protocolo desde el planteo inicial** — las causas "presupuesto de tiempo"
+> (julio) y "secuenciación" (ADR-015) quedan **derogadas como lectura**: el cómputo no es
+> la restricción (≤1 GPU-h medido) y el cronograma lo define el proyecto. Ver la ficha
+> **E-04**, ya actualizada. Siguen cerradas EN-3, E-10, E-06 y las condiciones CR nuevas.
 
 - **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones formalizadas en
   `decisiones/` (ADR-001…011). Tres ADRs amplían el alcance de forma acotada y
@@ -187,34 +197,46 @@ declaración → condición de habilitación futura.
 
 ### E-04 — Fine-tuning / adaptación al dominio / rol TN
 
-- **Justificación:** la regla del informe es explícita: "no prescribe que el
-  fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37). La baseline
-  zero-shot —el prerequisito— sí se ejecutó (R1/Sprint 2). La exclusión es por
-  **presupuesto de tiempo del proyecto**, no por recursos (el TN/Mendieta existe y
-  está caracterizado en §17.1.4.3) ni por falta de datos (el split train_v2 con 5540
-  imágenes ya está generado en el repo datasets — evidencia de preparación). Riesgo
-  que evita: ciclo costoso con "retorno metodológico débil" (Tabla 37) y erosión de
-  la capacidad open-vocabulary (§15.2.4.5). (✎ 2026-08-06, ADR-015 E-04: el motivo
-  declarable es **secuenciación** — la exclusión no se ejerció por orden de
-  prioridades del tramo, no por costo: el costo quedó **medido** en ≈1 GPU-h en A30,
-  doc 100, con F-100.1 como único bloqueo operativo. *Decía "presupuesto de tiempo
-  del proyecto"*, la lectura que ADR-015 corrige.)
+- **Estado (✎ 2026-08-11, [ADR-017](../decisiones/adr-017-fine-tuning-jornada-experimental.md)):**
+  **rama experimental comprometida — se ejerce como jornada completa de fine-tuning**:
+  preparación de datos y entorno, entrenamiento en Mendieta, evaluación contra
+  `bench_v3` y documentación de resultados **y limitaciones**. La forma es la escalera
+  pre-registrada — **T1 (linear probing) como entrada**, escalamiento a T2/T3 gobernado
+  por los go/no-go de la Tabla 37 y `contingencia/20` §6, sin prometer tiers por
+  adelantado. Deja de ser exclusión.
+- **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
+  el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
+  **experimental y condicionada desde el planteo inicial**, nunca un descarte. La
+  baseline zero-shot —el prerequisito de la regla— se ejecutó (R1/Sprint 2) y el
+  benchmarking cerró. Las condiciones reales que la jornada atraviesa son **de datos y
+  de protocolo**: F-100.1 (no existe validación con `bare_head` fuera del bench
+  congelado — doc 100 §4), licencias y transporte (entrenar en el clúster, evaluar
+  local — doc 100 §6.3) y el riesgo de erosión de la capacidad open-vocabulary
+  (§15.2.4.5). **No son de cómputo** (el TN/Mendieta existe y está caracterizado en
+  §17.1.4.3; costo medido ≤1 GPU-h en A30 para T1, doc 100) **ni de plazo** (el
+  cronograma lo define el proyecto). (✎ histórico: esta ficha declaró primero
+  "presupuesto de tiempo del proyecto" —julio— y luego "secuenciación" —ADR-015,
+  2026-08-06—; **ADR-017 deroga ambas causas como encuadre del informe**.)
 - **Rastro documental:** protocolo comparativo completo especificado (Tabla 32:
   ΔAP/ΔRecall/ΔPrecision/ΔSDR, retención generalista, costo de entrenamiento);
-  particiones sin leakage definidas y **materializadas** (splits v2 del repo);
-  candidatos acotados (GDINO/YOLOE, §17.1.9.2).
-- **Declaración (✎ ajustada 2026-08-06 conforme ADR-015 E-04):** "Rama comparativa
-  condicionada no ejercida: la baseline zero-shot fue establecida (requisito de la
-  Tabla 37), el protocolo comparativo y las particiones quedaron especificados y
-  materializados, el costo de ejecución quedó medido (≈1 GPU-h en A30, doc 100), y
-  el ajuste no se ejecutó **por secuenciación del tramo experimental**, sin afectar
+  particiones sin leakage definidas y **materializadas** (splits v2 del repo; train ∩
+  `bench_v3` = 0 verificado); candidatos acotados (GDINO/YOLOE, §17.1.9.2); escalera
+  T1–T3 con presupuestos GPU y go/no-go pre-registrados (`contingencia/20`); costo T1
+  medido con smoke verde end-to-end (doc 100).
+- **Declaración (✎ reescrita 2026-08-11 conforme ADR-017):** "Rama comparativa
+  experimental, condicionada desde el diseño metodológico (Tabla 37: baseline
+  zero-shot primero, ajuste cuando la regla lo amerita): la baseline fue establecida,
+  el protocolo comparativo y las particiones quedaron especificados y materializados,
+  el costo de ejecución quedó medido (≈1 GPU-h en A30, doc 100), y la jornada de
+  fine-tuning se lleva a cabo documentando sus resultados y limitaciones — sin afectar
   la pregunta central, que evalúa precisamente el desempeño sin entrenamiento."
-  (*Decía "se difirió por presupuesto del proyecto"*.)
-- **Habilitación futura:** disponibilidad de Mendieta + ganancia exigible según
-  Tabla 37; todo lo demás ya está listo. **La contingencia quedó armada** (2026-07-09):
-  investigación completa con escalera de ejecución T1–T3 y criterios go/no-go
-  pre-registrados en `20-investigacion-finetuning-condicionada-e04.md` — si aparece
-  tiempo, se ejecuta sin investigación previa.
+  (*Decía "no ejercida por secuenciación del tramo experimental"*, y antes *"se
+  difirió por presupuesto del proyecto"*.)
+- **Puertas previas a pedir turno (no se saltean):** decisión del usuario sobre
+  F-100.1 (tres enmiendas posibles, doc 100 §4) + checklist de viabilidad completa
+  (doc 100 §6: entorno reproducible, transporte, puente de evaluación). El estado de
+  la jornada al momento de la entrega se declara tal cual, con causa técnica —
+  nunca temporal (ADR-017 §2f).
 
 ### E-05 — Broker de eventos (Kafka/RabbitMQ/NATS)
 
@@ -365,7 +387,7 @@ declaración → condición de habilitación futura.
 | E-01 | CR-03/CR-04 | Especificada, no implementada | Tabla 17; Tabla C.3 (0 fuentes); Tabla 38 | Tabla 24, Anexo C |
 | E-02 | CR-05/CR-06 | Especificada (criterios de activación) | Tabla 23; §17.1.5.2.4 | §17.1.5.3.6, Anexo C |
 | E-03 | G1 como modo del núcleo / GT de identidades | ✎ **Ampliada (ADR-015, 2026-08-05)**: G1 no es demostrativa — es **capacidad operativa medida en los 34 clips** (F1 0,930) y verificada en vivo. **Sigue excluido**: GT de identidades y validación MOT | DA-06; §17.1.10.2 | ADR-002 + adenda 08-04; **ADR-015**; doc 89; `results/clip_bench/g1_*` |
-| E-04 | Fine-tuning / TN | ✎ **Condicionada no ejercida (ADR-015)**: se mantiene fuera, pero **por secuenciación, no por falta de preparación** — splits materializados, camino operacionalizado, costo medido ≤1 GPU-h en A30 | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados; doc 100; **ADR-015** |
+| E-04 | Fine-tuning / TN | ✎ **Rama experimental comprometida (ADR-017, 2026-08-11)**: se ejerce como **jornada completa** — escalera T1→T2/T3 con go/no-go pre-registrados, entrenamiento en Mendieta, eval contra `bench_v3`, resultados y limitaciones documentados. Encuadre: condicionada **por datos y protocolo** (F-100.1, licencias, Tabla 37), no por cómputo (≤1 GPU-h medido) ni por plazo | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados; doc 100; `contingencia/20`; **ADR-017** |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
 | E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO; inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2; **ADR-015** |

@@ -1,0 +1,21 @@
+{
+  "schema_version": "control.distribution_summary.v1",
+  "control_run_id": "control_internet_subject_v06_c01_20260809T064629Z",
+  "experiment_id": null,
+  "channel": "mqtt",
+  "mode": "live",
+  "counts": {
+    "delivered": 23,
+    "suppressed_cooldown": 170
+  },
+  "source_stats": {
+    "read": 193,
+    "skipped_malformed": 0
+  },
+  "talert_notification_ms": {
+    "count": 23,
+    "min": 0.729736328125,
+    "mean": 3.407651154891304,
+    "p95": 1.80224609375
+  }
+}

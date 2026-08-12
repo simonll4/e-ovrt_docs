@@ -29,8 +29,9 @@ carga **una vez al arrancar** desde `EOVRT_MODEL_REF`, y una corrida se dispara 
   decorador de fuente en el control-plane (ver `18` §5.3).
 - **No distribuye ni notifica.** Publica detecciones; qué se hace con ellas es de los
   planos siguientes.
-- **No entrena.** El fine-tuning está fuera de alcance (E-04) y, si se hiciera, iría al
-  clúster, nunca en esta máquina.
+- **No entrena.** El fine-tuning (E-04) es una jornada aparte comprometida por ADR-017
+  y corre en el clúster (Mendieta), nunca en esta máquina; el media-plane solo
+  consumiría los pesos resultantes.
 
 ## 2. Cómo se ejecuta
 
@@ -172,8 +173,10 @@ imágenes. Suite: **641 passed, 5 skipped**.
 
 - **Productor de `track_id`.** El campo existe en el contrato; nadie lo llena acá. Resuelto
   aguas abajo (ADR-002 del proyecto, adenda ratificada).
-- **Fine-tuning (E-04).** Los splits están materializados y el camino operacionalizado; no
-  se ejerce por secuenciación. Iría al clúster, nunca local.
+- **Fine-tuning (E-04).** Los splits están materializados y el camino operacionalizado;
+  ✎ 2026-08-11: **jornada comprometida por ADR-017** (*decía "no se ejerce por
+  secuenciación"*). Corre en el clúster, nunca local; acá solo aterrizarían los pesos
+  ajustados como variante de catálogo.
 - **Inferencia en borde (EN-3).** Excluida. Lo que sí se ejerció es la **OAK-D como fuente**
   y el **prefilter EN-2**, opcional y apagado por default (E-07 parcial).
 - **Licencia en los catálogos de modelos.** Hueco abierto, §5.1.

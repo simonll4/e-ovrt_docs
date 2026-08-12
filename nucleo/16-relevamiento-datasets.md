@@ -192,9 +192,11 @@ splits; los dos bancos; la cadena de GT temporal de video. Suite: **418 passed**
   videos, se pierde la referencia.
 - **Vistas deprecadas** — `canonical_cr01_cr02` y `finetuning_cr01_cr02` siguen en
   `legacy/`, no se usan.
-- **La vista YOLO** (6.338 archivos versionados) existe para soportar fine-tuning, que no
-  se ejerció (E-04). Se conserva porque es parte del fundamento de que E-04 fue **decisión
-  de secuenciación** y no falta de preparación.
+- **La vista YOLO** (6.338 archivos versionados) existe para soportar el fine-tuning
+  (E-04). ✎ 2026-08-11: dejó de ser solo evidencia de preparación — es **insumo directo
+  de la jornada comprometida por ADR-017** (T1 entrena sobre el formato YOLO de
+  `canonical_v2`). Se conserva. *Decía "fine-tuning, que no se ejerció (E-04)…
+  decisión de secuenciación"*.
 
 ## 8. Trampas conocidas
 

@@ -167,6 +167,12 @@ extensible por configuración sin reentrenar, que es la tesis de la plataforma;
 YOLO supervisado sobre train_v2 sería la extensión de mayor valor — pero no debe
 prometerse.
 
+> ✎ 2026-08-11: la parte OVD de este won't quedó **superada por ADR-017** — E-04 se
+> ejerce como jornada comprometida (escalera T1–T3 sobre YOLOE/MM-GDINO), sin
+> condición de "tiempo sobrante". El **detector supervisado cerrado** como baseline
+> comparativa sigue fuera de alcance y no prometido; las mitigaciones (a)–(c) siguen
+> siendo el eje de respuesta.
+
 ### I2 — Plan de 12 semanas (doc 02 §7)
 
 1. **La escritura está subpresupuestada:** 2 semanas finales para capítulos de

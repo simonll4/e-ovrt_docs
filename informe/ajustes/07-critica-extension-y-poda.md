@@ -79,7 +79,9 @@ supervisada de EPP (`AJ-1.01`, el hueco que sí importa).
 
 **Regla de honestidad (no negociable, `gobierno/97` §3):** lo **pre-registrado y no
 ejercido no se borra en silencio** — se comprime a decisión declarada con su causa y su
-costo (el caso testigo: fine-tuning E-04, ≈1 GPU-h medido). Podar no es ocultar.
+costo (caso testigo histórico: el fine-tuning E-04 mientras estuvo no ejercido, con su
+≈1 GPU-h medido; ✎ 2026-08-11: E-04 es hoy **jornada comprometida** — ADR-017 — y el
+ejemplo vigente de la regla pasa a ser kappa/doble anotación, L2). Podar no es ocultar.
 
 ---
 
@@ -219,8 +221,9 @@ dos ítems son de pura longitud:
 
 ### PODA-15 · §17.3.15 Roles CPN/EN/TN (1.319) · C1 parcial · 🟡
 **R-17 ya pide** convertir esto en tabla rol→contenedor. El TN (nodo de entrenamiento)
-no se ejerció (E-04). Al aplicar R-17, dejar la tabla + ~300 palabras, no la prosa
-completa. **Ahorro: ~700** · DECISIÓN → [ ]
+aún no se materializó — lo ejerce la jornada de fine-tuning comprometida (E-04,
+ADR-017), y su estado se declara a la entrega. Al aplicar R-17, dejar la tabla + ~300
+palabras, no la prosa completa. **Ahorro: ~700** · DECISIÓN → [ ]
 
 ### PODA-16 · §17.3.17 Backlog (1.101) · C5 · 🟡
 **R-21 ya reescribe** el estado de los 16 ítems. Al aplicarlo, comprimir las Tablas
@@ -293,7 +296,9 @@ defensa). Los 🟠 en el pase de cada sección junto a sus AJ-. Los 🟡 al fina
    real es un resultado central, no un survey.
 4. **Nada pre-registrado se borra en silencio**: fine-tuning, kappa, TN — se comprimen a
    decisión declarada con causa (regla `97` §3; los textos de declaración ya existen:
-   `94` §8, AJ-2.06, AJ-2.11).
+   `94` §8, AJ-2.06, AJ-2.11). (✎ 2026-08-11: el fine-tuning dejó de ser caso
+   "no ejercido" — ADR-017 lo compromete como jornada; `94` §8 y AJ-2.11 ya están
+   reescritos con ese encuadre.)
 5. **Ningún texto que un redline necesita como ancla**: antes de eliminar un párrafo de
    §17.3, verificar que ningún R-xx lo cita como "DICE HOY".
 6. **Las adiciones mandan sobre las podas**: AJ-1.01/1.02/1.13 (la vara y el cruce)

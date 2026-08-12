@@ -195,8 +195,13 @@ cualquier cifra.
 - **Métricas MOT** (exclusión E-10). Atención al matiz de R-21: lo excluido son las
   **métricas**, no la capacidad — el tracker existe y la granularidad por sujeto es el
   mejor resultado del banco.
-- **Fine-tuning** (E-04): no ejercida **por secuenciación**, con costo medido en
-  **≈1 GPU-h** y nodo de entrenamiento disponible.
+- **Fine-tuning** (E-04) — ✎ 2026-08-11 su estatuto cambió: **ADR-017 la puso en
+  alcance como jornada experimental comprometida** (escalera T1→T2/T3 con go/no-go
+  pre-registrados, Mendieta, costo medido **≈1 GPU-h**). Se redacta como **rama
+  condicionada por datos y protocolo desde el diseño** (F-100.1, regla Tabla 37) y
+  **declarando el estado real de la jornada al momento de la entrega**, con causa
+  técnica — nunca "por tiempo", y nunca en presente mientras no haya corrida
+  verificada. *Decía "no ejercida por secuenciación"*.
 
 **Prosa ya redactada en `94` §8** (redline R-13), con la anotación importante: de los 8
 límites que esa lista enumera, **5 estaban ya resueltos** cuando ADR-015 cerró el

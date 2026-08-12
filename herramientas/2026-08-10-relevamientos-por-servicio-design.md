@@ -276,6 +276,11 @@ versionados, no en el disco.
 
 ### 8bis.4 Decisión abierta
 
+> ✎ **2026-08-11 — RESUELTA por ADR-017:** la vista YOLO **se conserva** — dejó de ser
+> solo evidencia del encuadre y pasó a ser **insumo directo de la jornada de
+> fine-tuning comprometida** (T1 entrena sobre el formato YOLO de `canonical_v2`).
+> Borrarla ya no es una opción de limpieza.
+
 La **vista YOLO** de `datasets` (6.338 archivos versionados) existe para fine-tuning, que
 ADR-015 declara no ejercido (E-04). Pero el doc 100 usa "splits materializados y camino
 operacionalizado" como fundamento de que E-04 fue *decisión de secuenciación* y no falta de

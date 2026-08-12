@@ -5,9 +5,12 @@
   escalera de `contingencia/20` deja de estar estimado en papel y pasa a tener
   **costo medido**, vía un smoke real del loop completo de entrenamiento.
 - **Qué NO es:** T1 ejecutado. Las métricas de acá **no son un resultado** — salen
-  de 1 época sobre el 5% de los datos. E-04 sigue siendo
-  "condicionada no ejercida"; lo único que cambió es que ahora el costo de
-  ejercerla tiene número, no adivinanza.
+  de 1 época sobre el 5% de los datos. (✎ 2026-08-11: *decía "E-04 sigue siendo
+  condicionada no ejercida"* — desde
+  [ADR-017](../decisiones/adr-017-fine-tuning-jornada-experimental.md) E-04 es
+  **jornada experimental comprometida**, y este doc es el dimensionamiento y la
+  puerta de entrada de esa jornada.) El costo de ejercerla tiene número, no
+  adivinanza.
 - **Scripts:** `datos/100-t1-preparar-datos.py` (árbol de entrenamiento),
   `datos/100-t1-entrenar-lp.py` (linear probing con `YOLOEPETrainer`).
 
@@ -31,6 +34,12 @@
 > resultados ni con la redacción. Hoy lo que falta de esa cola es el **GT del lote
 > de internet (CVAT, `v06_c01`+`v04_c01`) → soak/FAR** y los **videos de defensa
 > V1–V3**; recién con eso cerrado se vuelve acá.
+>
+> ✎ **2026-08-11 — condición CUMPLIDA (el GT del lote cerró el 08-09) y estatuto
+> superado por ADR-017:** "el final" llegó — E-04 es **jornada comprometida** y su
+> entrada son las puertas del §6 (decisión sobre F-100.1 primero). La secuencia de
+> D-100.2 era **orden metodológico** (baseline y evaluaciones primero), no una causa
+> de descarte, y así se declara en el informe.
 
 ---
 

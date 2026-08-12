@@ -458,12 +458,14 @@ cual copiarse, por eso construimos la nuestra"*.
 La dirección para la redacción (fijada 2026-08-06): **cada conclusión se presenta
 posicionada contra la literatura**, de modo que el aporte de la tesis quede leído
 como *nueva perspectiva y adaptación de estos modelos*. La palabra "adaptación" hay
-que usarla con precisión ante el jurado: **la tesis NO adapta los pesos** (el
-fine-tuning es E-04, no ejercida, con costo medido) — adapta los modelos
-**operativamente**: resolución (560), formulación del vocabulario (prompt sets
-congelados), y las capas de plataforma alrededor (histéresis temporal, identidad por
-sujeto, política de alerta). Medir cuánto rinde ese "stack de adaptación sin
-entrenar" ES la perspectiva nueva.
+que usarla con precisión ante el jurado: **el núcleo medido NO adapta los pesos** —
+adapta los modelos **operativamente**: resolución (560), formulación del vocabulario
+(prompt sets congelados), y las capas de plataforma alrededor (histéresis temporal,
+identidad por sujeto, política de alerta). Medir cuánto rinde ese "stack de
+adaptación sin entrenar" ES la perspectiva nueva. El fine-tuning (E-04) es una
+**rama experimental aparte, comprometida como jornada** (✎ 2026-08-11, ADR-017):
+sus resultados, si existen a la entrega, se rotulan como rama comparativa y no se
+funden con el núcleo zero-shot.
 
 | Conclusión / resultado | Frente al estado del arte | Tipo de aporte |
 |---|---|---|
@@ -525,10 +527,15 @@ A1–A5 de `nucleo/09` — convención en el glosario, doc 13.)*
 **ADR-015 (aceptado 2026-08-05) — cierre de alcance:** la premisa del "recorte" se
 invirtió: **el alcance CRECIÓ con evidencia** — E-03 (G1 de demostrativa a capacidad
 operativa medida en 34/34), E-07 parcial (OAK-D + EN-2 87%), E-13 (E-HYB-or ejecutada
-y refutada); E-04 sigue no ejercida **por secuenciación** (costo medido ≈1 GPU-h,
-doc 100; el fine-tuning va al clúster Mendieta, al final). **Cierra la puerta**
-(ninguna capacidad nueva hasta la defensa) y declara la **distribución MQTT NO
-implementada** (exclusión ejercida, no deuda). Desbloqueó R-13 y R-21.
+y refutada). Desbloqueó R-13 y R-21. Sus cláusulas de puerta cerrada fueron derogadas
+después por dos ADRs firmados: ✎ **ADR-016 (2026-08-10)** — la **distribución de
+alertas** pasa de "NO implementada" a **trabajo comprometido** con el recorte exacto
+de ADR-005 (E-06 sigue excluida) — y ✎ **ADR-017 (2026-08-11)** — el **fine-tuning
+(E-04)** pasa de "no ejercida por secuenciación" a **jornada experimental
+comprometida** (escalera T1→T2/T3 con go/no-go, Mendieta, costo medido ≈1 GPU-h),
+encuadrada como rama condicionada **por datos y protocolo** (F-100.1, licencias,
+Tabla 37), nunca por tiempo. Ambos frentes se declaran con su **estado a la entrega**
+y no bloquean el informe. Todo lo demás sigue cerrado (EN-3, E-10, E-06, CR nuevas).
 
 **Limitaciones canónicas L1–L8** (lista cerrada 2026-08-05; referencia =
 `results/index.md`; citar como "limitación Lx"): L1 FAR/hora no reportable · L2 sin

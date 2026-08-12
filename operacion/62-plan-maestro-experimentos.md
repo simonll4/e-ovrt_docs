@@ -82,7 +82,9 @@ Sobre `construction_site_safety` (BENCH: 82 test + 114 val) y su `person_gt.json
 Protocolo: servicio por modelo (`EOVRT_MODEL_REF`), `POST /api/runs` con
 `dataset: bench_v2_{test,val}`, `POST /evaluate` (AP@0.5, mAP50, recall CR-01), prompts §2.4.
 Costo estimado total ≤ 1 h en la RTX 4060. **Excluidos con causa:** GDINO 1.5/1.6 (API-only
-IDEA, sin pesos locales), MM-GDINO-tiny (bug), fine-tuning (fuera de alcance de tesis).
+IDEA, sin pesos locales), MM-GDINO-tiny (bug), fine-tuning (S1 selecciona **zero-shot**;
+la rama E-04 corre aparte — ✎ 2026-08-11: jornada comprometida por ADR-017; *decía
+"fuera de alcance de tesis"*).
 
 ### S2 — Cierre de la selección
 
