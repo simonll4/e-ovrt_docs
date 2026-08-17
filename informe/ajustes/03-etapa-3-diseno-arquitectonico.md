@@ -57,7 +57,7 @@ Prioridad y sección salen del tablero del 93; la última columna es el estado a
 | R-10 | 17.3.13 | CONCRETA | 🟠 | Diccionario de métricas con t0/t1 + criterio de relojes | **94 §5** | cruza con `AJ-2.03` (§17.1) |
 | R-11 | 17.3.14 (nueva .6) | PRECISA | 🟠 | Temporalidad de la fuente y el "cero silencioso" | **94 §6** | formalizada en ADR-013 |
 | R-12 | cierre (nueva) | EVIDENCIA | 🟠 | Verificación: qué funciona y cómo se midió | **94 §7** | insumo completo: `operacion/97` |
-| R-13 | cierre (nueva) | EVIDENCIA | 🟠 | Registro de lo no implementado | **94 §8** | **desbloqueada por ADR-015**; de sus 8 límites, **5 estaban resueltos** |
+| R-13 | cierre (nueva) | EVIDENCIA | 🟠 | Registro del alcance efectivo y brechas | **94 §8** | ✎ actualizado post ADR-016/017 y `operacion/114`; no usar la tabla preimplementación |
 | R-14 | 17.3.8.2 / Tabla 46 | PRECISA | 🟠 | Ventanas efectivas: 4000 / 7000 ms; severidades `high`/`medium` | — | ficha canónica de los valores; cruza con `AJ-2.01` |
 | R-15 | 17.3.12.1 | CONCRETA | 🟡 | El repositorio es JSONL append-only, con layout | — | |
 | R-16 | 17.3.13.3 | PRECISA | 🟡 | La aplicabilidad es un campo literal (`status` + `cause`) | — | ADR-006/013; cruza con `AJ-2.12` |
@@ -82,12 +82,10 @@ Prioridad y sección salen del tablero del 93; la última columna es el estado a
 ADR-015 (aceptado 2026-08-05) desbloqueó dos redlines que lo estaban esperando, y al
 hacerlo dejó dos anotaciones que **hay que aplicar antes de transcribir**:
 
-- **R-13 (registro de lo no implementado):** de los **8 límites** que enumera, **5 ya
-  estaban resueltos** cuando ADR-015 cerró el alcance. Transcribir la lista tal como
-  está declararía como faltante cosa que existe. La lista canónica que la reemplaza es
-  **ADR-015 §3** (ratificada por ADR-016), ✎ con una fila reescrita el 2026-08-10: la
-  distribución dejó de ser "exclusión ejercida y cerrada" y es **trabajo comprometido**
-  que se reporta con su estado a la entrega.
+- **R-13 (registro del alcance efectivo):** la versión inicial quedó superada dos veces.
+  `94` §8 ya debe registrar como ejercidos G1, la comparación E-DIR/E-IND/E-HYB, la
+  paridad DBE/EBE y la distribución funcional; conserva como límites las métricas MOT,
+  las condiciones de nivel 2/3 y las brechas de integración declaradas.
 - **R-21 (backlog, Tablas 58/59):** tiene **un punto falso** — dice *"MOT ✗ tracker no
   implementado"*. Lo excluido son las **métricas** MOT (exclusión E-10), **no la
   capacidad**: el tracker existe y la granularidad por sujeto (G1) es el mejor resultado
@@ -163,19 +161,19 @@ subsección, y **`nucleo/19`** es el cierre arquitectónico del ciclo de vida de
 (dónde viven cooldown, supresión y re-notificación — consolida `nucleo/06`, ADR-005,
 ADR-011, la spec 45 y el propio `92b`).
 
-**El estatuto lo fija ADR-016 (2026-08-10), no el §2c de ADR-015** (esa cláusula quedó
-derogada): el módulo pasó de *exclusión ejercida y cerrada* a **trabajo comprometido**, y
-se redacta **describiendo el diseño y declarando el estado real al momento de la
-entrega** — nunca en presente como si funcionara mientras no haya implementación
-verificada. Al día de hoy el estado no cambió: el cuarto repo sigue siendo un esqueleto de
-paquetes sin lógica ni commits.
+**El estatuto lo fija ADR-016 y el estado ejecutado lo fija `operacion/114`.** El módulo
+pasó de exclusión a trabajo comprometido y hoy está **funcionalmente implementado**: DBE,
+EBE, cooldown, idempotencia, MQTT QoS 1 y reporte consolidado fueron verificados. ✎ **2026-08-14:** las
+tres brechas que este párrafo declaraba —vista de webconsole, orquestación y un repo sin
+commits— se cerraron el 2026-08-13 (`13c801e`, `42529e2`; repo con `c9903cc` y `1e6d8fa`).
 
-Corolario que conviene tener presente: **§17.3.10 no tiene figuras ni tablas** en el
-inventario de cierre (`gobierno/99` §1), y eso es correcto — no hay nada medido que
-provenga de ese módulo. Lo único construido de ahí es la frontera de salida: el
-publisher `control.alert.v1` del control-plane, desactivado por defecto. (Detalle que el
-implementador va a chocar y el `92b` ya corrige: el `AlertEvent` real **no tiene**
-`confirmed_at_ms`.)
+El §17.3.10 describe arquitectura y contratos; las mediciones de verificación del canal no
+se convierten automáticamente en resultados de desempeño. El publisher
+`control.alert.v1` continúa desactivado por defecto y `AlertEvent` no tiene
+`confirmed_at_ms` (detalle corregido por `92b`).
+
+[Enmienda 2026-08-14] §17.3.10 tiene UNA pieza de evidencia en el inventario de cierre:
+T-85 (`gobierno/99` §1), la latencia de notificación medida por la campaña del doc 118.
 
 ## 6. Fuentes
 

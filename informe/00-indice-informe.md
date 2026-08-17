@@ -10,6 +10,7 @@
 | **leer el informe tal como está hoy** (o el capítulo de Etapa 3) | [`entregable/`](entregable/00-el-informe-hoy.md) |
 | **saber qué hay que cambiarle, etapa por etapa** | [`ajustes/00-mapa-de-ajustes.md`](ajustes/00-mapa-de-ajustes.md) ← **el punto de entrada** |
 | **ponerte a aplicarlo** (dónde escribís, en qué orden, qué te toca, qué falta producir) | ✎ [`ajustes/08-manual-de-aplicacion.md`](ajustes/08-manual-de-aplicacion.md) ← **el documento del día 1** |
+| **trabajarlo en un Project de ChatGPT** | [`informe/project-kit/README.md`](project-kit/README.md) ← **cuatro archivos de knowledge: dos generados por etapa + los dos DOCX del entregable** (✎ 2026-08-16) |
 
 ---
 
@@ -26,7 +27,7 @@ informe/
 │   ├── 90-etapa3-texto-extraido.md           §17.3 completo, en texto
 │   └── 96a … 96e                             el informe v1.1 completo, en texto
 │
-└── ajustes/                                  ← TODO LO QUE HAY QUE CAMBIAR
+├── ajustes/                                  ← TODO LO QUE HAY QUE CAMBIAR
     ├── 00-mapa-de-ajustes.md                 ← el mapa: etapa 1 → 6, en una tabla
     ├── 01-etapa-1-fundamentacion-teorica.md      inv. bibliográfica → §15 · §16 · Anexo A
     ├── 02-etapa-2-consolidacion-metodologica.md  análisis metodológico → §17.1 · Anexos C/D
@@ -37,7 +38,13 @@ informe/
     ├── 07-critica-extension-y-poda.md            transversal: qué ELIMINAR (18 PODA-nn, ~27%)
     ├── 08-manual-de-aplicacion.md                ← CÓMO se aplica todo: orden, reparto, tablero
     ├── material-etapa-3/   91 · 92 · 92b · 93 · 94
-    └── gobierno/           95 · 97 · 98 · 99
+│   └── gobierno/           95 · 97 · 98 · 99
+│
+└── project-kit/                              ← KIT MÍNIMO VERSIONADO PARA CHATGPT
+    ├── README.md                              uso y cambio de etapa
+    ├── INSTRUCCIONES-PROJECT.md              se pega en Project settings
+    ├── 00-contexto-base.md                    primer archivo del knowledge
+    └── 01-etapa-activa.md                    segundo archivo; se reemplaza
 ```
 
 ---

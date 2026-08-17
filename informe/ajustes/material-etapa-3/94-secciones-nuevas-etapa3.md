@@ -407,7 +407,7 @@ específica de mensajería"); el resto reemplaza **§17.3.8.4**.
 | 2 | **Servicio de control** | Consumo de eventos → motor de patrones → alertas internas → persistencia → métricas. |
 | 3 | **Orquestador experimental** | Manifiesto de experimento; dispara ambos servicios; consolida artefactos; genera el reporte. |
 | 4 | **Interfaz de inspección** | Cliente de las interfaces de servicio de ambos planos. |
-| 5 | **Módulo de distribución** | *(no implementado — línea punteada)* Consumidor externo del canal de alertas. |
+| 5 | **Módulo de distribución** | Consumidor externo funcional: política, ledger, MQTT y registros. Marcar por separado las integraciones pendientes. |
 | 6 | **Repositorio de corrida** | Archivos de sólo adición, uno por plano. |
 
 **Flechas:**
@@ -417,7 +417,8 @@ específica de mensajería"); el resto reemplaza **§17.3.8.4**.
 - Servicio de medios **→ bus →** Servicio de control. Etiqueta: evento de percepción + ciclo de vida de corrida.
 - Servicio de medios **→** Repositorio, con la flecha **numerada antes** que la del bus (persiste primero, publica después).
 - Servicio de control **→** Repositorio.
-- Servicio de control **→ canal de alertas →** Módulo de distribución *(punteado)*.
+- Servicio de control **→ canal de alertas →** Módulo de distribución. La flecha es
+  efectiva; anotar que su lanzamiento todavía no forma parte de la orquestación integral.
 - Interfaz de inspección **→** ambos servicios. **No hay flecha del bus a la interfaz de inspección**: esa ausencia comunica una frontera de diseño.
 - Repositorio **→** Orquestador (consolidación y reporte).
 
@@ -577,10 +578,12 @@ clip con dos alertas**. La v2 dice la verdad — y la verdad, contada así, **es
 
 ---
 
-# §8 — Registro de lo no implementado (R-13 → sección nueva)
+# §8 — Registro del alcance efectivo y brechas (R-13 → sección nueva)
 
-**Nota:** esta lista es la **canónica**. En la v1, este documento, el doc 91 y el redline R-13 listaban
-cosas distintas — inaceptable, justamente acá. Ocho ítems, y son estos ocho.
+**Nota:** ✎ **actualizada el 2026-08-12** contra los resultados cerrados y
+`operacion/114`. La versión inicial mezclaba capacidades aún no ejercidas con exclusiones;
+varias se implementaron después. Esta tabla registra el estado final sin borrar esa
+cronología.
 
 > ## Alcance efectivo: capacidades no ejercidas
 >
@@ -591,26 +594,26 @@ cosas distintas — inaceptable, justamente acá. Ocho ítems, y son estos ocho.
 > establecidas **con anterioridad a la obtención de resultados**.
 >
 > **Tabla 66**
-> *Capacidades especificadas y no ejercidas*
+> *Capacidades ejercidas, exclusiones y brechas de integración*
 >
 > | Capacidad | Estado | Consecuencia declarada |
 > |---|---|---|
-> | **Identidad persistente de sujeto** | Contrato completo en ambos planos; **el componente que la produce no está implementado** | El núcleo opera bajo granularidad de escena; la granularidad de sujeto degrada a escena con causa declarada. La visualización de evidencia representa la condición a nivel de escena y no por individuo. |
-> | **Comparación de estrategias de detección** (directa, indirecta, híbrida) | **Especificada; evaluadores no implementados** | La estrategia indirecta se adopta como núcleo con la fundamentación expuesta en §17.3.9.2. La comparación cuantitativa entre estrategias queda especificada como protocolo experimental y su ejecución se declara según el alcance final del trabajo. |
-> | **Distribución de alertas** (canal de notificación) | Especificada, no implementada | La latencia de notificación se reporta como **no aplicable**, con causa. La alerta interna —métrica principal por decisión DA-13— no resulta afectada. |
+> | **Identidad persistente de sujeto** | **Implementada y medida** como decorador de fuente del control-plane; el media-plane no la persiste en su JSONL | G1 se reporta como capacidad medida; el núcleo validable conserva G0. Las métricas MOT continúan excluidas. |
+> | **Comparación de estrategias de detección** (directa, indirecta, híbrida) | **Implementada y evaluada** | E-IND queda como núcleo; E-DIR fue vetada por precisión y E-HYB-or fue ejecutada y refutada. Las cifras pertenecen a §17.5, no a esta sección de diseño. |
+> | **Distribución de alertas** (canal de notificación) | **Funcionalmente implementada** | DBE/EBE, cooldown, idempotencia, MQTT QoS 1 y reporte fueron verificados. Quedan la vista de webconsole, la orquestación y versionar el repo. |
 > | **Latencia captura-a-resultado en topología de dos nodos** | Instrumentada; **no computable** | Los relojes monotónicos de hosts distintos no son comparables: la métrica se declara **no interpretable**, con causa, en lugar de publicarse. |
-> | **Comparación con modelo adaptado** (ajuste fino) | Rama experimental comprometida; se ejerce como jornada (ADR-017) | Rama condicionada **desde el diseño metodológico** (Tabla 37: baseline zero-shot primero, ajuste cuando la regla lo amerita) por disponibilidad de datos de validación y por protocolo — no por indisponibilidad de recursos: el conjunto de entrenamiento, la infraestructura de cómputo (clúster Mendieta) y el costo dimensionado (≈1 GPU-h) se encuentran disponibles. La jornada de ajuste fino se ejecuta conforme a la escalera pre-registrada, documentando resultados y limitaciones; su estado al momento de la entrega se declara con causa técnica. *(✎ 2026-08-11, ADR-017 — decía "Condicionada, no ejercida — excluida por presupuesto de tiempo del proyecto".)* |
+> | **Comparación con modelo adaptado** (ajuste fino) | Rama experimental comprometida; **T1 full en NO-GO técnico** (adenda ADR-017, 2026-08-13) | F-100.1, freeze/smoke, dual gate, serving y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas, y T-FT-031/032 cerradas la misma jornada** (doc 120: baseline 26s one-shot — `bare_head` AP50 0,000, recall CR-01 agregado 0,0002); resta `full-authorization.json` + `RUN` manual. La causa es técnica/protocolar, nunca temporal; se declarará el estado real a la entrega. |
 > | **Métricas de seguimiento multiobjeto** | **No aplicables** | No se dispone de anotación de identidades; su cómputo carecería de referencia. Caso ejemplar de la política de aplicabilidad. |
 > | **Condiciones de riesgo de nivel 2 y 3** | Especificadas, no implementadas | Excluidas conforme al núcleo validable declarado. Se conservan la definición de sus patrones y su vocabulario. |
-> | **Comparación DBE / EBE sobre fuente idéntica** | Brecha identificada, no resuelta | La reproducción de un clip anotado como flujo en vivo requiere un anclaje de sincronización entre el reloj de captura y el tiempo de medio de la anotación. Identificada, especificada, no implementada. |
+> | **Comparación DBE / EBE sobre fuente idéntica** | Paridad de transporte y de reparto **VERIFICADA** | Replay/live producen artefactos de distribución idénticos. El anclaje de sincronización entre reloj de captura y tiempo de media para EBE-desde-clip sigue **NO implementado** (`operacion/97`): la paridad plena queda acotada a lo verificado. |
 >
 > Se registran, además, dos limitaciones conocidas del procedimiento de evaluación. Primera: el
 > emparejamiento entre alertas observadas y episodios anotados se resuelve de forma voraz, lo cual puede
 > subestimar la exhaustividad en escenarios con múltiples episodios simultáneos de una misma condición y
 > ventanas solapadas; la solución correcta —emparejamiento bipartito óptimo— está identificada y su efecto
-> se acota a los escenarios de ese tipo. Segunda: la anotación de referencia disponible al cierre de esta
-> etapa tiene carácter **preliminar** y su validación humana definitiva es condición para reportar
-> resultados de desempeño.
+> se acota a los escenarios de ese tipo. Segunda: el GT temporal vigente es humano y está
+> congelado, pero no tuvo una segunda anotación independiente ni estadístico de acuerdo;
+> esa limitación se declara como L2.
 
 ---
 
@@ -619,7 +622,8 @@ cosas distintas — inaceptable, justamente acá. Ocho ítems, y son estos ocho.
 **Nota:** esta sección **no estaba** en la v1 y es, probablemente, la más valiosa de todas para tu defensa.
 Tu tesis no es "OVD detecta mejor" — es **"qué se logra con condiciones en lenguaje, sin entrenar"**. Todo
 lo demás del capítulo mide latencias y pérdidas: **esto mide lo único que un detector cerrado no puede
-hacer.** Si el mini-experimento A1 llega a correrse, acá va su número.
+hacer.** El mini-experimento A1 se ejecutó y verificó: acá queda el mecanismo y su costo
+de cambio; la cifra medida corresponde a §17.4/§17.5 por no-anacronismo.
 
 > ## Extensibilidad de la plataforma: costo de incorporar una condición nueva
 >

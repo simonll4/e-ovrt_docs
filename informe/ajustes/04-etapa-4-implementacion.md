@@ -14,11 +14,11 @@
 |---|---|
 | Texto actual | `entregable/96e` — placeholder vacío |
 | Concreción técnica verificada contra código | `material-etapa-3/92` (§1 correspondencia · §2 el evento · §3 las APIs · §5 contratos del control · §6 config efectiva · §8 artefactos · §9 puntos de extensión) |
-| Prosa ya redactada | `material-etapa-3/94` §7 (verificación), §8 (no implementado), §9 (extensibilidad) |
+| Prosa ya redactada | `material-etapa-3/94` §7 (verificación), §8 (alcance efectivo), §9 (extensibilidad) |
 | Especificación por módulo | `specs/40` (integrador) · `41` control-plane · `42` media-plane · `43` clip bench · `44` experimental-setup · `45` distribución |
 | Relevamientos vigentes por servicio (✎ 2026-08-10) | **`nucleo/14`** (mapa de la cadena) · `15` setup · `16` datasets · `17` media · `18` control · **`19` el ciclo de vida de la alerta** — relevados contra git y código, sin cifras |
-| Estado real de la plataforma | `operacion/97-relevamiento-plataforma-2026-08-05.md` |
-| Decisiones a citar | `decisiones/` — ADR-001…016 (+ la serie propia del control-plane, 4 dígitos) |
+| Estado real de la plataforma | `operacion/97-relevamiento-plataforma-2026-08-05.md` + `operacion/114-relevamiento-distribucion-alertas.md` |
+| Decisiones a citar | `decisiones/` — ADR-001…018 (+ la serie propia del control-plane, 4 dígitos) |
 
 ---
 
@@ -26,7 +26,7 @@
 
 | ID | Tipo | Pri | Qué tiene que decir el §17.4 | Insumo |
 |---|---|---|---|---|
-| **AJ-4.01** | CONCRETA | 🟠 | **Las piezas de software que existen**: tres hoy — cuatro solo si la distribución llega con código a la entrega (ADR-016). | `GUIA-REDACTORES` §1 · CLAUDE.md |
+| **AJ-4.01** | CONCRETA | 🟠 | **Las piezas de software que existen**: tres componentes originales + el módulo funcional de distribución; datasets permanece como cadena de datos. | `GUIA-REDACTORES` §1 · `operacion/114` · CLAUDE.md |
 | **AJ-4.02** | CONCRETA | 🟠 | La **correspondencia diseño → artefacto real**: es la respuesta directa al pedido del tutor técnico. | `92` §1 · `94` §1.2 |
 | **AJ-4.03** | CONCRETA | 🟠 | Los **contratos de datos reales**, con esquema y serialización. | `92` §2 y §5 · `94` §1.3–1.4 |
 | **AJ-4.04** | CONCRETA | 🟠 | Los dos planos son **servicios HTTP config-driven**, no CLIs. | `92` §3 · `94` §1.5 · ADR-008/009 |
@@ -36,14 +36,14 @@
 | **AJ-4.08** | CONCRETA | 🟡 | **Artefactos y layout por experimento**. | `92` §8 · ADR-004/014/006 |
 | **AJ-4.09** | CONCRETA | 🟡 | La **construcción del GT temporal** y su trampa de método. | `specs/43` · `operacion/80` · `99` §2.3 |
 | **AJ-4.10** | EVIDENCIA | 🟠 | **El sistema es ejecutable y verificable**, con el número de la suite. | `94` §7 · `operacion/97` |
-| **AJ-4.11** | EVIDENCIA | 🟠 | **Lo que NO se implementó**, cada ítem con su estatuto exacto. | `94` §8 · ADR-005/015/**016** |
+| **AJ-4.11** | EVIDENCIA | 🟠 | **Límites y brechas restantes**, cada ítem con su estatuto exacto. | `94` §8 · ADR-005/015/**016**/**017** · `operacion/114` |
 | **AJ-4.12** | CONCRETA | 🟠 | **Extensibilidad**: los puntos de extensión, y cuánto costó medido. | `92` §9 · `94` §9 |
 
 ---
 
 ## 2. Los contenidos, desarrollados
 
-### AJ-4.01 · 🟠 — tres piezas de software, no cuatro
+### AJ-4.01 · 🟠 — componentes del prototipo y cadena de datos
 
 - **`e-ovrt_media-plane`** — pipeline de inferencia OVD. Desde Fase 1 es un **servicio**
   FastAPI (HTTP/WS) config-driven en `:8080`; el modelo se carga una vez al arranque y una
@@ -54,11 +54,12 @@
   (`prompts/`, `experiments/`), el runner reproducible y la **webconsole** (React +
   FastAPI BFF), cliente HTTP de ambos planos.
 
-**El cuarto repositorio (`e-ovrt_alert-distribution`) existe en disco pero hoy no es una
-cuarta pieza:** es un esqueleto de paquete sin lógica ni commits. ✎ 2026-08-10, ADR-016:
-su implementación pasó a ser **trabajo comprometido** antes de la defensa — si al momento
-de la entrega tiene código verificado, esta sección pasa a describir **cuatro** piezas;
-si no, se reporta el estado tal cual (ver `AJ-4.11`).
+**`e-ovrt_alert-distribution` es el cuarto repositorio funcional, pero no un tercer
+plano.** Consume alertas confirmadas, aplica la política de notificación, entrega por
+MQTT y conserva el ledger. Los seis criterios de spec 45 están verificados (`operacion/114`).
+✎ **2026-08-14:** la integración se completó el 2026-08-13 — vista de webconsole
+(`13c801e`), orquestación (`42529e2`) y repo versionado (`c9903cc`, `1e6d8fa`); el párrafo
+decía que las tres faltaban (ver `AJ-4.11`).
 
 A esto se suma **`e-ovrt_datasets`**, que no es plataforma sino la cadena de adquisición,
 validación y conversión que produce los datasets y el benchmark de imágenes.
@@ -182,30 +183,33 @@ cualquier cifra.
 
 ---
 
-### AJ-4.11 · 🟠 — lo que NO se implementó
+### AJ-4.11 · 🟠 — límites y brechas restantes
 
-**Cada ítem con su estatuto exacto — ya no comparten uno solo.** Los tres:
+**Cada ítem con su estatuto exacto — ya no comparten uno solo.** Los tres frentes:
 
-- **Distribución de alertas por MQTT** — sigue **sin implementar** (el repo es un
-  esqueleto sin commits), pero ✎ 2026-08-10 su estatuto cambió: **ADR-016 derogó la
-  cláusula de exclusión cerrada (ADR-015 §2c)** y la puso en alcance como **trabajo
-  comprometido**. Se redacta describiendo el diseño (`92b`, y `nucleo/19` para el ciclo
-  de vida de la alerta) y **declarando el estado real al momento de la entrega** —
-  nunca en presente mientras no haya código verificado. E-06 (dashboard) sigue excluida.
+- **Distribución de alertas por MQTT** — **funcionalmente implementada y verificada**.
+  Lo pendiente es su acople operativo: vista de outcomes en la webconsole, lanzamiento
+  desde la orquestación y commits del repo. E-06 (canales extra y dashboard propio)
+  sigue excluida. Diseño y contratos: `92b`; evidencia ejecutada: `operacion/114`.
 - **Métricas MOT** (exclusión E-10). Atención al matiz de R-21: lo excluido son las
   **métricas**, no la capacidad — el tracker existe y la granularidad por sujeto es el
   mejor resultado del banco.
 - **Fine-tuning** (E-04) — ✎ 2026-08-11 su estatuto cambió: **ADR-017 la puso en
-  alcance como jornada experimental comprometida** (escalera T1→T2/T3 con go/no-go
-  pre-registrados, Mendieta, costo medido **≈1 GPU-h**). Se redacta como **rama
-  condicionada por datos y protocolo desde el diseño** (F-100.1, regla Tabla 37) y
+  alcance como jornada experimental comprometida** (escalera T1→T2/T3 con go/no-go y
+  Mendieta). ✎ **2026-08-13:** F-100.1 está resuelta; `1166583` cerró freeze/smoke técnico,
+  dual gate y serving real. T1 full sigue en NO-GO por D-FT-08/T-FT-005, T-FT-031 y
+  T-FT-032; la procedencia T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`),
+  evaluación T031 y baseline 26s T032. ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13
+  firmadas, y T-FT-031/032 cerradas la misma jornada** (doc 120: baseline 26s one-shot,
+  `bare_head` AP50 0,000) — el NO-GO quedó en `full-authorization.json` + `RUN` manual.
+  Se redacta como **rama condicionada por datos y protocolo** y
   **declarando el estado real de la jornada al momento de la entrega**, con causa
   técnica — nunca "por tiempo", y nunca en presente mientras no haya corrida
   verificada. *Decía "no ejercida por secuenciación"*.
 
-**Prosa ya redactada en `94` §8** (redline R-13), con la anotación importante: de los 8
-límites que esa lista enumera, **5 estaban ya resueltos** cuando ADR-015 cerró el
-alcance. Transcribirla sin revisar declararía como faltante algo que existe.
+**Prosa ya redactada y corregida en `94` §8** (redline R-13). Transcribir una versión
+anterior declararía como faltantes G1, la comparación de estrategias, distribución y la
+paridad DBE/EBE, todos ejercidos después de la primera redacción.
 
 ---
 

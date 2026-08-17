@@ -1,5 +1,13 @@
 # 98 — Project de claude.ai: manifiesto de archivos e instrucciones
 
+> ⚠️ **REEMPLAZADO el 2026-08-12.** Este manifiesto de 95 copias aplanadas queda
+> conservado únicamente como trazabilidad. Para crear o actualizar el Project de ChatGPT
+> se usa el kit mínimo versionado en
+> [`informe/project-kit/README.md`](../../project-kit/README.md): hoy **cuatro archivos
+> de knowledge** (contexto base + etapa reemplazable + los dos DOCX del entregable,
+> ✎ 2026-08-16), instrucciones separadas y generación verificable.
+> No regenerar `~/projects/informe-project-kit/` desde el cuerpo de este documento.
+
 - **Fecha:** 2026-07-18
 - **Propósito:** definir qué archivos del set se suben al knowledge del Project de
   claude.ai para redactar el informe final, y las instrucciones (custom instructions)
@@ -139,13 +147,13 @@ REGLAS DE LECTURA (obligatorias):
    los "re_alerts" no son falsos positivos; y FAR/hora se reporta pero NO sostiene
    una cota: se cita como "3 y 190 FP en 6:09,6 del único clip soak", con la tasa
    horaria (29,2 y 1.850,8) como derivada, nunca desnuda ni como "<=N FA/hora".
-6. Las decisiones ADR-001…017 están cerradas: se declaran y justifican, no se
+6. Las decisiones ADR-001…018 están cerradas: se declaran y justifican, no se
    re-litigan. El cierre de alcance es ADR-015, con dos reaperturas acotadas y
    firmadas: ADR-016 (distribución MQTT = trabajo comprometido, se declara con su
    estado a la entrega) y ADR-017 (fine-tuning E-04 = jornada experimental
    comprometida, encuadre por datos y protocolo — la causa "presupuesto/falta de
    tiempo" está PROHIBIDA en el informe). Todo lo demás sigue cerrado. Ojo: hay DOS
-   series de ADR — ADR-001…017 del proyecto y ADR-0001…0013 internos del
+   series de ADR — ADR-001…018 del proyecto y ADR-0001…0013 internos del
    control-plane; al citar, decí la serie (convención en el glosario, doc 13).
    La tesis NO es "OVD detecta mejor" (ver doc 09): es la plataforma
    que mide qué se logra especificando condiciones en lenguaje, sin entrenar.

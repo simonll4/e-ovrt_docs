@@ -129,8 +129,13 @@ medido**, y eso es mucho más sólido que una lista de deseos.
 
 - **El fine-tuning dejó de ser trabajo futuro** ✎ 2026-08-11: **ADR-017 lo puso en
   alcance como jornada experimental comprometida** — escalera T1→T2/T3 con go/no-go
-  pre-registrados, **≈1 GPU-h medido** para T1 y nodo de entrenamiento disponible
-  (Mendieta, CCAD-UNC). Si a la entrega la jornada produjo resultados, se reportan como
+  y Mendieta disponible. ✎ **2026-08-13:** F-100.1, freeze/smoke técnico, dual gate y serving
+  real y T-FT-023 están cerrados; T1 full permanece en NO-GO por D-FT-08/T-FT-005,
+  T-FT-031 y T-FT-032 (snapshot de procedencia `639e60df…`). ✎ **2026-08-15:
+  D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas, y T-FT-031/032 cerradas la misma jornada**
+  (doc 120: baseline 26s one-shot) — el NO-GO queda reducido a `full-authorization.json`
+  + `RUN` manual del usuario.
+  Si a la entrega la jornada produjo resultados, se reportan como
   rama comparativa con sus limitaciones; si quedó a medias, **lo pendiente se declara
   como estado con causa técnica, no como promesa** — y lo que sí sigue siendo trabajo
   futuro son los tiers que los go/no-go no habiliten (T2/T3 sin ganancia exigible

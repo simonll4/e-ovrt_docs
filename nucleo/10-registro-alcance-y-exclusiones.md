@@ -12,17 +12,20 @@
 > ejecutada con causa · **E-04** — *(⚠️ esta línea quedó **derogada por ADR-017**, ver el
 > tercer banner: el encuadre por «secuenciación» está prohibido)* sigue no ejercida, pero por secuenciación, no por falta
 > de preparación. **E-10 no cambia** (métricas MOT siguen "no aplicable"), y las otras
-> ocho exclusiones tampoco. ADR-015 además **cierra la puerta**: ninguna capacidad nueva
-> de acá a la defensa, y la distribución MQTT queda declarada NO implementada.
+> ocho exclusiones tampoco. ADR-015 también registró un cierre de agenda y una decisión
+> sobre MQTT que luego fueron sustituidos por ADR-016; se conservan en el ADR como
+> trazabilidad, pero ya no describen el estado vigente.
 >
 > ✎ **2026-08-10 — esas dos últimas cláusulas están DEROGADAS por
 > [ADR-016](../decisiones/adr-016-reapertura-acotada-distribucion.md).** El usuario decidió
 > **implementar la distribución de alertas** para cerrar la arquitectura de la plataforma,
 > con el recorte exacto de ADR-005 y nada más (**E-06 sigue excluida**). Nada más se
-> reabre: E-04, EN-3, E-10 y las condiciones CR nuevas siguen cerradas. **La
-> implementación no bloquea el informe** — el cierre arquitectónico lo entrega
-> `nucleo/19`, y si el módulo no llega a tiempo se declara como estaba. Ver el **ítem 5**
-> más abajo, ya actualizado.
+> reabre: E-04, EN-3, E-10 y las condiciones CR nuevas siguen cerradas. ✎ **Estado
+> verificado 2026-08-11:** el módulo cumple los seis criterios de spec 45, incluido
+> reporte consolidado y MQTT QoS 1 contra broker real. ✎ **2026-08-14:** la vista de
+> outcomes en la webconsole, la orquestación integral y el versionado del repo —que este
+> banner daba por pendientes— se cerraron el 2026-08-13 (`13c801e`, `42529e2`; repo con
+> `c9903cc` y `1e6d8fa`). Ver el **ítem 5** más abajo.
 >
 > ✎ **2026-08-11 — E-04 sale de esa lista por
 > [ADR-017](../decisiones/adr-017-fine-tuning-jornada-experimental.md).** El fine-tuning
@@ -31,7 +34,8 @@
 > resultados **y limitaciones**), y su encuadre pasa a **rama experimental condicionada
 > por datos y protocolo desde el planteo inicial** — las causas "presupuesto de tiempo"
 > (julio) y "secuenciación" (ADR-015) quedan **derogadas como lectura**: el cómputo no es
-> la restricción (≤1 GPU-h medido) y el cronograma lo define el proyecto. Ver la ficha
+> la restricción (T1 tiene un envelope acotado y Mendieta disponible) y el cronograma
+> lo define el proyecto. Ver la ficha
 > **E-04**, ya actualizada. Siguen cerradas EN-3, E-10, E-06 y las condiciones CR nuevas.
 
 - **Fecha:** 2026-07-07 · **Actualizado 2026-07-09:** decisiones formalizadas en
@@ -80,19 +84,20 @@
    o RTSP simulado). Se implementa porque ya existe (Fase 2 verificada) y produce R4
    con costo marginal bajo — no es una ampliación de alcance sino capitalización de
    trabajo hecho.
-5. **Distribución mínima — EN ALCANCE, aún no implementada** (✎ reescrito 2026-08-10
-   conforme **ADR-016**; *decía "NO IMPLEMENTADA, exclusión ejercida" por ADR-015 §2c
-   entre el 08-05 y el 08-10, y antes de eso describía el alcance sin estado*): un canal
+5. **Distribución mínima — FUNCIONALMENTE IMPLEMENTADA Y VERIFICADA** (✎ estado
+   2026-08-11 conforme **ADR-016** y `operacion/114`; sustituye los estados previos
+   registrados por ADR-015/016): un canal
    **MQTT** + `NotificationEnvelope` + ledger de idempotencia + retry mínimo + **vista de
    alertas en la webconsole existente**, en repo propio, consumiendo el bus
    control→distribución (ADR-005). El condicional del ADR-005 quedó resuelto en **sí**,
    por un motivo **arquitectónico**: es donde se gestiona el ciclo de vida completo de la
    alerta y su distribución, incluidas las políticas que ADR-011 sacó del motor
-   (cooldown, supresión por ventana, re-notificación, agrupación). **E-06 sigue
-   excluida** (canales adicionales y dashboard dedicado). Construido a la fecha: solo la
-   frontera de salida del control-plane (`control.alert.v1`). **No bloquea el informe**:
-   el cierre arquitectónico lo entrega `nucleo/19` y, si el módulo no llega a tiempo, se
-   declara como estaba (ADR-016 §2d).
+   (cooldown, supresión por ventana, re-notificación, agrupación). Los seis criterios de
+   spec 45 quedaron verificados, incluido reporte y broker MQTT real. **E-06 sigue
+   excluida** (canales adicionales y dashboard dedicado). ✎ **2026-08-14:** la vista de
+   outcomes en la webconsole, la orquestación integral y el versionado del repo —listados
+   acá como pendientes— se cerraron el 2026-08-13 (`13c801e`, `42529e2`; repo con
+   `c9903cc` y `1e6d8fa`).
 6. **Bus ZeroMQ media→control** (necesario para el punto 4).
 7. **Overlay renderer** offline (videos V1–V3 de la defensa + figuras del informe).
 8. **Mini-experimento A1** (costo marginal de una condición nueva por configuración).
@@ -115,10 +120,9 @@ config no se sacrifica — la usa el runner) → 10 → 9 (queda el runner CLI; 
 runtime live no se sacrifica) → 8 → 7 (se reemplaza por overlays simples) → 5 (se
 reduce a `mosquitto_sub`)** — nunca 1, 2 ni 3.
 
-> ✎ **2026-08-06 — el orden de sacrificio quedó obsoleto** (ADR-015 §2b cerró la
-> agenda de implementación): el ítem 10 terminó **creciendo** (G1 medida, el mejor
-> resultado del banco) y el ítem 5 se declaró **no implementado** con causa. Se
-> conserva como registro de cómo se priorizó; ya no es una lista de candidatos.
+> ✎ **2026-08-12 — el orden de sacrificio quedó obsoleto.** Los ítems 5 y 10 terminaron
+> materializados y medidos. Se conserva como registro de cómo se priorizó; ya no es una
+> lista de candidatos ni una descripción del estado actual.
 
 ## 3. Registro de exclusiones
 
@@ -205,37 +209,67 @@ declaración → condición de habilitación futura.
   pre-registrada — **T1 (linear probing) como entrada**, escalamiento a T2/T3 gobernado
   por los go/no-go de la Tabla 37 y `contingencia/20` §6, sin prometer tiers por
   adelantado. Deja de ser exclusión.
+- **Actualización operativa 2026-08-13:** F-100.1 quedó resuelta por `finetuning_v1`
+  (2.946 train/483 val, `bare_head` cubierto, bench intacto), pero T1 completo está en
+  **NO-GO**. `1166583` cerró freeze/smoke técnico con exactamente 12 tensores/3.096 parámetros
+  sólo en `cv3`/`one2one_cv3` y optimizer 12/12; dual gate y serving con checkpoint real están
+  verdes. Antes del full faltan contrato de serving D-FT-08/T-FT-005, evaluación T-FT-031 y baseline
+  YOLOE-26s T032 sobre `bench_v3`. La negativa sin auth mantuvo cero jobs full.
+  ✎ **2026-08-15: el contrato de serving quedó firmado** (D-FT-08 aprobada por el usuario,
+  T-FT-005 `done`), junto con D-FT-12 y D-FT-13; **y la misma jornada cerraron T-FT-031 y
+  T-FT-032** — comando de evaluación congelado y **baseline YOLOE-26s one-shot ejecutada**
+  (`bare_head` AP50 0,000; recall CR-01 agregado 0,0002 — doc 120, cifras de la rama, por
+  estrato). El NO-GO quedó en su último eslabón: `full-authorization.json` + `RUN` manual
+  del usuario. Cero jobs full.
+  ✎ **2026-08-15 (noche): T-FT-043 CERRADA — el job full se envió.** Autorización emitida
+  y verificada en el clúster (7 gates), `--test-only` en verde y `RUN` **encolado como job
+  `1167640`**. "Último eslabón" y "cero jobs full" quedan superados. Lo abierto pasa a ser
+  **la corrida y su evaluación**: enviar no es medir, y **no hay cifra del modelo
+  ajustado** hasta que se evalúe el checkpoint.
+  ✎ **2026-08-17: la corrida y la evaluación se hicieron — JORNADA CERRADA, veredicto
+  D-FT-12 = NO-GO** ([`operacion/123`](../operacion/123-cierre-jornada-t1-no-go.md)). **Ya
+  existe cifra del modelo ajustado**: `bare_head` AP50 **0,0000 → 0,0455** y recall CR-01
+  **0,0002 → 0,2089**, pero el gain gate exigía +0,05 (faltaron **0,0045**) o recall >0,5, y
+  `person` cayó **−11,62 %** sobre un tope de 10 %. El checkpoint **no se adopta**. Con esto
+  **E-04 queda ejercida y documentada de punta a punta**; el encuadre sigue siendo causa
+  técnica/protocolar y el negativo es **pre-registrado**, nunca "falta de tiempo".
 - **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
   el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
   **experimental y condicionada desde el planteo inicial**, nunca un descarte. La
   baseline zero-shot —el prerequisito de la regla— se ejecutó (R1/Sprint 2) y el
   benchmarking cerró. Las condiciones reales que la jornada atraviesa son **de datos y
-  de protocolo**: F-100.1 (no existe validación con `bare_head` fuera del bench
-  congelado — doc 100 §4), licencias y transporte (entrenar en el clúster, evaluar
-  local — doc 100 §6.3) y el riesgo de erosión de la capacidad open-vocabulary
-  (§15.2.4.5). **No son de cómputo** (el TN/Mendieta existe y está caracterizado en
-  §17.1.4.3; costo medido ≤1 GPU-h en A30 para T1, doc 100) **ni de plazo** (el
+  de protocolo**: F-100.1 fue resuelta sin tocar el bench; siguen el alcance entrenable,
+  integración/evaluación, procedencia, licencias y transporte (entrenar en el clúster,
+  evaluar local — doc 100 §6.3), además del riesgo de erosión de la capacidad
+  open-vocabulary (§15.2.4.5). **No son de falta de cómputo** (el TN/Mendieta existe
+  y el envelope T1 es acotado) **ni de plazo** (el
   cronograma lo define el proyecto). (✎ histórico: esta ficha declaró primero
   "presupuesto de tiempo del proyecto" —julio— y luego "secuenciación" —ADR-015,
   2026-08-06—; **ADR-017 deroga ambas causas como encuadre del informe**.)
 - **Rastro documental:** protocolo comparativo completo especificado (Tabla 32:
   ΔAP/ΔRecall/ΔPrecision/ΔSDR, retención generalista, costo de entrenamiento);
-  particiones sin leakage definidas y **materializadas** (splits v2 del repo; train ∩
-  `bench_v3` = 0 verificado); candidatos acotados (GDINO/YOLOE, §17.1.9.2); escalera
+  particiones sin leakage definidas y **materializadas** (`finetuning_v1`; train/val/bench
+  disjuntos por hash, linaje y componente); candidatos acotados (GDINO/YOLOE, §17.1.9.2); escalera
   T1–T3 con presupuestos GPU y go/no-go pre-registrados (`contingencia/20`); costo T1
   medido con smoke verde end-to-end (doc 100).
 - **Declaración (✎ reescrita 2026-08-11 conforme ADR-017):** "Rama comparativa
   experimental, condicionada desde el diseño metodológico (Tabla 37: baseline
   zero-shot primero, ajuste cuando la regla lo amerita): la baseline fue establecida,
   el protocolo comparativo y las particiones quedaron especificados y materializados,
-  el costo de ejecución quedó medido (≈1 GPU-h en A30, doc 100), y la jornada de
+  el costo quedó dimensionado con envelope Slurm de 2 h y smoke A30 documentado
+  (doc 100), y la jornada de
   fine-tuning se lleva a cabo documentando sus resultados y limitaciones — sin afectar
   la pregunta central, que evalúa precisamente el desempeño sin entrenamiento."
   (*Decía "no ejercida por secuenciación del tramo experimental"*, y antes *"se
   difirió por presupuesto del proyecto"*.)
-- **Puertas previas a pedir turno (no se saltean):** decisión del usuario sobre
-  F-100.1 (tres enmiendas posibles, doc 100 §4) + checklist de viabilidad completa
-  (doc 100 §6: entorno reproducible, transporte, puente de evaluación). El estado de
+- **Puertas previas a T1 completo (no se saltean):** F-100.1 ya está cerrada;
+  freeze/smoke técnico, dual gate y serving real también están cerrados. Permanecen
+  D-FT-08/T-FT-005, evaluación T-FT-031 y baseline 26s T-FT-032; la procedencia
+  T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`)
+  (docs 100/116/117). ✎ **2026-08-15: D-FT-08/T-FT-005 quedó cerrada por firma del
+  usuario** —igual que D-FT-12 y D-FT-13— **y T-FT-031/T-FT-032 cerraron la misma jornada**
+  (doc 120: baseline 26s one-shot ejecutada y evaluada). **Las 7 gates del
+  full-authorization están cerradas**; restan emitirla y el `RUN` manual. El estado de
   la jornada al momento de la entrega se declara tal cual, con causa técnica —
   nunca temporal (ADR-017 §2f).
 
@@ -259,14 +293,12 @@ declaración → condición de habilitación futura.
 - **Rastro documental:** diseño completo del módulo (doc 06: 4 canales, retry,
   dead-letter, dashboard) conservado como anexo de diseño; recorte D5 con
   fundamentos (docs 02 §4.7, 03 §6).
-- **Declaración (✎ reescrita 2026-08-06 conforme ADR-015 §2c):** "El tramo de
-  distribución queda en la frontera de salida del control-plane (`control.alert.v1`);
-  el canal demostrativo (MQTT), el ledger de idempotencia y los canales restantes
-  quedan **diseñados y no implementados** (spec 45 + anexo doc 06, exclusión
-  ejercida), y su incorporación futura no altera la semántica de la alerta (DA-13)."
-  (*Decía: "Se implementa el tramo de distribución con un canal demostrativo (MQTT) y
-  ledger de idempotencia…"* — contradicción con ADR-015 detectada en el relevamiento
-  del 2026-08-06.)
+- **Declaración (✎ vigente 2026-08-12, ADR-016 + `operacion/114`):** "El tramo mínimo
+  de distribución está funcionalmente implementado con MQTT, ledger de idempotencia,
+  cooldown, retry y reporte consolidado. E-06 excluye los canales adicionales y el
+  dashboard dedicado; su incorporación futura no altera la semántica de la alerta
+  (DA-13). Quedan abiertos la vista de outcomes, la orquestación integral y el
+  versionado inicial del repo."
 
 ### E-07 — Inferencia en borde, preselección EN-2 y OAK-D Pro PoE
 
@@ -388,7 +420,7 @@ declaración → condición de habilitación futura.
 | E-01 | CR-03/CR-04 | Especificada, no implementada | Tabla 17; Tabla C.3 (0 fuentes); Tabla 38 | Tabla 24, Anexo C |
 | E-02 | CR-05/CR-06 | Especificada (criterios de activación) | Tabla 23; §17.1.5.2.4 | §17.1.5.3.6, Anexo C |
 | E-03 | G1 como modo del núcleo / GT de identidades | ✎ **Ampliada (ADR-015, 2026-08-05)**: G1 no es demostrativa — es **capacidad operativa medida en los 34 clips** (F1 0,930) y verificada en vivo. **Sigue excluido**: GT de identidades y validación MOT | DA-06; §17.1.10.2 | ADR-002 + adenda 08-04; **ADR-015**; doc 89; `results/clip_bench/g1_*` |
-| E-04 | Fine-tuning / TN | ✎ **Rama experimental comprometida (ADR-017, 2026-08-11)**: se ejerce como **jornada completa** — escalera T1→T2/T3 con go/no-go pre-registrados, entrenamiento en Mendieta, eval contra `bench_v3`, resultados y limitaciones documentados. Encuadre: condicionada **por datos y protocolo** (F-100.1, licencias, Tabla 37), no por cómputo (≤1 GPU-h medido) ni por plazo | Tabla 37; §15.2.4.5 | Tabla 32; splits v2 materializados; doc 100; `contingencia/20`; **ADR-017** |
+| E-04 | Fine-tuning / TN | ✎ **Rama experimental comprometida; T1 full en NO-GO (adenda ADR-017, 2026-08-13).** F-100.1 resuelta; `1166583` validó freeze/smoke técnico 12 tensores/3.096 parámetros y optimizer 12/12; dual gate y serving real verdes. Pendientes D-FT-08/T-FT-005, T-FT-031 y baseline T-FT-032; T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`). Cero full. La proyección Slurm 2026-08-18 no es promesa. ✎ **2026-08-15: esos pendientes cerraron y el job full se ENVIÓ** (T-FT-043 cerrada; autorización 7 gates, `RUN` encolado como job `1167640`). Abierto queda **la corrida y su evaluación**: no hay cifra del modelo ajustado. ✎ **2026-08-17: EJERCIDA Y CERRADA — veredicto D-FT-12 = NO-GO** (doc 123): job `1167640` `COMPLETED` 10/10 épocas → promoción por hash → eval única. `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, `vest` 0,2642 → **0,3292**; contra `person` 0,7843 → 0,6932 y mAP50 0,4193 → 0,4171. Falla el gain gate por **0,0045** y la retención por `person` (−11,62 %, tope 10 %). **Ya hay cifra del modelo ajustado**; checkpoint no adoptado; negativo **pre-registrado**. Encuadre: causa técnica/protocolar, nunca temporal | Tabla 37; §15.2.4.5 | docs 100/116/117/**123**; `contingencia/20`; **ADR-017** |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
 | E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO; inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2; **ADR-015** |

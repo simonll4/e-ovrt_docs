@@ -70,6 +70,7 @@ EVIDENCIA") y R-26 (§17.3.17/18, extensibilidad).
 | T-82 | **Estrato B (obra real no guionada) — I1/I2** (✎ 08-10): F1 0,333 (`scene`) / 0,190 (`subject`) sobre **2 episodios evaluables — no rankear con ese n**; lo robusto es la **asimetría de FP: 26 vs 323 sobre 11 negativos (12×)** y el FAR del único soak, citado como **"3 y 190 FP en 6:09,6"** (tasas derivadas 29,2 / 1.850,8 FA/h, denominador 0,1027 h) | `results/clip_bench/{i1,i2}_gdinotiny560_*_internet/metrics.json` + índice | R-13 | ✅ en disco |
 | T-83 | **Nivel A sobre video (NA1, 17 clips)** (✎ 08-10): CR-01 F1 0,031 / CR-02 0,018 contra 0,408/0,479 en imágenes (`bench_obra`) — el derrumbe es de **precision**, el recall se sostiene | `results/bench_nivel_a/na1_gdinotiny560_v2short_video/metrics.json` | R-13 | ✅ en disco |
 | T-84 | **Revisión ciega del GT del lote como resultado de calidad de GT** (✎ 08-10): **5 de 7 declaraciones de episodio eran errores de anotación (~71%)**, todas sobre-declarando donde el estado no era observable — el mismo modo de falla que el motor | constancia en `operacion/113` §B + correcciones firmadas en los `clip.yaml` | R-13 | ✅ en disco |
+| T-85 | **Latencia de notificación (distribución): p95 64,534 ms (n=460) + régimen sostenido** | `results/realtime/t_alert_notification/metrics.json` + `operacion/118` | §17.3.10 | ✅ en disco |
 | FIG-A | **Arquitectura de los dos planos** (DBE / EBE, corte tras normalización) | especificación en **doc 94 §4** | R-09 | 📐 spec |
 | FIG-B | **Curva calidad vs densidad** (F1 escena y sujeto contra fps) | `results/clip_bench/r{1..6}_*/metrics.json` | R-13 | ⚙ generar |
 | FIG-C | **Frame con overlay de alerta confirmada** | renderer en `experimental-setup/defensa/` + `runs/*/previews/` | R-12 | ⚙ generar |
@@ -117,16 +118,17 @@ nunca solo el agregado · el **SDR no se compara entre cadencias**.
 cd docs && python3 operacion/datos/96-verificar-indices.py
 ```
 
-✎ 2026-08-10 — **el alcance creció el 2026-08-09** (doc 113 §G). Corrido hoy:
-**`✅ Todo verificado`** — **19 cifras** contra `metrics.json` (14 F1 de `clip_bench` +
-5 de `bench_nivel_a`), **guard de cobertura 16/16 campañas** (falla si aparece una
-campaña sin fila de verificación), 3 deltas de bootstrap con su IC, 4 enlaces, **35
-docs de procedencia** (ninguno faltante). *(Decía: 8 F1, 31 docs, "solo cubre T1, G1 y
-R1–R6" — ese hueco quedó cerrado por el guard.)*
+✎ 2026-08-14 — **el alcance volvió a crecer** (docs 113 y 118). Corrido hoy:
+**`✅ Todo verificado`** — **25 cifras** contra `metrics.json` (14 F1 de `clip_bench`,
+5 de `bench_nivel_a` y 6 valores de `realtime/t_alert_notification`), **guard de
+cobertura 17/17 campañas** (falla si aparece una campaña sin fila de verificación),
+3 deltas de bootstrap con su IC, 1.447 enlaces y **35 docs de procedencia** (ninguno
+faltante). *(Decía: 8 F1, 31 docs, "solo cubre T1, G1 y R1–R6" — ese hueco quedó
+cerrado por el guard.)*
 
-**Lo que sigue sin cubrir, y se chequea a mano:** `bench_imagenes/` y `realtime/` — son
-índices que consolidan mediciones cuyos artefactos viven en `docs/operacion/datos/`
-(declarado en `results/index.md` §Procedencia).
+**Lo que sigue sin cubrir, y se chequea a mano:** `bench_imagenes/`; el descarte se
+contrasta contra el doc 64. `realtime/t_alert_notification` ya tiene `metrics.json`,
+prueba negativa obligatoria y cobertura mecánica.
 
 **Segundo verificador** (✎ 08-10):
 `python3 docs/operacion/datos/109-verificar-organizacion.py` — las 6 reglas de
@@ -384,7 +386,7 @@ aclaradas en el lugar.
 | 002 | Granularidad: G0 núcleo + G1 demostrativa | **Revisar el texto**: G1 dejó de ser demostrativa — es el mejor resultado del banco (F1 0,930) |
 | 003 | Bus media→control: **ZeroMQ PUB/SUB**, broker diferido | arquitectura EBE (FIG-A, T-76) |
 | 004 | Corrida paraguas y `experiment_id` | reproducibilidad (§2.4) |
-| 005 | Distribución de alertas: recorte, canal MQTT, repo propio | ✎ **2026-08-10 (ADR-016): en alcance, aún no implementada** — se redacta como **trabajo comprometido** con su estado al momento de la entrega, no como exclusión cerrada. *Decía "no implementada (spec 45): se declara como no hecho"* |
+| 005 | Distribución de alertas: recorte, canal MQTT, repo propio | ✎ **2026-08-12: funcionalmente implementada y verificada** — seis criterios de spec 45 cerrados, incluidos DBE/EBE, reporte y MQTT real. Quedan la vista de webconsole, la orquestación integral y el primer commit; E-06 sigue excluida. **✎ 2026-08-14: los tres pendientes del 08-12 quedaron cerrados el 2026-08-13** — vista de webconsole (`13c801e`, "feat(webconsole): mostrar outcomes de distribución") y orquestación integral (`42529e2`, "feat(experiments): orquestar distribución de alertas") en `e-ovrt_experimental-setup`; el repo `e-ovrt_alert-distribution` ya tiene historia propia (`c9903cc`, `1e6d8fa`). E-06 sigue excluida |
 | **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura | deroga ADR-015 §2b/§2c/§6; ratifica §2a/§3/§4/§5. E-06 sigue excluida |
 | 006 | Reporte consolidado y **aplicabilidad de métricas** | lenguaje de estados: `not_applicable` / `non_temporal_source` |
 | 007 | Semántica de corrida en EBE: **1:1** | T-76 |
@@ -411,10 +413,10 @@ evidencia, y de qué sigue excluido**. Qué hace:
   ocho exclusiones no cambian.**
 - **Cierra la puerta** (§2b): ninguna capacidad nueva de acá a la defensa — es la parte
   que *restringe*, y es el riesgo que el doc 95 realmente quería cubrir.
-- **Resuelve el condicional del ADR-005**: distribución MQTT declarada **NO implementada**.
-  ✎ **2026-08-10 — revertido por ADR-016**: el condicional queda resuelto en **sí** (se
-  implementa, con el recorte de ADR-005 y nada más), y §2b/§2c/§6 de ADR-015 quedan
-  derogadas. §2a, §3, §4 y §5 —incluida **la lista de límites L1–L8**— siguen vigentes.
+- **Registró un estado transitorio del condicional de ADR-005.** ADR-016 lo sustituyó:
+  el condicional quedó resuelto en **sí** y el recorte mínimo fue implementado y
+  verificado. §2b/§2c/§6 de ADR-015 quedaron derogados; §2a, §3, §4 y §5 —incluida
+  **la lista de límites L1–L8**— siguen vigentes.
 - **Desbloquea R-13** con una lista auditada ítem por ítem: **de los 8 límites de julio,
   5 estaban resueltos** (`track_id`, evaluadores de D1, GT preliminar, matching greedy,
   inventario de datasets) y sobreviven 3, uno de ellos agravado por F-101.8.
@@ -546,10 +548,29 @@ afirmación del capítulo.
 |---|---|---|
 | 1 | ✅ **RESUELTO 2026-08-05.** El origen del lote de internet es el canal público `@HospitalConstruction` y se cita como fuente; registrado en `license_registry.md` §Material de VIDEO. **Queda UNA salvedad chica** (✎ 2026-08-06: la otra —¿CC BY o *Standard*?— ya estaba resuelta en §3.3: es *Standard YouTube License*, **nunca** presentarlo como CC): anotar **URL + fecha de acceso por video** (evidencia perecedera — mejor ahora que después; ✎ 08-10: son **18 `clip.yaml`** + re-promover las 13 copias `meta/`, paso a paso en doc 113 §C1) | vos (chequeo barato) |
 | 2 | ✅ **CERRADO 2026-08-05 por declaración**: en los 34 clips del rodaje aparecen **los propios integrantes del proyecto**, actuando según guion y sin terceros en cuadro — sujetos y responsables son los mismos. Lo administrativo lo maneja el equipo; la identificación del responsable va en el informe. Entrada de video creada en el registry; plantilla de consentimiento disponible por si la facultad la pide | — |
-| 3 | ~~**Los catálogos de modelos no registran licencia.**~~ ✅ **CERRADO 2026-08-10 — y la premisa era FALSA.** Los **11 catálogos** de `configs/models/**/*.yaml` (todos menos `mock`, que no tiene pesos) **sí** declaran `license:` y `source:`; el hallazgo se había escrito sin auditar los subdirectorios por familia. Lo que faltaba de verdad era el registro y la implicancia, ya escritos: **nueva sección "PESOS DE MODELO" en `datasets/registry/license_registry.md`** — Grounding DINO **Apache-2.0** (verificado contra el frontmatter del model card descargado), MM-Grounding-DINO **Apache-2.0** (ídem), YOLOE **AGPL-3.0** (verificado contra la cadena embebida en el propio `.pt` y contra el paquete `ultralytics` 8.4.86). Las 3 declaraciones del catálogo **coinciden** con la evidencia independiente. La implicancia AGPL queda declarada: YOLOE se usó como **contraste medido y descartado con causa**, no se redistribuyen pesos (`models/**` gitignorado), y el alcance AGPL es el adaptador, no el proyecto. **Residual, y es decisión del usuario, no bloqueo de defensa:** los repos no tienen archivo `LICENSE` propio — hay que elegirlo antes de publicar | ✅ hecho |
+| 3 | ⚠ **Parcialmente cerrado — ✎ 2026-08-14, ver la enmienda al pie de esta tabla** (residuales abiertos: la posición sobre el checkpoint derivado T1 y el asset `mobileclip2_b.ts`, ambos pendientes de firma del usuario). ✎ **2026-08-15: las dos posiciones quedaron FIRMADAS** (ver la enmienda 2026-08-15 al pie); el único residual del hallazgo es ahora el archivo `LICENSE` por repo. Traza del cierre original, que se mantiene: ~~**Los catálogos de modelos no registran licencia.**~~ ✅ **CERRADO 2026-08-10 — y la premisa era FALSA.** Los **11 catálogos** de `configs/models/**/*.yaml` (todos menos `mock`, que no tiene pesos) **sí** declaran `license:` y `source:`; el hallazgo se había escrito sin auditar los subdirectorios por familia. Lo que faltaba de verdad era el registro y la implicancia, ya escritos: **nueva sección "PESOS DE MODELO" en `datasets/registry/license_registry.md`** — Grounding DINO **Apache-2.0** (verificado contra el frontmatter del model card descargado), MM-Grounding-DINO **Apache-2.0** (ídem), YOLOE **AGPL-3.0** (verificado contra la cadena embebida en el propio `.pt` y contra el paquete `ultralytics` 8.4.86). Las 3 declaraciones del catálogo **coinciden** con la evidencia independiente. La implicancia AGPL queda declarada: YOLOE se usó como **contraste medido y descartado con causa**, no se redistribuyen pesos (`models/**` gitignorado), y el alcance AGPL es el adaptador, no el proyecto. **Residual, y es decisión del usuario, no bloqueo de defensa:** los repos no tienen archivo `LICENSE` propio — hay que elegirlo antes de publicar | ⚠ parcialmente cerrado — ver enmienda 2026-08-14 |
 | 4 | ✅ **CERRADO 2026-08-05**: ADR-015 escrito, **aceptado** y **aplicado al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). Registra que el alcance creció, cierra la puerta a capacidad nueva, declara MQTT no implementada y **desbloquea R-13 y R-21** — R-13 con los 8 límites auditados (5 estaban resueltos) y R-21 con la corrección de "MOT ✗ tracker no implementado", falso al cierre | — |
 | 5 | ✅ **CERRADO 2026-08-05**: lista canónica **L1–L8**, con las tres que faltaban etiquetadas (L6/L7/L8) y L3 agregada. Aplicada en `results/index.md` (referencia) y `operacion/98` §6. Se mantiene el prefijo `L` y se desambigua en prosa (**"limitación L1"**), porque la Fase L usa `L0`/`L1` para sus hitos | — |
 | 6 | ✅ **CERRADO 2026-08-06.** **Dos series de ADR** (`ADR-001…016` del proyecto vs `ADR-0001…0013` del control-plane): la convención de cita ("decir siempre la serie") quedó **escrita en el glosario doc 13 §3** —el doc que el manifiesto manda usar como vocabulario— y las citas sin serie de `nucleo/01` y `nucleo/10` se aclararon en el lugar | — |
+
+> **Enmienda 2026-08-14 al hallazgo 3 — parcialmente cerrado.** El registry de
+> datasets ya registra los catálogos de modelos con SPDX, la posición propuesta sobre
+> el checkpoint derivado T1 y el caso `mobileclip2_b.ts` con fuentes. Quedan la decisión
+> de archivo `LICENSE` por repo y la firma del usuario sobre la posición del checkpoint
+> y el asset MobileCLIP2.
+>
+> **✎ Enmienda 2026-08-15 — las dos firmas llegaron; queda UN residual.** El usuario firmó
+> las dos posiciones que esta enmienda dejaba abiertas: **(a)** el **checkpoint derivado T1**
+> hereda AGPL-3.0 en lectura conservadora — uso local y académico, no se redistribuye, no se
+> commitea, no se publica con la tesis, y si la defensa exigiera publicarlo sale bajo
+> AGPL-3.0; **(b)** `mobileclip2_b.ts` **se mantiene `NOASSERTION` por decisión expresa** —
+> afirmar que conserva el estatuto de Apple sería una atribución que el release de Ultralytics
+> no sostiene. Se agregó además algo que no estaba registrado: la subida del asset (253 MB) a
+> Mendieta el 2026-08-13 quedó **ratificada como excepción acotada y retroactiva** a la
+> política *"al clúster sólo material CC BY 4.0"* del doc 100 §6.3 — que **sigue vigente sin
+> cambios para datos**. Al citarla: excepción ratificada *después* del hecho, nunca
+> autorización previa. **Residual único del hallazgo 3:** los repos no tienen archivo
+> `LICENSE` propio; es decisión del usuario y no bloquea la defensa.
 
 **Saldados en este pasada** (eran ítems abiertos de la auditoría del doc 75): el sha256 de
 `bench_v3` **sí** es verificable con `sha256sum` (§2.1) y los **8 ADRs del control-plane

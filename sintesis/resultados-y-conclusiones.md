@@ -529,20 +529,46 @@ invirtió: **el alcance CRECIÓ con evidencia** — E-03 (G1 de demostrativa a c
 operativa medida en 34/34), E-07 parcial (OAK-D + EN-2 87%), E-13 (E-HYB-or ejecutada
 y refutada). Desbloqueó R-13 y R-21. Sus cláusulas de puerta cerrada fueron derogadas
 después por dos ADRs firmados: ✎ **ADR-016 (2026-08-10)** — la **distribución de
-alertas** pasa de "NO implementada" a **trabajo comprometido** con el recorte exacto
-de ADR-005 (E-06 sigue excluida) — y ✎ **ADR-017 (2026-08-11)** — el **fine-tuning
+alertas** se reabre con el recorte exacto de ADR-005 y queda **funcionalmente
+implementada y verificada** (seis criterios de spec 45; quedan webconsole,
+orquestación y primer commit; E-06 sigue excluida) — y ✎ **ADR-017 (2026-08-11)** — el **fine-tuning
 (E-04)** pasa de "no ejercida por secuenciación" a **jornada experimental
-comprometida** (escalera T1→T2/T3 con go/no-go, Mendieta, costo medido ≈1 GPU-h),
-encuadrada como rama condicionada **por datos y protocolo** (F-100.1, licencias,
-Tabla 37), nunca por tiempo. Ambos frentes se declaran con su **estado a la entrega**
+comprometida** (escalera T1→T2/T3 con go/no-go y Mendieta). ✎ **Adenda 2026-08-13:**
+F-100.1 quedó resuelta por `finetuning_v1`; `1166583` cerró freeze/smoke técnico con 12
+tensores/3.096 parámetros y optimizer 12/12, y dual gate/serving real están verdes. El full
+sigue en NO-GO por ~~contrato de serving D-FT-08/T-FT-005,~~ evaluación T-FT-031 y baseline
+26s T-FT-032. La procedencia T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar
+`639e60df…`). ✎ **2026-08-15: el contrato de serving quedó firmado** (D-FT-08, junto con
+D-FT-12 y D-FT-13) **y T-FT-031/T-FT-032 cerraron la misma jornada** — baseline YOLOE-26s
+one-shot ejecutada y evaluada (doc 120: `bare_head` AP50 0,000, recall CR-01 agregado
+0,0002; cifras de la rama comparativa, nunca fundidas con el núcleo). El NO-GO quedó en su
+último eslabón: `full-authorization.json` + `RUN` manual del usuario. La
+rama permanece condicionada **por datos y protocolo**, nunca por tiempo; la proyección Slurm
+2026-08-18 es coyuntural y no una promesa.
+✎ **2026-08-15 (noche): ese último eslabón se cerró — T-FT-043 CERRADA.** La autorización
+se emitió y verificó en el clúster (7 gates) y el `RUN` quedó **encolado (job `1167640`)**.
+Ya no queda tarea previa pendiente; lo abierto es **la corrida y su evaluación**. Enviar no
+es medir: **no existe cifra del modelo ajustado** y la subsección correspondiente se
+redacta reservada.
+✎ **2026-08-17: la jornada CERRÓ — veredicto D-FT-12 = NO-GO**
+([`operacion/123`](../operacion/123-cierre-jornada-t1-no-go.md)). **La cifra ya existe y la
+subsección deja de ir reservada**: `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01
+**0,0002 → 0,2089**, `vest` 0,2642 → **0,3292**, contra `person` 0,7843 → 0,6932 y mAP50
+0,4193 → 0,4171. Falla el gain gate por **0,0045** y la retención por `person`
+(**−11,62 %**, tope 10 %). Checkpoint **no adoptado**. Márgenes firmados antes de la
+baseline ⇒ **negativo pre-registrado: es resultado, no fracaso**. Rama comparativa: **no se
+funde con el núcleo zero-shot ni va a `results/`**, y no se compara con el doc 64.
+Ambos frentes se declaran con su **estado a la entrega**
 y no bloquean el informe. Todo lo demás sigue cerrado (EN-3, E-10, E-06, CR nuevas).
 
 **Limitaciones canónicas L1–L8** (lista cerrada 2026-08-05; referencia =
-`results/index.md`; citar como "limitación Lx"): L1 FAR/hora no reportable · L2 sin
+`results/index.md`; citar como "limitación Lx"): L1 FAR/hora se reporta pero no
+sostiene una cota operativa · L2 sin
 doble anotación ni kappa (decisión declarada) · L3 bordes adjudicados en 6 clips ·
-L4 un solo bloque guionado, sin obra real en video (**la más citable — la levanta el
-lote de internet**) · L5 escenarios desbalanceados ⇒ reportar por estrato/escenario ·
-L6 tracker no medido en obra real con multitud · L7 licencia parcial de `chv` ·
+L4 medición de obra real acotada que caracteriza la frontera de juzgabilidad, sin
+validar el sistema en obra real · L5 escenarios desbalanceados ⇒ reportar por
+estrato/escenario · L6 tracker medido en multitud, con fragmentación y costo de FP.
+**Sigue en pie: no hay métricas MOT (E-10) y el `track_id` es post-hoc.** · L7 licencia parcial de `chv` ·
 L8 CR-02 a Nivel A no cerrada.
 
 **Reglas de lectura no negociables** (familia F-EV, doc 81 §3): reportar por estrato

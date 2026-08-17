@@ -22,7 +22,7 @@
 > | **FAR/hora NO es métrica de este trabajo** | **Se mide y se reporta**, pero **no sostiene una cota** (limitación **L1**). Desde el 08-07 el banco tiene un clip de soak, así que la tasa **es computable** — y sigue faltando ~un orden de magnitud de exposición para afirmar nada operativo |
 > | **L4 la levanta el lote de internet** | **L4 se precisó, no se levantó** (D-113.1, firmada): hay medición en obra real no guionada, y su aporte es **caracterizar dónde el sistema deja de ser evaluable**, no validarlo sobre obra real |
 >
-> Estas tres son, literalmente, tres de las seis trampas de `GUIA-REDACTORES.md` §4. Si
+> Estas tres son, literalmente, tres de las siete trampas de `GUIA-REDACTORES.md` §4. Si
 > encontrás una cuarta formulación vieja acá, gana el banner y hay que corregir el cuerpo.
 
 ---
@@ -245,8 +245,9 @@ Esa asimetría es la clave teórica de dos resultados:
 
 - **El motor emite en CADA confirmación (ADR-011).** Si una condición se resuelve y
   reaparece, hay una alerta nueva (`re_alert`). La supresión/cooldown/agrupación es
-  **política de notificación** (tramo de distribución, no implementado) — por eso el
-  evaluador cuenta los `re_alerts` aparte y **no** los castiga como FP.
+  **política de notificación** del distribuidor —no del motor—; por eso el evaluador
+  cuenta los `re_alerts` aparte y **no** los castiga como FP. El distribuidor aplica y
+  registra esa política en el tramo mínimo verificado por spec 45.
 - **Sin memoria de cobertura bajo G0 (ADR-012):** recordar "esta persona tenía casco
   hace 3 s" exige identidad; bajo escena no la hay, y la histéresis subsume el
   parpadeo. Decisión falsable por test — la falsación se corrió y quedó superada.
@@ -417,7 +418,7 @@ de negativos**, que sí discrimina entre combinaciones (0 FP vs 2–3 FP sobre l
 4 clips).
 
 > ✎ **2026-08-12 — precisión, y no es cosmética.** La formulación anterior decía que
-> *"FAR/hora NO es métrica de este trabajo"*, y de ahí salió una de las seis trampas de la
+> *"FAR/hora NO es métrica de este trabajo"*, y de ahí salió una de las siete trampas de la
 > guía de redactores. **La tasa se mide y se reporta**: desde el 08-07 el banco tiene un
 > clip de soak (`v06_c01`, 0,1027 h), así que es computable. Lo que no cambia es la
 > conclusión —**no sostiene una cota**, faltan casi dos órdenes de magnitud de exposición—,
@@ -591,7 +592,13 @@ Tres instrumentos que conviene poder explicar como *metodología* (no como buroc
 fine-tuning?"* → la pregunta parte de una premisa vieja: el fine-tuning **es una rama
 experimental del proyecto y se ejerce como jornada completa** (✎ 2026-08-11, ADR-017)
 — condicionada desde el diseño por la regla metodológica (Tabla 37: baseline primero)
-y por datos (F-100.1, licencias), no por cómputo (≈1 GPU-h medido) ni por tiempo; la
+y por datos/protocolo, no por falta de cómputo ni por tiempo. F-100.1, freeze/smoke técnico,
+dual gate y serving real ya quedaron resueltos; el estado vigente es NO-GO T1 full por
+~~D-FT-08/T-FT-005,~~ evaluación T-FT-031 y baseline 26s T-FT-032. La procedencia
+T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`). ✎ **2026-08-15:
+D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 cerradas
+la misma jornada** con la baseline YOLOE-26s one-shot ejecutada (doc 120) — el NO-GO quedó
+en su último eslabón: `full-authorization.json` + `RUN` manual. La
 baseline zero-shot era el prerequisito y ES la pregunta central; los resultados y
 limitaciones de la jornada se documentan con su estado a la entrega. *"¿un YOLO
 entrenado no haría esto mejor?"* → en su clase sí; la tesis mide otra cosa:

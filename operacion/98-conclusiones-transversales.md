@@ -197,7 +197,13 @@ idénticos. El JSONL es la verdad en los dos caminos, así que **el escenario no
 el resultado, solo la densidad de evidencia** — y esa densidad ya está medida.
 
 **Lo que queda abierto y se declara:** no hay campaña EBE de punta a punta por el bus
-sobre los 34 clips (falta el ancla de sincronización); el decimado de R1–R6 es regular
+sobre los 34 clips (falta el ancla de sincronización) — **✎ 2026-08-15: este punto pasó
+de "abierto" a DECLARADO CON CAUSA** (F-121.1, `operacion/121` §2.2): se evaluó
+ejecutarla y **no produciría resultado nuevo**, porque el pipeline DBE es determinista
+(F-109.1) y el bus publica el evento byte-idéntico al del JSONL (paridad verificada por
+mutación, doc 37 §3), de modo que el resultado sería **idéntico a T1 por construcción**;
+la única divergencia posible es pérdida en el bus, que ya se cuenta y degrada la corrida.
+No es un hueco: es una decisión registrada—; el decimado de R1–R6 es regular
 y el descarte live es irregular — **✎ este segundo punto quedó cerrado por el doc 101
 (2026-08-05)**: la irregularidad se midió (CV 0,22 hoy / 0,36 rodaje) y el eje
 re-corrido con decimado empírico no muestra efecto detectable; la ganancia de la

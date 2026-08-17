@@ -80,7 +80,9 @@ supervisada de EPP (`AJ-1.01`, el hueco que sí importa).
 **Regla de honestidad (no negociable, `gobierno/97` §3):** lo **pre-registrado y no
 ejercido no se borra en silencio** — se comprime a decisión declarada con su causa y su
 costo (caso testigo histórico: el fine-tuning E-04 mientras estuvo no ejercido, con su
-≈1 GPU-h medido; ✎ 2026-08-11: E-04 es hoy **jornada comprometida** — ADR-017 — y el
+costo T1 por extrapolación medida: ≈16 min centrales (prudente 30–45 min; walltime
+2 h) — `operacion/100` adenda; la cifra histórica “≈1 GPU-h” quedó superada. ✎
+2026-08-11: E-04 es hoy **jornada comprometida** — ADR-017 — y el
 ejemplo vigente de la regla pasa a ser kappa/doble anotación, L2). Podar no es ocultar.
 
 ---

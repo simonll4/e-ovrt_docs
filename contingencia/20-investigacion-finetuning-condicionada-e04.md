@@ -24,10 +24,10 @@
 > comprometida. Siguen vigentes los costos estimados, los riesgos de ingeniería y los
 > go/no-go técnicos de cada tier.
 
-- **YOLOE linear probing: GO si aparece ≥1 semana libre** — costo ~horas en una A30
-  (probablemente viable incluso en la RTX 4060), riesgo bajo, no toca la capacidad
-  open-vocabulary (el modelo queda congelado salvo el embedding), y responde una
-  pregunta propia valiosa: ¿el ajuste rescata el hueco de `vest` de YOLOE?
+- **YOLOE linear probing: entrada de la jornada** — costo ~horas en una A30 y riesgo
+  acotado si el freeze se demuestra. El backbone debe quedar congelado, pero el head se
+  ajusta y fusiona con vocabulario fijo: la retención open-vocabulary **no está garantizada**.
+  Responde una pregunta propia valiosa: ¿el ajuste rescata el hueco de `vest` de YOLOE?
 - **YOLOE fine-tuning completo: GO condicional** — barato (~<1 día GPU) pero exige
   la evaluación de retención de la Tabla 32 para ser publicable.
 - **MM-GDINO fine-tuning: NO-GO salvo ≥2 semanas libres** — es la rama de mayor
@@ -158,9 +158,23 @@ del resto del pipeline congelados, y bitácora Tabla D.6.
 
 | Tier | Qué | Costo estimado | Riesgo | Produce |
 |---|---|---|---|---|
-| **T1** | YOLOE-26s/m **linear probing** (10 ep, YOLO format ya listo) | 1–3 GPU-h · 1–2 días pared | Bajo | ΔAP/ΔRecall sobre BENCH + respuesta a la hipótesis `vest` (§4.3); retención garantizada por construcción |
+| **T1** | YOLOE-26s/m **linear probing** (10 ep, YOLO format ya listo) | 1–3 GPU-h · 1–2 días pared | Bajo si el freeze se prueba | ΔAP/ΔRecall sobre BENCH + hipótesis `vest`; backbone congelado pretendido, head fijo ajustado, sin afirmar retención open-vocabulary automática |
 | **T2** | YOLOE **full fine-tuning** + eval de retención en subset generalista (COCO val u OVDEval parcial) | 4–10 GPU-h · +2–3 días | Medio | Tabla 32 completa para YOLOE (Δ + retención + costo) |
 | **T3** | MM-GDINO-tiny **open-vocabulary fine-tuning** en Mendieta (ODVG ya listo; BERT congelado, 1x, early-stop) | 8–24 GPU-h · 1–2 semanas pared | Alto (entorno + adaptación 8×→1 GPU + overfitting) | La comparación estrella zero-shot vs tuned del modelo líder |
+
+### Enmienda 2026-08-14 — clase objetivo de T1: de `vest` a `bare_head` (pre-resultado)
+
+La pre-registración original fijaba `vest` como hipótesis de T1 (§4.3 y tabla §6).
+D-FT-12 (doc 117) propone `bare_head`: es evidencia directa de CR-01 y tiene 6.181
+anotaciones en `bench_v3` (vs 1.863 de `vest`). Esto cambia qué estrato carga el
+resultado: `vest` no existe en `shel5k` y `bare_head` no existe en `chv`. La enmienda
+es previa a cualquier entrenamiento full (0 jobs full al 2026-08-14) y queda
+supeditada a la aprobación de D-FT-12 por el usuario.
+
+✎ **2026-08-15 — la enmienda queda FIRME.** El usuario aprobó D-FT-12 sin cambios, con la
+baseline T-FT-032 todavía sin correr y cero jobs full. La sustitución de `vest` por
+`bare_head` es por lo tanto **pre-resultado en sentido estricto** y así debe reportarse: no
+se eligió la clase objetivo después de ver un número.
 
 **Regla de entrada** (✎ 2026-08-11, reescrita conforme ADR-017 — *decía "T1 solo si
 el plan core va en fecha al inicio de la semana 9; T3 solo con ≥2 semanas libres"*):
@@ -174,10 +188,13 @@ adaptación 8×→1 GPU) — si los go/no-go no lo habilitan, T3 se declara trab
 
 - *Ganancia exigible* (Tabla 37): ΔAP@0.5 ≥ +0.05 absoluto en BENCH sobre la clase
   objetivo, o rescate de una clase colapsada (recall pasa de <0.1 a >0.5).
-- *Retención* (Tabla 32): caída ≤ 10% relativa en el subset generalista elegido
-  (T1 exento: no toca el modelo).
+- *Retención* (Tabla 32): caída ≤ 10% relativa en el subset generalista elegido cuando el
+  tier conserve una interfaz comparable. T1 **sí modifica el head** y su checkpoint es de
+  vocabulario fijo; no se declara exento por "no tocar el modelo" ni se afirma retención sin
+  el contrato D-FT-08 y una medición aplicable.
 - *Costo operativo* (Tabla 37): la variante ajustada no debe empeorar la latencia de
-  inferencia en el CPN (para YOLOE es neutro por re-parametrización).
+  inferencia en el CPN. La re-parametrización de YOLOE permite esperar neutralidad, pero la
+  latencia se mide; no se toma como garantía previa.
 - Si falla cualquiera → se reporta como resultado negativo con números (también
   publicable) y la rama se cierra.
 

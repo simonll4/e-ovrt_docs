@@ -1,6 +1,6 @@
 # ADRs — Estado de implementación (cierre de trazabilidad)
 
-- **Fecha:** 2026-07-18
+- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-13
 - **Propósito:** cerrar el loop **decisión → implementación** para cada ADR. Los ADRs
   se escribieron *antes* de implementar y expresan su impacto como trabajo futuro;
   este documento registra, con rutas reales, endpoints y evidencia medida, **cómo
@@ -8,7 +8,8 @@
   cerrada); este doc es su companion de cierre y se actualiza con causa.
 - **Cómo leer:** siglas en el doc 13 (glosario). Para cada ADR: la decisión en una
   frase autocontenida, cómo quedó implementada, la evidencia, y lo pendiente.
-  La foto completa de la plataforma es el doc 56.
+  La foto de los tres componentes originales es `operacion/97`; el estado ejecutado de
+  distribución está en `operacion/114` y sus banners de cierre del 2026-08-11.
 
 ---
 
@@ -20,19 +21,26 @@
 | 002 | El patrón se evalúa **por escena (G0)**, sin identidad de personas; el modo por-sujeto (G1) es capacidad operativa medida (adenda 08-04 + ADR-015) | **G0 implementado y verificado** (gate F1=1.0); **G1 implementado y medido** (✎ 2026-08-06; *decía "no portado (deuda)"*): decorador de fuente en el control-plane, F1 0,930 en 34 clips — ver §1 (RESUELTO 2026-08-04) |
 | 003 | El acople live media→control es **bus ZeroMQ PUB/SUB + msgpack**, broker diferido | **Implementado y demostrado** (paridad byte-idéntica replay↔stream) |
 | 004 | La corrida experimental es un **manifiesto paraguas** con `experiment_id` propagado, orquestada por un runner HTTP | **Implementado** (runner + manifiesto + propagación a ambos planos) |
-| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **NO implementado — implementación COMPROMETIDA** (✎ 2026-08-10, ADR-016; *decía "exclusión ejercida y cerrada" por ADR-015 §2c*): el condicional quedó resuelto en **sí**, con el recorte de ADR-005 y nada más, para cerrar la arquitectura. Hoy solo existe la frontera de salida (`control.alert.v1`); el repo hermano es esqueleto sin commits |
+| 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **Funcionalmente implementado** (✎ 2026-08-12): seis criterios de spec 45 verificados, incluidos DBE/EBE, MQTT QoS 1 contra broker real y `report.json`. ✎ 2026-08-14: los pendientes del 08-12 (vista de outcomes en la **webconsole**, **orquestación** integral y versionar el repo) se cerraron el 2026-08-13 — `13c801e`, `42529e2`, y repo con `c9903cc`/`1e6d8fa` |
 | 006 | El reporte consolidado junta ambos planos por `experiment_id` y **cada métrica declara su aplicabilidad** con causa | **Implementado** (report.json/md + estados en todos los evaluadores) |
 | 007 | En vivo, la corrida del control-plane es **1:1** con el run del media-plane y cierra por `run_finished` | **Implementado y verificado E2E** |
 | 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) |
-| 009 | La config experimental se **centraliza** en experimental-setup y la **webconsole es la superficie de gestión primaria** | **Implementado y superado** (consola rediseñada, 10 páginas) |
+| 009 | La config experimental se **centraliza** en experimental-setup y la **webconsole es la superficie de gestión primaria** | **Implementación incompleta** [Enmienda 2026-08-14]: la UI está rediseñada, pero el historial durable y la promoción `runs/`→`results/` quedaron diferidos (doc 115 §2.2, frentes C/D, D-115.2). La calificación histórica “superado” describía la UI, no el ciclo de evidencia. |
 | 010 | Se ejecuta **la plataforma primero**, la evaluación después; el clip bench se dispara al cierre del spec 44 | **Cumplida** (orden 40→41→42→44 ejecutado; tooling del 43 completo) |
-| 011 | El motor **emite en cada confirmación**; cooldown y supresión son política de notificación (módulo de distribución) | **Implementado** en motor y evaluador; la política espera al spec 45 |
+| 011 | El motor **emite en cada confirmación**; cooldown y supresión son política de notificación (módulo de distribución) | **Implementado en ambos lados de la frontera**: el motor emite todo; el distribuidor aplica cooldown por `(condition_id, source_id)` y lo registra |
 | 012 | Bajo G0 la memoria de cobertura EPP **se ignora con causa declarada** (la histéresis subsume el parpadeo) | **Implementado y FALSACIÓN SUPERADA** (los dos tests condición-de-merge pasaron) |
 | 013 | La plataforma **detecta la temporalidad de la fuente** y declara sola la no-aplicabilidad de métricas temporales | **Implementado con evidencia medida** (137 eventos / 0 alertas sobre imágenes) |
-| 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementado** (consolidación + reporte); "sellado" opt-in sin ejercitar |
+| 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementación parcial** [Enmienda 2026-08-14]: consolidación y reporte están ejercitados; el sellado opt-in, el índice durable y la promoción trazable a `results/` siguen diferidos (doc 115 §4, frentes C/D, D-115.2). |
 | **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados**. ✎ **2026-08-10: §2b/§2c/§6 DEROGADOS por ADR-016**; §2a/§3/§4/§5 vigentes (la lista L1–L8 se sigue citando desde §3) |
-| **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada (usuario, 2026-08-10)**. No es un ADR de implementación todavía: autoriza y acota. El cierre arquitectónico lo entrega `nucleo/19` con independencia del código; si el módulo no llega a tiempo se declara como estaba |
-| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada (usuario, 2026-08-11)**. No es un ADR de implementación todavía: autoriza la jornada y fija el encuadre. Puertas técnicas previas vigentes: decisión F-100.1 + checklist doc 100 §6; **no bloquea el informe** (estado a la entrega, con causa técnica) |
+| **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada y materializada**: módulo funcional, reporte integrado y broker MQTT real verificado. La vista de webconsole y la orquestación siguen abiertas; el repo aún no tiene commits |
+| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; T2/T3 siguen gobernados por `contingencia/20` §6 |
+
+| **018** | **El tercer módulo se acopla por subproceso local, no por servicio HTTP**: el runner del BFF lanza `eovrt-distribute` como proceso hijo (el repo de distribución es CLI, sin FastAPI/uvicorn); el dato sigue viajando por el bus (`:5558`), lo nuevo es el control del ciclo de vida | **Aceptada (usuario, 2026-08-15) y ya implementada** — documenta código verificado, no agrega capacidad. Requisito de despliegue vinculante: la consola dockerizada exige `EOVRT_DISTRIBUTION_EXECUTABLE`. Preflight de binario + drenaje de `stderr` con cap de 1 MiB son propios de este patrón |
+
+> **✎ 2026-08-15 — la nota del 2026-08-14 sobre el patrón BFF-subprocess quedó
+> promovida a [ADR-018](adr-018-acople-bff-subproceso-distribucion.md)**, firmada por el
+> usuario. *Decía: "Si el patrón se consolida merece ADR propia; queda como propuesta
+> abierta, no ejercida."* El informe debe describir **tres** patrones de acople, no dos.
 
 ## 1. Detalle por ADR
 
@@ -127,23 +135,18 @@
 - **Decisión:** el módulo de distribución se recorta a un canal demo MQTT con ledger
   de idempotencia, en un **repo hermano propio**, consumiendo las alertas confirmadas
   por bus.
-- **Cómo quedó:** **NO implementado — implementación COMPROMETIDA** (✎ 2026-08-10,
-  ADR-016; *decía "exclusión ejercida y cerrada" por ADR-015 §2c entre el 08-05 y el
-  08-10, y antes "su ejecución quedó para lo último"*). El condicional "¿MQTT sí o no?"
-  quedó resuelto en **sí**, con el recorte exacto de ADR-005 y nada más: el motivo es
-  **cerrar la arquitectura** de la plataforma, no una necesidad funcional. Lo único
-  construido es la **frontera de salida** del control-plane que el módulo consumirá: el
-  publisher `control.alert.v1`
-  (`e-ovrt_control-plane/src/eovrt_control/transport/alert_bus.py`, XPUB,
-  persiste-primero, apagado por default) — doc 51. El repo hermano
-  (`e-ovrt_alert-distribution/`, 2026-07-18) sigue siendo **esqueleto sin lógica ni
-  commits**: `src/eovrt_distribution/` son paquetes vacíos (`contracts/`, `channels/`,
-  `transport/`) y `tests/` solo tiene `conftest.py`; lo real es el spec de diseño.
-- **Pendiente:** **el módulo completo** — canal MQTT, `NotificationEnvelope`, ledger de
-  idempotencia, retry mínimo y vista en la webconsole existente (spec 45). **E-06
-  (canales extra + dashboard) sigue excluida.** No bloquea al clip bench (ADR-010) **ni
-  a la redacción del informe** (ADR-016 §2c: el cierre arquitectónico lo entrega
-  `nucleo/19`); si no llega a tiempo, se declara como estaba (ADR-016 §2d).
+- **Cómo quedó:** **funcionalmente implementado y verificado el 2026-08-11** (doc 114).
+  El pipeline source → policy → ledger → channel → records existe en el repo propio;
+  soporta replay DBE y fuente ZeroMQ EBE, cooldown, idempotencia, retry, dead-letter y
+  MQTT QoS 1. Sobre `v06_c01`, DBE y EBE produjeron el mismo reparto 23 entregadas / 170
+  suprimidas; la entrega real recibió 23/23 mensajes. `experimental-setup` integra el
+  summary y declara la aplicabilidad de `t_alert-notification` según `latency_mode`.
+- **Pendiente:** el cierre de robustez/operación registrado en doc 114. **E-06** (canales
+  extra y dashboard propio) sigue excluida y ninguna latencia de smoke se promueve a
+  resultado experimental. ✎ **2026-08-14:** la vista de outcomes en la **webconsole**, el
+  lanzamiento por la **orquestación** integral y el versionado del repo —los tres listados
+  acá como pendientes— quedaron cerrados el 2026-08-13 (`13c801e`, `42529e2`; repo con
+  `c9903cc` y `1e6d8fa`).
 
 ### ADR-006 — Reporte consolidado y aplicabilidad de métricas
 
@@ -319,7 +322,7 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | **Rol de la webconsole** | 004 ("muestra") → 008 ("cliente de ambos planos") → **009 (rige: superficie de gestión primaria)** | Consola = gestión primaria (configs, prompts, cámaras, runs, experimentos); runner CLI = camino headless con las mismas APIs |
 | **Config** | 004 (manifiesto referencia) + **009 (rige: centralizada en experimental-setup)** | Config experimental centralizada, entregada por payload, `effective_config` persistido por cada plano |
 | **Artefactos/resultados** | 004 (`experiment_id`) + 006 (reporte) + **014 (rige: layout híbrido selectivo)** | Consolidado liviano + crudos referenciados; reporte con estados de aplicabilidad |
-| **Alertas y su política** | **011 (rige: motor emite todo)** + 005/**016** (la política vive en distribución; módulo comprometido, aún no implementado) | Sin cooldown en plataforma; `re_alerts` contadas, no penalizadas |
+| **Alertas y su política** | **011 (rige: motor emite todo)** + 005/**016** (la política vive en distribución, hoy funcional) | Motor sin supresión; distribuidor con cooldown e idempotencia; `re_alerts` contadas, no penalizadas |
 | **Qué mide cada corrida** | 006 (vocabulario de aplicabilidad) + **013 (rige: por temporalidad de fuente)** + 012 (causa específica de G0) | La plataforma declara sola qué aplica, con causa, sin rechazar corridas |
 
 ## 3. Condicionales de los ADRs: resolución registrada
@@ -329,6 +332,6 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | 001 | "el cierre definitivo lo da el experimento D1" | ✎ **RESUELTO (corregido 2026-08-05; esta fila decía "sigue abierto")**: el acta se firmó el 2026-07-29 (doc 76 — `edir_v1` `a1278d0c…` y `eind_v1` `7a0126f4…` congelados con sha256) y **D1 corrió en los dos niveles**: Nivel A pasó el gate parcialmente (doc 83) y **Nivel B descartó E-DIR por veto de precisión** (0,146 < 0,5 — doc 85). El encuadre E-IND queda confirmado con número, no por defecto |
 | 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) |
 | 007 | ventanas de evaluación propias "trabajo futuro" | No hicieron falta: la evaluación temporal v2 (doc 52) cubre el caso |
-| 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: SÍ (ADR-016, 2026-08-10)** — se implementa con el recorte exacto de ADR-005 y nada más (E-06 sigue excluida), para **cerrar la arquitectura**. *Entre el 08-05 y el 08-10 estuvo resuelto en NO por ADR-015 §2c, cláusula hoy derogada.* Construida a la fecha solo la frontera `control.alert.v1`; **no bloquea la redacción** (ADR-016 §2c/§2d) |
+| 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: SÍ e implementado** (ADR-016; verificación 2026-08-11, doc 114). E-06 sigue excluida. Quedan la vista de webconsole, la orquestación y versionar el repo; no bloquea la redacción |
 | 012 | "sujeta a falsación por test" | **Falsación superada** (doc 34); la reversión no se activó |
 | 002/008/009 | recortes "si la agenda aprieta" (G1-demo, cáscara HTTP, mejora UX) | Ninguno se ejerció; al revés: servicio y UX se ampliaron. (✎ 2026-08-06; *decía "G1 sigue sin portar pero por orden de prioridad"*): G1 terminó **implementada y medida** — decorador en el control-plane, F1 0,930 en 34 clips (adenda ADR-002 ratificada + ADR-015 E-03) |

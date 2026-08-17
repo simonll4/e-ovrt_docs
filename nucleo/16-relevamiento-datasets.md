@@ -44,8 +44,10 @@ datasets/scripts/validate/summarize_raw_dataset.sh
 python3 datasets/scripts/convert/convert_datasets.py \
     --datasets construction_site_safety chv ppe_siabar --views canonical_v2
 
-# Manifiestos de rol TRAIN / BENCH / DEMO  -> datasets/splits/v2/
-python3 datasets/scripts/curate/build_role_views.py
+# (ARCHIVADO 2026-08-15 -> legacy/) Manifiestos de rol TRAIN/BENCH/DEMO:
+#   los tres roles estaban huérfanos y cada uno fue superado
+#   (BENCH -> bench_v3 · TRAIN -> finetuning_v1 · DEMO -> catálogo del media-plane).
+#   Constancia: e-ovrt_datasets/datasets/splits/DEPRECATED.md
 
 # GT a nivel persona para la evaluación del BENCH
 python3 datasets/scripts/bench/build_person_gt.py
@@ -67,12 +69,12 @@ datasets/
 │   ├── validate/    # conteos y sanidad del raw
 │   ├── convert/     # convert_datasets.py — LA fuente de verdad de las vistas
 │   ├── selection/   # scoring de candidatos
-│   ├── curate/      # build_role_views.py, build_bench_v3.py
+│   ├── curate/      # build_bench_v3.py, build_bench_obra.py, leakage_check.py
 │   ├── bench/       # build_person_gt.py y derivados
 │   └── videogt/     # cadena del GT temporal de video (spec 43)
 ├── raw/             # MOCS · chv · clip_bench · construction_site_safety · ppe_siabar · shel5k
 ├── processed/       # coco/ · yolo/ · odvg/ · clip_bench/ · reports/ · audit_task43/
-├── splits/v2/       # train.txt · bench.txt · demo.txt · manifest.json
+├── splits/          # DEPRECADO ENTERO (v2/ archivado en legacy/, 2026-08-15)
 └── registry/        # procedencia, licencias, contratos de anotación
 datasets-videos/     # material de video (§5.3)
 legacy/              # vistas y scripts deprecados, conservados
@@ -102,7 +104,7 @@ la vez.**
 ```
 raw/<dataset_id>/ → convert_datasets.py --views canonical_v2
    → processed/{coco,yolo,odvg}/canonical_v2/<dataset_id>/
-      → build_role_views.py → splits/v2/{train,bench,demo}.txt
+      → [etapa ARCHIVADA 2026-08-15] build_role_views.py → splits/v2/
 ```
 
 Los tres datasets con rol TRAIN son `construction_site_safety`, `chv` y `ppe_siabar`.

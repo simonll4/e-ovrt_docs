@@ -6,17 +6,17 @@
   contratos serializados, política, configuración, salidas e integración. Es el material
   del que se escribe **§17.3.10** del informe, en el mismo registro que el `informe/92`
   (contratos y rutas, no cifras).
-- **Estado de implementación:** **diseñado y especificado; implementación pendiente.**
-  El diseño está cerrado (ADR-005, ADR-011, spec 45, doc 06) y existe un plan de
-  ejecución de 11 tareas con código y tests en
-  `e-ovrt_alert-distribution/docs/superpowers/plans/2026-07-18-alert-distribution.md`.
-  ✎ **2026-08-10 — el estatuto lo fija [ADR-016](../../../decisiones/adr-016-reapertura-acotada-distribucion.md)**:
-  la implementación es **trabajo comprometido** antes de la defensa (deroga ADR-015
-  §2b/§2c/§6; E-06 sigue excluida). En el informe el módulo se reporta **con su estado
-  real al momento de la entrega**. *Decía "coherente con ADR-015 y `nucleo/10` (E-06),
-  que registran la distribución como no ejercida" — §2c fue derogada.*
-  **Al completarse la implementación, esta línea es lo único que cambia.**
-- **Normativa que lo gobierna** (todos de la **serie del proyecto**, `ADR-001…016` —
+- **Estado de implementación:** ✎ **2026-08-12 — funcionalmente implementado y
+  verificado.** El pipeline completo existe en `e-ovrt_alert-distribution` y cerró los
+  seis criterios de spec 45: replay DBE idempotente, consumo EBE desde el publisher real,
+  cooldown, deduplicación, MQTT QoS 1 contra broker real e integración en `report.json`.
+  Evidencia y salvedades: `operacion/114`. ✎ **2026-08-14:** la vista de outcomes en la
+  webconsole, la orquestación integral y el versionado del repo —que este encabezado daba
+  por pendientes— se cerraron el 2026-08-13 (`13c801e`, `42529e2`; repo con `c9903cc` y
+  `1e6d8fa`). **E-06 sigue excluida.** Las latencias de smoke/loopback no se citan como resultado de desempeño.
+  *Decía “diseñado y especificado; implementación pendiente” y luego “trabajo
+  comprometido” por ADR-016.*
+- **Normativa que lo gobierna** (todos de la **serie del proyecto**, `ADR-001…018` —
   no confundir con la serie interna del control-plane, `ADR-0001…0013` de 4 dígitos):
   **ADR-016** (reapertura acotada: el estatuto vigente del módulo), ADR-005 (recorte,
   canal MQTT, repo propio), ADR-011 (frontera de la política: el motor
@@ -269,6 +269,10 @@ append-only: al construirse, el ledger se rehidrata leyendo los registros `deliv
 previos. **Solo `delivered` marca como visto** — un `failed` o un `suppressed_cooldown`
 no bloquean un intento posterior.
 
+[Enmienda 2026-08-14] Al reabrir un directorio ya usado, la generación anterior se
+conserva íntegra como `notifications.<n>.jsonl` (y `dead_letter.<n>.jsonl`): el archivo
+vigente corresponde a la ejecución en curso y ninguna fila se pierde.
+
 Esto da dos garantías operativas:
 
 - **Re-ejecutar el replay es seguro:** la segunda corrida sobre la misma entrada produce
@@ -306,22 +310,27 @@ exponencial ni reproceso automático — eso queda en E-06.
 ## 8. Salidas por corrida, y la métrica
 
 ```
-runs/<distribution_run>/
-├── notifications.jsonl        # un DeliveryRecord por evento del pipeline (append-only)
-├── dead_letter.jsonl          # solo las agotadas
+runs/<experiment_id>/distribution/
+├── notifications.jsonl        # un DeliveryRecord por evento (append-only); generaciones previas como notifications.<n>.jsonl
+├── dead_letter.jsonl          # solo las agotadas; generaciones previas como dead_letter.<n>.jsonl
 └── distribution_summary.json  # agregado de la corrida
 ```
+
+> Ejemplo ILUSTRATIVO con valores ficticios: no constituye una medición. La cifra real
+> vive en `results/realtime/t_alert_notification/metrics.json` y en el doc 118
+> (p95 = 64,534 ms).
 
 ```json
 {
   "schema_version": "control.distribution_summary.v1",
-  "control_run_id": "...",
-  "experiment_id": "...",
   "channel": "mqtt",
-  "mode": "dry_run",
-  "counts": { "delivered": 12, "suppressed_cooldown": 31, "skipped_duplicate": 0 },
-  "source_stats": { "read": 43, "skipped_malformed": 0 },
-  "talert_notification_ms": { "count": 12, "min": 1.4, "mean": 3.2, "p95": 7.8 }
+  "mode": "live",
+  "counts": {"delivered": 3, "suppressed_cooldown": 2},
+  "skipped_invalid_alerts": 0,
+  "source_stats": {"...": "..."},
+  "talert_notification_ms": {
+    "live": {"count": 3, "min": 31.2, "mean": 41.0, "p95": 58.7}
+  }
 }
 ```
 
@@ -398,16 +407,18 @@ no exhibir la latencia de una API de terceros como si fuera del sistema.
 
 Lo que hay que poder mostrar para dar el módulo por cerrado (spec 45 §7):
 
-- [ ] `replay` sobre una corrida real: `notifications.jsonl` completo, y **re-ejecución
-      100% `skipped_duplicate`**.
-- [ ] Modo `live` consumiendo el bus de una corrida EBE, con **backfill verificado**
-      (las alertas previas a la suscripción no se pierden).
-- [ ] Entrega MQTT real observada con `mosquitto_sub`, y `t_alert-notification` p95 en
-      el summary.
-- [ ] Duplicado de QoS 1 simulado → **deduplicado por el ledger**.
-- [ ] Ráfaga de la misma condición-fuente → **una sola notificación** + los
-      `suppressed_cooldown` registrados (prueba de la política de ADR-011).
-- [ ] `experiment_id` presente en envelope, records y `report.json`.
+- [x] `replay` sobre una corrida real y re-ejecución idempotente — ver `operacion/114`
+      y regresiones `test_cli.py`/`test_ledger.py`.
+- [x] Modo `live` con backfill de alertas previas — ver `operacion/114` y
+      `test_zmq_source.py`.
+- [x] Entrega MQTT real y p95 en summary — campaña doc 118: **64,534 ms (n = 460)**,
+      testigo MQTT 100 %.
+- [x] Duplicado QoS 1 deduplicado — `notification_id = sha1(alert_id)[:16]` y
+      regresiones de `test_ledger.py`.
+- [x] Ráfaga condición-fuente suprimida — clave `(condition_id, source_id)` y **376
+      `suppressed_cooldown`** en la campaña del doc 118.
+- [x] `experiment_id` presente en envelope, records y `report.json` — ver
+      `operacion/114` y tests de consolidación/reporte del backend.
 
 ---
 

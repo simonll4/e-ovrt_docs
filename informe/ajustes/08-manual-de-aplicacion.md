@@ -41,6 +41,23 @@ Formato del tablero de decisiones (`operacion/90`): opciones, recomendación, qu
 **Son del usuario.** Lo que sigue está escrito asumiendo la recomendación; si cambia una,
 cambia el §3 y el §4 de este documento y nada más.
 
+> ✎ **2026-08-16 — las tres decisiones FIRMADAS por el usuario, tal como estaban
+> recomendadas**: D-A híbrida · D-B reparto por juicio experimental · D-C re-extracción al
+> cerrar cada sección (con extractor, la opción barata). Ajuste operativo firmado el mismo
+> día: **la vara del §15 (`AJ-1.01`/`AJ-1.02`/`AJ-1.13`) la redacta Claude como borrador**
+> —en `entregable/borradores/`, patrón "texto listo para copiar" del `94`— para desbloquear
+> §17.5 sin esperar; los colegas la revisan e integran en Google Docs. El día 1 del pase es
+> este: T1 full quedó encolado en Mendieta (job 1167640, `operacion/120`) y la redacción
+> arranca mientras se espera ese resultado (`AJ-5.13` sigue ⏳).
+> ✎ **2026-08-17: ese resultado llegó — veredicto NO-GO (`operacion/123`), `AJ-5.13`
+> desbloqueado y redactable con cifras.**
+>
+> ✎ **2026-08-16 (tercera pasada) — D-A ratificada con el carril ChatGPT**: el maestro
+> sigue siendo **Google Docs**; los `.docx` que produce el Project de ChatGPT son **por
+> sección, sobre copia del base, y se descartan tras integrarse al maestro**. Las
+> instrucciones consensuadas del Project y el knowledge de 4 archivos (2 del kit + el
+> informe sin §17.3 + la Etapa 3 standalone): `operacion/122` §6-ter.
+
 ### D-A · Dónde se escribe cada cosa → **recomendada: híbrida**
 
 | Opción | Qué implica |
@@ -113,7 +130,7 @@ y desbloquean el camino crítico.
 
 | # | Tramo | Quién | Desbloquea |
 |---|---|---|---|
-| **0** | `AJ-1.01` · `AJ-1.02` · `AJ-1.13` — **la vara del §15** | colegas | **§17.5** |
+| **0** | `AJ-1.01` · `AJ-1.02` · `AJ-1.13` — **la vara del §15** | colegas *(✎ 2026-08-16: borrador de Claude; colegas revisan e integran)* | **§17.5** |
 | 1 | **§17.5** — evaluación y validación | usuario + Claude | §17.6 · §18 |
 | 2 | **§17.4** — implementación *(en paralelo con 1)* | usuario + Claude | — |
 | 3 | **§17.3** — las 26 redlines, las 7 🔴 primero *(en paralelo)* | usuario | — |
@@ -148,6 +165,14 @@ Se hace igual para toda sección, sea corrección o redacción nueva.
    ficha, anotarlo como ✎ **en la ficha**; y re-extraer el `.md` si la sección se editó en
    Google Docs (D-C).
 
+> ✎ **2026-08-16 — regla de autocontención (fijada por el usuario).** El texto del
+> informe **no referencia jamás la documentación local de desarrollo**: ni docs de
+> `operacion/`, ni ADRs, ni specs, ni fichas `AJ-`/`R-`/`PODA-`, ni IDs internos
+> (`F-`, `D-`, `T-FT-`), ni rutas del repo o índices de `results/`. Todo eso guía el
+> pase pero es andamiaje local; la procedencia va en las notas `> ✎` de los borradores
+> (que no se pegan) y en este tablero. Formulación completa y qué identificadores SÍ
+> se usan: `GUIA-REDACTORES` §3.1.
+
 ---
 
 ## 5. Tablero de aplicación
@@ -159,13 +184,13 @@ y no se copia acá. Etapa 3 conserva además sus casillas granulares
 
 Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anotada en la ficha.
 
-**Etapa 0 · §11–§14 — 7 · responsable: ________** *(sus fichas viven en `00` §4, no en un doc propio)*
+**Etapa 0 · §11–§14 — 7 · responsable: colegas** *(sus fichas viven en `00` §4, no en un doc propio)*
 ```
 [ ] AJ-0.01   [ ] AJ-0.02   [ ] AJ-0.03   [ ] AJ-0.04   [ ] AJ-0.05   [ ] AJ-0.06
 [ ] AJ-0.07
 ```
 
-**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: ________**
+**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: colegas** *(la vara ★: borrador de Claude, ✎ 2026-08-16)*
 ```
 [ ] AJ-1.01 ★  [ ] AJ-1.02 ★  [ ] AJ-1.03   [ ] AJ-1.04   [ ] AJ-1.05   [ ] AJ-1.06
 [ ] AJ-1.07    [ ] AJ-1.08    [ ] AJ-1.09   [ ] AJ-1.10   [ ] AJ-1.11   [ ] AJ-1.12
@@ -173,13 +198,13 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 ```
 ★ = **la vara**. Son el tramo 0 del §3: se hacen primero y solos.
 
-**Etapa 2 · §17.1 · Anexos C y D — 12 · responsable: ________**
+**Etapa 2 · §17.1 · Anexos C y D — 12 · responsable: colegas**
 ```
 [ ] AJ-2.01   [ ] AJ-2.02   [ ] AJ-2.03   [ ] AJ-2.04   [ ] AJ-2.05   [ ] AJ-2.06
 [ ] AJ-2.07   [ ] AJ-2.08   [ ] AJ-2.09   [ ] AJ-2.10   [ ] AJ-2.11   [ ] AJ-2.12
 ```
 
-**Etapa 3 · §17.3 — 26 · responsable: ________** *(la decisión se registra en el `93`)*
+**Etapa 3 · §17.3 — 26 · responsable: usuario** *(la decisión se registra en el `93`)*
 ```
 [ ] R-01 🔴  [ ] R-02 🔴  [ ] R-03 🔴  [ ] R-04 🔴  [ ] R-05 🔴  [ ] R-06 🔴  [ ] R-07 🔴
 [ ] R-08     [ ] R-09     [ ] R-10     [ ] R-11     [ ] R-12     [ ] R-13     [ ] R-14
@@ -187,20 +212,20 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 [ ] R-22     [ ] R-23     [ ] R-24     [ ] R-25     [ ] R-26
 ```
 
-**Etapa 4 · §17.4 *(redacción)* — 12 · responsable: ________**
+**Etapa 4 · §17.4 *(redacción)* — 12 · responsable: usuario + Claude**
 ```
 [ ] AJ-4.01   [ ] AJ-4.02   [ ] AJ-4.03   [ ] AJ-4.04   [ ] AJ-4.05   [ ] AJ-4.06
 [ ] AJ-4.07   [ ] AJ-4.08   [ ] AJ-4.09   [ ] AJ-4.10   [ ] AJ-4.11   [ ] AJ-4.12
 ```
 
-**Etapa 5 · §17.5 *(redacción)* — 13 · responsable: ________**
+**Etapa 5 · §17.5 *(redacción)* — 13 · responsable: usuario + Claude**
 ```
 [ ] AJ-5.01   [ ] AJ-5.02   [ ] AJ-5.03   [ ] AJ-5.04   [ ] AJ-5.05   [ ] AJ-5.06
 [ ] AJ-5.07   [ ] AJ-5.08   [ ] AJ-5.09   [ ] AJ-5.10   [ ] AJ-5.11   [ ] AJ-5.12
-[ ] AJ-5.13 ⏳ — jornada de fine-tuning EN CURSO; se cierra cuando cierre la jornada
+[ ] AJ-5.13 ✅ DESBLOQUEADO 2026-08-17 — la jornada CERRÓ: veredicto NO-GO (`operacion/123`)
 ```
 
-**Etapa 6 · §17.6 · §18 · §19 *(redacción)* — 5 · responsable: ________**
+**Etapa 6 · §17.6 · §18 · §19 *(redacción)* — 5 · responsable: usuario + Claude**
 ```
 [ ] AJ-6.01   [ ] AJ-6.02   [ ] AJ-6.03   [ ] AJ-6.04   [ ] AJ-6.05
 ```
@@ -264,6 +289,6 @@ paralelo** y no detienen la redacción:
 `gobierno/99` §1 (inventario de figuras y tablas, verificado contra disco el 2026-08-12) ·
 `gobierno/97` §161 y `gobierno/98` §154 (el `.docx` no se edita desde el repo) ·
 `entregable/00-el-informe-hoy.md` (la foto no es espejo) ·
-`../../GUIA-REDACTORES.md` (§3 cómo citar, §4 las seis trampas) ·
+`../../GUIA-REDACTORES.md` (§3 cómo citar, §4 las siete trampas) ·
 `../../GUIA-CIERRE.md` (secuenciación del 2026-08-10) · `05` `AJ-5.11` (la única dependencia
 entre etapas).

@@ -300,12 +300,30 @@ informe*):
 2. **Se declara el estado a la entrega, tal cual sea**, con **causa técnica**.
 3. **No se promete ningún tier** al que la escalera no haya llegado. Lo que los go/no-go no
    habiliten es trabajo futuro y se dice así.
+4. **Se declara la restricción de ejecución de Mendieta y su efecto real:** conexión sin
+   límite operativo, jobs de hasta **48 h** y posibilidad de pedir múltiples nodos/GPU. La
+   subsección informa allocation y duración; después clasifica el walltime como vinculante
+   o no vinculante, nunca lo deja implícito.
+
+**Limitación operativa pre-registrada — walltime de Mendieta.** Cada corrida está limitada
+a 2 días, aunque no existe el mismo límite para el tiempo de conexión ni para el ancho de
+la asignación: pueden pedirse, por ejemplo, 8 nodos de 2 GPU. Esta condición entra al
+informe de una de dos formas, según la evidencia al cierre:
+
+- **Si limitó:** declarar `walltime_binding` como limitación técnica específica de E-04 y
+  explicar si hubo interrupción, reanudación, schedule incompleto o tier no alcanzado.
+- **Si no limitó:** declarar `walltime_not_binding`, informar nodos/GPU y duración real, y
+  explicar al final de la subsección que el máximo de 48 h **no condicionó el resultado**.
+
+La ficha se completa con partición, recursos solicitados/asignados, timestamps, motivo de
+cierre de Slurm, checkpoint final y cantidad de reanudaciones. La fuente operativa de esta
+regla es `operacion/100` §6.5 (F-100.3).
 
 **Las tres cosas que no se pueden escribir, y por qué cada una:**
 
 | 🚫 | Por qué |
 |---|---|
-| La causa **"falta de tiempo"** / "presupuesto de tiempo" / "secuenciación" como motivo de no-ejecución | **Prohibida por ADR-017 §2b.** El encuadre correcto: rama comparativa **condicionada desde el planteo por datos y protocolo** (Tabla 37: baseline primero; F-100.1; licencias). El cómputo nunca fue la restricción — Mendieta disponible, ≈1 GPU-h medido para T1. "Secuenciación" sobrevive **solo** como descripción del orden metodológico |
+| La causa **"falta de tiempo"** / "presupuesto de tiempo" / "secuenciación" como motivo de no-ejecución | **Prohibida por ADR-017 §2b.** El encuadre correcto: rama comparativa **condicionada desde el planteo por datos y protocolo**. F-100.1, freeze/smoke, dual gate, serving y procedencia T-FT-023 están cerrados (snapshot tar `639e60df…`); el NO-GO actual responde a D-FT-08/T-FT-005, evaluación T-FT-031 y baseline T-FT-032. Una proyección de cola solo se cita como estimación puntual, nunca como falta de tiempo del proyecto |
 | Fundir sus cifras con las del **núcleo zero-shot** | Es **otra rama**. Se rotula como comparativa y va en su propia subsección y sus propias tablas. Fundirlas destruye la pregunta de la tesis, que es cuánto rinde el stack **sin entrenar** |
 | Leer los go/no-go como **aprobado/fallado** | Son criterios de lectura y escalamiento (ADR-017 §2c). **Un desenlace negativo —sin ganancia exigible, o con erosión open-vocabulary medida— es un resultado documentable**, y de los valiosos: mediría el costo de adaptar |
 
@@ -313,14 +331,34 @@ informe*):
 `e-ovrt_experimental-setup/results/`, igual que todo el resto — **nunca de las notas de
 trabajo de la jornada**. Mientras no haya índice verificable, no hay cifra citable.
 
-**Puertas previas (son del tramo experimental, no de la redacción):** decisión del usuario
-sobre **F-100.1** y la checklist de `operacion/100` §6. No bloquean escribir el resto
-del §17.5.
+**Puertas previas (son del tramo experimental, no de la redacción):** F-100.1,
+freeze/smoke técnico, dual gate y serving real ya están cerrados. El full continúa en NO-GO
+por D-FT-08/T-FT-005, evaluación T-FT-031 y baseline YOLOE-26s T-FT-032 sobre
+`bench_v3` (`operacion/100/116/117`). No bloquean escribir el resto del §17.5.
+
+✎ **2026-08-15 — las decisiones quedaron firmadas y hay tres cosas que decir en el informe.**
+D-FT-08/T-FT-005, D-FT-12 y D-FT-13 fueron aprobadas por el usuario, **y la misma jornada
+cerraron T-FT-031 y T-FT-032** (doc 120): el NO-GO de T1 full quedó en su último eslabón
+(`full-authorization.json` + `RUN` manual). Primero: **D-FT-12 se firmó ANTES de la
+baseline**, con cero jobs full — los márgenes go/no-go (ΔAP50 ≥ +0,05 o rescate de recall
+<0,1→>0,5; retención in-domain ≤10 %; latencia ≤5 %) y la clase objetivo `bare_head` son
+**pre-registración en sentido estricto**. Segundo: **la baseline YOLOE-26s ya existe, medida
+una sola vez bajo el protocolo congelado** — `bare_head` AP50 0,000 (6.181 GT / 10 det),
+recall CR-01 0,0167/0,0000 por fuente y 0,0002 agregado, retención a proteger person
+0,7843 / helmet 0,6286 / vest 0,2642 (doc 120, con estratos). Son cifras **de la rama
+comparativa**: tablas propias, por estrato, sin fundirse con el núcleo, y **sin comparación
+con la tabla histórica del doc 64** (protocolos distintos — doc 120 §2.5). Tercero:
+**F-120.1** — las latencias de ese run no se citan (cambio de energía durante la corrida);
+el gate de latencia se medirá pareado cuando exista el checkpoint.
+
+Si T1 se reporta en el informe, la retención OV generalista se declara **NO MEDIDA por
+diseño** (contrato de vocabulario fijo), nunca como casilla verde.
 
 **Se lee junto a:** `decisiones/adr-017-fine-tuning-jornada-experimental.md` (§2 completo)
 · `contingencia/20` §6 (la escalera) · `01` (el encuadre en §15: rama comparativa, nunca
 descarte) · `02` (la escalera en §17.1) · `06` (cómo entra en las conclusiones: rotulada
-como rama comparativa, nunca fundida) · `operacion/100` §4/§6.
+como rama comparativa, nunca fundida) · `operacion/100` §4/§6, en particular §6.5 para la
+clasificación `walltime_binding` / `walltime_not_binding`.
 
 ---
 

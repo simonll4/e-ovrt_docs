@@ -6,7 +6,7 @@ sabido el contexto y cita códigos sin definirlos. Este archivo es la única pue
 entrada pensada para alguien que llega de cero y tiene que escribir el capítulo de
 resultados.
 
-- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-12** · **Estado:** tramo experimental **cerrado y
+- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-13** · **Estado:** tramo experimental **cerrado y
   verificado**, con **una excepción declarada**: la **jornada de fine-tuning (E-04) está en
   curso** y corre en paralelo. Por ADR-017 §2f **no bloquea la redacción**; su subsección de
   resultados queda reservada (`informe/ajustes/05` → `AJ-5.13`). Todo lo demás está congelado.
@@ -46,26 +46,29 @@ fracaso del proyecto: es el dato. **El contraste entre filas ES el experimento.*
 | **control-plane** | Consume detecciones y decide si hay que **alertar**, aplicando una ventana temporal (no alerta con un solo frame: exige que la condición persista) |
 | **experimental-setup** | La consola web y el runner de experimentos; también guarda los **resultados** |
 
-> **Hay un cuarto repo, y NO es una cuarta pieza.** `e-ovrt_alert-distribution`
-> (distribución de alertas confirmadas por MQTT, **§17.3.10**) está **diseñado y
-> especificado pero no implementado**. En disco es un esqueleto de paquetes vacíos, sin
-> lógica y **sin un solo commit**. **Ninguna cifra del informe sale de él.** Se redacta
-> desde `docs/informe/92b` *describiendo el diseño y declarando el estado* — nunca en
-> presente como si funcionara, aunque el 92b esté escrito en presente (es un documento de
-> diseño).
+> **Hay un cuarto repo, y no es un tercer plano.** `e-ovrt_alert-distribution` consume
+> alertas ya confirmadas, aplica cooldown e idempotencia, entrega por MQTT y registra cada
+> resultado. ✎ **Estado verificado 2026-08-11:** está **funcionalmente implementado** y
+> cumple los seis criterios de spec 45: replay DBE idempotente, camino EBE desde el
+> publisher real, MQTT QoS 1 contra broker real y reporte consolidado. Su suite cerró con
+> 39 tests unitarios más la integración MQTT.
 >
-> ✎ **2026-08-10 — cambió su ESTATUTO, no su estado.** Hasta el 08-10 era *exclusión
-> ejercida y cerrada* (ADR-015 §2c). **[ADR-016](decisiones/adr-016-reapertura-acotada-distribucion.md)
-> derogó esa cláusula**: ahora es **trabajo comprometido**, con el recorte exacto de
-> ADR-005 (E-06 sigue excluida). Para quien redacta cambia una sola cosa: **no se declara
-> como algo que se decidió no hacer, sino como módulo en alcance con su estado al momento
-> de la entrega.** Sigue sin implementarse y sigue sin aportar una sola cifra. El cierre
-> **arquitectónico** —dónde vive el ciclo de vida de la alerta y sus políticas de
-> notificación— lo da `nucleo/19`, no el código.
-> Lo único construido de ese tramo es la **frontera de salida** que un módulo futuro
-> consumiría: el publisher `control.alert.v1` del control-plane, apagado por default.
-> Corolario: §17.3.10 **no tiene figuras ni tablas** en `informe/99` §1, y eso es
-> correcto — no hay nada medido que mostrar.
+> **Qué falta, y no hay que ocultarlo:** E-06 (canales adicionales y dashboard propio)
+> permanece excluida. ✎ **2026-08-14:** los tres pendientes que este párrafo listaba —vista
+> de outcomes en la webconsole, orquestación integral del distribuidor y versionar el
+> repo— se cerraron el 2026-08-13 (commits `13c801e` y `42529e2` en
+> `e-ovrt_experimental-setup`; el repo `e-ovrt_alert-distribution` ya tiene historia propia,
+> `c9903cc` y `1e6d8fa`). El diseño y los contratos
+> se redactan desde `informe/92b`; el estado ejecutado y sus salvedades, desde
+> `operacion/114`. Las latencias de loopback usadas para verificar el canal no se convierten
+> en una cifra de desempeño de la tesis.
+
+La cifra citable del tramo de distribución es **`t_alert-notification` p95 =
+64,534 ms (n = 460 entregas live)** (`results/realtime/t_alert_notification/metrics.json`;
+protocolo y contención en `operacion/118`). Mide **bus de alertas → PUBACK MQTT**, no
+captura, inferencia ni evaluación del patrón. Para operación continua citar también el
+régimen sostenido: entregas 2.ª+ **p95 = 102,025 ms (n = 104)**; las primeras entregas
+dan 49,869 ms (n = 356). El smoke de loopback no es desempeño; la campaña del doc 118 sí.
 
 ### Dos escenarios de despliegue
 
@@ -129,7 +132,7 @@ de `docs/operacion/NN` que la síntesis te indique.
 | `docs/GUIA-CIERRE.md` y `docs/operacion/113` | Son el checklist operativo **del equipo experimental**, no material de redacción |
 | `docs/informe/92` y `docs/operacion/56` y `92` | **Derogados como fuente de cifras** |
 | `docs/operacion/32`, `36`, `50` | Estado de plataforma superado por `operacion/97` |
-| ~~`informe-project-kit/`~~ | ✎ **regenerado el 2026-08-10** (76 archivos según `informe/98` §1) — es la copia plana para subir al Project. **Si estás leyendo el repo, leé los originales**; el kit es solo para el knowledge |
+| `../informe-project-kit/` | Kit aplanado externo **eliminado**. Para ChatGPT usar `docs/informe/project-kit/README.md`: cuatro archivos de knowledge — dos `.md` generados por etapa + dos DOCX del entregable (✎ 2026-08-16) |
 | Cualquier doc de `operacion/` con banner ⚠️ | Los banners dicen qué quedó superado. **Leé el banner antes que el cuerpo, siempre** |
 
 **Regla general del set:** un documento con banner de corrección **manda por el banner, no
@@ -160,9 +163,27 @@ izquierda ya se escribió mal alguna vez.
 **Regla que resume todas:** un número va siempre con **(a)** qué combinación lo produjo,
 **(b)** sobre qué material, y **(c)** con qué `n`.
 
+### 3.1 ✎ Qué NO se referencia jamás en el texto del informe (regla del usuario, 2026-08-16)
+
+**El informe es autocontenido.** Toda esta documentación —los docs de `operacion/`, los
+ADRs (de cualquier serie), las specs, las fichas `AJ-`/`R-`/`PODA-`, los IDs internos
+(`F-xx.x`, `D-xx.x`, `T-FT-xxx`), las rutas del repo y los índices de `results/`— es
+**andamiaje local para guiar el desarrollo**, y el informe **no la menciona nunca**: ni
+como cita, ni como paréntesis de procedencia, ni como nota al pie. En el texto del
+informe una afirmación se sostiene por el propio informe (§), por la bibliografía, o por
+la combinación experimental declarada (la regla (a)(b)(c) de arriba) — sin decir de qué
+archivo interno salió el número. La procedencia interna vive en los borradores como
+notas al integrador (bloques `> ✎`, que no se pegan) y en el tablero del manual `08`.
+Sí se usan los identificadores que el informe define para sí: condiciones CR-01/CR-02,
+contratos (`media.detection.v1`), limitaciones L1–L8, nombres de configuración.
+
 ---
 
-## 4. Las seis trampas que más caro salen
+## 4. Las siete trampas que más caro salen
+
+> **Trampa del banco de clips:** 47 = 34 rodaje + 13 internet (bloques A/B del
+> manifest) y, por otra partición, 32 positivos + 15 negativos. Nunca mezclar ambas
+> descomposiciones en una misma frase.
 
 **1. Escribir el capítulo sobre el banco de 34 clips.** Es el error más probable, porque
 varios documentos del kit fueron escritos cuando ese era el banco. **Vigente: 47 clips,
@@ -187,10 +208,70 @@ generado por IA. Si los ves citados en un doc, ese doc es viejo.
 presupuesto de tiempo", o "por secuenciación" — la enmienda intermedia). Documentos
 viejos del kit lo dicen; **esa causa está prohibida (ADR-017)**. Vigente: el
 fine-tuning (E-04) es una **rama experimental condicionada por datos y protocolo desde
-el planteo** (Tabla 37: baseline primero; F-100.1; licencias) — el cómputo nunca fue
-la restricción (clúster Mendieta disponible, T1 ≈1 GPU-h medido) — y está
+el planteo** (Tabla 37: baseline primero; F-100.1 ya resuelta; gates vigentes de freeze,
+serving/evaluación y procedencia) — el cómputo nunca fue la causa de descarte (Mendieta
+disponible y envelope T1 acotado) — y está
 **comprometida como jornada completa**, que se documenta con sus resultados,
 limitaciones y estado a la entrega, con causa técnica.
+
+> ✎ **2026-08-13 — estado operativo:** `1166583` cerró freeze/smoke técnico en A30 con
+> 12 tensores/3.096 parámetros y optimizer 12/12; dual gate y serving real están verdes.
+> T1 full sigue en NO-GO por contrato de serving (D-FT-08/T-FT-005), evaluación
+> (T-FT-031) y baseline YOLOE-26s (T-FT-032). La procedencia (T-FT-023) quedó
+> **CERRADA** el 2026-08-13 (snapshot tar `639e60df…`).
+> ✎ **2026-08-15 — el contrato de serving quedó CERRADO, y la misma jornada cerraron
+> T-FT-031 y T-FT-032.** El usuario firmó D-FT-08 (T-FT-005 `done`), D-FT-12 y D-FT-13,
+> y después se ejecutó todo lo técnico: comando de evaluación congelado, enforcement
+> canónico v2 y **baseline YOLOE-26s one-shot sobre `bench_v3`** (doc 120: `bare_head`
+> AP50 0,000; recall CR-01 agregado 0,0002; retención a proteger person 0,7843 /
+> helmet 0,6286 / vest 0,2642 — cifras de la RAMA, tablas propias, por estrato).
+> **El NO-GO de T1 full quedó en su último eslabón**: emitir `full-authorization.json` y
+> el `RUN` manual (T-FT-043). Al redactar: no listar decisiones NI gates técnicas
+> pendientes en E-04; ~~**no hay cifra del checkpoint ajustado** (no existe)~~ **← SUPERADO
+> el 2026-08-17, ver la adenda al final de este bloque: la cifra existe** y la baseline
+> no se compara con la tabla histórica del doc 64 (doc 120 §2.5). **D-FT-12 se firmó
+> antes de la baseline**: pre-registración estricta. La negativa sin auth dejó cero
+> full. La proyección Slurm 2026-08-18 no es
+> promesa. No hay cifra científica citable ni job full enviado.
+>
+> ✎ **2026-08-15 (noche) — T-FT-043 CERRADA: el job full se envió.** La autorización se
+> emitió y verificó en el clúster con sus 7 gates, el ensayo `--test-only` pasó y el
+> `RUN` quedó **encolado (job `1167640`)**. Lo de arriba —"último eslabón", "cero jobs
+> full", "ni job full enviado"— queda **superado**: ya no hay ninguna tarea previa
+> pendiente. **Lo que sigue abierto es otra cosa: la corrida en sí y su evaluación.**
+> Enviar no es medir: **sigue sin existir cifra del modelo ajustado**, así que en el
+> informe esa subsección va reservada con `[[PENDIENTE: …]]`, nunca con un valor
+> estimado ni con una redacción que sugiera que la comparación ya se hizo.
+>
+> ✎ **2026-08-17 — LA JORNADA CERRÓ Y LA CIFRA YA EXISTE: veredicto D-FT-12 = NO-GO**
+> ([`operacion/123`](operacion/123-cierre-jornada-t1-no-go.md)). **La subsección deja de ir
+> reservada: se redacta con estos números** — `bare_head` AP50 **0,0000 → 0,0455** y recall
+> CR-01 **0,0002 → 0,2089** (de 1 violador detectado en todo el banco a 1.109), `vest`
+> 0,2642 → **0,3292**, contra `person` 0,7843 → 0,6932 y mAP50 0,4193 → 0,4171. **NO-GO**
+> porque el gain gate pedía +0,05 (faltaron **0,0045**) o recall >0,5, y la retención de
+> `person` cayó **−11,62 %** sobre un tope de 10 %.
+>
+> **Cómo redactarlo, sin margen:** es un **negativo pre-registrado** — los márgenes se
+> firmaron el 15/08 antes de existir baseline y checkpoint — así que **es un resultado, no un
+> fracaso**, y **jamás** se atribuye a falta de tiempo (criterio de invalidación 1 de
+> ADR-017). Reportar **siempre por estrato además del agregado**: en `bench_obra_val` el
+> ajuste **mejora** (mAP50 +0,0828, `bare_head` 0,000 → 0,2614) y son `chv`/`shel5k` los que
+> bajan, por `helmet`. Estas cifras son de la **rama comparativa**: no se funden con el
+> núcleo zero-shot, no van a `results/` y **no se comparan con la tabla del doc 64**
+> (protocolo distinto). El gate de latencia **no se midió** y eso se dice explícito (F-123.1),
+> no se omite.
+
+**7. Describir la plataforma con DOS patrones de acople.** Son **tres**, y el tercero está
+registrado en **[ADR-018](decisiones/adr-018-acople-bff-subproceso-distribucion.md)** desde
+el 2026-08-15: **(a)** HTTP config-driven — la webconsole y el runner son clientes de los
+dos planos (ADR-008/009); **(b)** bus ZeroMQ PUB/SUB + msgpack, media→control (ADR-003);
+**(c)** **BFF-subproceso** — el runner de la webconsole lanza `eovrt-distribute` como
+proceso hijo local, porque el repo de distribución es una CLI y **no** un servicio HTTP.
+Dos precisiones que se pierden fácil: el *dato* de distribución igual viaja por el bus
+(`:5558`), así que lo propio del tercer patrón es el **control del ciclo de vida**, no el
+transporte; y el requisito `EOVRT_DISTRIBUTION_EXECUTABLE` de la consola dockerizada es
+parte de la decisión, no una nota de operación. Documentos anteriores al 08-15 describen
+sólo dos acoples: están viejos.
 
 > ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
 > bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
@@ -233,7 +314,8 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño completo, y **`nucleo/19`** para el ciclo de vida de la alerta y sus fronteras. **Ojo: está diseñado y especificado, no implementado** — ✎ 2026-08-10 se redacta como **trabajo comprometido** (ADR-016), no como exclusión cerrada; describiendo el diseño y declarando el estado |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras. Estado: funcional; pendientes webconsole, orquestación y commits |
+| El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
 | Qué figura/tabla va en cada sección | `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |

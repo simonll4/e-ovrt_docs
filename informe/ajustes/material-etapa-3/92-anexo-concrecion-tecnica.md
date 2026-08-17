@@ -47,12 +47,13 @@ artefactos verificables, sin traicionar la lógica del diseño original.
 | Repositorio de eventos (§17.3.12) | **JSONL append-only por corrida** | `runs/<run_id>/*.jsonl` | cada plano |
 | Bus interno de eventos (§17.3.8.4) | **ZeroMQ XPUB/SUB + msgpack** | `bus.envelope.v1` | `media-plane/transport/bus.py:19` |
 | Reporte experimental (§17.3.13.4) | Reporte consolidado | `report.json` / `report.md` | `experimental-setup/runs/<experiment_id>/report/` |
-| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **spec 45 — contrato preliminar; ✎ 2026-08-12, ADR-016: implementación comprometida antes de la defensa, se declara su estado a la entrega** |
+| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **Implementada y verificada** (`operacion/114`): DBE/EBE, política, ledger, MQTT QoS 1 y reporte; pendientes webconsole, orquestación y commits |
 
 > **Frase para el capítulo:** *"Los contratos definidos en la Etapa 3 dejaron de ser denominaciones
 > preliminares para el núcleo validable: se materializaron como modelos de datos versionados, con
 > serialización explícita y esquema verificable. La tabla siguiente establece la correspondencia. Los
-> contratos del tramo de distribución, no implementado, conservan su carácter preliminar y así se declaran."*
+> contratos del tramo de distribución también se materializaron; sus brechas de integración
+> se declaran por separado, sin confundirlas con la existencia del módulo."*
 
 ---
 
@@ -597,7 +598,7 @@ la configuración, el prompt set, el modelo y el commit que la produjeron.**
 | **Un modelo nuevo** | Subclase de `BaseDetectorAdapter` + rama en `create_adapter()` + un YAML en `configs/models/`. Hoy: `grounding_dino`, `yoloe`, `mock`. |
 | **Una condición de riesgo nueva** | **Sólo configuración**, si la condición es del tipo "sujeto sin EPP": una entrada declarativa en el pattern set (clase sujeto, clase ausente, región, umbrales, tiempos) + los prompts. **Cero código.** Este es el mini-experimento A1 (costo marginal de una condición nueva) y es un resultado de tesis en sí mismo. |
 | **Un tipo de patrón nuevo** (p. ej. relacional o zonal) | Un evaluador nuevo en `engine/evaluators/`. Hoy sólo existe `spatial_absence`. |
-| **Un canal de notificación** | Repo de distribución (spec 45): implementar el canal contra `NotificationEnvelope`. ✎ **2026-08-12, ADR-016: trabajo comprometido antes de la defensa** (al 2026-08-10 el repo es un esqueleto de paquetes sin lógica ni commits). Se declara el estado a la entrega, no se escribe en presente. |
+| **Un canal de notificación** | Implementar `Channel` contra `NotificationEnvelope`. El canal MQTT existe y está verificado; agregar otro canal queda fuera del recorte ADR-005/E-06. |
 
 El contraste entre las filas 3 y 4 es, en sí, un argumento de la tesis: **agregar una condición del núcleo
 cuesta configuración; agregar una familia nueva de condiciones cuesta un evaluador.** Esa es la frontera

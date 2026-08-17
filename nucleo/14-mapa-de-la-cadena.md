@@ -116,7 +116,7 @@ dependencia menos visible del proyecto y la que más fácil se rompe.
 
 ## 7. Dos convenciones que se confunden
 
-**Las dos series de ADR.** `ADR-001…016` (tres dígitos) son del **proyecto**, en
+**Las dos series de ADR.** `ADR-001…018` (tres dígitos) son del **proyecto**, en
 `docs/decisiones/`. `ADR-0001…0013` (cuatro dígitos) son de la **serie local del
 control-plane**, en `e-ovrt_control-plane/docs/decisions/`. **Al citar, decir la serie.**
 

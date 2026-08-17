@@ -214,6 +214,13 @@ positivas, doc 101)"*.
   real del eje, y es **ingeniería** (ancla wallclock↔media + receta de streaming),
   no rodaje. Con el proxy ahora verificado también contra el jitter, su prioridad
   baja aún más: solo ante una objeción concreta esperada del tribunal.
+  ✎ **2026-08-15 — dejó de ser "upgrade pendiente" y quedó DECLARADA CON CAUSA**
+  (F-121.1, `operacion/121` §2.2). Al evaluarla en detalle apareció que **ni siquiera
+  sería un upgrade**: determinismo DBE verificado (F-109.1) + el bus publica el evento
+  **byte-idéntico** al del JSONL (gate de paridad por mutación, doc 37 §3) ⇒ el
+  resultado sería **idéntico a T1 por construcción**, no un dato nuevo. Sirve como
+  *guard* de un modo de falla (pérdida en el bus) que **ya tiene detector**
+  (`bus_dropped_events`), y en DBE la presión sobre el bus es **menor** que en vivo.
 - **Tracker en obra real con multitud**: sigue en L4; lo levanta el lote de
   internet, no un re-rodaje.
 - **FAR/hora**: D-90.1, sin cambios.

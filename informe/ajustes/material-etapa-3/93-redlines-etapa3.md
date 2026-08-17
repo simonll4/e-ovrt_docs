@@ -648,7 +648,7 @@ sugerida (a validar una por una):
 |---|---|---|---|
 | DA-03 | canal ≠ repositorio; tecnología diferida | **Tecnología fijada**: ZeroMQ + msgpack; broker excluido con costura documentada | Actualizar |
 | DA-06 | MOT opcional | **Acotada**: granularidad de sujeto especificada, tracker **no implementado** | Precisar |
-| DA-07 | fine-tuning condicionado | **Comprometida (ADR-017)** — y la razón importa: rama condicionada **por datos y protocolo** (F-100.1, regla Tabla 37), no por falta de recursos (split generado, Mendieta disponible, ≈1 GPU-h medido); **se ejerce como jornada experimental completa**. *(✎ 2026-08-11 — decía "no ejercida por presupuesto de tiempo".)* | Reencuadrar conforme ADR-017 |
+| DA-07 | fine-tuning condicionado | **Comprometida (ADR-017)** — y la razón importa: rama condicionada **por datos y protocolo** (F-100.1, regla Tabla 37), no por falta de recursos (split generado, Mendieta disponible, costo T1 por extrapolación medida: ≈16 min centrales —prudente 30–45 min; walltime 2 h—, `operacion/100` adenda; la cifra histórica “≈1 GPU-h” quedó superada); **se ejerce como jornada experimental completa**. *(✎ 2026-08-11 — decía "no ejercida por presupuesto de tiempo". ✎ 2026-08-14 — el costo decía “≈1 GPU-h medido”; reemplazado por la extrapolación medida de `operacion/100`, adenda 2026-08-13.)* | Reencuadrar conforme ADR-017 |
 | DA-11 | preselección en borde condicionada | **No ejercida** (E-07) | Confirmar |
 | DA-13 | alerta interna antes que notificación | **Adoptada y reforzada** por ADR-011 (el motor no suprime; la política vive aguas abajo) | Reforzar |
 

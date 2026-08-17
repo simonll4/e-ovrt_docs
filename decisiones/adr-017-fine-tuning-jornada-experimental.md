@@ -7,7 +7,13 @@
 > ratificó (§3 límites L1–L8, §4, §5).
 
 - **Fecha:** 2026-08-11
-- **Estado:** Aceptada (usuario, 2026-08-11)
+- **Estado:** Aceptada (usuario, 2026-08-11). ✎ **2026-08-17 — EJERCIDA Y CUMPLIDA en su
+  tramo T1**: la jornada se corrió completa y cerró con **veredicto D-FT-12 = NO-GO**
+  ([`operacion/123`](../operacion/123-cierre-jornada-t1-no-go.md)). Es exactamente el
+  desenlace que este ADR contemplaba —"un resultado negativo es resultado, no fracaso"— y
+  **con márgenes pre-registrados**, firmados antes de existir la baseline y el checkpoint.
+  La escalera T2/T3 sigue abierta y gobernada por `contingencia/20` §6; la prohibición de
+  la causa temporal (criterio de invalidación 1) **sigue plenamente vigente al redactar**.
 - **Decisión que atiende:** el encuadre del fine-tuning en el informe y su ejercicio.
   La documentación de redacción venía declarando E-04 como exclusión "por presupuesto
   de tiempo" (texto de julio), luego enmendado a "por secuenciación" (ADR-015). El
@@ -20,6 +26,57 @@
 - **Decisor:** usuario, 2026-08-11
 - **Serie:** proyecto (`ADR-001…017`, tres dígitos). No confundir con la serie local
   del control-plane (`ADR-0001…0013`, cuatro dígitos).
+
+> ## Adenda operativa 2026-08-13 — la decisión sigue vigente; T1 completo está en NO-GO
+>
+> Esta adenda no reescribe el contexto del 2026-08-11 ni altera la decisión de ejercer E-04.
+> Actualiza sus puertas técnicas:
+>
+> - **F-100.1 está resuelta.** `finetuning_v1` materializó 2.946 imágenes de train y 483
+>   de val, disjuntas entre sí y de `bench_v3`; `val` cubre las cuatro clases, incluida
+>   `bare_head`. D-FT-01 quedó aprobada sin modificar el benchmark.
+> - Entorno, transporte y ejecución CUDA fueron ejercidos. El smoke `1166552` terminó
+>   técnicamente verde en una A30 (1:44; 7,82 GB máximos), pero **no habilita el full**:
+>   el checkpoint conservó estado de optimizador para 366/366 tensores, evidencia de que el
+>   congelamiento upstream previsto para T1 no fue efectivo.
+> - El gate metodológico se reabre hasta corregir el freeze, demostrar el conjunto exacto de
+>   parámetros entrenables y repetir un mini-smoke. El run anterior se conserva como evidencia
+>   de infraestructura, no como resultado ni como gate del linear probing.
+> - La corrección quedó demostrada por el smoke `1166583`, `COMPLETED 0:0` en A30: exactamente
+>   **12 tensores/3.096 parámetros** entrenables, sólo en `cv3`/`one2one_cv3`, y optimizer con
+>   12 parámetros en grupos `[6, 0, 6]` y 12 estados. Gate v2/live verify validó 20 críticos.
+>   El bundle activo `r20` contiene 6.888 entradas; el índice `bundle.sha256` tiene SHA-256
+>   `1049b3ea1bebd8ebbeb78224daf0febf8dfcaac22503721feeaa0ca39893e026` y `bundle.json`,
+>   `084c8842f54e531f5065192b3b733b068b046f0d9789c463dfeda8c144d14954`; `r19` fue archivado.
+> - El dual gate también quedó implementado: `technical-smoke-ready.txt` sólo certifica el
+>   smoke; `full-authorization.json` exige T005/023/026/030/031/032/042R, D-FT-08 aprobada y
+>   hashes. Una prueba `RUN` sin autorización terminó `exit=1` y no envió ningún full.
+> - T-FT-030 quedó técnicamente verde con el checkpoint real en media-plane fuera del sandbox
+>   (carga CPU 2,37 s; inferencia 0,276 s; 39 tests focalizados, 100 ampliados y Ruff). Esto no
+>   aprueba D-FT-08. Siguen pendientes el contrato humano/T-FT-005, catálogo y evaluación
+>   T-FT-031, la decisión pre-resultado D-FT-12 y baseline YOLOE-26s T-FT-032 sobre el mismo
+>   `bench_v3`.
+> - ✎ **2026-08-15 — firmas del usuario.** D-FT-08 (contrato de serving), D-FT-12 (objetivo y
+>   márgenes go/no-go, **firmada antes de la baseline**) y D-FT-13 (derogación de la sonda
+>   `machinery` sólo para T1) quedaron `aprobadas`. T-FT-005 pasó a `done` y T-FT-031 a
+>   `ready`. **El NO-GO de T1 full persiste, pero ya no tiene componente humana**: restan la
+>   evaluación T-FT-031 y la baseline YOLOE-26s T-FT-032. Cero jobs full.
+> - ✎ **2026-08-15, misma jornada — T-FT-031 y T-FT-032 CERRADAS** (`operacion/120`):
+>   comando de evaluación congelado + enforcement canónico v2 en config + **baseline
+>   YOLOE-26s one-shot sobre `bench_v3`** (`bare_head` AP50 0,000; recall CR-01 agregado
+>   0,0002; cifras de la rama, por estrato). **Las 7 gates de `full-authorization.json`
+>   están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero jobs full.
+> - T-FT-023 quedó después cerrado con un snapshot inmutable de 72 fuentes de los tres repos:
+>   inventario `431e43a4…3617`, manifiesto `f487347b…9bc8` y tar `639e60df…3ebe`, verificados
+>   localmente y en Mendieta. No hubo commit ni staging.
+> - El full pasó `sbatch --test-only` en `ivb`/`multi` con 2 h. Slurm proyectó 2026-08-18 bajo
+>   la cola observada; no es una reserva ni promesa de inicio.
+> - Por tanto T-FT-043 permanece `blocked`, no hay jobs full enviados y no se debe ejecutar el
+>   wrapper de 10 épocas hasta un nuevo GO documentado. Esta causa es técnica y protocolar, no
+>   temporal, exactamente como exige este ADR.
+
+El cuerpo siguiente conserva la fotografía y el fundamento existentes al aceptar ADR-017; ante
+una diferencia de estado operativo, manda la adenda.
 
 ---
 

@@ -212,12 +212,18 @@ Reformular citando la Tabla 37 **tal como está escrita**: la regla *"no prescri
 el fine-tuning deba ejecutarse; define cuándo vale la pena"* — es decir, la rama es
 **experimental y condicionada desde el diseño metodológico**, no una exclusión ni un
 descarte. Aclarar que **el nodo de entrenamiento existe** (clúster Mendieta, CCAD-UNC)
-y que las condiciones que gobiernan la rama son **de datos y de protocolo**
-(disponibilidad de un split de validación con `bare_head` — F-100.1 —, licencias y
-transporte de los datasets, go/no-go de la propia Tabla 37), **no de cómputo ni de
-plazo**. La rama **se ejerce como jornada completa** (ADR-017): escalera T1→T2/T3 con
+y que las condiciones que gobiernan la rama son **de datos y de protocolo**. ✎ **Estado
+2026-08-13:** F-100.1, freeze/smoke técnico, dual gate y serving real están cerrados;
+permanecen D-FT-08/T-FT-005, evaluación T-FT-031 y baseline T-FT-032. La procedencia
+T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`). ✎ **2026-08-15:
+D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas; T-FT-031 y T-FT-032 cerradas la misma jornada
+(doc 120, baseline 26s one-shot). Resta sólo `full-authorization.json` + `RUN` manual.** Son gates
+técnicos, **no una falta de cómputo ni de plazo**. La rama **se ejerce como jornada
+completa** (ADR-017): escalera T1→T2/T3 con
 sus criterios pre-registrados, documentando resultados y limitaciones. **En §17.1 va
-la regla y su criterio**; la jornada, el **costo medido (≈1 GPU-h, `operacion/100`)**
+la regla y su criterio**; la jornada, el **costo T1 por extrapolación medida: ≈16 min
+centrales (prudente 30–45 min; walltime 2 h) — `operacion/100` adenda; la cifra
+histórica “≈1 GPU-h” quedó superada**
 y sus resultados son datos posteriores y se citan donde corresponde: §17.4 (estado a
 la entrega), la sección comparativa de resultados (si la jornada produjo datos a la
 entrega) y §18 (`AJ-6.05`: lo que quede más allá de la escalera) — regla de

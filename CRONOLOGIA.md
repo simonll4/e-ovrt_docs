@@ -16,6 +16,277 @@
 
 ---
 
+## 2026-08-17 — la jornada de fine-tuning cierra: **NO-GO** (doc 123)
+
+El job `1167640` arrancó el 16/08 a las 16:46 —seis horas antes de lo que Slurm había
+proyectado— y terminó `COMPLETED` en **13m08s** sobre una A30: 10/10 épocas, alcance confirmado
+en **3.096 parámetros / 12 tensores**. El watcher en el head node disparó el finalize solo y dejó
+la auditoría con hashes.
+
+De ahí en adelante, todo en un tirón: copia local verificada (234 MB, `MANIFEST.sha256` 22/22, y
+los cuatro artefactos que audita el clúster coinciden byte a byte) → **integridad + binding de
+clases + serving smoke** (los tres requisitos de la regla 7, ejecutados **antes** de tocar el
+media-plane) → **promoción con sha256 preservado** → **corrida única** sobre las 6.477 imágenes
+(0 fallos, 0 drops, 40.696 detecciones, 257 s) → evaluación con el comando congelado.
+
+**El veredicto es NO-GO, y falla por partida doble.** El *gain gate* no pasa por ninguna de sus
+dos vías: el ΔAP50 de `bare_head` fue **+0,0455** contra un umbral de **0,05** —faltaron
+**0,0045**— y el rescate de recall, que exigía pasar de <0,1 a **>0,5**, llegó a **0,2089**. El
+*retention gate* tampoco: `person` cayó **−11,62 %** sobre un tope de 10 % (`helmet` −4,49 % y
+mAP50 −0,52 % sí pasan; `vest` **mejora** +24,6 %).
+
+Lo que el resultado sí demuestra: con sólo la proyección de clase fusionada, el ajuste **saca
+`bare_head` del cero absoluto** (0,0000 → 0,0455, de 10 detecciones a 1.264) y lleva el recall
+CR-01 de **0,0002 a 0,2089** — de detectar *un* violador en todo el banco a detectar **1.109**.
+El mecanismo funciona; la capacidad no alcanza y se paga con `person`. Por estrato la lectura
+cambia de signo: `bench_obra_val` **mejora** (mAP50 +0,0828, `bare_head` 0,000 → 0,2614) y son
+`chv`/`shel5k` los que arrastran el agregado hacia abajo, por `helmet`.
+
+Los márgenes estaban firmados el 15/08, **antes** de que existieran la baseline y el checkpoint:
+pre-registración estricta, así que **el negativo es resultado y no fracaso** (ADR-017), y la
+causa nunca es temporal — el cómputo estuvo disponible y la corrida tardó trece minutos.
+
+**F-123.1:** el gate de latencia no se midió, por dos razones que conviene no mezclar — no es
+decisión-relevante (gain y retención ya fallan) y la pareja no existe, porque F-120.1 dejó al
+brazo baseline sin latencias citables. Como dato descriptivo, el brazo tuned fue más rápido en
+todos los percentiles, lo que sólo refuerza que la latencia no era el problema.
+
+Dos cosas quedaron registradas por higiene y no por obligación: un primer lanzamiento **abortó
+antes de toda inferencia** (ruta de pesos relativa al CWD; se verificó que no escribió artefactos,
+así que no cuenta como observación del brazo one-shot), y una asimetría de registro entre brazos
+—la baseline declaró el prompt inline y perdió el campo `strategy`— que **no entra al
+`PromptPlan`**: ids, textos y orden son idénticos en los dos.
+
+Propagado el mismo día a los docs 116, 117, 120 §5, 121, 122 §6, al índice y a esta cronología.
+**Trampa que quedó marcada en 116/117: hay dos «NO-GO» distintos** — el veredicto científico de
+D-FT-12 y la vieja puerta de autorización previa al envío, levantada el 15/08. Nada commiteado.
+
+---
+
+## 2026-08-16 — T1 full encolado en Mendieta + día 1 del pase de redacción
+
+**Frente A — T1 full ENVIADO (cierre de T-FT-043, la noche del 08-15).** La evidencia
+subió al clúster y se verificó por hash (8/8), `full-authorization.json` se emitió dentro
+del contenedor (`gates=7`, verificación independiente), `TEST_ONLY` pasó y
+`RUN_T1_10_EPOCHS` quedó encolado como **job `1167640`** (`ivb`/`multi`, 1 GPU/10 CPU/
+60 GB/2 h; al encolar, inicio estimado 2026-08-17 ~06:20; watcher de finalización en
+`tmux`). La constancia no existía en docs — quedó como ✎ en **doc 120 §5**. Resta esperar
+el checkpoint y seguir T-FT-050→052.
+
+**Frente B — arrancó el pase de redacción del informe (doc 122).** El usuario levantó el
+bloqueo ("no arrancar §17.x hasta orden explícita") y firmó las tres decisiones del manual
+(`informe/ajustes/08` §2) tal como estaban recomendadas: **D-A híbrida · D-B reparto por
+juicio experimental · D-C re-extracción al cerrar con extractor** (+ ajuste: la vara del
+§15 la borradorea Claude; los colegas integran). Se escribió la herramienta que D-C pedía
+(`herramientas/extraer_informe.py`, stdlib puro, TDD 13 tests, títulos de §15 idénticos a
+la foto `96c`, ecuaciones/figuras con marca visible) y los dos primeros borradores en
+`informe/entregable/borradores/`: **`vara-15.md`** (AJ-1.01/02/13 — solo literatura,
+desbloquea §17.5) y **`17-4.md`** (§17.4 completo, 12 AJ-4.x, absorbe R-12/13/26, con sus
+4 cifras verificadas contra los índices y FIG-A/FIG-E marcadas como pendientes).
+Verificadores 96/109/comparabilidad-T1 verdes al arranque; el kit estaba desactualizado
+(`01-etapa-activa`) y se regeneró (`--check` verde). El tablero del manual no se marca:
+los ajustes se marcan al llegar al entregable, no al borrador.
+
+## 2026-08-15 (segunda mitad) — métricas de alertas consolidadas + T-FT-031/032 cerradas con baseline one-shot
+
+La misma jornada de las firmas, el usuario ordenó cerrar los dos frentes que faltaban antes
+del informe. Constancias: doc 119 §8.1 (adenda) y **doc 120**.
+
+**Frente A — métricas del módulo de alertas: SIN pendientes.** `t_alert-system` quedó
+**materializada como citable**: sección de equivalencia de nombres y regla de cita en
+`results/clip_bench/index.md` (la columna `t_alert` ES `t_alert_system_ms` de los
+`metrics.json`; citable por campaña/condición, jamás promediada entre campañas), y tabla de
+la **cadena temporal completa POR TRAMOS** en `results/index.md` (`capture_to_host` 202–217
+ms · G2A por contexto · `t_alert-system` por campaña · `t_alert-notification` p95 64,534 ms)
+con dos reglas: los percentiles no se suman entre tramos, y `t_alert-system` tiene otra
+referencia temporal (dominada por `confirm_after_ms`). Lectura de conjunto: **la
+distribución no es el cuello**. Verificador 96 y kit verdes.
+
+**Frente B — T-FT-031 y T-FT-032 CERRADAS (doc 120).** Lo ejecutado, en orden: (1)
+`pycocotools` instalado; (2) **enforcement del vocabulario canónico v2 en el schema de
+config del media-plane** (lo que D-FT-08 habilitaba; TDD, 5 tests de mutación, suite 665
+verdes, Ruff limpio); (3) catálogo finetuned `yoloe-26s-ft-t1.yaml` versionado; (4)
+**comando de evaluación congelado** `evaluate_t1_bench_v3.py` — verifica todos los hashes
+del protocolo antes de computar, aborta si falta una imagen, 4 tests sintéticos; (5) run
+E2E con el checkpoint smoke (8/8, jsonl parseable por el evaluador congelado); (6) el
+protocolo pasó a `frozen` con el `go_no_go` de D-FT-12 y la enmienda trazada PRE-resultado;
+(7) **baseline YOLOE-26s one-shot sobre las 6.477** (0 fallos/drops, 374,5 s CUDA):
+**`bare_head` AP50 0,000 (6.181 GT / 10 det), recall CR-01 0,0167 bench_obra / 0,0000
+shel5k / 0,0002 agregado** — la vía del rescate del gate queda abierta y exigible; retención
+a proteger person 0,7843 / helmet 0,6286 / vest 0,2642 / mAP50 0,4193, por estrato en el
+doc 120. **F-120.1**: el host pasó de batería a corriente con la corrida en curso —
+detecciones válidas (aritmética idéntica), **latencias del run NO citables** como brazo del
+gate de latencia; ese gate se medirá pareado con ambos brazos enchufados.
+
+**Higiene de catálogo y entorno (docs 119/121).** Además del relevamiento, se cerraron
+tres frentes de higiene: **(1)** `splits/v2/` archivado **entero** (los tres roles estaban
+huérfanos y `bench.txt` lo *regeneraba* un comando activo) junto con `sh17` y
+`construction_ppe`, cuyo status describía vistas que ya no existían; se documentó además
+**por qué** los 4 candidatos del catálogo nunca se descargaron (`soda` cubre CR-05/CR-06,
+**excluidas por E-02**; los otros caen en el criterio obligatorio de licencia). **(2)** El
+eje EBE quedó declarado con causa (F-121.1). **(3) F-119.1 CERRADA**: `experimental-setup`
+tiene venv canónico `.venv/` (3.11) con `requirements-dev.txt` — **88 + 46 + 643 tests
+desde un solo intérprete**. Dos correcciones honestas del cierre: la "deriva de versiones"
+era un **contrato declarado** (`alert-distribution` pinnea `<3.12`), no un desorden; y el
+hallazgo decía que la suite no era reproducible, cuando **sí lo era** — existía un
+`.venv-talert/` que corría los 88, pero gitignoreado, sin documentar y con nombre engañoso.
+Lo real era que **no era descubrible**.
+
+**Foto de estado (doc 121).** Al cierre de la jornada se relevó el estado completo para
+decidir qué falta: resultados, pendientes reales, fine-tuning por familia y datasets. Dos
+verificaciones que valen: **(a) el eje real-time está CERRADO SIN PENDIENTES** (doc 101) —
+la única corrida con cámara prevista y no ejecutada es el **smoke de F-118.3**, que era
+suplementario y no altera el p95 ni ninguna cifra; y `gdino-base-560` no tiene latencia
+live medida, pero el doc 101 §1.3 argumenta que medirla no respondería nada abierto (queda
+declarado que T2/B1 no tienen costo operativo live). **No hay que re-rodar.** **(b)** **el banco no tiene frentes abiertos.** La campaña EBE por el bus contra GT
+—bloqueada por el ancla wallclock↔media— se evaluó formalmente y quedó **DECLARADA CON
+CAUSA** (**F-121.1**): correrla **no daría ningún resultado nuevo**, porque el pipeline
+DBE es determinista (F-109.1) y el bus publica el evento **byte-idéntico** al del JSONL
+(paridad verificada por mutación, doc 37 §3) ⇒ el resultado sería **idéntico a T1 por
+construcción**. La única divergencia posible (pérdida en el bus) ya se cuenta y degrada la
+corrida, y en DBE la presión sobre el bus es *menor* que en vivo. No es un experimento: es
+un guard de un modo de falla que ya tiene detector. Sumado a que el *protocolo de doble
+toma* del doc 58 se diseñó justamente para no necesitar el ancla. Propagado a
+`operacion/98`, `101`, `121` y los índices `clip_bench`/`realtime`.
+✎ **Corregido en la misma jornada:** el doc 121
+listaba también el *port del `track_id` al pipeline online* como eje abierto, citando el
+§7 del doc 89 que el propio doc marca como reencuadrado por la implementación (§6 bis).
+**No está abierto**: la adenda de ADR-002 se ratificó el 08-05 y la identidad ya corre en
+DBE **y** EBE/live como decorador del control-plane (`input.track_persons`). La misma
+fila stale vivía en `results/clip_bench/index.md`; ambas corregidas.
+
+**Estado E-04 al cierre:** las **7 gates** de `full-authorization.json`
+(T-FT-005/023/026/030/031/032/042R) están cerradas. Restan sólo acciones del usuario:
+emitir la autorización (token `APPROVE_D_FT_08`) y el `RUN` manual en Mendieta (T-FT-043).
+Cero jobs full. No comparar la baseline con la tabla histórica del doc 64 (doc 120 §2.5:
+protocolos distintos).
+
+---
+
+## 2026-08-15 — el usuario firma las seis decisiones pendientes
+
+**Ninguna decisión queda en `propuesta`.** Antes de propagar se verificó que ninguna
+estuviera ya ejecutada como aprobada: las tres FT seguían en `propuesta` (`117:70,74,133`),
+el registro de licencias decía "pendiente de firma" y el patrón BFF-subprocess seguía como
+nota. El usuario firmó las seis **como se recomendaba y sin cambios**:
+
+1. **D-FT-08** (contrato de serving T1: vocabulario fijo y ordenado, `set_classes()`
+   prohibido) → T-FT-005 pasó a `done` y T-FT-031 a `ready`.
+2. **D-FT-12** (objetivo `bare_head` y márgenes go/no-go) → **firmada ANTES de la baseline
+   T-FT-032 y con cero jobs full**: la pre-registración conserva su valor y la enmienda
+   `vest`→`bare_head` de `contingencia/20` queda firme.
+3. **D-FT-13** (derogación de la sonda `machinery` sólo para T1) → **la puerta del doc
+   `operacion/100` §6 queda CERRADA en ese ítem**, corrigiendo el estado que esta cronología
+   registraba el 08-14 como INCOMPLETA.
+4. **Licencias**: checkpoint derivado T1 hereda AGPL-3.0 (uso local, no redistribuible);
+   `mobileclip2_b.ts` **se mantiene `NOASSERTION` por decisión expresa**; y la subida del
+   asset a Mendieta del 08-13 queda **ratificada como excepción acotada y retroactiva** a la
+   política CC BY 4.0 del doc 100 §6.3, que sigue vigente sin cambios para datos.
+5. **[ADR-018](decisiones/adr-018-acople-bff-subproceso-distribucion.md)** — la nota del
+   08-14 sobre el patrón BFF-subproceso se promovió a ADR aceptada. La serie del proyecto
+   pasa a `ADR-001…018` y **el informe debe describir tres patrones de acople, no dos**.
+6. **Métricas de `report.json`** — y acá el propio doc 119 estaba mal: **no eran cuatro
+   métricas nuevas, eran tres.** `t_alert-system` ya estaba en el diccionario de la spec 40
+   §5.1 (el plan del 07-11 es explícito: *"figuran en `resultados`, no se omiten"*); lo que
+   cambió es que dejó de estar clavada en `not_applicable`. Queda **citable**.
+   `precision_alertas`/`recall_alertas`/`F1_alertas` quedan **emitidas pero no citables**:
+   duplican cifras que ya se reportan vía `evaluate-alerts` con denominadores por estrato.
+
+**Efecto neto sobre E-04:** el **NO-GO de T1 full persiste, pero cambió de naturaleza** — ya
+no hay ninguna decisión humana en la cadena. Restan sólo la evaluación T-FT-031 (`ready`,
+requiere instalar `pycocotools` en el venv de media-plane) y la baseline YOLOE-26s T-FT-032.
+Cero jobs full. Constancia: `operacion/119` §8.
+
+**No ejecutado y registrado como tal:** el enforcement del vocabulario canónico v2 en el
+schema de config de media-plane, que D-FT-08 desbloquea pero es trabajo de código.
+
+---
+
+## 2026-08-14 — relevamiento post-Codex y cierre de brechas
+
+Se cerró la doble falencia crítica detectada tras el relevamiento:
+gravedad del módulo de distribución (ledger en append-only con generaciones y
+`report.py` con guard de dry_run), trazabilidad operativa del canal de distribución
+(stderr redactado en disco, preflight de binary + broker, reconexión acotada y
+latencia de cooldown con base temporal explícita), y la cobertura completa del
+verificador del agregado de `realtime`.
+
+Además, se avanzó sobre las puertas pendientes del bloque de finetuning, que **siguen
+abiertas** (✎ 2026-08-14 — el titular decía "quedaron cerradas las puertas pendientes",
+y es sobredicho): `--allow-cpu` quedó acotado a preflights
+(`--check-only/--check-freeze`) y el estado del gate `machinery` quedó explicitado como
+propuesta (`D-FT-13`) en lugar de cerrado por defecto. La puerta del doc `operacion/100`
+§6 sigue **INCOMPLETA**: la derogación de la sonda de clase nueva (`machinery`) está
+propuesta como `D-FT-13` en estado `propuesta`, **pendiente de firma del usuario**
+[✎ firmada el 2026-08-15 — ver la jornada de arriba; esa puerta ya está cerrada]. Se
+consolidó el cierre documental con `operacion/119`, se regeneró el
+`informe/project-kit/` y se re-ejecutaron los verificadores de organización y del kit.
+
+Dos resultados cambiaron de estado en la jornada:
+- **Análisis steady-state de la latencia de notificación**, publicado desde el mismo
+  `outcomes.csv` y **sin re-corrida**: régimen sostenido **p95 = 102,025 ms (n = 104
+  entregas subsiguientes)** contra **49,869 ms (n = 356 primeras entregas por corrida)**
+  — `e-ovrt_experimental-setup/results/realtime/t_alert_notification/metrics.json`,
+  bloque `steady_state`.
+- **Fila nueva `T-85`** en el inventario de cierre (`informe/ajustes/gobierno/99` §1)
+  para la latencia de notificación de la distribución de alertas.
+
+Evidencia de estado:
+- `operacion/119-relevamiento-post-codex-y-cierre-de-brechas.md` (constancia integral),
+- `e-ovrt_experimental-setup/tools/evidence_runs.py --check`,
+- suites de verificación y regresión ejecutadas en el bloque E (media-plane, backend de la
+  webconsole, control-plane, alert-distribution y `tests/` de experimental-setup;
+  ✎ 2026-08-14: la lista decía "datasets", suite que no se ejecutó en esta verificación),
+- `python3 herramientas/generar_project_kit.py --etapa 6 --check`.
+
+## 2026-08-13 — `finetuning_v1` cierra F-100.1; smoke técnico verde, full en NO-GO
+
+### 2026-08-13 (bis) — distribución de alertas y soporte experimental
+
+La campaña `t_alert-notification` (doc 118) produjo **F-118.1: p95 = 64,534 ms
+(n = 460 entregas live contra broker MQTT real, testigo independiente al 100 %)**.
+El cooldown suprimió el 44,976 % de los eventos (F-118.2) y la cámara quedó
+`not_executed: hardware_source_not_connected` (F-118.3). El doc 115 cerró el gate
+de instrumentación (D-115.1) y difirió con causa seis frentes A–F (D-115.2). La
+orden de arrancar la redacción sigue siendo del usuario.
+
+Se materializó `finetuning_v1` con 2.946 train/483 val, cuatro clases y disjunción de
+train/val/`bench_v3`; D-FT-01 quedó aprobada. En Mendieta, después de cerrar dependencias
+offline y compatibilidad CPU, `1166552` terminó `COMPLETED 0:0` en una A30 (1:44; 7,82 GB),
+produjo checkpoints y pasó recarga/inferencia. La revisión adversarial posterior encontró
+estado optimizer para 366/366 tensores: el freeze upstream del linear probing no fue efectivo.
+El run se conserva como evidencia de infraestructura, pero su gate metodológico y sus marcadores
+de full quedan revocados. T1 completo pasa a NO-GO con cero jobs enviados. Antes de repetir:
+corregir y blindar el freeze, congelar procedencia, cerrar D-FT-08/P3, preparar baseline 26s
+sobre `bench_v3`, ejecutar un nuevo mini-smoke y dejar monitor/finalización del full.
+
+La corrección posterior pasó preflight sobre el modelo real con exactamente 12 tensores/3.096
+parámetros entrenables, sólo en `cv3` y `one2one_cv3`. Se reconstruyó el bundle `r19`
+(manifiesto SHA-256 `3213808898446caa1684d83d6a4ab84581f1d06dbf840afc703912250430cba2`) y se
+envió únicamente el mini-smoke `1166578` (1 época, 5 %, 10 min máximo), pero se canceló
+deliberadamente tras 37 s GPU al detectar que un smoke técnico todavía podía crear
+`ready-for-manual-full.txt` con D-FT-08, baseline y procedencia abiertos. No fue un fallo del
+trainer ni un gate. Se abrió T-FT-026 para separar `technical-smoke-ready.txt` de
+`full-authorization.json` antes de repetir T-FT-042R; el NO-GO y T-FT-043 `blocked` siguen.
+
+T-FT-026 quedó después `done`: el autorizador exige estados exactos
+T005/023/026/030/031/032/042R, D-FT-08 aprobada y hashes; una prueba `RUN` sin autorización
+terminó `exit=1` y dejó cero full. El bundle activo `r20` contiene 6.888 entradas; el índice
+`bundle.sha256` tiene SHA-256 `1049b3ea1bebd8ebbeb78224daf0febf8dfcaac22503721feeaa0ca39893e026`
+y `bundle.json`, `084c8842f54e531f5065192b3b733b068b046f0d9789c463dfeda8c144d14954`;
+`r19` quedó archivado. El nuevo smoke `1166583` terminó `COMPLETED 0:0` en A30 y validó exactamente 12
+tensores/3.096 parámetros, optimizer 12/12, artefactos y gate v2/live verify de 20 críticos.
+T-FT-030 también quedó técnicamente `done` con checkpoint real servido fuera del sandbox,
+39 tests focalizados, 100 ampliados y Ruff verdes. T-FT-023 quedó después cerrado con un
+snapshot inmutable de 72 fuentes: inventario `431e43a4…3617`, manifiesto `f487347b…9bc8` y tar
+`639e60df…3ebe`, más atestación posterior `4fe5aa3c…1bbda`, verificados localmente y en
+Mendieta, sin commit ni staging. D-FT-08/T005,
+D-FT-12, T031 y T032 siguen abiertos; T-FT-043 continúa `blocked`. `sbatch --test-only` aceptó
+el full de 2 h y proyectó
+2026-08-18 por la cola observada, sin constituir reserva ni promesa.
+
+---
+
 ## 2026-08-11 — ADR-017: el fine-tuning deja de ser "exclusión" y pasa a jornada comprometida
 
 Orden del usuario sobre el encuadre del informe: el fine-tuning **nunca debe leerse

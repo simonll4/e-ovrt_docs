@@ -119,21 +119,41 @@
   > **con n=2 no se rankean granularidades** (`scene` 0,333 vs `subject` 0,190 **no** es
   > "escena gana": es ruido, F-111.1 enmendado). Lo robusto es la **asimetría de FP**:
   > 26 vs 323 sobre 11 negativos (12×). Ver síntesis §5.1.
-- **Lo no hecho se registra, no se esconde** (✎ lista actualizada 2026-08-05):
-  distribución MQTT (spec 45) no implementada · **campaña EBE de punta a punta por el
+- **Lo no hecho se registra, no se esconde** (✎ lista actualizada 2026-08-05;
+  **✎ 2026-08-15: dos ítems de esta lista quedaron OBSOLETOS, ver el cierre del bullet**):
+  ~~distribución MQTT (spec 45) no implementada~~ · **campaña EBE de punta a punta por el
   bus contra GT** no ejecutada (falta el ancla wallclock↔media **como ingeniería de
   campaña**, doc 101 §3; el ancla *puntual* sí quedó cerrada con reloj externo en el
   humo anclado del doc 101 §5.4 —las 4 patas, ancla física +1.066 ms—, que es una toma,
   no un banco: **no confundir las dos cosas al redactar**; el eje se cubre por proxy de
   densidad + humos verdes) · `hyb_and` **no ejecutada con causa** (no medible
   contra este banco sin romper la comparabilidad, D-90.4) · **CR-02 a Nivel A no
-  cerrado** (un estrato, IC solapados) · tracker **no medido en obra real con
-  multitud** (L4) · FAR/hora **limitación declarada**, no métrica (D-90.1). *Quedaron
+  cerrado** (un estrato, IC solapados) · ~~tracker **no medido en obra real con
+  multitud** (L4)~~ · FAR/hora **limitación declarada**, no métrica (D-90.1). *Quedaron
   obsoletos en esta lista: "tracker sin productor de `track_id`" (G1 es capacidad
   operativa config-driven, verificada en DBE 34/34 y en vivo, doc 91), "D1 sin correr"
   (corrió: veto de precisión, doc 85) y "pasada humana CVAT pendiente" (hecha para el
-  rodaje).* El registro honesto se redacta desde `operacion/98` §6 y los índices de
-  `results/`, no desde el doc 91 §7, que es anterior al tramo experimental.
+  rodaje).*
+  ✎ **2026-08-15 — otros TRES ítems de esta lista quedaron obsoletos o reencuadrados; no
+  redactar desde la versión vieja:**
+  **(a) La distribución MQTT SÍ está implementada y medida.** La lista es del 08-05, y
+  **ADR-016 (08-10) reabrió la distribución**: el módulo está funcionalmente implementado,
+  con broker MQTT real verificado y **cifra citable — `t_alert-notification` p95 64,534 ms
+  (n = 460)** (`operacion/118`, `results/realtime/t_alert_notification/`). Escribir "no
+  implementada" sería **falso**. Lo que sí sigue excluido es E-06 (canales adicionales,
+  dashboard dedicado).
+  **(b) El tracker en obra real con multitud dejó de ser un hueco descriptivo.** La
+  limitación vigente es **L6**, y su parte descriptiva **quedó levantada** por el estrato B
+  (F-103.2): `v06_c01` tiene **127 personas en el GT** y el tracker produjo **182
+  identidades con FP** — *es un dato, no una carencia*, y es el mecanismo que explica la
+  precision 0,111 de `subject` en ese estrato. Sigue en pie que no hay métricas MOT (E-10)
+  y que el `track_id` es post-hoc. Citar **L6** de `results/index.md`, no "(L4)".
+  **(c) La campaña EBE por el bus pasó de "no ejecutada" a DECLARADA CON CAUSA**
+  (F-121.1, `operacion/121` §2.2): se evaluó y **no daría resultado nuevo** — determinismo
+  DBE (F-109.1) + paridad byte-idéntica bus↔JSONL (doc 37 §3) ⇒ resultado idéntico por
+  construcción. Redactarla como decisión registrada, no como deuda.
+  El registro honesto se redacta desde `operacion/98` §6, **`operacion/121`** y los índices
+  de `results/`, no desde el doc 91 §7, que es anterior al tramo experimental.
 - **Estados de aplicabilidad:** cuando una métrica no aplica, el informe usa el
   lenguaje del ADR-006/013 ("se declara `not_applicable/non_temporal_source`"), no
   frases vagas ("no se pudo medir").
