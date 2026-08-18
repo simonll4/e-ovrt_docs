@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 1
 
-> Generado el 2026-08-17. Etapa 1: secciones 15 y 16, y Anexo A.
+> Generado el 2026-08-18. Etapa 1: secciones 15 y 16, y Anexo A.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -18,15 +18,21 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    precision y la hibrida por disyuncion fue ejecutada y refutada).
 4. Referencia temporal del banco: anotacion **humana** y congelada; se reporta como
    resultado, no como verificacion preliminar.
-5. Rama de ajuste fino: todas las decisiones humanas estan firmadas, la procedencia del
-   dataset esta cerrada, y la **linea base zero-shot corrio una vez y esta congelada**.
-   La corrida de ajuste fue **autorizada y enviada al cluster** (encolada, sin resultado).
+5. Rama de ajuste fino, **brazo T1: CERRADO con veredicto NO-GO** (2026-08-17). Los
+   margenes se firmaron **antes** de la linea base, la corrida se ejecuto una vez y se
+   evaluo una vez, y **el checkpoint ajustado no se adopta como modelo de servicio**.
+   Tiene cifra medida y se escribe como **hallazgo, no como fracaso**: el ajuste rescata
+   `bare_head` del cero absoluto (AP50 0,0000 -> 0,0455) pero **no alcanza el umbral**
+   (faltaron 0,0045) y **rompe la retencion de `person`** (-11,62 %, tope 10 %). Va en
+   tabla propia, por estrato, nunca mezclada con el nucleo zero-shot.
 
 **ABIERTO — no se afirma; se marca:**
 
-1. **Resultado del modelo ajustado**: no existe. No hay ninguna cifra del checkpoint
-   ajustado y no la habra hasta que la corrida termine y se evalue. La subseccion queda
-   reservada con marcador.
+1. **Resultado del brazo T2**: no existe. T2 se reabrio como tier **exploratorio** por
+   enmienda posterior al NO-GO (D-FT-14) y esta **enviado y en cola, sin empezar**; sus
+   margenes ya estan firmados por adelantado (D-FT-15). No hay ninguna cifra de ese
+   checkpoint y no la habra hasta que corra y se evalue: esa subseccion queda reservada
+   con marcador. **T1 ya no es un hueco**: tiene resultado y se afirma (ver CERRADO 5).
 2. **Cinco figuras sin producir** (vista de procesos, maquina de estados del motor,
    calidad frente a densidad, cuadro con alerta superpuesta y frontera de juzgabilidad).
    Se mencionan en el texto con marcador; no se describen como si existieran.
@@ -75,7 +81,9 @@ es honesto; un capitulo que rellena huecos es indefendible.
   agregado**; retencion a proteger person 0,7843 / helmet 0,6286 / vest 0,2642. Estas
   cifras son **de la rama comparativa**: van SIEMPRE en tablas propias, por estrato, y
   NO se promueven a `results/` hasta cerrar la jornada; **no hay cifra del checkpoint
-  ajustado** (no existe todavia). F-120.1: las latencias de ese run NO se citan (cambio
+  ajustado** (no existe todavia) ✎ *superado el 2026-08-17: el checkpoint T1 SI tiene
+  cifra — ver la enmienda al pie de esta vineta; el que sigue sin cifra es T2*.
+  F-120.1: las latencias de ese run NO se citan (cambio
   de energia en curso); el gate de latencia se mide pareado aparte.
   **✎ 2026-08-15 (noche) — T1 full ENVIADO: T-FT-043 esta CERRADA.** La autorizacion se
   emitio y verifico en el cluster con sus 7 gates, el ensayo `--test-only` paso, y el
@@ -89,10 +97,53 @@ es honesto; un capitulo que rellena huecos es indefendible.
   estimado ni con una redaccion que sugiera que la comparacion ya se hizo.
   La sonda de clase nueva (`machinery`) quedo **derogada para T1 y reasignada a T2/T3**
   por D-FT-13; en T2/T3, de vocabulario abierto, sigue siendo exigible.
+  **✎ 2026-08-17 — la jornada T1 CERRO: veredicto NO-GO.** El job `1167640` corrio el
+  16/08, el checkpoint se promovio por hash y se evaluo **una sola vez** contra
+  `bench_v3`: `bare_head` AP50 **0,0000 -> 0,0455** (gate A pedia >= 0,05: **faltaron
+  0,0045**) y la retencion de `person` cayo **0,7843 -> 0,6932 (-11,62 %, tope 10 %)**.
+  **El checkpoint no se adopta.** Los margenes (D-FT-12) estaban firmados desde el 15/08,
+  antes de la baseline, y **no se renegociaron**: eso es lo que hace al resultado
+  defendible. La cifra **existe y es citable**, en tabla propia por estrato; el gate de
+  latencia **no se midio** y se dice explicito (F-123.1), no se omite.
+  **La misma jornada, DESPUES del veredicto, el usuario firmo la enmienda D-FT-14**: T2
+  se reabre como tier **exploratorio** —para separar si el fallo fue de capacidad o
+  estructural—, no como reintento de T1, y **T3 queda cerrado como trabajo futuro con
+  causa tecnica** (sin baseline MM-GDINO geometricamente sana el delta es
+  ininterpretable), **jamas por "falta de tiempo"**. **D-FT-15** fijo los margenes de T2
+  **antes de todo resultado T2**, con la retencion de vocabulario abierto sobre COCO
+  val2017 congelada en mAP50 **0,434676 => umbral NO-GO 0,391208**, y con la expectativa
+  **pre-registrada** de que T2 tambien de NO-GO. **T2 esta enviado y en cola, sin
+  empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
+  orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
+  transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
 - **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
   HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
   distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
   (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
+  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
+  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
+  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
+  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
+  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
+  **Al redactar, la descripcion vigente es esta y no otra:**
+  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
+  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
+  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
+  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
+  camino offline (igual que el control-plane).
+- **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
+  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
+  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
+  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
+  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
+  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
+  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
+  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
+  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
+  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
@@ -114,7 +165,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 - **Etapa activa:** 1 - Etapa 1: secciones 15 y 16, y Anexo A.
 - Este archivo contiene el texto vigente que se modifica y sus insumos de ajuste.
 - No se trasladan resultados propios hacia secciones cronologicamente anteriores.
-- Al cambiar de etapa, este archivo se reemplaza; el contexto base se conserva.
+- Nombre propio de esta etapa (01-etapa-1-activa.md): regenerarla no pisa el paquete de ninguna otra etapa.
 
 ---
 

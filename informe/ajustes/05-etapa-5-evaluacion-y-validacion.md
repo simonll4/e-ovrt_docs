@@ -24,6 +24,18 @@
 > del §17.5 sigue cerrado y congelado. **Mientras la jornada esté en curso, esa subsección
 > se deja reservada con su estado declarado** — no se escribe como exclusión, no se escribe
 > como hecha, y no se le pone un número que no salga de un artefacto.
+>
+> ✎ **2026-08-17 — `AJ-5.13` está DESBLOQUEADA en su brazo T1: la jornada cerró con
+> veredicto NO-GO** (constancia `operacion/123`). El párrafo de arriba queda como cuerpo
+> histórico: **ya no rige para T1**, que tiene cifra medida y se escribe como hallazgo
+> —`bare_head` AP50 0,0000 → 0,0455, faltaron 0,0045 para el umbral; retención de
+> `person` −11,62 % contra un tope de 10 %; **el checkpoint no se adopta**—, con los
+> márgenes firmados **antes** de la línea base y **sin renegociar**. **Sigue reservado
+> el brazo T2**: reabierto como tier *exploratorio* por la enmienda D-FT-14 —posterior
+> al veredicto—, con márgenes propios firmados por adelantado (D-FT-15) y **enviado a la
+> cola sin empezar**, así que no tiene ni una cifra: ahí sí va `[[PENDIENTE: …]]`. Al
+> redactar se cuenta la secuencia completa y en orden (veredicto → enmienda → márgenes
+> pre-firmados): suavizarla destruye lo único que la hace defendible.
 
 > ⚠️ **Los pocos números que aparecen en esta página son anclas de navegación, no fuente
 > de cita.** Toda cifra que entre al informe se transcribe **desde el artefacto** que
@@ -58,7 +70,7 @@
 | **AJ-5.10** | PRECISA | 🟡 | El **eje de densidad** y sus dos trampas de instrumento. |
 | **AJ-5.11** | PRECISA | 🟡 | El **cierre del círculo con el §15**: la regla de tres tiempos. |
 | **AJ-5.12** | EVIDENCIA | 🟡 | La **estrategia híbrida**: una rama refutada y una no ejecutable. |
-| **AJ-5.13** | EVIDENCIA | 🟠 | ⏳ **PENDIENTE — la rama comparativa de fine-tuning (E-04)**, jornada **en curso**. La sección se reserva y se escribe con el estado a la entrega. ✎ 08-12 |
+| **AJ-5.13** | EVIDENCIA | 🟠 | ✎ **08-17 — DESBLOQUEADA en T1: la jornada cerró NO-GO** (`operacion/123`). T1 se escribe como hallazgo con cifra (`bare_head` 0,0000 → 0,0455, faltaron 0,0045; `person` −11,62 % > tope 10 %; checkpoint no adoptado; márgenes pre-firmados, sin renegociar). **T2 sigue reservado**: tier exploratorio por enmienda D-FT-14 posterior al veredicto, márgenes D-FT-15 firmados por adelantado, **enviado y en cola, sin cifra** → `[[PENDIENTE: …]]`. *(cuerpo previo ⏳ 08-12: histórico)* |
 
 El **anexo de reproducibilidad** (§19), del que el §17.5 depende para ser auditable, es
 `AJ-6.02` en la Etapa 6.

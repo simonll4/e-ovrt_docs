@@ -47,7 +47,7 @@ artefactos verificables, sin traicionar la lógica del diseño original.
 | Repositorio de eventos (§17.3.12) | **JSONL append-only por corrida** | `runs/<run_id>/*.jsonl` | cada plano |
 | Bus interno de eventos (§17.3.8.4) | **ZeroMQ XPUB/SUB + msgpack** | `bus.envelope.v1` | `media-plane/transport/bus.py:19` |
 | Reporte experimental (§17.3.13.4) | Reporte consolidado | `report.json` / `report.md` | `experimental-setup/runs/<experiment_id>/report/` |
-| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **Implementada y verificada** (`operacion/114`): DBE/EBE, política, ledger, MQTT QoS 1 y reporte; pendientes webconsole, orquestación y commits |
+| Alerta distribuida (§17.3.10) | `NotificationEnvelope` / `DeliveryRecord` | `control.notification.v1` / `control.delivery.v1` | **Implementada y verificada** (`operacion/114`): DBE/EBE, política, ledger, MQTT QoS 1 y reporte; ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados 2026-08-13 (doc 119); ✎ 2026-08-18: además servicio HTTP propio `:8082` (ADR-019, doc 124) |
 
 > **Frase para el capítulo:** *"Los contratos definidos en la Etapa 3 dejaron de ser denominaciones
 > preliminares para el núcleo validable: se materializaron como modelos de datos versionados, con
@@ -187,6 +187,15 @@ LIFECYCLE_TOPIC_PREFIX   = "run.lifecycle.v1."
 
 El capítulo no tiene una sola interfaz. El sistema tiene dos servicios HTTP config-driven. Esta es la
 tabla mínima que responde al "una API: `POST /events/detection`" del tutor.
+
+✎ **2026-08-18 (ADR-019 + ADR-020): son TRES servicios HTTP config-driven** — el módulo
+de distribución sumó el suyo (`eovrt-distribute serve`, `:8082`, espejo del control-plane:
+`POST /api/runs` 201/409/422, `GET /api/runs/{id}`, `POST /api/runs/{id}/cancel`,
+`DELETE`, `/healthz`/`readyz`/`config`; doc `operacion/124`). **ADR-020 derogó a ADR-018**:
+el runner del BFF le habla por HTTP **por default**, igual que a los otros dos planos, y
+el subproceso quedó como fallback operativo fuera del relato arquitectónico. Al citar "el
+sistema es ejecutable por HTTP", son **tres** servicios y **un** patrón de acople HTTP
+para los tres.
 
 ### 3.1 Plano de medios — `:8080` (FastAPI; `service/app.py:64`)
 

@@ -1,5 +1,17 @@
 # 19 — Cierre de la arquitectura: el ciclo de vida de la alerta y su distribución
 
+> ✎ **2026-08-18 — banner de vigencia.** Este documento fotografía el estado al
+> **2026-08-10**, cuando el cuarto eslabón estaba *diseñado y no construido*. Eso quedó
+> superado dos veces: el módulo `e-ovrt_alert-distribution` está **implementado y
+> verificado** desde el 2026-08-12/14 (docs `operacion/114` — relevamiento — y `118` —
+> campaña de distribución, p95 64,534 ms n=460), y desde el 2026-08-17/18 **también
+> expone servicio HTTP propio** (`eovrt-distribute serve`, `:8082`, ADR-019, doc
+> `operacion/124`), quedando como unidad desplegable. ✎ Más tarde ese mismo día **ADR-020** derogó a
+> ADR-018: **HTTP es el acople** (default del runner) y el subproceso bajó a fallback
+> operativo, así que los patrones de acople de la plataforma son **dos**, no tres. **El cierre conceptual de este documento
+> sigue siendo válido** — el ciclo de vida y los contratos que describe son los que el
+> código implementa; lo que cambió es que ya no son promesa sino código verificado.
+
 - **Fecha de relevamiento:** 2026-08-10
 - **Qué cierra:** la cadena de la plataforma termina en una alerta confirmada. Este
   documento responde **dónde se gestiona el ciclo de vida completo de esa alerta y hacia

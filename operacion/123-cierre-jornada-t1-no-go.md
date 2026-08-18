@@ -185,6 +185,18 @@ brazo. Los pesos, runs y payloads siguen git-ignored: se citan por hash, no se v
    pre-registrada, no su cierre; los go/no-go siguen gobernados por `contingencia/20` §6.
    El dato nuevo para esa decisión: el mecanismo funciona (`bare_head` deja de ser cero) pero
    con esta capacidad —linear probing, 3.096 parámetros— no alcanza y cuesta `person`.
+   > ✎ **2026-08-17 (misma jornada): DECIDIDO — NO se ejercen.** La regla de entrada de la
+   > escalera es mecánica ("T2 solo si T1 mostró ganancia exigible") y T1 no la mostró por
+   > ninguna de las dos vías. **La rama se cierra con evidencia; T2/T3 = trabajo futuro con
+   > causa técnica, no temporal.** Constancia y fundamento completo: adenda en
+   > [`contingencia/20` §6](../contingencia/20-investigacion-finetuning-condicionada-e04.md).
+   >
+   > ✎ **2026-08-17 (más tarde) — ENMIENDA D-FT-14, a pedido del usuario tras revisión
+   > crítica: T2 se REABRE como tier exploratorio; T3 confirmado cerrado.** El cierre
+   > mecánico de arriba queda registrado tal como ocurrió (la escalera funcionó); la
+   > reapertura es una decisión nueva por la vía de D-FT-03, con pre-registración propia
+   > (D-FT-15) que debe firmarse **antes** del RUN. Este doc no cambia: el NO-GO de T1 es y
+   > seguirá siendo el resultado confirmatorio. La jornada T2 tendrá su propia constancia.
 2. **Integrar al informe** como rama comparativa: cierra `AJ-5.13` y el `[ACTUALIZAR A LA ENTREGA]`
    del borrador de §17.4 que el [doc 122](122-dia-1-pase-de-redaccion.md) §6 dejó esperando este
    resultado.

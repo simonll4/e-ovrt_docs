@@ -128,3 +128,133 @@ Orden: contratos + ledger + canal en `dry_run` con `DirectSource` de test →
 - **Doc 06:** todo lo excluido (canales extra, backoff, dashboard, reproceso de
   dead-letter) queda diseñado ahí como anexo (E-06) — la incorporación futura no
   altera la semántica de la alerta (DA-13).
+
+---
+
+## 9. Servicio HTTP (ADR-019, 2026-08-17)
+
+Extensión **aditiva** (regla 2 del `specs/README.md`): el módulo suma una interfaz de red
+para ser una unidad desplegable propia. **El CLI de §8 no cambia** y sigue siendo el
+camino offline; el subproceso de ADR-018 sigue disponible. Análisis y alternativas están
+en [ADR-019](../decisiones/adr-019-servicio-http-distribucion.md); acá van contratos,
+módulos y criterios de terminado.
+
+### 9.1 Módulos
+
+Espejo del control-plane, para que no haya un tercer estilo de servicio que aprender:
+
+```
+src/eovrt_distribution/
+├── service/
+│   ├── app.py           # create_app(): factory FastAPI + lifespan
+│   ├── settings.py      # ServiceSettings.from_env() (runs_dir, config por defecto)
+│   ├── run_request.py   # DistributionRunRequest (pydantic, extra="forbid")
+│   ├── run_ids.py       # validación de run_id (evita traversal en la ruta)
+│   ├── run_manager.py   # una corrida activa; hilo + estado + summary
+│   └── routers/{health,runs,config}.py
+└── cli.py               # + subcomando `serve` (replay/live intactos)
+```
+
+### 9.2 Contrato de corrida
+
+`POST /api/runs` → **201** `{"distribution_run_id": "..."}`. Cuerpo
+`DistributionRunRequest` con `extra="forbid"` (campo desconocido → **422**, nunca se
+ignora en silencio):
+
+| Campo | Modo | Notas |
+|---|---|---|
+| `mode` | ambos | `"replay"` \| `"live"` |
+| `out_dir` | ambos | destino de los artefactos de §6 |
+| `config_path` \| `config` | ambos | **exactamente uno** (ADR-009: por referencia o por payload) |
+| `alerts_path` | replay | el `alerts.jsonl` a releer |
+| `endpoint` | live | endpoint del bus de alertas |
+| `control_run_id` | live | opcional; filtra la corrida del control-plane |
+| `backfill` | live | opcional; alertas previas a la suscripción |
+| `idle_timeout_ms` | live | opcional; > 0 y finito |
+
+Los campos son los mismos argumentos del CLI: el servicio no inventa semántica, solo la
+expone por red.
+
+**Asíncrono.** Una corrida live dura minutos; `POST` no la espera. El estado se lee por
+`GET /api/runs/{id}`, que sirve el `distribution_summary.json` que `Distributor.run()`
+**ya escribe** en `out_dir` (§6) — el servicio no duplica el artefacto, lo publica.
+
+### 9.3 Superficie
+
+| Endpoint | Semántica |
+|---|---|
+| `GET /healthz` · `GET /readyz` | vivo / listo |
+| `POST /api/runs` | 201 + id · **409** si ya hay una activa (con `active_run_id`) · 422 config inválida |
+| `GET /api/runs` · `GET /api/runs/current` | listado · corrida activa (404 si no hay) |
+| `GET /api/runs/{id}` | estado + summary · 404 si desconocida |
+| `DELETE /api/runs/{id}` | **olvida la corrida del registro** · 204 · **409** si está activa (cancelar es `/cancel`, no borrar) |
+| `POST /api/runs/{id}/cancel` | parada cooperativa (§9.4) |
+| `GET /api/config` | config efectiva |
+
+### 9.4 Ciclo de vida y la trampa de ZeroMQ
+
+Una corrida activa por vez. Termina sola cuando la fuente se agota: en `replay` al fin del
+archivo, en `live` por `idle_timeout_ms` o por el cierre de la corrida del control-plane.
+
+La cancelación y el apagado usan **`ZmqSource.request_stop()`**, que ya implementa la
+parada cooperativa (flag + `RCVTIMEO`, con el `sock.close(0)` dentro del mismo hilo del
+loop). **Ningún socket se cierra desde un hilo distinto del que lo creó**: hacerlo aborta
+el proceso con `SIGABRT`. El `lifespan` cierra con `shutdown()` + `join_active(timeout)`,
+igual que el control-plane.
+
+> **Desvío deliberado del espejo:** el control-plane **no** expone cancelación —su corrida
+> live no se puede cancelar, y eso está registrado como trampa operativa—. El distribuidor
+> sí la expone porque `request_stop()` ya existe y hace la parada segura: heredar la
+> limitación sería copiar el molde en lo que tiene de defecto. Es la única diferencia
+> intencional de superficie respecto del control-plane.
+
+> **Qué borra `DELETE`, y qué no** *(✎ corrección 2026-08-17, hallazgo de revisión)*: borra
+> **el registro en memoria** de la corrida, nada más. A diferencia del control-plane —cuyo
+> `DELETE` limpia `runs_dir/<run_id>`— acá el servicio **no es dueño de ningún artefacto**:
+> los escribe en `out_dir`, una ruta que elige el cliente (§9.2). Borrar `out_dir` desde un
+> endpoint HTTP sería **borrado arbitrario de directorios por pedido del cliente**, así que
+> no se hace: el que crea el directorio es quien lo limpia. Sin esta precisión el endpoint
+> queda decorativo —devuelve 204 sin borrar nada— que es exactamente como se implementó la
+> primera vez. Su valor real es acotar el crecimiento del registro en un servicio de vida
+> larga.
+
+### 9.5 Restricción declarada
+
+`out_dir` se comparte entre el BFF y el servicio **por sistema de archivos**. Hoy es
+gratis (mismo host); al containerizar es un volumen compartido. Misma condición que los
+`runs_dir` de los otros dos planos — no es deuda nueva, pero es lo primero a resolver en
+el paso de Docker.
+
+### 9.6 Cliente: el runner del BFF
+
+Gana un cliente HTTP con el mismo patrón de polling que ya usa con media y control.
+**El default sigue siendo el subproceso (spec 44 §B4, ADR-018)**: el camino HTTP se
+activa sólo con `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=http`. *(✎ 2026-08-18 — en la
+implementación quedó como loop propio y no como reuso de `_poll_until_terminal`: el
+vocabulario terminal de ese helper no incluye `cancelled`, el estado propio de este
+servicio.)*
+
+### 9.7 Criterios de terminado
+
+- [ ] `POST /api/runs` en `replay` sobre un `alerts.jsonl` real: 201, la corrida llega a
+      estado terminal y `GET /api/runs/{id}` devuelve el mismo summary que imprime el CLI.
+- [ ] Segunda corrida con una activa → **409** con `active_run_id`.
+- [ ] Campo desconocido en el body → **422**; `config_path` y `config` juntos (o ninguno)
+      → **422**.
+- [ ] `GET /api/runs/{id}` con id inexistente → **404**; id con `../` → rechazado. *(El
+      test debe usar una forma que **llegue al handler**, p. ej. `%2e%2e`: con `%2f` el
+      router de Starlette responde 404 antes, y el test pasaría igual sin la validación.)*
+- [ ] `DELETE` de una corrida terminada → **204**, y el `GET` siguiente → **404**; `DELETE`
+      de una activa → **409**. `out_dir` **no se toca** en ninguno de los dos casos.
+- [ ] Corrida `live` cancelada por `POST /cancel`: termina con
+      `termination_reason = "requested_stop"`, sin `SIGABRT` y sin proceso huérfano.
+- [ ] Apagado del servicio con una corrida live activa: `lifespan` la cierra y cosecha.
+- [ ] **La suite del CLI pasa sin tocar** — es la prueba de que el cambio es aditivo.
+- [ ] El runner del BFF dispara por HTTP y obtiene el mismo `distribution_summary.json`
+      que obtenía por subproceso, sobre la misma corrida.
+
+### 9.8 Fuera de alcance (diferido con causa, ADR-019 §4)
+
+Dockerfile del distribuidor, su servicio en `infra/platform/docker-compose.yml` y la
+containerización del control-plane. **El despliegue no es un resultado del informe**: es
+evidencia de lo implementado y de portabilidad, y se reporta con su estado a la entrega.

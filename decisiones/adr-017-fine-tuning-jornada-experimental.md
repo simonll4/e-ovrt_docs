@@ -12,8 +12,14 @@
   ([`operacion/123`](../operacion/123-cierre-jornada-t1-no-go.md)). Es exactamente el
   desenlace que este ADR contemplaba —"un resultado negativo es resultado, no fracaso"— y
   **con márgenes pre-registrados**, firmados antes de existir la baseline y el checkpoint.
-  La escalera T2/T3 sigue abierta y gobernada por `contingencia/20` §6; la prohibición de
-  la causa temporal (criterio de invalidación 1) **sigue plenamente vigente al redactar**.
+  ✎ **Misma fecha, la escalera se aplicó: T2/T3 NO habilitados** — T1 no mostró ganancia
+  exigible, la rama se cierra con evidencia y T2/T3 quedan como **trabajo futuro con causa
+  técnica** (adenda en `contingencia/20` §6). ✎ **Más tarde ese mismo día, ENMIENDA D-FT-14**
+  (doc 117 §3): **T2 se reabre como tier exploratorio** con pre-registración propia (D-FT-15,
+  a firmar antes del RUN) — el NO-GO de T1 permanece intacto como resultado confirmatorio y
+  T2 será el último brazo contra `bench_v3`; **T3 sigue cerrado** (la causa técnica no fue
+  enmendada). La prohibición de la causa temporal (criterio de invalidación 1) **sigue
+  plenamente vigente al redactar**.
 - **Decisión que atiende:** el encuadre del fine-tuning en el informe y su ejercicio.
   La documentación de redacción venía declarando E-04 como exclusión "por presupuesto
   de tiempo" (texto de julio), luego enmendado a "por secuenciación" (ADR-015). El

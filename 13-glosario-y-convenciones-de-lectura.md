@@ -86,6 +86,11 @@ mejor": es que una plataforma con condiciones en lenguaje permite **medir qué s
 sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 (argumentos A1–A5, doc 09). La plataforma son dos servicios HTTP config-driven
 (media-plane :8080, control-plane :8081) orquestados por un runner y una consola web.
+✎ 2026-08-18 (ADR-019 + **ADR-020**): **tres** servicios HTTP config-driven — el módulo de
+distribución de alertas también expone el suyo (`:8082`) y **el runner le habla por HTTP
+por default**. ADR-020 derogó a ADR-018: el subproceso quedó como fallback operativo y
+dejó de ser patrón de acople ⇒ la plataforma tiene **dos** patrones (HTTP config-driven en
+los tres módulos, y bus ZeroMQ), no tres.
 
 ## 3. Siglas y términos del dominio
 

@@ -260,6 +260,15 @@ limitaciones y estado a la entrega, con causa técnica.
 > núcleo zero-shot, no van a `results/` y **no se comparan con la tabla del doc 64**
 > (protocolo distinto). El gate de latencia **no se midió** y eso se dice explícito (F-123.1),
 > no se omite.
+>
+> **T2 (si su jornada corre antes del cierre del informe) se redacta con esta secuencia
+> exacta, sin suavizarla:** tras el NO-GO de T1 la escalera cerró la rama; una **enmienda
+> explícita (D-FT-14, 2026-08-17)** reabrió T2 como tier **exploratorio** para descartar que
+> el fallo fuera artefacto de capacidad, **con márgenes propios firmados antes de cualquier
+> resultado T2** (D-FT-15) y expectativa pre-registrada (NO-GO probable). Nunca presentarlo
+> como reintento de T1 ni omitir que la enmienda fue posterior al veredicto — la transparencia
+> de la secuencia ES el argumento. **T3 no corre**: trabajo futuro con causa técnica (sin
+> baseline MM-GDINO geométricamente sana), jamás "falta de tiempo".
 
 **7. Describir la plataforma con DOS patrones de acople.** Son **tres**, y el tercero está
 registrado en **[ADR-018](decisiones/adr-018-acople-bff-subproceso-distribucion.md)** desde
@@ -272,6 +281,39 @@ Dos precisiones que se pierden fácil: el *dato* de distribución igual viaja po
 transporte; y el requisito `EOVRT_DISTRIBUTION_EXECUTABLE` de la consola dockerizada es
 parte de la decisión, no una nota de operación. Documentos anteriores al 08-15 describen
 sólo dos acoples: están viejos.
+
+> ⛔ **✎ 2026-08-18 — TODA LA TRAMPA 7 DE ARRIBA QUEDÓ SUPERADA. ADR-020 derogó a ADR-018
+> y los patrones de acople volvieron a ser DOS.** El párrafo original (y su primera
+> corrección del mismo día, que hablaba de tres) se conservan como cuerpo histórico, pero
+> **no describen el sistema entregado**.
+>
+> **Lo vigente, y lo único que va al informe:**
+> **(a) HTTP config-driven en los TRES módulos** — medios `:8080`, control `:8081` y
+> **distribución `:8082`**; la webconsole y el runner son clientes de los tres y **ninguno
+> consume el bus**. **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones
+> `:5557` (medios→control) y alertas `:5558` (control→distribución).
+>
+> **Qué NO escribir:** "BFF-subproceso", "tres patrones de acople", "el repo de
+> distribución es una CLI y no un servicio". El camino por subproceso **sigue existiendo
+> en el código** como **fallback operativo** detrás de una variable de entorno, pero eso
+> es un detalle de operación, **no arquitectura**: no se cuenta como patrón ni se
+> describe en el capítulo. Y ojo con el matiz simétrico: el distribuidor **conserva su
+> CLI** para el camino offline, igual que el control-plane — decir "es solo un servicio"
+> tampoco es exacto.
+>
+> **La trampa, reformulada:** el número de patrones cambió tres veces en cuatro días
+> (dos → tres con ADR-018 → tres con ADR-019 → **dos** con ADR-020). Cualquier documento
+> que no lleve enmienda del 2026-08-18 está describiendo un estado intermedio.
+>
+> **Sobre la containerización, que es una pregunta aparte y tiene respuesta propia
+> (✎ 2026-08-18):** está **diferida con causa** y **sí se puede mencionar en el informe**.
+> Se va a hacer **después** de cerrar la redacción; su razón de ser es la
+> **reproducibilidad** (que un tercero levante la plataforma en otra máquina), no cerrar
+> el capítulo; y su **documentación operativa vive en los repositorios**, no en la tesis.
+> Escribila como **compromiso declarado con su fundamento**, en el cierre (§17.6/§18) y en
+> el anexo de reproducibilidad (§19). **Nunca en presente, nunca como capacidad existente,
+> nunca como instructivo de despliegue.** Regla corta: *describir el compromiso es
+> correcto; describir un despliegue que no corrió es falso.*
 
 > ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
 > bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
@@ -314,7 +356,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras. Estado: funcional; pendientes webconsole, orquestación y commits |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13; desde el 2026-08-18 corre además como servicio HTTP (`:8082`, subproceso sigue default) |
 | El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |

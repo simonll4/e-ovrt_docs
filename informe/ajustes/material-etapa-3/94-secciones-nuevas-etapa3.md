@@ -87,11 +87,18 @@ implementación. Al transcribir, ajustar según el estado real a la entrega — 
 > | Repositorio de eventos | Archivos de sólo adición por corrida | — | Ambos planos |
 > | Referencia temporal de evaluación | Anotación de episodios por clip | `clip_gt.v2` | Soporte experimental |
 > | Reporte experimental | Reporte consolidado de corrida | — | Soporte experimental |
-> | Alerta distribuida | *(preliminar — pendiente de materialización)* | `control.notification.v1` | Módulo de distribución |
+> | Alerta distribuida | Notificación entregada por MQTT con confirmación y registro idempotente | `control.notification.v1` | Módulo de distribución |
 >
 > *Nota.* Los contratos con versión de esquema declarada están implementados y verificados en corridas
-> registradas. El contrato de alerta distribuida conserva carácter preliminar; su estado de implementación
-> al momento de la entrega se declara en la sección correspondiente.
+> registradas.
+
+✎ **2026-08-18:** la fila "Alerta distribuida" decía *"(preliminar — pendiente de
+materialización)"* y la nota le reservaba "carácter preliminar" — quedó superado (la
+cabecera de este doc ya lo anticipaba: ADR-016 la reabrió como trabajo comprometido, y
+se materializó). El contrato `control.notification.v1` está **implementado y verificado**
+(docs `operacion/114`/`118`; entrega MQTT QoS 1 con ledger de idempotencia), y el módulo
+se dispara por HTTP desde el orquestador, igual que los otros dos servicios (ADR-019 +
+ADR-020, doc 124); el subproceso quedó como fallback operativo, fuera del relato.
 
 ## 1.3 El contrato central, mostrado
 
@@ -419,6 +426,11 @@ específica de mensajería"); el resto reemplaza **§17.3.8.4**.
 - Servicio de control **→** Repositorio.
 - Servicio de control **→ canal de alertas →** Módulo de distribución. La flecha es
   efectiva; anotar que su lanzamiento todavía no forma parte de la orquestación integral.
+  ✎ **2026-08-18: la segunda cláusula quedó superada** — el lanzamiento SÍ forma parte de
+  la orquestación integral desde el 2026-08-13, y desde ADR-019/ADR-020 **el orquestador
+  lo dispara por HTTP** contra su propio servicio (`:8082`), igual que a los otros dos.
+  En la figura, el módulo va con **línea continua** y flecha del orquestador hacia él,
+  idéntica a las de medios y control.
 - Interfaz de inspección **→** ambos servicios. **No hay flecha del bus a la interfaz de inspección**: esa ausencia comunica una frontera de diseño.
 - Repositorio **→** Orquestador (consolidación y reporte).
 
@@ -429,6 +441,15 @@ específica de mensajería"); el resto reemplaza **§17.3.8.4**.
 > configuración, y pueden disponerse en un mismo host o en hosts distintos sin modificar su lógica. El
 > módulo de distribución se representa en línea punteada por corresponder a una capacidad especificada y no
 > implementada dentro del alcance del prototipo.
+
+✎ **2026-08-18 — REEMPLAZO de la nota al pie (la de arriba quedó falsa; usar esta):**
+
+> *Nota.* La figura representa la disposición efectiva de procesos del prototipo, complementaria de la
+> vista lógica de la Figura 4.1. Los tres módulos de la cadena se ejecutan como servicios independientes
+> gobernados por configuración, y pueden disponerse en un mismo host o en hosts distintos sin modificar
+> su lógica. El módulo de distribución admite dos modos de ejecución equivalentes en semántica: como
+> proceso lanzado y supervisado por el orquestador experimental, o como servicio propio con interfaz
+> de red; la selección es una decisión de despliegue, no de diseño.
 
 ---
 

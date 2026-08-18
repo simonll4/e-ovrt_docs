@@ -1,5 +1,21 @@
 # ADR-018 — El tercer módulo se acopla por **subproceso local**, no por servicio HTTP
 
+> # ⛔ DEROGADA el 2026-08-18 por [ADR-020](adr-020-http-como-unico-acople-de-distribucion.md)
+>
+> **El "BFF-subproceso" dejó de ser un patrón de acople de la plataforma.** Cuando se
+> escribió esta ADR era la única forma posible —el distribuidor era una CLI sin interfaz
+> de red— y por eso fue una decisión correcta para el estado del código de entonces.
+> [ADR-019](adr-019-servicio-http-distribucion.md) le dio servicio HTTP propio y ADR-020
+> invirtió el default: **HTTP es el acople; el subproceso quedó como fallback operativo**
+> detrás de `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`.
+>
+> **Consecuencia para el informe:** la plataforma tiene **DOS** patrones de acople, no
+> tres — HTTP config-driven (en los tres módulos) y bus ZeroMQ. Este documento **no se
+> cita como arquitectura vigente**; se conserva como registro histórico. El código del
+> subproceso **sigue existiendo y probado**: lo que cambió es su estatuto.
+>
+> *(Lo que sigue es el cuerpo original, sin modificar.)*
+
 > **No deroga ninguna ADR previa.** Registra, con fecha posterior a la implementación, un
 > patrón de acople que [ADR-008](adr-008-control-plane-servicio-minimo.md) y
 > [ADR-009](adr-009-config-centralizada-webconsole.md) no contemplan.

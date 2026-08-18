@@ -27,6 +27,13 @@ cross-repo (`../e-ovrt_datasets/...`), así que mover un repo rompe al vecino.
                         │   planos; nunca toca el bus  │
                         └───────┬──────────────┬───────┘
                                 │ HTTP :8080   │ HTTP :8081
+> ✎ **2026-08-18 — la caja "NO CONSTRUIDA" del diagrama quedó superada DOS veces.** El
+> módulo de distribución está **implementado y verificado** desde el 2026-08-12/14
+> (docs `operacion/114`/`118`: MQTT QoS 1, ledger de idempotencia, p95 64,534 ms n=460)
+> y desde el 2026-08-17/18 **también expone servicio HTTP propio** (`:8082`, ADR-019,
+> doc `operacion/124`) — el subproceso del runner sigue siendo el default (ADR-018).
+> El diagrama se conserva como cuerpo histórico por convención del set.
+
                                 ▼              ▼
    ┌────────────┐  imágenes  ┌──────────────┐        ┌───────────────┐  control.alert.v1  ┌──────────────┐
    │ datasets   │  y video   │ media-plane  │ media. │ control-plane │ ─────────────────► │ distribución │
@@ -44,7 +51,7 @@ cross-repo (`../e-ovrt_datasets/...`), así que mover un repo rompe al vecino.
 | 2 | `e-ovrt_datasets` | Los insumos: vocabulario canónico, bancos de imágenes y de video | **`16`** |
 | 3 | `e-ovrt_media-plane` | Percepción OVD, servicio `:8080` | **`17`** |
 | 4 | `e-ovrt_control-plane` | Motor de patrones de riesgo, servicio `:8081` | **`18`** |
-| 5 | `e-ovrt_alert-distribution` | Ciclo de vida y distribución de la alerta — **diseñado, no implementado** | **`19`** |
+| 5 | `e-ovrt_alert-distribution` | Ciclo de vida y distribución de la alerta — ~~diseñado, no implementado~~ ✎ 2026-08-18: **implementado y verificado** (docs 114/118); CLI + subproceso default (ADR-018) **y servicio HTTP `:8082`** (ADR-019, doc 124) | **`19`** |
 
 Y un sexto repo que no es software: **`docs/`**, el set documental. Es un repo git propio,
 **local y sin remoto**, por decisión del proyecto.
@@ -88,6 +95,12 @@ La cadena tiene cuatro cortes, y cada uno es una decisión registrada:
 Las tres primeras están implementadas y medidas. **La cuarta está diseñada y no
 construida** — su domicilio conceptual completo está en `19`, que es lo que cierra la
 arquitectura con independencia de que el código exista.
+
+> ✎ **2026-08-18:** el párrafo de arriba quedó superado — **las cuatro fronteras están
+> implementadas y medidas**. La cuarta (notificación → entrega) se construyó y verificó
+> el 2026-08-12/14 (docs 114/118) y desde ADR-019 el módulo además corre como servicio
+> HTTP (doc 124). El `19` sigue siendo el domicilio conceptual; ahora con código real
+> detrás.
 
 ## 5. El acople duro: el vocabulario canónico
 

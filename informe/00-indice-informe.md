@@ -44,7 +44,7 @@ informe/
     ├── README.md                              uso y cambio de etapa
     ├── INSTRUCCIONES-PROJECT.md              se pega en Project settings
     ├── 00-contexto-base.md                    primer archivo del knowledge
-    └── 01-etapa-activa.md                    segundo archivo; se reemplaza
+    └── 01-etapa-N-activa.md                  segundo archivo; uno por etapa (0-6), no se pisan
 ```
 
 ---

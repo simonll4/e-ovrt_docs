@@ -111,6 +111,19 @@ Sección vacía. Qué tiene que decir:
   el quinto, `e-ovrt_alert-distribution`: hoy un esqueleto sin implementación, ✎ 2026-08-10
   con estatuto de **trabajo comprometido** (ADR-016). Se reporta **con su estado real al
   momento de la entrega**, sea el que sea.
+  ✎ **2026-08-18: ese estado real ya se conoce** — el módulo está **implementado, medido y
+  verificado**, y es un **servicio HTTP** más de la plataforma (`:8082`), igual que los
+  otros dos (docs `operacion/114`/`118`/`124`/`125`). Se escribe en presente.
+- ✎ **2026-08-18 — LA CONTAINERIZACIÓN SÍ VA EN ESTA SECCIÓN, y así se escribe.** Es
+  **trabajo comprometido para después de la entrega del informe**, cuya razón de ser es la
+  **reproducibilidad de la plataforma** (que un tercero pueda levantarla en otra máquina),
+  no cerrar el capítulo. Qué decir: que los tres servicios son config-driven y aptos para
+  empaquetarse; que el empaquetado está **planificado y pendiente**, con su causa
+  —diferido a conciencia, no por falta de tiempo—; y que **su documentación operativa vive
+  en los repositorios** (`infra/`, READMEs), no en el informe, porque la tesis no es un
+  manual de despliegue. **Cómo NO escribirlo:** en presente, ni como capacidad existente,
+  ni con instrucciones de despliegue. La frase que gobierna: *describir el compromiso y su
+  fundamento es correcto; describir un despliegue que no corrió es falso.*
 - **Que `docs/` es un repo git local sin remote**, por decisión del proyecto, y que el
   respaldo es copia a otro disco.
 - **Dónde vive cada evidencia**: `results/` (los índices y sus artefactos),
@@ -162,7 +175,8 @@ medido**, y eso es mucho más sólido que una lista de deseos.
 | 2 | Capacidades o promesas nuevas | ADR-015 cerró el alcance hasta la defensa. |
 | 3 | "Adaptamos los modelos" a secas | La adaptación del núcleo es **operativa**, sin tocar pesos. La rama de fine-tuning es una jornada aparte (ADR-017): si tiene resultados se rotulan como rama comparativa, nunca se funden con el núcleo. |
 | 4 | El lote de internet como material CC | Es *Standard YouTube License*. |
-| 5 | El módulo de distribución como funcionando | Mientras no haya código verificado: es **trabajo comprometido** (ADR-016) que se reporta con su estado a la entrega. |
+| 5 | ~~El módulo de distribución como funcionando~~ ⛔ **✎ 2026-08-18: esta prohibición quedó INVERTIDA** | Ya hay código verificado y medido: el módulo **funciona, está integrado y es un servicio HTTP** (`:8082`). **Se escribe en presente.** Lo que sí sigue prohibido: fundir sus cifras con las del núcleo, y presentar la **containerización** como hecha. |
+| 7 | ✎ **La containerización en presente, o como instructivo** | Es trabajo comprometido **posterior** a la entrega del informe, para **reproducibilidad**. Se **puede y conviene** mencionarla como compromiso declarado con su causa (§17.6/§18/§19), pero su documentación operativa vive en los repositorios, no acá: el informe no es un manual de despliegue. |
 | 6 | "L4 se levantó" | Se **precisó** (D-113.1). |
 
 ## 4. Fuentes

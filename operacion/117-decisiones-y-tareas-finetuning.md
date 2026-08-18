@@ -15,6 +15,20 @@
   Antecedentes (histórico, sin cambios): freeze, smoke corregido, dual gate y serving técnico
   verdes; T-FT-023 congeló la procedencia; el 2026-08-15 el usuario firmó D-FT-08, D-FT-12 y
   D-FT-13 (§3) y se cerraron T-FT-031/032 con la baseline one-shot (doc 120).
+
+  ✎ **2026-08-17 (misma jornada, después del veredicto) — ENMIENDA D-FT-14: T2 se reabre
+  como tier EXPLORATORIO; T3 confirmado trabajo futuro.** Tras revisión crítica pedida por el
+  usuario, la escalera se enmienda por la vía que D-FT-03 prevé (enmienda explícita): el
+  NO-GO de T1 queda **intacto** como resultado confirmatorio, y T2 se ejecuta para responder
+  una pregunta nueva — *¿el fallo de T1 es artefacto de capacidad del linear probing o es
+  estructural?* — con **pre-registración propia (D-FT-15, pendiente de firma) emitida antes
+  de cualquier resultado T2**. La transparencia es total por construcción: la enmienda es
+  post-resultado-T1 (se declara) y pre-resultado-T2 (que es lo que valida a T2). **T2 será el
+  último brazo admitido contra `bench_v3`** — la puerta de comparaciones múltiples se cierra
+  con él. T-FT-060 pasa a `in_progress`; T-FT-070 (T3) se cierra como **trabajo futuro con
+  causa técnica**: sin baseline MM-GDINO geométricamente sana el Δ es ininterpretable, y
+  producirla es arqueología de entorno de 1–2 semanas contra el reloj de la defensa — el
+  bloqueo no es de cómputo.
 - **Plan rector:** [`116-plan-maestro-finetuning.md`](116-plan-maestro-finetuning.md).
 - **Regla:** una tarea puede estar descrita antes de su decisión, pero no pasa a `ready` ni se
   ejecuta mientras su dependencia metodológica siga abierta.
@@ -75,7 +89,7 @@ Actualización T-FT-003/T-FT-010 del 2026-08-13:
 | **D-FT-01** | Selección de checkpoint T1 | **aprobada, usuario 2026-08-13** | 10 épocas; fijar Ultralytics 8.4.86 y seleccionar `best.pt` por máximo `metrics/mAP50-95(B)` agregado sobre las 4 clases de `val`; conservar `last.pt` para auditoría | trainer y job completo |
 | **D-FT-02** | Variante GDINO | **diferida** | no elegir hasta obtener una baseline MM-GDINO con geometría sana | T3 |
 | **D-FT-03** | Escalera o ramas independientes | **aprobada por ADR-017** | conservar T1→T2→T3; cualquier cambio requiere enmienda explícita | orden de toda la jornada |
-| **D-FT-04** | Retención T2 | **diferida** | elegir subset y métrica después del resultado T1, pero antes de ejecutar T2 | T2 |
+| **D-FT-04** | Retención T2 | ✎ **en diseño (2026-08-17, habilitada por D-FT-14)** | subset propuesto: **COCO val2017 completo** (5.000 imgs, 80 clases, prompts = nombres canónicos COCO), pipeline media-plane + evaluador congelado, mismos umbrales que los brazos bench; métrica = caída relativa de mAP50 tuned vs base. La baseline de retención (base yoloe-26s sobre COCO) se corre y congela **antes** del entrenamiento T2. Se congela junto con D-FT-15, antes del RUN | T2 |
 | **D-FT-05** | Salida MM-GDINO | **diferida** | decidir conversión HF o adapter MMDetection antes del smoke T3 | T3 |
 | **D-FT-06** | Recursos distribuidos T3 | **diferida** | recalcular batch global, acumulación y LR para la asignación real; no escalar a ciegas | T3 |
 | **D-FT-07** | Hogar del proceso | **aprobada, usuario 2026-08-13** | `e-ovrt_experimental-setup/finetuning/`; pesos/payloads/runs locales ignorados, recetas y manifiestos versionados | organización y tareas P1–P6 |
@@ -85,6 +99,8 @@ Actualización T-FT-003/T-FT-010 del 2026-08-13:
 | **D-FT-11** | Contrato `finetuning_v1` | **aprobada, usuario 2026-08-13** | derivar `train`/`val` propios desde CSS+PPE, por grupos de linaje y duplicado perceptual, sin copiar ni alterar `bench_v3`; objetivo 85/15 por grupos, seed 42 | builder, manifiesto y nueva F-100.1 |
 | **D-FT-12** | Objetivo y márgenes go/no-go T1 | **aprobada, usuario 2026-08-15 — antes de la baseline** | `bare_head` como clase objetivo; conservar el gate ya pre-registrado ΔAP50 ≥ +0,05 absoluto o rescate de recall <0,1→>0,5; retención relativa ≤10 % y latencia local sin degradación material, con método fijado antes de la baseline | protocolo final y T-FT-032 |
 | **D-FT-13** | Sonda de clase nueva (`machinery`) en T1 | **aprobada, usuario 2026-08-15** | derogar la sonda **sólo para T1** (vocabulario cerrado por D-FT-08) y reasignarla a T2/T3, de vocabulario abierto | puerta del doc 100 §6 |
+| **D-FT-14** | Enmienda de escalera post-NO-GO | ✎ **aprobada, usuario 2026-08-17** | reabrir T2 como tier **exploratorio** con pre-registración propia emitida antes de cualquier resultado T2; T1 intacto; T2 = **último brazo contra `bench_v3`**; T3 confirmado trabajo futuro con causa técnica (sin baseline MM-GDINO sana; D-FT-02/05/06 siguen diferidas) | escalera completa |
+| **D-FT-15** | Márgenes go/no-go T2 | ✎ **APROBADA, usuario 2026-08-17 — firmada ANTES de todo resultado T2** | detalle en §3 (sección D-FT-15). Gain y retención in-domain idénticos a D-FT-12; retención OV nueva sobre COCO val2017 (D-FT-04, **base congelada mAP50 0,434676 ⇒ umbral NO-GO 0,391208**); latencia pareada ≤5 %; expectativa pre-registrada declarada (NO-GO probable, el valor es la curva de capacidad) | protocolo T2 y T-FT-064 |
 
 ### D-FT-01 — decisión posterior al split
 
@@ -162,6 +178,66 @@ derogó la sonda **sólo para T1** y se reasignó a T2/T3, de vocabulario abiert
 derogación es alcance-específica: no toca T2/T3, donde la sonda sigue siendo exigible, y
 depende de D-FT-08 — si ese contrato se revisara, esta derogación pierde su premisa y debe
 reabrirse.
+
+### D-FT-14 — enmienda de escalera post-NO-GO — aprobada, usuario 2026-08-17
+
+El veredicto NO-GO de T1 activó el cierre mecánico de la escalera (`contingencia/20` §6,
+constancia en su adenda). El usuario pidió revisión crítica y decidió, por la vía de enmienda
+explícita que D-FT-03 prevé: **T2 se reabre como tier exploratorio**, no como reintento de T1.
+
+- **Pregunta que T2 responde** (T1 la deja abierta): ¿el fallo es artefacto de capacidad del
+  linear probing (3.096 params) o el trade-off ganancia/retención es estructural? Cualquier
+  desenlace suma: si T2 pasa ganancia y rompe retención, la curva de tres puntos (zero-shot →
+  probe → full) demuestra que el costo es estructural; si pasa todo, se reporta el GO bajo su
+  vara pre-registrada.
+- **Qué protege la validez:** T1 intacto (su NO-GO es el resultado confirmatorio y no se
+  re-corre); márgenes T2 (D-FT-15) firmados **antes** de cualquier resultado T2; `bench_v3`
+  sigue one-shot por brazo y **T2 es el último brazo admitido** contra este bench; la
+  secuencia temporal (enmienda post-T1, pre-T2) se declara en el informe, no se disimula.
+- **T3 confirmado trabajo futuro con causa técnica:** el bloqueo no es de cómputo — sin
+  baseline MM-GDINO geométricamente sana (Sprint 2 descartó la tiny por bboxes rotos, causa
+  nunca diagnosticada) el Δ de T3 no se puede interpretar, y el linaje tuneado ni siquiera
+  sería el del campeón desplegado (`gdino-tiny-560` HF). D-FT-02/05/06 quedan diferidas.
+
+### D-FT-15 — márgenes go/no-go T2 — **APROBADA, usuario 2026-08-17**
+
+> ✎ **Firmada el 2026-08-17, y lo que importa de esa fecha: es DESPUÉS del resultado de T1
+> (que la enmienda D-FT-14 declara abiertamente) y **ANTES de todo resultado T2** — no
+> existía el checkpoint T2 ni ninguna cifra suya; el único job T2 enviado hasta acá era el
+> smoke técnico `1167862`, que no produce cifra citable. La baseline de retención OV ya
+> estaba corrida y **congelada** (mAP50 0,434676, `t2_coco_retention_base_frozen.json`), así
+> que el umbral de retención quedó fijado en **0,391208** antes de existir el brazo tuned.
+> Aprobada **sin correcciones**, incluida la expectativa pre-registrada del punto 6.
+
+
+
+Espejo de D-FT-12 más la retención OV que T1 no podía medir. **Contrato de comparabilidad:**
+mismos datos (`finetuning_v1`, 2.946/483), mismas 10 épocas, mismo `imgsz` 640/batch 8/seed
+100/ultralytics 8.4.86, mismo protocolo bench; la **única variable vs T1 es el alcance
+entrenable** (pesos de detección completos vs proyección de clase fusionada; text encoder
+congelado, inventario exacto de tensores congelado en el perfil por preflight antes del RUN,
+como en T1). El brazo bench de T2 sirve por `set_classes` con las frases fijadas (modo
+baseline): el checkpoint T2 conserva la interfaz OV — no hereda el contrato de vocabulario
+fijo D-FT-08, que es específico del head fusionado de T1.
+
+1. **Gain gate** (idéntico a D-FT-12): ΔAP50 de `bare_head` ≥ +0,05 absoluto agregado sobre
+   la baseline T-FT-032, **o** rescate de recall CR-01 ponderado <0,1 → >0,5.
+2. **Retención in-domain** (idéntica): caída relativa ≤10 % por clase (`person`/`helmet`/
+   `vest`) y en mAP50 agregado, sobre `bench_v3`.
+3. **Retención OV** (nueva, D-FT-04): mAP50 sobre COCO val2017 (80 clases) tuned vs base
+   yoloe-26s, mismo pipeline y evaluador; **gate de adopción ≤10 % relativa**. Una erosión
+   mayor implica NO-GO **y es a la vez la medición central del tier** (completa la Tabla 32):
+   se reporta con el mismo peso que un GO.
+4. **Latencia**: pareada, ambos brazos con corriente, post-warmup, misma sesión; degradación
+   >5 % relativa se rechaza (ahora medible: no arrastra la trampa F-120.1).
+5. **Selección y one-shot**: `best.pt` por `mAP50-95(B)` sobre `finetuning_v1/val` (D-FT-01);
+   `last.pt` sólo auditoría; brazo bench evaluado **exactamente una vez**.
+6. **Expectativa pre-registrada** (se firma junto con los márgenes, para que nadie pueda
+   decir que se persiguió un GO): lo más probable es que el gain gate **pase**, la retención
+   in-domain quede **en riesgo** (T1 rompió `person` moviendo sólo el head; full FT mueve
+   más) y la erosión OV sea **sustancial** ⇒ **NO-GO probable**. El valor declarado del
+   experimento es la curva capacidad/retención y el cierre de la objeción de capacidad
+   contra T1 — no el GO.
 
 ### D-FT-07 — alcance de la centralización
 
@@ -373,8 +449,14 @@ Los porcentajes se calculan sobre grupos, por lo que el conteo de imágenes pued
 | **T-FT-051** Evaluar una vez contra `bench_v3` | ✎ **done (2026-08-17)** | T-FT-050 | local | corrida única 6.477/6.477, 0 fallos/0 drops, 40.696 det, 256,7 s; config validada en seco contra la baseline (15 campos congelados idénticos). Métricas por clase y **por estrato**, sin tuning post hoc. Doc 123 §2 |
 | **T-FT-052** Aplicar y registrar go/no-go T1 | ✎ **done (2026-08-17)** — **NO-GO** | T-FT-051 | `docs` | gain gate falla por las dos vías (Δ`bare_head` +0,0455 vs 0,05; recall 0,2089 vs >0,5) y retención falla por `person` (−11,62 % sobre tope 10 %). Márgenes pre-registrados. Manifiesto `t1_go_no_go_1167640.json`. Doc 123 §3 |
 | **T-FT-053** Cerrar guard de `--allow-cpu` de `train_t1.py` | **done** | D-100.1 | `media-plane`, `experimental-setup` | `--allow-cpu` queda restringido a `--check-only`/`--check-freeze` (preflight) en `finetuning/scripts/train_t1.py`; ejecución de full sin GPU sin esos flags falla con error de argparse |
-| **T-FT-060** Diseñar/ejecutar T2 | **blocked** | go T1, D-FT-04 | por definir | full fine-tuning y retención pre-registrada |
-| **T-FT-070** Diseñar/ejecutar T3 MM-GDINO | **blocked** | go T2, D-FT-02/05/06 | por definir | baseline sana, stack, smoke, puente y job reproducible |
+| **T-FT-060** Diseñar/ejecutar T2 | ✎ **in_progress (2026-08-17, habilitada por enmienda D-FT-14 — ya no por "go T1")** | D-FT-14 ✓, **D-FT-15 pendiente de firma** | `experimental-setup`, remoto | tier exploratorio; desglose en T-FT-061…066 |
+| **T-FT-061** Perfil trainer T2 full-FT | **ready** | D-FT-14 | `experimental-setup` | `YOLOETrainer` (interfaz de texto conservada), contrato de alcance entrenable con inventario exacto por preflight (análogo al freeze guard T1), tests |
+| **T-FT-062** Arnés de retención OV (D-FT-04) | **ready** | D-FT-14 | `experimental-setup`, `datasets` | COCO val2017 + prompts 80 clases + pipeline media-plane + evaluador congelado; baseline de retención corrida y congelada ANTES del entrenamiento T2 |
+| **T-FT-063** Bundle, smoke y protocolo T2 | ✎ **done (2026-08-17)** | T-FT-061/062 ✓, D-FT-15 firmada ✓ | `experimental-setup`, remoto | protocolo congelado pre-resultado en `t2_yoloe26s_protocol.json`; smoke verde en `short` (job `1167862`: el entrenamiento arranca y la interfaz OV se preserva); sonda `machinery` exigible (D-FT-13) |
+| **T-FT-064** RUN T2 full + eval única bench | ✎ **enviado — en cola, sin empezar (2026-08-17)** | T-FT-063 ✓ | remoto, local | **job `1167864`** (`eovrt-t2-full`, cluster `ivb`, partición `multi`, 10 épocas, walltime 3 h). Verificado en el clúster el 17/08: estado `PD (Priority)`, `Start: Unknown`. **Enviar no es medir**: no existe ninguna cifra de T2. Brazo bench one-shot (el ÚLTIMO contra `bench_v3`) |
+| **T-FT-065** Retención OV + latencia pareada | **blocked** | T-FT-064 | local | COCO tuned vs base; latencia baseline/T1/T2 en una sesión, todo con corriente |
+| **T-FT-066** Go/no-go T2 y constancia | **blocked** | T-FT-065 | `docs` | aplicar D-FT-15 sin renegociar; doc de cierre y propagación |
+| **T-FT-070** Diseñar/ejecutar T3 MM-GDINO | ✎ **closed — trabajo futuro con causa técnica (D-FT-14, 2026-08-17)** | — | — | sin baseline MM-GDINO geométricamente sana el Δ es ininterpretable; conseguirla es arqueología de 1–2 semanas contra la defensa; el linaje tuneado no sería el del campeón desplegado. No es bloqueo de cómputo |
 
 ## 5. Próxima acción
 

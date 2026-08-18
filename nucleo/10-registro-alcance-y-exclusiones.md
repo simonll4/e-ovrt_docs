@@ -233,6 +233,11 @@ declaración → condición de habilitación futura.
   `person` cayó **−11,62 %** sobre un tope de 10 %. El checkpoint **no se adopta**. Con esto
   **E-04 queda ejercida y documentada de punta a punta**; el encuadre sigue siendo causa
   técnica/protocolar y el negativo es **pre-registrado**, nunca "falta de tiempo".
+  ✎ **Mismo día, enmienda D-FT-14** (doc 117 §3): **T2 reabierto como tier exploratorio**
+  con pre-registración propia (D-FT-15, firma previa al RUN) para cerrar la objeción de
+  capacidad contra el resultado T1 — T1 intacto, T2 último brazo contra `bench_v3`;
+  **T3 = trabajo futuro con causa técnica** (sin baseline MM-GDINO sana). El alcance de E-04
+  **no vuelve a crecer**: T2 pertenece a la misma jornada comprometida por ADR-017.
 - **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
   el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
   **experimental y condicionada desde el planteo inicial**, nunca un descarte. La

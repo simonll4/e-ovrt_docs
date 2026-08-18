@@ -104,6 +104,16 @@ que la consola siga funcionando en el despliegue de dos nodos.
 
 Material: `92` §3 (las APIs, con el contrato de disparo de corrida) y `94` §1.5.
 
+✎ **2026-08-18 (ADR-019 + ADR-020): la ficha se redacta como TRES servicios HTTP
+config-driven, no dos.** El módulo de distribución también expone el suyo (`:8082`,
+espejo del control-plane; doc `operacion/124`), con lo que la afirmación fuerte del
+capítulo pasa a ser: *los tres módulos de la cadena son servicios HTTP config-driven, y
+la webconsole y el runner son clientes de los tres*. **ADR-020 derogó a ADR-018**: el
+runner le habla por HTTP **por default** y el subproceso quedó como fallback operativo —
+**no se menciona en el capítulo**, es operación y no arquitectura. Los patrones de acople
+del informe son **dos**: HTTP config-driven y bus ZeroMQ. Material: `92` §3 (banner ✎
+08-18) y doc 124.
+
 ---
 
 ### AJ-4.05 · 🟠 — los dos caminos de acople, y sus trampas
@@ -257,6 +267,14 @@ Insumo: `92` §4.2 y su recuadro · `94` §2 · `operacion/89` · `operacion/90`
    verificada, cualquier frase que la describa funcionando es falsa. Su estatuto vigente
    es **trabajo comprometido con estado a la entrega** (ADR-016) — no "exclusión cerrada"
    (esa era ADR-015 §2c, derogada) ni "capacidad existente".
+   ✎ **2026-08-18 — este ítem quedó INVERTIDO: ahora SÍ hay implementación verificada, y
+   la prohibición cambió de signo.** El módulo funciona y está medido (docs
+   `operacion/114`/`118`), el runner lo orquesta (ADR-018) y expone servicio HTTP propio
+   (ADR-019, doc 124). **Se escribe en presente y como capacidad existente**, con su
+   estatuto: trabajo comprometido por ADR-016, entregado y verificado. Lo que sigue
+   estando prohibido: citar cifras de la verificación funcional del servicio HTTP (n=2,
+   doc 124 — no citables) en lugar de las de la campaña (doc 118), y presentar la
+   containerización como hecha (diferida con causa, ADR-019 §4).
 2. **Cifras de resultados.** El §17.4 describe **qué se construyó y cómo**; el desempeño
    es el §17.5. Mezclarlos es lo que hace que un capítulo de implementación se lea como
    una defensa apresurada.

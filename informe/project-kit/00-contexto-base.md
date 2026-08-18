@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-17. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-18. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -18,15 +18,21 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    precision y la hibrida por disyuncion fue ejecutada y refutada).
 4. Referencia temporal del banco: anotacion **humana** y congelada; se reporta como
    resultado, no como verificacion preliminar.
-5. Rama de ajuste fino: todas las decisiones humanas estan firmadas, la procedencia del
-   dataset esta cerrada, y la **linea base zero-shot corrio una vez y esta congelada**.
-   La corrida de ajuste fue **autorizada y enviada al cluster** (encolada, sin resultado).
+5. Rama de ajuste fino, **brazo T1: CERRADO con veredicto NO-GO** (2026-08-17). Los
+   margenes se firmaron **antes** de la linea base, la corrida se ejecuto una vez y se
+   evaluo una vez, y **el checkpoint ajustado no se adopta como modelo de servicio**.
+   Tiene cifra medida y se escribe como **hallazgo, no como fracaso**: el ajuste rescata
+   `bare_head` del cero absoluto (AP50 0,0000 -> 0,0455) pero **no alcanza el umbral**
+   (faltaron 0,0045) y **rompe la retencion de `person`** (-11,62 %, tope 10 %). Va en
+   tabla propia, por estrato, nunca mezclada con el nucleo zero-shot.
 
 **ABIERTO — no se afirma; se marca:**
 
-1. **Resultado del modelo ajustado**: no existe. No hay ninguna cifra del checkpoint
-   ajustado y no la habra hasta que la corrida termine y se evalue. La subseccion queda
-   reservada con marcador.
+1. **Resultado del brazo T2**: no existe. T2 se reabrio como tier **exploratorio** por
+   enmienda posterior al NO-GO (D-FT-14) y esta **enviado y en cola, sin empezar**; sus
+   margenes ya estan firmados por adelantado (D-FT-15). No hay ninguna cifra de ese
+   checkpoint y no la habra hasta que corra y se evalue: esa subseccion queda reservada
+   con marcador. **T1 ya no es un hueco**: tiene resultado y se afirma (ver CERRADO 5).
 2. **Cinco figuras sin producir** (vista de procesos, maquina de estados del motor,
    calidad frente a densidad, cuadro con alerta superpuesta y frontera de juzgabilidad).
    Se mencionan en el texto con marcador; no se describen como si existieran.
@@ -75,7 +81,9 @@ es honesto; un capitulo que rellena huecos es indefendible.
   agregado**; retencion a proteger person 0,7843 / helmet 0,6286 / vest 0,2642. Estas
   cifras son **de la rama comparativa**: van SIEMPRE en tablas propias, por estrato, y
   NO se promueven a `results/` hasta cerrar la jornada; **no hay cifra del checkpoint
-  ajustado** (no existe todavia). F-120.1: las latencias de ese run NO se citan (cambio
+  ajustado** (no existe todavia) ✎ *superado el 2026-08-17: el checkpoint T1 SI tiene
+  cifra — ver la enmienda al pie de esta vineta; el que sigue sin cifra es T2*.
+  F-120.1: las latencias de ese run NO se citan (cambio
   de energia en curso); el gate de latencia se mide pareado aparte.
   **✎ 2026-08-15 (noche) — T1 full ENVIADO: T-FT-043 esta CERRADA.** La autorizacion se
   emitio y verifico en el cluster con sus 7 gates, el ensayo `--test-only` paso, y el
@@ -89,10 +97,53 @@ es honesto; un capitulo que rellena huecos es indefendible.
   estimado ni con una redaccion que sugiera que la comparacion ya se hizo.
   La sonda de clase nueva (`machinery`) quedo **derogada para T1 y reasignada a T2/T3**
   por D-FT-13; en T2/T3, de vocabulario abierto, sigue siendo exigible.
+  **✎ 2026-08-17 — la jornada T1 CERRO: veredicto NO-GO.** El job `1167640` corrio el
+  16/08, el checkpoint se promovio por hash y se evaluo **una sola vez** contra
+  `bench_v3`: `bare_head` AP50 **0,0000 -> 0,0455** (gate A pedia >= 0,05: **faltaron
+  0,0045**) y la retencion de `person` cayo **0,7843 -> 0,6932 (-11,62 %, tope 10 %)**.
+  **El checkpoint no se adopta.** Los margenes (D-FT-12) estaban firmados desde el 15/08,
+  antes de la baseline, y **no se renegociaron**: eso es lo que hace al resultado
+  defendible. La cifra **existe y es citable**, en tabla propia por estrato; el gate de
+  latencia **no se midio** y se dice explicito (F-123.1), no se omite.
+  **La misma jornada, DESPUES del veredicto, el usuario firmo la enmienda D-FT-14**: T2
+  se reabre como tier **exploratorio** —para separar si el fallo fue de capacidad o
+  estructural—, no como reintento de T1, y **T3 queda cerrado como trabajo futuro con
+  causa tecnica** (sin baseline MM-GDINO geometricamente sana el delta es
+  ininterpretable), **jamas por "falta de tiempo"**. **D-FT-15** fijo los margenes de T2
+  **antes de todo resultado T2**, con la retencion de vocabulario abierto sobre COCO
+  val2017 congelada en mAP50 **0,434676 => umbral NO-GO 0,391208**, y con la expectativa
+  **pre-registrada** de que T2 tambien de NO-GO. **T2 esta enviado y en cola, sin
+  empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
+  orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
+  transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
 - **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
   HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
   distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
   (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
+  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
+  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
+  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
+  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
+  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
+  **Al redactar, la descripcion vigente es esta y no otra:**
+  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
+  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
+  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
+  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
+  camino offline (igual que el control-plane).
+- **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
+  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
+  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
+  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
+  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
+  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
+  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
+  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
+  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
+  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
@@ -113,7 +164,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/GUIA-REDACTORES.md`
 
-> SHA-256 del bloque: `7e62f1fa04351449d6ec34f9b517e9db8303eda892183ac3fc989085abe6383e`  
+> SHA-256 del bloque: `74b2f5eff5a83f9a006075c384cbc8769e3b25592dd70c900504059b73f2a69c`  
 > Seleccion: documento completo.
 
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
@@ -378,6 +429,15 @@ limitaciones y estado a la entrega, con causa técnica.
 > núcleo zero-shot, no van a `results/` y **no se comparan con la tabla del doc 64**
 > (protocolo distinto). El gate de latencia **no se midió** y eso se dice explícito (F-123.1),
 > no se omite.
+>
+> **T2 (si su jornada corre antes del cierre del informe) se redacta con esta secuencia
+> exacta, sin suavizarla:** tras el NO-GO de T1 la escalera cerró la rama; una **enmienda
+> explícita (D-FT-14, 2026-08-17)** reabrió T2 como tier **exploratorio** para descartar que
+> el fallo fuera artefacto de capacidad, **con márgenes propios firmados antes de cualquier
+> resultado T2** (D-FT-15) y expectativa pre-registrada (NO-GO probable). Nunca presentarlo
+> como reintento de T1 ni omitir que la enmienda fue posterior al veredicto — la transparencia
+> de la secuencia ES el argumento. **T3 no corre**: trabajo futuro con causa técnica (sin
+> baseline MM-GDINO geométricamente sana), jamás "falta de tiempo".
 
 **7. Describir la plataforma con DOS patrones de acople.** Son **tres**, y el tercero está
 registrado en **ADR-018 (fuente: `docs/decisiones/adr-018-acople-bff-subproceso-distribucion.md`)** desde
@@ -390,6 +450,39 @@ Dos precisiones que se pierden fácil: el *dato* de distribución igual viaja po
 transporte; y el requisito `EOVRT_DISTRIBUTION_EXECUTABLE` de la consola dockerizada es
 parte de la decisión, no una nota de operación. Documentos anteriores al 08-15 describen
 sólo dos acoples: están viejos.
+
+> ⛔ **✎ 2026-08-18 — TODA LA TRAMPA 7 DE ARRIBA QUEDÓ SUPERADA. ADR-020 derogó a ADR-018
+> y los patrones de acople volvieron a ser DOS.** El párrafo original (y su primera
+> corrección del mismo día, que hablaba de tres) se conservan como cuerpo histórico, pero
+> **no describen el sistema entregado**.
+>
+> **Lo vigente, y lo único que va al informe:**
+> **(a) HTTP config-driven en los TRES módulos** — medios `:8080`, control `:8081` y
+> **distribución `:8082`**; la webconsole y el runner son clientes de los tres y **ninguno
+> consume el bus**. **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones
+> `:5557` (medios→control) y alertas `:5558` (control→distribución).
+>
+> **Qué NO escribir:** "BFF-subproceso", "tres patrones de acople", "el repo de
+> distribución es una CLI y no un servicio". El camino por subproceso **sigue existiendo
+> en el código** como **fallback operativo** detrás de una variable de entorno, pero eso
+> es un detalle de operación, **no arquitectura**: no se cuenta como patrón ni se
+> describe en el capítulo. Y ojo con el matiz simétrico: el distribuidor **conserva su
+> CLI** para el camino offline, igual que el control-plane — decir "es solo un servicio"
+> tampoco es exacto.
+>
+> **La trampa, reformulada:** el número de patrones cambió tres veces en cuatro días
+> (dos → tres con ADR-018 → tres con ADR-019 → **dos** con ADR-020). Cualquier documento
+> que no lleve enmienda del 2026-08-18 está describiendo un estado intermedio.
+>
+> **Sobre la containerización, que es una pregunta aparte y tiene respuesta propia
+> (✎ 2026-08-18):** está **diferida con causa** y **sí se puede mencionar en el informe**.
+> Se va a hacer **después** de cerrar la redacción; su razón de ser es la
+> **reproducibilidad** (que un tercero levante la plataforma en otra máquina), no cerrar
+> el capítulo; y su **documentación operativa vive en los repositorios**, no en la tesis.
+> Escribila como **compromiso declarado con su fundamento**, en el cierre (§17.6/§18) y en
+> el anexo de reproducibilidad (§19). **Nunca en presente, nunca como capacidad existente,
+> nunca como instructivo de despliegue.** Regla corta: *describir el compromiso es
+> correcto; describir un despliegue que no corrió es falso.*
 
 > ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
 > bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
@@ -432,7 +525,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras. Estado: funcional; pendientes webconsole, orquestación y commits |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13; desde el 2026-08-18 corre además como servicio HTTP (`:8082`, subproceso sigue default) |
 | El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
@@ -470,7 +563,7 @@ cifras sobre las 16 campañas). Si dudás de un número, corrélo.
 
 ## Fuente: `docs/13-glosario-y-convenciones-de-lectura.md`
 
-> SHA-256 del bloque: `679cee857869fe2a4e692354102e8b8d185b29c943569a2a18a10d0451961fa1`  
+> SHA-256 del bloque: `e0d64b7b39b48f6802c3d82d640405e4af0648b430da90449fc2973567121b48`  
 > Seleccion: documento completo.
 
 # 13 — Glosario y convenciones de lectura del set documental
@@ -561,6 +654,11 @@ mejor": es que una plataforma con condiciones en lenguaje permite **medir qué s
 sin entrenar** y extender el sistema a condiciones nuevas sin re-entrenamiento
 (argumentos A1–A5, doc 09). La plataforma son dos servicios HTTP config-driven
 (media-plane :8080, control-plane :8081) orquestados por un runner y una consola web.
+✎ 2026-08-18 (ADR-019 + **ADR-020**): **tres** servicios HTTP config-driven — el módulo de
+distribución de alertas también expone el suyo (`:8082`) y **el runner le habla por HTTP
+por default**. ADR-020 derogó a ADR-018: el subproceso quedó como fallback operativo y
+dejó de ser patrón de acople ⇒ la plataforma tiene **dos** patrones (HTTP config-driven en
+los tres módulos, y bus ZeroMQ), no tres.
 
 ## 3. Siglas y términos del dominio
 
@@ -1638,12 +1736,12 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/decisiones/estado-de-implementacion-adrs.md`
 
-> SHA-256 del bloque: `0559281f93fcac515bae49596a5bdecfd5f679c2711a309290ad60bfb08e6450`  
+> SHA-256 del bloque: `ff26c392641a3aecc61c9894979e579075d74948c6755870925ff90d47797ece`  
 > Seleccion: encuadre y tabla resumen vigentes; el detalle historico queda fuera.
 
 # ADRs — Estado de implementación (cierre de trazabilidad)
 
-- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-13
+- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-18
 - **Propósito:** cerrar el loop **decisión → implementación** para cada ADR. Los ADRs
   se escribieron *antes* de implementar y expresan su impacto como trabajo futuro;
   este documento registra, con rutas reales, endpoints y evidencia medida, **cómo
@@ -1676,20 +1774,30 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 | 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementación parcial** [Enmienda 2026-08-14]: consolidación y reporte están ejercitados; el sellado opt-in, el índice durable y la promoción trazable a `results/` siguen diferidos (doc 115 §4, frentes C/D, D-115.2). |
 | **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados**. ✎ **2026-08-10: §2b/§2c/§6 DEROGADOS por ADR-016**; §2a/§3/§4/§5 vigentes (la lista L1–L8 se sigue citando desde §3) |
 | **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada y materializada**: módulo funcional, reporte integrado y broker MQTT real verificado. La vista de webconsole y la orquestación siguen abiertas; el repo aún no tiene commits |
-| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; T2/T3 siguen gobernados por `contingencia/20` §6 |
+| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; ✎ misma fecha, la escalera de `contingencia/20` §6 se aplicó: **T2/T3 NO habilitados** (T1 sin ganancia exigible) — rama cerrada con evidencia, **trabajo futuro con causa técnica, no temporal**. ✎ más tarde ese día, **enmienda D-FT-14** (vía D-FT-03): **T2 reabierto como tier exploratorio** con pre-registración propia (D-FT-15 a firmar antes del RUN), T1 intacto, T2 = último brazo contra `bench_v3`; **T3 sigue cerrado** |
 
-| **018** | **El tercer módulo se acopla por subproceso local, no por servicio HTTP**: el runner del BFF lanza `eovrt-distribute` como proceso hijo (el repo de distribución es CLI, sin FastAPI/uvicorn); el dato sigue viajando por el bus (`:5558`), lo nuevo es el control del ciclo de vida | **Aceptada (usuario, 2026-08-15) y ya implementada** — documenta código verificado, no agrega capacidad. Requisito de despliegue vinculante: la consola dockerizada exige `EOVRT_DISTRIBUTION_EXECUTABLE`. Preflight de binario + drenaje de `stderr` con cap de 1 MiB son propios de este patrón |
+| **018** | **El tercer módulo se acopla por subproceso local, no por servicio HTTP**: el runner del BFF lanza `eovrt-distribute` como proceso hijo (el repo de distribución es CLI, sin FastAPI/uvicorn); el dato sigue viajando por el bus (`:5558`), lo nuevo es el control del ciclo de vida | **Aceptada (usuario, 2026-08-15) y ya implementada** — documenta código verificado, no agrega capacidad. Requisito de despliegue vinculante: la consola dockerizada exige `EOVRT_DISTRIBUTION_EXECUTABLE`. Preflight de binario + drenaje de `stderr` con cap de 1 MiB son propios de este patrón. ✎ **2026-08-18** (*esta fila decía "el repo de distribución es CLI, sin FastAPI/uvicorn"*): eso quedó **superado por ADR-019** — el repo SÍ expone servicio HTTP además del CLI (ver fila 019). Este patrón de subproceso **sigue vigente y sigue siendo el default** del runner de la webconsole; ADR-018 no queda derogada ⛔ **✎ 2026-08-18: DEROGADA por ADR-020** — el subproceso dejó de ser patrón de acople y bajó a fallback operativo; esta fila queda como registro histórico y **no se cita como arquitectura vigente** |
+| **019** | **El distribuidor suma un servicio HTTP** (`eovrt-distribute serve`, FastAPI/uvicorn en `:8082`), espejo del control-plane, para ser una unidad desplegable propia; no deroga ADR-018 — el subproceso local sigue siendo el camino default del runner del BFF | **Aceptada (usuario, 2026-08-17) e implementada y verificada (2026-08-18)**, incluida una corrida en vivo con cámara real: `POST /api/runs` (201 + id, 409 si hay una activa), `GET /api/runs/{id}` (sirve el mismo `distribution_summary.json` del CLI), `POST /api/runs/{id}/cancel` (parada cooperativa vía `ZmqSource.request_stop()`), `GET /healthz`\/`readyz`\/`config` (spec 45 §9.2/9.3). El runner del BFF es cliente HTTP opcional vía `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=http`, con preflight que sondea `/healthz` en vez de exigir el binario local en ese camino. Containerización (Dockerfile, `docker-compose.yml`) queda diferida con causa (ADR-019 §4), no es deuda de esta fila ✎ **2026-08-18: el default pasó a HTTP por ADR-020**; ya no es opt-in — el opt-in ahora es el fallback por subproceso |
+| **020** | **HTTP es el acople de la distribución; el subproceso baja a fallback operativo** y deja de ser patrón. Deroga ADR-018 | **Aceptada (usuario, 2026-08-18) e implementada**: el runner del BFF habla por HTTP **por default**; `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess` conserva el camino viejo como red de seguridad (sigue implementado y probado). Preflight: sondea `GET /healthz` del servicio por default; el chequeo de binario local sólo corre en el fallback. **Consecuencia para el informe: DOS patrones de acople** — (a) HTTP config-driven en los tres módulos (`:8080`/`:8081`/`:8082`), (b) bus ZeroMQ (`:5557` detecciones, `:5558` alertas). El fallback **no se describe**: es operación, no arquitectura. Costo declarado: la webconsole exige el servicio arriba cuando la distribución está habilitada |
 
 > **✎ 2026-08-15 — la nota del 2026-08-14 sobre el patrón BFF-subprocess quedó
 > promovida a ADR-018 (fuente: `docs/decisiones/adr-018-acople-bff-subproceso-distribucion.md`)**, firmada por el
 > usuario. *Decía: "Si el patrón se consolida merece ADR propia; queda como propuesta
 > abierta, no ejercida."* El informe debe describir **tres** patrones de acople, no dos.
+>
+> ⛔ **✎ 2026-08-18 — la frase anterior quedó superada: son DOS.**
+> ADR-020 (fuente: `docs/decisiones/adr-020-http-como-unico-acople-de-distribucion.md`) derogó a la 018. Tras
+> ADR-019 (fuente: `docs/decisiones/adr-019-servicio-http-distribucion.md`) el distribuidor tiene servicio HTTP
+> propio (`:8082`) y la 020 invirtió el default: **HTTP es el acople**, el subproceso bajó
+> a **fallback operativo** (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) y dejó de
+> ser un patrón. El informe describe **(a)** HTTP config-driven en los **tres** módulos y
+> **(b)** bus ZeroMQ. El fallback no se cuenta: es operación, no arquitectura.
 
 ---
 
 ## Fuente: `docs/nucleo/10-registro-alcance-y-exclusiones.md`
 
-> SHA-256 del bloque: `359d2a8157e91dbe5fd7fa1f9c94e717c18504de79a18bba4f0c2b51ce1ed903`  
+> SHA-256 del bloque: `23ba692eaeb2c3be23cb05af48460aff1a2c7dd1d70535c934cfd4c8239f74b9`  
 > Seleccion: documento completo.
 
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
@@ -1927,6 +2035,11 @@ declaración → condición de habilitación futura.
   `person` cayó **−11,62 %** sobre un tope de 10 %. El checkpoint **no se adopta**. Con esto
   **E-04 queda ejercida y documentada de punta a punta**; el encuadre sigue siendo causa
   técnica/protocolar y el negativo es **pre-registrado**, nunca "falta de tiempo".
+  ✎ **Mismo día, enmienda D-FT-14** (doc 117 §3): **T2 reabierto como tier exploratorio**
+  con pre-registración propia (D-FT-15, firma previa al RUN) para cerrar la objeción de
+  capacidad contra el resultado T1 — T1 intacto, T2 último brazo contra `bench_v3`;
+  **T3 = trabajo futuro con causa técnica** (sin baseline MM-GDINO sana). El alcance de E-04
+  **no vuelve a crecer**: T2 pertenece a la misma jornada comprometida por ADR-017.
 - **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
   el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
   **experimental y condicionada desde el planteo inicial**, nunca un descarte. La
@@ -2169,10 +2282,22 @@ posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
 
 ## Fuente: `docs/nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md`
 
-> SHA-256 del bloque: `024aa1f9ffd017fad3d6bcbc61fe07bdb022699322ddf4026b65a1e27a246cda`  
+> SHA-256 del bloque: `6fcff2323b871885bb8a176d4dd8a0b67e2599b7f01f04b9590c70a5aafed403`  
 > Seleccion: documento completo.
 
 # 19 — Cierre de la arquitectura: el ciclo de vida de la alerta y su distribución
+
+> ✎ **2026-08-18 — banner de vigencia.** Este documento fotografía el estado al
+> **2026-08-10**, cuando el cuarto eslabón estaba *diseñado y no construido*. Eso quedó
+> superado dos veces: el módulo `e-ovrt_alert-distribution` está **implementado y
+> verificado** desde el 2026-08-12/14 (docs `operacion/114` — relevamiento — y `118` —
+> campaña de distribución, p95 64,534 ms n=460), y desde el 2026-08-17/18 **también
+> expone servicio HTTP propio** (`eovrt-distribute serve`, `:8082`, ADR-019, doc
+> `operacion/124`), quedando como unidad desplegable. ✎ Más tarde ese mismo día **ADR-020** derogó a
+> ADR-018: **HTTP es el acople** (default del runner) y el subproceso bajó a fallback
+> operativo, así que los patrones de acople de la plataforma son **dos**, no tres. **El cierre conceptual de este documento
+> sigue siendo válido** — el ciclo de vida y los contratos que describe son los que el
+> código implementa; lo que cambió es que ya no son promesa sino código verificado.
 
 - **Fecha de relevamiento:** 2026-08-10
 - **Qué cierra:** la cadena de la plataforma termina en una alerta confirmada. Este

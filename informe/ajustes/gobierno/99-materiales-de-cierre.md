@@ -363,9 +363,12 @@ solo como caveat de la tabla de latencia.
 **Trampa de numeración, va al informe:** hay **dos** series de ADR y se confunden a
 simple vista.
 
-- `docs/decisiones/` → **ADR-001…ADR-016** (3 dígitos): las decisiones **del proyecto**
+- `docs/decisiones/` → **ADR-001…ADR-019** (3 dígitos): las decisiones **del proyecto**
   (✎ 2026-08-06: *decía "…014"*; el 015 es el cierre de alcance. ✎ 2026-08-10: el 016 es
-  la reapertura acotada de la distribución).
+  la reapertura acotada de la distribución. ✎ 2026-08-18: *decía "…016"* — el 017 es la
+  jornada de fine-tuning, el 018 el acople BFF-subproceso —**derogado el mismo 08-18 por
+  el 020**—, el 019 el servicio HTTP del distribuidor y el **020** el cierre: HTTP es el
+  acople, el subproceso baja a fallback ⇒ **dos** patrones de acople, no tres).
 - `e-ovrt_control-plane/docs/decisions/` → **ADR-0001…ADR-0013** (4 dígitos, falta 0005):
   las decisiones **internas del control-plane**.
 
@@ -397,6 +400,10 @@ aclaradas en el lugar.
 | 012 | Sin memoria de cobertura bajo G0; la histéresis la subsume | mecanismo (F-81.1 / F-85.3) |
 | 013 | Aplicabilidad por temporalidad de la fuente | estados de aplicabilidad |
 | 014 | Layout y consolidación de artefactos por experimento | §2.4 |
+| **017** *(✎ fila agregada 2026-08-18)* | El fine-tuning (E-04) se ejerce como jornada, nunca "falta de tiempo" | rama comparativa del §17.5 — **jornada T1 ejercida y cerrada con veredicto pre-registrado** (doc 123); T2 exploratorio en curso (D-FT-14/15) |
+| ~~**018**~~ | ~~Tercer patrón de acople: BFF-subproceso~~ ⛔ **DEROGADA por 020** | **no va al informe** — registro histórico |
+| **019** *(✎ fila agregada 2026-08-18)* | El distribuidor también como **servicio HTTP** (`:8082`) | §17.4 despliegue: los tres módulos son servicios HTTP config-driven; containerización diferida con causa (doc 124) |
+| **020** *(✎ fila agregada 2026-08-18)* | **HTTP es el acople de la distribución**; el subproceso baja a fallback operativo y deja de ser patrón | §17.4/§17.3: **DOS patrones de acople** — (a) HTTP config-driven en los tres módulos, (b) bus ZeroMQ. El fallback **no se describe**: es operación, no arquitectura |
 
 **ADR-015 — ✅ escrito y ACEPTADO el 2026-08-05.**
 [`decisiones/adr-015-cierre-de-alcance.md`](../../../decisiones/adr-015-cierre-de-alcance.md).

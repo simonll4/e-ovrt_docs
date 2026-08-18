@@ -225,6 +225,11 @@ con cinco métricas · la frontera de salida de alertas.
 
 - **El módulo de distribución** — comprometido por ADR-016 del proyecto, aún no
   implementado. Solo existe la frontera. Ver `19`.
+  ✎ **2026-08-18: superado.** El módulo está **implementado y verificado** desde el
+  2026-08-12/14 (docs `operacion/114`/`118`) y desde ADR-019 además expone servicio HTTP
+  propio (`:8082`, doc `operacion/124`). Lo que sigue siendo cierto de esta viñeta: la
+  frontera de salida del control-plane (`alert_bus`, apagada por default) es el punto de
+  acople, y este documento no la modificó.
 - **`hyb_and`** — no ejecutable sin romper la comparabilidad del banco; rechazada en
   validación a propósito, no por olvido.
 - **Métricas MOT** — excluidas (E-10). La ganancia de la identidad se mide en la métrica de

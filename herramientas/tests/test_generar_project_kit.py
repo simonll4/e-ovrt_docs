@@ -56,8 +56,33 @@ class ManifestAndCheckTest(unittest.TestCase):
 
         self.assertEqual(
             {path.name for path in outputs},
-            {"00-contexto-base.md", "01-etapa-activa.md"},
+            {"00-contexto-base.md", "01-etapa-1-activa.md"},
         )
+
+    def test_stage_filename_is_unique_per_stage(self) -> None:
+        names = {kit.stage_filename(stage) for stage in range(7)}
+
+        self.assertEqual(len(names), 7)
+        for stage in range(7):
+            self.assertEqual(kit.stage_filename(stage), f"01-etapa-{stage}-activa.md")
+
+    def test_generating_one_stage_does_not_touch_another_stages_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            repo_root = Path(temp_dir)
+            outputs_three = kit.build_outputs(REPO_ROOT, 3, generated_on="2026-08-17")
+            kit.write_outputs(
+                {repo_root / path.name: content for path, content in outputs_three.items()}
+            )
+            stage_three_path = repo_root / "01-etapa-3-activa.md"
+            before = stage_three_path.read_text(encoding="utf-8")
+
+            outputs_four = kit.build_outputs(REPO_ROOT, 4, generated_on="2026-08-17")
+            kit.write_outputs(
+                {repo_root / path.name: content for path, content in outputs_four.items()}
+            )
+
+            self.assertEqual(stage_three_path.read_text(encoding="utf-8"), before)
+            self.assertTrue((repo_root / "01-etapa-4-activa.md").is_file())
 
     def test_check_detects_stale_generated_file(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -77,13 +102,43 @@ class ProjectDocumentationContractTest(unittest.TestCase):
 
         self.assertIn("cuatro archivos", readme)
         self.assertIn("`00-contexto-base.md`", readme)
-        self.assertIn("`01-etapa-activa.md`", readme)
         self.assertIn("E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx", readme)
         self.assertIn("E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx", readme)
         self.assertIn("nunca subir", readme)
         for stage in range(7):
             self.assertIn(f"--etapa {stage}", readme)
+            self.assertIn(f"`01-etapa-{stage}-activa.md`", readme)
+        self.assertIn("--etapa all", readme)
         self.assertNotIn("nivel1/", readme)
+
+    def test_project_instructions_fit_the_settings_box(self) -> None:
+        # El cuadro de Project settings de ChatGPT corta en 8.000 caracteres. Nadie
+        # avisa al pegar: lo que sobra se pierde en silencio, y lo último del archivo
+        # es justamente el control final. El contrato no chequeaba largo, así que el
+        # archivo llegó a 8.172 sin que se notara (2026-08-17).
+        instructions = (
+            REPO_ROOT / "informe/project-kit/INSTRUCCIONES-PROJECT.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertLessEqual(
+            len(instructions),
+            8_000,
+            f"las instrucciones miden {len(instructions)} caracteres y no entran en "
+            "el cuadro de Project settings (limite 8.000)",
+        )
+
+    def test_project_instructions_do_not_freeze_volatile_state(self) -> None:
+        # Las instrucciones declaran "nunca infieras avance ni resultados desde estas
+        # instrucciones". Congelar ahi el estado de una jornada en curso contradice esa
+        # regla y se desactualiza sin que el generador pueda enterarse: el estado vive
+        # en el inventario CERRADO/ABIERTO del contexto base, que si se regenera.
+        instructions = (
+            REPO_ROOT / "informe/project-kit/INSTRUCCIONES-PROJECT.md"
+        ).read_text(encoding="utf-8")
+
+        for congelado in ("sin resultado", "no hay cifra del modelo ajustado", "Hoy:"):
+            self.assertNotIn(congelado, instructions)
+        self.assertIn("lo fija ese inventario, no", instructions)
 
     def test_project_instructions_define_current_truth_hierarchy(self) -> None:
         instructions = (
@@ -178,6 +233,41 @@ class GovernanceMigrationTest(unittest.TestCase):
         # Enviar no es medir: la distinción es la que impide que el informe presente
         # una comparación que todavía no existe.
         self.assertIn("el envio **no es un\n  resultado**", base)
+        # 2026-08-17: la jornada T1 CERRÓ con NO-GO. El inventario CERRADO/ABIERTO es el
+        # bloque que gana la jerarquía de verdad (INSTRUCCIONES §"Knowledge"), así que si
+        # sigue diciendo que no hay cifra del ajustado, ChatGPT descarta un resultado
+        # firmado. Mismo defecto de propagación que T-FT-023 y "sin commits" (doc 119),
+        # pero en el peor lugar posible.
+        self.assertIn("brazo T1: CERRADO con veredicto NO-GO", base)
+        self.assertIn("0,0455", base)
+        self.assertIn("-11,62 %", base)
+        self.assertIn("hallazgo, no como fracaso", base)
+        self.assertNotIn("(encolada, sin resultado)", base)
+        # El hueco que queda es T2, y sólo T2.
+        self.assertIn("**Resultado del brazo T2**: no existe", base)
+        self.assertIn("T1 ya no es un hueco", base)
+        self.assertIn("D-FT-14", base)
+        self.assertIn("D-FT-15", base)
+        self.assertIn("0,391208", base)  # umbral OV de T2, firmado antes del resultado
+        # La secuencia (veredicto → enmienda posterior → márgenes pre-firmados) es el
+        # argumento: si se suaviza, el encuadre se vuelve indefendible.
+        self.assertIn("la\n  transparencia de la secuencia ES el argumento", base)
+        self.assertIn('jamas por "falta de tiempo"', base)
+        # Ninguna afirmación absoluta de "no hay cifra del ajustado" puede quedar suelta:
+        # donde aparezca, la corrección tiene que estar pegada (patrón de adyacencia).
+        desde = 0
+        while (encontrado := base.find("no hay cifra del checkpoint", desde)) != -1:
+            # Las fuentes enmiendan con saltos de línea y prefijos de cita en el medio
+            # ("SUPERADO\n> el 2026-08-17"), así que la ventana se normaliza antes de
+            # buscar: si no, el guard falla por formato y no por contenido.
+            ventana = " ".join(
+                base[max(0, encontrado - 300) : encontrado + 700].replace(">", " ").split()
+            ).casefold()
+            self.assertTrue(
+                "superado el 2026-08-17" in ventana or "brazo t2" in ventana,
+                "«no hay cifra del checkpoint ajustado» quedó sin la enmienda al lado",
+            )
+            desde = encontrado + 1
         self.assertIn("1166583", base)
         self.assertIn("optimizer 12/12", base)
         self.assertIn("no es reserva ni promesa", base)
@@ -206,8 +296,17 @@ class GovernanceMigrationTest(unittest.TestCase):
             "en estado `propuesta` y pendiente de firma del usuario", base
         )
 
-    def test_generated_context_declares_three_coupling_patterns(self) -> None:
-        """ADR-018 (2026-08-15): el kit no puede seguir describiendo dos acoples."""
+    def test_generated_context_declares_two_coupling_patterns(self) -> None:
+        """ADR-020 (2026-08-18) derogó ADR-018: los acoples volvieron a ser DOS.
+
+        Historia del guard, que importa porque el número cambió tres veces en cuatro
+        días: eran dos (ADR-008/009 + ADR-003) → ADR-018 sumó BFF-subproceso y fueron
+        tres → ADR-019 le dio servicio HTTP al distribuidor (seguían siendo tres, con
+        un borrador que llegó a decir "cuatro" y se corrigió) → ADR-020 bajó el
+        subproceso a fallback operativo y volvieron a ser **dos**. Lo que este test
+        protege es que el kit describa el estado VIGENTE, no cualquiera de los tres
+        anteriores.
+        """
         generated = kit.build_outputs(REPO_ROOT, 1)
         base = next(
             text
@@ -215,9 +314,54 @@ class GovernanceMigrationTest(unittest.TestCase):
             if path.name == "00-contexto-base.md"
         )
 
-        self.assertIn("TRES patrones de acople, no dos", base)
-        self.assertIn("ADR-018", base)
-        self.assertIn("BFF-subproceso", base)
+        # El estado vigente: dos patrones, y el distribuidor dentro del primero.
+        self.assertIn("los patrones de acople son DOS, no tres", base)
+        self.assertIn("ADR-020", base)
+        self.assertIn("HTTP config-driven en los TRES modulos", base)
+        # El fallback existe en el código pero NO es arquitectura: no va al informe.
+        self.assertIn("fallback operativo", base)
+        self.assertIn("NO escribir", base)
+        # Ninguna de las tres versiones superadas puede quedar suelta: el cuerpo
+        # histórico se conserva (convención del set), pero con la enmienda pegada.
+        for superada in (
+            "TRES patrones de acople, no dos",
+            "BFF-subproceso",
+            "que es CLI y no servicio",
+        ):
+            desde = 0
+            while (encontrado := base.find(superada, desde)) != -1:
+                # Ventana SIMÉTRICA y ancha: la enmienda puede ir antes (cuando cita la
+                # frase para declararla superada) o después (cuerpo histórico enmendado).
+                ventana = base[max(0, encontrado - 1600) : encontrado + 1600]
+                self.assertIn(
+                    "ADR-020",
+                    ventana,
+                    f"«{superada}» quedó sin la enmienda de ADR-020 al lado",
+                )
+                desde = encontrado + 1
+        # Y el error del borrador de ADR-019 no puede reaparecer.
+        self.assertNotIn("cuarto patron de acople", base)
+
+    def test_generated_context_allows_talking_about_containerization(self) -> None:
+        """La containerización está diferida, pero SÍ se menciona en el informe.
+
+        Precisión del usuario (2026-08-18): "no es un resultado del informe" se leía
+        como "no lo menciones", y no es eso. Es trabajo comprometido posterior a la
+        entrega, su razón es la reproducibilidad, su documentación operativa vive en
+        los repos, y en el informe se describe como compromiso con su causa. El riesgo
+        que este guard cubre es el opuesto al habitual: no que se afirme de más, sino
+        que un redactor lo omita creyendo que está prohibido.
+        """
+        generated = kit.build_outputs(REPO_ROOT, 1)
+        base = next(
+            text for path, text in generated.items() if path.name == "00-contexto-base.md"
+        )
+
+        self.assertIn("La containerizacion SI se puede mencionar en el informe", base)
+        self.assertIn("reproducibilidad", base)
+        # …pero sin habilitar el error simétrico: nunca en presente ni como manual.
+        self.assertIn("Como NO escribirla", base)
+        self.assertIn("el informe no es un manual", base)
 
     def test_generated_context_partitions_report_metrics(self) -> None:
         """Sólo `t_alert-system` es citable; las tres de alertas, no (doc 119 §7.3)."""
@@ -235,10 +379,10 @@ class GovernanceMigrationTest(unittest.TestCase):
         stage_three = kit.build_outputs(REPO_ROOT, 3)
         stage_four = kit.build_outputs(REPO_ROOT, 4)
         active_three = next(
-            text for path, text in stage_three.items() if path.name == "01-etapa-activa.md"
+            text for path, text in stage_three.items() if path.name == "01-etapa-3-activa.md"
         )
         active_four = next(
-            text for path, text in stage_four.items() if path.name == "01-etapa-activa.md"
+            text for path, text in stage_four.items() if path.name == "01-etapa-4-activa.md"
         )
 
         obsolete_phrases = [

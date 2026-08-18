@@ -198,6 +198,37 @@ adaptación 8×→1 GPU) — si los go/no-go no lo habilitan, T3 se declara trab
 - Si falla cualquiera → se reporta como resultado negativo con números (también
   publicable) y la rama se cierra.
 
+> ✎ **2026-08-17 — LA ESCALERA SE APLICÓ: T2 y T3 NO habilitados; la rama se cierra con
+> evidencia** ([`operacion/123`](../operacion/123-cierre-jornada-t1-no-go.md)). T1 no mostró
+> ganancia exigible por ninguna de las dos vías: ΔAP50 de `bare_head` **+0,0455** contra el
+> umbral de +0,05 (faltaron 0,0045) y rescate de recall hasta **0,2089** contra el >0,5
+> exigido; además la retención in-domain se rompió (`person` **−11,62 %** sobre el tope de
+> 10 %). Por la regla de entrada de arriba —"T2 solo si T1 mostró ganancia exigible"— **T2 no
+> se habilita, y sin T2 no hay T3**. Se aplica el cierre que esta misma sección prescribe:
+> resultado negativo con números, publicable, y **T2/T3 declarados trabajo futuro con causa
+> técnica, no temporal**. La causa técnica es doble: la ganancia no alcanzó su umbral
+> pre-registrado, y el gate que falló con margen (retención) empuja en contra del
+> escalamiento — T2 es full fine-tuning, mueve más parámetros, y agrava el riesgo de
+> retención en vez de corregirlo. **Ninguna enmienda post-resultado es admisible** (D-FT-03 +
+> `one_shot_rule`): el precedente `vest`→`bare_head` fue pre-resultado y esa asimetría es la
+> que se conserva. Las decisiones diferidas de la escalera (D-FT-02/04/05/06) quedan
+> diferidas con la rama: se retoman sólo si un trabajo futuro la reabre con nueva
+> pre-registración.
+
+> ✎ **2026-08-17 (más tarde, misma jornada) — ENMIENDA D-FT-14: T2 reabierto como tier
+> EXPLORATORIO; T3 confirmado cerrado.** Tras revisión crítica pedida por el usuario, la
+> reapertura ocurre por la vía que D-FT-03 prevé (enmienda explícita) y con la única
+> arquitectura que la hace válida: el NO-GO de T1 queda **intacto** como resultado
+> confirmatorio; T2 responde una pregunta **nueva** (¿el fallo de T1 es artefacto de
+> capacidad del linear probing o el trade-off es estructural?) con **pre-registración
+> propia** (D-FT-15, doc 117 §3) firmada antes de cualquier resultado T2 — la enmienda es
+> post-resultado-T1 **y se declara**, y es pre-resultado-T2, que es lo que la valida. **T2
+> será el último brazo evaluado contra `bench_v3`.** La expectativa también se pre-registra
+> (NO-GO probable; el valor es la curva capacidad/retención). **T3 queda como quedó**: la
+> causa técnica del párrafo anterior no fue enmendada — el bloqueo es la baseline MM-GDINO
+> sana inexistente, no el cómputo. D-FT-02/05/06 siguen diferidas; D-FT-04 pasa a diseño
+> para T2.
+
 ## 7. Qué NO cambia por esta investigación
 
 > ✎ **2026-08-11 — sección superada por ADR-017.** Lo tachado describía el estatuto

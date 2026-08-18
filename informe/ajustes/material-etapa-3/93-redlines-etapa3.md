@@ -389,7 +389,12 @@ crecer** (y se puede mostrar el esquema, no prometerlo), y que sabemos dónde es
 
 **DEBE DECIR** — la vista lógica **se conserva** (es correcta y es la que ordena el capítulo). Lo que falta
 es una **segunda figura**: la vista de **procesos/despliegue real**, que es literalmente el "cómo está
-hecho" que reclama el tutor. Debe mostrar: los dos servicios HTTP (`:8080` y `:8081`), el bus ZeroMQ entre
+hecho" que reclama el tutor. *(✎ 2026-08-18, ADR-019: al dibujar FIG-A, el módulo de
+distribución va con **línea continua** y, si se muestran puertos, con su `:8082` — ya no
+es "capacidad especificada": es el tercer servicio HTTP, y el orquestador lo dispara por
+HTTP igual que a los otros dos (ADR-020; el subproceso quedó como fallback operativo y no
+va a la figura). Ver la nota al pie REEMPLAZADA en el doc 94 §4.)*
+Debe mostrar: los dos servicios HTTP (`:8080` y `:8081`), el bus ZeroMQ entre
 ellos, el orquestador que dispara la corrida paraguas por HTTP, la webconsole como cliente de ambas APIs
 (**no consume el bus**), el repositorio JSONL por corrida, y el módulo de distribución como consumidor
 externo del bus de alertas.
@@ -626,7 +631,8 @@ nodos:
 |---|---|---|
 | **EN** (modo EN-1) | Nodo A (contenedor de borde, sin GPU) | Ingesta, control de ritmo, normalización visual. **Sin semántica**: no ejecuta inferencia. |
 | **CPN** | Nodo B (contenedor con GPU) | Inferencia OVD, postproceso, publicación, evaluación de patrones, alertas, persistencia, observabilidad. |
-| **TN** | No materializado aún — jornada comprometida (ADR-017) | Rol previsto: se ejerce en la jornada de fine-tuning comprometida (clúster Mendieta como TN, E-04). El estado a la entrega se declara con causa técnica (puertas del doc 100 §6), nunca temporal. *(✎ 2026-08-11 — decía "no ejercido, exclusión declarada E-04, por presupuesto de tiempo".)* |
+| **TN** | No materializado aún — jornada comprometida (ADR-017) | Rol previsto: se ejerce en la jornada de fine-tuning comprometida (clúster Mendieta como TN, E-04). El estado a la entrega se declara con causa técnica (puertas del doc 100 §6), nunca temporal. *(✎ 2026-08-11 — decía "no ejercido, exclusión declarada E-04, por presupuesto de tiempo".)* *(✎ 2026-08-17: el TN se EJERCIÓ — la jornada T1 corrió en Mendieta y cerró con veredicto pre-registrado, doc 123.)* |
+| **Módulo de distribución** *(✎ fila agregada 2026-08-18, ADR-019)* | Junto al CPN en el prototipo; **unidad desplegable propia** desde ADR-019 (servicio HTTP `:8082`) — puede co-ubicarse o separarse sin cambiar contratos | Consumo del bus de alertas, política de notificación, ledger de idempotencia, entrega MQTT QoS 1. Dos modos de ejecución equivalentes: proceso lanzado por el orquestador (default) o servicio propio; la selección es de despliegue, no de diseño |
 
 Agregar también el hallazgo de relojes que surge de esta topología (ver R-10).
 

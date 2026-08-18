@@ -16,6 +16,50 @@
 
 ---
 
+## 2026-08-18 — ADR-020: HTTP queda como acople y el subproceso baja a fallback (doc 125)
+
+Horas después de cerrar ADR-019, el usuario planteó eliminar el patrón BFF-subproceso
+—"no tiene sentido mantenerlo ya que el servicio de alertas es HTTP y es lo que suma a la
+plataforma"—, admitiendo hacerlo "aunque sea para la documentación en el informe". **Las
+dos mitades no eran separables:** describir un solo acople HTTP mientras el sistema
+arrancaba por subproceso habría sido documentar un sistema inexistente. Se resolvió con la
+regla que gobierna el set —**el informe describe lo que el código hace**— y con la
+distinción que la sostiene: *un patrón de acople es arquitectura; una bandera de
+contingencia es operación*. ADR-020 **deroga ADR-018**, invierte el default (HTTP normal,
+subproceso como fallback tras `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) y devuelve
+la plataforma a **DOS patrones de acople**: HTTP config-driven en los **tres** módulos
+(`:8080`/`:8081`/`:8082`) y bus ZeroMQ (`:5557` detecciones, `:5558` alertas). Se descartó
+**borrar** el subproceso: dejaría el sistema sin vía degradada. Costo declarado: la
+webconsole ahora exige el servicio arriba cuando la distribución está habilitada.
+Propagación completa (código, ADRs, material del informe, kit regenerado con guard nuevo y
+prueba negativa) en el doc 125. **Dato para leer cualquier documento viejo:** el número de
+patrones cambió tres veces en cuatro días (dos → tres con ADR-018 → tres con ADR-019 →
+**dos** con ADR-020); sin enmienda del 08-18, un doc describe un estado intermedio.
+
+## 2026-08-17/18 — el distribuidor pasa a ser también servicio HTTP (ADR-019, doc 124)
+
+Pedido del usuario: que el módulo de distribución sea HTTP "para que el stack quede
+completo para desplegar". Diseño por brainstorming con tres decisiones suyas (aditivo —
+el CLI queda; solo el servicio, sin Docker; ADR-019 **complementa** ADR-018, no la
+deroga), spec 45 §9 nueva, plan de 8 tareas ejecutado con subagente por tarea + revisor
+por tarea + revisión final. **Sin ningún commit** (regla): bordes de revisión por
+snapshots del working tree. Resultado: `eovrt-distribute serve` en `:8082` espejo del
+control-plane (`POST /api/runs` 201/409/422, `/cancel` — desvío deliberado: el
+control-plane no lo tiene—, `DELETE` que olvida el registro y **nunca** toca `out_dir`),
+runner del BFF con cliente HTTP **opt-in** (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=http`;
+default sigue subproceso). **Siguen siendo TRES patrones de acople** — el distribuidor
+entró al primero; se corrigió a tiempo un "cuarto patrón" mal contado en el borrador del
+ADR. Verificación: **DBE** con summary idéntico CLI vs HTTP y misma secuencia de
+notificaciones; **EBE en vivo con la OAK-D real** (12→15 unidades, 2 alertas CR-01/CR-02,
+`bus_dropped_events: 0`, MQTT real con PUBACK; cifras n=2 **no citables** — la citable
+sigue siendo doc 118). El pase destapó y corrigió un **bug preexistente**: `cancelled`
+era inalcanzable (el summary no tiene `termination_reason` en el nivel superior) — toda
+corrida cancelada se reportaba `succeeded`; lo tapaba un assert flojo. Suites: distribuidor
+133 (10 corridas sin flaky), webconsole 663. Containerización **diferida con causa**
+(ADR-019 §4: el despliegue no es resultado del informe). Constancia: doc 124; trampas de
+entorno (IP del preset vs fábrica, `alert_bus.enabled` default off, pgrep que se matchea
+a sí mismo) en su §4.
+
 ## 2026-08-17 — la jornada de fine-tuning cierra: **NO-GO** (doc 123)
 
 El job `1167640` arrancó el 16/08 a las 16:46 —seis horas antes de lo que Slurm había
@@ -59,7 +103,25 @@ así que no cuenta como observación del brazo one-shot), y una asimetría de re
 
 Propagado el mismo día a los docs 116, 117, 120 §5, 121, 122 §6, al índice y a esta cronología.
 **Trampa que quedó marcada en 116/117: hay dos «NO-GO» distintos** — el veredicto científico de
-D-FT-12 y la vieja puerta de autorización previa al envío, levantada el 15/08. Nada commiteado.
+D-FT-12 y la vieja puerta de autorización previa al envío, levantada el 15/08. Commiteado esa
+misma jornada en los 5 repos con cambios (docs `2ac62df`).
+
+**Más tarde el 17/08 — la escalera se aplicó, y después se enmendó (D-FT-14).** Primera
+pasada: por la regla de entrada pre-registrada ("T2 solo si T1 mostró ganancia exigible") T2 y
+T3 quedaron NO habilitados y la rama cerrada con evidencia. Después, a pedido explícito del
+usuario, revisión crítica del cierre — y la crítica encontró algo real: la pre-registración
+prohíbe **renegociar T1**, no prohíbe un experimento de seguimiento **con pre-registración
+propia**; la cláusula "la rama se cierra" era gobernanza de presupuesto, no necesidad
+epistémica. Resultado, por la vía de enmienda explícita que D-FT-03 prevé: **T2 reabierto como
+tier EXPLORATORIO** — responde una pregunta nueva (¿el fallo de T1 es artefacto de capacidad o
+el trade-off es estructural?), con márgenes propios (D-FT-15, borrador listo, **firma del
+usuario requerida antes del RUN**), expectativa pre-registrada incluida (NO-GO probable; el
+valor es la curva capacidad/retención de tres puntos), T1 intacto como confirmatorio y **T2
+declarado último brazo contra `bench_v3`**. **T3 confirmado cerrado**: su bloqueo no es
+cómputo sino la baseline MM-GDINO sana que nunca existió — arqueología de 1–2 semanas contra
+la defensa. D-FT-04 pasó a diseño (COCO val2017 como subset de retención OV); tablero con
+cadena T-FT-061…066. Constancias: doc 117 §3 (D-FT-14/15), adendas en `contingencia/20` §6 y
+123 §8.
 
 ---
 

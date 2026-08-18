@@ -31,7 +31,13 @@ GENERATED_DATE_RE = re.compile(r"^> Generado el (\d{4}-\d{2}-\d{2})\.", re.MULTI
 
 BASE_MAX_BYTES = 500 * 1024
 STAGE_MAX_BYTES = 750 * 1024
-KNOWLEDGE_FILENAMES = {"00-contexto-base.md", "01-etapa-activa.md"}
+STAGE_FILENAME_RE = re.compile(r"^01-etapa-[0-6]-activa\.md$")
+
+
+def stage_filename(stage: int) -> str:
+    """Nombre de archivo propio de cada etapa: no se pisan entre si."""
+
+    return f"01-etapa-{stage}-activa.md"
 
 BASE_SOURCES = (
     SourceSlice("GUIA-REDACTORES.md"),
@@ -223,15 +229,21 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    precision y la hibrida por disyuncion fue ejecutada y refutada).
 4. Referencia temporal del banco: anotacion **humana** y congelada; se reporta como
    resultado, no como verificacion preliminar.
-5. Rama de ajuste fino: todas las decisiones humanas estan firmadas, la procedencia del
-   dataset esta cerrada, y la **linea base zero-shot corrio una vez y esta congelada**.
-   La corrida de ajuste fue **autorizada y enviada al cluster** (encolada, sin resultado).
+5. Rama de ajuste fino, **brazo T1: CERRADO con veredicto NO-GO** (2026-08-17). Los
+   margenes se firmaron **antes** de la linea base, la corrida se ejecuto una vez y se
+   evaluo una vez, y **el checkpoint ajustado no se adopta como modelo de servicio**.
+   Tiene cifra medida y se escribe como **hallazgo, no como fracaso**: el ajuste rescata
+   `bare_head` del cero absoluto (AP50 0,0000 -> 0,0455) pero **no alcanza el umbral**
+   (faltaron 0,0045) y **rompe la retencion de `person`** (-11,62 %, tope 10 %). Va en
+   tabla propia, por estrato, nunca mezclada con el nucleo zero-shot.
 
 **ABIERTO — no se afirma; se marca:**
 
-1. **Resultado del modelo ajustado**: no existe. No hay ninguna cifra del checkpoint
-   ajustado y no la habra hasta que la corrida termine y se evalue. La subseccion queda
-   reservada con marcador.
+1. **Resultado del brazo T2**: no existe. T2 se reabrio como tier **exploratorio** por
+   enmienda posterior al NO-GO (D-FT-14) y esta **enviado y en cola, sin empezar**; sus
+   margenes ya estan firmados por adelantado (D-FT-15). No hay ninguna cifra de ese
+   checkpoint y no la habra hasta que corra y se evalue: esa subseccion queda reservada
+   con marcador. **T1 ya no es un hueco**: tiene resultado y se afirma (ver CERRADO 5).
 2. **Cinco figuras sin producir** (vista de procesos, maquina de estados del motor,
    calidad frente a densidad, cuadro con alerta superpuesta y frontera de juzgabilidad).
    Se mencionan en el texto con marcador; no se describen como si existieran.
@@ -280,7 +292,9 @@ es honesto; un capitulo que rellena huecos es indefendible.
   agregado**; retencion a proteger person 0,7843 / helmet 0,6286 / vest 0,2642. Estas
   cifras son **de la rama comparativa**: van SIEMPRE en tablas propias, por estrato, y
   NO se promueven a `results/` hasta cerrar la jornada; **no hay cifra del checkpoint
-  ajustado** (no existe todavia). F-120.1: las latencias de ese run NO se citan (cambio
+  ajustado** (no existe todavia) ✎ *superado el 2026-08-17: el checkpoint T1 SI tiene
+  cifra — ver la enmienda al pie de esta vineta; el que sigue sin cifra es T2*.
+  F-120.1: las latencias de ese run NO se citan (cambio
   de energia en curso); el gate de latencia se mide pareado aparte.
   **✎ 2026-08-15 (noche) — T1 full ENVIADO: T-FT-043 esta CERRADA.** La autorizacion se
   emitio y verifico en el cluster con sus 7 gates, el ensayo `--test-only` paso, y el
@@ -294,10 +308,53 @@ es honesto; un capitulo que rellena huecos es indefendible.
   estimado ni con una redaccion que sugiera que la comparacion ya se hizo.
   La sonda de clase nueva (`machinery`) quedo **derogada para T1 y reasignada a T2/T3**
   por D-FT-13; en T2/T3, de vocabulario abierto, sigue siendo exigible.
+  **✎ 2026-08-17 — la jornada T1 CERRO: veredicto NO-GO.** El job `1167640` corrio el
+  16/08, el checkpoint se promovio por hash y se evaluo **una sola vez** contra
+  `bench_v3`: `bare_head` AP50 **0,0000 -> 0,0455** (gate A pedia >= 0,05: **faltaron
+  0,0045**) y la retencion de `person` cayo **0,7843 -> 0,6932 (-11,62 %, tope 10 %)**.
+  **El checkpoint no se adopta.** Los margenes (D-FT-12) estaban firmados desde el 15/08,
+  antes de la baseline, y **no se renegociaron**: eso es lo que hace al resultado
+  defendible. La cifra **existe y es citable**, en tabla propia por estrato; el gate de
+  latencia **no se midio** y se dice explicito (F-123.1), no se omite.
+  **La misma jornada, DESPUES del veredicto, el usuario firmo la enmienda D-FT-14**: T2
+  se reabre como tier **exploratorio** —para separar si el fallo fue de capacidad o
+  estructural—, no como reintento de T1, y **T3 queda cerrado como trabajo futuro con
+  causa tecnica** (sin baseline MM-GDINO geometricamente sana el delta es
+  ininterpretable), **jamas por "falta de tiempo"**. **D-FT-15** fijo los margenes de T2
+  **antes de todo resultado T2**, con la retencion de vocabulario abierto sobre COCO
+  val2017 congelada en mAP50 **0,434676 => umbral NO-GO 0,391208**, y con la expectativa
+  **pre-registrada** de que T2 tambien de NO-GO. **T2 esta enviado y en cola, sin
+  empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
+  orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
+  transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
 - **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
   HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
   distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
   (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
+  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
+  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
+  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
+  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
+  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
+  **Al redactar, la descripcion vigente es esta y no otra:**
+  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
+  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
+  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
+  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
+  camino offline (igual que el control-plane).
+- **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
+  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
+  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
+  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
+  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
+  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
+  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
+  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
+  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
+  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
@@ -456,7 +513,8 @@ def build_outputs(
             f"- **Etapa activa:** {stage} - {STAGE_DESCRIPTIONS[stage]}.",
             "- Este archivo contiene el texto vigente que se modifica y sus insumos de ajuste.",
             "- No se trasladan resultados propios hacia secciones cronologicamente anteriores.",
-            "- Al cambiar de etapa, este archivo se reemplaza; el contexto base se conserva.",
+            f"- Nombre propio de esta etapa ({stage_filename(stage)}): regenerarla no pisa"
+            " el paquete de ninguna otra etapa.",
         ]
     )
     active_stage = render_document(
@@ -469,7 +527,7 @@ def build_outputs(
     )
     return {
         kit_dir / "00-contexto-base.md": base,
-        kit_dir / "01-etapa-activa.md": active_stage,
+        kit_dir / stage_filename(stage): active_stage,
     }
 
 
@@ -488,10 +546,14 @@ def check_outputs(outputs: dict[Path, str]) -> list[str]:
 
     errors: list[str] = []
     names = {path.name for path in outputs}
-    if names != KNOWLEDGE_FILENAMES:
-        errors.append(
-            "el knowledge debe contener exactamente " + ", ".join(sorted(KNOWLEDGE_FILENAMES))
-        )
+    if "00-contexto-base.md" not in names:
+        errors.append("falta 00-contexto-base.md en el knowledge generado")
+    stage_names = names - {"00-contexto-base.md"}
+    if not stage_names:
+        errors.append("no se genero ningun archivo de etapa")
+    for name in sorted(stage_names):
+        if not STAGE_FILENAME_RE.match(name):
+            errors.append(f"nombre de archivo de etapa invalido: {name}")
 
     for path, expected in outputs.items():
         if not path.is_file():
@@ -530,9 +592,26 @@ def write_outputs(outputs: dict[Path, str]) -> None:
         temporary.replace(path)
 
 
+def _etapa_value(raw: str) -> int | str:
+    if raw.strip().lower() in {"all", "todas"}:
+        return "all"
+    try:
+        value = int(raw)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(f"etapa invalida: {raw!r}") from error
+    if value not in range(7):
+        raise argparse.ArgumentTypeError(f"etapa invalida: {raw!r}; opciones: 0-6, all")
+    return value
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--etapa", type=int, choices=range(7), default=1)
+    parser.add_argument(
+        "--etapa",
+        type=_etapa_value,
+        default=1,
+        help="0-6 para una sola etapa, o 'all' para regenerar las siete a la vez",
+    )
     parser.add_argument(
         "--check",
         action="store_true",
@@ -545,8 +624,11 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     repo_root = Path(__file__).resolve().parents[1]
     generated_on = _existing_generation_date(repo_root) if args.check else date.today().isoformat()
+    stages = list(range(7)) if args.etapa == "all" else [args.etapa]
     try:
-        outputs = build_outputs(repo_root, args.etapa, generated_on=generated_on)
+        outputs: dict[Path, str] = {}
+        for stage in stages:
+            outputs.update(build_outputs(repo_root, stage, generated_on=generated_on))
     except KitError as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
@@ -557,7 +639,7 @@ def main(argv: list[str] | None = None) -> int:
             for error in errors:
                 print(f"ERROR: {error}", file=sys.stderr)
             return 1
-        print(f"OK: kit vigente para etapa {args.etapa}; 2 archivos de knowledge")
+        print(f"OK: kit vigente para etapa(s) {args.etapa}; {len(outputs)} archivos de knowledge")
         return 0
 
     write_outputs(outputs)
