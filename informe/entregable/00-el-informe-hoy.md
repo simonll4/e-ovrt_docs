@@ -19,6 +19,14 @@
 | `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` | **El informe completo, v1.1** | 05/06/2026 |
 | `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` | El capítulo de **Etapa 3** (Diseño arquitectónico) | — |
 
+> ✎ **2026-08-19 — pase de cierre de §17.3/§17.4 en curso.** Las versiones de trabajo
+> VIGENTES de ambas secciones son los `.docx` v0.1 de [`desarrollando/`](desarrollando/)
+> (con los comentarios del autor), y las correcciones firmadas para cerrarlas están en
+> [`desarrollando/correcciones-etapa-3-4.md`](desarrollando/correcciones-etapa-3-4.md).
+> El standalone `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (16-08) queda como
+> versión PREVIA de §17.3. Al cerrar cada sección en el maestro: re-extraer su `.md` y
+> fechar acá (regla D-C).
+
 ## El texto extraído
 
 | Archivo | Qué contiene | Etapa del plan |

@@ -62,6 +62,13 @@ fracaso del proyecto: es el dato. **El contraste entre filas ES el experimento.*
 > se redactan desde `informe/92b`; el estado ejecutado y sus salvedades, desde
 > `operacion/114`. Las latencias de loopback usadas para verificar el canal no se convierten
 > en una cifra de desempeño de la tesis.
+>
+> ✎ **2026-08-18: este módulo sumó un acople más.** Desde ADR-019 expone su propio
+> servicio HTTP (`eovrt-distribute serve`, `:8082`), y desde **ADR-020** (mismo día) ese
+> es el acople predeterminado — no un modo alternativo. "No es un tercer plano" arriba
+> sigue siendo cierto en terminología (los "planos" siguen siendo dos: medios y control),
+> pero **sí es un tercer servicio HTTP config-driven**, con la webconsole y el runner
+> como clientes. Detalle completo: §"Dónde vive cada cosa" más abajo y la trampa 7.
 
 La cifra citable del tramo de distribución es **`t_alert-notification` p95 =
 64,534 ms (n = 460 entregas live)** (`results/realtime/t_alert_notification/metrics.json`;
@@ -155,6 +162,7 @@ izquierda ya se escribió mal alguna vez.
 | "A nivel de escena (0,333) el sistema supera al de sujeto (0,190)" | "En el estrato B, con **solo 2 episodios evaluables**, la diferencia de F1 **no es interpretable**. Lo robusto es la **asimetría de falsos positivos**: 26 contra 323 sobre 11 clips negativos (**12×**)" | Con n=2 eso es ruido |
 | "El lote de internet valida el sistema en obra real" | "El lote aporta medición en obra real **acotada**, y su aporte principal es **caracterizar dónde el sistema deja de ser evaluable**" | **Limitación L4, precisada** |
 | "mAP50 0,551" | "mAP50 **0,551** sobre `bench_v3` (6.477 imágenes de **3 fuentes independientes**), con el desglose por estrato" | **Nunca solo el agregado** (limitación L5) |
+| "las tres fuentes son `bench_obra`, `chv` y `shel5k`" | "las tres fuentes son **`construction_site_safety`**, **CHV** y **SHEL5K**; sus estratos en el banco se llaman `bench_obra`, `chv` y `shel5k`" | **`bench_obra` es un ESTRATO, no una fuente**: es el subconjunto curado internamente de `construction_site_safety` (196 → 147). Nombrarlo entre las fuentes hace creer que hubo cuatro datasets — ver glosario `13` §4.4 |
 | "Los clips negativos bajan el F1" | "Los clips negativos **no entran** a precision/recall/F1: su métrica son los falsos positivos" | Promediarlos cuenta aciertos como catástrofes |
 | "El sistema emitió 12 falsos positivos" *(contando re-alertas)* | "…sin contar `re_alerts`, que son re-confirmaciones con la infracción **todavía activa**" | Una re-alerta no es un error |
 | "La latencia de vidrio a alerta es de 14,7 ms" | "El tramo medido G2A es de 14,7 ms **desde el dequeue**; de vidrio a alerta hay que sumarle la captura (202–217 ms en el rodaje)" | Se mide desde el dequeue, no desde el fotón |
@@ -356,7 +364,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13; desde el 2026-08-18 corre además como servicio HTTP (`:8082`, subproceso sigue default) |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019) · **`operacion/125`** — HTTP como acople (ADR-020). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13. Desde el 2026-08-18 expone servicio HTTP propio en `:8082`; **HTTP constituye el acople predeterminado**. ADR-018 quedó derogada por ADR-020 |
 | El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |

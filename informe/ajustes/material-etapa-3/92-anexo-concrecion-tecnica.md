@@ -506,6 +506,15 @@ milisegundos, no en frames**, como exige §17.1.5.3.3.
 `box_threshold 0.35` · `text_threshold 0.25` · `confidence_threshold 0.25` · `iou_threshold 0.50` ·
 postproceso `min_confidence 0.25`, `min_box_area_px 100.0` · `rate_control.stride 1`, `max_queue_size 8`.
 
+> ✎ **2026-08-19 — estos son los DEFAULTS del schema, NO la configuración efectiva del campeón.**
+> El perfil desplegado `grounding-dino/gdino-tiny-560` sobreescribe `box_threshold` a **0.30**
+> (`configs/models/grounding-dino/gdino-tiny-560.yaml`), y las campañas oficiales corrieron con
+> 0.30 (los `model_note` de `experimental-setup/results/` lo consignan textualmente). Además,
+> `confidence_threshold` es un campo del carril YOLOE: para GDINO el gate efectivo es
+> `box_threshold` + `postprocess.min_confidence`. **Al informe va 0.30** — el 0.35 de la línea
+> de arriba ya contaminó el borrador de §17.4.6 (corregido en
+> `entregable/desarrollando/correcciones-etapa-3-4.md`, ítem E4-12).
+
 ### 6.3 Prompt set del núcleo (E-IND) — `experimental-setup/prompts/cr01_cr02_v2_short.yaml`
 
 `person` (rol: entidad) · `helmet`, `vest` (rol: EPP). Evidencia **positiva**: la ausencia no se pregunta

@@ -131,6 +131,10 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
         ),
     ),
     3: (
+        SourceSlice(
+            "informe/entregable/desarrollando/correcciones-etapa-3-4.md",
+            note="pase de cierre 2026-08-19: manda sobre el resto del material de esta etapa",
+        ),
         SourceSlice("informe/entregable/90-etapa3-texto-extraido.md"),
         SourceSlice("informe/ajustes/03-etapa-3-diseno-arquitectonico.md"),
         SourceSlice("informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md"),
@@ -145,6 +149,10 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
         ),
     ),
     4: (
+        SourceSlice(
+            "informe/entregable/desarrollando/correcciones-etapa-3-4.md",
+            note="pase de cierre 2026-08-19: manda sobre el resto del material de esta etapa",
+        ),
         SourceSlice(
             "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 17.4. Implementación del prototipo experimental",
@@ -327,24 +335,26 @@ es honesto; un capitulo que rellena huecos es indefendible.
   empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
   orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
   transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
-- **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
-  HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
-  distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
-  (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
-  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
-  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
-  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
-  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
-  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
-  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
-  **Al redactar, la descripcion vigente es esta y no otra:**
-  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
-  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
-  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
-  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
-  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
-  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
-  camino offline (igual que el control-plane).
+- **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
+  **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
+  control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
+  webconsole y el runner como clientes de los tres — ninguno consume el bus.
+  **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones `:5557`
+  (medios->control), alertas `:5558` (control->distribucion).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron.** El subproceso del
+  distribuidor sigue en el codigo como **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) — implementado y probado, pero
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir
+  "el modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI
+  para el camino offline (igual que el control-plane).
+  *(Historia del numero, solo para quien la necesite — ningun documento anterior al
+  2026-08-18 describe el estado vigente de arriba: ADR-018 (2026-08-15) declaro que
+  "la plataforma tiene TRES patrones de acople, no dos", con el tercero siendo
+  **BFF-subproceso** porque el modulo de distribucion, que es CLI y no servicio,
+  no tenia otra forma de acoplarse. ADR-019 (2026-08-17/18) le dio servicio HTTP
+  propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
+  el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
+  normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
   usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
   (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la

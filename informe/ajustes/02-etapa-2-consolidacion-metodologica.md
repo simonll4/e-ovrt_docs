@@ -154,6 +154,17 @@ Etapa 5 como `AJ-5.07` y como tabla **T-84**.
 - Para la estrategia indirecta, **métricas por entidad componente** (`person`, `helmet`,
   `vest` por separado) para atribuir la degradación — el bench ya las produce.
 
+> ✎ **2026-08-18 — el Anexo C también trae el catálogo de DATASETS, y ahí hay dos
+> precisiones que no son de esta ficha pero se escriben en la misma sección:**
+> **(1)** hay que separar **candidatos evaluados** (la lista larga: SH17, Pictor-PPE,
+> GDUT-HWD, SHWD, SODA, MOCS…, con por qué no se retuvieron) de **utilizados**, y dentro
+> de utilizados distinguir los de **entrenamiento** (`construction_site_safety`, `chv`,
+> `ppe_siabar`) de las **fuentes del banco de imágenes** (`construction_site_safety`,
+> `chv`, `shel5k`) — comparten dos nombres de tres, y confundirlos es el error fácil.
+> **(2)** `bench_obra` **no es un dataset**: es el estrato curado internamente a partir de
+> `construction_site_safety`. Guía completa con la cadena de procedencia y una frase lista
+> para el informe: **redline R-24** (`material-etapa-3/93`) y glosario `13` §4.4.
+
 ---
 
 ### AJ-2.08 · §17.1.6 y Tabla 36 · PRECISA · 🟡 — las fases

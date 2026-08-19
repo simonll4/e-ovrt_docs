@@ -1,0 +1,39 @@
+# E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v0.1
+- en etapas posteriores, etapa 4 o 5 se tiene que justificar porque solo se implemento el nucleo validable. la idea no es decir por falta de tiempo, si no justificar por la falta de datasets, benchmarks de dominio,etc. esos  son ejemplos no es algo 100% seguro lo que digo
+- Tabla 43 columna Estado suma? si estan todos adopatados
+- se entiende y tiene sentido nombrar webconsole aca? es como que se nombra sin demasiado contexto. como que se metio de una ahi
+- justificar la eleccion de tecnologias: tenemos que justificar porque seleccionamos HTTP para los servivios, ZeroMQ, etc.
+- esto de nombrar los procesos aca lo veo medio colgado aca, revisar y ver como acomodar con respecto a la etapa 4: me suena medio raro plantear los servicio desarrolado asi de una en la etapa de diseno, con puertos y todo. esto es para pensar y ver como presentarlo en etapa diseno (3) y en implementacion (4). no digo que este mal si no que hay que entender bien cual es la idea de cada etapa y como enganchar ambas.
+- reemplaza el termino "corridas paraguas": el termino corrida paraguas fue reemplazado por ejecución experimental
+- se entiende al nombrar las estrategias de prompts?: en el desarrollo del informe es correcto nombrarlas asi? se que en etapa 2 es donde se desarrolla las estrategias si no me equivoco y ahi es donde se puede nombrar esa nomenclatura para que al lector le quede claro
+- etapa 4 tambien esta el diagrama de estados. revisar, analizar y ver como unificar para no ser redundantes.
+- el motor de patrones de riesgo esta materealizado? esto se tiene que desarrollar en etapa 4 o aca en el diseno?
+- patron de riesgo materializado?: lo mismo que el motor, siento que tenemos que presentarle al lector algo para que lo asimile o entienda la logica. entedner en que etapa va
+- dificil de enganchar con los demas modulos de la plataforma. tiene que ser mas facil de entender esta seccion.
+- aclarar que es motor de patrones - cotrol plane
+- esto quead como detectionEvent o perceptionEvent?: DetectionEvent se me mezcla con PerceptionEvent, elijamos un solo termino y listo
+- comparar estos endpoints con los de etapa 4: en etapa 4 tambien se desarrollan o se muestran los endpoints mas relevantes, no seamos redundantes
+- no se entiende bien lo que quiere mostar esto, ademas mejorar la presentacion: es como que el texto que se viene desarrollando pasa en seco a esa presentacion de la evidencia
+- revisar y validar: validar toda la informacion que se muestre en tablas sea correcta y respaldada
+- mas breve el desarrollo teorico, se supone que esto ya esta claro en secciones anteriores (etapa2): en etapa 2 se supone que el desarrollo de ambos escenarios cubre toda la teoria y justifiaciones, asi que aca hay que hacerla mas breve
+- que es esto de EN-2? y ver: no se que es lo EN-2, se utilizo? 
+ 
+
+# E-OVRT-VDP_Seccion_17.4_Implementacion_v0.1
+- borrar, no tiene sentido documentar herramientas preliminares y en lo mismo aca: es correcto eso que digo? para mi no suma demasiado y alarga el informe casi sin sentido
+- servicio de alertas ajustado a http
+- matenerlo vale la pena, es como que es parte de la documentacion de contratos, peroi que en la mayoria no aplique es como que esta al pedo.: aca tenemos que versionar los contratos, que opinas?
+- esto va con lo de etapa 3, decidir un termino y ajustar el desarrollo aca
+- a estos endpoints me referi en el comentario de seccion 3: ver como dejar bien documentado y que ambas secciones aporten lo que tengan que aportar sin ser redundantes
+- no veo que sea relevante: endpoint de salud no veo relevante doucmentarlos. 
+- servicio de alertas ya no es asi
+- no suman esos detalles muy tecnicos: es como que no aporta demasiado, es mas texto de lo que aporta al desarrollo. desde mi punto de vista
+- infra dockerizada: esto me parece que si suma, debemos contar un poco mas cual es la idea de dockerizar. la idea es que la plataforma sea reproducible, auqnue todabia no tengamos organizada y dockerizada la infra a full lo podemos ir desarrollando teoricamente y cuando cerremos en el informe lo implementamos en los repositorios
+- esto ya esta claro en etapa 3, diseno: la idea es dejar de ser redundantes con cosas que ya quedaron claras. marco este ejemplo, pero en todo el desarrollo me refiero
+- cambiar esa parte, no suma nada decir que la tiene desactivada. decir de otra forma como: la decision de diseno tomada...
+- aca se noombra un solo modelo de los varios que probamos en los diferentes runs.
+- hablar de CVAT directamente, o antes: explicar que apra las anotaciones de videos seleccionamos CVAT...
+- esto no suma nada y esto me parece que no suma: detalles que no suman al desarrollo
+- esto al final no se hizo: todo lo ejecutamos en un solo nodo, en la pc con nvidia 4060, por lo que todo a lo que se refiera a dos nodos del media plane como lo habiamos planeado ni lo documentemos en el informe final. no suma a los resutaltados.
+- no se entiende esto, no lo tuvimos en cuenta? no digamos cosas que no hicimos y que no suman nada
+- 

@@ -71,11 +71,11 @@ EVIDENCIA") y R-26 (§17.3.17/18, extensibilidad).
 | T-83 | **Nivel A sobre video (NA1, 17 clips)** (✎ 08-10): CR-01 F1 0,031 / CR-02 0,018 contra 0,408/0,479 en imágenes (`bench_obra`) — el derrumbe es de **precision**, el recall se sostiene | `results/bench_nivel_a/na1_gdinotiny560_v2short_video/metrics.json` | R-13 | ✅ en disco |
 | T-84 | **Revisión ciega del GT del lote como resultado de calidad de GT** (✎ 08-10): **5 de 7 declaraciones de episodio eran errores de anotación (~71%)**, todas sobre-declarando donde el estado no era observable — el mismo modo de falla que el motor | constancia en `operacion/113` §B + correcciones firmadas en los `clip.yaml` | R-13 | ✅ en disco |
 | T-85 | **Latencia de notificación (distribución): p95 64,534 ms (n=460) + régimen sostenido** | `results/realtime/t_alert_notification/metrics.json` + `operacion/118` | §17.3.10 | ✅ en disco |
-| FIG-A | **Arquitectura de los dos planos** (DBE / EBE, corte tras normalización) | especificación en **doc 94 §4** | R-09 | 📐 spec |
+| FIG-A | **Arquitectura de los dos planos** (DBE / EBE, corte tras normalización) (✎ 08-19: destino único **§17.4.1** — §17.3 quedó sin vista de procesos por la doctrina del pase de cierre) | especificación en **doc 94 §4** | R-09 | 📐 spec |
 | FIG-B | **Curva calidad vs densidad** (F1 escena y sujeto contra fps) | `results/clip_bench/r{1..6}_*/metrics.json` | R-13 | ⚙ generar |
 | FIG-C | **Frame con overlay de alerta confirmada** | renderer en `experimental-setup/defensa/` + `runs/*/previews/` | R-12 | ⚙ generar |
 | FIG-D | **Montaje lado a lado escena \| sujeto** (el mecanismo de F-89.1 en una imagen) | `experimental-setup/defensa/` (VG1 lado a lado, ya renderizado) | R-26 | ✅ en disco |
-| FIG-E | **Máquina de estados del motor** (`open → confirmed → resolved`, con `confirm_after_ms`) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
+| FIG-E | **Máquina de estados del motor** (`inactive → candidate → confirmed → sustained → resolved`, con `confirm_after_ms`) (✎ 08-19: destino **§17.3.8.2** y CINCO estados — el rótulo de tres estados era una simplificación incorrecta) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
 | FIG-F | **Frontera de juzgabilidad de 3 ejes** (escala × iluminación × oclusión) — dónde el material deja de ser evaluable (✎ 08-10) | mediciones en `operacion/103` §7 y `operacion/105` (F-105.3) | R-13 | ⚙ generar |
 
 **Regla al llenarlas:** ninguna tabla se transcribe desde este inventario ni desde el

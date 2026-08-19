@@ -86,7 +86,7 @@ de modo que no se pueda cometer:
 
 | Nivel | Qué mide | Sobre qué | Índice |
 |---|---|---|---|
-| **Imágenes** | detección por clase (mAP@0,5, AP por clase) | `bench_v3`, 3 fuentes independientes | `results/bench_imagenes/` |
+| **Imágenes** | detección por clase (mAP@0,5, AP por clase) | `bench_v3`, 3 fuentes independientes (`construction_site_safety`, CHV, SHEL5K) — ver la nota de abajo | `results/bench_imagenes/` |
 | **Nivel A** | el **estado "sin EPP" por persona** (E-DIR vs E-IND) | imágenes y también video | `results/bench_nivel_a/` |
 | **Nivel B** | **alertas confirmadas contra GT temporal humano** — el resultado principal | el banco de clips | `results/clip_bench/` |
 | *(transversal)* | latencia, cadencia, integridad del acople | corridas live y single-host | `results/realtime/` |
@@ -94,6 +94,16 @@ de modo que no se pueda cometer:
 Un mismo modelo tiene números muy distintos en cada nivel, y eso **no es una
 inconsistencia: es el hallazgo**. El caso más elocuente es Nivel A sobre video, donde el
 derrumbe respecto de imágenes es **de precisión, no de recall** (tabla T-83).
+
+> ⚠️ **✎ 2026-08-18 — `estrato` ≠ `fuente` al reportar el bench de imágenes.** Los
+> estratos de `bench_v3` se llaman `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000),
+> pero **`bench_obra` no es una fuente ni un dataset externo**: es el subconjunto **curado
+> internamente** de `construction_site_safety` v27 (196 → 147, tras excluir 49 imágenes
+> fuera del dominio de obra y 4 cajas `bare_head` sub-píxel). Las **tres fuentes
+> independientes** son `construction_site_safety`, **CHV** y **SHEL5K**. Al reportar por
+> estrato se usan los nombres de estrato; al hablar de *fuentes*, los de dataset —
+> mezclarlos le atribuye al trabajo una cuarta fuente inexistente. Detalle y cadena de
+> procedencia: glosario `13` §4.4.
 
 ---
 

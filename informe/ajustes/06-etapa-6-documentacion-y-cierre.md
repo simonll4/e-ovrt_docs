@@ -124,8 +124,10 @@ Sección vacía. Qué tiene que decir:
   manual de despliegue. **Cómo NO escribirlo:** en presente, ni como capacidad existente,
   ni con instrucciones de despliegue. La frase que gobierna: *describir el compromiso y su
   fundamento es correcto; describir un despliegue que no corrió es falso.*
-- **Que `docs/` es un repo git local sin remote**, por decisión del proyecto, y que el
-  respaldo es copia a otro disco.
+- **Que `docs/` es un repo git propio**, con remote desde el 2026-08-10 (`e-ovrt_docs`,
+  rama `main`) para el acceso del equipo, y que además se respalda con copia a otro disco.
+  *(✎ 2026-08-18: decía "local sin remote" — esa era la decisión inicial del 2026-07-09,
+  superada al sumar redactores externos.)*
 - **Dónde vive cada evidencia**: `results/` (los índices y sus artefactos),
   `datasets/processed/clip_bench/` (el banco, con su freeze y sha256),
   `docs/operacion/datos/` (la evidencia cruda por campaña).

@@ -101,6 +101,7 @@ Actualización T-FT-003/T-FT-010 del 2026-08-13:
 | **D-FT-13** | Sonda de clase nueva (`machinery`) en T1 | **aprobada, usuario 2026-08-15** | derogar la sonda **sólo para T1** (vocabulario cerrado por D-FT-08) y reasignarla a T2/T3, de vocabulario abierto | puerta del doc 100 §6 |
 | **D-FT-14** | Enmienda de escalera post-NO-GO | ✎ **aprobada, usuario 2026-08-17** | reabrir T2 como tier **exploratorio** con pre-registración propia emitida antes de cualquier resultado T2; T1 intacto; T2 = **último brazo contra `bench_v3`**; T3 confirmado trabajo futuro con causa técnica (sin baseline MM-GDINO sana; D-FT-02/05/06 siguen diferidas) | escalera completa |
 | **D-FT-15** | Márgenes go/no-go T2 | ✎ **APROBADA, usuario 2026-08-17 — firmada ANTES de todo resultado T2** | detalle en §3 (sección D-FT-15). Gain y retención in-domain idénticos a D-FT-12; retención OV nueva sobre COCO val2017 (D-FT-04, **base congelada mAP50 0,434676 ⇒ umbral NO-GO 0,391208**); latencia pareada ≤5 %; expectativa pre-registrada declarada (NO-GO probable, el valor es la curva de capacidad) | protocolo T2 y T-FT-064 |
+| **D-FT-16** | Corrección del presupuesto de entrenamiento T2 (pre-resultado) | ✎ **aprobada, usuario 2026-08-18 — ANTES de toda evaluación tuned** | detalle en §3. `optimizer=auto` resultó ciego al conteo de parámetros entrenables (LR idéntico para T1 y T2 pese a ×3.343 de diferencia); job `1167864` submuestreado. **Re-correr 60 épocas DESDE EL PESO BASE** con optimizador EXPLÍCITO (SGD, lr0=0,01, momentum=0,937) + patience=15, todo fijado antes de ver resultado alguno. **No** continuar desde el `best.pt` de `1167864`: la evidencia muestra que es peor punto de partida que el peso base (T2 ep1 0,0490 vs T1 ep1 0,1507, con caída a 0,0255 en ep2) | T-FT-064 (re-corrida v2) |
 
 ### D-FT-01 — decisión posterior al split
 
@@ -238,6 +239,114 @@ fijo D-FT-08, que es específico del head fusionado de T1.
    más) y la erosión OV sea **sustancial** ⇒ **NO-GO probable**. El valor declarado del
    experimento es la curva capacidad/retención y el cierre de la objeción de capacidad
    contra T1 — no el GO.
+
+### D-FT-16 — corrección del presupuesto de entrenamiento T2 — **aprobada, usuario 2026-08-18**
+
+**El hallazgo, verificado en el código instalado (ultralytics 8.4.86, `BaseTrainer.build_optimizer`), no en hipótesis:**
+
+```python
+if name == "auto":
+    nc = self.data.get("nc", 10)
+    lr_fit = round(0.002 * 5 / (4 + nc), 6)
+    name, lr, momentum = ("MuSGD", 0.01, 0.9) if iterations > 10000 else ("AdamW", lr_fit, 0.9)
+```
+
+El LR que `optimizer: auto` calcula depende **únicamente de `nc`** (número de clases) —
+nunca del conteo de parámetros entrenables. Con `nc=4` para los dos tiers, el log de
+ambos jobs confirma el mismo valor exacto: `AdamW(lr=0.00125, momentum=0.9)` tanto para
+T1 (3.096 params entrenables) como para T2 (10.350.308 params, **×3.343**). El "contrato
+de comparabilidad" de D-FT-15 preservó fielmente `optimizer: auto` en los dos configs —
+y esa fidelidad tuvo un costo no anticipado: el mismo learning rate se aplicó a un
+espacio de parámetros ×3.343 mayor, con el mismo presupuesto de 10 épocas.
+
+**La evidencia en la curva de `1167864`:** `train/cls` prácticamente no baja
+(7,41→7,05 en 10 épocas) y el `mAP50-95` interno (`finetuning_v1/val`) queda en
+**0,031**, muy por debajo del **0,190** de T1 en el mismo split y las mismas épocas —
+pese a la capacidad extra. Es la firma esperable de un LR calibrado para mover una
+cabeza de 3K parámetros, aplicado a 10,35M.
+
+**Por qué esto es pre-resultado, no un ajuste post-hoc:** al momento de este hallazgo
+**no existe ninguna evaluación tuned contra `bench_v3` ni COCO** — sólo se revisó
+telemetría interna de entrenamiento (`results.csv`), exactamente el mismo tipo de
+control de calidad que ya se hizo con T1 antes de su brazo bench. Evaluar `1167864`
+contra `bench_v3` ahora habría confundido "el full FT no ayuda" (la pregunta que T2
+existe para responder) con "este LR con 10 épocas no alcanzó a converger" (un artefacto
+de presupuesto) — exactamente el tipo de resultado débil que D-FT-14 buscaba evitar.
+
+**La corrección — re-corrida COMPLETA desde el peso base, no continuación.** La primera
+versión de esta enmienda proponía continuar desde el `best.pt` de `1167864` para no
+descartar el gradiente ya invertido. **Se descartó tras mirar la evidencia**, que
+invierte el argumento: ese checkpoint es un punto de partida **peor** que el peso base.
+Ambos tiers arrancan del mismo peso, y comparando época a época:
+
+| | época 1 | trayectoria |
+|---|---|---|
+| **T1** (3.096 params) | mAP50 **0,1507** | 0,15 → 0,29 → 0,35 → … → 0,425 · **monótona** |
+| **T2 v1** (10,35 M params) | mAP50 **0,0490** | 0,049 → **0,026** → 0,047 → 0,029 → … → 0,072 · **oscilante** |
+
+T1 en su primera época ya da 0,1507 entrenando apenas 3.096 parámetros sobre features
+congeladas — eso es, en la práctica, lo que la representación base puede entregar. T2
+con ×3.343 más capacidad y desde el mismo peso llega a 0,0490, y **cae a 0,0255 en la
+época 2**. Eso no es "aprender lento": es el full FT **dañando las features
+preentrenadas desde el primer paso**, con una trayectoria oscilante que es la firma de
+un modelo zarandeado, no de uno aprendiendo. Continuar desde ahí obligaría a SGD a
+deshacer el daño antes de aprender, y dejaría un checkpoint con **historia de
+optimización en dos fases** que hay que explicar en un párrafo.
+
+El argumento "no descartar el gradiente invertido" era **costo hundido**: esas 10
+épocas costaron 17 minutos de GPU de un clúster que no pagamos, y preservarlas compraba
+un peor punto de partida más una descripción que debilita justamente la rigurosidad
+metodológica que T2 existe para demostrar. Re-correr cuesta ~90 min y compra un
+experimento describible en una frase.
+
+Entonces: **60 épocas desde `yoloe-26s-seg.pt` con optimizador EXPLÍCITO — SGD,
+lr0=0,01, momentum=0,937** — los defaults *documentados* de ultralytics (verificado
+contra `get_cfg()`, no asumido); con `nbs=64` y `batch=8` el acumulado da batch efectivo
+64, que es el punto de diseño de ese LR, y `warmup_epochs=3` rampea desde casi cero — la
+protección que el camino AdamW no tuvo. Techo `epochs=60` y `patience=15` (Ultralytics
+decide solo cuándo detenerse; no un humano mirando el número final), ambos fijados
+**antes** de observar cualquier resultado tuned.
+
+El `best.pt` de `1167864` **se conserva como evidencia del hallazgo**, no como
+candidato: documenta que `optimizer=auto` es ciego al conteo de parámetros entrenables,
+que es un resultado publicable en sí mismo.
+
+**Salvedad honesta:** SGD@0,01 desde base también podría degradar features; no hay
+garantía. Pero es el camino documentado de fine-tuning de ultralytics, y 60 épocas con
+`patience=15` alcanzan para ver si converge. **Si también se degrada, eso sería un
+resultado fuerte para T2**: el trade-off ganancia/retención sería estructural y no lo
+evitaría ninguna configuración razonable de full fine-tuning.
+
+**Qué NO cambia:** el alcance entrenable (390 tensores/10.350.308 params, mismos
+prefijos congelados), el dataset, `imgsz`/`batch`/`seed`, y los cuatro gates de D-FT-15
+(gain, retención in-domain, retención OV, latencia) con sus umbrales ya congelados.
+Sólo cambian el optimizador y el presupuesto de épocas — la corrección mínima que hace
+comparable el *esfuerzo de optimización*, no sólo el número de épocas.
+
+**El caveat de dos fases quedó ELIMINADO por esta decisión.** La versión de continuación
+habría producido un checkpoint con historia `AdamW` + `SGD` que el informe estaba
+obligado a declarar; al re-correr desde el peso base, la descripción vuelve a ser
+"60 épocas de SGD explícito desde `yoloe-26s-seg.pt`". Un problema resuelto en el
+diseño en vez de administrado en la redacción.
+
+**Dos bugs propios encontrados en revisión crítica antes de que ningún job corriera**
+(jobs `1167979` y `1167980` cancelados en `PD`, sin gastar GPU; el arreglo viaja en
+`train_t2_v2.py`):
+1. `resolve_profile` reusaba `EFFECTIVE_PROFILE_KEYS` de T1, que **no incluye**
+   `optimizer`/`lr0`/`momentum`/`patience` — el perfil quedaba sin los cuatro parámetros
+   que SON la enmienda y la corrida habría muerto con `KeyError` al arrancar, sin
+   siquiera aplicar el optimizador corregido. El preflight `--check-scope` no lo cazaba
+   porque retornaba antes de consumir el perfil. **Arreglado con validación explícita en
+   `resolve_profile`**: ahora un olvido de este tipo falla en preflight (segundos,
+   local) y no dos días después con la GPU asignada.
+2. `_validate_epoch_schedule` de T1 exige épocas **exactamente** `[1..epochs]`, pero
+   `patience=15` está puesto para que Ultralytics corte al converger: una parada
+   temprana —el resultado **esperado**— se habría reportado como `failed_postcheck` y el
+   manifiesto con hashes nunca se habría escrito. **Reemplazado por
+   `validate_continuation_epochs`**, que acepta el corte temprano, rechaza cortes
+   imposiblemente tempranos (`< patience+1`, señal de crash disfrazado de convergencia) y
+   registra `early_stopped`/`hit_ceiling` — dato científico: si toca el techo de 60, el
+   resultado se lee como "todavía subiendo", no como convergido.
 
 ### D-FT-07 — alcance de la centralización
 

@@ -342,6 +342,54 @@ class GovernanceMigrationTest(unittest.TestCase):
         # Y el error del borrador de ADR-019 no puede reaparecer.
         self.assertNotIn("cuarto patron de acople", base)
 
+    def test_generated_context_states_two_patterns_before_the_history(self) -> None:
+        """Hallazgo del usuario (2026-08-18): para búsqueda semántica sobre este
+        archivo, un fragmento recuperado puede mostrar SOLO la primera mención. Si la
+        afirmación vieja ("TRES patrones") apareciera antes que la vigente ("DOS
+        patrones"), un chunk podría devolver únicamente el estado superado. El bloque
+        tiene que abrir con la afirmación vigente y dejar la secuencia histórica
+        (ADR-018→019→020) después, marcada como historia.
+        """
+        generated = kit.build_outputs(REPO_ROOT, 1)
+        base = next(
+            text for path, text in generated.items() if path.name == "00-contexto-base.md"
+        )
+
+        pos_dos = base.index("los patrones de acople son DOS, no tres")
+        pos_tres = base.index("TRES patrones de acople, no dos")
+        self.assertLess(
+            pos_dos,
+            pos_tres,
+            "la afirmacion vigente (DOS patrones) tiene que preceder a la mencion "
+            "historica (TRES patrones), no al reves",
+        )
+
+    def test_generated_context_separates_bench_strata_from_sources(self) -> None:
+        """`bench_obra` es un ESTRATO curado, no una cuarta fuente (usuario, 2026-08-18).
+
+        El riesgo concreto: el material decía "6.477 imágenes en 3 fuentes
+        independientes (`bench_obra` · `chv` · `shel5k`)", que lee como si los tres
+        nombres fueran datasets. Dos lo son; `bench_obra` no — es el subconjunto
+        curado internamente de `construction_site_safety` (196 → 147). Un redactor
+        que copie esa enumeración le atribuye al trabajo una fuente externa que no
+        existe, y de paso pierde la trazabilidad de la curación.
+        """
+        generated = kit.build_outputs(REPO_ROOT, 1)
+        base = next(
+            text for path, text in generated.items() if path.name == "00-contexto-base.md"
+        )
+
+        # La fuente real tiene que estar nombrada como tal.
+        self.assertIn("construction_site_safety", base)
+        # Y la distinción, explícita.
+        self.assertIn("NO es una cuarta fuente", base)
+        self.assertIn("estrato curado internamente", base)
+        # La cadena de procedencia, con sus números verificables.
+        self.assertIn("196", base)
+        self.assertIn("147", base)
+        # Nunca la enumeración vieja que presenta el estrato como fuente.
+        self.assertNotIn("3 fuentes independientes** (`bench_obra`", base)
+
     def test_generated_context_allows_talking_about_containerization(self) -> None:
         """La containerización está diferida, pero SÍ se menciona en el informe.
 

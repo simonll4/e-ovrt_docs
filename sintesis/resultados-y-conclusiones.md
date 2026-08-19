@@ -616,7 +616,7 @@ Los desfases corregidos fueron de **propagación y redacción**, no de datos:
 | ~~Licencias de los catálogos de modelos~~ ✅ **CERRADO 2026-08-10** — y **la premisa era falsa**: los 11 catálogos ya declaraban `license:` y `source:`. Lo que faltaba era el registro, ya escrito: sección **"PESOS DE MODELO"** en `license_registry.md` (GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0**, las tres verificadas contra evidencia independiente: model cards y la cadena embebida en el `.pt`), con la implicancia AGPL declarada. **Residual: los repos no tienen `LICENSE` propio** — decisión del usuario antes de publicar, no bloqueo de defensa | ~~verificar y registrar~~ ✅ | citar los modelos en el informe |
 | URL + fecha de acceso por video del lote (evidencia perecedera) — ✎ **son 18 `clip.yaml` con `video_url: TODO`** (14 del lote + 4 del piloto) y **13 copias promovidas** que lo arrastran: se arregla re-promoviendo, no a mano (doc `operacion/113` §C1) | usuario | robustece la cita de la fuente |
 | Consentimiento escrito del rodaje (resuelto por declaración; plantilla disponible) | equipo/facultad | formalidad administrativa |
-| Backup de `docs/` a otro disco | usuario | redundancia (repo local sin remote) |
+| Backup de `docs/` a otro disco | usuario | redundancia adicional (el repo tiene remote propio desde 2026-08-10, pero el respaldo a disco sigue vigente) |
 
 **Nada de lo pendiente cambia una conclusión** (doc 98 §7): los mecanismos (F-81.x,
 F-87.2, F-88.x, F-89.x, F-96.x, F-101.x), el veredicto del eje y las cifras por

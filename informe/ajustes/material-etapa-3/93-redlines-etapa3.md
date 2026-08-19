@@ -384,6 +384,14 @@ crecer** (y se puede mostrar el esquema, no prometerlo), y que sabemos dónde es
 ## R-09 · §17.3.5 · CONCRETA · alta → **especificación de figura en doc 94 §4**
 ### Falta la vista de procesos: el sistema son dos servicios HTTP
 
+> ✎ **2026-08-19 — aplicada con destino ENMENDADO.** La vista de procesos (FIG-A) va en
+> **§17.4.1, destino único**: la doctrina del pase de cierre
+> (`entregable/desarrollando/correcciones-etapa-3-4.md`, decisión firmada por el usuario)
+> dejó a §17.3 sin puertos ni vista de procesos. En §17.3.5 la necesidad que este redline
+> señalaba la cubren la Figura 4.1 conceptual más la justificación de tecnologías nueva
+> (ítem E3-04). El cuerpo de abajo se conserva como historia; su "segunda figura en
+> §17.3.5" ya no va.
+
 **DICE HOY** — la Figura 4.1 es una **vista lógica** de bloques (fuentes → adaptador → plano de medios → bus
 → plano de control → distribución), con la nota de que "no debe interpretarse como una distribución física".
 
@@ -787,6 +795,41 @@ El inventario del informe (SH17, SHEL5K, CHV, Pictor-PPE, Construction-PPE, GDUT
 retuvieron y por qué** — no dejar la lista larga como si todos se hubieran usado.
 
 *(Este ítem vive fuera del capítulo 17.3, pero se registra acá para no perderlo.)*
+
+> ✎ **2026-08-18 — precisión del usuario: son DOS catálogos, y hay que separarlos.**
+> El párrafo de arriba resuelve solo uno. La sección de datasets **utilizados** (distinta
+> de la de **candidatos evaluados**) tiene que distinguir tres cosas:
+>
+> **(a) Catálogo de candidatos evaluados** — la lista larga del informe (SH17, Pictor-PPE,
+> GDUT-HWD, SHWD, SODA, MOCS…), con **por qué cada uno no se retuvo**. Es trabajo de
+> relevamiento y vale declararlo; lo que no se puede es dejarla como si todos se hubieran
+> usado.
+>
+> **(b) Catálogo de datasets utilizados para ENTRENAMIENTO/adaptación** (rol TRAIN):
+> `construction_site_safety`, `chv`, `ppe_siabar`.
+>
+> **(c) Catálogo de FUENTES del banco de evaluación de imágenes (`bench_v3`)**, que **no
+> es el mismo conjunto**: `construction_site_safety` (CC BY 4.0), `chv` y `shel5k`
+> (CC BY 4.0). `ppe_siabar` **no** aporta al banco; `shel5k` **no** se usa para entrenar.
+> Confundir (b) con (c) es el error fácil, porque comparten dos nombres de tres.
+>
+> **La trampa concreta, que ya se coló una vez en el material:** el banco se describe como
+> *"6.477 imágenes de tres fuentes independientes"* y sus estratos se llaman `bench_obra`,
+> `chv` y `shel5k`. **`bench_obra` NO es una cuarta fuente ni un dataset externo**: es el
+> **subconjunto curado internamente** de los splits `valid` (114) + `test` (82) de
+> `construction_site_safety` v27. Cadena: **196** imágenes → auditoría de dominio del
+> 2026-07-23 → se excluyen **49 imágenes** fuera del dominio de obra (selfies con barbijo,
+> PASCAL VOC, aeropuerto, casino, librería, karting) y **4 cajas `bare_head` < 9 px²** →
+> **147** (85 val + 62 test). Dentro del banco, `bench_obra_val` y `bench_obra_test` son
+> **un solo estrato de 147**, no dos.
+>
+> Redacción sugerida para el catálogo de utilizados: *"`bench_obra` es el núcleo interno
+> curado del BENCH de Construction Site Safety v27: conserva 147 de las 196 imágenes
+> originales de validación y prueba, tras excluir contaminación fuera del dominio de obra
+> y anotaciones subpíxel."* Procedencia verificable:
+> `datasets/scripts/curate/build_bench_obra.py` y `datasets/registry/curation_bench_obra.md`
+> (conteos por clase antes/después: `bare_head` 110 → 61, casi la mitad era contaminación
+> o sub-píxel — eso cambia cómo se lee la debilidad de esa clase).
 
 **DECISIÓN:** [ ] acepto  [ ] modifico  [ ] rechazo
 **Notas:**

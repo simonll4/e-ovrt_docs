@@ -248,14 +248,24 @@ capítulo escrito sin sus figuras se reescribe.
 
 | Figura | Qué es | Estado | Va en |
 |---|---|---|---|
-| **FIG-A** | Arquitectura de los dos planos — vista de procesos | 📐 **especificada, no dibujada** (`94` §4) | §17.3.5 (R-09) · §17.4 |
+| **FIG-A** | Arquitectura de los dos planos — vista de procesos | 📐 **especificada, no dibujada** (`94` §4) | **§17.4.1** (✎ 08-19: destino único; antes decía §17.3.5 · §17.4) |
 | **FIG-B** | Calidad vs densidad (F1 escena y sujeto contra fps) | ⚙ generar desde `results/clip_bench/r{1..6}_*/metrics.json` | §17.5 |
 | **FIG-C** | Frame con overlay de alerta confirmada | ⚙ generar con el renderer de `experimental-setup/defensa/` | §17.5 |
-| **FIG-E** | Máquina de estados del motor (`open → confirmed → resolved`) | ⚙ generar desde el contrato `pattern_events` | §17.4 |
+| **FIG-E** | Máquina de estados del motor (`inactive → candidate → confirmed → sustained → resolved`) | ⚙ generar desde el contrato `pattern_events` | **§17.3.8.2** (✎ 08-19: antes decía §17.4) |
 | **FIG-F** | Frontera de juzgabilidad de 3 ejes (escala × iluminación × oclusión) | ⚙ generar | §17.5 |
 
 **FIG-A es la más urgente de las cinco**: es la respuesta gráfica al *"cómo está hecho"* del
 tutor técnico, ya está especificada caja por caja, y la piden dos secciones distintas.
+
+> ✎ **2026-08-19 — enmienda del pase de cierre de §17.3/§17.4**
+> (`entregable/desarrollando/correcciones-etapa-3-4.md`, decisiones firmadas por el usuario):
+> la doctrina de reparto dejó a §17.3 **sin puertos ni vista de procesos** — FIG-A pasa a
+> destino **único §17.4.1** (en §17.3.5 la necesidad de R-09 la cubren la Figura 4.1
+> conceptual y la justificación de tecnologías, así que ya **no la piden dos secciones**);
+> y la máquina de estados es diseño, no implementación — **FIG-E va en §17.3.8.2 con los
+> CINCO estados reales del motor** (el rótulo `open → confirmed → resolved` de la versión
+> anterior era una simplificación incorrecta). Con esto, la puerta P4 de §17.4 exige solo
+> FIG-A, y la de §17.3 exige FIG-E.
 
 ---
 

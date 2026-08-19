@@ -116,11 +116,20 @@ Los tres datasets con rol TRAIN son `construction_site_safety`, `chv` y `ppe_sia
 Vive en `datasets/processed/coco/bench/curated/bench_v3.json`. **Estratifica 6.477
 imágenes sobre tres fuentes independientes**, y cada imagen lleva su `stratum`:
 
-| Estrato | Imágenes | Qué aporta |
-|---|---|---|
-| `bench_obra` | 147 | Núcleo curado, revisado visualmente |
-| `chv` | 1.330 | Mejor AP de chaleco medido |
-| `shel5k` | 5.000 | GT nativo de `bare_head` (vía clase `head`), con `person_gt_shel5k.json` para los atributos de CR-01 |
+| Estrato | Fuente (dataset) | Imágenes | Qué aporta |
+|---|---|---|---|
+| `bench_obra` | **`construction_site_safety`** (Roboflow Universe, CC BY 4.0) — subconjunto **curado internamente**, no un dataset aparte | 147 | Núcleo curado, revisado visualmente |
+| `chv` | `chv` (académico, GitHub ZijianWang) | 1.330 | Mejor AP de chaleco medido |
+| `shel5k` | `shel5k` (Mendeley 9rcv8mm682 v4, CC BY 4.0) | 5.000 | GT nativo de `bare_head` (vía clase `head`), con `person_gt_shel5k.json` para los atributos de CR-01 |
+
+> ⚠️ **`bench_obra` no es una cuarta fuente.** Dos de los tres estratos se llaman igual
+> que su fuente; el primero no. Es el subconjunto curado de los splits `valid` (114) +
+> `test` (82) de `construction_site_safety`: **196 → 147** (85 val + 62 test) tras excluir
+> 49 imágenes fuera del dominio de obra y 4 cajas `bare_head` < 9 px² (auditoría del
+> 2026-07-23; reglas en `datasets/scripts/curate/build_bench_obra.py`, conteos en
+> `registry/curation_bench_obra.md`). `bench_obra_val` y `bench_obra_test` cuentan como
+> **un solo estrato de 147**. Al escribir "tres fuentes independientes", las fuentes son
+> **`construction_site_safety`, CHV y SHEL5K**.
 
 `bench_v3_manifest.json` lleva un sha256 por fuente para verificar el congelamiento.
 Procedencia y salvedades por estrato: `datasets/registry/bench_v3.md`.

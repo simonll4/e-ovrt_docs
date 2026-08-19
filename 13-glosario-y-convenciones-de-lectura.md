@@ -103,9 +103,10 @@ los tres módulos, y bus ZeroMQ), no tres.
 | **EBE** | Environment-Based Evaluation: escenario live; acople por bus ZeroMQ PUB/SUB (`bus.envelope.v1`, msgpack), corrida 1:1 (ADR-007), cierre por `run_finished`. Toda corrida live es re-evaluable offline con artefactos byte-idénticos. |
 | **media-plane** | El plano de medios/inferencia: servicio FastAPI :8080, carga un modelo OVD al arranque (`EOVRT_MODEL_REF`), ingiere fuentes visuales y emite `media.detection.v1`. Repo `e-ovrt_media-plane`. |
 | **control-plane** | El plano de control: servicio FastAPI :8081, motor de patrones con histéresis (`inactive→candidate→confirmed→resolved`) que consume detecciones y emite alertas. Repo `e-ovrt_control-plane`. |
-| **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta ambos planos por HTTP (ADR-004), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
-| **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy de ambos planos. Superficie de gestión primaria (ADR-009). |
-| **runner** | CLI del experimental-setup que dispara una corrida en ambos planos en el orden correcto: live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero. |
+| **alert-distribution** | El módulo de distribución: consume las alertas confirmadas del bus (`:5558`) y las entrega por MQTT QoS 1 con ledger de idempotencia. Desde ADR-019 es también servicio FastAPI **:8082** (`eovrt-distribute serve`); desde **ADR-020** (2026-08-18) ese es el acople predeterminado — el subproceso queda como fallback operativo. Conserva su CLI (`replay`/`live`) para el camino offline. Repo `e-ovrt_alert-distribution`. |
+| **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta por HTTP los dos planos **y el módulo de distribución** (ADR-004; ADR-020 desde 2026-08-18), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
+| **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy HTTP de los servicios de medios, control **y distribución** (`:8082`, ADR-020). Superficie de gestión primaria (ADR-009). |
+| **runner** | CLI del experimental-setup que gobierna las corridas de los dos planos en el orden correcto —live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero— y, cuando corresponde, la distribución posterior (por HTTP desde ADR-020; el subproceso queda como fallback). |
 | **G0 / G1 / (G2)** | Granularidades del patrón (ADR-002): **G0 = escena** (sin identidad de personas; el núcleo validable), **G1 = sujeto** (con tracker IoU como decorador en el control-plane). ✎ 2026-08-06: G1 es **capacidad operativa medida** — F1 0,930 sobre los 34 clips **del Bloque A** (el rodaje; ✎ 08-12: decía "del banco", y el banco es de 47 — 34 es el bloque), el mejor resultado, con detecciones bit a bit idénticas a G0 (adenda ADR-002 + ADR-015 E-03; *decía "solo demostrativa"*). Siguen excluidas las métricas MOT (E-10). |
 | **G2A** | "Glass-to-algorithm": latencia captura→resultado algorítmico en el media-plane (`g2a_ms` por unidad; presupuesto 50–250 ms). Parte de la métrica `t_capture→alert` (spec 40 §5.2.4). |
 | **t_alert** | Latencia de alerta del sistema: desde que la condición se sostiene hasta que el patrón confirma. Con umbral 4000 ms, el valor ideal medido fue 4000,0 ms exactos. |
@@ -194,15 +195,48 @@ experimento.
 - **Estrato B (Bloque B)** = los **13 clips del lote de internet**, obra real **no
   guionada**. Se reporta **como fila aparte, nunca fusionado al agregado del rodaje**
   (D-90.6).
-- ⚠️ **No confundir con "estrato" del bench de IMÁGENES**, que son las tres fuentes de
+- ⚠️ **No confundir con "estrato" del bench de IMÁGENES**, que son los tres estratos de
   `bench_v3` (`bench_obra` / `chv` / `shel5k`). Misma palabra, materiales distintos.
+
+### 4.4 `estrato` ≠ `fuente` en el bench de imágenes (✎ agregado 2026-08-18)
+
+Colisión que induce un error de atribución en el informe: **los nombres de los tres
+estratos de `bench_v3` no son los nombres de las tres fuentes**.
+
+| Fuente (dataset externo) | Licencia | Estrato que aporta | Imágenes |
+|---|---|---|---|
+| **`construction_site_safety`** (Roboflow Universe) | CC BY 4.0 | **`bench_obra`** | 147 |
+| **`chv`** (académico, GitHub ZijianWang) | sin licencia formal, cita obligatoria | `chv` | 1.330 |
+| **`shel5k`** (Mendeley 9rcv8mm682 v4) | CC BY 4.0 | `shel5k` | 5.000 |
+
+Dos de los tres estratos se llaman igual que su fuente; **el primero no**.
+**`bench_obra` no es un dataset externo ni una cuarta fuente**: es el **subconjunto
+curado internamente** de los splits `valid` + `test` de `construction_site_safety`
+v27. Su cadena de procedencia completa: 114 val + 82 test = **196** (el "BENCH
+histórico") → auditoría de dominio del **2026-07-23** → se excluyen **49 imágenes**
+ajenas al dominio de obra (selfies con barbijo, PASCAL VOC, aeropuerto, casino,
+librería, karting) y **4 cajas `bare_head` de menos de 9 px²** → **147 imágenes**
+(85 val + 62 test). Reglas codificadas en
+`e-ovrt_datasets/datasets/scripts/curate/build_bench_obra.py`; justificación y
+conteos en `datasets/registry/curation_bench_obra.md`.
+
+Dentro de `bench_v3`, `bench_obra_val` y `bench_obra_test` cuentan como **un solo
+estrato de 147**, no como dos.
+
+**Al redactar:** "tres fuentes independientes" son **`construction_site_safety`, CHV
+y SHEL5K**. Si el texto enumera `bench_obra` entre las fuentes, está nombrando un
+estrato derivado como si fuera un dataset — y el lector queda creyendo que hubo
+cuatro datasets. Frase apta para el informe: *"`bench_obra` es el núcleo interno
+curado del BENCH de Construction Site Safety v27: conserva 147 de las 196 imágenes
+originales de validación y prueba, tras excluir contaminación fuera del dominio de
+obra y anotaciones subpíxel."*
 
 ## 5. Datos, modelos y bancos
 
 | Término | Definición |
 |---|---|
 | **canonical_v2** | Vocabulario canónico de clases compartido entre repos: `person`, `helmet`, `vest`, `bare_head` (+ atributos `has_helmet`/`has_vest` solo en BENCH). Las vistas `*_cr01_cr02` están **eliminadas**. |
-| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes en 3 fuentes independientes** (`bench_obra` 147 curadas · `chv` 1.330 · `shel5k` 5.000), congelado el 2026-07-23. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
+| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes**, congelado el 2026-07-23, estratificado sobre **3 fuentes independientes** — `construction_site_safety` (Roboflow Universe, CC BY 4.0), `chv` y `shel5k`. Sus **estratos** son `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000). ⚠️ **`bench_obra` NO es una cuarta fuente ni un dataset externo**: es el nombre del **estrato curado internamente a partir de `construction_site_safety`** — ver `estrato ≠ fuente` en §3. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
 | **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). ✎ **2026-08-10 — corregido: decía "1 clip promovido (`cb_b01_p7`) en `gt_preliminary`". Doblemente falso**: ese clip fue **RETIRADO** el 2026-08-03 (licencia sin registrar + GT generado por IA) y **no debe citarse**. **Hoy el banco tiene 47 clips con GT HUMANO** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…`, en dos bloques: **A** = rodaje guionado (34) y **B** = lote de internet (13). Es el escenario EBE oficial del informe. |
 | **video-gt-lab** | El pipeline semiautomático de GT temporal: `prepare_clip` → preanotación (GDINO-**base** anti-circularidad + ByteTrack) → CVAT (humano) → `derive_clip_gt` → `validate` → `promote_clip`. |
 | **`gt_preliminary`** | Estado de un GT sin pasada humana (anotador `claude-vision-preliminary`). Ver regla de oro #7. |
@@ -216,6 +250,6 @@ experimento.
 | Cosa | Valor |
 |---|---|
 | Repos de código | `e-ovrt_media-plane`, `e-ovrt_control-plane`, `e-ovrt_experimental-setup`, `e-ovrt_datasets` (hermanos en disco; el acople cross-repo asume esa disposición) |
-| Este repo | `docs/` — git local **sin remote** (decisión del usuario) |
-| Puertos | media :8080 · control :8081 · BFF webconsole :8090 · frontend dev :5173 |
-| Entry points | `uvicorn --factory eovrt_media.service.app:create_app` · `eovrt-control serve` |
+| Este repo | `docs/` — git propio, con remote (`e-ovrt_docs`) desde 2026-08-10, cuando el equipo empezó a necesitar acceso ✎ *(decía "local sin remote": esa fue la decisión inicial del 2026-07-09, superada al sumar redactores externos)* |
+| Puertos | media :8080 · control :8081 · **distribución :8082** · BFF webconsole :8090 · frontend dev :5173 |
+| Entry points | `uvicorn --factory eovrt_media.service.app:create_app` · `eovrt-control serve` · `eovrt-distribute serve` |

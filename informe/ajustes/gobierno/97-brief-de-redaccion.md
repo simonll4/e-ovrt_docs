@@ -257,10 +257,17 @@ detecciones son bit a bit las mismas.
 
 ### 5.2 Percepción sobre imágenes — banco `bench_v3`
 
-Banco congelado 2026-07-23: **6.477 imágenes**, 3 fuentes independientes
+Banco congelado 2026-07-23: **6.477 imágenes** sobre 3 fuentes independientes
+—**`construction_site_safety`, CHV y SHEL5K**—, en 3 estratos
 (`bench_obra` 147 = 85 val + 62 test · `chv` 1.330 · `shel5k` 5.000), 55.165
 anotaciones, sha256 `4557024e…`. **Reportar siempre por estrato y agregado, nunca solo
 el agregado** (L5: el agregado está dominado por `shel5k`, 77%).
+
+> ⚠️ **`bench_obra` es un ESTRATO, no una fuente.** Es el subconjunto curado
+> internamente de `construction_site_safety` v27 (196 → 147, excluyendo 49 imágenes fuera
+> del dominio de obra y 4 cajas `bare_head` sub-píxel). Al enumerar las fuentes del banco,
+> la primera es **`construction_site_safety`**, no `bench_obra`. Detalle en el glosario
+> `13` §4.4.
 
 | Modelo | mAP50 `bench_v3` | mAP50 `bench_obra` | recall CR-01 (n=5.313) |
 |---|---|---|---|
