@@ -94,7 +94,9 @@ Esta decisión toca **quién arranca y supervisa el proceso**, nada más.
 - **ADR-018** — derogada. Su cuerpo se conserva como registro histórico, con banner.
 - **ADR-019** — vigente; su §2 se enmienda: el default que ahí quedaba en subproceso pasa
   a HTTP por esta ADR.
-- **Spec 45 §9.6** y **spec 44 §B4** — el cliente HTTP es el camino normal; el subproceso
-  queda documentado como fallback.
+- **Spec 45 §9.6** y **spec 44** *(✎ 2026-08-19: decía "spec 44 §B4", ancla heredada de
+  ADR-019 — la sección B4 nunca se escribió; el acople del runner quedó anotado en el
+  spec 44 §2)* — el cliente HTTP es el camino normal; el subproceso queda documentado
+  como fallback.
 - **Informe** — `GUIA-REDACTORES` §"trampas" vuelve a **dos** patrones de acople; el
   material de etapa 3 y 4 describe la distribución como el tercer servicio HTTP.

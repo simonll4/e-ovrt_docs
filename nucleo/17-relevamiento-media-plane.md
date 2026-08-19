@@ -126,6 +126,12 @@ cross-repo** del tipo `../e-ovrt_datasets/datasets/raw/...`, lo que asume dos co
 repos son hermanos en disco, y que `eovrt-media` se ejecuta **desde la raíz del
 media-plane** (los paths resuelven contra el CWD).
 
+> ✎ **2026-08-19:** `chv` y `video_sample` fueron **archivados a `configs/_archive/`**
+> del media-plane (huérfanos: nadie los consumía) — el inventario vivo es
+> `bench_v2_test`, `bench_v2_val`, `demo_v2`. El benchmark de imágenes **vigente** es
+> **`bench_v3`** (definido en el registry del repo datasets, no en estos configs); los
+> `bench_v2_*` son los configs de los splits v2 **históricos**.
+
 > **Trampa:** `ImageFolderSource` **no es recursivo**. Un config de dataset apunta a una
 > carpeta hoja de imágenes, no a la raíz del dataset.
 

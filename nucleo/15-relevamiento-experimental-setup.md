@@ -104,6 +104,8 @@ suscripción): primero el control-plane con `mode: live`, después el media-plan
 `cr01_cr02_v2_short.yaml` (**el congelado**, usado en el rodaje y en el bench),
 `cr01_cr02_bench_v2.yaml`, `cr01_cr02_v2_safety_vest.yaml`, `eind_v1.yaml`, `edir_v1.yaml`,
 `clase_nueva_v1.yaml` (el del piloto de clase nueva), más `_archive/`.
+*(✎ 2026-08-19: el benchmark de imágenes vigente es **`bench_v3`**, doc 64 — lo
+`bench_v2` de este inventario es histórico.)*
 
 **Los prompts viven acá y no en el media-plane** a propósito: el plano conserva el contrato
 y los catálogos por id, y el vocabulario se cambia sin tocarlo.
@@ -113,6 +115,8 @@ y los catálogos por id, y el vocabulario se cambia sin tocarlo.
 Un directorio por experimento con su manifiesto: `bench_v2`, `diag_riesgo_activo`,
 `ebe_oakd_live`, `ebe_p1_live`, `ebe_p2_live`, `ebe_p3_live`, entre otros. Los manifiestos
 son **por referencia**: nombran catálogos versionados, no copian valores.
+*(✎ 2026-08-19: ídem §5.1 — `bench_v2` acá es inventario histórico; el bench de
+imágenes vigente es `bench_v3`, doc 64.)*
 
 ### 5.3 Cámaras e infraestructura
 

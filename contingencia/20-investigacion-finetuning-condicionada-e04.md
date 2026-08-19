@@ -47,6 +47,13 @@
 | Pesos base | ✅ GDINO tiny/base, MM-GDINO t/b/l, YOLOE-26 s/m/l/x descargados en media-plane | Checkpoints de partida listos |
 | Protocolo comparativo | ✅ Tabla 32 del informe (ΔAP/ΔRecall/ΔPrecision/ΔSDR + retención generalista + costo documentado) | El diseño experimental ya está escrito |
 
+> ✎ **2026-08-19:** las filas de partición y baseline son la foto del momento en que se
+> escribió el doc y se conservan como historia. La evaluación **vigente** del fine-tuning
+> corre contra **`bench_v3`** (6.477 imágenes, 3 estratos — así se evaluó T1, doc 123), y
+> el baseline vigente del campeón es **`gdino-tiny-560` mAP50 0,551 sobre `bench_v3`**
+> (doc 64). El BENCH de 196 y el mAP 0,441 son historia: **no se citan como benchmark de
+> ningún resultado actual**.
+
 **Lectura:** la preparación de datos —que suele ser el 50% del esfuerzo de una rama
 de fine-tuning— ya está amortizada. Lo que falta es solo entorno + corrida + eval.
 

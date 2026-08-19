@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 1
 
-> Generado el 2026-08-18. Etapa 1: secciones 15 y 16, y Anexo A.
+> Generado el 2026-08-19. Etapa 1: secciones 15 y 16, y Anexo A.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -116,24 +116,26 @@ es honesto; un capitulo que rellena huecos es indefendible.
   empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
   orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
   transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
-- **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
-  HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
-  distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
-  (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
-  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
-  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
-  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
-  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
-  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
-  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
-  **Al redactar, la descripcion vigente es esta y no otra:**
-  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
-  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
-  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
-  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
-  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
-  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
-  camino offline (igual que el control-plane).
+- **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
+  **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
+  control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
+  webconsole y el runner como clientes de los tres — ninguno consume el bus.
+  **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones `:5557`
+  (medios->control), alertas `:5558` (control->distribucion).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron.** El subproceso del
+  distribuidor sigue en el codigo como **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) — implementado y probado, pero
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir
+  "el modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI
+  para el camino offline (igual que el control-plane).
+  *(Historia del numero, solo para quien la necesite — ningun documento anterior al
+  2026-08-18 describe el estado vigente de arriba: ADR-018 (2026-08-15) declaro que
+  "la plataforma tiene TRES patrones de acople, no dos", con el tercero siendo
+  **BFF-subproceso** porque el modulo de distribucion, que es CLI y no servicio,
+  no tenia otra forma de acoplarse. ADR-019 (2026-08-17/18) le dio servicio HTTP
+  propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
+  el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
+  normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
   usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
   (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
@@ -2745,7 +2747,7 @@ palabras no aporta contenido nuevo. Fusionar con §16.8 en un cierre único de ~
 
 ## Fuente: `docs/sintesis/fundamentos-teoricos.md`
 
-> SHA-256 del bloque: `3fa5de4c7333f979ea992273ed2d4bd8e55425a4ceb75077161344f27901154d`  
+> SHA-256 del bloque: `59f89d6fbeff40e2ea805a21ee051a3429aacdfef6feeb9715658516207980eb`  
 > Seleccion: documento completo.
 
 # Fundamentos teóricos — entender la plataforma y sus resultados de punta a punta
@@ -3038,9 +3040,10 @@ excusa.
 
 ## Parte III — La plataforma como sistema
 
-### 10. Dos planos, eventos normalizados, config-driven
+### 10. Tres servicios HTTP config-driven, eventos normalizados
 
-**Arquitectura:** dos servicios HTTP independientes.
+**Arquitectura:** tres servicios HTTP config-driven — los dos planos más el módulo
+de distribución (ADR-019/020).
 
 - **media-plane (:8080)** — el plano de medios: ingesta de fuentes (carpeta de
   imágenes, archivo de video, RTSP, OAK-D), normalización, inferencia OVD (el modelo
@@ -3049,6 +3052,10 @@ excusa.
   `runs/<id>/detections.jsonl`.
 - **control-plane (:8081)** — el plano de control: consume esos eventos, corre el
   motor de patrones (§8), emite alertas, y trae el **evaluador** contra GT.
+- **distribución (:8082)** — el módulo de salida: consume las **alertas confirmadas**
+  y las entrega hacia afuera por **MQTT (QoS 1)**, con un **ledger de idempotencia**
+  para que un reintento nunca duplique una notificación. Escribe
+  `notifications.jsonl` y su `distribution_summary.json`.
 
 Las decisiones arquitectónicas que lo gobiernan (DA-01/02/03): separar percepción de
 decisión, publicar la evidencia como **eventos normalizados** (el motor no sabe qué
@@ -3056,13 +3063,21 @@ modelo corre — puede cambiarse el detector sin tocar una línea del motor), y 
 **transporte** de **persistencia**: el bus mueve, el **JSONL persiste y es la fuente
 de verdad**.
 
+**Dos patrones de acople, y solo dos.** (1) **HTTP config-driven**: los tres
+servicios se operan igual —`POST /api/runs`, estado por polling— y la webconsole y
+el runner son **clientes de los tres**, nunca del bus. (2) **Bus ZeroMQ PUB/SUB**:
+`:5557` mueve las detecciones (media → control) y `:5558` las alertas confirmadas
+(control → distribución); ambos exigen suscribirse **antes** de disparar. MQTT no es
+un tercer patrón: es la **salida** de la plataforma hacia el receptor, no un acople
+interno.
+
 **Config-driven:** no hay rutas ni umbrales hardcodeados. Una corrida se define por
 YAMLs versionados (modelo+resolución, prompt set, pattern set, fuente); los catálogos
 de experimento (prompt sets congelados, manifiestos) viven en `experimental-setup`,
-que también trae el **runner** (orquesta ambos planos por HTTP en el orden correcto)
-y la **webconsole** (React + BFF FastAPI, cliente de ambos planos — nunca del bus).
-Esto es lo que vuelve **reproducible por configuración** cada campaña, y lo que hace
-barato el experimento A1 (una condición nueva = un YAML).
+que también trae el **runner** (orquesta los servicios por HTTP en el orden correcto)
+y la **webconsole** (React + BFF FastAPI). Esto es lo que vuelve **reproducible por
+configuración** cada campaña, y lo que hace barato el experimento A1 (una condición
+nueva = un YAML).
 
 ### 11. DBE vs EBE: los dos escenarios de evaluación
 

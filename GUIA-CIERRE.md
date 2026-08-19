@@ -2,7 +2,9 @@
 
 Documento vivo, **sin número** (no forma parte de la serie `operacion/NN-`), pensado para
 que lo abras, vayas tachando, y cada ítem te mande al documento con el detalle completo para
-ejecutarlo. Última actualización: **2026-08-09**.
+ejecutarlo. Última actualización: **2026-08-19** *(✎ mantenimiento: se agregó la fila del
+servicio de distribución a la tabla de verificación de plataforma y notas ADR-016…020 +
+arranque del pase de redacción; la foto día a día vive en `CRONOLOGIA.md`)*.
 
 > ✎ **Estado 2026-08-09 en una línea:** el rodaje (3), su GT (5), todo el tramo
 > experimental T→P→D (docs 71, 80, 92/98) **y el punto 1 —el lote de internet— están
@@ -13,6 +15,12 @@ ejecutarlo. Última actualización: **2026-08-09**.
 > licencia por video — lo único que sigue abierto de `informe/99` §6), **E** el video de
 > defensa **V2**, y **F** la redacción de §17.x, que **no arranca hasta orden explícita**
 > (orden del 2026-08-05, ratificada el 08-09).
+>
+> ✎ **2026-08-19:** de esos tres, **F arrancó** — la orden se emitió y el pase de
+> redacción corre desde el 2026-08-16 (doc 122); C1 y E siguen pendientes. Además, desde
+> el 08-12/18 la plataforma tiene **módulo de distribución implementado y verificado**
+> (MQTT QoS 1 + ledger, docs 114/118; servicio HTTP `:8082` y HTTP como default del
+> runner — ADR-016…020, docs 124/125), que este documento no conocía.
 >
 > **Entrá por `docs/operacion/113-manual-cierre-de-brechas-post-112.md`** — es el paso a
 > paso vigente de estos tres, y reemplaza al §8 del doc 112.
@@ -71,6 +79,7 @@ lugar de la cámara. **Resultado: verde.**
 |---|---|
 | media-plane `:8080` | `ready`, `grounding-dino/gdino-tiny-560` en **CUDA**, half precision |
 | control-plane `:8081` | `ready` |
+| ✎ distribución `:8082` *(fila agregada 2026-08-19)* | **No existía en esta pasada** (el servicio nació con ADR-019, 2026-08-17). Hoy la plataforma **no se declara verde sin `curl :8082/healthz`** (`eovrt-distribute serve`) cuando la distribución está habilitada — y ojo: `alert_bus.enabled` del control-plane es `False` por default (doc 124 §4) |
 | BFF `:8090` + SPA | `/api/health` ok, SPA servida, `npm run build` limpio (tsc sin errores) |
 | **Preflight de la consola** | `ready: true`, `blockers: []` — el gate nuevo funciona |
 | **Circuito EBE completo** | control→media, `subscribed: true`, **cierre 1:1 `succeeded`/`succeeded`** |
@@ -328,6 +337,9 @@ re-evaluado** (docs 102→113). Lo que queda:
    tuyas pendientes en su §2** (D-A dónde se escribe · D-B quién hace qué · D-C cuándo se
    re-extrae la foto del `.docx`) y **cinco figuras por producir** (su §6). La orden de no
    arrancar sigue vigente.
+   ✎ **2026-08-19 — la orden llegó:** el pase de redacción **arrancó el 2026-08-16**
+   (doc 122), con las tres decisiones D-A/D-B/D-C firmadas. Este ítem dejó de estar
+   bloqueado.
 
 Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experimentos.md`.
 

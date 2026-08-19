@@ -95,6 +95,16 @@ frozen: { prompt_set: eind_v1, pattern_set: cr01_cr02_v2,
   genera el runner o la webconsole al **instanciar** el manifiesto (una plantilla
   de experimento puede instanciarse N veces → N `experiment_id`).
 
+> ✎ **2026-08-19 (ADR-019/ADR-020):** el bloque de arriba quedó corto en un servicio.
+> Desde el 2026-08-17 existe el **servicio HTTP de distribución** (`eovrt-distribute
+> serve`, `:8082` — [ADR-019](../decisiones/adr-019-servicio-http-distribucion.md),
+> spec 45 §9) y desde el 2026-08-18 **el runner del BFF le habla por HTTP por default**
+> ([ADR-020](../decisiones/adr-020-http-como-unico-acople-de-distribucion.md), que
+> derogó ADR-018; el subproceso quedó como fallback operativo con
+> `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`). El manifiesto no cambió: las
+> claves de configuración de ese acople viven en los settings de la webconsole
+> (`EOVRT_CONSOLE_DISTRIBUTION_SERVICE_URL`), no en el `experiment.manifest.v1`.
+
 ## 3. Runner CLI (ADR-004; el camino reproducible)
 
 `experimental-setup/runner/` (~100–200 líneas, sin estado propio):

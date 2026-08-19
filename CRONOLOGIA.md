@@ -16,6 +16,60 @@
 
 ---
 
+## 2026-08-19 — Limpieza general, la plataforma entera en Compose, y qué se respalda (doc 126)
+
+Jornada de higiene pedida por el usuario: *"revisión completa del proyecto, todos los
+repositorios… limpieza general, archivar código y configs legacy, actualizar docs y que la
+declaración de la infra en docker compose esté completa para poder desplegar toda la
+plataforma y hacerla reproducible en cualquier host"*.
+
+Se auditaron los seis repos en paralelo antes de tocar nada. Lo que apareció no fue
+desorden decorativo sino **deriva con consecuencias**: el `.dockerignore` del media-plane
+no excluía `configs/runs/local/`, así que las credenciales RTSP de la cámara se horneaban
+en la imagen; el README del control-plane afirmaba "no incluye servicio HTTP" (existe
+desde ADR-0008) y **recomendaba el pattern set `v1` deprecado** —el que produce falsos
+`missed` por F-DR9—; los nueve docs del distribuidor seguían describiendo el subproceso
+como default un día después de que ADR-020 lo derogara; y en `datasets` había **7.683
+archivos trackeados que el propio `.gitignore` del repo declaraba ignorables**. Todo eso
+quedó corregido, con las suites verdes como condición de cierre.
+
+El entregable central fue la infra: `infra/platform/docker-compose.yml` pasó de declarar
+**2 componentes a 13 servicios** —consola, control-plane `:8081`, distribución `:8082`,
+mosquitto como broker canónico y el fleet media por modelo, incluido el campeón
+`gdino-tiny-560`—, con Dockerfiles nuevos en control-plane y distribución. Eso **revierte
+explícitamente el descarte del 2026-08-13** ("no se implementa ni mantiene una imagen
+propia del control-plane"), y la nota quedó escrita en el spec que lo descartaba: la
+decisión cambió porque cambió el pedido. La pieza de diseño que lo hace reproducible en
+cualquier host es la **paridad de rutas** — el workspace se monta en la misma ruta absoluta
+dentro de los contenedores, porque los contratos de la plataforma intercambian rutas
+absolutas por filesystem compartido (ADR-009 para los manifiestos, ADR-019 §3 para el
+`out_dir` del distribuidor). Sin esa simetría, containerizar rompe el acople en silencio.
+`docker compose config` valida los 13 servicios; **los builds y el smoke integral quedaron
+pendientes porque el daemon de Docker estaba apagado** — se dice acá para que nadie lea
+"declarado" como "verificado".
+
+Dos deudas se cerraron de paso. El **gap de integridad de `bench_v3`**: dos de sus cuatro
+fuentes congeladas (`chv`, `shel5k`) no tenían generador commiteado, así que el benchmark
+era no-reproducible desde fuente; ahora lo tienen, con verificación por sha256 contra los
+artefactos congelados. Y el **test rojo** del backend de la webconsole, que rechazaba el
+prompt set `coco_val2017_80.yaml` del harness de retención T2 porque `track: retention` no
+existía en el esquema.
+
+El doc además fija el criterio de **respaldo a Drive**, que hasta hoy era implícito: el
+código ya está a salvo en GitHub, así que Drive es exactamente para lo que git ignora.
+Tres capas — **evidencia** (≈2,6 GB: la evidencia cruda de `operacion/datos`, los
+checkpoints de Mendieta, las evaluaciones T1 que firmaron el NO-GO, los 4 índices
+verificables, el GT de video anotado a mano), **seguro** (≈9,2 GB, con la advertencia de
+que los videos de internet no se borran antes de cerrar C1: "regenerable" depende de que
+las URLs sigan vivas) y **descarte** (≈23 GB que un comando versionado reconstruye). Más
+una regla de seguridad: `cameras/` tiene credenciales en claro y nunca va sin cifrar.
+
+Cierre: los seis repos commiteados y pusheados a sus remotos **sin merge a `main`**, y los
+dos worktrees verificados como ya enviados —el de `experimental-setup` no tenía trabajo
+único: sus 11 archivos sin trackear eran byte-idénticos a versiones ya commiteadas—.
+
+---
+
 ## 2026-08-18 — ADR-020: HTTP queda como acople y el subproceso baja a fallback (doc 125)
 
 Horas después de cerrar ADR-019, el usuario planteó eliminar el patrón BFF-subproceso

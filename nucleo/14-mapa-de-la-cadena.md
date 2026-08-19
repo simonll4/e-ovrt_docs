@@ -31,7 +31,10 @@ cross-repo (`../e-ovrt_datasets/...`), así que mover un repo rompe al vecino.
 > módulo de distribución está **implementado y verificado** desde el 2026-08-12/14
 > (docs `operacion/114`/`118`: MQTT QoS 1, ledger de idempotencia, p95 64,534 ms n=460)
 > y desde el 2026-08-17/18 **también expone servicio HTTP propio** (`:8082`, ADR-019,
-> doc `operacion/124`) — el subproceso del runner sigue siendo el default (ADR-018).
+> doc `operacion/124`) — ~~el subproceso del runner sigue siendo el default (ADR-018)~~
+> ✎ 2026-08-19: **ADR-020 (2026-08-18) derogó a ADR-018 — HTTP es el default del
+> runner** y el subproceso quedó como fallback operativo
+> (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`).
 > El diagrama se conserva como cuerpo histórico por convención del set.
 
                                 ▼              ▼
@@ -51,10 +54,11 @@ cross-repo (`../e-ovrt_datasets/...`), así que mover un repo rompe al vecino.
 | 2 | `e-ovrt_datasets` | Los insumos: vocabulario canónico, bancos de imágenes y de video | **`16`** |
 | 3 | `e-ovrt_media-plane` | Percepción OVD, servicio `:8080` | **`17`** |
 | 4 | `e-ovrt_control-plane` | Motor de patrones de riesgo, servicio `:8081` | **`18`** |
-| 5 | `e-ovrt_alert-distribution` | Ciclo de vida y distribución de la alerta — ~~diseñado, no implementado~~ ✎ 2026-08-18: **implementado y verificado** (docs 114/118); CLI + subproceso default (ADR-018) **y servicio HTTP `:8082`** (ADR-019, doc 124) | **`19`** |
+| 5 | `e-ovrt_alert-distribution` | Ciclo de vida y distribución de la alerta — ~~diseñado, no implementado~~ ✎ 2026-08-18: **implementado y verificado** (docs 114/118); ✎ 2026-08-19: **servicio HTTP `:8082`** (ADR-019, doc 124) como **acople default del runner** (ADR-020, deroga ADR-018); CLI para el camino offline; subproceso = fallback operativo | **`19`** |
 
-Y un sexto repo que no es software: **`docs/`**, el set documental. Es un repo git propio,
-**local y sin remoto**, por decisión del proyecto.
+Y un sexto repo que no es software: **`docs/`**, el set documental. Es un repo git propio.
+~~local y sin remoto, por decisión del proyecto~~ ✎ 2026-08-18: desde el 2026-08-10, cuando
+el equipo empezó a necesitar acceso, tiene remote propio (`e-ovrt_docs`, rama `main`).
 
 ## 3. Los dos caminos de acople
 
@@ -76,6 +80,11 @@ bit a bit).
 > `mode: live` —cuyo 201 implica que ya está suscripto— y **después** `POST :8080/api/runs`
 > con `bus.enabled: true`. Los huecos de `seq` se cuentan como `bus_dropped_events` y
 > **degradan la corrida; nunca se silencian**.
+
+**La distribución cuelga del mismo esquema** *(✎ 2026-08-19)*: las alertas confirmadas
+viajan por el **bus de alertas `:5558`** (control → distribución), con la misma regla de
+suscripción previa que el bus de detecciones; y el acople del runner con el distribuidor
+es **HTTP `:8082`** (ADR-019/020), igual que con los otros dos servicios.
 
 **El JSONL es la verdad en los dos casos:** toda corrida live es re-evaluable offline y
 produce artefactos idénticos. Eso está verificado, y es lo que hace auditable al camino en

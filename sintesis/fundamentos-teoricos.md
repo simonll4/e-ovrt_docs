@@ -288,9 +288,10 @@ excusa.
 
 ## Parte III — La plataforma como sistema
 
-### 10. Dos planos, eventos normalizados, config-driven
+### 10. Tres servicios HTTP config-driven, eventos normalizados
 
-**Arquitectura:** dos servicios HTTP independientes.
+**Arquitectura:** tres servicios HTTP config-driven — los dos planos más el módulo
+de distribución (ADR-019/020).
 
 - **media-plane (:8080)** — el plano de medios: ingesta de fuentes (carpeta de
   imágenes, archivo de video, RTSP, OAK-D), normalización, inferencia OVD (el modelo
@@ -299,6 +300,10 @@ excusa.
   `runs/<id>/detections.jsonl`.
 - **control-plane (:8081)** — el plano de control: consume esos eventos, corre el
   motor de patrones (§8), emite alertas, y trae el **evaluador** contra GT.
+- **distribución (:8082)** — el módulo de salida: consume las **alertas confirmadas**
+  y las entrega hacia afuera por **MQTT (QoS 1)**, con un **ledger de idempotencia**
+  para que un reintento nunca duplique una notificación. Escribe
+  `notifications.jsonl` y su `distribution_summary.json`.
 
 Las decisiones arquitectónicas que lo gobiernan (DA-01/02/03): separar percepción de
 decisión, publicar la evidencia como **eventos normalizados** (el motor no sabe qué
@@ -306,13 +311,21 @@ modelo corre — puede cambiarse el detector sin tocar una línea del motor), y 
 **transporte** de **persistencia**: el bus mueve, el **JSONL persiste y es la fuente
 de verdad**.
 
+**Dos patrones de acople, y solo dos.** (1) **HTTP config-driven**: los tres
+servicios se operan igual —`POST /api/runs`, estado por polling— y la webconsole y
+el runner son **clientes de los tres**, nunca del bus. (2) **Bus ZeroMQ PUB/SUB**:
+`:5557` mueve las detecciones (media → control) y `:5558` las alertas confirmadas
+(control → distribución); ambos exigen suscribirse **antes** de disparar. MQTT no es
+un tercer patrón: es la **salida** de la plataforma hacia el receptor, no un acople
+interno.
+
 **Config-driven:** no hay rutas ni umbrales hardcodeados. Una corrida se define por
 YAMLs versionados (modelo+resolución, prompt set, pattern set, fuente); los catálogos
 de experimento (prompt sets congelados, manifiestos) viven en `experimental-setup`,
-que también trae el **runner** (orquesta ambos planos por HTTP en el orden correcto)
-y la **webconsole** (React + BFF FastAPI, cliente de ambos planos — nunca del bus).
-Esto es lo que vuelve **reproducible por configuración** cada campaña, y lo que hace
-barato el experimento A1 (una condición nueva = un YAML).
+que también trae el **runner** (orquesta los servicios por HTTP en el orden correcto)
+y la **webconsole** (React + BFF FastAPI). Esto es lo que vuelve **reproducible por
+configuración** cada campaña, y lo que hace barato el experimento A1 (una condición
+nueva = un YAML).
 
 ### 11. DBE vs EBE: los dos escenarios de evaluación
 

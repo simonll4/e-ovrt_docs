@@ -135,7 +135,9 @@ Orden: contratos + ledger + canal en `dry_run` con `DirectSource` de test →
 
 Extensión **aditiva** (regla 2 del `specs/README.md`): el módulo suma una interfaz de red
 para ser una unidad desplegable propia. **El CLI de §8 no cambia** y sigue siendo el
-camino offline; el subproceso de ADR-018 sigue disponible. Análisis y alternativas están
+camino offline; el subproceso de ADR-018 sigue disponible *(✎ 2026-08-19: como
+**fallback operativo**, no como patrón vigente — ADR-020, 2026-08-18, derogó ADR-018 e
+hizo de HTTP el default del runner)*. Análisis y alternativas están
 en [ADR-019](../decisiones/adr-019-servicio-http-distribucion.md); acá van contratos,
 módulos y criterios de terminado.
 
@@ -228,30 +230,52 @@ el paso de Docker.
 ### 9.6 Cliente: el runner del BFF
 
 Gana un cliente HTTP con el mismo patrón de polling que ya usa con media y control.
-**El default sigue siendo el subproceso (spec 44 §B4, ADR-018)**: el camino HTTP se
-activa sólo con `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=http`. *(✎ 2026-08-18 — en la
+**El default es el camino HTTP (ADR-020)**: el subproceso queda como **fallback
+operativo** y se activa sólo con `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`
+(spec 44 — la sección B4 que se citaba acá nunca se escribió; ADR-018 derogada).
+*(✎ 2026-08-19 — este párrafo decía «el default sigue siendo el subproceso (ADR-018):
+el camino HTTP se activa sólo con `…TRANSPORT=http`», exactamente lo inverso de lo que
+rige desde que ADR-020, 2026-08-18, derogó ADR-018; se enmienda acá por esa ADR.)*
+*(✎ 2026-08-18 — en la
 implementación quedó como loop propio y no como reuso de `_poll_until_terminal`: el
 vocabulario terminal de ese helper no incluye `cancelled`, el estado propio de este
 servicio.)*
 
 ### 9.7 Criterios de terminado
 
-- [ ] `POST /api/runs` en `replay` sobre un `alerts.jsonl` real: 201, la corrida llega a
+- [x] `POST /api/runs` en `replay` sobre un `alerts.jsonl` real: 201, la corrida llega a
       estado terminal y `GET /api/runs/{id}` devuelve el mismo summary que imprime el CLI.
-- [ ] Segunda corrida con una activa → **409** con `active_run_id`.
+      *(verificado, doc 124 §2: equivalencia DBE sobre 12 alertas, summary idéntico)*
+- [x] Segunda corrida con una activa → **409** con `active_run_id`. *(verificado, doc 124
+      §3: las dos carreras de la reserva de corrida activa cerradas con check-and-reserve
+      atómico y test de regresión determinístico)*
 - [ ] Campo desconocido en el body → **422**; `config_path` y `config` juntos (o ninguno)
       → **422**.
 - [ ] `GET /api/runs/{id}` con id inexistente → **404**; id con `../` → rechazado. *(El
       test debe usar una forma que **llegue al handler**, p. ej. `%2e%2e`: con `%2f` el
       router de Starlette responde 404 antes, y el test pasaría igual sin la validación.)*
-- [ ] `DELETE` de una corrida terminada → **204**, y el `GET` siguiente → **404**; `DELETE`
+- [x] `DELETE` de una corrida terminada → **204**, y el `GET` siguiente → **404**; `DELETE`
       de una activa → **409**. `out_dir` **no se toca** en ninguno de los dos casos.
-- [ ] Corrida `live` cancelada por `POST /cancel`: termina con
+      *(verificado, doc 124 §3: el `DELETE` decorativo se corrigió — olvida el registro en
+      memoria y nunca toca `out_dir`)*
+- [x] Corrida `live` cancelada por `POST /cancel`: termina con
       `termination_reason = "requested_stop"`, sin `SIGABRT` y sin proceso huérfano.
+      *(verificado en vivo, doc 124 §3: `POST /cancel` → 202 → `cancelled`, tras corregir
+      el bug que hacía inalcanzable ese estado)*
 - [ ] Apagado del servicio con una corrida live activa: `lifespan` la cierra y cosecha.
-- [ ] **La suite del CLI pasa sin tocar** — es la prueba de que el cambio es aditivo.
+- [x] **La suite del CLI pasa sin tocar** — es la prueba de que el cambio es aditivo.
+      *(verificado, doc 124 §2: 133 passed, "ninguna suite previa fue editada")*
 - [ ] El runner del BFF dispara por HTTP y obtiene el mismo `distribution_summary.json`
       que obtenía por subproceso, sobre la misma corrida.
+
+> ✎ **2026-08-19 — tilde diferido:** los criterios se marcaron contra lo que reporta
+> [`operacion/124`](../operacion/124-servicio-http-distribucion.md) (la implementación y
+> verificación cerraron el 2026-08-17/18, pero este spec nunca se tildó). Los cuatro sin
+> marcar están cubiertos por las suites (distribuidor 133 passed · webconsole backend
+> 663 passed) pero el doc 124 no los reporta individualmente, así que acá quedan sin
+> tildar. El último (runner por HTTP) quedó además superado en alcance por
+> [ADR-020](../decisiones/adr-020-http-como-unico-acople-de-distribucion.md)
+> (doc 125): HTTP ya no es el camino alternativo a igualar sino el default del runner.
 
 ### 9.8 Fuera de alcance (diferido con causa, ADR-019 §4)
 

@@ -2,6 +2,11 @@
 __pycache__/
 *.pyc
 
+# Basura de herramientas: cache de pytest (herramientas/tests, informe/entregable)
+# y streams NTFS "Zone.Identifier" que WSL materializa al copiar desde Windows.
+.pytest_cache/
+*Zone.Identifier
+
 # Los control_runs crudos de una campaña pesan ~20 MB y se re-derivan del replay
 # (barato: CPU). Se commitea su tar.gz — convención establecida por el doc 81.
 operacion/datos/*/control_runs/

@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 6
 
-> Generado el 2026-08-18. Etapa 6: secciones 17.6, 18 y 19.
+> Generado el 2026-08-19. Etapa 6: secciones 17.6, 18 y 19.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -116,24 +116,26 @@ es honesto; un capitulo que rellena huecos es indefendible.
   empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
   orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
   transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
-- **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
-  HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
-  distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
-  (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
-  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
-  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
-  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
-  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
-  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
-  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
-  **Al redactar, la descripcion vigente es esta y no otra:**
-  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
-  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
-  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
-  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
-  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
-  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
-  camino offline (igual que el control-plane).
+- **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
+  **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
+  control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
+  webconsole y el runner como clientes de los tres — ninguno consume el bus.
+  **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones `:5557`
+  (medios->control), alertas `:5558` (control->distribucion).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron.** El subproceso del
+  distribuidor sigue en el codigo como **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) — implementado y probado, pero
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir
+  "el modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI
+  para el camino offline (igual que el control-plane).
+  *(Historia del numero, solo para quien la necesite — ningun documento anterior al
+  2026-08-18 describe el estado vigente de arriba: ADR-018 (2026-08-15) declaro que
+  "la plataforma tiene TRES patrones de acople, no dos", con el tercero siendo
+  **BFF-subproceso** porque el modulo de distribucion, que es CLI y no servicio,
+  no tenia otra forma de acoplarse. ADR-019 (2026-08-17/18) le dio servicio HTTP
+  propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
+  el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
+  normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
   usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
   (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
@@ -1052,7 +1054,7 @@ Zou, Z., Chen, K., Shi, Z., Guo, Y., & Ye, J. (2023). Object Detection in 20 Yea
 
 ## Fuente: `docs/informe/ajustes/06-etapa-6-documentacion-y-cierre.md`
 
-> SHA-256 del bloque: `2d7adb3121004bf00d7e03f2fa29436be992e9b4fef0ed6aa2f314d402c23680`  
+> SHA-256 del bloque: `a272f5aa52f28944bb818ac7f91c9b4836d16c0d140e8d8fcdf1de906e08c2cb`  
 > Seleccion: documento completo.
 
 # Etapa 6 — §17.6, §18 Cierre y §19 Anexos
@@ -1181,8 +1183,10 @@ Sección vacía. Qué tiene que decir:
   manual de despliegue. **Cómo NO escribirlo:** en presente, ni como capacidad existente,
   ni con instrucciones de despliegue. La frase que gobierna: *describir el compromiso y su
   fundamento es correcto; describir un despliegue que no corrió es falso.*
-- **Que `docs/` es un repo git local sin remote**, por decisión del proyecto, y que el
-  respaldo es copia a otro disco.
+- **Que `docs/` es un repo git propio**, con remote desde el 2026-08-10 (`e-ovrt_docs`,
+  rama `main`) para el acceso del equipo, y que además se respalda con copia a otro disco.
+  *(✎ 2026-08-18: decía "local sin remote" — esa era la decisión inicial del 2026-07-09,
+  superada al sumar redactores externos.)*
 - **Dónde vive cada evidencia**: `results/` (los índices y sus artefactos),
   `datasets/processed/clip_bench/` (el banco, con su freeze y sha256),
   `docs/operacion/datos/` (la evidencia cruda por campaña).

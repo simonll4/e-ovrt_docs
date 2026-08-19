@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 5
 
-> Generado el 2026-08-18. Etapa 5: seccion 17.5, evaluacion y validacion.
+> Generado el 2026-08-19. Etapa 5: seccion 17.5, evaluacion y validacion.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -116,24 +116,26 @@ es honesto; un capitulo que rellena huecos es indefendible.
   empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
   orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
   transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
-- **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
-  HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
-  distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
-  (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
-  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
-  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
-  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
-  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
-  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
-  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
-  **Al redactar, la descripcion vigente es esta y no otra:**
-  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
-  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
-  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
-  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
-  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
-  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
-  camino offline (igual que el control-plane).
+- **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
+  **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
+  control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
+  webconsole y el runner como clientes de los tres — ninguno consume el bus.
+  **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones `:5557`
+  (medios->control), alertas `:5558` (control->distribucion).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron.** El subproceso del
+  distribuidor sigue en el codigo como **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) — implementado y probado, pero
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir
+  "el modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI
+  para el camino offline (igual que el control-plane).
+  *(Historia del numero, solo para quien la necesite — ningun documento anterior al
+  2026-08-18 describe el estado vigente de arriba: ADR-018 (2026-08-15) declaro que
+  "la plataforma tiene TRES patrones de acople, no dos", con el tercero siendo
+  **BFF-subproceso** porque el modulo de distribucion, que es CLI y no servicio,
+  no tenia otra forma de acoplarse. ADR-019 (2026-08-17/18) le dio servicio HTTP
+  propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
+  el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
+  normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
   usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
   (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
@@ -182,7 +184,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/informe/ajustes/05-etapa-5-evaluacion-y-validacion.md`
 
-> SHA-256 del bloque: `44a90a835cadd3820bbbe655482dd7957f41619fe91d44a720bd1d33689f923e`  
+> SHA-256 del bloque: `5b27b997ac2737feb5aa1eed847571c2c9cc32706874479b80b04401c4b957a3`  
 > Seleccion: documento completo.
 
 # Etapa 5 — §17.5 Evaluación y validación del prototipo
@@ -273,7 +275,7 @@ de modo que no se pueda cometer:
 
 | Nivel | Qué mide | Sobre qué | Índice |
 |---|---|---|---|
-| **Imágenes** | detección por clase (mAP@0,5, AP por clase) | `bench_v3`, 3 fuentes independientes | `results/bench_imagenes/` |
+| **Imágenes** | detección por clase (mAP@0,5, AP por clase) | `bench_v3`, 3 fuentes independientes (`construction_site_safety`, CHV, SHEL5K) — ver la nota de abajo | `results/bench_imagenes/` |
 | **Nivel A** | el **estado "sin EPP" por persona** (E-DIR vs E-IND) | imágenes y también video | `results/bench_nivel_a/` |
 | **Nivel B** | **alertas confirmadas contra GT temporal humano** — el resultado principal | el banco de clips | `results/clip_bench/` |
 | *(transversal)* | latencia, cadencia, integridad del acople | corridas live y single-host | `results/realtime/` |
@@ -281,6 +283,16 @@ de modo que no se pueda cometer:
 Un mismo modelo tiene números muy distintos en cada nivel, y eso **no es una
 inconsistencia: es el hallazgo**. El caso más elocuente es Nivel A sobre video, donde el
 derrumbe respecto de imágenes es **de precisión, no de recall** (tabla T-83).
+
+> ⚠️ **✎ 2026-08-18 — `estrato` ≠ `fuente` al reportar el bench de imágenes.** Los
+> estratos de `bench_v3` se llaman `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000),
+> pero **`bench_obra` no es una fuente ni un dataset externo**: es el subconjunto **curado
+> internamente** de `construction_site_safety` v27 (196 → 147, tras excluir 49 imágenes
+> fuera del dominio de obra y 4 cajas `bare_head` sub-píxel). Las **tres fuentes
+> independientes** son `construction_site_safety`, **CHV** y **SHEL5K**. Al reportar por
+> estrato se usan los nombres de estrato; al hablar de *fuentes*, los de dataset —
+> mezclarlos le atribuye al trabajo una cuarta fuente inexistente. Detalle y cadena de
+> procedencia: glosario `13` §4.4.
 
 ---
 
@@ -725,7 +737,7 @@ Verificadas 2026-08-06 (listado de `sintesis/resultados-y-conclusiones.md` §7.4
 
 ## Fuente: `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md`
 
-> SHA-256 del bloque: `2b12a3baaeb3e98f0f9bf9ee3a7b3a3143d3227b566d3377da5cdb5ea1108ff4`  
+> SHA-256 del bloque: `88f991e2f6a5bb1588b5d0a2fd91c9e9d70091b504318fc691259fba1361fbea`  
 > Seleccion: figuras y tablas aplicables a resultados.
 
 ## 1. Inventario de figuras y tablas, con su artefacto de origen
@@ -766,11 +778,11 @@ EVIDENCIA") y R-26 (§17.3.17/18, extensibilidad).
 | T-83 | **Nivel A sobre video (NA1, 17 clips)** (✎ 08-10): CR-01 F1 0,031 / CR-02 0,018 contra 0,408/0,479 en imágenes (`bench_obra`) — el derrumbe es de **precision**, el recall se sostiene | `results/bench_nivel_a/na1_gdinotiny560_v2short_video/metrics.json` | R-13 | ✅ en disco |
 | T-84 | **Revisión ciega del GT del lote como resultado de calidad de GT** (✎ 08-10): **5 de 7 declaraciones de episodio eran errores de anotación (~71%)**, todas sobre-declarando donde el estado no era observable — el mismo modo de falla que el motor | constancia en `operacion/113` §B + correcciones firmadas en los `clip.yaml` | R-13 | ✅ en disco |
 | T-85 | **Latencia de notificación (distribución): p95 64,534 ms (n=460) + régimen sostenido** | `results/realtime/t_alert_notification/metrics.json` + `operacion/118` | §17.3.10 | ✅ en disco |
-| FIG-A | **Arquitectura de los dos planos** (DBE / EBE, corte tras normalización) | especificación en **doc 94 §4** | R-09 | 📐 spec |
+| FIG-A | **Arquitectura de los dos planos** (DBE / EBE, corte tras normalización) (✎ 08-19: destino único **§17.4.1** — §17.3 quedó sin vista de procesos por la doctrina del pase de cierre) | especificación en **doc 94 §4** | R-09 | 📐 spec |
 | FIG-B | **Curva calidad vs densidad** (F1 escena y sujeto contra fps) | `results/clip_bench/r{1..6}_*/metrics.json` | R-13 | ⚙ generar |
 | FIG-C | **Frame con overlay de alerta confirmada** | renderer en `experimental-setup/defensa/` + `runs/*/previews/` | R-12 | ⚙ generar |
 | FIG-D | **Montaje lado a lado escena \| sujeto** (el mecanismo de F-89.1 en una imagen) | `experimental-setup/defensa/` (VG1 lado a lado, ya renderizado) | R-26 | ✅ en disco |
-| FIG-E | **Máquina de estados del motor** (`open → confirmed → resolved`, con `confirm_after_ms`) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
+| FIG-E | **Máquina de estados del motor** (`inactive → candidate → confirmed → sustained → resolved`, con `confirm_after_ms`) (✎ 08-19: destino **§17.3.8.2** y CINCO estados — el rótulo de tres estados era una simplificación incorrecta) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
 | FIG-F | **Frontera de juzgabilidad de 3 ejes** (escala × iluminación × oclusión) — dónde el material deja de ser evaluable (✎ 08-10) | mediciones en `operacion/103` §7 y `operacion/105` (F-105.3) | R-13 | ⚙ generar |
 
 **Regla al llenarlas:** ninguna tabla se transcribe desde este inventario ni desde el

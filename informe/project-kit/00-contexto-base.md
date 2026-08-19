@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-18. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-19. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -116,24 +116,26 @@ es honesto; un capitulo que rellena huecos es indefendible.
   empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
   orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
   transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
-- **La plataforma tiene TRES patrones de acople, no dos** (ADR-018, aceptada 2026-08-15):
-  HTTP config-driven a los dos planos, bus ZeroMQ, y **BFF-subproceso** para el modulo de
-  distribucion, que es CLI y no servicio. El dato de distribucion igual viaja por el bus
-  (`:5558`); lo propio del tercer patron es el control del ciclo de vida.
-  **✎ 2026-08-18 — LA VIÑETA DE ARRIBA QUEDO SUPERADA POR COMPLETO. ADR-020 derogo a
-  ADR-018: los patrones de acople son DOS, no tres.** Secuencia del dia: ADR-019 le dio al
-  distribuidor servicio HTTP propio (`eovrt-distribute serve`, `:8082`, espejo del
-  control-plane, verificado en vivo con camara real) y ADR-020 **invirtio el default** —
-  HTTP paso a ser el acople normal y el subproceso bajo a **fallback operativo**
-  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`), dejando de ser un patron.
-  **Al redactar, la descripcion vigente es esta y no otra:**
-  **(a) HTTP config-driven en los TRES modulos** (`:8080` medios, `:8081` control,
-  `:8082` distribucion), con la webconsole y el runner como clientes; **(b) bus ZeroMQ
-  PUB/SUB + msgpack** para el dato (detecciones `:5557`, alertas `:5558`).
-  **NO escribir "BFF-subproceso" ni contar un tercer patron**: el fallback por subproceso
-  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir "el
-  modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI para el
-  camino offline (igual que el control-plane).
+- **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
+  **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
+  control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
+  webconsole y el runner como clientes de los tres — ninguno consume el bus.
+  **(b) bus ZeroMQ PUB/SUB + msgpack** para el dato: detecciones `:5557`
+  (medios->control), alertas `:5558` (control->distribucion).
+  **NO escribir "BFF-subproceso" ni contar un tercer patron.** El subproceso del
+  distribuidor sigue en el codigo como **fallback operativo**
+  (`EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`) — implementado y probado, pero
+  es un detalle de operacion, no arquitectura, y no va al informe. Tampoco escribir
+  "el modulo es una CLI y no un servicio": es servicio, y ademas conserva su CLI
+  para el camino offline (igual que el control-plane).
+  *(Historia del numero, solo para quien la necesite — ningun documento anterior al
+  2026-08-18 describe el estado vigente de arriba: ADR-018 (2026-08-15) declaro que
+  "la plataforma tiene TRES patrones de acople, no dos", con el tercero siendo
+  **BFF-subproceso** porque el modulo de distribucion, que es CLI y no servicio,
+  no tenia otra forma de acoplarse. ADR-019 (2026-08-17/18) le dio servicio HTTP
+  propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
+  el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
+  normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
   usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
   (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
@@ -164,7 +166,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/GUIA-REDACTORES.md`
 
-> SHA-256 del bloque: `74b2f5eff5a83f9a006075c384cbc8769e3b25592dd70c900504059b73f2a69c`  
+> SHA-256 del bloque: `b7b18b2ae39488f96f0d8ca26430005ed907db714b7133d5f08ff7a415dc7c9e`  
 > Seleccion: documento completo.
 
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
@@ -231,6 +233,13 @@ fracaso del proyecto: es el dato. **El contraste entre filas ES el experimento.*
 > se redactan desde `informe/92b`; el estado ejecutado y sus salvedades, desde
 > `operacion/114`. Las latencias de loopback usadas para verificar el canal no se convierten
 > en una cifra de desempeño de la tesis.
+>
+> ✎ **2026-08-18: este módulo sumó un acople más.** Desde ADR-019 expone su propio
+> servicio HTTP (`eovrt-distribute serve`, `:8082`), y desde **ADR-020** (mismo día) ese
+> es el acople predeterminado — no un modo alternativo. "No es un tercer plano" arriba
+> sigue siendo cierto en terminología (los "planos" siguen siendo dos: medios y control),
+> pero **sí es un tercer servicio HTTP config-driven**, con la webconsole y el runner
+> como clientes. Detalle completo: §"Dónde vive cada cosa" más abajo y la trampa 7.
 
 La cifra citable del tramo de distribución es **`t_alert-notification` p95 =
 64,534 ms (n = 460 entregas live)** (`results/realtime/t_alert_notification/metrics.json`;
@@ -324,6 +333,7 @@ izquierda ya se escribió mal alguna vez.
 | "A nivel de escena (0,333) el sistema supera al de sujeto (0,190)" | "En el estrato B, con **solo 2 episodios evaluables**, la diferencia de F1 **no es interpretable**. Lo robusto es la **asimetría de falsos positivos**: 26 contra 323 sobre 11 clips negativos (**12×**)" | Con n=2 eso es ruido |
 | "El lote de internet valida el sistema en obra real" | "El lote aporta medición en obra real **acotada**, y su aporte principal es **caracterizar dónde el sistema deja de ser evaluable**" | **Limitación L4, precisada** |
 | "mAP50 0,551" | "mAP50 **0,551** sobre `bench_v3` (6.477 imágenes de **3 fuentes independientes**), con el desglose por estrato" | **Nunca solo el agregado** (limitación L5) |
+| "las tres fuentes son `bench_obra`, `chv` y `shel5k`" | "las tres fuentes son **`construction_site_safety`**, **CHV** y **SHEL5K**; sus estratos en el banco se llaman `bench_obra`, `chv` y `shel5k`" | **`bench_obra` es un ESTRATO, no una fuente**: es el subconjunto curado internamente de `construction_site_safety` (196 → 147). Nombrarlo entre las fuentes hace creer que hubo cuatro datasets — ver glosario `13` §4.4 |
 | "Los clips negativos bajan el F1" | "Los clips negativos **no entran** a precision/recall/F1: su métrica son los falsos positivos" | Promediarlos cuenta aciertos como catástrofes |
 | "El sistema emitió 12 falsos positivos" *(contando re-alertas)* | "…sin contar `re_alerts`, que son re-confirmaciones con la infracción **todavía activa**" | Una re-alerta no es un error |
 | "La latencia de vidrio a alerta es de 14,7 ms" | "El tramo medido G2A es de 14,7 ms **desde el dequeue**; de vidrio a alerta hay que sumarle la captura (202–217 ms en el rodaje)" | Se mide desde el dequeue, no desde el fotón |
@@ -525,7 +535,7 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
 | Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
-| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13; desde el 2026-08-18 corre además como servicio HTTP (`:8082`, subproceso sigue default) |
+| El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019) · **`operacion/125`** — HTTP como acople (ADR-020). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13. Desde el 2026-08-18 expone servicio HTTP propio en `:8082`; **HTTP constituye el acople predeterminado**. ADR-018 quedó derogada por ADR-020 |
 | El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
@@ -563,7 +573,7 @@ cifras sobre las 16 campañas). Si dudás de un número, corrélo.
 
 ## Fuente: `docs/13-glosario-y-convenciones-de-lectura.md`
 
-> SHA-256 del bloque: `e0d64b7b39b48f6802c3d82d640405e4af0648b430da90449fc2973567121b48`  
+> SHA-256 del bloque: `46bb82a42e1ba730ff693f4627610b11d6327d3d089d258e3a1e02614cbfdc5c`  
 > Seleccion: documento completo.
 
 # 13 — Glosario y convenciones de lectura del set documental
@@ -671,9 +681,10 @@ los tres módulos, y bus ZeroMQ), no tres.
 | **EBE** | Environment-Based Evaluation: escenario live; acople por bus ZeroMQ PUB/SUB (`bus.envelope.v1`, msgpack), corrida 1:1 (ADR-007), cierre por `run_finished`. Toda corrida live es re-evaluable offline con artefactos byte-idénticos. |
 | **media-plane** | El plano de medios/inferencia: servicio FastAPI :8080, carga un modelo OVD al arranque (`EOVRT_MODEL_REF`), ingiere fuentes visuales y emite `media.detection.v1`. Repo `e-ovrt_media-plane`. |
 | **control-plane** | El plano de control: servicio FastAPI :8081, motor de patrones con histéresis (`inactive→candidate→confirmed→resolved`) que consume detecciones y emite alertas. Repo `e-ovrt_control-plane`. |
-| **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta ambos planos por HTTP (ADR-004), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
-| **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy de ambos planos. Superficie de gestión primaria (ADR-009). |
-| **runner** | CLI del experimental-setup que dispara una corrida en ambos planos en el orden correcto: live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero. |
+| **alert-distribution** | El módulo de distribución: consume las alertas confirmadas del bus (`:5558`) y las entrega por MQTT QoS 1 con ledger de idempotencia. Desde ADR-019 es también servicio FastAPI **:8082** (`eovrt-distribute serve`); desde **ADR-020** (2026-08-18) ese es el acople predeterminado — el subproceso queda como fallback operativo. Conserva su CLI (`replay`/`live`) para el camino offline. Repo `e-ovrt_alert-distribution`. |
+| **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta por HTTP los dos planos **y el módulo de distribución** (ADR-004; ADR-020 desde 2026-08-18), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
+| **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy HTTP de los servicios de medios, control **y distribución** (`:8082`, ADR-020). Superficie de gestión primaria (ADR-009). |
+| **runner** | CLI del experimental-setup que gobierna las corridas de los dos planos en el orden correcto —live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero— y, cuando corresponde, la distribución posterior (por HTTP desde ADR-020; el subproceso queda como fallback). |
 | **G0 / G1 / (G2)** | Granularidades del patrón (ADR-002): **G0 = escena** (sin identidad de personas; el núcleo validable), **G1 = sujeto** (con tracker IoU como decorador en el control-plane). ✎ 2026-08-06: G1 es **capacidad operativa medida** — F1 0,930 sobre los 34 clips **del Bloque A** (el rodaje; ✎ 08-12: decía "del banco", y el banco es de 47 — 34 es el bloque), el mejor resultado, con detecciones bit a bit idénticas a G0 (adenda ADR-002 + ADR-015 E-03; *decía "solo demostrativa"*). Siguen excluidas las métricas MOT (E-10). |
 | **G2A** | "Glass-to-algorithm": latencia captura→resultado algorítmico en el media-plane (`g2a_ms` por unidad; presupuesto 50–250 ms). Parte de la métrica `t_capture→alert` (spec 40 §5.2.4). |
 | **t_alert** | Latencia de alerta del sistema: desde que la condición se sostiene hasta que el patrón confirma. Con umbral 4000 ms, el valor ideal medido fue 4000,0 ms exactos. |
@@ -762,15 +773,48 @@ experimento.
 - **Estrato B (Bloque B)** = los **13 clips del lote de internet**, obra real **no
   guionada**. Se reporta **como fila aparte, nunca fusionado al agregado del rodaje**
   (D-90.6).
-- ⚠️ **No confundir con "estrato" del bench de IMÁGENES**, que son las tres fuentes de
+- ⚠️ **No confundir con "estrato" del bench de IMÁGENES**, que son los tres estratos de
   `bench_v3` (`bench_obra` / `chv` / `shel5k`). Misma palabra, materiales distintos.
+
+### 4.4 `estrato` ≠ `fuente` en el bench de imágenes (✎ agregado 2026-08-18)
+
+Colisión que induce un error de atribución en el informe: **los nombres de los tres
+estratos de `bench_v3` no son los nombres de las tres fuentes**.
+
+| Fuente (dataset externo) | Licencia | Estrato que aporta | Imágenes |
+|---|---|---|---|
+| **`construction_site_safety`** (Roboflow Universe) | CC BY 4.0 | **`bench_obra`** | 147 |
+| **`chv`** (académico, GitHub ZijianWang) | sin licencia formal, cita obligatoria | `chv` | 1.330 |
+| **`shel5k`** (Mendeley 9rcv8mm682 v4) | CC BY 4.0 | `shel5k` | 5.000 |
+
+Dos de los tres estratos se llaman igual que su fuente; **el primero no**.
+**`bench_obra` no es un dataset externo ni una cuarta fuente**: es el **subconjunto
+curado internamente** de los splits `valid` + `test` de `construction_site_safety`
+v27. Su cadena de procedencia completa: 114 val + 82 test = **196** (el "BENCH
+histórico") → auditoría de dominio del **2026-07-23** → se excluyen **49 imágenes**
+ajenas al dominio de obra (selfies con barbijo, PASCAL VOC, aeropuerto, casino,
+librería, karting) y **4 cajas `bare_head` de menos de 9 px²** → **147 imágenes**
+(85 val + 62 test). Reglas codificadas en
+`e-ovrt_datasets/datasets/scripts/curate/build_bench_obra.py`; justificación y
+conteos en `datasets/registry/curation_bench_obra.md`.
+
+Dentro de `bench_v3`, `bench_obra_val` y `bench_obra_test` cuentan como **un solo
+estrato de 147**, no como dos.
+
+**Al redactar:** "tres fuentes independientes" son **`construction_site_safety`, CHV
+y SHEL5K**. Si el texto enumera `bench_obra` entre las fuentes, está nombrando un
+estrato derivado como si fuera un dataset — y el lector queda creyendo que hubo
+cuatro datasets. Frase apta para el informe: *"`bench_obra` es el núcleo interno
+curado del BENCH de Construction Site Safety v27: conserva 147 de las 196 imágenes
+originales de validación y prueba, tras excluir contaminación fuera del dominio de
+obra y anotaciones subpíxel."*
 
 ## 5. Datos, modelos y bancos
 
 | Término | Definición |
 |---|---|
 | **canonical_v2** | Vocabulario canónico de clases compartido entre repos: `person`, `helmet`, `vest`, `bare_head` (+ atributos `has_helmet`/`has_vest` solo en BENCH). Las vistas `*_cr01_cr02` están **eliminadas**. |
-| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes en 3 fuentes independientes** (`bench_obra` 147 curadas · `chv` 1.330 · `shel5k` 5.000), congelado el 2026-07-23. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
+| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes**, congelado el 2026-07-23, estratificado sobre **3 fuentes independientes** — `construction_site_safety` (Roboflow Universe, CC BY 4.0), `chv` y `shel5k`. Sus **estratos** son `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000). ⚠️ **`bench_obra` NO es una cuarta fuente ni un dataset externo**: es el nombre del **estrato curado internamente a partir de `construction_site_safety`** — ver `estrato ≠ fuente` en §3. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
 | **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). ✎ **2026-08-10 — corregido: decía "1 clip promovido (`cb_b01_p7`) en `gt_preliminary`". Doblemente falso**: ese clip fue **RETIRADO** el 2026-08-03 (licencia sin registrar + GT generado por IA) y **no debe citarse**. **Hoy el banco tiene 47 clips con GT HUMANO** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…`, en dos bloques: **A** = rodaje guionado (34) y **B** = lote de internet (13). Es el escenario EBE oficial del informe. |
 | **video-gt-lab** | El pipeline semiautomático de GT temporal: `prepare_clip` → preanotación (GDINO-**base** anti-circularidad + ByteTrack) → CVAT (humano) → `derive_clip_gt` → `validate` → `promote_clip`. |
 | **`gt_preliminary`** | Estado de un GT sin pasada humana (anotador `claude-vision-preliminary`). Ver regla de oro #7. |
@@ -784,15 +828,15 @@ experimento.
 | Cosa | Valor |
 |---|---|
 | Repos de código | `e-ovrt_media-plane`, `e-ovrt_control-plane`, `e-ovrt_experimental-setup`, `e-ovrt_datasets` (hermanos en disco; el acople cross-repo asume esa disposición) |
-| Este repo | `docs/` — git local **sin remote** (decisión del usuario) |
-| Puertos | media :8080 · control :8081 · BFF webconsole :8090 · frontend dev :5173 |
-| Entry points | `uvicorn --factory eovrt_media.service.app:create_app` · `eovrt-control serve` |
+| Este repo | `docs/` — git propio, con remote (`e-ovrt_docs`) desde 2026-08-10, cuando el equipo empezó a necesitar acceso ✎ *(decía "local sin remote": esa fue la decisión inicial del 2026-07-09, superada al sumar redactores externos)* |
+| Puertos | media :8080 · control :8081 · **distribución :8082** · BFF webconsole :8090 · frontend dev :5173 |
+| Entry points | `uvicorn --factory eovrt_media.service.app:create_app` · `eovrt-control serve` · `eovrt-distribute serve` |
 
 ---
 
 ## Fuente: `docs/informe/ajustes/08-manual-de-aplicacion.md`
 
-> SHA-256 del bloque: `b47dd0c2590f290c2f394e3bad38f76f56cb0eb44314adcf9e0189f8a1640325`  
+> SHA-256 del bloque: `a689dcdd31bafa2ff3f65f0afc2c316031a5a7d926381380ccb699515434e245`  
 > Seleccion: documento completo.
 
 # Manual de aplicación — cómo se pasan los 109 ajustes al informe
@@ -1045,14 +1089,24 @@ capítulo escrito sin sus figuras se reescribe.
 
 | Figura | Qué es | Estado | Va en |
 |---|---|---|---|
-| **FIG-A** | Arquitectura de los dos planos — vista de procesos | 📐 **especificada, no dibujada** (`94` §4) | §17.3.5 (R-09) · §17.4 |
+| **FIG-A** | Arquitectura de los dos planos — vista de procesos | 📐 **especificada, no dibujada** (`94` §4) | **§17.4.1** (✎ 08-19: destino único; antes decía §17.3.5 · §17.4) |
 | **FIG-B** | Calidad vs densidad (F1 escena y sujeto contra fps) | ⚙ generar desde `results/clip_bench/r{1..6}_*/metrics.json` | §17.5 |
 | **FIG-C** | Frame con overlay de alerta confirmada | ⚙ generar con el renderer de `experimental-setup/defensa/` | §17.5 |
-| **FIG-E** | Máquina de estados del motor (`open → confirmed → resolved`) | ⚙ generar desde el contrato `pattern_events` | §17.4 |
+| **FIG-E** | Máquina de estados del motor (`inactive → candidate → confirmed → sustained → resolved`) | ⚙ generar desde el contrato `pattern_events` | **§17.3.8.2** (✎ 08-19: antes decía §17.4) |
 | **FIG-F** | Frontera de juzgabilidad de 3 ejes (escala × iluminación × oclusión) | ⚙ generar | §17.5 |
 
 **FIG-A es la más urgente de las cinco**: es la respuesta gráfica al *"cómo está hecho"* del
 tutor técnico, ya está especificada caja por caja, y la piden dos secciones distintas.
+
+> ✎ **2026-08-19 — enmienda del pase de cierre de §17.3/§17.4**
+> (`entregable/desarrollando/correcciones-etapa-3-4.md`, decisiones firmadas por el usuario):
+> la doctrina de reparto dejó a §17.3 **sin puertos ni vista de procesos** — FIG-A pasa a
+> destino **único §17.4.1** (en §17.3.5 la necesidad de R-09 la cubren la Figura 4.1
+> conceptual y la justificación de tecnologías, así que ya **no la piden dos secciones**);
+> y la máquina de estados es diseño, no implementación — **FIG-E va en §17.3.8.2 con los
+> CINCO estados reales del motor** (el rótulo `open → confirmed → resolved` de la versión
+> anterior era una simplificación incorrecta). Con esto, la puerta P4 de §17.4 exige solo
+> FIG-A, y la de §17.3 exige FIG-E.
 
 ---
 
@@ -1094,7 +1148,7 @@ entre etapas).
 
 ## Fuente: `docs/sintesis/resultados-y-conclusiones.md`
 
-> SHA-256 del bloque: `e1395434638bebdce569173bdc726a328f827b2c6b70d5533e192f4754372020`  
+> SHA-256 del bloque: `43239e99264ee8c4d6bf43d5d4a2f14e454161477cf5baf84bd5d20672b4a85b`  
 > Seleccion: documento completo.
 
 # Síntesis de resultados y conclusiones — E-OVRT-VDP
@@ -1715,7 +1769,7 @@ Los desfases corregidos fueron de **propagación y redacción**, no de datos:
 | ~~Licencias de los catálogos de modelos~~ ✅ **CERRADO 2026-08-10** — y **la premisa era falsa**: los 11 catálogos ya declaraban `license:` y `source:`. Lo que faltaba era el registro, ya escrito: sección **"PESOS DE MODELO"** en `license_registry.md` (GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0**, las tres verificadas contra evidencia independiente: model cards y la cadena embebida en el `.pt`), con la implicancia AGPL declarada. **Residual: los repos no tienen `LICENSE` propio** — decisión del usuario antes de publicar, no bloqueo de defensa | ~~verificar y registrar~~ ✅ | citar los modelos en el informe |
 | URL + fecha de acceso por video del lote (evidencia perecedera) — ✎ **son 18 `clip.yaml` con `video_url: TODO`** (14 del lote + 4 del piloto) y **13 copias promovidas** que lo arrastran: se arregla re-promoviendo, no a mano (doc `operacion/113` §C1) | usuario | robustece la cita de la fuente |
 | Consentimiento escrito del rodaje (resuelto por declaración; plantilla disponible) | equipo/facultad | formalidad administrativa |
-| Backup de `docs/` a otro disco | usuario | redundancia (repo local sin remote) |
+| Backup de `docs/` a otro disco | usuario | redundancia adicional (el repo tiene remote propio desde 2026-08-10, pero el respaldo a disco sigue vigente) |
 
 **Nada de lo pendiente cambia una conclusión** (doc 98 §7): los mecanismos (F-81.x,
 F-87.2, F-88.x, F-89.x, F-96.x, F-101.x), el veredicto del eje y las cifras por
