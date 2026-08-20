@@ -182,6 +182,13 @@ Y la regla de fuente de verdad: **las anotaciones del repo mandan sobre CVAT**, 
 guard (`apply_attribute_corrections.py --check`) que falla si una corrección firmada
 falta en el GT.
 
+> ✎ **2026-08-20 — resuelto por E4-19** (`entregable/desarrollando/correcciones-etapa-3-4.md`):
+> §17.4.8 se amplía a cuatro subsecciones (adquisición/rodaje · segmentación con criterios
+> ex-ante · preanotación + revisión en CVAT · derivación/congelamiento). La trampa del nivel
+> de export queda en §17.4.8.4 como una cláusula ("valida la estructura de cada exportación")
+> y su detalle operativo va al anexo de reproducibilidad §19 (AJ-6.02). La lección de los
+> "person N" de la interfaz vs. `track_id` del XML sigue siendo material de §17.5 (AJ-5.07).
+
 ---
 
 ### AJ-4.10 · 🟠 — el sistema es ejecutable y verificable

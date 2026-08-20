@@ -26,6 +26,13 @@
 > El standalone `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (16-08) queda como
 > versión PREVIA de §17.3. Al cerrar cada sección en el maestro: re-extraer su `.md` y
 > fechar acá (regla D-C).
+>
+> ✎ **2026-08-20 — enmienda E4-19 (a E4-14) en el mismo doc de correcciones:** §17.4.8 se
+> amplía a cuatro subsecciones ("Construcción del banco temporal y de la referencia humana
+> de evaluación": adquisición/rodaje · segmentación con criterios ex-ante · preanotación y
+> revisión en CVAT · derivación y congelamiento), con ajuste breve en §17.4.1. Al aplicar
+> las correcciones de §17.4, usar E4-19 y NO el texto guía original de E4-14 (quedó
+> marcado como enmendado). Kit regenerado ese día.
 
 ## El texto extraído
 
