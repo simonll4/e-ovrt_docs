@@ -39,6 +39,20 @@ Cabe entero en una cuenta gratuita de Drive. Esto es lo que defiende el informe.
 | `e-ovrt_datasets/.../processed/clip_bench/` | 56 MB | **GT de video anotado a mano** (34 clips, 35 episodios). Horas de anotación humana en CVAT: no hay comando que lo rehaga |
 | `docs/informe/` | 29 MB | El entregable en curso más los `.docx` con comentarios de los correctores |
 | `e-ovrt_datasets/.../processed/coco/bench/` | 21 MB | `bench_v3` congelado (6.477 imgs) + los estratos curados y su manifiesto sha256 |
+| **Raíz del workspace: `CLAUDE.md`, `AGENTS.md`, `scripts/`** | ~40 KB | **No están en ningún repo** — ver §2.1 |
+
+### 2.1 El agujero que no se ve: la raíz del workspace no está versionada
+
+`/home/simonll4/projects` **no es un repo git** — es un directorio que contiene seis
+repos hermanos. Por lo tanto **`CLAUDE.md`, `AGENTS.md`, `scripts/` y `_archived/` no
+tienen respaldo remoto de ninguna clase.** Es fácil no notarlo justamente porque todo lo
+que está *adentro* de los repos sí lo tiene.
+
+`CLAUDE.md` en particular es el documento de gobierno que orienta a cualquier agente que
+entre al workspace: acople entre planos, vocabulario canónico, trampas de concurrencia,
+modelo campeón, deploy integral. Pesa 40 KB y es de las cosas más caras de reconstruir
+por línea. **Va a la capa 1 sí o sí**, y conviene subirlo cada vez que se toca, no por
+hito.
 
 > **Nota sobre `clip_bench/` y `coco/bench/`:** parte de esto sí está versionado (la
 > política del repo versiona `processed/coco/bench/`), pero se sube igual: es barato y es
