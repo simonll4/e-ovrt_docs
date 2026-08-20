@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 6
 
-> Generado el 2026-08-19. Etapa 6: secciones 17.6, 18 y 19.
+> Generado el 2026-08-20. Etapa 6: secciones 17.6, 18 y 19.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 

@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 3
 
-> Generado el 2026-08-19. Etapa 3: seccion 17.3, diseno arquitectonico.
+> Generado el 2026-08-20. Etapa 3: seccion 17.3, diseno arquitectonico.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -173,7 +173,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-3-4.md`
 
-> SHA-256 del bloque: `65b07f50c50fddcfd4512416d2cc6763402e4c8eaf42a65d32a8c931022e29f1`  
+> SHA-256 del bloque: `51874c00197c596a36df9bf27427a83a27bdb09ac860a614a9c8efd6fb1b7011`  
 > Seleccion: pase de cierre 2026-08-19: manda sobre el resto del material de esta etapa.
 
 # Correcciones para cerrar §17.3 (Diseño Arquitectónico) y §17.4 (Implementación)
@@ -181,6 +181,8 @@ es honesto; un capitulo que rellena huecos es indefendible.
 **Fecha:** 2026-08-19 · **Insumos:** `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v0.1.docx`,
 `E-OVRT-VDP_Seccion_17.4_Implementacion_v0.1.docx`, `observaciones-etapa-3-4.txt` (41 comentarios, todos resueltos acá).
 **Verificación:** todos los valores citados fueron contrastados contra los repos el 2026-08-19 (ver §D).
+**✎ 2026-08-20:** se agrega la enmienda **E4-19** (amplía §17.4.8 — la construcción del banco temporal se
+documenta como desarrollo; enmienda a E4-14) con sus hechos verificados propios al final de §D.
 **Este archivo es fuente del project-kit** (etapas 3 y 4): al cambiar algo acá, regenerar el kit.
 La sección §E da la renumeración de tablas y figuras que resulta de aplicar todo lo anterior.
 
@@ -573,6 +575,10 @@ Reescribir la sección completa. **Texto guía:**
 correcciones firmadas — quedan cubiertos por "valida la estructura" y "congeladas bajo control de
 versiones". El marcador `[[PENDIENTE: dirección de origen…]]` se conserva.)
 
+> ✎ **2026-08-20 — ENMENDADO por E4-19.** La sección se amplía en cuatro subsecciones en lugar de
+> comprimirse: este texto guía queda subsumido en E4-19 (que conserva CVAT con nombre propio y la doctrina
+> de instrumento de captura, y elimina la frase "con esfuerzo humano acotado"). No aplicar E4-14 suelto.
+
 ### E4-15 · Tabla 65 — despliegue contenedorizado sin "dos nodos" *(obs 37 / C17 en su antecedente)*
 Fila "Despliegue en dos nodos" → **"Despliegue contenedorizado por rol"**; evidencia →
 **"Los servicios se construyeron como imágenes por rol y se ejercieron sin modificar los contratos entre
@@ -620,6 +626,122 @@ concepto, referenciar la sección de §17.3. Casos concretos detectados:
 - §17.4.5: *"El patrón publicador-suscriptor no retiene mensajes emitidos antes de la suscripción"* puede
   abreviarse remitiendo al diseño (*"conforme a la restricción de suscripción previa establecida en la
   sección 17.3.8.4"*).
+
+### E4-19 · §17.4.8 — ENMIENDA a E4-14 (✎ 2026-08-20): la construcción del banco temporal es desarrollo y se documenta *(revisión de cobertura post-cierre)*
+
+**Motivo.** La revisión de cobertura del 2026-08-20 confirmó que el trabajo de preparación del material
+—rodaje guionado, lote de obra real de internet, recorte temporal con criterios previos, preanotación
+asistida y revisión humana en CVAT— quedó reducido a una mención instrumental, siendo parte del desarrollo
+experimental efectivamente ejecutado (herramientas construidas, operaciones realizadas, artefactos
+producidos). E4-14 se enmienda: se **conserva** de él CVAT con nombre propio y la doctrina "instrumento de
+captura / la referencia experimental es la versión promovida"; se **reemplaza** su texto guía por la
+sección ampliada de abajo; y se **elimina** la frase "con esfuerzo humano acotado" (no hay medición de
+horas que la respalde y minimiza una actividad intensiva en revisión).
+
+**Reparto que la enmienda respeta** (no cargar §17.4.8 con lo que no le toca):
+- Los denominadores y la composición del banco (clips, positivos/negativos, episodios, evaluables por
+  bloque) van en **§17.5** (AJ-5.07 / T-78) — acá NO se cita ningún conteo.
+- La cadena de comandos y la trampa del export a nivel proyecto/tarea van al **anexo de reproducibilidad
+  (§19, AJ-6.02)**; en §17.4.8 queda una sola cláusula ("valida la estructura de cada exportación antes de
+  derivar"). Esto resuelve la tensión pendiente con AJ-4.09.
+- La lección de los identificadores de la interfaz de CVAT vs. el XML es material de §17.5 (AJ-5.07).
+
+**Nota de sustento (no va al informe):** la afirmación "criterios fijados antes de ejecutar las campañas"
+es verificable y verificada — criterios publicados el 2026-07-18/19 (pre-rodaje), constantes en código
+(`window.py`, gate A1 de `derive_clip_gt.py`), recortes del Bloque A congelados el 2026-07-28 (seis días
+antes de la primera campaña), lote de internet sin recortar, episodio censurado nunca "rescatado".
+Detalle en §D (hechos 2026-08-20). Los únicos cambios post-hoc fueron de anotación GT, firmados y en
+contra del sistema (revisión ciega), nunca de límites de clip.
+
+**Acciones:**
+1. Retitular: **"17.4.8. Construcción del banco temporal y de la referencia humana de evaluación"**, con
+   cuatro subsecciones (17.4.8.1–17.4.8.4).
+2. En §17.4.1, tras *"La cadena de datos comprende adquisición, validación, conversión y congelamiento de
+   datasets y bancos de evaluación."*, insertar: **"Para el banco temporal de video esa cadena comprende
+   la adquisición y curación del material, la preparación y segmentación temporal de los clips, la
+   anotación asistida con revisión humana y la derivación, validación y congelamiento de la referencia;
+   su construcción se documenta en la sección 17.4.8."**
+3. Reemplazar el cuerpo de §17.4.8 por el párrafo de apertura y los cuatro textos guía siguientes. El
+   marcador `[[PENDIENTE: dirección de origen…]]` se conserva, al cierre de 17.4.8.1.
+
+**Texto guía — apertura de §17.4.8:**
+
+> *"La evaluación temporal se apoya en una referencia humana de episodios por clip, materializada mediante
+> el esquema clip_gt.v2. Su construcción comprendió la adquisición y conformación del material audiovisual,
+> la preparación y segmentación temporal de los clips, la anotación asistida con revisión humana y la
+> derivación, validación, promoción y congelamiento de la referencia. Para la anotación se seleccionó CVAT,
+> una herramienta de código abierto con soporte de interpolación temporal y exportación estructurada."*
+
+**Texto guía — 17.4.8.1. Adquisición y conformación del material audiovisual:**
+
+> *"El material del banco proviene de dos fuentes con procedencia y grado de control experimental
+> distintos, y esa diferencia se conserva como atributo de cada clip. La primera fuente es un rodaje
+> guionado ejecutado con el hardware real de captura del prototipo: cada escenario se diseñó en función de
+> una condición de riesgo del núcleo, con un guion segundo a segundo que fija la entrada del sujeto en
+> cumplimiento, el inicio diferido de la infracción y su persistencia sostenida durante lapsos muy
+> superiores a las ventanas de confirmación de los patrones, e incluye escenas negativas y escenas
+> deliberadamente por debajo del umbral de confirmación. Las tomas se registraron con margen temporal
+> adicional respecto del clip previsto, para que el recorte fino fuera una operación posterior y
+> controlada; la grabación y el recorte se realizaron desde la propia consola del prototipo, que incorpora
+> esa capacidad. La segunda fuente es un lote de obra real no guionada obtenido de videos públicos de
+> internet, incorporado como bloque separado con criterios de selección definidos de antemano: material de
+> obra en cumplimiento destinado a medir especificidad y falsos positivos —no sensibilidad—, prohibición de
+> concatenar segmentos cortos para fabricar unidades largas, y exclusiones declaradas con causa y firma en
+> lugar de descartes silenciosos."*
+>
+> `[[PENDIENTE: dirección de origen y fecha de acceso por clip del lote de obra real · depende de completar
+> la ficha de procedencia primaria antes del cierre final del informe]]`
+
+**Texto guía — 17.4.8.2. Preparación y segmentación temporal de los clips:**
+
+> *"Los videos maestros se conservaron sin modificación y las unidades de evaluación se generaron como
+> clips derivados, con criterios temporales explícitos fijados antes de ejecutar las campañas y aplicados
+> como reglas ejecutables, no como juicio caso por caso. Cada clip del rodaje se recortó con un preludio
+> fijo de 3,5 s antes del inicio de la condición —el inicio nunca coincide con el primer fotograma, porque
+> un episodio que arranca en el origen impide medir el tiempo hasta la primera detección—, una cola
+> posterior al cierre del episodio de entre 3 y 10 s según el escenario, y un piso de duración que
+> garantiza que una alerta válida pero lenta pueda ocurrir dentro del clip: el inicio del episodio más el
+> techo del objetivo de latencia de alerta de su patrón, más la ventana de resolución y un margen final.
+> Ese piso se verifica mediante un control automático durante la derivación de la referencia, y el clip que
+> no lo alcanza no se vuelve a recortar: sus métricas de latencia y sensibilidad quedan censuradas y así se
+> declaran. El fundamento del dimensionamiento es bidireccional: un clip demasiado corto subestima al
+> sistema, porque produce latencias artefactuales y cuenta como omisión una alerta que no tuvo tiempo de
+> ocurrir; un clip sin tiempo muerto sobreestima la precisión, porque elimina los tramos donde aparecen los
+> falsos positivos. El dimensionamiento correcto elimina ambos artefactos, de modo que cada métrica resulte
+> atribuible al sistema y no al recorte. La selección de tomas se realizó por criterio visual de calidad de
+> la escena, no por duración, y los límites de todos los clips quedaron congelados bajo control de
+> versiones antes de ejecutar las campañas que los evalúan. Los clips del lote de internet no se
+> segmentaron: cada uno es el video original completo, porque recortarlos alteraría precisamente el tiempo
+> negativo que ese bloque aporta a la medición de falsos positivos."*
+
+**Texto guía — 17.4.8.3. Preanotación asistida y revisión humana en CVAT:**
+
+> *"La anotación no partió de video crudo. Cada clip se preanotó automáticamente con un detector de
+> vocabulario abierto de mayor capacidad que el modelo evaluado —elección deliberada para evitar
+> circularidad entre el sistema medido y su referencia— acoplado a un algoritmo de seguimiento que propone
+> trayectorias por sujeto, con los atributos de protección inicializados por asociación espacial. Sobre esa
+> propuesta se realizó la pasada humana en CVAT: revisión y corrección de cajas y trayectorias,
+> verificación de identidades a lo largo de la secuencia, asignación de los atributos observables por
+> tramo, marcación explícita como estado desconocido de los tramos donde el atributo no resulta observable
+> —en lugar de forzar un valor—, y fijación de los límites temporales de cada episodio. La interpolación
+> temporal y la preanotación redujeron las operaciones repetitivas, pero no sustituyeron la revisión humana
+> de las trayectorias, los atributos ni los límites de cada episodio: la construcción de la referencia fue
+> una actividad intensiva en revisión, no un etiquetado manual fotograma por fotograma ni una validación
+> automática."*
+
+**Texto guía — 17.4.8.4. Derivación, validación, promoción y congelamiento:**
+
+> *"La salida de la anotación se procesa mediante una cadena reproducible de separación, derivación,
+> validación, promoción y agregación. La cadena valida la estructura de cada exportación antes de derivar,
+> y la derivación clasifica los episodios con las mismas ventanas de confirmación que utiliza el motor de
+> patrones —4.000 ms para CR-01 y 7.000 ms para CR-02—, de modo que la referencia y el sistema evaluado
+> apliquen un criterio temporal idéntico; una divergencia entre ambos produciría omisiones ficticias. Las
+> correcciones humanas posteriores a la derivación se aplican como registros firmados sobre los artefactos
+> versionados —nunca editando la herramienta de anotación— y un control automático falla cuando una
+> corrección firmada no aparece en la referencia derivada. Las anotaciones promovidas quedan congeladas
+> bajo control de versiones, con huella criptográfica por clip y un manifiesto agregado del banco. CVAT
+> funciona así como instrumento de captura: la referencia experimental es la versión promovida en el
+> repositorio, no el estado mutable de la herramienta."*
 
 ---
 
@@ -679,6 +801,21 @@ Verificados contra los repositorios; cualquier texto que los contradiga está ma
 | Pruebas | 2.203 aprobadas en cinco suites (relevamiento integral) | constancia operacional |
 | Puertos | medios :8080 · control :8081 · distribución :8082 · bus detecciones :5557 · bus alertas :5558 | servicios + CLAUDE.md |
 | Repo de ejecución consolidado | `manifest.effective.yaml` + `media/` (livianos + `detections.ref.json`) + `control/` (livianos) + `report/` — los pesados se referencian, no se copian | `experimental-setup/runs/exp_*` |
+
+### Hechos verificados 2026-08-20 (sustento de E4-19) — NO "corregir" estos valores
+
+| Hecho | Valor verificado | Fuente |
+|---|---|---|
+| Recorte del rodaje (constantes en código) | pre-roll **3,5 s** · cola 3,0 s default / 5,0 s (P2) / 10,0 s (P4) · duraciones objetivo por escenario (P1 20 · P2 30 · P3 15 · P5 15 · P9 18 s) | `webconsole/.../clips/window.py` (`PRE_ROLL_S`, `SCENARIO_TAIL_S`, `SCENARIO_TARGET_S`) |
+| Gate A1 (dimensionamiento) | onset del primer episodio ≥ 2.000 ms · piso por episodio = inicio + techo de t_alert (10.000 ms CR-01 / 20.000 ms CR-02) + resolución (2.000/3.000 ms) + 2.000 ms de cola | `e-ovrt_datasets/datasets/scripts/videogt/derive_clip_gt.py` (`MIN_ONSET_MS`, `DIMENSIONING_MS`) |
+| Derivación ↔ motor | mismas ventanas de confirmación **4.000/7.000 ms** (pattern set v2), selladas en `provenance.pattern_set_ms` de los 47 GT | `derive_clip_gt.py` + `clip_bench/gt/*.json` |
+| Preanotación | **GDINO-base + ByteTrack** — variante MÁS fuerte que el campeón evaluado (anti-circularidad); atributos por asociación espacial | `eovrt_media.tools.preannotate_video` + `datasets/registry/clip_bench.md` |
+| Lote de internet | **SIN recortar**: los 14 manifiestos llevan "El clip ES el master SIN RECORTAR (doc 59 §6)"; exclusión única (`v08_c01`) firmada con causa, pre-anotación | `datasets-videos/v*.clip.yaml` |
+| Cronología ex-ante | criterios publicados 2026-07-18/19 (doc 57, pre-rodaje) · rodaje 07-25 · recortes del Bloque A congelados **2026-07-28** (commit `f637875b`) · primera campaña **2026-08-03** · cada campaña declara el sha256 del manifiesto usado | git de `e-ovrt_datasets` + `results/clip_bench/*/campaign.yaml` |
+| Censura respetada | el episodio censurado (`a_p1_c05` ep2, `clip_too_short_for_t_alert_window`) atravesó TODAS las campañas censurado; el clip nunca se re-recortó (un solo commit) | `clip_bench/gt/a_p1_c05.json` + git |
+| Prohibición ex-ante de re-recorte | "se anota como hallazgo, no se re-recorta para 'arreglarlo'" | doc 72 (manual de recorte) |
+| Guion del rodaje | onset a los 3–4 s · persistencias sostenidas **14 s** (CR-01) / **22 s** (CR-02) · escena sub-umbral de 2 s guionada y cronometrada | doc 69 (guion operativo) |
+| Cambios post-hoc (los únicos) | adjudicaciones de `unknown` firmadas (F-GT1, limitación L3) y revisión ciega 08-09 (movió F1 0,500 → 0,333, EN CONTRA del sistema) — anotación GT, **nunca límites de clip** | commits `f7a27fe6` / `7961ac62` + doc 113 §B |
 
 ---
 

@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 0
 
-> Generado el 2026-08-19. Etapa 0: secciones 11 a 14 y ajustes transversales.
+> Generado el 2026-08-20. Etapa 0: secciones 11 a 14 y ajustes transversales.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 

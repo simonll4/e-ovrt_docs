@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 1
 
-> Generado el 2026-08-19. Etapa 1: secciones 15 y 16, y Anexo A.
+> Generado el 2026-08-20. Etapa 1: secciones 15 y 16, y Anexo A.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 

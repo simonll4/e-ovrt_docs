@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-19. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-20. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
