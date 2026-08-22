@@ -51,6 +51,10 @@ cambia el §3 y el §4 de este documento y nada más.
 > arranca mientras se espera ese resultado (`AJ-5.13` sigue ⏳).
 > ✎ **2026-08-17: ese resultado llegó — veredicto NO-GO (`operacion/123`), `AJ-5.13`
 > desbloqueado y redactable con cifras.**
+> ✎ **2026-08-21: T2 también cerró — NO-GO (`operacion/127`) y la jornada E-04 está
+> COMPLETA**: la subsección de fine-tuning se redacta con la curva de 3 puntos entera
+> (baseline/T1/T2) y la secuencia declarada; instrucciones exactas en el bloque de
+> fine-tuning de `GUIA-REDACTORES.md`.
 >
 > ✎ **2026-08-16 (tercera pasada) — D-A ratificada con el carril ChatGPT**: el maestro
 > sigue siendo **Google Docs**; los `.docx` que produce el Project de ChatGPT son **por
@@ -239,7 +243,17 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 
 ---
 
-## 6. Lo único que falta producir: cinco figuras
+## 6. Lo único que faltaba producir: cinco figuras — ✅ **HECHAS (2026-08-21)**
+
+> ✎ **2026-08-21 — las cinco están producidas y documentadas en
+> [`informe/figuras/`](../figuras/README.md)** (PNG 300 dpi + SVG, ancho de diseño 16 cm,
+> generadores reproducibles). Con esto **el inventario de materiales del informe queda
+> completo**: no falta ningún material para redactar. Detalle, notas al pie listas para
+> pegar y las tres advertencias que hay que respetar al citarlas —el módulo de
+> distribución va en línea CONTINUA, el orden de arranque es el inverso del flujo de
+> datos, y la máquina de estados tiene CINCO estados con la reapertura hacia
+> `candidate`— están en el README de esa carpeta. La tabla de abajo queda como registro
+> de lo que se pidió; la columna «estado» ya no aplica.
 
 El inventario de `gobierno/99` §1 tiene 23 materiales. **Las 17 tablas (`T-68`…`T-84`) están
 en disco y se llenan copiando**, igual que `FIG-D`. Lo que falta son **cinco figuras**, y

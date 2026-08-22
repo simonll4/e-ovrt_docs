@@ -78,6 +78,16 @@ EVIDENCIA") y R-26 (§17.3.17/18, extensibilidad).
 | FIG-E | **Máquina de estados del motor** (`inactive → candidate → confirmed → sustained → resolved`, con `confirm_after_ms`) (✎ 08-19: destino **§17.3.8.2** y CINCO estados — el rótulo de tres estados era una simplificación incorrecta) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
 | FIG-F | **Frontera de juzgabilidad de 3 ejes** (escala × iluminación × oclusión) — dónde el material deja de ser evaluable (✎ 08-10) | mediciones en `operacion/103` §7 y `operacion/105` (F-105.3) | R-13 | ⚙ generar |
 
+> ✎ **2026-08-21 — LAS CINCO FIGURAS PENDIENTES ESTÁN PRODUCIDAS.** `FIG-A`, `FIG-B`,
+> `FIG-C`, `FIG-E` y `FIG-F` dejaron de ser `📐 spec` / `⚙ generar`: viven en
+> [`informe/figuras/`](../../figuras/README.md) en PNG 300 dpi + SVG, con generadores
+> reproducibles y notas al pie redactadas. **El inventario de materiales del informe
+> queda completo** — 17 tablas + 6 figuras, todas con artefacto de origen. Tres
+> advertencias de cita, en el README de esa carpeta: el módulo de distribución va en
+> línea **continua** (la nota al pie de `94` §4 quedó falsa y está reemplazada allí), el
+> **orden de arranque es el inverso del flujo de datos**, y la máquina de estados tiene
+> **cinco** estados con la reapertura hacia `candidate`, no hacia `inactive`.
+
 **Regla al llenarlas:** ninguna tabla se transcribe desde este inventario ni desde el
 §5 del doc 97 — se transcribe **desde el artefacto**, y el inventario solo dice cuál es.
 Toda tabla de resultados lleva, en su nota al pie, el `campaign_id` o el sha256 del
