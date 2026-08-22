@@ -236,6 +236,20 @@ adaptación 8×→1 GPU) — si los go/no-go no lo habilitan, T3 se declara trab
 > sana inexistente, no el cómputo. D-FT-02/05/06 siguen diferidas; D-FT-04 pasa a diseño
 > para T2.
 
+> ✎ **2026-08-21 — T2 EJECUTADO Y CERRADO: NO-GO (D-FT-15); la escalera quedó COMPLETA**
+> ([`operacion/127`](../operacion/127-cierre-t2-no-go-curva-capacidad.md)). La pregunta del
+> tier quedó respondida: **el fallo de T1 no era artefacto de capacidad — es estructural
+> (F-127.1)**. Con ×3.343 de capacidad, gain PASA (`bare_head` 0 → 0,0909) pero retención
+> in-domain FALLA ×4 (mAP50 −43,4 %) y retención OV FALLA (COCO −71,3 %); las tres
+> expectativas pre-registradas se confirmaron. En el medio hubo una enmienda más, también
+> pre-resultado y declarable: **D-FT-16** (el job `1167864` con `optimizer=auto` quedó
+> submuestreado — LR ciego al conteo de parámetros — y se re-corrió desde el peso base con
+> SGD explícito, job `1167982`, que colapsó en entrenamiento: early stop 16/60, best=ep1).
+> El riesgo que este §6 anticipaba ("T2 mueve más parámetros y **agrava** la retención en
+> vez de corregirla") se materializó con exactitud. D-FT-04 quedó ejercida (vara 0,4347,
+> medición 0,1247). **No quedan brazos contra `bench_v3`**; la rama sólo se reabriría como
+> trabajo futuro con nueva pre-registración.
+
 ## 7. Qué NO cambia por esta investigación
 
 > ✎ **2026-08-11 — sección superada por ADR-017.** Lo tachado describía el estatuto

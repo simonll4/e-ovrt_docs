@@ -2,9 +2,22 @@
 
 Documento vivo, **sin número** (no forma parte de la serie `operacion/NN-`), pensado para
 que lo abras, vayas tachando, y cada ítem te mande al documento con el detalle completo para
-ejecutarlo. Última actualización: **2026-08-19** *(✎ mantenimiento: se agregó la fila del
-servicio de distribución a la tabla de verificación de plataforma y notas ADR-016…020 +
-arranque del pase de redacción; la foto día a día vive en `CRONOLOGIA.md`)*.
+ejecutarlo. Última actualización: **2026-08-21** *(✎ **EL PROGRAMA EXPERIMENTAL CERRÓ** —
+acta formal en [`operacion/128`](operacion/128-acta-cierre-programa-experimental.md), que
+es la **foto de estado vigente**; la jornada de fine-tuning quedó completa: T1 NO-GO
+`operacion/123` · T2 NO-GO `operacion/127` · T3 causa técnica. La foto día a día vive en
+`CRONOLOGIA.md`)*.
+
+> ✎ **Estado 2026-08-21 en una línea:** no queda **ningún experimento** abierto ni
+> diferido-con-retorno (fundamento: acta 128 §2), y **los insumos del informe están todos
+> cerrados** — datos, decisiones, las 17 tablas y **las 6 figuras** (las cinco que
+> faltaban se produjeron el 08-21: [`informe/figuras/`](informe/figuras/README.md)).
+>
+> **Orden vigente, decidido por el usuario el 08-21: EL INFORME PRIMERO.** El único
+> frente activo es **F**, el pase de redacción. Todo lo demás —smoke integral de Docker,
+> **C1** URLs/licencias, **V2**, latencia pareada FT— se difiere a **después de la
+> entrega**, para la ventana en que se esperan las correcciones del jurado. Cualquier
+> experimento nuevo exige reapertura explícita con pre-registración propia (acta 128 §5).
 
 > ✎ **Estado 2026-08-09 en una línea:** el rodaje (3), su GT (5), todo el tramo
 > experimental T→P→D (docs 71, 80, 92/98) **y el punto 1 —el lote de internet— están
@@ -59,6 +72,12 @@ cerrado el 07-24), pero si querés el detalle de cómo se llegó, cada ítem lin
 - ✅ **Manual de arranque de la plataforma** (2026-07-24): un solo documento para levantar
   todo el día del rodaje — orden de servicios, cámaras, orden EBE no negociable, artefactos,
   evaluación y las 6 trampas conocidas → `docs/operacion/68-manual-arranque-plataforma.md`
+- ✅ **Jornada de fine-tuning E-04 completa** (✎ 2026-08-21): escalera pre-registrada
+  ejercida entera — **T1 NO-GO** (`operacion/123`), **T2 NO-GO** con la curva
+  capacidad/retención de 3 puntos y la respuesta a la objeción de capacidad
+  (`operacion/127`, F-127.1/F-127.2), **T3 trabajo futuro con causa técnica**. Las tres
+  expectativas pre-registradas se confirmaron; no quedan brazos contra `bench_v3` →
+  acta de cierre en `operacion/128`
 - ✅ **Consola lista para operar el rodaje** (2026-07-24): la pantalla "Nueva corrida" quedó
   en 3 pasos (Fuente / Prompts / Lanzar), las fuentes live eligen **preset de cámara guardado**,
   hay **preflight de plataforma** que deshabilita *Lanzar* si un plano está caído (con el motivo
@@ -349,6 +368,7 @@ Metodología histórica de las fases: `docs/operacion/62-plan-maestro-experiment
 
 | Necesitás | Doc |
 |---|---|
+| **La foto de estado vigente y qué queda hasta la defensa** | **`docs/operacion/128-acta-cierre-programa-experimental.md`** |
 | **Qué hago ahora (los 3 pendientes, paso a paso)** | **`docs/operacion/113-manual-cierre-de-brechas-post-112.md`** |
 | **Todas las cifras del desempeño, por material** | **`e-ovrt_experimental-setup/results/index.md`** (los 4 índices) |
 | El cierre del tramo de video y su lectura crítica | `docs/operacion/112` |

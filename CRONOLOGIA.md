@@ -16,6 +16,85 @@
 
 ---
 
+## 2026-08-21 (tercera mitad) — el informe pasa a ser el único frente, y se producen **las cinco figuras**
+
+El usuario fijó el orden: **primero el informe**; el smoke integral de Docker, C1, V2 y la
+latencia pareada se difieren a la ventana post-entrega, mientras se esperan las
+correcciones del jurado. La auditoría del frente de redacción encontró que lo único que
+faltaba producir eran **las cinco figuras** de `ajustes/08` §6 —las 17 tablas ya estaban
+en disco y se llenan copiando—, así que se produjeron las cinco:
+
+- **FIG-A** (§17.4.1, vista de procesos) y **FIG-E** (§17.3.8.2, máquina de estados de
+  cinco estados) — dibujadas desde la especificación de `94` §4 y desde el contrato
+  `pattern_events` leído en el código.
+- **FIG-B** (§17.5, calidad vs densidad) — generada leyendo los `metrics.json` de las ocho
+  campañas del eje de densidad, con verificación que **falla si la cifra no coincide con
+  el índice publicado**.
+- **FIG-F** (§17.5, frontera de juzgabilidad de tres ejes) — dos paneles, de `operacion/103`
+  §7.1 y `105` §4.1/F-105.3.
+- **FIG-C** (§17.5, fotograma con alerta confirmada) — extraída del video V1 ya renderizado
+  desde artefactos reales.
+
+Todas en PNG 300 dpi + SVG, ancho de diseño 16 cm, paleta validada con el validador de
+seis chequeos, y generadores reproducibles en `informe/figuras/scripts/`. Tres cosas se
+corrigieron al dibujar, y quedaron anotadas como advertencias de cita: el **módulo de
+distribución va en línea continua** (la nota al pie de `94` §4 quedó falsa desde
+ADR-019/020), el **orden de arranque es el inverso del flujo de datos** (distribución →
+control → medios, porque en PUB/SUB el consumidor debe suscribirse antes), y la
+**reapertura de la máquina de estados va a `candidate`, no a `inactive`** — un error que
+tenía mi propio primer dibujo y que se detectó contrastándolo con el código.
+Constancia y notas al pie listas para pegar: `informe/figuras/README.md`. **Con esto el
+inventario de materiales del informe queda completo: no falta ningún material para
+redactar.**
+
+## 2026-08-21 (segunda mitad) — el usuario declara el cierre: **acta del programa experimental** (doc 128)
+
+Con la jornada de fine-tuning cerrada esa misma mañana, el usuario preguntó si quedaba algo
+que valiera la pena probar y, ante el análisis (doc 127 §5-bis + acta 128 §2: los caminos
+restantes o erosionan la pre-registración, o están bloqueados por diseño, o son trabajo
+futuro), **ordenó iniciar el proceso de cierre y documentación completa**. Se emitió el
+**acta `operacion/128`** — la nueva foto de estado vigente (reemplaza a `121`): mapa de los
+13 frentes con constancia y salida citable, verificaciones del día en verde (índices ✅,
+kit ✅, 46 tests ✅), y la lista final de lo que queda hasta la defensa **con dueño**:
+smoke Docker integral (daemon apagado, sesión conjunta) · C1 · redacción · V2 · latencia FT
+opcional · commits. Regla de salida: reabrir experimentos exige pre-registración nueva.
+`GUIA-CIERRE.md` actualizada al nuevo estado. **La energía del proyecto pasa entera al
+informe.**
+
+## 2026-08-21 — T2 cierra: **NO-GO**, y la jornada E-04 queda completa en sus tres tiers (doc 127)
+
+El job T2 v2 (`1167982`, enmienda D-FT-16: SGD lr0=0,01 explícito desde el peso base, techo
+60 épocas/patience 15) corrió en Mendieta el 20/08 (`COMPLETED`, 26m10s) pero **colapsó en
+entrenamiento**: EarlyStopping en la época 16/60 con **mejor época = 1** — el mejor checkpoint
+es una época a LR de warmup; a lr0 pleno la validación interna se derrumbó (mAP50-95
+0,084 → 0,018) y la recuperación por el decay se estancó en ~0,03. Con los dos regímenes de
+full FT acotados por ambos lados (auto submuestreado en `1167864`; SGD estándar acá), ambos
+quedan ~6× peor que el linear probing de T1 sobre los mismos datos.
+
+**El fork lo firmó el usuario** (consumir los dos one-shot con ese `best.pt` vs cerrar sin
+evaluar vs un tercer intento — descartado como ajuste post-hoc): cadena completa ejecutada el
+21/08 — backup verificado (27 archivos, tar sha256 idéntico en ambos extremos), promoción
+regla-7 (`yoloe-26s-ft-t2.yaml` **sin** `fixed_vocabulary`: T2 no hereda D-FT-08 y se sirve
+open-vocabulary vía `set_classes`, como la baseline), bench 6.477/6.477 y COCO 5.000/5.000
+con cero errores, evaluadores congelados con todos los sha256 verificados.
+
+**Gates D-FT-15: ganancia PASA** — `bare_head` AP50 0,0000 → **0,0909** (el doble de T1),
+pero íntegramente de `shel5k` (en los estratos de obra quedó 0,0) y con recall CR-01 0,0055.
+**Retención in-domain FALLA ×4** (`person` −49,7 % · `helmet` −40,6 % · `vest` −65,6 % ·
+mAP50 0,4193 → **0,2374**). **Retención OV FALLA** (COCO interno 0,4347 → **0,1247**,
+−71,3 %, umbral 0,3912). Latencia no medida con causa (criterio F-123.1). **Las tres
+expectativas pre-registradas del protocolo se confirmaron una por una.**
+
+**F-127.1 — la respuesta a la pregunta del tier: el fallo de T1 NO era artefacto de
+capacidad; el trade-off es ESTRUCTURAL** (2.946 imágenes de train para 10,35M parámetros).
+La curva capacidad/retención de tres puntos —el valor declarado de D-FT-14/15— quedó
+completa, con la nota fina de que T1 y T2 no ganan por la misma vía (T1 = recall CR-01
+0,2089 con poca AP; T2 = AP 0,0909 con recall casi nulo). Checkpoint **no adoptado**; no
+quedan brazos contra `bench_v3`. Propagado el mismo día a 117, ADR-017,
+estado-de-implementacion, nucleo/10, síntesis, GUIA-REDACTORES y contingencia/20 §6.
+Manifiestos: `t2_{promotion,go_no_go}_1167982.json`; driver reproducible nuevo
+`finetuning/scripts/run_offline_media_plane.py`.
+
 ## 2026-08-19 — Limpieza general, la plataforma entera en Compose, y qué se respalda (doc 126)
 
 Jornada de higiene pedida por el usuario: *"revisión completa del proyecto, todos los

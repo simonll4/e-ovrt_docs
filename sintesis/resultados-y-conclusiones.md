@@ -558,6 +558,19 @@ subsección deja de ir reservada**: `bare_head` AP50 **0,0000 → 0,0455**, reca
 (**−11,62 %**, tope 10 %). Checkpoint **no adoptado**. Márgenes firmados antes de la
 baseline ⇒ **negativo pre-registrado: es resultado, no fracaso**. Rama comparativa: **no se
 funde con el núcleo zero-shot ni va a `results/`**, y no se compara con el doc 64.
+✎ **2026-08-21: T2 también CERRÓ — D-FT-15 = NO-GO, y la jornada E-04 está COMPLETA en sus
+tres tiers** ([`operacion/127`](../operacion/127-cierre-t2-no-go-curva-capacidad.md)). El
+tier exploratorio (enmienda D-FT-14, márgenes D-FT-15 firmados pre-resultado) respondió su
+pregunta: **el fallo de T1 no era artefacto de capacidad — el trade-off es estructural
+(F-127.1)**. Con ×3.343 de capacidad entrenable, el gate de ganancia PASA (`bare_head`
+0,0000 → **0,0909**, sólo en `shel5k`) pero la retención in-domain FALLA ×4 (`person`
+−49,7 %, mAP50 0,4193 → **0,2374**) y la retención open-vocabulary FALLA (COCO interno
+0,4347 → **0,1247**, −71,3 %). Curva de 3 puntos completa — es el valor declarado del tier.
+Secuencia que el informe declara entera: `1167864` submuestreado (`optimizer=auto` ciego a
+los parámetros) ⇒ enmienda **D-FT-16** pre-resultado (SGD explícito desde peso base) ⇒
+`1167982` colapsó en entrenamiento (early stop 16/60, mejor época = 1: el checkpoint
+evaluado lleva ese caveat siempre). Checkpoint no adoptado; mismas reglas de rama
+comparativa que T1.
 Ambos frentes se declaran con su **estado a la entrega**
 y no bloquean el informe. Todo lo demás sigue cerrado (EN-3, E-10, E-06, CR nuevas).
 

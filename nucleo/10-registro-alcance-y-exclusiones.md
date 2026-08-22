@@ -238,6 +238,15 @@ declaración → condición de habilitación futura.
   capacidad contra el resultado T1 — T1 intacto, T2 último brazo contra `bench_v3`;
   **T3 = trabajo futuro con causa técnica** (sin baseline MM-GDINO sana). El alcance de E-04
   **no vuelve a crecer**: T2 pertenece a la misma jornada comprometida por ADR-017.
+  ✎ **2026-08-21: T2 ejercido y CERRADO — D-FT-15 = NO-GO; la jornada E-04 está COMPLETA**
+  ([`operacion/127`](../operacion/127-cierre-t2-no-go-curva-capacidad.md)). Gain PASA
+  (`bare_head` 0 → 0,0909, sólo `shel5k`); retención in-domain FALLA ×4 (mAP50 0,4193 →
+  0,2374) y retención OV FALLA (COCO 0,4347 → 0,1247, −71,3 %). Las 3 expectativas
+  pre-registradas confirmadas. **F-127.1: el fallo de T1 no era capacidad — es estructural
+  (2.946 imgs de train vs 10,35M params)**; la curva de 3 puntos, el valor declarado del
+  tier, quedó completa. Secuencia a declarar entera: `1167864` submuestreado
+  (`optimizer=auto`) ⇒ enmienda D-FT-16 pre-resultado ⇒ `1167982` (SGD explícito, colapsó:
+  early stop 16/60, best=ep1). Checkpoint no adoptado; no quedan brazos contra `bench_v3`.
 - **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
   el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
   **experimental y condicionada desde el planteo inicial**, nunca un descarte. La

@@ -20,6 +20,16 @@
   T2 será el último brazo contra `bench_v3`; **T3 sigue cerrado** (la causa técnica no fue
   enmendada). La prohibición de la causa temporal (criterio de invalidación 1) **sigue
   plenamente vigente al redactar**.
+  ✎ **2026-08-21 — T2 EJERCIDO Y CERRADO: veredicto D-FT-15 = NO-GO; la jornada E-04 está
+  COMPLETA en sus tres tiers** ([`operacion/127`](../operacion/127-cierre-t2-no-go-curva-capacidad.md)).
+  El gate de ganancia pasó (`bare_head` 0 → 0,0909) pero las dos retenciones fallaron de
+  forma catastrófica (in-domain −43 % mAP50; open-vocabulary −71 %), confirmando **una por
+  una** las tres expectativas pre-registradas. **F-127.1: el fallo de T1 no era artefacto de
+  capacidad — el trade-off es estructural (volumen de datos)**; la curva capacidad/retención
+  de tres puntos —el valor declarado del tier— quedó completa. Dos jobs median la secuencia
+  (que se declara entera al redactar): `1167864` submuestreado por `optimizer=auto` ⇒
+  enmienda **D-FT-16** (pre-resultado) ⇒ `1167982` con SGD explícito, que colapsó en
+  entrenamiento (early stop 16/60, mejor época = 1). Checkpoint no adoptado.
 - **Decisión que atiende:** el encuadre del fine-tuning en el informe y su ejercicio.
   La documentación de redacción venía declarando E-04 como exclusión "por presupuesto
   de tiempo" (texto de julio), luego enmendado a "por secuenciación" (ADR-015). El

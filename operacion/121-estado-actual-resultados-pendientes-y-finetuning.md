@@ -1,5 +1,10 @@
 # 121 — Estado actual: resultados, qué falta ejecutar, fine-tuning por familia y datasets (2026-08-15)
 
+> ⚠ **REEMPLAZADA COMO FOTO DE ESTADO (2026-08-21).** La foto vigente es
+> [`operacion/128`](128-acta-cierre-programa-experimental.md) — acta de cierre del
+> programa experimental. Este doc sigue siendo válido como registro del 08-15, pero sus
+> §2/§3 sobre fine-tuning quedaron superados por los cierres T1 (`123`) y T2 (`127`).
+
 - **Qué es esto:** una foto de una pasada del estado real del proyecto en tres ejes —
   **resultados medidos**, **qué queda por ejecutar** (con la verificación explícita del
   frente de cámaras/realtime) y **fine-tuning por familia + datasets**. Sirve para decidir
