@@ -6,10 +6,11 @@ sabido el contexto y cita códigos sin definirlos. Este archivo es la única pue
 entrada pensada para alguien que llega de cero y tiene que escribir el capítulo de
 resultados.
 
-- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-13** · **Estado:** tramo experimental **cerrado y
-  verificado**, con **una excepción declarada**: la **jornada de fine-tuning (E-04) está en
-  curso** y corre en paralelo. Por ADR-017 §2f **no bloquea la redacción**; su subsección de
-  resultados queda reservada (`informe/ajustes/05` → `AJ-5.13`). Todo lo demás está congelado.
+- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-21** · **Estado:** tramo experimental **cerrado y
+  verificado**, sin excepciones: la **jornada de fine-tuning (E-04) también está COMPLETA**
+  (✎ 08-21) — T1 NO-GO (`operacion/123`), T2 NO-GO (`operacion/127`), T3 trabajo futuro con
+  causa técnica. Sus subsecciones ya no van reservadas: se redactan con las cifras de la rama
+  comparativa (ver el bloque de fine-tuning más abajo). Todo congelado.
 - **Qué NO vas a encontrar acá:** cifras. Las cifras tienen una sola fuente y está más
   abajo. Si un número aparece en este documento es como ejemplo de cómo citarlo, no como
   fuente.
@@ -269,14 +270,35 @@ limitaciones y estado a la entrega, con causa técnica.
 > (protocolo distinto). El gate de latencia **no se midió** y eso se dice explícito (F-123.1),
 > no se omite.
 >
-> **T2 (si su jornada corre antes del cierre del informe) se redacta con esta secuencia
-> exacta, sin suavizarla:** tras el NO-GO de T1 la escalera cerró la rama; una **enmienda
-> explícita (D-FT-14, 2026-08-17)** reabrió T2 como tier **exploratorio** para descartar que
-> el fallo fuera artefacto de capacidad, **con márgenes propios firmados antes de cualquier
-> resultado T2** (D-FT-15) y expectativa pre-registrada (NO-GO probable). Nunca presentarlo
-> como reintento de T1 ni omitir que la enmienda fue posterior al veredicto — la transparencia
-> de la secuencia ES el argumento. **T3 no corre**: trabajo futuro con causa técnica (sin
-> baseline MM-GDINO geométricamente sana), jamás "falta de tiempo".
+> **T2 corrió y cerró — se redacta con esta secuencia exacta, sin suavizarla:** tras el
+> NO-GO de T1 la escalera cerró la rama; una **enmienda explícita (D-FT-14, 2026-08-17)**
+> reabrió T2 como tier **exploratorio** para descartar que el fallo fuera artefacto de
+> capacidad, **con márgenes propios firmados antes de cualquier resultado T2** (D-FT-15) y
+> expectativa pre-registrada (NO-GO probable). Nunca presentarlo como reintento de T1 ni
+> omitir que la enmienda fue posterior al veredicto — la transparencia de la secuencia ES el
+> argumento. **T3 no corre**: trabajo futuro con causa técnica (sin baseline MM-GDINO
+> geométricamente sana), jamás "falta de tiempo".
+>
+> ✎ **2026-08-21 — T2 CERRÓ: veredicto D-FT-15 = NO-GO y la jornada E-04 está COMPLETA**
+> ([`operacion/127`](operacion/127-cierre-t2-no-go-curva-capacidad.md)). Cifras: el gate de
+> ganancia **PASA** (`bare_head` AP50 0,0000 → **0,0909**, umbral +0,05 — el doble de T1)
+> pero las dos retenciones **FALLAN**: in-domain `person` −49,7 %/`helmet` −40,6 %/`vest`
+> −65,6 %/mAP50 0,4193 → **0,2374** (tope 10 %), y open-vocabulary COCO 0,4347 → **0,1247**
+> (−71,3 %, umbral 0,3912). Las **tres** expectativas pre-registradas se confirmaron.
+> **La secuencia completa a declarar suma un eslabón**: el primer RUN T2 (`1167864`,
+> `optimizer=auto`) quedó **submuestreado** por un LR ciego al conteo de parámetros y NO se
+> evaluó; la **enmienda D-FT-16 (2026-08-18, pre-resultado)** fijó SGD explícito desde el
+> peso base, y ese run (`1167982`) **colapsó en entrenamiento** (early stop 16/60, mejor
+> época = 1). El checkpoint evaluado se describe siempre con ese caveat.
+> **Cómo redactar el hallazgo (F-127.1):** el fallo de T1 **no era capacidad — es
+> estructural** (2.946 imágenes de train para 10,35M parámetros): la curva de 3 puntos
+> (baseline/T1/T2) muestra que más capacidad compra más `bare_head` pagando destrucción
+> in-domain y OV crecientes. Trampas: la ganancia de `bare_head` en T2 vive **sólo en
+> `shel5k`** (en los estratos de obra quedó 0,0) y **T1 y T2 no ganan por la misma vía**
+> (T1 = recall CR-01 0,2089 con poca AP; T2 = AP 0,0909 con recall 0,0055) — la curva es de
+> trade-offs, no de una métrica única. El flanco honesto se declara: un LR intermedio no se
+> exploró, quedó fuera del presupuesto pre-registrado. Latencia: no medida, con causa
+> (dos gates ya fallan), igual que F-123.1. Rama comparativa: mismas reglas que T1.
 
 **7. Describir la plataforma con DOS patrones de acople.** Son **tres**, y el tercero está
 registrado en **[ADR-018](decisiones/adr-018-acople-bff-subproceso-distribucion.md)** desde

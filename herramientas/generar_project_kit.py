@@ -132,8 +132,12 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     ),
     3: (
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4.md",
-            note="pase de cierre 2026-08-19: manda sobre el resto del material de esta etapa",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
+            note="pase de cierre 1 (2026-08-19): sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md",
+            note="pase de cierre 2 (2026-08-20): continua la numeracion del pase 1 y manda sobre el resto del material de esta etapa",
         ),
         SourceSlice("informe/entregable/90-etapa3-texto-extraido.md"),
         SourceSlice("informe/ajustes/03-etapa-3-diseno-arquitectonico.md"),
@@ -150,8 +154,12 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     ),
     4: (
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4.md",
-            note="pase de cierre 2026-08-19: manda sobre el resto del material de esta etapa",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
+            note="pase de cierre 1 (2026-08-19): sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md",
+            note="pase de cierre 2 (2026-08-20): continua la numeracion del pase 1 y manda sobre el resto del material de esta etapa",
         ),
         SourceSlice(
             "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",

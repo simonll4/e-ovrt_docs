@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 5
 
-> Generado el 2026-08-20. Etapa 5: seccion 17.5, evaluacion y validacion.
+> Generado el 2026-08-22. Etapa 5: seccion 17.5, evaluacion y validacion.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -184,7 +184,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/informe/ajustes/05-etapa-5-evaluacion-y-validacion.md`
 
-> SHA-256 del bloque: `5b27b997ac2737feb5aa1eed847571c2c9cc32706874479b80b04401c4b957a3`  
+> SHA-256 del bloque: `45867d4379d0775b218bfc23c9a50b5180a9ffe3ca7d85bf6625dd3dcd5b277c`  
 > Seleccion: documento completo.
 
 # Etapa 5 — §17.5 Evaluación y validación del prototipo
@@ -312,6 +312,13 @@ con overlay, montaje escena|sujeto, máquina de estados, frontera de juzgabilida
 2. **Toda tabla de resultados lleva, en su nota al pie, el `campaign_id` o el sha256 del
    banco.** Es lo que la hace verificable por un tercero, y es la diferencia entre un
    capítulo de resultados y una lista de números.
+   ✎ **2026-08-21 — compatible con la autocontención (`GUIA-REDACTORES` §3.1), y conviene
+   decirlo porque las dos reglas juntas frenan a un redactor externo:** el pie identifica
+   el **artefacto** —qué campaña (T1, G1, I1…), qué digest del banco o del prompt set
+   congelado, con qué `n` y sobre qué material—, y **nunca dice dónde vive el archivo**.
+   Van al pie el identificador de campaña, el sha256 y la remisión a otra sección del
+   propio informe; no van la ruta del artefacto, los índices de `results/`, los ADRs, las
+   specs ni las fichas `AJ-`/`R-`/`PODA-`.
 
 Estado de los materiales: la mayoría **✅ en disco**; FIG-A es **📐 spec** (su
 especificación está en `material-etapa-3/94` §4) y FIG-B, FIG-C, FIG-E y FIG-F están
@@ -737,7 +744,7 @@ Verificadas 2026-08-06 (listado de `sintesis/resultados-y-conclusiones.md` §7.4
 
 ## Fuente: `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md`
 
-> SHA-256 del bloque: `88f991e2f6a5bb1588b5d0a2fd91c9e9d70091b504318fc691259fba1361fbea`  
+> SHA-256 del bloque: `24dcad1f3e6610145ff2138777fbf1c06df9f051cc5abb74431ada9371cad0ca`  
 > Seleccion: figuras y tablas aplicables a resultados.
 
 ## 1. Inventario de figuras y tablas, con su artefacto de origen
@@ -784,6 +791,16 @@ EVIDENCIA") y R-26 (§17.3.17/18, extensibilidad).
 | FIG-D | **Montaje lado a lado escena \| sujeto** (el mecanismo de F-89.1 en una imagen) | `experimental-setup/defensa/` (VG1 lado a lado, ya renderizado) | R-26 | ✅ en disco |
 | FIG-E | **Máquina de estados del motor** (`inactive → candidate → confirmed → sustained → resolved`, con `confirm_after_ms`) (✎ 08-19: destino **§17.3.8.2** y CINCO estados — el rótulo de tres estados era una simplificación incorrecta) | contrato `pattern_events` del control-plane | R-06/R-07 | ⚙ generar |
 | FIG-F | **Frontera de juzgabilidad de 3 ejes** (escala × iluminación × oclusión) — dónde el material deja de ser evaluable (✎ 08-10) | mediciones en `operacion/103` §7 y `operacion/105` (F-105.3) | R-13 | ⚙ generar |
+
+> ✎ **2026-08-21 — LAS CINCO FIGURAS PENDIENTES ESTÁN PRODUCIDAS.** `FIG-A`, `FIG-B`,
+> `FIG-C`, `FIG-E` y `FIG-F` dejaron de ser `📐 spec` / `⚙ generar`: viven en
+> `informe/figuras/` (fuente: `docs/informe/figuras/README.md`) en PNG 300 dpi + SVG, con generadores
+> reproducibles y notas al pie redactadas. **El inventario de materiales del informe
+> queda completo** — 17 tablas + 6 figuras, todas con artefacto de origen. Tres
+> advertencias de cita, en el README de esa carpeta: el módulo de distribución va en
+> línea **continua** (la nota al pie de `94` §4 quedó falsa y está reemplazada allí), el
+> **orden de arranque es el inverso del flujo de datos**, y la máquina de estados tiene
+> **cinco** estados con la reapertura hacia `candidate`, no hacia `inactive`.
 
 **Regla al llenarlas:** ninguna tabla se transcribe desde este inventario ni desde el
 §5 del doc 97 — se transcribe **desde el artefacto**, y el inventario solo dice cuál es.

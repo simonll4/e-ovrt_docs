@@ -1,4 +1,14 @@
-# Mapa de ajustes del informe — de la Etapa 1 a la Etapa 6
+# Mapa de ajustes
+
+> ✎ **2026-08-21 — se agregó [`09-pase-de-tablas-y-lectura-de-cierre.md`](09-pase-de-tablas-y-lectura-de-cierre.md)**,
+> una revisión de punta a punta pedida por el usuario. Trae tres cosas que este mapa no
+> tenía: (a) el veredicto de aptitud para redactar —insumos listos, **cero de las 109
+> unidades aplicadas al `.docx`**—; (b) la decisión tabla-por-tabla de §17.5 aplicando
+> D-P2-1 (de 17 propuestas: 7 tablas, 6 a prosa, 3 al anexo, 1 se elimina), con el recorte
+> obligado de la tabla principal de 13 a 8 columnas; y (c) **tres piezas de material
+> "listo para pegar" que hoy meterían contenido falso o vencido en el informe**. Corrige
+> además una recomendación anterior: la ventana para tratar las duplicaciones de tablas
+> **sigue abierta**, porque el pase que la daba por cerrada todavía no se aplicó. del informe — de la Etapa 1 a la Etapa 6
 
 > **Qué es esto (2026-08-10).** El punto de entrada único a **todo lo que hay que
 > cambiar, precisar o escribir en el informe** como consecuencia de lo que se

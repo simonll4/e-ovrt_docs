@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-20. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-22. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -166,7 +166,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/GUIA-REDACTORES.md`
 
-> SHA-256 del bloque: `b7b18b2ae39488f96f0d8ca26430005ed907db714b7133d5f08ff7a415dc7c9e`  
+> SHA-256 del bloque: `50e7e63380fb835efad50963c6f57b7fa9ae29ae902539865a29bf39832c7126`  
 > Seleccion: documento completo.
 
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
@@ -177,10 +177,11 @@ sabido el contexto y cita códigos sin definirlos. Este archivo es la única pue
 entrada pensada para alguien que llega de cero y tiene que escribir el capítulo de
 resultados.
 
-- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-13** · **Estado:** tramo experimental **cerrado y
-  verificado**, con **una excepción declarada**: la **jornada de fine-tuning (E-04) está en
-  curso** y corre en paralelo. Por ADR-017 §2f **no bloquea la redacción**; su subsección de
-  resultados queda reservada (`informe/ajustes/05` → `AJ-5.13`). Todo lo demás está congelado.
+- **Fecha:** 2026-08-10 · ✎ **act. 2026-08-21** · **Estado:** tramo experimental **cerrado y
+  verificado**, sin excepciones: la **jornada de fine-tuning (E-04) también está COMPLETA**
+  (✎ 08-21) — T1 NO-GO (`operacion/123`), T2 NO-GO (`operacion/127`), T3 trabajo futuro con
+  causa técnica. Sus subsecciones ya no van reservadas: se redactan con las cifras de la rama
+  comparativa (ver el bloque de fine-tuning más abajo). Todo congelado.
 - **Qué NO vas a encontrar acá:** cifras. Las cifras tienen una sola fuente y está más
   abajo. Si un número aparece en este documento es como ejemplo de cómo citarlo, no como
   fuente.
@@ -440,14 +441,35 @@ limitaciones y estado a la entrega, con causa técnica.
 > (protocolo distinto). El gate de latencia **no se midió** y eso se dice explícito (F-123.1),
 > no se omite.
 >
-> **T2 (si su jornada corre antes del cierre del informe) se redacta con esta secuencia
-> exacta, sin suavizarla:** tras el NO-GO de T1 la escalera cerró la rama; una **enmienda
-> explícita (D-FT-14, 2026-08-17)** reabrió T2 como tier **exploratorio** para descartar que
-> el fallo fuera artefacto de capacidad, **con márgenes propios firmados antes de cualquier
-> resultado T2** (D-FT-15) y expectativa pre-registrada (NO-GO probable). Nunca presentarlo
-> como reintento de T1 ni omitir que la enmienda fue posterior al veredicto — la transparencia
-> de la secuencia ES el argumento. **T3 no corre**: trabajo futuro con causa técnica (sin
-> baseline MM-GDINO geométricamente sana), jamás "falta de tiempo".
+> **T2 corrió y cerró — se redacta con esta secuencia exacta, sin suavizarla:** tras el
+> NO-GO de T1 la escalera cerró la rama; una **enmienda explícita (D-FT-14, 2026-08-17)**
+> reabrió T2 como tier **exploratorio** para descartar que el fallo fuera artefacto de
+> capacidad, **con márgenes propios firmados antes de cualquier resultado T2** (D-FT-15) y
+> expectativa pre-registrada (NO-GO probable). Nunca presentarlo como reintento de T1 ni
+> omitir que la enmienda fue posterior al veredicto — la transparencia de la secuencia ES el
+> argumento. **T3 no corre**: trabajo futuro con causa técnica (sin baseline MM-GDINO
+> geométricamente sana), jamás "falta de tiempo".
+>
+> ✎ **2026-08-21 — T2 CERRÓ: veredicto D-FT-15 = NO-GO y la jornada E-04 está COMPLETA**
+> (`operacion/127` (fuente: `docs/operacion/127-cierre-t2-no-go-curva-capacidad.md`)). Cifras: el gate de
+> ganancia **PASA** (`bare_head` AP50 0,0000 → **0,0909**, umbral +0,05 — el doble de T1)
+> pero las dos retenciones **FALLAN**: in-domain `person` −49,7 %/`helmet` −40,6 %/`vest`
+> −65,6 %/mAP50 0,4193 → **0,2374** (tope 10 %), y open-vocabulary COCO 0,4347 → **0,1247**
+> (−71,3 %, umbral 0,3912). Las **tres** expectativas pre-registradas se confirmaron.
+> **La secuencia completa a declarar suma un eslabón**: el primer RUN T2 (`1167864`,
+> `optimizer=auto`) quedó **submuestreado** por un LR ciego al conteo de parámetros y NO se
+> evaluó; la **enmienda D-FT-16 (2026-08-18, pre-resultado)** fijó SGD explícito desde el
+> peso base, y ese run (`1167982`) **colapsó en entrenamiento** (early stop 16/60, mejor
+> época = 1). El checkpoint evaluado se describe siempre con ese caveat.
+> **Cómo redactar el hallazgo (F-127.1):** el fallo de T1 **no era capacidad — es
+> estructural** (2.946 imágenes de train para 10,35M parámetros): la curva de 3 puntos
+> (baseline/T1/T2) muestra que más capacidad compra más `bare_head` pagando destrucción
+> in-domain y OV crecientes. Trampas: la ganancia de `bare_head` en T2 vive **sólo en
+> `shel5k`** (en los estratos de obra quedó 0,0) y **T1 y T2 no ganan por la misma vía**
+> (T1 = recall CR-01 0,2089 con poca AP; T2 = AP 0,0909 con recall 0,0055) — la curva es de
+> trade-offs, no de una métrica única. El flanco honesto se declara: un LR intermedio no se
+> exploró, quedó fuera del presupuesto pre-registrado. Latencia: no medida, con causa
+> (dos gates ya fallan), igual que F-123.1. Rama comparativa: mismas reglas que T1.
 
 **7. Describir la plataforma con DOS patrones de acople.** Son **tres**, y el tercero está
 registrado en **ADR-018 (fuente: `docs/decisiones/adr-018-acople-bff-subproceso-distribucion.md`)** desde
@@ -836,7 +858,7 @@ obra y anotaciones subpíxel."*
 
 ## Fuente: `docs/informe/ajustes/08-manual-de-aplicacion.md`
 
-> SHA-256 del bloque: `a689dcdd31bafa2ff3f65f0afc2c316031a5a7d926381380ccb699515434e245`  
+> SHA-256 del bloque: `5b7a1a6005c86e333165ef9a9f9136bdbdecbcfaa34212e4afbc449834bfd781`  
 > Seleccion: documento completo.
 
 # Manual de aplicación — cómo se pasan los 109 ajustes al informe
@@ -892,6 +914,10 @@ cambia el §3 y el §4 de este documento y nada más.
 > arranca mientras se espera ese resultado (`AJ-5.13` sigue ⏳).
 > ✎ **2026-08-17: ese resultado llegó — veredicto NO-GO (`operacion/123`), `AJ-5.13`
 > desbloqueado y redactable con cifras.**
+> ✎ **2026-08-21: T2 también cerró — NO-GO (`operacion/127`) y la jornada E-04 está
+> COMPLETA**: la subsección de fine-tuning se redacta con la curva de 3 puntos entera
+> (baseline/T1/T2) y la secuencia declarada; instrucciones exactas en el bloque de
+> fine-tuning de `GUIA-REDACTORES.md`.
 >
 > ✎ **2026-08-16 (tercera pasada) — D-A ratificada con el carril ChatGPT**: el maestro
 > sigue siendo **Google Docs**; los `.docx` que produce el Project de ChatGPT son **por
@@ -1080,7 +1106,17 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 
 ---
 
-## 6. Lo único que falta producir: cinco figuras
+## 6. Lo único que faltaba producir: cinco figuras — ✅ **HECHAS (2026-08-21)**
+
+> ✎ **2026-08-21 — las cinco están producidas y documentadas en
+> `informe/figuras/` (fuente: `docs/informe/figuras/README.md`)** (PNG 300 dpi + SVG, ancho de diseño 16 cm,
+> generadores reproducibles). Con esto **el inventario de materiales del informe queda
+> completo**: no falta ningún material para redactar. Detalle, notas al pie listas para
+> pegar y las tres advertencias que hay que respetar al citarlas —el módulo de
+> distribución va en línea CONTINUA, el orden de arranque es el inverso del flujo de
+> datos, y la máquina de estados tiene CINCO estados con la reapertura hacia
+> `candidate`— están en el README de esa carpeta. La tabla de abajo queda como registro
+> de lo que se pidió; la columna «estado» ya no aplica.
 
 El inventario de `gobierno/99` §1 tiene 23 materiales. **Las 17 tablas (`T-68`…`T-84`) están
 en disco y se llenan copiando**, igual que `FIG-D`. Lo que falta son **cinco figuras**, y
@@ -1148,7 +1184,7 @@ entre etapas).
 
 ## Fuente: `docs/sintesis/resultados-y-conclusiones.md`
 
-> SHA-256 del bloque: `43239e99264ee8c4d6bf43d5d4a2f14e454161477cf5baf84bd5d20672b4a85b`  
+> SHA-256 del bloque: `46befb86aea8ac41bd567924d4d2e7abb5f029809ce198ea15326d1c11c1fb37`  
 > Seleccion: documento completo.
 
 # Síntesis de resultados y conclusiones — E-OVRT-VDP
@@ -1711,6 +1747,19 @@ subsección deja de ir reservada**: `bare_head` AP50 **0,0000 → 0,0455**, reca
 (**−11,62 %**, tope 10 %). Checkpoint **no adoptado**. Márgenes firmados antes de la
 baseline ⇒ **negativo pre-registrado: es resultado, no fracaso**. Rama comparativa: **no se
 funde con el núcleo zero-shot ni va a `results/`**, y no se compara con el doc 64.
+✎ **2026-08-21: T2 también CERRÓ — D-FT-15 = NO-GO, y la jornada E-04 está COMPLETA en sus
+tres tiers** (`operacion/127` (fuente: `docs/operacion/127-cierre-t2-no-go-curva-capacidad.md`)). El
+tier exploratorio (enmienda D-FT-14, márgenes D-FT-15 firmados pre-resultado) respondió su
+pregunta: **el fallo de T1 no era artefacto de capacidad — el trade-off es estructural
+(F-127.1)**. Con ×3.343 de capacidad entrenable, el gate de ganancia PASA (`bare_head`
+0,0000 → **0,0909**, sólo en `shel5k`) pero la retención in-domain FALLA ×4 (`person`
+−49,7 %, mAP50 0,4193 → **0,2374**) y la retención open-vocabulary FALLA (COCO interno
+0,4347 → **0,1247**, −71,3 %). Curva de 3 puntos completa — es el valor declarado del tier.
+Secuencia que el informe declara entera: `1167864` submuestreado (`optimizer=auto` ciego a
+los parámetros) ⇒ enmienda **D-FT-16** pre-resultado (SGD explícito desde peso base) ⇒
+`1167982` colapsó en entrenamiento (early stop 16/60, mejor época = 1: el checkpoint
+evaluado lleva ese caveat siempre). Checkpoint no adoptado; mismas reglas de rama
+comparativa que T1.
 Ambos frentes se declaran con su **estado a la entrega**
 y no bloquean el informe. Todo lo demás sigue cerrado (EN-3, E-10, E-06, CR nuevas).
 
@@ -1790,7 +1839,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/decisiones/estado-de-implementacion-adrs.md`
 
-> SHA-256 del bloque: `ff26c392641a3aecc61c9894979e579075d74948c6755870925ff90d47797ece`  
+> SHA-256 del bloque: `f9e5ab91b178a7e745381d3e324ad93b2a6d7f6c66538c5928b62e39cff013b2`  
 > Seleccion: encuadre y tabla resumen vigentes; el detalle historico queda fuera.
 
 # ADRs — Estado de implementación (cierre de trazabilidad)
@@ -1828,7 +1877,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 | 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementación parcial** [Enmienda 2026-08-14]: consolidación y reporte están ejercitados; el sellado opt-in, el índice durable y la promoción trazable a `results/` siguen diferidos (doc 115 §4, frentes C/D, D-115.2). |
 | **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados**. ✎ **2026-08-10: §2b/§2c/§6 DEROGADOS por ADR-016**; §2a/§3/§4/§5 vigentes (la lista L1–L8 se sigue citando desde §3) |
 | **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada y materializada**: módulo funcional, reporte integrado y broker MQTT real verificado. La vista de webconsole y la orquestación siguen abiertas; el repo aún no tiene commits |
-| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; ✎ misma fecha, la escalera de `contingencia/20` §6 se aplicó: **T2/T3 NO habilitados** (T1 sin ganancia exigible) — rama cerrada con evidencia, **trabajo futuro con causa técnica, no temporal**. ✎ más tarde ese día, **enmienda D-FT-14** (vía D-FT-03): **T2 reabierto como tier exploratorio** con pre-registración propia (D-FT-15 a firmar antes del RUN), T1 intacto, T2 = último brazo contra `bench_v3`; **T3 sigue cerrado** |
+| **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; ✎ misma fecha, la escalera de `contingencia/20` §6 se aplicó: **T2/T3 NO habilitados** (T1 sin ganancia exigible) — rama cerrada con evidencia, **trabajo futuro con causa técnica, no temporal**. ✎ más tarde ese día, **enmienda D-FT-14** (vía D-FT-03): **T2 reabierto como tier exploratorio** con pre-registración propia (D-FT-15 a firmar antes del RUN), T1 intacto, T2 = último brazo contra `bench_v3`; **T3 sigue cerrado**. ✎ **2026-08-21: T2 CERRADO — D-FT-15 = NO-GO; LA JORNADA E-04 ESTÁ COMPLETA EN SUS TRES TIERS** (doc 127): gain PASA (`bare_head` 0 → 0,0909) pero retención in-domain FALLA ×4 (mAP50 −43,4 %) y retención OV FALLA (COCO −71,3 %); las 3 expectativas pre-registradas confirmadas. Secuencia declarable: `1167864` submuestreado (`optimizer=auto`) ⇒ D-FT-16 pre-resultado ⇒ `1167982` (SGD explícito) colapsó en entrenamiento (early stop 16/60, best=ep1). **F-127.1: el fallo de T1 es estructural (datos), no de capacidad** — curva de 3 puntos completa. Checkpoint no adoptado |
 
 | **018** | **El tercer módulo se acopla por subproceso local, no por servicio HTTP**: el runner del BFF lanza `eovrt-distribute` como proceso hijo (el repo de distribución es CLI, sin FastAPI/uvicorn); el dato sigue viajando por el bus (`:5558`), lo nuevo es el control del ciclo de vida | **Aceptada (usuario, 2026-08-15) y ya implementada** — documenta código verificado, no agrega capacidad. Requisito de despliegue vinculante: la consola dockerizada exige `EOVRT_DISTRIBUTION_EXECUTABLE`. Preflight de binario + drenaje de `stderr` con cap de 1 MiB son propios de este patrón. ✎ **2026-08-18** (*esta fila decía "el repo de distribución es CLI, sin FastAPI/uvicorn"*): eso quedó **superado por ADR-019** — el repo SÍ expone servicio HTTP además del CLI (ver fila 019). Este patrón de subproceso **sigue vigente y sigue siendo el default** del runner de la webconsole; ADR-018 no queda derogada ⛔ **✎ 2026-08-18: DEROGADA por ADR-020** — el subproceso dejó de ser patrón de acople y bajó a fallback operativo; esta fila queda como registro histórico y **no se cita como arquitectura vigente** |
 | **019** | **El distribuidor suma un servicio HTTP** (`eovrt-distribute serve`, FastAPI/uvicorn en `:8082`), espejo del control-plane, para ser una unidad desplegable propia; no deroga ADR-018 — el subproceso local sigue siendo el camino default del runner del BFF | **Aceptada (usuario, 2026-08-17) e implementada y verificada (2026-08-18)**, incluida una corrida en vivo con cámara real: `POST /api/runs` (201 + id, 409 si hay una activa), `GET /api/runs/{id}` (sirve el mismo `distribution_summary.json` del CLI), `POST /api/runs/{id}/cancel` (parada cooperativa vía `ZmqSource.request_stop()`), `GET /healthz`\/`readyz`\/`config` (spec 45 §9.2/9.3). El runner del BFF es cliente HTTP opcional vía `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=http`, con preflight que sondea `/healthz` en vez de exigir el binario local en ese camino. Containerización (Dockerfile, `docker-compose.yml`) queda diferida con causa (ADR-019 §4), no es deuda de esta fila ✎ **2026-08-18: el default pasó a HTTP por ADR-020**; ya no es opt-in — el opt-in ahora es el fallback por subproceso |
@@ -1851,7 +1900,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/nucleo/10-registro-alcance-y-exclusiones.md`
 
-> SHA-256 del bloque: `23ba692eaeb2c3be23cb05af48460aff1a2c7dd1d70535c934cfd4c8239f74b9`  
+> SHA-256 del bloque: `cc3311fa1b29f3791b208bb8eb7236c5352c333b522edad4f68e9ca2ebae69fa`  
 > Seleccion: documento completo.
 
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
@@ -2094,6 +2143,15 @@ declaración → condición de habilitación futura.
   capacidad contra el resultado T1 — T1 intacto, T2 último brazo contra `bench_v3`;
   **T3 = trabajo futuro con causa técnica** (sin baseline MM-GDINO sana). El alcance de E-04
   **no vuelve a crecer**: T2 pertenece a la misma jornada comprometida por ADR-017.
+  ✎ **2026-08-21: T2 ejercido y CERRADO — D-FT-15 = NO-GO; la jornada E-04 está COMPLETA**
+  (`operacion/127` (fuente: `docs/operacion/127-cierre-t2-no-go-curva-capacidad.md`)). Gain PASA
+  (`bare_head` 0 → 0,0909, sólo `shel5k`); retención in-domain FALLA ×4 (mAP50 0,4193 →
+  0,2374) y retención OV FALLA (COCO 0,4347 → 0,1247, −71,3 %). Las 3 expectativas
+  pre-registradas confirmadas. **F-127.1: el fallo de T1 no era capacidad — es estructural
+  (2.946 imgs de train vs 10,35M params)**; la curva de 3 puntos, el valor declarado del
+  tier, quedó completa. Secuencia a declarar entera: `1167864` submuestreado
+  (`optimizer=auto`) ⇒ enmienda D-FT-16 pre-resultado ⇒ `1167982` (SGD explícito, colapsó:
+  early stop 16/60, best=ep1). Checkpoint no adoptado; no quedan brazos contra `bench_v3`.
 - **Justificación del encuadre:** la regla del informe es explícita: "no prescribe que
   el fine-tuning deba ejecutarse; define cuándo vale la pena" (Tabla 37) — la rama fue
   **experimental y condicionada desde el planteo inicial**, nunca un descarte. La

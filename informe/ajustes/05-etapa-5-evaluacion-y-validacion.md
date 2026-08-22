@@ -123,6 +123,13 @@ con overlay, montaje escena|sujeto, máquina de estados, frontera de juzgabilida
 2. **Toda tabla de resultados lleva, en su nota al pie, el `campaign_id` o el sha256 del
    banco.** Es lo que la hace verificable por un tercero, y es la diferencia entre un
    capítulo de resultados y una lista de números.
+   ✎ **2026-08-21 — compatible con la autocontención (`GUIA-REDACTORES` §3.1), y conviene
+   decirlo porque las dos reglas juntas frenan a un redactor externo:** el pie identifica
+   el **artefacto** —qué campaña (T1, G1, I1…), qué digest del banco o del prompt set
+   congelado, con qué `n` y sobre qué material—, y **nunca dice dónde vive el archivo**.
+   Van al pie el identificador de campaña, el sha256 y la remisión a otra sección del
+   propio informe; no van la ruta del artefacto, los índices de `results/`, los ADRs, las
+   specs ni las fichas `AJ-`/`R-`/`PODA-`.
 
 Estado de los materiales: la mayoría **✅ en disco**; FIG-A es **📐 spec** (su
 especificación está en `material-etapa-3/94` §4) y FIG-B, FIG-C, FIG-E y FIG-F están
