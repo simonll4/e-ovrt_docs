@@ -142,19 +142,17 @@ Sección vacía. Qué tiene que decir:
 No hay que inventarlo: **el trabajo futuro son las exclusiones ejercidas, con su costo ya
 medido**, y eso es mucho más sólido que una lista de deseos.
 
-- **El fine-tuning dejó de ser trabajo futuro** ✎ 2026-08-11: **ADR-017 lo puso en
-  alcance como jornada experimental comprometida** — escalera T1→T2/T3 con go/no-go
-  y Mendieta disponible. ✎ **2026-08-13:** F-100.1, freeze/smoke técnico, dual gate y serving
-  real y T-FT-023 están cerrados; T1 full permanece en NO-GO por D-FT-08/T-FT-005,
-  T-FT-031 y T-FT-032 (snapshot de procedencia `639e60df…`). ✎ **2026-08-15:
-  D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas, y T-FT-031/032 cerradas la misma jornada**
-  (doc 120: baseline 26s one-shot) — el NO-GO queda reducido a `full-authorization.json`
-  + `RUN` manual del usuario.
-  Si a la entrega la jornada produjo resultados, se reportan como
-  rama comparativa con sus limitaciones; si quedó a medias, **lo pendiente se declara
-  como estado con causa técnica, no como promesa** — y lo que sí sigue siendo trabajo
-  futuro son los tiers que los go/no-go no habiliten (T2/T3 sin ganancia exigible
-  previa). *Decía "no ejercido por secuenciación; la continuación más obvia"*.
+- **El fine-tuning ya no es trabajo futuro NI estado a declarar: es un RESULTADO cerrado**
+  ✎ 2026-08-22 (las notas 08-11→08-15 que vivían acá quedaron como historia en
+  `estado-de-implementacion-adrs.md`, fila 017). **La jornada se ejecutó completa en sus
+  tres tramos** — T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 cerrado con
+  causa técnica (`operacion/117` §2) — con márgenes y expectativas pre-registrados, y
+  ningún checkpoint adoptado. En el §18 se cita como **curva de capacidad de tres puntos**
+  cuyo hallazgo es F-127.1: el límite es **estructural (datos: 2.946 imágenes vs 10,35M
+  parámetros), no de capacidad**. **Lo que SÍ es trabajo futuro** (acta de cierre,
+  `operacion/128` §2): métodos de adaptación eficiente en parámetros (PEFT) y un corpus
+  de ajuste que no comparta fuentes con el banco — siempre bajo pre-registración nueva;
+  nunca "más épocas" ni "más brazos" contra el banco congelado. Jamás "por tiempo".
 - **La distribución de alertas dejó de ser trabajo futuro** ✎ 2026-08-10: ADR-016 la puso
   en alcance como **trabajo comprometido** antes de la defensa. Si a la entrega está
   implementada, se reporta en §17.4; si quedó incompleta, **lo pendiente se declara como

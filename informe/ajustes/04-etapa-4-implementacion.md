@@ -1,5 +1,13 @@
 # Etapa 4 — §17.4 Implementación del prototipo experimental
 
+> ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
+> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` en
+> `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
+> Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
+> unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
+>
+> *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
+>
 > **Estado (2026-08-10):** la sección **está vacía**. En el informe v1.1 dice
 > literalmente `[Agregado futuro correspondiente a la Etapa 4]`. Esto **no es un frente
 > de correcciones: es redacción desde cero.**
@@ -204,25 +212,26 @@ cualquier cifra.
 
 **Cada ítem con su estatuto exacto — ya no comparten uno solo.** Los tres frentes:
 
-- **Distribución de alertas por MQTT** — **funcionalmente implementada y verificada**.
-  Lo pendiente es su acople operativo: vista de outcomes en la webconsole, lanzamiento
-  desde la orquestación y commits del repo. E-06 (canales extra y dashboard propio)
-  sigue excluida. Diseño y contratos: `92b`; evidencia ejecutada: `operacion/114`.
+- **Distribución de alertas por MQTT** — **implementada, verificada e integrada**
+  (✎ 2026-08-22; antes esta línea decía que quedaban pendientes la vista de webconsole,
+  la orquestación y los commits del repo — las tres cosas están hechas: consola y
+  orquestación integradas, repo versionado y con remoto). E-06 (canales extra y
+  dashboard propio) sigue excluida. Diseño y contratos: `92b`; evidencia ejecutada:
+  `operacion/114`.
 - **Métricas MOT** (exclusión E-10). Atención al matiz de R-21: lo excluido son las
   **métricas**, no la capacidad — el tracker existe y la granularidad por sujeto es el
   mejor resultado del banco.
-- **Fine-tuning** (E-04) — ✎ 2026-08-11 su estatuto cambió: **ADR-017 la puso en
-  alcance como jornada experimental comprometida** (escalera T1→T2/T3 con go/no-go y
-  Mendieta). ✎ **2026-08-13:** F-100.1 está resuelta; `1166583` cerró freeze/smoke técnico,
-  dual gate y serving real. T1 full sigue en NO-GO por D-FT-08/T-FT-005, T-FT-031 y
-  T-FT-032; la procedencia T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`),
-  evaluación T031 y baseline 26s T032. ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13
-  firmadas, y T-FT-031/032 cerradas la misma jornada** (doc 120: baseline 26s one-shot,
-  `bare_head` AP50 0,000) — el NO-GO quedó en `full-authorization.json` + `RUN` manual.
-  Se redacta como **rama condicionada por datos y protocolo** y
-  **declarando el estado real de la jornada al momento de la entrega**, con causa
-  técnica — nunca "por tiempo", y nunca en presente mientras no haya corrida
-  verificada. *Decía "no ejercida por secuenciación"*.
+- **Fine-tuning** (E-04) — ✅ **✎ 2026-08-22: la jornada está COMPLETA en sus tres
+  tramos y ya no hay estado que "declarar a la entrega": se declara el CIERRE.**
+  T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 cerrado con causa técnica
+  (`operacion/117` §2). Para §17.4 rige **E4-27** (pase 3): la fila de la Tabla 68 dice
+  que la escalera pre-registrada se ejecutó completa, que ningún checkpoint se incorporó
+  y que el veredicto negativo es pre-registrado — el marcador `[[PENDIENTE]]` de esa fila
+  se elimina. Las cifras y su lectura (curva de tres puntos, F-127.1: fallo estructural
+  de datos, no de capacidad) van en §17.5, no acá. Sigue rigiendo: **rama comparativa
+  condicionada por datos y protocolo, nunca "por tiempo"** (ADR-017). *(Las notas 08-11 →
+  08-15 que estaban en este bullet quedaron como historia en `estado-de-implementacion-adrs.md`,
+  fila 017, que está al día.)*
 
 **Prosa ya redactada y corregida en `94` §8** (redline R-13). Transcribir una versión
 anterior declararía como faltantes G1, la comparación de estrategias, distribución y la

@@ -16,6 +16,67 @@
 
 ---
 
+## 2026-08-23 — ChatGPT desarrolla §17.3/§17.4/§17.5, el primer intento falla, y los tres quedan verificados
+
+**El primer intento fue NO integrable, y el diagnóstico importa** porque es una falla de
+clase: ChatGPT **agregó sin quitar**. Cero de 14 eliminaciones ejecutadas; los reemplazos
+quedaron como duplicaciones (§17.3.2 llegó a decir lo mismo cuatro veces); pegó texto guía
+con su sintaxis cruda (asteriscos, comillas, celdas con `||`); y se filtró andamiaje que
+jamás puede entrar al informe — dos líneas `SHA-256 del bloque` del generador del kit, un
+banner interno de conteo de palabras y una nota editorial. §17.5 quedó como esqueleto sin
+cifras. La lección: **edición quirúrgica multi-punto sobre 20.000 palabras no es tarea de
+un chat que genera el `.docx` de una pasada** — anexa, no edita.
+
+**La corrección funcionó con otro protocolo**:
+`desarrollando/instrucciones-correccion-gpt-2026-08-23.md` — ~50 operaciones de tipo cerrado
+(ELIMINAR / INTEGRAR / MOVER / REEMPLAZAR), la hoja de datos de §17.5 con **todas** las
+cifras inline (para que no tuviera que extraerlas), y entrega por partes con verificación
+mecánica entre partes. Resultado: **§17.3 v1.4** (65/65 chequeos · 17 tablas renumeradas
+39–55 · subsecciones corridas), **§17.4 v1.5** (38/38 · tablas 56–61 · identificadores solo
+en la tabla de correspondencia), **§17.5 v1.3** (redactada bajo D-P3-6 en 8 bloques por
+pregunta de medición · tablas 62–67 · **185 cifras, cero inventadas**).
+
+**Los 9 marcadores `[[CIFRA]]` se cerraron todos**: 5 los resolví contra artefactos de las
+campañas y 4 editando el XML del `.docx` (reemplazo en runs únicos, diff = solo los
+rellenos) — G2A live n=47/93/55 · captura n=47–295 por corrida · supervivientes por densidad
+n=21/20/16 (**computados de r1/r3/r5 y reproducen exactos los +1.251/+685/+1.175 ms de
+F-96.5**) · preselección 206 de 236 unidades vistas, rama sin filtro 277.
+
+**Decisión del usuario al cierre: cada sección se cierra en su propio documento y la
+integración al maestro se resuelve después.** El kit se realineó a eso: textos base
+re-extraídos de los documentos de trabajo (`90`/`90b`/`90c` nuevo) y las notas del generador
+volteadas de "pases pendientes" a "**ya aplicados y verificados**", con guardia en los tests
+para que nadie los re-aplique sobre texto ya corregido. Antes, la misma jornada, se había
+saneado el kit: los tres hallazgos de `ajustes/09` §3 resueltos y el ejemplo canónico
+re-transcripto sobre clip vigente (doc `129`).
+
+## 2026-08-22 — el pase 3 sobre §17.3/§17.4, el kit limpio para la redacción, y el ejemplo canónico re-transcripto (doc 129)
+
+**El pase 3 de correcciones** (`entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md`):
+sobre los 40 comentarios que el usuario y Gabriel dejaron en los dos `.docx`, unidades
+E3-32…E3-42 y E4-27…E4-30, decisiones D-P3-1…D-P3-6, y dos enmiendas que mandan sobre el
+pase 2 (E3-22: sus viñetas ya existían como prosa; E4-22: la preselección SÍ se ejerció —
+implementada, 87 % de drop medido, excluida de lo evaluativo con causa pre-registrada).
+Hallazgos propios del pase: la fila de fine-tuning de la Tabla 68 decía "en cola" con la
+jornada ya cerrada (E4-27), y la cita de E-DIR/E-IND/E-HYB a §17.1.5.4.2 era falsa — los
+códigos ahora nacen en §17.3.6.4 (E3-42). **D-P3-6 (directiva del usuario): §17.5 se
+organiza por pregunta de medición, nunca por cronología de campañas** — esquema en §D.0
+del pase, bajado también a `ajustes/05` §0 con el mapeo ficha → bloque. §H del pase = la
+tabla de verificación cruzada de alineación §17.3 ↔ §17.4 (12 temas, todos ✅).
+
+**El kit quedó limpio y regenerado** (`--check --etapa all` OK, 36 tests): los tres
+hallazgos de `ajustes/09` §3 RESUELTOS — la fila de fine-tuning reescrita como curva de
+tres puntos en TODOS sus ecos (`94` §8, `05` AJ-5.13, `04`, `gobierno/99`, `estado-adrs`
+016/017, y el preámbulo del generador, que aún decía "T2 en cola" y "cinco figuras sin
+producir"); el redline de anclaje R-13 saldado por vía sustantiva (declarado en `93`); y
+**el ejemplo canónico re-transcripto sobre clip VIGENTE (doc `129`)**: DTO y alerta ahora
+salen de la cadena real sobre `a_p1_c02` (unidad `frame_000229`, CR-01 confirma 4.000 ms
+exactos tras la primera evidencia; replay archivado en `datos/129-*`), con bonus
+pedagógico: la unidad tiene un `helmet` fuera de la región del sujeto — E-IND visible en
+un solo artefacto. Los textos base del kit se re-extrajeron (90 estaba en v0.1; 90b es
+nuevo — la etapa 4 redactaba desde un borrador anterior al pase 2). Los `.docx` traídos
+con comentarios recuperaron su nombre canónico. Sin commitear.
+
 ## 2026-08-21 (tercera mitad) — el informe pasa a ser el único frente, y se producen **las cinco figuras**
 
 El usuario fijó el orden: **primero el informe**; el smoke integral de Docker, C1, V2 y la

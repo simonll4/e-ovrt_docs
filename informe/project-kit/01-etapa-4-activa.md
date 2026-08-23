@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 4
 
-> Generado el 2026-08-22. Etapa 4: seccion 17.4, implementacion del prototipo.
+> Generado el 2026-08-23. Etapa 4: seccion 17.4, implementacion del prototipo.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -18,26 +18,38 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    precision y la hibrida por disyuncion fue ejecutada y refutada).
 4. Referencia temporal del banco: anotacion **humana** y congelada; se reporta como
    resultado, no como verificacion preliminar.
-5. Rama de ajuste fino, **brazo T1: CERRADO con veredicto NO-GO** (2026-08-17). Los
-   margenes se firmaron **antes** de la linea base, la corrida se ejecuto una vez y se
-   evaluo una vez, y **el checkpoint ajustado no se adopta como modelo de servicio**.
-   Tiene cifra medida y se escribe como **hallazgo, no como fracaso**: el ajuste rescata
-   `bare_head` del cero absoluto (AP50 0,0000 -> 0,0455) pero **no alcanza el umbral**
-   (faltaron 0,0045) y **rompe la retencion de `person`** (-11,62 %, tope 10 %). Va en
-   tabla propia, por estrato, nunca mezclada con el nucleo zero-shot.
+5. Rama de ajuste fino (E-04): **JORNADA COMPLETA en sus tres tramos, cerrada con
+   veredictos pre-registrados** — T1 NO-GO (2026-08-17) · T2 NO-GO (2026-08-21) · T3
+   cerrado con causa tecnica. Se escribe como **curva de capacidad de tres puntos** y
+   como hallazgo, no fracaso. T1: rescata `bare_head` del cero (AP50 0,0000 -> 0,0455)
+   pero falta 0,0045 al umbral y rompe la retencion de `person` (-11,62 %, tope 10 %).
+   T2 (SGD explicito, D-FT-16): la ganancia PASA (`bare_head` -> 0,0909, el doble de T1)
+   pero colapsa en entrenamiento (early stop 16/60, mejor epoca = 1) y **fallan las dos
+   retenciones** (in-domain: `person` -49,7 %; open-vocabulary: COCO -71,3 %).
+   **F-127.1: el fallo es ESTRUCTURAL (2.946 imagenes vs 10,35M parametros), no de
+   capacidad.** Margenes y expectativas firmados ANTES de cada evaluacion, sin
+   renegociar; ningun checkpoint se adopto; no hay mas brazos contra `bench_v3`.
+   **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
+   metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
+   zero-shot.
 
 **ABIERTO — no se afirma; se marca:**
 
-1. **Resultado del brazo T2**: no existe. T2 se reabrio como tier **exploratorio** por
-   enmienda posterior al NO-GO (D-FT-14) y esta **enviado y en cola, sin empezar**; sus
-   margenes ya estan firmados por adelantado (D-FT-15). No hay ninguna cifra de ese
-   checkpoint y no la habra hasta que corra y se evalue: esa subseccion queda reservada
-   con marcador. **T1 ya no es un hueco**: tiene resultado y se afirma (ver CERRADO 5).
-2. **Cinco figuras sin producir** (vista de procesos, maquina de estados del motor,
-   calidad frente a densidad, cuadro con alerta superpuesta y frontera de juzgabilidad).
-   Se mencionan en el texto con marcador; no se describen como si existieran.
-3. **Procedencia de origen del lote de obra real** (direccion y fecha de acceso por
+1. **Procedencia de origen del lote de obra real** (direccion y fecha de acceso por
    clip): pendiente. No bloquea redactar; si bloquea cerrar la version final.
+2. **Insercion de las figuras en el `.docx`.** Las seis figuras estan **PRODUCIDAS**
+   desde el 2026-08-21 (PNG 300 dpi + SVG en `informe/figuras/`: vista de procesos,
+   maquina de estados, calidad frente a densidad, alerta superpuesta, frontera de
+   juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
+   pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
+   figura como presente mientras la seccion no la tenga insertada.
+3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
+   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
+   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
+   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
+   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
+   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
+   los borradores.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -67,55 +79,23 @@ es honesto; un capitulo que rellena huecos es indefendible.
   `t_alert-notification` **p95 = 64,534 ms (n = 460)** entregas live, y en regimen
   sostenido **p95 = 102,025 ms (n = 104)**; mide `bus de alertas -> PUBACK MQTT`, nunca
   sensor -> notificacion (`operacion/118`).
-- E-04/fine-tuning es una **rama comparativa separada y en curso**. F-100.1 esta
-  resuelta. `1166583` cerro freeze/smoke tecnico con 12 tensores/3.096 parametros y
-  optimizer 12/12; dual gate, serving real y **procedencia T-FT-023 (cerrada el
-  2026-08-13, snapshot tar `639e60df...`)** estan verdes. **El 2026-08-15 el usuario firmo
-  D-FT-08 (contrato de serving), D-FT-12 (objetivo y margenes go/no-go, firmada ANTES de
-  la baseline) y D-FT-13 (derogacion de la sonda `machinery` solo para T1)**, T-FT-005
-  quedo `done` y **no queda ninguna decision humana pendiente**. La misma jornada se
-  cerraron **T-FT-031** (comando de evaluacion congelado + enforcement canonico v2 en
-  config + catalogo finetuned) y **T-FT-032**: la **baseline YOLOE-26s corrio UNA vez
-  sobre las 6.477 imagenes de `bench_v3`** (doc 120) — `bare_head` AP50 **0,000**
-  (6.181 GT / 10 detecciones), recall CR-01 0,0167/0,0000 por fuente y **0,0002
-  agregado**; retencion a proteger person 0,7843 / helmet 0,6286 / vest 0,2642. Estas
-  cifras son **de la rama comparativa**: van SIEMPRE en tablas propias, por estrato, y
-  NO se promueven a `results/` hasta cerrar la jornada; **no hay cifra del checkpoint
-  ajustado** (no existe todavia) ✎ *superado el 2026-08-17: el checkpoint T1 SI tiene
-  cifra — ver la enmienda al pie de esta vineta; el que sigue sin cifra es T2*.
-  F-120.1: las latencias de ese run NO se citan (cambio
-  de energia en curso); el gate de latencia se mide pareado aparte.
-  **✎ 2026-08-15 (noche) — T1 full ENVIADO: T-FT-043 esta CERRADA.** La autorizacion se
-  emitio y verifico en el cluster con sus 7 gates, el ensayo `--test-only` paso, y el
-  `RUN` quedo **encolado como job `1167640`** (1 GPU / 10 CPU / 60 GB / 2 h). Al encolar
-  figuraba en espera, con inicio estimado por el planificador el 2026-08-17; una
-  estimacion del planificador **no es reserva ni promesa**, y el envio **no es un
-  resultado**. Lo que sigue abierto es la corrida en si y, despues, la promocion del
-  checkpoint por hash, su evaluacion unica y el veredicto go/no-go contra los margenes ya
-  firmados. **Hasta que eso ocurra no existe ninguna cifra del modelo ajustado**: la
-  subseccion correspondiente se deja con `[[PENDIENTE: ...]]`, jamas con un valor
-  estimado ni con una redaccion que sugiera que la comparacion ya se hizo.
-  La sonda de clase nueva (`machinery`) quedo **derogada para T1 y reasignada a T2/T3**
-  por D-FT-13; en T2/T3, de vocabulario abierto, sigue siendo exigible.
-  **✎ 2026-08-17 — la jornada T1 CERRO: veredicto NO-GO.** El job `1167640` corrio el
-  16/08, el checkpoint se promovio por hash y se evaluo **una sola vez** contra
-  `bench_v3`: `bare_head` AP50 **0,0000 -> 0,0455** (gate A pedia >= 0,05: **faltaron
-  0,0045**) y la retencion de `person` cayo **0,7843 -> 0,6932 (-11,62 %, tope 10 %)**.
-  **El checkpoint no se adopta.** Los margenes (D-FT-12) estaban firmados desde el 15/08,
-  antes de la baseline, y **no se renegociaron**: eso es lo que hace al resultado
-  defendible. La cifra **existe y es citable**, en tabla propia por estrato; el gate de
-  latencia **no se midio** y se dice explicito (F-123.1), no se omite.
-  **La misma jornada, DESPUES del veredicto, el usuario firmo la enmienda D-FT-14**: T2
-  se reabre como tier **exploratorio** —para separar si el fallo fue de capacidad o
-  estructural—, no como reintento de T1, y **T3 queda cerrado como trabajo futuro con
-  causa tecnica** (sin baseline MM-GDINO geometricamente sana el delta es
-  ininterpretable), **jamas por "falta de tiempo"**. **D-FT-15** fijo los margenes de T2
-  **antes de todo resultado T2**, con la retencion de vocabulario abierto sobre COCO
-  val2017 congelada en mAP50 **0,434676 => umbral NO-GO 0,391208**, y con la expectativa
-  **pre-registrada** de que T2 tambien de NO-GO. **T2 esta enviado y en cola, sin
-  empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
-  orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
-  transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
+- E-04/fine-tuning: **jornada COMPLETA y CERRADA en sus tres tramos** (✎ 2026-08-22) —
+  T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 cerrado con causa tecnica
+  (`operacion/117` §2, sin baseline MM-GDINO geometricamente sana el delta es
+  ininterpretable), **jamas "por falta de tiempo"** (ADR-017). Ningun checkpoint se
+  adopto; no hay mas brazos contra `bench_v3` (reabrir exige pre-registracion nueva,
+  acta `operacion/128` §5). Reglas de cita que siguen mandando: las cifras de la rama
+  van SIEMPRE en tablas propias, por estrato, jamas fundidas con el nucleo zero-shot;
+  la secuencia se cuenta completa y en orden (baseline una sola vez -> margenes D-FT-12
+  firmados ANTES -> veredicto T1 -> enmienda D-FT-14 DESPUES del veredicto -> margenes
+  D-FT-15 pre-firmados con expectativas -> corrida y veredicto T2) porque **la
+  transparencia de la secuencia ES el argumento**; T1 gana por recall CR-01 y T2 por AP
+  (no hay "mejor tuned" de metrica unica); el gate de latencia de T1 no se midio y se
+  dice explicito (F-123.1); F-120.1: las latencias del run de la baseline no se citan.
+  Baseline YOLOE-26s (doc 120, una sola corrida sobre `bench_v3`): `bare_head` AP50
+  0,000 (6.181 GT / 10 det), recall CR-01 agregado 0,0002, retencion a proteger person
+  0,7843 / helmet 0,6286 / vest 0,2642. En §17.4 la fila de la Tabla 68 la fija E4-27
+  (pase 3); en §17.5, el bloque ✎ 2026-08-22 de AJ-5.13.
 - **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
   **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
   control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
@@ -174,7 +154,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 ## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md`
 
 > SHA-256 del bloque: `51874c00197c596a36df9bf27427a83a27bdb09ac860a614a9c8efd6fb1b7011`  
-> Seleccion: pase de cierre 1 (2026-08-19): sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO.
+> Seleccion: pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO.
 
 # Correcciones para cerrar §17.3 (Diseño Arquitectónico) y §17.4 (Implementación)
 
@@ -862,8 +842,8 @@ figuras por número, así que solo cambian los rótulos.
 
 ## Fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md`
 
-> SHA-256 del bloque: `df5544cc0cbf7db188107f34d01de3b8cbdb47489227133bbc53e513fd978d62`  
-> Seleccion: pase de cierre 2 (2026-08-20): continua la numeracion del pase 1 y manda sobre el resto del material de esta etapa.
+> SHA-256 del bloque: `425ac974e295664e517b0ada5df5732a72fbcf3105f70e548774feb910ad551d`  
+> Seleccion: pase de cierre 2 (2026-08-20): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; sus decisiones D-P2-1..6 siguen rigiendo como criterio de lectura.
 
 # Correcciones — pase 2 sobre §17.3 (Diseño Arquitectónico) y §17.4 (Implementación)
 
@@ -882,10 +862,17 @@ son consecuencia directa de aplicar el criterio del pase 1 donde había quedado 
 63–69), es decir la que ya resulta de §E del pase 1. Aplicar este pase la vuelve a mover: el mapa nuevo
 está en §E.
 
-> ⚠ **Nota operativa (no es contenido del informe).** El generador del project-kit
-> (`herramientas/generar_project_kit.py`, líneas 135 y 153) sigue apuntando a
-> `informe/entregable/desarrollando/correcciones-etapa-3-4.md`, que el 2026-08-20 pasó a `archivado/`.
-> Hoy `--check --etapa all` falla. Al decidir si este archivo entra al kit, corregir esas dos rutas.
+> ✅ **Nota operativa (no es contenido del informe) — RESUELTA.** El generador del project-kit apuntaba a la
+> ruta vieja de `correcciones-etapa-3-4.md` (movida a `archivado/` el 2026-08-20) y `--check --etapa all`
+> fallaba. Corregido: hoy el generador toma **ambos pases** —el 1 desde `archivado/` y el 2 desde acá— en
+> las etapas 3 y 4, `--check --etapa all` da **OK** y los 36 tests del generador pasan
+> (verificado 2026-08-22).
+
+> ✎ **Estado al 2026-08-22.** Al pase original (E3-19…E3-28 · E4-20…E4-22 · C-01…C-04) se agregaron
+> **E3-29, E3-30, E3-31, E4-23, E4-24, E4-25** y **E4-26**, las decisiones **D-P2-5** y **D-P2-6**, y una
+> **enmienda a E3-28**. Ninguna toca el mapa de tablas de §E (E4-24 y E4-25 agregan **filas** a las Tablas
+> 63 y 64, no tablas; E4-26 retitula §17.4.6); sí se agregó a §E el corrimiento de **subsecciones**, que
+> faltaba.
 
 ---
 
@@ -906,6 +893,39 @@ está en §E.
   pase, §17.5 arranca en la Tabla **63**.
 - **D-P2-4 — Alcance declarado.** Este pase cubre §17.3 y §17.4. Las secciones cerradas se relevaron y su
   resultado se informa en §F, pero **no se tocan acá**.
+- **D-P2-5 — Identificadores versionados de contratos (✎ 2026-08-22, extiende D2 sin reabrirla).** §17.3
+  nombra los contratos por su **denominación conceptual** (la de la Tabla 50 y de la columna "Contrato del
+  diseño" de la Tabla 63: evento de percepción / PerceptionEvent, alerta interna / AlertEvent, referencia
+  temporal de evaluación, …). Los **identificadores de cable con sufijo de versión**
+  (`media.detection.v1`, `clip_gt.v2`, `bus.envelope.v1`, …) y los literales de protocolo (`run_finished`)
+  son **materialización efectiva** y pertenecen a §17.4, cuyo punto de declaración es la Tabla 63. §17.3
+  conserva **el compromiso de versionado enunciado en abstracto** (la regla de evolución de §17.3.11.4 y
+  "la versión viaja dentro del payload"). Excepción coherente, espejo de la de FIG-E en D2: los **nombres
+  de estados** de la máquina de patrones (`inactive`…`resolved`) son vocabulario del diseño y se quedan en
+  §17.3.8.2. Fundamento y aplicación: **E3-31** y **E4-23**.
+  **Límite de la regla — NO sobre-aplicar.** D-P2-5 alcanza **sólo** al sufijo de versión del esquema y a
+  los literales de protocolo. **Se quedan en §17.3**, y quitarlos sería un error: (a) los **nombres de
+  campo** que el diseño decide que crucen la frontera —`experiment_id`, `run_id`, `unit_id`, `source_id`,
+  `track_id`, `detection_id`, `prompt_set_id`, `clip_id`—, porque *qué información cruza* es diseño;
+  verificado que §17.4 no los redeclara (`unit_id`, `source_id`, `track_id`, `detection_id` y `clip_id`
+  aparecen **cero veces** en §17.4, de modo que sacarlos de §17.3 los dejaría huérfanos en todo el informe);
+  (b) las **tecnologías con su justificación** (ZeroMQ, patrón publicador-suscriptor, msgpack, JSONL de sólo
+  adición, HTTP, MQTT con QoS 1), que D2 y E3-04 ya fijaron como diseño; (c) los **nombres de estados** de
+  la máquina de patrones. La prueba práctica: si el término nombra *qué* se intercambia o *por qué*, es
+  diseño; si nombra *la versión concreta del esquema* o *el literal que viaja por el cable*, es §17.4.
+- **D-P2-6 — Un identificador literal se declara una vez; la prosa se lee en castellano** (✎ 2026-08-22;
+  completa a D-P2-5, que resolvió *en qué etapa* van, no *cuántas veces*). Fundamento medido: de los 11
+  identificadores del par, **9 son `.v1`** — el sufijo varía en dos casos, así que en la enorme mayoría de
+  las apariciones no aporta información y sólo quiebra el registro del texto. Reglas:
+  1. **La prosa usa siempre la denominación en castellano** ("evento de percepción", "alerta interna",
+     "envoltorio del bus", "contrato de ciclo de vida", "referencia temporal de evaluación"). Un
+     identificador literal nunca es sujeto gramatical de una oración del informe.
+  2. **Cada identificador aparece una sola vez**, y esa vez es la **Tabla 63** de §17.4.2 — el único punto
+     de declaración. Sí se mantiene el identificador en prosa cuando **la versión o el literal son el
+     argumento del párrafo** (hoy, sólo la glosa de la referencia temporal en §17.4.8, ver E4-23).
+  3. **El CamelCase queda como está**: es la denominación de diseño que fijó D1 y aparece **sólo en celdas
+     de tabla** (verificado: cero en prosa en ambas secciones). No se persigue.
+  Aplicación: **E3-31** deja §17.3 en cero identificadores; **E4-24** aplica las reglas 1 y 2 a §17.4.
 - **Heredadas del pase 1:** regla de autocontención (el informe no referencia documentos locales, ADRs,
   fichas ni índices del repositorio — todos los textos guía de este archivo ya la cumplen) y carácter
   orientativo de los "textos guía" (pueden reformularse conservando contenido y registro académico;
@@ -1224,6 +1244,347 @@ primera aparición. Ver **E4-22**, que cierra el otro extremo del mismo problema
 
 ---
 
+#### ✎ ENMIENDA 2026-08-22 — rigen las acciones 1, 3 y 4 de este bloque, no las de arriba
+
+**Por qué se enmienda.** Un lector del capítulo llegó a §17.3.14.5, leyó *"…es opcional, deshabilitada por
+defecto y fail-open: una falla o incertidumbre del preselector no debe eliminar la unidad del flujo
+principal"* y reportó **no poder rastrear de dónde salía el concepto**. Esa es la falla real, y el
+diagnóstico de E3-28 la explica: la primera aparición del término está **cruda, dentro de una celda de la
+Tabla 43**, y la subsección que sí es dueña del concepto —§17.3.7.5, "Capacidades opcionales sin desplazar
+el núcleo validable"— **nunca lo nombra**. El lector recibe una definición pero no encuentra la decisión.
+
+La acción 4 original **agravaba ese recorrido**: quitaba la glosa precisamente en §17.3.14.5, dejando como
+única definición del término una celda de tabla. Además contradice D-P2-1: una tabla se consulta, no se lee,
+y no es lugar para la única definición de un concepto que reaparece seis veces.
+
+**Criterio de la enmienda:** el término se nombra y se define **en prosa**, en la subsección que ya es dueña
+del concepto; las tablas quedan libres de jerga; y el punto de reuso lleva un ancla breve en lugar de una
+redefinición o de nada.
+
+**Acciones 2 y 5: sin cambios** (eliminar el párrafo desubicado de §17.3.7.3; erradicar `opt-in` de las dos
+celdas restantes).
+
+**Acción 1 enmendada — Tabla 43, DA-11: enunciar la decisión sin el anglicismo.**
+
+> **Decisión:** Permitir preselección liviana en el rol de captura como variante opcional, conservadora y
+> deshabilitada por defecto, que conserva la unidad en el flujo principal ante falla o incertidumbre del
+> preselector.
+> **Justificación:** La variante puede reducir carga sin transformar el borde en fuente de verdad ni ocultar
+> descartes, porque el flujo base continúa disponible y comparable.
+
+**Acción 3 enmendada — §17.3.7.5, primer párrafo: acá nace el término.** Absorbe la oración que la acción 3
+original rescataba, y agrega la definición:
+
+> El núcleo validable del plano de medios debe poder operar sin exigir seguimiento multiobjeto formal,
+> preselección en borde ni adaptación de modelos al dominio. Estas capacidades pueden incorporarse como
+> variantes del flujo, pero no deben convertirse en requisitos para demostrar el procesamiento básico de
+> CR-01 y CR-02, y su incorporación no modifica el contrato de salida del plano de medios. La preselección
+> en borde se adopta además bajo un criterio de degradación segura, denominado fail-open: ante una falla o
+> una decisión incierta del preselector, la unidad visual se conserva para el flujo principal. De ese modo
+> la variante puede descartar carga, pero nunca convertirse en causa de pérdida de evidencia.
+
+**Acción 4 enmendada — §17.3.14.5: ancla breve, ni redefinición ni vacío.** La segunda oración pasa a:
+
+> La variante de preselección liviana en el borde es opcional, está deshabilitada por defecto y opera con el
+> criterio de degradación segura fijado para las capacidades opcionales del plano de medios: una falla o
+> incertidumbre del preselector no elimina la unidad del flujo principal.
+
+*(Ancla descriptiva y no numérica a propósito: una referencia "§17.3.7.5" quedaría expuesta a los
+corrimientos de numeración de este pase. Si se prefiere la forma explícita, el precedente es E3-07.)*
+
+**Recorrido resultante para el lector**, que es lo que la enmienda arregla:
+
+| Orden | Sección | Qué encuentra |
+| --- | --- | --- |
+| 1 | §17.3.3.1 | "preselección liviana en borde" como extensión condicionada — sin jerga |
+| 2 | §17.3.3.4, DA-11 | la **decisión**, enunciada en castellano — sin jerga |
+| 3 | §17.3.7.5 | el **término nombrado y definido en prosa**, con su razón |
+| 4 | §17.3.14.5 · Tablas 57, 58 y 59 | usos posteriores, ya anclados |
+
+**Huella final de `fail-open`: cuatro apariciones** — la definitoria de §17.3.7.5 más tres celdas de tabla:
+**Tabla 57** (condiciones para interpretar EBE), **Tabla 58** (roles funcionales, fila *EN — modo base de
+captura*) y **Tabla 59** (riesgos). Contra las siete actuales: §17.3.7.3 se elimina por la acción 2, DA-11
+suelta el término por la acción 1 enmendada, la Tabla 61 desaparece por E3-25 y **§17.3.14.5 también deja de
+usar el término** —el texto de la acción 4 enmendada dice "criterio de degradación segura", no `fail-open`—.
+`opt-in`: cero (4 de 4).
+
+⚠ **La Tabla 58 no la toca ninguna acción de E3-28, y está bien así.** Su celda dice *"La preselección
+liviana es opcional, fail-open y deshabilitada por defecto"*; se deja intacta a propósito, porque con la
+enmienda el término ya viene definido en prosa mucho antes (§17.3.7.5 precede a las tres tablas y a
+§17.3.14.5). Se deja constancia para que no se lea como omisión ni se "corrija" por las dudas.
+
+**Propiedad verificada:** con el orden resultante —§17.3.7.5 (L387 del texto extraído) antes de §17.3.14.5
+(L877) y de las Tablas 57, 58 y 59 (L881, L919, L936)— **ninguna aparición del término precede a su
+definición en prosa.** Es exactamente la propiedad que hoy falta y que originó esta enmienda.
+
+---
+
+### E3-29 · §17.3.10.3 "Política, medición y límites de interpretación" — reescritura completa
+
+**Origen:** dos objeciones de lectura sobre el primer párrafo — *"¿por qué nombrar una configuración que no
+se utiliza?"* y *"parece que estamos prediciendo el futuro; el diseño va antes que la implementación"*. Al
+verificar el párrafo contra el código aparecieron además **dos afirmaciones falsas** en los párrafos
+siguientes, y **dos límites de interpretación ausentes** en una subsección que los promete en el título.
+
+**No afecta la numeración de tablas** (no agrega ni elimina tablas): §E queda igual.
+
+#### Verificación (2026-08-22) — qué es cierto y qué no
+
+| Afirmación del texto vigente | Veredicto |
+| --- | --- |
+| El motor posee capacidad técnica de control de re-confirmación | **Cierto.** Existe control de re-alerta por patrón y sujeto, en ventana temporal o por cuadros. |
+| El núcleo no la utiliza | **Cierto.** El conjunto de patrones adoptado lo declara en su propia descripción: el motor emite en cada confirmación. |
+| La supresión pertenece a la política del módulo de distribución | **Cierto sólo para el cooldown**, que está implementado y activo por defecto (ventana de 30.000 ms, clave condición + fuente). |
+| "…—cooldown, **agrupación o limitación de tasa**—" | **FALSO.** Sólo existe el cooldown. La configuración de política admite exactamente dos parámetros (ventana y clave) y **rechaza claves desconocidas**: los otros dos mecanismos no están apagados, no son expresables. |
+| "clave idempotente por evento, canal **y política**" | **FALSO.** La clave es de **dos** componentes: notificación y canal. La política no forma parte de la clave. |
+| "distinguir entregas exitosas, supresiones deliberadas, duplicados y fallas de canal" | **Incompleto.** Los resultados posibles son **cinco**, no cuatro. Falta el descarte definitivo por agotamiento de reintentos, que es distinto de la falla de un intento y se registra además en un artefacto aparte. |
+| `t_alert-notification` "mide desde la disponibilidad … hasta la confirmación" | **Incompleto.** La métrica se registra en **dos modalidades** y el propio reporte agrega las latencias **separadas por modalidad**. El texto describe una sola y no advierte que no son comparables. |
+
+**Además, ausente y verificable:** el registro de entregas es de **sólo agregado y acumulativo entre
+corridas** —ninguna fila se elimina jamás, la generación anterior se archiva íntegra al reutilizar un
+directorio, y la deduplicación considera todas las generaciones—. Es un compromiso de trazabilidad que
+corresponde exactamente a una subsección titulada "Política, medición y límites de interpretación".
+
+#### Respuesta a la objeción 1 (¿por qué nombrar lo que no se usa?)
+
+Se conserva la mención, con la razón explicitada. La capacidad inactiva no es trivia: es lo que convierte
+una limitación aparente en una decisión. El reclamo que depende de ella es el del párrafo siguiente —las
+re-alertas no se computan como falsos positivos—. Un lector que observa más alertas que episodios sospecha
+un defecto o precisión inflada; nombrar la capacidad que existe y se dejó apagada es lo que responde eso.
+El defecto del texto vigente no es mencionarla, es **dar el hecho y dejar el motivo para el párrafo
+siguiente**, de modo que en su lugar se lee como dato suelto.
+
+#### Respuesta a la objeción 2 (¿predicción del futuro?)
+
+Correcta, pero apunta media cláusula a la izquierda. Asignar una responsabilidad a un módulo **es** el acto
+de diseño, no una predicción — y en este caso ya está realizado: el cooldown existe. Lo que sí predice el
+futuro es la **enumeración de tres mecanismos** cuando sólo hay uno. El informe ya tiene un idiom honesto
+para eso: la Tabla 48 declara los canales adicionales como *punto de extensión*, no como política vigente.
+La reescritura usa el mismo idiom.
+
+#### Qué NO se explica acá porque ya está en Etapa 2 (§17.1)
+
+Se relevó §17.1 contra esta subsección. Resultado, y criterio de poda aplicado al texto guía:
+
+| Material | Dónde está ya | Consecuencia en §17.3.10.3 |
+| --- | --- | --- |
+| Qué mide `t_alert-notification` y su alcance | §17.1: *"extiende la medición hacia la disponibilidad de la alerta en el canal definido, pero no forma parte del núcleo evaluativo mínimo"*, más las condiciones para reportarla | **No se redefine.** §17.3 sólo agrega lo que es nuevo: que el registro conserva la modalidad de medición. |
+| No mezclar costo computacional, ventana funcional de evidencia y demora de interfaz o distribución | §17.1, delimitación G2A / Glass-to-Alert | **No se reargumenta.** Sólo se declara el corte nuevo: entre modalidades. |
+| La unidad de conteo del falso positivo debe declararse previamente y mantenerse constante | §17.1: la regla es explícita | **No se justifica.** Sólo se **declara** la unidad del tramo: la notificación, no la fila. |
+| Ventanas de persistencia y trade-off de falsos positivos por severidad | §17.1, Tabla 24 | No se toca. |
+
+**Lo que sí nace en §17.3 y no se recorta:** §17.1 no menciona en ninguna parte la supresión de
+re-notificación, el cooldown, las re-alertas, la idempotencia ni el ledger de entregas — cero apariciones
+de esos términos en todo el capítulo de Etapa 2. Todo el compromiso de política y trazabilidad del tramo
+de distribución se establece por primera vez acá, de modo que no hay repetición que quitar.
+
+#### Texto guía
+
+> El conjunto de patrones adoptado no suprime confirmaciones: cada alerta interna se registra para
+> conservar la dinámica real del episodio. La decisión es deliberada —el motor dispone de control de
+> re-confirmación por patrón y sujeto y el núcleo lo deja inactivo— porque un motor que suprimiera dejaría
+> de reflejar la duración del episodio y no permitiría distinguir una condición que persiste de una que se
+> resolvió.
+>
+> La supresión de re-notificación se reubica en la política del módulo de distribución, y al reubicarse
+> cambia de granularidad: el motor la aplicaría por patrón y sujeto, mientras que la política de entrega
+> aplica una ventana de silencio por condición y fuente, porque para una notificación asistiva lo relevante
+> es que esa condición en esa cámara ya fue avisada. La agrupación de avisos y la limitación de tasa quedan
+> como punto de extensión de la política. Una alerta suprimida para comunicación existió y continúa siendo
+> medible: las re-alertas de un episodio activo se informan por separado y no se computan como falsos
+> positivos, de modo que una decisión de comunicación no altera la precisión del motor.
+>
+> El ledger de entregas aplica una clave de idempotencia por notificación y canal, es de sólo agregado y
+> acumula entre corridas: al reutilizar un directorio de salida la generación anterior se archiva íntegra y
+> la deduplicación considera todas las generaciones, por lo que un reprocesamiento no vuelve a entregar lo
+> ya entregado. Cada fila conserva número de intento, marca temporal, resultado, motivo de error y
+> confirmación del canal, y distingue cinco resultados: entrega exitosa, supresión por política, descarte
+> por duplicado, falla de un intento y descarte definitivo por agotamiento de reintentos. La unidad de
+> conteo del tramo es la notificación y no la fila: una notificación no entregada deja una fila por cada
+> intento más la del descarte definitivo.
+>
+> Cada fila registra además la modalidad en que se midió `t_alert-notification`, y la latencia del tramo se
+> informa siempre separada por modalidad: en relectura DBE el intervalo incorpora el ritmo de reinyección de
+> las alertas persistidas, que es propiedad del reprocesamiento y no del canal.
+
+**Balance de extensión:** cuatro párrafos contra seis, y una vez descontada la definición de la métrica y
+la justificación de la regla de conteo —ambas de Etapa 2— la subsección queda apenas por encima del texto
+vigente, con las dos afirmaciones falsas corregidas y los dos límites presentes.
+
+**Nota de consistencia tipográfica** (no es contenido): en §17.1 la métrica aparece como ecuación de Word y
+en §17.3.10.3 como texto corrido. Conviene unificar la forma de escribirla al cerrar las dos secciones.
+
+---
+
+### E3-30 · §17.3.11.1 "Criterios de diseño de contratos" — eliminar la subsección y rescatar una cláusula
+
+**Origen:** pregunta de lectura — *"¿esta sección realmente suma?"*. Se relevó cada afirmación de la
+subsección contra el resto de §17.3 y contra §17.1.
+
+**No es solapamiento con Etapa 2.** §17.1 no trata contratos: cero apariciones de "versionado",
+"autodescriptivo" o "payload", y delega el asunto de forma explícita —*"la instancia de análisis y diseño
+arquitectónico deberá traducir esta definición en componentes, contratos, eventos y configuraciones"*—. El
+material pertenece a §17.3. El problema es **redundancia interna del propio capítulo**.
+
+#### Relevamiento afirmación por afirmación
+
+| Afirmación de §17.3.11.1 | Dónde ya está | Veredicto |
+| --- | --- | --- |
+| Contratos explícitos, autodescriptivos, versionados, estables | En el **párrafo introductorio de §17.3.11, inmediatamente arriba**: *"modelos de datos versionados, serializaciones explícitas e interfaces concretas"*, *"bajo qué versión"* | Reformulación del párrafo anterior como lista normativa. |
+| "La versión viaja dentro del payload" | **§17.3.11.4**: *"La versión viaja en el payload persistido y publicado"* | **Duplicado casi literal**, dentro de la misma §17.3.11. |
+| "el transporte no sustituye la identificación del esquema" | En ningún otro lugar del capítulo | **ÚNICO aporte real.** Se rescata. |
+| Un mismo evento se persiste como JSONL y se transporta en el envoltorio del bus sin volverse dos contratos | Dicho **tres veces antes**: §17.3.5 (*"la persistencia JSONL … no constituye un tercer patrón de acople"*), §17.3.8.4 (*"el payload publicado corresponde al mismo contenido lógico persistido"*), §17.3.10.2 (*"la modalidad de ejecución no modifica la semántica"*) | Cuarta enunciación, y la más débil: las tres anteriores están donde el lector las necesita. |
+| Los identificadores delimitan niveles distintos y no son intercambiables | Ver defecto abajo | Defectuoso e innecesario. |
+
+#### El defecto del párrafo de identificadores
+
+Anuncia **cinco** identificadores y define **tres**.
+
+- `run_id` **aparece una única vez en todo §17.3** —exactamente en esa oración— y nunca se define.
+- `experiment_id` ya está definido, mejor y mucho antes, en **§17.3.6.2**: *"esta unidad se identifica
+  mediante un `experiment_id`, mientras que cada componente conserva su propio identificador de corrida"*.
+- `unit_id` y `source_id` se usan ya definidos en §17.3.11.3, §17.3.12.2 y §17.3.13.
+- **Falta `detection_id`**, que es el identificador cuya confusión sí importa: §17.3.11.3 aclara que *"sólo
+  identifica una detección dentro de la unidad visual; no constituye identidad entre frames"*, §17.3.8.3.2
+  lo repite, y **§17.3.16 lo lista como riesgo arquitectónico** (*"identidad de detección interpretada como
+  identidad temporal"*). El párrafo que promete decir cuáles identificadores no son intercambiables omite
+  el único caso que el capítulo trata como trampa.
+
+#### Corrección: eliminar la subsección, reforzar el párrafo introductorio de §17.3.11
+
+**Texto guía** (reemplaza el párrafo introductorio de §17.3.11 y absorbe lo rescatable de §17.3.11.1):
+
+> Los contratos estabilizan la semántica de intercambio entre componentes: definen qué información cruza
+> cada frontera y bajo qué versión. En la arquitectura consolidada del núcleo se expresan como modelos de
+> datos versionados, con serializaciones explícitas e interfaces concretas, y cada uno queda asociado a una
+> corrida para que productores y consumidores puedan evolucionar de forma independiente. La versión viaja
+> dentro del payload y no en el envoltorio de transporte: el canal puede cambiar sin que el hecho
+> persistido pierda la identificación de su esquema. Las capacidades futuras deben evolucionar de forma
+> aditiva sin romper la lectura de corridas históricas.
+
+**Lo que se elimina y no se pierde:** la tesis de un contrato con dos transportes queda en sus tres
+enunciaciones existentes; los niveles de identidad quedan definidos en los lugares donde cada identificador
+se usa. Nada de esto es un compromiso de diseño que desaparezca (D-P2-2).
+
+**Variante si se quiere conservar los niveles de identidad reunidos:** agregar una oración al final de
+§17.3.11.3 —que ya trata `detection_id`— en lugar de una subsección propia, y ahí sí nombrar los cinco
+identificadores **más** `detection_id`, definiendo los seis. No se recomienda: duplicaría definiciones que
+ya funcionan en su lugar de uso.
+
+#### ⚠ Consecuencia de numeración — afecta a E3-23 y E3-24
+
+Eliminar el encabezado §17.3.11.1 corre las tres subsecciones siguientes:
+
+| Hoy | Después de E3-30 |
+| --- | --- |
+| 17.3.11.1 Criterios de diseño de contratos | *(eliminada; absorbida en el intro de §17.3.11)* |
+| 17.3.11.2 Fronteras informacionales de intercambio | **17.3.11.1** |
+| 17.3.11.3 Contratos mínimos e interfaces | **17.3.11.2** |
+| 17.3.11.4 Criterios de evolución durante la implementación experimental | **17.3.11.3** |
+
+**E3-23** está redactada contra "§17.3.11.2, Tabla 49" y **E3-24** contra "§17.3.11.4, Tabla 51". Si se
+aplica E3-30, esas dos unidades pasan a apuntar a **§17.3.11.1** y **§17.3.11.3** respectivamente. Aplicar
+E3-30 **primero** y leer E3-23/E3-24 con el mapa nuevo, o aplicarlas antes y renumerar una sola vez al
+final. No afecta la numeración de **tablas**: §E queda igual.
+
+---
+
+### E3-31 · Identificadores versionados en §17.3 — migran TODOS a §17.4 (aplica D-P2-5) ✎ REVISADA 2026-08-22
+
+**Origen:** pregunta de lectura — *"§17.3 nombra versiones de contratos (`media.detection.v1`) porque ya
+tenemos la plataforma implementada; ¿no debería eso ir a Etapa 4?"*.
+
+> ⚠ **Esta unidad reemplaza a su primera versión (mismo día).** La primera versión proponía un criterio
+> estrecho —"`.v1` se queda porque es declarable ex-ante; sólo `.v2` delata historia"— y desestimaba la
+> variante estricta. La verificación contra el `.docx` de §17.4 v1.2 la refutó. Rige la versión estricta,
+> formalizada como **D-P2-5**.
+
+#### Los tres hechos que refutan el criterio estrecho (verificados 2026-08-22)
+
+1. **§17.4 ya está escrito bajo el criterio estricto, y el par se contradice.** §17.4.2 abre con *"los
+   contratos preliminares definidos durante el diseño se materializaron como…"* y su **Tabla 63** titula la
+   primera columna **"Contrato del diseño"** con las denominaciones conceptuales (PerceptionEvent,
+   AlertEvent, Referencia temporal…) y la segunda **"Materialización efectiva"** con los identificadores
+   versionados. Bajo la lógica del propio informe, `media.detection.v1` **es** materialización. Si §17.3
+   dice nueve veces `media.detection.v1`, la fila *PerceptionEvent → media.detection.v1* de la Tabla 63
+   queda tautológica y la narrativa diseño→implementación se contradice a sí misma.
+
+2. **El pase 1 ya venía moviéndose en esta dirección.** El texto guía de E3-04 (aplicado en la v1.1
+   vigente) reescribió el párrafo de acople de §17.3.5 nombrando ZeroMQ, msgpack y JSONL **sin ningún
+   identificador versionado**. La tecnología con su justificación es diseño (D2); el nombre de cable no lo
+   acompañó.
+
+3. **La asimetría existente prueba que el corte `.v1`/`.v2` era casualidad, no principio.** §17.3 nunca
+   nombra `media.metric.v2` ni `control.metric.v1` — dice "contratos de métricas", genérico — y §17.4 los
+   declara en la Tabla 63. Las métricas ya siguen el patrón correcto. Y los dos únicos `.v2` del par
+   (`clip_gt.v2`, `media.metric.v2`) son exactamente los contratos que **iteraron durante la
+   construcción**: el corte "los `.v1` pueden quedarse" sobrevivía sólo porque los demás contratos no
+   alcanzaron a romperse. Si el evento de percepción hubiera iterado, §17.3 filtraría `media.detection.v2`
+   con el mismo mecanismo.
+
+**Qué conserva §17.3 (esto no cambia):** las decisiones de versionado como propiedades de diseño —"la
+versión viaja dentro del payload", la regla de evolución aditiva de §17.3.11.4— enunciadas **en
+abstracto**; las tecnologías con su justificación (D2/E3-04); las denominaciones conceptuales de la Tabla
+50; y los nombres de estados `inactive`…`resolved` de §17.3.8.2 (vocabulario de la máquina de estados, que
+es diseño por la excepción de D2 — se deja constancia para que no parezca omisión).
+
+#### Inventario de aplicación — §17.3 queda con CERO identificadores `.vN`
+
+Recuento sobre la v1.1 vigente: **42 menciones de 9 identificadores**. **11 mueren solas** con unidades ya
+firmadas — 8 en la Tabla 49 (E3-23; son 7 filas pero 8 menciones), 2 en la Tabla 61 (E3-25) y 1 en
+§17.3.11.1 (E3-30). Quedan **31 menciones en 19 puntos de edición**, todos mecánicos: el reemplazo usa
+denominaciones que §17.3 ya definió. Números de tabla según la numeración **vigente** en el `.docx` v1.1
+(el mapa post-pase está en §E).
+
+| # | Ubicación | Vigente | Reemplazo |
+| --- | --- | --- | --- |
+| 1 | §17.3.8.1, párrafo del bus | "…serialización msgpack y envoltorio `bus.envelope.v1`" | "…serialización msgpack y un envoltorio versionado" |
+| 2 | §17.3.8.1, párrafo siguiente | "Cuando un patrón alcanza el estado confirmado se registra `control.alert.v1`. La alerta interna es el hecho principal…" | "Cuando un patrón alcanza el estado confirmado se registra la alerta interna: es el hecho principal del sistema y precede a cualquier notificación." |
+| 3–4 | §17.3.8.3.3, **Tabla 47**, filas PR-01 y PR-02, columna de insumos | "Eventos `media.detection.v1`, coordenadas…" (×2) | "Eventos de percepción, coordenadas…" (×2) |
+| 5 | §17.3.8.4, camino EBE | "un seq monótono dentro de `bus.envelope.v1`" | "un número de secuencia monótono dentro del envoltorio versionado del bus" |
+| 6 | §17.3.8.4, cierre | "El cierre se propaga mediante `run.lifecycle.v1`. El evento `run_finished` delimita el final lógico…" | "El cierre de la corrida se propaga mediante un evento de ciclo de vida cuyo hito de finalización delimita el final lógico…" (los DOS literales migran; quedan declarados en la fila *Cierre de corrida* que **E4-24** agrega a la Tabla 63) |
+| 7 | §17.3.10.2, prosa | "Ambos caminos utilizan `control.alert.v1`, `control.notification.v1` y `control.delivery.v1`, por lo que…" | "Ambos caminos utilizan los mismos contratos de alerta interna, sobre de notificación y registro de entrega, por lo que…" |
+| 8 | §17.3.10.2, **Tabla 48**, fila MQTT QoS 1 | "Publicar `control.notification.v1` y esperar…" · "…queda registrado en `control.delivery.v1`" | "Publicar el sobre de notificación y esperar…" · "…queda asentado como registro de entrega" |
+| 9 | §17.3.11.3, **Tabla 50**, columna "Información mínima" — 6 celdas: PerceptionEvent, PatternStateChanged, AlertEvent, Referencia temporal de evaluación, NotificationEnvelope y DeliveryRecord | cada celda abre con su identificador (`media.detection.v1, run, unidad…`) | **quitar el identificador inicial de las 6 celdas** y habilitarlo con una oración única antes de la tabla: **"Todo contrato declara su identidad de esquema y su versión como primer elemento del payload."** El resto de cada celda queda igual. |
+| 10 | §17.3.11.3, prosa | "El evento central del sistema es `media.detection.v1`. Agrupa la identidad de esquema, la corrida…" | "El evento central del sistema es el evento de percepción. Agrupa la identidad de esquema versionada, la corrida…" |
+| 11 | §17.3.11.3, prosa | "La referencia `clip_gt.v2` impone dos invariantes…" | "La referencia temporal de evaluación impone dos invariantes…" (las invariantes quedan íntegras: son diseño) |
+| 12 | §17.3.11.4 | "Un cambio aditivo conserva `media.detection.v1` porque no invalida consumidores existentes." | "Un cambio aditivo conserva la versión vigente del contrato porque no invalida consumidores existentes." (el resto de la subsección no se toca: la regla es diseño) |
+| 13 | §17.3.13.2, **Tabla 54** (diccionario de métricas), fila TTFD | "requiere `clip_gt.v2`" | "requiere referencia temporal anotada" |
+| 14 | §17.3.13.3, **Tabla 55** (señales observables), primera fila | "Eventos `media.detection.v1`" | "Eventos de percepción" |
+| 15 | §17.3.14.5, prosa | "el matching temporal contra `clip_gt.v2` se declara no interpretable" | "el matching temporal contra la referencia temporal se declara no interpretable" |
+| 16 | §17.3.15, **prosa** (cierre del párrafo del módulo de distribución) | "Puede co-ubicarse con el CPN o separarse sin modificar `control.alert.v1`, `control.notification.v1` ni `control.delivery.v1`." | "…sin modificar los contratos de alerta interna, notificación y entrega." |
+| 17 | §17.3.15, **Tabla 58** (roles funcionales), fila *Módulo de distribución* | "Consumo de `control.alert.v1` desde el bus de alertas, política de notificación, ledger de idempotencia, entrega MQTT y registro de `control.notification.v1` y `control.delivery.v1`." | "Consumo de la alerta interna desde el bus de alertas, política de notificación, ledger de idempotencia, entrega MQTT y registro del sobre de notificación y del resultado de entrega." |
+| 18 | §17.3.16, **Tabla 59** (riesgos y mitigaciones), fila *Notificación externa altera la métrica* | "Registrar primero `control.alert.v1`; ubicar cooldown…" | "Registrar primero la alerta interna; ubicar cooldown…" |
+| 19 | §17.3.17, **Tabla 60** (plan de materialización), fila *Adaptador OVD* | "El modelo puede sustituirse sin modificar el contrato `media.detection.v1`." | "El modelo puede sustituirse sin modificar el contrato del evento de percepción." |
+
+**No inventar un `clip_gt.v1` en §17.3.** El diseño no fija números de versión de ningún contrato; la
+historia real de la referencia temporal se declara en §17.4 (ver E4-23).
+
+**Verificación al aplicar:** buscar "`.v1`", "`.v2`" y "`run_finished`" en §17.3 → **cero resultados**.
+Aritmética de control: 42 = 11 que mueren con E3-23/E3-25/E3-30 + 31 en los 19 puntos de arriba.
+Todos los identificadores quedan declarados en la **Tabla 63** de §17.4.2 —incluida la fila *Cierre de
+corrida* que agrega **E4-24**— más la excepción glosada de §17.4.8 (E4-23). Verificado contra el `.docx`
+v1.2: el traspaso no deja ningún identificador huérfano.
+
+**Ojo con los puntos 16–19: son cuatro ubicaciones distintas, no una.** Están en cuatro subsecciones y tres
+tablas diferentes; tratarlas como un solo reemplazo global deja menciones vivas. En particular el punto 19
+está en la **Tabla 60, que SOBREVIVE** (E3-25 elimina la 61, no la 60): es el punto que más fácil se pasa
+por alto y sin él la verificación de "cero identificadores" falla.
+
+**Interacciones:** los textos guía de E3-29 y E3-30 ya cumplen D-P2-5 (no nombran identificadores). E3-23 y
+E3-25/E3-26 eliminan tablas que contenían menciones — aplicarlas no genera conflicto en ningún orden. La
+fila 9 convive con la renumeración de E3-30 (§17.3.11.3 pasa a ser §17.3.11.2). Si se aplican las
+opcionales, C-01 pasa a viñetas las Tablas 59 y 60 (puntos 18 y 19): el texto del reemplazo es el mismo.
+
+**Decisión aceptada 2026-08-22 — la Tabla 50 conserva el CamelCase, NO se castellaniza.** Tras aplicar esta
+unidad, la primera columna de la Tabla 50 (PerceptionEvent, AlertEvent, …) queda como único "identificador"
+visible en §17.3. Es deliberado: ese CamelCase es la denominación de diseño que fijó D1 y es la **clave de
+join** con la columna "Contrato del diseño" de la Tabla 63 — el lector que quiere el id de cable recorre
+Tabla 50 → Tabla 63 y lo encuentra declarado una sola vez. Castellanizar la Tabla 50 rompería ese join.
+No "corregirla" al aplicar el pase.
+
+---
+
 ## B. Correcciones a §17.4 — Implementación
 
 ### E4-20 · §17.4.5, Tabla 65 — eliminar
@@ -1283,6 +1644,268 @@ implementación se queda con una pregunta que el informe no contesta.
 **Complemento recomendado (no obligatorio):** bajar la huella en §17.3. E3-25 ya elimina una de las cuatro
 tablas con fila de preselección (la 61); las unidades opcionales C-01 y C-03 se ocupan de otras dos. Con
 DA-11 más el párrafo de §17.3.14.5 alcanza y sobra para dejar la decisión declarada.
+
+---
+
+### E4-23 · §17.4 como único punto de declaración de identificadores versionados (contraparte de E3-31)
+
+**Qué verifica y qué agrega.** Con E3-31 aplicada, §17.4 pasa a ser el primer lugar del informe donde el
+lector ve un identificador `.vN`. Se verificó contra el `.docx` v1.2 que el traspaso está completo — **no
+hay que agregar ninguna declaración**: la Tabla 63 ya declara `experiment.manifest.v1`,
+`media.detection.v1`, `control.pattern_state.v1`, `control.alert.v1`, `media.metric.v2` /
+`control.metric.v1`, `bus.envelope.v1`, `clip_gt.v2` y `control.notification.v1` / `control.delivery.v1`.
+`run.lifecycle.v1` y el literal `run_finished` aparecen hoy en la prosa de §17.4.3 y §17.4.5; con **E4-24**
+esa prosa pasa al castellano y ambos quedan declarados en la fila *Cierre de corrida* que E4-24 agrega a la
+Tabla 63 — así el punto 6 de E3-31 los suelta sin dejarlos huérfanos. La Tabla 63 deja de ser parcialmente
+tautológica y pasa a hacer el trabajo para el que existe.
+
+**Única edición requerida — glosar por qué la referencia temporal es v2.** Tras E3-31, `clip_gt.v2` y
+`media.metric.v2` quedan como los únicos sufijos "2" del informe, sin que ninguna v1 se mencione jamás. Para
+la referencia temporal la pregunta es esperable (es el esquema del que dependen los resultados temporales de
+§17.5) y la historia es real y honesta: la primera generación de la referencia registraba alertas esperadas
+por sujeto, y fue reemplazada por episodios a nivel escena-condición con tiempos en milisegundos. En
+§17.4.8, donde dice:
+
+> *"…materializada mediante el esquema clip_gt.v2."*
+
+pasa a:
+
+> *"…materializada mediante el esquema clip_gt.v2, segunda versión de la referencia: la primera
+> generación registraba alertas esperadas por sujeto y fue reemplazada por episodios a nivel de escena y
+> condición con tiempos en milisegundos, junto con estados de aplicabilidad por clip."*
+
+(Autocontenido: enuncia el hecho sin citar documentos del repositorio. Para `media.metric.v2` no se
+propone glosa: es una fila de la Tabla 63 sin peso argumental en §17.5.)
+
+**Qué NO hacer en §17.4:** no "corregir" la Tabla 63 reemplazando su columna "Contrato del diseño" por los
+identificadores versionados — esa columna es el ancla hacia §17.3 y con D-P2-5 quedó exactamente bien como
+está.
+
+---
+
+### E4-24 · §17.4 — sacar los identificadores literales de la prosa y sanear la Tabla 63 (aplica D-P2-6)
+
+**Medición.** §17.4 tiene **22 menciones** de identificadores versionados: **14 en celdas de tabla** y
+**8 en prosa**. Las 8 de prosa son el ruido; se reducen a **1**. Total resultante: **15**.
+
+#### 1. §17.4.3 "Contratos de datos materializados" — el punto más denso (5 de las 8)
+
+Hoy tres oraciones consecutivas usan un identificador como sujeto. **Texto guía** para los dos primeros
+párrafos (el tercero, sobre evidencia auditable de la alerta, no se toca):
+
+> Cinco contratos concentran los hechos principales de la ejecución; la Tabla 63 los identifica por su
+> esquema y versión. El evento de percepción normaliza la salida del detector e incluye identificación de
+> corrida y unidad visual, descripción de la fuente, perfil de modelo, conjunto de prompts, detecciones con
+> coordenadas en píxeles y normalizadas, y tiempos por unidad. El envoltorio del bus encapsula el mismo
+> payload para su transmisión e incorpora un número de secuencia monótono que vuelve detectable cualquier
+> hueco.
+>
+> El contrato de ciclo de vida delimita la corrida y la cierra mediante un evento de finalización. El
+> registro de transiciones del patrón recorre los estados inactive, candidate, confirmed, sustained y
+> resolved (figura de la sección 17.3.8.2), junto con la evidencia y los hitos temporales que las motivaron.
+> La alerta interna registra la confirmación de un episodio mediante un identificador determinista, de modo
+> que reprocesar la misma corrida produce la misma identidad de alerta y permite deduplicar sin estado
+> compartido.
+
+Se conservan íntegros el contenido, los nombres de estados (D-P2-5) y la referencia a la figura.
+
+#### 2. Las tres menciones de prosa restantes
+
+| Ubicación | Vigente | Acción |
+| --- | --- | --- |
+| §17.4.5, camino EBE | "la evidencia se transmite por el bus ZeroMQ dentro de `bus.envelope.v1`; … el cierre se comunica mediante `run_finished`" | "…dentro del envoltorio versionado del bus; … el cierre se comunica mediante el evento de finalización de la corrida". **Ambos literales ya están declarados** (`bus.envelope.v1` en la Tabla 63; para el evento de finalización, agregar la fila de la regla 3 abajo). |
+| §17.4.8, referencia temporal | "materializada mediante el esquema `clip_gt.v2`" | **SE CONSERVA**, con la glosa de E4-23: acá la versión *es* el argumento del párrafo (excepción de la regla 2). |
+| §17.4.11, identidad de sujeto | mención en el párrafo de extensiones | Reemplazar por la denominación en castellano; el contrato ya está en la Tabla 63. |
+
+#### 3. Tabla 63 — que cada columna haga un solo trabajo
+
+Auditada fila por fila, la columna **"Versionado y trazabilidad"** mezcla **8 celdas que son un
+identificador literal** con **8 que son una oración en prosa** ("Catálogo versionado; un archivo por
+variante", "Contrato interno; viaja dentro del evento publicado", "Esquema por componente, registrado por
+corrida"…). El lector no puede escanearla para saber si un contrato tiene esquema versionado propio o no.
+
+**Acción mínima y suficiente — ampliar la Nota al pie**, sin tocar las 16 filas:
+
+> **Nota.** La tabla documenta la correspondencia semántica entre el diseño y la implementación. Nueve
+> contratos se materializan como **esquema versionado con identificador propio**, que es el que viaja en el
+> payload y queda registrado en los artefactos de cada corrida; los restantes se versionan por **catálogo,
+> configuración congelada o por el manifiesto de la ejecución experimental**, sin esquema propio. Esta tabla
+> es el único punto del informe donde se declaran esos identificadores: el resto del capítulo se refiere a
+> cada contrato por su denominación.
+
+**Fila nueva** (para que el evento de finalización quede declarado al soltarlo §17.3 y §17.4.5):
+
+> **Cierre de corrida** || *Evento de finalización publicado al cerrar la corrida* || `run.lifecycle.v1`
+> (evento `run_finished`) || *Ambos planos*
+
+*(Con esta fila la tabla pasa de 16 a 17 filas y de 9 a 10 contratos con esquema propio — ajustar el "nueve"
+de la Nota a **diez** al aplicar.)*
+
+**Lo que NO se hace:** reemplazar la columna 1 por identificadores. Es el ancla hacia §17.3 (D-P2-5) y su
+mezcla de CamelCase y castellano es la que fijó D1 — se deja.
+
+**Verificación al aplicar:** en §17.4, identificadores `.vN` fuera de la Tabla 63 → **una sola** ocurrencia,
+la de §17.4.8 con su glosa. Y ningún identificador literal como sujeto gramatical en todo el capítulo.
+
+### E4-25 · §17.4.4, Tabla 64 — el propósito de cada interfaz, cerrado y sin asimetrías falsas
+
+**Origen:** directiva del usuario — *"el propósito de cada interfaz relevante que mostramos en el informe
+tiene que estar súper claro y justificado, para no dejar dudas para el tribunal"*. Auditada la Tabla 64
+contra las rutas reales de los tres servicios (2026-08-22), aparecen tres defectos y un remanente de E4-24.
+
+#### Defectos verificados
+
+1. **Asimetría de detención FALSA por omisión — el peor de los tres.** La tabla muestra `cancel` sólo en la
+   distribución. Verificado contra el código: **el plano de medios SÍ expone detención**
+   (`POST /api/runs/{id}/stop`, 202, cooperativa) y no figura; **el plano de control es el ÚNICO que no la
+   expone**, y eso no se señala ni se justifica. Un tribunal que escanee la tabla concluye exactamente lo
+   contrario de la realidad. La Nota agrava: *"las interfaces de administración y detención conservan…"*
+   insinúa endpoints sin decir cuáles existen y cuáles no.
+2. **Celdas que parafrasean el verbo HTTP** en lugar de decir para qué está la operación ("Consulta el
+   estado de la corrida de entrega" no informa nada que el nombre del endpoint no diga).
+3. **La garantía de suscripción está enunciada sólo para el control.** El párrafo final dice *"la respuesta
+   afirmativa del plano de control implica que su consumidor ya está suscripto"* — pero la misma garantía
+   del 201 de la distribución (bus de alertas) no está, y el **orden de disparo inverso al flujo de datos**
+   (distribución → control → medios), que es la doctrina que justifica la existencia misma del
+   `POST /api/runs` de la distribución, no se deriva en ninguna parte.
+4. **Remanente de E4-24:** quedan 4 identificadores en celdas fuera de la Tabla 63 — 3 en la Tabla 64
+   (fila `:5557` y fila `:5558`) y 1 en la Tabla 69.
+
+**Hecho verificado que habilita la justificación:** los tres servicios implementan el mismo contrato de
+gobierno — una corrida activa por vez, rechazo de solicitudes concurrentes señalando la corrida activa
+(`RunBusyError` existe en los tres), configuración efectiva persistida por corrida.
+
+#### Acciones
+
+**A. Tabla 64 — filas.** Celdas cortas (D-P2-1); la justificación profunda va a la prosa de la acción C.
+
+| Fila | Acción |
+| --- | --- |
+| Plano de medios — **fila nueva** tras `POST /api/runs` | `POST /api/runs/{id}/stop` → *"Detiene cooperativamente la corrida en curso; el cierre se propaga a los consumidores por el bus."* |
+| Distribución `GET /api/runs/{id}` | → *"Consulta estado y conteos de entrega; determina cuándo consolidar artefactos."* |
+| Distribución `POST /api/runs/{id}/cancel` | → *"Detiene cooperativamente una corrida de entrega en curso."* (mismo verbo que el stop de medios: es el mismo mecanismo) |
+| Fila `Medios → control (:5557)` | → *"Transporta los eventos de percepción y el ciclo de vida de la corrida dentro del envoltorio versionado del bus."* |
+| Fila `Control → distribución (:5558)` | → *"Transporta las alertas internas confirmadas hacia el módulo de distribución."* |
+| Las demás filas | Sin cambios — `POST /api/runs` de los tres ya dice qué cruza; los `GET /api/config` y `GET /api/model` quedan, su propósito lo da la prosa. |
+
+**B. Nota de la tabla — decir la verdad en vez de insinuarla:**
+
+> **Nota.** La tabla resume las operaciones de gobierno principales; no es un inventario exhaustivo
+> (listados, corrida actual, artefactos por corrida, comprobaciones de salud y limpieza del registro se
+> omiten). La detención figura únicamente donde el servicio la expone: el plano de control no ofrece
+> detención de una corrida en curso, y esa asimetría es deliberada (ver el texto).
+
+**C. Prosa — reemplazar el párrafo final** (*"En una corrida live, la respuesta afirmativa del plano de
+control implica que su consumidor ya está suscripto."*) por tres párrafos que justifican lo que la tabla
+declara:
+
+> Los tres servicios implementan el mismo contrato de gobierno: admiten una corrida activa por vez y
+> rechazan solicitudes concurrentes señalando la corrida en curso; cada corrida declara su configuración al
+> crearse y el servicio persiste la configuración efectiva utilizada. Las operaciones de consulta de
+> configuración y de perfil de modelo permiten verificar, antes de disparar, que el servicio cargó lo que el
+> experimento requiere: sin ellas, una discrepancia entre lo configurado y lo desplegado sólo se descubriría
+> en los resultados.
+>
+> En una corrida en vivo, la respuesta afirmativa de cada consumidor del bus implica que su suscripción ya
+> está establecida: la del plano de control sobre el canal de detecciones y la del módulo de distribución
+> sobre el canal de alertas. De esa garantía se deriva el orden de disparo, inverso al flujo de datos:
+> primero la distribución, después el control, por último el plano de medios. Un consumidor suscripto tarde
+> perdería los eventos ya publicados sin ningún error observable; el orden de disparo excluye esa pérdida
+> por construcción.
+>
+> La detención de corridas es cooperativa en los dos servicios que la exponen: la solicitud marca la corrida
+> y el hilo de ejecución la observa entre unidades, sin cortes abruptos que dejarían artefactos a medio
+> escribir. El plano de control no expone detención, y la asimetría es deliberada: su corrida en vivo se
+> cierra con el evento de finalización que publica el plano de medios —la relación entre ambas corridas es
+> uno a uno—, de modo que la intervención del operador se ejerce aguas arriba y el cierre llega por el mismo
+> canal que los datos. El módulo de distribución, en cambio, requiere cancelación propia: una corrida de
+> entrega puede permanecer a la espera de alertas y debe poder abortarse sin reiniciar el servicio.
+
+**D. Tabla 69, fila "Dato adicional en la detección":** *"Evolución aditiva sin ruptura de
+`media.detection.v1`"* → **"Evolución aditiva sin ruptura del contrato de percepción."**
+
+**Corrección aritmética a E4-24:** su "Total resultante: 15" no contaba el identificador de su propia fila
+nueva (*Cierre de corrida*); con ella son 16. Tras esta unidad quedan **12**: los 11 de la Tabla 63
+(10 filas actuales + la nueva) y la glosa de §17.4.8 (E4-23). Con esto, la regla 2 de D-P2-6 pasa a
+cumplirse literalmente: **ningún identificador vive fuera de la Tabla 63, salvo la excepción glosada.**
+
+**Verificación al aplicar:** (a) en §17.4, ids `.vN` fuera de la Tabla 63 → sólo la glosa de §17.4.8;
+(b) la Tabla 64 muestra detención en medios y distribución, y la Nota + prosa explican por qué el control
+no; (c) el orden distribución → control → medios queda derivado en la prosa — es la misma advertencia de
+cita que acompaña a la figura de arranque ("orden de arranque inverso al flujo de datos"), ahora con su
+porqué en el cuerpo del informe.
+
+### E4-26 · §17.4.6 — el núcleo no tiene UN modelo: tiene un catálogo que se ejerce entero
+
+**Origen:** objeción del usuario sobre el tercer párrafo de §17.4.6 — *"no tenemos un solo modelo para el
+núcleo; el perfil de modelo para el núcleo son todos los que probamos. Esto es experimental"*. La objeción
+es doctrinaria y es correcta: la tesis no corona un modelo, muestra una plataforma que mide modelos de dos
+familias bajo condiciones idénticas y da veredictos POR MODELO en §17.5. El texto vigente
+—*"El perfil desplegado para el núcleo es grounding-dino/gdino-tiny-560, seleccionado en la comparación…"*—
+promueve una decisión operativa de una corrida a identidad del sistema, que es exactamente el encuadre que
+la defensa debe evitar (la plataforma es la tesis; el detector es la variable).
+
+#### Hechos verificados (2026-08-22, contra el repositorio del plano de medios)
+
+- **El catálogo vigente tiene NUEVE perfiles** más el mock: Grounding DINO tiny y base, cada uno en 800 y
+  en 560 píxeles (4), y YOLOE en tamaños s/m/l/x (4). Cada perfil es un archivo del catálogo con su
+  adaptador, umbrales y licencia.
+- **MM-Grounding DINO NO está en el catálogo vigente**: sus tres perfiles están **archivados**
+  (`configs/_archive/`, 2026-08-19), tras su descarte experimental. La frase del informe "incluye variantes
+  … de MM-Grounding DINO" es **falsa en presente**; la familia se integró y se descartó — ese descarte es
+  un RESULTADO que se informa en §17.5, no una fila del catálogo actual.
+- **El despliegue integral materializa el catálogo entero como flota**: una instancia de servicio por
+  perfil, orquestadas por la consola. "Comparar perfiles = disponer procesos con perfiles distintos"
+  (§17.4.4) está implementado literalmente.
+- Los valores citados del perfil `gdino-tiny-560` (umbral de caja 0,30, de texto 0,25, entrada 560) están
+  confirmados contra su archivo de catálogo. No se cuestionan — se re-encuadran.
+- Existen además dos perfiles de checkpoints de ajuste fino **no adoptados** (rama comparativa): no se
+  enumeran en el catálogo del núcleo; su lugar es la fila de la Tabla 68 y §17.5.
+
+#### Acciones
+
+**A. Retitular §17.4.6:** "Configuración efectiva y modelo desplegado" → **"Configuración efectiva y
+catálogo de modelos"**. El título vigente lleva el encuadre de modelo único. (Sin impacto: ninguna otra
+sección referencia "17.4.6" por número.)
+
+**B. Reemplazar el tercer párrafo** (los dos primeros —pattern set y estrategia perceptiva— no se tocan).
+**Texto guía:**
+
+> El catálogo de perfiles de modelo materializa la sustituibilidad prevista en el diseño: variantes de
+> Grounding DINO —tiny y base, cada una con resolución de entrada de 800 y de 560 píxeles— y de YOLOE en
+> cuatro tamaños, todas integradas mediante adaptadores sobre el mismo contrato de salida. Una tercera
+> familia, MM-Grounding DINO, se integró por el mismo mecanismo y fue descartada durante la evaluación; su
+> descarte se informa con los resultados y sus perfiles quedaron archivados fuera del catálogo activo.
+>
+> El núcleo no fija un modelo único. Cada instancia del servicio de medios carga un perfil al iniciarse, la
+> comparación entre perfiles se materializa disponiendo instancias con perfiles distintos bajo la misma
+> configuración de corrida, y el despliegue integral de la plataforma instancia un servicio por perfil del
+> catálogo, orquestados desde la consola. Los perfiles vigentes se compararon sobre el banco de imágenes
+> congelado; las campañas temporales y en vivo fijan un perfil por corrida, declarado en el manifiesto. Los
+> resultados por modelo y por familia, y los criterios pre-registrados con que se seleccionó el perfil de
+> cada campaña, se presentan en la sección 17.5.
+>
+> Cada perfil declara sus umbrales y su postproceso en el catálogo, y cada corrida persiste la configuración
+> efectiva utilizada, sin constantes ocultas en el código. A título de ejemplo, el perfil fijado por
+> criterio pre-registrado para las corridas en vivo declara umbral de caja de 0,30 y de texto de 0,25; su
+> postproceso aplica confianza mínima de 0,25, supresión de solapamientos con IoU de 0,50 y área mínima de
+> caja de 100 píxeles cuadrados; y el control de ritmo opera con selección determinista de paso 1 y una cola
+> máxima de ocho unidades.
+
+Qué cambia y por qué: (1) **MM-GDINO pasa de fila del catálogo a hecho histórico con remisión a §17.5** —
+deja de ser falso y se vuelve evidencia de sustituibilidad (la familia entró y salió sin tocar el contrato);
+(2) **"el perfil desplegado para el núcleo es X" desaparece** — lo reemplaza la regla general (un perfil por
+instancia, un perfil por corrida, declarado en el manifiesto) y la flota que materializa el catálogo entero;
+(3) los valores efectivos **se conservan todos** pero como *ejemplo* de la propiedad que importa (config
+efectiva persistida), y el identificador `gdino-tiny-560` sale de la prosa — coherente con D-P2-6, el
+manifiesto de cada corrida es quien lo declara; (4) la selección queda como **decisión operativa
+pre-registrada por campaña**, con su criterio en §17.5, no como veredicto.
+
+**C. Nota para la redacción de §17.5 (fuera del alcance de este pase, dejar constancia):** presentar los
+resultados **por modelo y por familia**, cada combinación con su dato; la selección del perfil live se
+presenta como decisión operativa con criterio pre-registrado sobre el banco de imágenes, incluyendo que la
+misma comparación identificó a un perfil distinto como más fuerte en otra dimensión (recall de la condición
+CR-01) — la evidencia de que el veredicto es por combinación, no único. Nunca la fórmula "el mejor modelo".
 
 ---
 
@@ -1414,6 +2037,21 @@ Baja: **65** (E4-20).
 D-P2-3: conviene resolver este pase antes de redactar §17.5 y §17.6. Si además se aplican las unidades
 opcionales de §C, el mapa se corre otro tanto y debe recalcularse al integrar.
 
+**Subsecciones** (✎ agregado 2026-08-22 — faltaba: dos unidades de este pase eliminan encabezados y §E sólo
+cubría tablas). Dos corrimientos, en ramas distintas y por lo tanto independientes:
+
+| Unidad | Encabezado que se elimina | Corrimiento |
+|---|---|---|
+| **E3-20** | §17.3.6.6 *Validaciones previas al inicio de la corrida* | §17.3.6.7 → **§17.3.6.6** |
+| **E3-30** | §17.3.11.1 *Criterios de diseño de contratos* | §17.3.11.2 → **.1** · §17.3.11.3 → **.2** · §17.3.11.4 → **.3** |
+
+**No hay referencias que se rompan** — verificado sobre ambos `.docx`: el par entero contiene sólo tres
+referencias a subsecciones de §17.3 (§17.3.11 como padre, y "sección 17.3.8.2" y "sección 17.3.8.4" desde
+§17.4), y **ninguna** apunta a un encabezado que se mueva. Sí quedan afectadas las referencias *internas de
+este documento de correcciones*: **E3-23** apunta a "§17.3.11.2, Tabla 49" y **E3-24** a "§17.3.11.4,
+Tabla 51"; con E3-30 aplicada pasan a §17.3.11.1 y §17.3.11.3. La enmienda de E3-28 usa ancla descriptiva y
+no numérica justamente para no depender de este mapa.
+
 **Figuras:** este pase no toca ninguna figura. El mapa de §E del pase 1 sigue vigente.
 
 ---
@@ -1451,6 +2089,939 @@ que sí presenta §17.3 —duplicación entre tablas vecinas y columnas que no d
 
 ---
 
+## Fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md`
+
+> SHA-256 del bloque: `fb6ecd18525c80a73bb110e7c86f40a17ef888baeb2fc5dd883a3ac5eb75acb6`  
+> Seleccion: pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo.
+
+# Correcciones — pase 3 sobre §17.3 (Diseño), §17.4 (Implementación) y restricciones para §17.5
+
+**Fecha:** 2026-08-22 · **Insumos:** los **40 comentarios en 29 hilos** que quedaron en
+`E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx` (37 comentarios) y
+`E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx` (3), extraídos de `word/comments.xml` con sus hilos,
+anclajes y respuestas.
+**Verificación:** cada afirmación de repetición, cada referencia cruzada y cada hecho técnico de este
+documento fue contrastado el 2026-08-22 contra el texto extraído de ambos `.docx`, contra las secciones
+cerradas del informe (`E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`) y contra el código de los cinco
+repositorios. El procedimiento de re-verificación está en §E.
+
+**Relación con los pases 1 y 2.** Este pase **continúa la numeración** (§17.3 desde **E3-32**, §17.4 desde
+**E4-27**; con las adiciones del mismo día llega a **E3-42** y **E4-30**) y **no reabre** ninguna decisión
+firmada. Siguen rigiendo D1–D4 y la regla de autocontención del
+pase 1, y D-P2-1…D-P2-6 del pase 2. **Dos unidades del pase 2 se enmiendan** por hechos verificados en
+este pase, no por cambio de criterio: **E3-22** (produciría una duplicación) y **E4-22** (afirma algo falso).
+Las enmiendas están en §A y son parte de este pase; el texto del pase 2 no se reescribe.
+
+**Numeración de tablas usada acá:** la **vigente en los `.docx`** (§17.3 = Tablas 39–62; §17.4 = 63–69).
+El mapa resultante de aplicar los tres pases está en §G.
+
+> ✎ **Dos defectos del propio kit, corregidos al abrir este pase (2026-08-22).**
+> 1. `entregable/90-etapa3-texto-extraido.md` —el texto base de §17.3 que el generador entrega a la etapa 3—
+>    era la extracción **v0.1**: 24.389 palabras contra las 20.622 de la v1.1 vigente, y decía "contratos
+>    preliminares" donde el informe hoy dice "contratos versionados". **Regenerado** desde el `.docx` vigente
+>    (regla D-C). Diferencia: 728 líneas fuera, 517 dentro.
+> 2. La etapa 4 no tenía texto base extraído: el generador entregaba `borradores/17-4.md`, el borrador previo
+>    al pegado y **anterior al pase 2**. Se agregó **`entregable/90b-etapa4-texto-extraido.md`** con la
+>    extracción de la v1.2 vigente; el borrador se conserva como material, ya no como base.
+
+---
+
+## Decisiones que rigen este pase
+
+- **D-P3-1 — Propósito por sección, y alineación entre secciones.** *(directiva del usuario, 2026-08-22)*
+  Una subsección se justifica cuando **sostiene algo que ninguna otra sostiene**. El criterio se aplica en
+  tres preguntas, en este orden:
+  1. **¿Qué afirma que no esté afirmado antes?** Si la respuesta es "nada", la subsección se elimina y su
+     aporte —si lo tiene— se reubica en la sección que ya es dueña del concepto.
+  2. **¿Se pisa con otra?** Dos subsecciones que responden la misma pregunta desde ángulos distintos se
+     funden o se reparten explícitamente el terreno.
+  3. **¿Su título anuncia lo que hace?** Si no, se retitula. Un título que promete lo que la sección no
+     entrega es una repetición encubierta.
+- **D-P3-2 — Poda quirúrgica, no estructural.** *(decisión del usuario, 2026-08-22)* Se eliminan párrafos
+  verificados como duplicado y se resumen las subsecciones huecas. **No** se colapsan bloques enteros de
+  subsecciones para ahorrar numeración. Dos subsecciones desaparecen en este pase (§17.3.6.7 y §17.3.7.4)
+  y lo hacen porque quedaron sin contenido propio, no por presupuesto de páginas.
+- **D-P3-3 — Alcance: etapas 3, 4 y 5. Las etapas 1 y 2 al final.** *(decisión del usuario, 2026-08-22)*
+  §17.5 todavía no está redactada: para ella este pase **no corrige, restringe** (§D). Corolario duro:
+  **§17.3 y §17.4 no pueden depender de una edición futura en §17.1**. Donde el pase 1 había resuelto un
+  problema de §17.3 mediante un ajuste en etapa 2, este pase lo resuelve **dentro de §17.3**, y el ajuste de
+  etapa 2 pasa de obligatorio a armonizador (ver **E3-42**).
+- **D-P3-4 — Un concepto se define donde se decide.** Extiende el criterio ya usado en la enmienda a E3-28:
+  el término se nombra y se glosa **en prosa**, **en la subsección que es dueña de la decisión**, y los usos
+  posteriores lo referencian sin redefinirlo. Nunca en una celda de tabla, nunca dos veces.
+- **D-P3-5 — Un calco no es un término técnico.** Se normalizan (a) los calcos del inglés que tienen un
+  equivalente castellano corriente y (b) los anglicismos crudos **que el propio informe ya normalizó en otro
+  pasaje** —el defecto no es el anglicismo, es la inconsistencia—. **No** se persiguen los términos técnicos
+  sin equivalente establecido ni los literales de configuración (ver la lista cerrada en **E3-33**).
+- **D-P3-6 — §17.5 se organiza por pregunta de medición, no por cronología de campañas.** *(decisión del
+  usuario, 2026-08-22.)* La sección es un **resumen de resultados**: reporta qué se midió y cuánto dio,
+  organizado por la pregunta que cada medición responde — **nunca por el orden en que se experimentó**. Los
+  identificadores de campaña (T1/G1/R1–R6/B1/D1/H1/I1/I2…) aparecen como **procedencia del dato**, jamás
+  como estructura del texto: ningún título de subsección lleva nombre de campaña. La sección justifica
+  **todos los caminos**: los adoptados (con su criterio pre-registrado), los probados y no adoptados (con
+  el veredicto que los descartó) y los **no ejecutados o no implementados, con su factor de justificación**
+  — la exclusión se lee como alcance declarado, no como omisión. El esquema concreto está en §D.0.
+  ⚠ Trampa que la reorganización temática vuelve más peligrosa: la campaña "T1" del banco de clips y el
+  tramo "T1" del ajuste fino **no son lo mismo** — al convivir en una sola sección, cada mención dice de
+  cuál habla.
+- **Heredadas:** regla de autocontención (el informe no referencia documentos locales, ADRs, fichas ni
+  índices del repositorio; **sí** referencia sus propias secciones), carácter orientativo de los textos guía
+  (reformulables conservando contenido y registro académico; decimales con coma, milisegundos como
+  "4.000 ms"), y D-P2-1 (criterio de tabla), D-P2-5 y D-P2-6 (identificadores versionados).
+
+---
+
+## A. Enmiendas a dos unidades del pase 2
+
+### ✎ ENMIENDA a E3-22 · §17.3.2 — las viñetas propuestas ya existen como prosa
+
+**Por qué se enmienda.** E3-22 propone reemplazar la Tabla 39 por seis viñetas insumo → decisión. Verificado
+contra el `.docx` v1.1: **esas seis viñetas ya están escritas**, como los seis párrafos que arrancan en
+*"La arquitectura propuesta se deriva de las definiciones metodológicas consolidadas en las secciones
+anteriores…"* y desarrollan uno por uno el marco teórico, el núcleo CR-01/CR-02, los escenarios, los roles,
+el marco de métricas y los lineamientos ético-legales. Aplicar E3-22 tal cual dejaría **dos** enunciados del
+mismo contenido donde hoy hay tres.
+
+**El estado real de §17.3.2 (1.197 palabras) es una triplicación:**
+
+| Bloque | Qué dice | Veredicto |
+| --- | --- | --- |
+| Cuatro párrafos introductorios | insumos, prioridad CR-01/CR-02, DBE/EBE, y el puente a la tabla | duplican tres de los seis párrafos de abajo, uno casi palabra por palabra |
+| Tabla 39 (6 × 3) | insumo → criterio → decisión | mediana de 125 caracteres por celda; su columna del medio resume §17.1 |
+| Seis párrafos desarrollados | el vínculo insumo → decisión, uno por insumo | **es el texto que se queda** |
+
+La duplicación literal: ¶1 dice *"La arquitectura propuesta **se construye a partir de** las definiciones
+metodológicas consolidadas en las secciones anteriores. En particular, toma como insumos el alcance
+experimental…"* y ¶5 dice *"La arquitectura propuesta **se deriva de** las definiciones metodológicas
+consolidadas en las secciones anteriores. El alcance experimental, las condiciones de riesgo…"*.
+
+**Acción — tres ediciones.**
+
+1. **Eliminar la Tabla 39, su Nota y la oración que la introduce** (*"La Tabla 39 sintetiza esta relación
+   entre definiciones previas y decisiones arquitectónicas derivadas."*).
+2. **No crear las viñetas de E3-22.** Esa acción queda derogada por esta enmienda.
+3. **Reemplazar los cuatro párrafos introductorios por un párrafo de entrada.** Texto guía:
+
+   > *"La arquitectura propuesta se deriva de las definiciones metodológicas ya consolidadas: el alcance
+   > experimental del prototipo, el catálogo de condiciones de riesgo, los escenarios de evaluación, los
+   > roles funcionales del entorno, el marco de métricas y los lineamientos ético-legales actúan como
+   > restricciones de diseño. Lo que sigue no reitera el protocolo experimental: explicita qué consecuencia
+   > arquitectónica se deriva de cada uno de esos insumos, de modo que ningún módulo, frontera o flujo del
+   > sistema aparezca como una decisión aislada."*
+
+4. Los seis párrafos desarrollados se conservan **menos el de CPN, EN y TN**, que pasa a **E3-34**.
+
+**Resultado:** 1.197 → ~600 palabras. **−1 tabla, −4 párrafos, un solo enunciado del vínculo insumo → decisión.**
+
+*Origen: hilo C0 de §17.3 (vos: "como para sacar la tabla y acortar" · "sí tiene sentido la sección…, lo que
+quería sacar es la tabla") y las dos respuestas de Gabriel ("podría ser más resumido" · "lo que está después
+va, esto lo volaría").*
+
+---
+
+### ✎ ENMIENDA a E4-22 · §17.4.10, Tabla 68 — la preselección en el borde **sí se ejerció**
+
+**Por qué se enmienda.** E4-22 propone una fila que dice *"no ejercida"* y *"no puede reclamarse como
+propiedad verificada del prototipo"*. **Ambas afirmaciones son falsas.** Verificado contra el código y contra
+el registro operativo:
+
+| Hecho | Evidencia |
+| --- | --- |
+| La preselección está **implementada** | Filtro de personas ejecutado en el propio dispositivo de captura, con umbral, ventana de evidencia, latido incondicional y apertura total ante silencio de la red neuronal; validación que impide configurar una apertura posterior al vencimiento de la evidencia. Deshabilitada por defecto. |
+| Está implementada **sólo para la cámara propia** | El esquema de configuración la rechaza para cualquier otro tipo de fuente. Para las fuentes por red no existe. |
+| Su efecto está **medido** | Comparación pareada contra el flujo completo con el mismo detector: **87 % de unidades descartadas en el dispositivo**. |
+| Estuvo **apagada en todo lo evaluativo**, por decisión previa a los resultados | Un filtro de fotogramas sin persona suprime justamente las detecciones sostenidas que la tasa de falsos positivos por hora existe para medir; y agrega el error multiplicativo de un detector más débil sobre la cadena que se quiere caracterizar. |
+
+Es decir: no es una brecha, es **una capacidad implementada y medida cuya exclusión de lo evaluativo es un
+resultado metodológico**. La versión de E4-22 convierte un acierto del trabajo en un agujero.
+
+**Acción — reemplazar la fila propuesta por E4-22 por ésta** (misma posición: después de *Condiciones de
+riesgo de nivel 2 y 3*):
+
+> **Preselección liviana en el rol de captura** ||
+> *Implementada para la fuente de captura propia como filtro de personas ejecutado en el dispositivo, con
+> criterio de degradación segura y deshabilitada por defecto; su reducción de carga se midió en una
+> comparación pareada contra el flujo completo, con un 87 % de unidades descartadas antes de salir de la
+> cámara. No existe para las fuentes por red. Permaneció deshabilitada en todas las corridas evaluativas.* ||
+> *La exclusión de lo evaluativo es deliberada y anterior a los resultados: un filtro de fotogramas sin
+> persona suprimiría las detecciones sostenidas que la tasa de falsos positivos por hora existe para medir, y
+> superpondría el error de un detector auxiliar más débil sobre la cadena que se busca caracterizar.
+> Habilitarlo cambiaría la procedencia de esas métricas en lugar de mejorarlas. La capacidad se reporta,
+> entonces, como implementada y caracterizada fuera del régimen evaluativo.*
+
+**Se conserva de E4-22:** el diagnóstico (once menciones en §17.3 contra cero en §17.4 era, efectivamente, un
+agujero de rendición de cuentas) y el complemento recomendado de bajar la huella en §17.3.
+
+**Consecuencia para §17.5:** si §17.5 vuelve a citar el 87 %, debe hacerlo con su denominador y su condición
+de medición. Si no lo hace, esta celda es su único lugar en el informe y así queda declarado en §D.
+
+*Origen: C20 de §17.3 ("esto en oakd lo hicimos. asegurarse que esté claro en etapa 4. RTSP no lo hicimos").*
+
+---
+
+## B. Correcciones nuevas a §17.3 — Diseño Arquitectónico
+
+> **Dato que ordena todo este bloque:** §17.3 pesa **20.622 palabras** contra **5.477** de §17.4 — 3,8 a 1
+> entre el diseño y su materialización. Las quince repeticiones que siguen fueron verificadas una por una
+> contra el texto; ninguna se corrige por impresión de extensión.
+
+### E3-33 · Calcos del inglés y anglicismos que el informe ya normalizó en otro pasaje
+
+**Problema.** Dos comentarios apuntan a traducciones malas (*"traducción chotísima, mejorar o cambiar esa
+palabra"* sobre **frescura**; *"otra traducción muy chota"* sobre **fuentes vivas**). Relevado el capítulo
+completo, el defecto es más amplio y tiene dos formas distintas, que se tratan distinto.
+
+**(a) Calcos con equivalente castellano corriente — se reemplazan.**
+
+| Término | Apariciones | Reemplazo único | Nota |
+| --- | --- | --- | --- |
+| `frescura` | 5 | **actualidad** (en enumeraciones) · **actualidad de la unidad visual** (donde nombra la política) | Calco de *freshness*. La política que nombra es "preferir la unidad más reciente"; "frescura" no dice eso en castellano técnico. |
+| `fuente viva` / `fuentes vivas` | 9, más una forma verbal (*"la fuente es viva"*) | **fuente en vivo** / **fuentes en vivo** | Calco de *live source*. El informe **ya dice "en vivo"** en §17.3.8.4 (*"una corrida viva"* → también se normaliza), en §17.4.4 y en §17.4.5 (*"corrida en vivo"*, *"camino de ejecución en vivo"*): el reemplazo alinea, no innova. Alcanza al título de §17.3.14.2, que pasa a **"EBE como escenario de fuente en vivo controlada"**. |
+| `pulleable` | 1 (§17.3.7.3) | perífrasis | *"…o en general con **fuentes cuya lectura puede regularse** —conjuntos de imágenes, videos locales o archivos—"*. Nadie lo marcó, pero es el peor de los tres. |
+
+**(b) Anglicismos crudos que el propio informe ya tradujo en otro lugar — se alinean.** El defecto acá no es
+el anglicismo: es que el mismo capítulo usa las dos formas.
+
+| Término | Dónde sobrevive tras los pases 1 y 2 | Forma ya usada en el informe |
+| --- | --- | --- |
+| `PUB/SUB` | §17.3.8.1, §17.3.8.4 | **publicador-suscriptor** (§17.3.5, §17.3.18) |
+| `config-driven` | §17.3.18 | **gobernado por configuración** (§17.3.5, §17.4.4) — E3-19 ya lo saca de DA-03 |
+| `outcome` | §17.3.10.2 (Tabla 48), §17.3.13.1 (Tabla 53), §17.3.13.3 (Tabla 55) | **resultado de entrega** / **resultado del canal** (§17.3.10.1, §17.3.10.3) |
+| `backpressure` | §17.3.14.5 (Tabla 57) | **acumulación de atraso** (§17.3.7.3, §17.3.14.4) |
+| `keep-up` | §17.3.16 (Tabla 59) | **capacidad de sostener el ritmo** |
+| `letterbox` | §17.3.7.1 | **relleno de bordes** |
+
+**(c) Lista cerrada de lo que NO se toca, con su razón** — para que no se "corrija" por las dudas en un pase
+posterior: `checkpoint`, `ledger`, `frame`, `buffer`, `tracker`, `streaming`, `snapshot`, `bounding box`,
+`jitter` (términos técnicos sin equivalente castellano establecido en la literatura del dominio);
+`fail-open` (queda glosado una sola vez por la enmienda a E3-28, que es la doctrina D-P3-4 aplicada); y
+`scene` / `subject` (son **valores literales de configuración**, no prosa: nombran lo que se escribe en el
+archivo de patrones).
+
+*Origen: C5 y C6 de §17.3.*
+
+---
+
+### E3-34 · CPN, EN y TN se explican **tres veces** en el informe
+
+**Problema — verificado sobre el `.docx` maestro.** Los tres roles quedan definidos en la consolidación
+metodológica (§17.1.4.2 y sus tres sub-apartados), con este texto:
+
+> *"…el Central Processing Node (CPN) concentra la ejecución del pipeline principal, la inferencia, la
+> evaluación de patrones, la medición de latencia y la consolidación de resultados experimentales. El Edge
+> Node (EN) se ubica próximo a la fuente visual y se orienta a captura, transmisión de video y eventual
+> preprocesamiento liviano. El Training Node (TN), cuando corresponda, se reserva para tareas de ajuste o
+> preparación de variantes de modelo, sin sustituir la evaluación operativa sobre el CPN."*
+
+§17.3 lo vuelve a decir **dos veces más**, casi con las mismas palabras: en §17.3.2 (*"El CPN concentra las
+capacidades centrales de procesamiento y evaluación; el EN representa la captura o el procesamiento próximo
+a la fuente; y el TN delimita las tareas de entrenamiento o adaptación cuando corresponden"*) y en la
+apertura de §17.3.15. Es el mismo párrafo tres veces en el mismo documento.
+
+**Acción — dos ediciones. En ninguna de las dos §17.3 redefine los roles.**
+
+1. **§17.3.2 — reemplazar el párrafo de roles por su consecuencia arquitectónica**, que es lo único que
+   corresponde a esta sección (la sección trata de qué se *deriva* de cada insumo, no de qué *es* cada insumo):
+
+   > *"De los roles funcionales ya establecidos se deriva una restricción de diseño y no una nueva
+   > definición: se adoptan como responsabilidades de referencia que permiten declarar dónde se captura,
+   > dónde se ejecuta la inferencia y dónde se prepara una variante ajustada, sin que la distribución física
+   > de componentes pase a formar parte de la semántica de los contratos."*
+
+2. **§17.3.15 — reemplazar el primer párrafo por una entrada que remita y no repita.** El resto de la
+   sección (topología de referencia, el TN fuera del camino de inferencia, el módulo de distribución como
+   unidad desplegable) es contenido propio y se conserva:
+
+   > *"Esta sección no redefine los roles funcionales ya establecidos en la consolidación metodológica: fija
+   > la topología de referencia con la que se materializan en el prototipo y ubica en ella al módulo de
+   > distribución. La única precisión que el diseño agrega es que ninguno de los tres roles equivale
+   > necesariamente a una máquina dedicada."*
+
+*Origen: C7 y el hilo C35/C36 de §17.3 ("esto ya está claro en etapa 2, no volver a explicar acá" · "o
+introducir brevemente haciendo referencia a la sección de la etapa 2"). La remisión a una sección **propia**
+del informe no viola la autocontención, que alcanza a documentos del repositorio.*
+
+---
+
+### E3-35 · §17.3.6.7 "Frontera con los planos de ejecución y el soporte experimental" — eliminar y reubicar
+
+**Problema.** La subsección tiene tres párrafos y **dos de ellos ya están dichos**:
+
+| Párrafo | Qué dice | Dónde ya está |
+| --- | --- | --- |
+| 1 | La configuración define los parámetros del plano de medios; el plano de medios los aplica pero no los diseña ni versiona. | §17.3.7, párrafo de apertura, con más precisión; y otra vez en §17.3.7.4 (que **E3-36** elimina por lo mismo). |
+| 2 | Para el plano de control, la configuración define patrones, severidad, ventanas, histéresis. | Tabla 44, fila *Patrones activos*; y §17.3.8.3.1 completo. |
+| 3 | Para el soporte experimental, la configuración es la clave de reconstrucción. | Es lo único propio, y aun así §17.3.12.1 lo repite (*"Toda alerta puede reconstruirse hasta la configuración efectiva…"*). |
+
+Es exactamente el caso de §17.3.6.6, que **E3-20** ya resolvió con poda y reubicación, y por eso Gabriel pide
+el mismo tratamiento.
+
+**Acción — eliminar la subsección y rescatar una oración**, al cierre de §17.3.6.1 (*"Función arquitectónica
+de la configuración experimental"*, que es la dueña del concepto):
+
+> *"Esa función de gobierno se proyecta sobre los tres destinatarios de la configuración: el plano de medios
+> recibe los parámetros que aplica sin diseñarlos ni versionarlos, el plano de control recibe los criterios
+> con los que evalúa, y el soporte experimental la utiliza como clave de reconstrucción, de modo que todo
+> evento, métrica, alerta o evidencia conservada pueda rastrearse hasta la corrida que le dio origen."*
+
+⚠ **Consecuencia de numeración, encadenada con E3-20.** E3-20 elimina §17.3.6.6 y corre §17.3.6.7 → §17.3.6.6.
+Con E3-35 esa subsección también desaparece: **§17.3.6 queda con cinco subsecciones (6.1 a 6.5)**, sin
+renumeración adicional respecto de lo que ya fija E3-20.
+
+*Origen: C15 de §17.3 ("ídem a lo anterior… es una sección que no tiene tanto propósito en sí misma, podría
+rescatarse mucho más resumida entre 17.3.6.1 y 6.2").*
+
+---
+
+### E3-36 · §17.3.7.4 "Relación con configuración, modelos y prompts" — eliminar, salvo su último párrafo
+
+**Problema — la subsección entera es eco, con una sola excepción.** Cuatro párrafos, 263 palabras:
+
+| Párrafo | Veredicto |
+| --- | --- |
+| 1 — *"El Pipeline de Medios consume la configuración experimental definida para la corrida, pero no la gobierna…"* | **Duplicado casi literal** del párrafo de apertura de §17.3.7: *"La configuración experimental actúa como entrada transversal del Pipeline de Medios, pero no es una responsabilidad interna de este plano… sin convertirse en el módulo encargado de gobernarla o versionarla."* |
+| 2 — prompts como contexto semántico | Ya está en §17.3.6.3 y en §17.3.7 (apertura). **Excepción:** la oración sobre reutilizar representaciones textuales precalculadas es un compromiso de diseño que no aparece en ningún otro lado — se rescata. |
+| 3 — la salida debe incluir referencias suficientes para reconstruir el origen | Es el cuarto criterio de §17.3.7.2 (*"conservar la trazabilidad mínima del resultado perceptivo"*) y el cierre de §17.3.7.1. |
+| 4 — la salida no se reduce a cajas y puntajes, pero tampoco incorpora severidad ni decisión de alerta | **Es el único aporte propio de la subsección.** |
+
+**Acción — eliminar §17.3.7.4** y reubicar sus dos rescates:
+
+1. **El párrafo 4 pasa a cerrar §17.3.7.1** (*"Flujo operativo del Pipeline de Medios"*), inmediatamente
+   después del bloque **Publicación de evidencia perceptiva**, que es donde el tema es la salida:
+
+   > *"En consecuencia, la salida del plano de medios no se reduce a cajas y puntajes sin contexto, pero
+   > tampoco incorpora severidad, confirmación de patrón ni decisión de alerta. Su producto es evidencia
+   > visual primaria, normalizada y trazable: la interpretación de esa evidencia corresponde al plano de
+   > control, y la comparación entre configuraciones, modelos y prompts, al análisis experimental posterior."*
+
+2. **La oración sobre representaciones precalculadas se anexa al bloque Inferencia open-vocabulary** de
+   §17.3.7.1:
+
+   > *"…según el formato propio del detector utilizado. Cuando el modelo lo permita, el adaptador puede
+   > reutilizar representaciones textuales precalculadas o mecanismos equivalentes para reducir el costo de
+   > inferencia, siempre que esa optimización no altere la trazabilidad de la corrida."*
+
+⚠ **Consecuencia de numeración:** §17.3.7.5 pasa a **§17.3.7.4**. §17.3.7 queda con cuatro subsecciones.
+Esto **afecta a la enmienda de E3-28**, cuya acción 3 reescribe el primer párrafo de "§17.3.7.5": la unidad
+sigue siendo la misma —*"Capacidades opcionales sin desplazar el núcleo validable"*— y pasa a numerarse 7.4.
+La enmienda a E3-28 ya previó este riesgo y por eso su ancla en §17.3.14.5 es descriptiva y no numérica.
+
+*Origen: C18 y C19 de §17.3 ("esta sección es repetitiva, lo único rescatable es el último párrafo, reducir"
+· "ya se dijo 20 veces").*
+
+---
+
+### E3-37 · §17.3.7.5 — los dos cierres que repiten la apertura del plano de medios
+
+**Problema.** Dos pasajes concretos, ambos verificados:
+
+1. **Última oración del segundo párrafo:** *"La decisión de que una detección persistió durante una ventana
+   temporal sigue perteneciendo al motor de patrones."* Es el **quinto criterio de §17.3.7.2**, dos
+   subsecciones antes: *"La persistencia temporal de un patrón, la histéresis, la severidad y el registro
+   interno de alerta pertenecen al motor de patrones. El plano de medios… no debe decidir si una condición
+   observada se convirtió en una situación de riesgo confirmada."*
+2. **El párrafo de cierre completo** (*"Con esta delimitación, el Pipeline de Medios queda definido como una
+   ruta de transformación acotada y medible: recibe entrada visual, controla el ritmo…"*) es la enumeración
+   del **párrafo de apertura de §17.3.7**, que ya dijo *"Su alcance incluye ingesta, decodificación cuando
+   corresponda, control de ritmo, normalización visual, inferencia open-vocabulary, postproceso y publicación
+   no bloqueante"* y *"El Pipeline de Medios no confirma condiciones de riesgo, no asigna severidad, no
+   ejecuta reglas de patrón, no genera alertas"*. Un cierre que repite la apertura no cierra: reinicia.
+
+**Acción.**
+
+1. Eliminar la oración del punto 1. El párrafo termina en *"…un identificador temporal no equivale a una
+   condición de riesgo sostenida."*
+2. Eliminar el párrafo de cierre completo. La subsección termina en el párrafo de variantes de eficiencia,
+   cuya última oración ya cierra bien (*"…cualquier variante que altere la ruta frame-evento debe quedar
+   declarada en la configuración de corrida"*).
+
+⚠ **El primer párrafo de esta subsección lo reescribe la enmienda a E3-28** (ahí nace `fail-open`): esa
+reescritura manda, y E3-37 no la toca. Resultado combinado: tres párrafos —el de E3-28, el de tracking sin
+la oración repetida, y el de variantes de eficiencia—.
+
+*Origen: C21 ("este tipo de aclaraciones repetitivas son una pija") y C22 ("esto ya se dijo antessss").*
+
+---
+
+### E3-38 · §17.3.8.3.1 — el mismo párrafo, dos párrafos después
+
+**Problema.** La subsección dice lo mismo en el primer par de párrafos y en el tercero:
+
+> **¶1:** *"Cada patrón referencia una condición del catálogo y define cómo esa condición debe ser evaluada
+> durante la corrida."*
+> **¶2:** *"…indica qué evidencia acepta, durante cuánto tiempo debe sostenerse, qué severidad tiene, qué
+> histéresis aplica y qué evento debe emitirse cuando cambia de estado."*
+> **¶3:** *"Cada patrón referencia una condición observable del catálogo CR-01 a CR-06 y define cómo esa
+> condición será evaluada dentro del plano de control: evidencia requerida, ventana temporal, umbrales,
+> histéresis, severidad y dependencias opcionales."*
+
+Lo único que ¶3 agrega y no está en ningún otro lado es **la codificación PR-01 a PR-06** y su razón de ser.
+
+**Acción — eliminar ¶3 y anexar su aporte al final de ¶2:**
+
+> *"…y qué evento debe emitirse cuando cambia de estado. La codificación PR-01 a PR-06 identifica cada patrón
+> y lo mantiene distinguible de la condición observable que evalúa (CR-01 a CR-06): una nombra el fenómeno,
+> la otra la regla operativa que decide cuándo se lo considera sostenido."*
+
+*Origen: C24 ("lo dijo literalmente en el párrafo anterior").*
+
+---
+
+### E3-39 · §17.3.8.3.4 — usar las siglas de métricas que la etapa 2 ya definió
+
+**Problema.** El párrafo que vincula transiciones con métricas las nombra en castellano largo y no usa las
+siglas, aunque **las tres están definidas con su sigla en la consolidación metodológica**: verificado en
+§17.1.7.5.1 *Latencia de Alerta (t_alert-system)* —la sigla viaja como ecuación de Word, por eso no aparece
+en las extracciones planas—, §17.1.7.5.2 *Tiempo a la Primera Detección (TTFD)* y §17.1.7.5.3 *Tasa de
+Detección Sostenida (SDR)*. El resultado es que el lector no puede conectar este párrafo con la Tabla 54, que
+las nombra por sigla cinco subsecciones más adelante.
+
+**Acción — reescribir el tercer párrafo:**
+
+> *"Las métricas operativas del plano de control se apoyan en estas transiciones: el tiempo hasta la primera
+> detección (TTFD) se ancla en la primera evidencia perceptiva relevante; la latencia de alerta
+> (t_alert-system) se cierra con el registro de la alerta interna que sigue a la transición a confirmado; la
+> tasa de detección sostenida (SDR) se calcula sobre la continuidad del episodio; y los errores o descartes
+> permiten distinguir una ausencia real de evidencia de una falla técnica o de una pérdida por muestreo."*
+
+**No hay referencia hacia adelante:** las tres siglas nacen en §17.1, no en la Tabla 54. Al usarlas acá por
+primera vez dentro de §17.3 se escribe el nombre completo delante, como en el texto guía; a partir de la
+Tabla 53 el capítulo ya las usa solas.
+
+*Origen: C26 ("usar siglas de las métricas que ya definimos").*
+
+---
+
+### E3-40 · §17.3.9 — la cadena condición → alerta se explica por cuarta vez
+
+**Problema.** §17.3.9 llega después de que §17.3.7 y §17.3.8 ya recorrieron la cadena completa, y en vez de
+aportar lo suyo —el **vínculo** entre condición metodológica y materialización, que sí es propio— vuelve a
+narrar el funcionamiento del plano de control. Tres puntos verificados:
+
+- **§17.3.9.1**, tercer párrafo: *"Allí se aplican criterios de persistencia, histéresis, severidad
+  configurada… Sólo cuando el patrón alcanza una transición válida a confirmado se registra una alerta
+  interna por episodio."* Ya dicho en §17.3.8 (apertura), §17.3.8.1, §17.3.8.2 y §17.3.8.3.
+- **§17.3.9.2** repite dos veces dentro de sí misma: el primer párrafo dice *"El plano de medios consulta
+  person, helmet y vest; el plano de control relaciona cada sujeto con la evidencia…"* y el segundo lo
+  reformula como *"El plano de medios informa qué entidades observó… El plano de control decide si la
+  evidencia de casco o chaleco se asocia al sujeto"*. Además el primero duplica §17.3.6.4.
+- **§17.3.9.3**, segundo párrafo: *"La confirmación no es un hecho aislado: depende de detecciones
+  acumuladas, criterios de persistencia, histéresis, severidad configurada y reglas activas. Por ello, la
+  alerta interna debe poder reconstruirse desde la cadena completa…"* es §17.3.8.3.4, segundo párrafo.
+
+**Decisión sobre §17.3.9.2 (era pregunta abierta en el hilo C28/C29).** **Se conserva**, podada. Es el único
+lugar del informe donde la estrategia del núcleo está enunciada como **decisión adoptada** con su frontera
+medios/control; borrarla dejaría a E-IND existiendo sólo dentro de celdas de tabla y de párrafos que la
+mencionan de paso. Lo que se elimina es la reexplicación, no la decisión.
+
+**Acción — tres ediciones.**
+
+1. **§17.3.9.1 — reescribir el tercer párrafo** para que sea el eslabón y no el resumen del motor:
+
+   > *"El plano de control evalúa esa evidencia mediante el patrón correspondiente y, cuando la evaluación
+   > confirma el episodio, registra una alerta interna. Esa alerta es una salida asistiva del sistema: no
+   > equivale a una notificación externa ni a una certificación normativa."*
+
+2. **§17.3.9.2 — de cuatro párrafos a dos.** El primero enuncia la decisión y la frontera; el segundo, la
+   razón y las ramas comparativas:
+
+   > *"Para el núcleo validable se adopta la estrategia indirecta con inferencia espacial de ausencia
+   > (E-IND). La frontera que esa elección fija es explícita: el plano de medios informa qué entidades
+   > observó, dónde y con qué confianza; el plano de control decide si la evidencia del elemento de
+   > protección se asocia al sujeto, construye el estado evaluable de la condición y lo estabiliza antes de
+   > registrar una alerta."*
+   >
+   > *"La estrategia se adopta por auditabilidad: cada evaluación puede reconstruirse a partir de la caja del
+   > sujeto, la región analizada, las detecciones de protección, los umbrales y la regla aplicada, de modo
+   > que la ausencia no se presenta como una conclusión opaca del modelo. La detección directa (E-DIR) y las
+   > variantes híbridas (E-HYB) se conservan como ramas comparativas configurables, con conjuntos de prompts
+   > y reglas identificados por separado; comparten los contratos de publicación, evaluación temporal y
+   > registro, de modo que la comparación no requiera alterar la arquitectura central."*
+
+3. **§17.3.9.3 — retitular y reescribir.** Hoy se titula *"Trazabilidad de la cadena causal"* y se pisa con
+   §17.3.8.3.4 y con §17.3.12 entera. Lo que **sólo ella** sostiene es otra cosa: que la variante de
+   estrategia quede registrada en los eventos es lo que hace comparables dos corridas. El nuevo título es
+   **"Comparabilidad entre estrategias"** y el cuerpo:
+
+   > *"Para que la comparación entre variantes sea posible, cada evidencia publicada conserva el vínculo con
+   > la condición que representa, la estrategia de detección utilizada y la configuración efectiva de la
+   > corrida. Una misma condición puede evaluarse con distintas estrategias sin alterar la semántica del
+   > sistema, siempre que la corrida declare la variante utilizada y los eventos resultantes conserven esa
+   > referencia. Es esa referencia declarada, y no una reinterpretación posterior de los artefactos, la que
+   > permite atribuir una diferencia de resultados a la estrategia evaluada y no a un cambio no declarado en
+   > la cadena."*
+
+**Resultado:** §17.3.9 pasa de 678 a ~400 palabras, conserva sus tres subsecciones y cada una responde una
+pregunta distinta (cómo se traduce · qué se adoptó · por qué se puede comparar).
+
+*Origen: C27 ("ya se dijo antes, no repetir huevadas"), el hilo C28/C29 ("¿la dejamos como constitución o la
+borramos?" · "el fabio decide"), C30 y C31 ("esto ya está claro" · "esto también").*
+
+---
+
+### E3-41 · §17.3.10 — la sección no tiene entrada y su primera subsección la suple mal
+
+**Problema.** §17.3.10 *"Distribución de alertas confirmadas"* es la **única sección de §17.3 con cero
+palabras propias**: el título va directo a §17.3.10.1. Esa subsección termina haciendo dos trabajos y no hace
+bien ninguno. Su arranque —*"La cadena descrita hasta aquí termina en un hecho interno… Falta el último
+tramo: hacer llegar esa alerta a un canal externo sin comprometer al motor que la produjo"*— es narrativo,
+está fuera del registro del resto del capítulo (*"falta el último tramo"*) y, sobre todo, **no enuncia la
+función arquitectónica**, que es exactamente lo que su título promete.
+
+**Acción — dos ediciones.**
+
+1. **§17.3.10 recupera su párrafo de entrada** (dos oraciones, antes de la primera subsección):
+
+   > *"La alerta interna es el hecho terminal del plano de control, pero todavía no es un aviso. Esta sección
+   > define el tramo que la convierte en entregas observables sin incorporar la comunicación a la ruta que la
+   > produjo."*
+
+2. **§17.3.10.1 arranca por la función**, que es lo que su título anuncia:
+
+   > *"La función arquitectónica de la distribución es transformar una alerta ya confirmada en intentos de
+   > entrega registrados, sin participar del razonamiento que la produjo. El plano de control publica cada
+   > alerta confirmada en un bus de alertas dedicado; el módulo de distribución la consume desde allí, aplica
+   > la política de notificación y registra el resultado de cada intento. No constituye un tercer plano ni un
+   > cuarto rol funcional: es un módulo desacoplado, y esa condición es la que impide que la indisponibilidad
+   > de un canal externo se propague al motor de patrones."*
+
+Los otros dos párrafos de §17.3.10.1 (pipeline de distribución; política ordinaria) se conservan.
+
+*Origen: C32 ("malísima esta intro").*
+
+---
+
+### E3-42 · §17.3.6.4 — la remisión a §17.1.5.4.2 **es falsa hoy**, y §17.3 debe dejar de depender de ella
+
+**Problema — es el único defecto duro de referencia cruzada del capítulo.** §17.3.6.4 dice:
+
+> *"…se mantienen en conjuntos separados para las estrategias directa (E-DIR) e híbrida (E-HYB) **definidas
+> en la consolidación metodológica (sección 17.1.5.4.2)**…"*
+
+Verificado sobre el `.docx` maestro de las secciones cerradas: **`E-DIR`, `E-IND` y `E-HYB` aparecen cero
+veces en todo el informe fuera de §17.3 y §17.4.** §17.1.5.4 sí distingue las familias en prosa ("estrategia
+directa", 3 apariciones; "estrategia indirecta", 5; "híbrida", 4), pero **no las bautiza con esos códigos**,
+y §17.1.5.4.2 se titula *"Estrategia de Variación Sistemática"*, que es otra cosa. La remisión envía al
+lector a un lugar donde no está lo que se le promete.
+
+**Por qué no alcanza con lo ya decidido.** El pase 1 previó exactamente esto (decisión D3 y ajuste C-1:
+bautizar los tres códigos en §17.1.5.4.2). Pero C-1 es una edición de **etapa 2**, y por D-P3-3 la etapa 2 se
+trabaja al final. §17.3 no puede quedar colgada de una edición futura.
+
+**Acción — §17.3 se hace autosuficiente, en tres ediciones.**
+
+1. **§17.3.2 — quitar el código del párrafo de condiciones de riesgo.** Hoy dice *"el flujo base prioriza la
+   estrategia indirecta E-IND"*; pasa a *"el flujo base prioriza la estrategia indirecta"*. Motivo: tras la
+   enmienda a E3-22 ésa sería la primera aparición del código en el informe, y §17.3.2 no es la sección
+   dueña del concepto (D-P3-4).
+2. **§17.3.6.4 — acá nacen los tres códigos**, en el párrafo que hoy hace la remisión falsa:
+
+   > *"Las consultas negativas o de estado observable se mantienen en conjuntos separados para las
+   > estrategias directa e híbrida ya distinguidas en la consolidación metodológica, de modo que sus
+   > resultados sean atribuibles a una estrategia explícita y no a una mezcla informal de vocabularios. En el
+   > diseño arquitectónico y en lo que sigue del trabajo, estas familias se identifican mediante un código:
+   > estrategia directa (E-DIR), cuando el prompt intenta describir la condición de riesgo completa;
+   > estrategia indirecta (E-IND), cuando el detector identifica entidades visibles por separado y la
+   > condición se reconstruye mediante lógica externa al modelo; y estrategia híbrida (E-HYB), cuando se
+   > combinan consultas de ambos tipos bajo una regla de composición explícita."*
+
+3. **Verificar el orden al aplicar:** con estas dos ediciones, la primera aparición de cualquiera de los tres
+   códigos en el informe es la glosa de §17.3.6.4, que **precede** a la Tabla 45 (dentro de la misma
+   subsección), a §17.3.9.2, a la Tabla 60 y a §17.3.18. Ninguna aparición queda antes de su definición.
+
+**Qué pasa con C-1 del pase 1.** Deja de ser obligatorio y **pasa a ser armonizador**: si al trabajar la
+etapa 2 se aplica el bautismo en §17.1.5.4.2, entonces §17.3.6.4 recorta su glosa a la remisión (*"…para las
+estrategias directa (E-DIR) e híbrida (E-HYB) definidas en la consolidación metodológica"*). Si no se aplica,
+el informe queda igualmente correcto y autoconsistente. **Se anota en §I como dependencia inversa**, para que
+al tocar etapa 2 no se dupliquen las dos glosas.
+
+*Origen: C11 de §17.3 ("tienen que estar definidas. revisar esto en etapa 2").*
+
+---
+
+## C. Correcciones nuevas a §17.4 — Implementación
+
+### E4-27 · §17.4.10, Tabla 68 — la fila de ajuste fino afirma algo **falso hoy**, y su marcador está vencido
+
+**Nadie lo comentó; es un hallazgo de este pase y es el defecto más grave de §17.4.** La celda de estado dice:
+
+> *"…El tramo exploratorio adicional **fue enviado y permanece en cola, sin haber iniciado**."*
+
+y arrastra el marcador *[[PENDIENTE: resultado y veredicto del tramo exploratorio adicional · depende de
+completar su ejecución y evaluación predefinidas]]*, más una oración en la Nota de la tabla que lo sostiene
+(*"El marcador del tramo exploratorio adicional permanece visible hasta que exista un artefacto evaluado; su
+envío y permanencia en cola no constituyen por sí mismos un resultado"*).
+
+**Verificado: la escalera está completa y cerrada.** El tramo adicional dejó de estar en cola, corrió, se
+evaluó una sola vez contra el banco congelado y produjo veredicto negativo; y el tercer tramo se cerró con
+causa técnica. Los tres puntos de la escalera están cerrados, y el hallazgo de conjunto es más fuerte que
+cualquiera de ellos por separado: el límite no es de capacidad del modelo sino **estructural**, porque el
+corpus de ajuste disponible es de un orden que no alcanza a sostener el número de parámetros que se ajustan.
+La causa técnica del tercer tramo también es declarable sin citar nada del repositorio: el único corpus
+histórico de ese volumen **comparte fuentes con el banco de evaluación congelado** y, además, derivaba la
+clase de cabeza descubierta de un modo que el vocabulario canónico vigente prohíbe.
+
+**Acción — tres ediciones.**
+
+1. **Reemplazar la celda de estado:**
+
+   > *"Protocolo, procedencia, servicio de inferencia, evaluación y línea base quedaron congelados, y la
+   > escalera de tramos pre-registrada se ejecutó completa. Los dos tramos entrenados se evaluaron una única
+   > vez contra el banco congelado y ninguno superó los criterios de incorporación, firmados antes de que
+   > existiera el checkpoint que se les aplicaría. El tercer tramo se cerró con causa técnica: el único
+   > corpus disponible de ese volumen comparte fuentes con el banco de evaluación y deriva la clase de cabeza
+   > descubierta de una forma que el vocabulario canónico vigente no admite."*
+
+2. **Reemplazar la celda de consecuencia, eliminando el marcador `[[PENDIENTE]]`:**
+
+   > *"Ningún checkpoint se incorporó como modelo de servicio. El resultado es un veredicto negativo
+   > pre-registrado y no un tramo abierto: los criterios y los márgenes se firmaron antes de la evaluación, y
+   > las tres expectativas registradas de antemano se confirmaron. Los valores por tramo y la lectura de la
+   > curva se informan en la sección 17.5."*
+
+3. **Eliminar de la Nota de la Tabla 68** la oración sobre el marcador. El resto de la Nota se conserva.
+
+⚠ **El otro marcador de §17.4 no se toca.** El `[[PENDIENTE]]` de §17.4.8.1 —dirección de origen y fecha de
+acceso por clip del lote de obra real— **sigue vigente y sigue siendo bloqueante para la versión final**. No
+se elimina ni se relaja.
+
+---
+
+### E4-28 · §17.4.3 "Contratos de datos materializados" — la sección más densa del capítulo
+
+**Problema.** 197 palabras y tres párrafos para cinco contratos, con estos defectos verificados:
+
+1. **Anuncia cinco y no los enumera.** *"Cinco contratos concentran los hechos principales de la ejecución"*
+   y arranca directo con el primero; el lector cuenta hacia atrás para saber cuáles fueron.
+2. **La primera oración encadena nueve complementos** (*"…incluye identificación de corrida y unidad visual,
+   descripción de la fuente, perfil de modelo, conjunto de prompts, detecciones con coordenadas en píxeles y
+   normalizadas, y tiempos por unidad"*). Es un inventario disfrazado de oración.
+3. **Reparto desparejo:** dos contratos en el primer párrafo, tres apretados en el segundo.
+4. **Las propiedades técnicas —que son el aporte de la sección— quedan escondidas** al final de subordinadas:
+   la secuencia monótona que vuelve detectable el hueco, el identificador determinista que permite deduplicar
+   sin estado compartido, la evidencia que hace reconstruible la ausencia.
+
+**Cuál es el propósito que sólo esta sección tiene** (D-P3-1): la Tabla 63 de §17.4.2 ya da la
+correspondencia diseño → materialización, y §17.3.11.3 ya dio la información mínima de cada contrato. Lo que
+falta y sólo acá cabe es **qué propiedad técnica habilita cada contrato materializado**. La reorganización se
+hace alrededor de eso.
+
+**Acción — cuatro párrafos, uno por función, cada uno cerrando en su propiedad.** Texto guía:
+
+> *"Cinco contratos concentran los hechos principales de la ejecución: el evento de percepción, el envoltorio
+> del bus, el contrato de ciclo de vida, el evento de transición de patrón y la alerta interna. Los cinco
+> están declarados con su identificador en la tabla anterior; lo que sigue precisa qué lleva cada uno y qué
+> propiedad técnica habilita."*
+>
+> *"El evento de percepción normaliza la salida del detector. Identifica la corrida y la unidad visual;
+> describe la fuente, el perfil de modelo y el conjunto de prompts efectivos; y transporta las detecciones
+> con sus coordenadas en píxeles y normalizadas, sus puntajes y los tiempos medidos por unidad. Esa
+> composición es la que permite que una detección se atribuya después a una variable concreta de la corrida y
+> no a una combinación desconocida."*
+>
+> *"El envoltorio del bus encapsula ese mismo contenido para transmitirlo y le agrega un número de secuencia
+> monótono; el contrato de ciclo de vida delimita el inicio y el cierre de la corrida. Juntos habilitan dos
+> propiedades que la persistencia sola no da: cualquier pérdida en el transporte se vuelve detectable como un
+> hueco de secuencia en lugar de pasar por ausencia de evidencia, y el final lógico de la corrida se
+> distingue de una interrupción, de modo que los consumidores puedan cerrarse y los artefactos consolidarse."*
+>
+> *"El evento de transición registra los cambios entre los estados del patrón —los mismos que fija la máquina
+> de estados del diseño— junto con la evidencia y los hitos temporales que los motivaron; la alerta interna
+> registra la confirmación del episodio con un identificador determinista, de modo que reprocesar la misma
+> corrida produzca la misma identidad de alerta y la deduplicación no requiera estado compartido entre
+> componentes. La alerta conserva además evidencia auditable: sujeto observado, detecciones de soporte, clase
+> de protección ausente, región evaluada, puntaje y justificación legible. Por eso la ausencia no se presenta
+> como una afirmación opaca del detector, sino como una inferencia del plano de control reconstruible sobre
+> evidencia positiva."*
+
+⚠ **Respeta E4-24 y D-P2-6:** ningún identificador literal aparece en esta prosa; los cinco quedan declarados
+en la Tabla 63, que es su único punto de declaración. La referencia a la figura de la máquina de estados se
+mantiene descriptiva, como pide la enmienda a E3-28.
+
+*Origen: C0 de §17.4 ("difícil de leer, hay que mejorar la organización del desarrollo de esta sección").*
+
+---
+
+### E4-29 · §17.4.7 — el árbol de artefactos no muestra la plataforma completa
+
+**Problema.** El árbol de la ejecución experimental lista `manifest.effective.yaml`, `media/`, `control/` y
+`report/`, y deja la distribución fuera, en una oración suelta al pie: *"Cuando el tramo de distribución está
+habilitado, su ledger y su reporte se consolidan del mismo modo."* Pero **esta es justamente la sección donde
+se muestra cómo se consolida la evidencia de una corrida**: dejar un componente fuera del árbol sugiere que
+se consolida distinto, cuando el argumento es el contrario. La condicionalidad es correcta —la plataforma es
+modular y un tramo puede no estar habilitado—, pero ya hay una forma en el propio árbol de expresarla: dentro
+de `control/` la evaluación temporal aparece con su condición entre paréntesis.
+
+Defecto asociado, misma sección: la fila *Distribución* de la **Tabla 66** es la única de las cuatro que **no
+nombra archivos** (*"Ledger de intentos y entregas; resultados de canal; reporte de distribución"*), mientras
+las otras tres los nombran uno por uno. Verificado contra el módulo: los artefactos reales son
+`notifications.jsonl` —el ledger de sólo agregado—, `distribution_summary.json` y `dead_letter.jsonl`, este
+último el registro de los descartes definitivos por agotamiento de reintentos. **No** produce
+`effective_config.yaml` por corrida: expone su configuración efectiva por interfaz, y esa asimetría con los
+dos planos no debe insinuarse resuelta.
+
+**Acción — tres ediciones.**
+
+1. **Incorporar la distribución al árbol**, con su condición entre paréntesis, igual que la evaluación temporal:
+
+   ```
+   runs/<experiment_id>/                (repositorio del soporte experimental)
+     manifest.effective.yaml
+     media/           summary.json · metrics.jsonl · effective_config.yaml ·
+                      detections.ref.json  (referencia al detections.jsonl del plano de medios)
+     control/         alerts.jsonl · pattern_events.jsonl · metrics.jsonl ·
+                      summary.json · effective_config.yaml
+                      (y la evaluación temporal, cuando la corrida la habilita)
+     distribution/    notifications.jsonl · distribution_summary.json · dead_letter.jsonl
+                      (cuando la corrida habilita el tramo de distribución)
+     report/          report.json · report.md
+   ```
+
+2. **Reemplazar la oración suelta** por una que cierre el argumento en lugar de excusarlo:
+
+   > *"La ejecución experimental consolida así los cuatro componentes bajo una misma clave. La modularidad de
+   > la plataforma se expresa en que un tramo pueda no estar habilitado, no en que su evidencia se consolide
+   > de otro modo cuando lo está."*
+
+3. **Tabla 66, fila *Distribución* — nombrar los artefactos** como en las otras tres filas:
+
+   > *"notifications.jsonl (ledger de intentos y entregas, de sólo agregado); dead_letter.jsonl;
+   > distribution_summary.json"* || *"Relaciona cada intento y resultado de entrega con la alerta interna
+   > original sin reescribirla, y conserva por separado los descartes definitivos por agotamiento de
+   > reintentos."*
+
+*Origen: C2 de §17.4 ("agregar el módulo de distribución… la idea es mostrar la plataforma como un todo, y
+más en esta parte que se habla de la consolidación de la evidencia de las corridas").*
+
+---
+
+### E4-30 · `PUB/SUB` en §17.4 — alinear con la normalización de E3-33 (✎ agregada el mismo día)
+
+**Problema — desalineado entre secciones detectado en la verificación cruzada (§I).** E3-33 (b) alinea
+§17.3 a la forma que el propio informe ya normalizó: **publicador-suscriptor** (§17.3.5, §17.3.18). Pero
+§17.4 usa `PUB/SUB` crudo **cuatro veces**, y ninguna unidad lo tocaba. Aplicar E3-33 sin esto dejaría a
+las dos secciones en formas distintas del mismo término — exactamente el defecto que D-P3-5 (b) corrige.
+
+**Acción — tres ediciones (la cuarta aparición desaparece sola con E4-20, que elimina la Tabla 65):**
+
+1. **Nota de la figura de §17.4.1** (*"…mediante buses ZeroMQ PUB/SUB con serialización msgpack…"*) →
+   *"…mediante buses ZeroMQ de patrón publicador-suscriptor con serialización msgpack…"*.
+2. **Tabla 64, fila del canal de detecciones:** celda de operación *"ZeroMQ PUB/SUB + msgpack"* →
+   **"Bus ZeroMQ publicador-suscriptor (msgpack)"**.
+3. **Tabla 64, fila del canal de alertas:** ídem.
+
+**Verificación al aplicar:** `PUB/SUB` queda en **cero** apariciones en §17.4 (y en las dos que E3-33
+conserva glosadas en §17.3 si las hubiera — el conteo final del par es el de E3-33).
+
+---
+
+## D. §17.5 — restricciones que este pase deja fijadas (no es corrección: §17.5 no está redactada)
+
+Por D-P3-3 la etapa 5 entra en alcance. Como no hay texto que corregir, lo que se fija es el terreno, para
+que §17.5 no repita §17.3/§17.4 ni contradiga lo que este pase acaba de resolver.
+
+### D.0 — La organización de la sección (aplica D-P3-6; ✎ decisión del usuario, 2026-08-22)
+
+**La sección se organiza por pregunta de medición, no por cronología.** El modelo estructural es el de la
+síntesis de resultados vigente (pregunta → niveles de medición → tiempo real → caminos → limitaciones), que
+ya demostró sostener el argumento sin narrar campañas. Esquema de referencia — los títulos definitivos los
+fija la redacción, la **secuencia y el reparto** son lo decidido:
+
+1. **Encuadre y reglas de lectura.** La pregunta de la sección, los **tres niveles de medición** (percepción
+   por imagen · estado por sujeto · alerta por episodio), los estados de aplicabilidad, y de dónde sale cada
+   cifra. Acá viven las reglas transversales: reportar por estrato además del agregado, no sumar percentiles
+   entre tramos, re-alertas no son falsos positivos.
+2. **Percepción sobre imágenes.** El banco de imágenes congelado: resultados **por modelo y por familia**,
+   por estrato, con veredictos **por combinación** (rige E4-26: prohibida la fórmula "el mejor modelo"; la
+   selección del perfil operativo se enuncia como criterio pre-registrado). Cierra con el costo medido de
+   incorporar vocabulario nuevo (el piloto de clase nueva).
+3. **Estado por sujeto (nivel intermedio).** La comparación de estrategias de detección sobre el estado
+   "sin protección" por persona: la indirecta adoptada, la directa y la híbrida como ramas comparativas —
+   los resultados que fundamentan el veredicto van acá, no en la narración de campañas.
+4. **Alerta por episodio contra la referencia temporal humana — el resultado principal.** El banco temporal
+   completo (47 clips: 32 positivos + 15 negativos), por estrato y por condición; la granularidad por
+   sujeto como capacidad medida; la tasa de falsos positivos por hora (se reporta, no sostiene cota); la
+   frontera de juzgabilidad del material de obra real (sin ranking sobre n = 2).
+5. **Tiempo real.** Qué sobrevive a la restricción del camino en vivo: el costo de la densidad de
+   procesamiento, la cadena de latencias **por tramos** (con la regla de relojes), y la latencia del tramo
+   de distribución con su denominador.
+6. **Caminos probados y no adoptados — con el veredicto que los descartó.** Una subsección propia, no notas
+   dispersas: la estrategia directa (vetada por precisión), la híbrida (una variante ejecutada y refutada,
+   una no ejecutable), la familia de modelos descartada en la comparación, y la **rama de ajuste fino como
+   curva de capacidad de tres puntos** (dos veredictos negativos pre-registrados + un tramo cerrado con
+   causa técnica; rige el punto 4 de abajo). El criterio de cada descarte precede al resultado que lo aplicó.
+7. **Lo no ejecutado y lo no implementado — con su factor de justificación.** También subsección propia:
+   condiciones de Nivel 2/3 (evaluabilidad: sin verdad de terreno ni evaluadores validables), métricas MOT
+   (sin anotación de identidad), preselección en el borde (implementada y medida, excluida de lo evaluativo
+   por decisión pre-registrada — rige la enmienda a E4-22), cota operativa de FAR (exposición insuficiente),
+   y el ancla temporal para comparar EBE-desde-clip. Cada ítem con su justificación, nunca como lista de
+   faltantes.
+8. **Síntesis de la sección.** Qué queda afirmado con qué fuerza, y la remisión a las limitaciones
+   declaradas. La **interpretación** (qué significa para la pregunta de la tesis) no vive acá: pertenece a
+   las conclusiones.
+
+**Reparto con las secciones vecinas, para no volver a pisarse:** §17.4 acredita que las capacidades
+funcionan (verificación técnica); §17.5 reporta **cuánto dan** (medición); §18 dice **qué significa**
+(interpretación y conclusiones). Un contenido que acredite funcionamiento no se repite en §17.5; un juicio
+de valor no se adelanta desde §18.
+
+### Restricciones puntuales
+
+1. **Lo que §17.5 no vuelve a explicar.** La arquitectura, los contratos, los patrones de acople, los
+   artefactos por corrida y el criterio de aplicabilidad de métricas ya están en §17.3 y §17.4. §17.5 los
+   **usa**; no los reintroduce. Si un resultado necesita una condición de medición, se enuncia en una oración
+   y se remite a la sección que la fijó.
+2. **Herencia de E4-26 — no hay "mejor modelo".** Los resultados se presentan por modelo y por familia; la
+   selección se enuncia como criterio operativo con base pre-registrada, y el veredicto es **por combinación**
+   (un perfil puede ganar en precisión y otro en exhaustividad de una condición). Está prohibida la fórmula
+   "el mejor modelo".
+3. **Herencia de la enmienda a E4-22 — el 87 % de la preselección.** Si §17.5 lo cita, va con su denominador
+   y su condición de medición, y aclarando que la capacidad estuvo deshabilitada en todo lo evaluativo. Si no
+   lo cita, la celda de la Tabla 68 es su único lugar en el informe.
+4. **Herencia de E4-27 — la rama de ajuste fino cierra en §17.5.** Los tres tramos y su lectura de conjunto
+   (el límite es estructural, no de capacidad) se informan acá, con los márgenes firmados de antemano. Ningún
+   pasaje del informe puede seguir describiendo el tramo adicional como pendiente.
+5. **Las tres piezas de "listo para pegar" con contenido vencido** que ya identificó la revisión de cierre
+   —la fila de ajuste fino que dice que resta la corrida (resuelta acá por **E4-27**), el identificador de un
+   clip retirado del banco, y el redline de alcance sin anclar a su unidad— **se revisan antes de pegar
+   §17.5**, no después.
+6. **Criterio de tablas heredado.** Rige D-P2-1 y el resultado de la revisión de cierre para §17.5: siete
+   tablas, seis a prosa, tres al Anexo D, una eliminada; y la tabla principal baja de trece a ocho columnas.
+   Con los tres pases aplicados, **§17.5 arranca en la Tabla 61** (ver §G).
+7. **Autocontención.** Igual que en §17.3 y §17.4: sin referencias a documentos del repositorio, decisiones
+   internas, fichas ni índices. Las referencias a otras secciones del informe sí valen.
+
+---
+
+## E. Hechos verificados en este pase — NO "corregir" estos valores
+
+| Hecho | Valor verificado | Cómo se re-verifica |
+| --- | --- | --- |
+| Peso de las dos secciones | §17.3 = **20.622** palabras · §17.4 = **5.477** (cuerpo extraído, sin el banner de la extracción) | `herramientas/extraer_informe.py` sobre cada `.docx`, después `wc -w` descartando el bloque anterior al primer `---` |
+| Comentarios traídos | **40** en **29 hilos**: 37 en §17.3, 3 en §17.4 | `word/comments.xml` + `word/commentsExtended.xml` (hilos por `paraIdParent`) |
+| CPN/EN/TN definidos en etapa 2 | §17.1.4.2 y sus tres sub-apartados | búsqueda de `CPN` en `entregable/96b-…-17-1-…md` |
+| `E-DIR`/`E-IND`/`E-HYB` en secciones cerradas | **cero apariciones** | búsqueda sobre el XML de `entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` |
+| Siglas de métricas definidas en etapa 2 | `t_alert-system` §17.1.7.5.1 (como ecuación OMML) · `TTFD` §17.1.7.5.2 · `SDR` §17.1.7.5.3 | ídem; la sigla de latencia **no** aparece en extracciones planas |
+| Preselección en el borde: implementada | sólo para la cámara propia; deshabilitada por defecto; degradación segura con latido y apertura ante silencio | esquema de configuración del plano de medios (`config/schemas.py`) y la fuente del dispositivo |
+| Preselección: efecto medido | **87 %** de unidades descartadas en el dispositivo, comparación pareada contra el flujo completo | registro de relevamiento de plataforma |
+| Preselección: apagada en lo evaluativo | decisión previa a los resultados, con dos causas declaradas | registro de decisiones del banco en tiempo real |
+| Ajuste fino: escalera completa | dos tramos entrenados y evaluados (ambos negativos) + tercero cerrado con causa técnica | cierres de jornada de los tres tramos |
+| Artefactos del módulo de distribución | `notifications.jsonl`, `distribution_summary.json`, `dead_letter.jsonl`; **no** escribe `effective_config.yaml` por corrida | `out_dir / "…"` en `eovrt_distribution` |
+| Valores del núcleo referenciados desde §17.3 | §17.4.6 **sí** los documenta (4.000/7.000 ms, 0,35, 400 px², 0,25, regiones 0–45 % y 25–85 %) | §17.4.6, primer párrafo |
+
+---
+
+## F. Mapa comentario → unidad — los 29 hilos, ninguno sin destino
+
+**§17.3 (26 hilos)**
+
+| Hilo | Sección | Destino |
+| --- | --- | --- |
+| C0 (+C1, C2, C3, C4) | 17.3.2 | **enmienda a E3-22** (§A) |
+| C5 | 17.3.2 | **E3-33** (a) |
+| C6 | 17.3.2 | **E3-33** (a) |
+| C7 | 17.3.2 | **E3-34** |
+| C8 (+C9) | 17.3.3.2 | **E3-21** (pase 2) fusiona las Tablas 40 y 41 — resuelve la duplicación medible. Lo que Gabriel además insinúa (que §17.3.3.1 y §17.3.3.2 comparten terreno en prosa) queda **diferido a la etapa 2** por decisión tuya en el hilo ("cuando se termine ahí vemos cómo enganchamos"). Ver §H. |
+| C10 | 17.3.5 | **checkpoint de cierre, no unidad.** Dos de las siete figuras están producidas (la vista de procesos de §17.4.1 y la máquina de estados de §17.3.8.2, PNG 300 dpi y SVG, ancho 16 cm). Las cinco restantes de §17.3 son las tuyas y entran en el pase final de figuras. Ver §H. |
+| C11 | 17.3.6.4 | **E3-42** |
+| C12 (+C13, C14) | 17.3.6.6 | **E3-20** (pase 2) — sin cambios; es tu propio texto |
+| C15 | 17.3.6.7 | **E3-35** |
+| C16 (+C17) | 17.3.7.3 | **E3-28 + enmienda** (pase 2) — sin cambios |
+| C18 | 17.3.7.4 | **E3-36** |
+| C19 | 17.3.7.4 | **E3-36** |
+| C20 | 17.3.7.5 | **enmienda a E4-22** (§A) |
+| C21 | 17.3.7.5 | **E3-37** |
+| C22 | 17.3.7.5 | **E3-37** |
+| C23 | 17.3.8.2 | **verificado, sin cambio.** §17.4.6 sí documenta los valores del núcleo. La sección se retitula por E4-26 (*"…y catálogo de modelos"*) pero **no cambia de número**, así que la remisión sigue siendo válida. |
+| C24 | 17.3.8.3.1 | **E3-38** |
+| C25 | 17.3.8.3.1 | ídem C23 — verificado, sin cambio |
+| C26 | 17.3.8.3.4 | **E3-39** |
+| C27 | 17.3.9.1 | **E3-40** (1) |
+| C28 (+C29) | 17.3.9.2 | **E3-40** (2) — decisión tomada: se conserva podada |
+| C30 | 17.3.9.3 | **E3-40** (3) |
+| C31 | 17.3.9.3 | **E3-40** (3) |
+| C32 | 17.3.10.1 | **E3-41** |
+| C33 (+C34) | 17.3.11.1 | **E3-30** (pase 2) — sin cambios; es tu propio texto |
+| C35 (+C36) | 17.3.15 | **E3-34** (2) |
+
+**§17.4 (3 hilos)**
+
+| Hilo | Sección | Destino |
+| --- | --- | --- |
+| C0 | 17.4.3 | **E4-28** |
+| C1 | 17.4.4 | **E4-25** (pase 2) — cubierto entero: propósito por endpoint, la asimetría de detención declarada y el orden de disparo derivado |
+| C2 | 17.4.7 | **E4-29** |
+
+**Sin comentario asociado, hallazgos de este pase:** **E4-27** (la fila de ajuste fino afirma algo falso),
+**E3-33 (b) y (c)** (los anglicismos inconsistentes más allá de los dos marcados), y los dos defectos del kit
+anotados en la cabecera.
+
+---
+
+## G. Numeración resultante, con los tres pases aplicados
+
+**Subsecciones de §17.3**
+
+| Cambio | Unidad | Efecto |
+| --- | --- | --- |
+| §17.3.6.6 eliminada | E3-20 (pase 2) | 6.7 → 6.6 |
+| §17.3.6.6 (ex 6.7) eliminada | **E3-35** | §17.3.6 queda con **6.1 a 6.5** |
+| §17.3.7.4 eliminada | **E3-36** | 7.5 → **7.4**; §17.3.7 queda con **7.1 a 7.4** |
+| §17.3.9.3 retitulada | **E3-40** (3) | mismo número, nuevo título *"Comparabilidad entre estrategias"* |
+| §17.3.11.1 eliminada | E3-30 (pase 2) | 11.2 → 11.1, 11.3 → 11.2, 11.4 → 11.3 |
+| §17.3.14.2 retitulada | **E3-33** (a) | *"EBE como escenario de fuente en vivo controlada"* |
+
+⚠ **Dependencia cruzada a respetar al aplicar:** la acción 3 de la enmienda a E3-28 apunta a "§17.3.7.5"; tras
+E3-36 esa subsección es **§17.3.7.4**. Es la misma unidad (*"Capacidades opcionales sin desplazar el núcleo
+validable"*) y sigue siendo donde nace `fail-open`.
+
+**Tablas.** Este pase elimina **una** tabla más que el pase 2: la **Tabla 39**, que E3-22 ya sacaba —la
+enmienda no cambia el conteo, sólo qué la reemplaza—. Las Tablas 64, 66, 68 y 69 reciben ediciones de celda o
+de fila, no cambian de posición. ✎ **Mapa computado (2026-08-23; segunda corrección el mismo día — al aplicarse E3-27 la
+Tabla 46 pasó a viñetas, así que §17.3 pierde SIETE tablas, no seis):** §17.3 pierde 39, 40, 46, 49, 51,
+61 y 62, y queda con **17 = Tablas 39–55** (41→39, 42→40, 43→41, 44→42, 45→43, 47→44, 48→45, 50→46,
+52→47, 53→48, 54→49, 55→50, 56→51, 57→52, 58→53, 59→54, 60→55); §17.4 pierde la 65 y queda con **6 =
+Tablas 56–61** (63→56, 64→57, 66→58, 67→59, 68→60, 69→61); **§17.5 arranca en la Tabla 62**. ⚠ El mapa
+vale si las opcionales C-01 a C-04 del pase 2 **no** se aplican (siguen sin decidirse); si alguna se
+aplica, se recorre desde su posición.
+
+---
+
+## H. Verificación cruzada de alineación entre §17.3 y §17.4 (✎ 2026-08-22, directiva del usuario)
+
+Cada tema que cruza la frontera diseño → implementación, con la unidad que lo fija de cada lado y el estado
+verificado. **Esta tabla es la prueba de que las correcciones de ambas etapas no se contradicen**; si una
+unidad futura toca uno de estos temas, tiene que actualizar la fila.
+
+| Tema compartido | Lado §17.3 | Lado §17.4 | Verificado |
+| --- | --- | --- | --- |
+| Identificadores versionados (`.vN`, literales) | E3-31 (cero en §17.3) bajo D-P2-5 | E4-23 + E4-24 (Tabla 63 único punto de declaración; 1 glosa) bajo D-P2-6 | ✅ contrapartes explícitas; la fila *Cierre de corrida* de E4-24 recibe lo que E3-31 suelta |
+| `fail-open` / `opt-in` | E3-28 + enmienda: nace y se glosa en "Capacidades opcionales…" (§17.3.7.4 tras E3-36); `opt-in` erradicado | Enmienda a E4-22: la fila de la Tabla 68 dice **"criterio de degradación segura"** — usa el término ya definido, no lo redefine | ✅ definición precede a todo uso |
+| Preselección en el borde | Huella declarativa: DA-11, §17.3.7.4, §17.3.14.5, Tablas 57/58/59 | Enmienda a E4-22: implementada y medida (87 %), excluida de lo evaluativo con causa pre-registrada | ✅ el diseño la declara, la implementación rinde cuentas |
+| Rama de ajuste fino | DA-07 y fila "Adaptación al dominio" (E3-21): condiciones de la rama (línea base congelada, partición disjunta, criterios previos) | E4-27: jornada completa, tres tramos cerrados, sin marcador | ✅ las condiciones del diseño son exactamente las que la jornada cumplió (pre-registración) |
+| Duplicación DA-03 ↔ patrones de acople | E3-19 (la celda de DA-03 deja de enumerar tecnologías) | E4-20 (Tabla 65 eliminada: era el duplicado) | ✅ el par se resolvió de los dos lados |
+| Anglicismos ya normalizados | E3-33 (a)(b)(c) — con lista cerrada de lo que NO se toca | **E4-30** — las 3 apariciones sobrevivientes de `PUB/SUB` | ✅ misma forma en ambas secciones |
+| Códigos E-DIR / E-IND / E-HYB | E3-42: nacen glosados en §17.3.6.4 | §17.4.10 (Tabla 68) los usa después de esa definición | ✅ orden definición → uso verificado; §17.5 los hereda (D.0) |
+| Valores efectivos del núcleo | §17.3.8.2 y Tabla 46 remiten a §17.4.6 (verificado en C23/C25) | E4-26 retitula §17.4.6 **sin cambiar su número** | ✅ la remisión sigue válida |
+| Máquina de estados (FIG-E) | Vive en §17.3.8.2 (D2, excepción declarada) | §17.4.3 la referencia sin repetirla (texto guía de E4-28 mantiene la referencia descriptiva) | ✅ una sola figura, un solo dueño |
+| Consolidación de evidencia por corrida | §17.3.10.2 / Tabla 48 (consumidores) y §17.3.12.1 (repositorio por `experiment_id`) | E4-29: `distribution/` entra al árbol con su condición entre paréntesis | ✅ el árbol muestra los cuatro componentes que el diseño promete |
+| Cierre de corrida (`run_finished`) | §17.3.8.4 lo enuncia en abstracto (E3-31 suelta el literal) | Tabla 63, fila nueva de E4-24, lo declara | ✅ sin huérfanos |
+
+---
+
+## I. Diferidos y dependencias inversas
+
+| Ítem | Por qué se difiere | Cuándo se retoma |
+| --- | --- | --- |
+| **C-1 del pase 1** — bautizar E-DIR/E-IND/E-HYB en §17.1.5.4.2 | Es edición de etapa 2, y **E3-42** ya dejó §17.3 autosuficiente | Al trabajar etapa 2. **Dependencia inversa:** si se aplica, hay que recortar la glosa de §17.3.6.4 a una remisión, o el informe la dirá dos veces |
+| **Solape §17.3.3.1 ↔ §17.3.3.2 en prosa** (hilo C8/C9) | Depende de qué quede en §17.1 tras la etapa 2 | Al cerrar etapa 2, con E3-21 ya aplicada |
+| **Pase de figuras** (C10) | Las cinco figuras de §17.3 son originales del autor | Pase final de figuras, junto con la inserción de las dos producidas |
+| **`[[PENDIENTE]]` de §17.4.8.1** — origen y fecha de acceso por clip del lote de obra real | Insumo del usuario, sigue abierto | **Bloqueante para la versión final**; no se relaja |
+| **Unidades opcionales C-01 a C-04 del pase 2** | Decisión no tomada | Antes de fijar la numeración final de tablas (§G) |
+| **Anomalía observada en §17.1.7.5.1** (fuera de alcance) | La sigla de la latencia de alerta viaja como ecuación de Word y desaparece en toda extracción plana: los títulos quedan como *"Latencia de Alerta ()"* | Al trabajar etapa 2, verificar que la sigla se lea bien en el `.docx` final y no sólo en pantalla |
+
+---
+
 ## Fuente: `docs/informe/entregable/96e-informe-v11-cierre-anexos-referencias.md`
 
 > SHA-256 del bloque: `6b1d8f4b631dc608b001d500a4eea6e9e439d42022a38bf05f984a963eb921a6`  
@@ -1464,11 +3035,19 @@ que sí presenta §17.3 —duplicación entre tablas vecinas y columnas que no d
 
 ## Fuente: `docs/informe/ajustes/04-etapa-4-implementacion.md`
 
-> SHA-256 del bloque: `ad1e9ea5d9f22449b2e6c54ac170f9488aeae008e5f7554f256cff7e9ef3920d`  
+> SHA-256 del bloque: `5f91dd9e5224825e90f975c25564f87ca6ced80666e8bf92007671182805c195`  
 > Seleccion: documento completo.
 
 # Etapa 4 — §17.4 Implementación del prototipo experimental
 
+> ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
+> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` en
+> `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
+> Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
+> unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
+>
+> *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
+>
 > **Estado (2026-08-10):** la sección **está vacía**. En el informe v1.1 dice
 > literalmente `[Agregado futuro correspondiente a la Etapa 4]`. Esto **no es un frente
 > de correcciones: es redacción desde cero.**
@@ -1673,25 +3252,26 @@ cualquier cifra.
 
 **Cada ítem con su estatuto exacto — ya no comparten uno solo.** Los tres frentes:
 
-- **Distribución de alertas por MQTT** — **funcionalmente implementada y verificada**.
-  Lo pendiente es su acople operativo: vista de outcomes en la webconsole, lanzamiento
-  desde la orquestación y commits del repo. E-06 (canales extra y dashboard propio)
-  sigue excluida. Diseño y contratos: `92b`; evidencia ejecutada: `operacion/114`.
+- **Distribución de alertas por MQTT** — **implementada, verificada e integrada**
+  (✎ 2026-08-22; antes esta línea decía que quedaban pendientes la vista de webconsole,
+  la orquestación y los commits del repo — las tres cosas están hechas: consola y
+  orquestación integradas, repo versionado y con remoto). E-06 (canales extra y
+  dashboard propio) sigue excluida. Diseño y contratos: `92b`; evidencia ejecutada:
+  `operacion/114`.
 - **Métricas MOT** (exclusión E-10). Atención al matiz de R-21: lo excluido son las
   **métricas**, no la capacidad — el tracker existe y la granularidad por sujeto es el
   mejor resultado del banco.
-- **Fine-tuning** (E-04) — ✎ 2026-08-11 su estatuto cambió: **ADR-017 la puso en
-  alcance como jornada experimental comprometida** (escalera T1→T2/T3 con go/no-go y
-  Mendieta). ✎ **2026-08-13:** F-100.1 está resuelta; `1166583` cerró freeze/smoke técnico,
-  dual gate y serving real. T1 full sigue en NO-GO por D-FT-08/T-FT-005, T-FT-031 y
-  T-FT-032; la procedencia T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`),
-  evaluación T031 y baseline 26s T032. ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13
-  firmadas, y T-FT-031/032 cerradas la misma jornada** (doc 120: baseline 26s one-shot,
-  `bare_head` AP50 0,000) — el NO-GO quedó en `full-authorization.json` + `RUN` manual.
-  Se redacta como **rama condicionada por datos y protocolo** y
-  **declarando el estado real de la jornada al momento de la entrega**, con causa
-  técnica — nunca "por tiempo", y nunca en presente mientras no haya corrida
-  verificada. *Decía "no ejercida por secuenciación"*.
+- **Fine-tuning** (E-04) — ✅ **✎ 2026-08-22: la jornada está COMPLETA en sus tres
+  tramos y ya no hay estado que "declarar a la entrega": se declara el CIERRE.**
+  T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 cerrado con causa técnica
+  (`operacion/117` §2). Para §17.4 rige **E4-27** (pase 3): la fila de la Tabla 68 dice
+  que la escalera pre-registrada se ejecutó completa, que ningún checkpoint se incorporó
+  y que el veredicto negativo es pre-registrado — el marcador `[[PENDIENTE]]` de esa fila
+  se elimina. Las cifras y su lectura (curva de tres puntos, F-127.1: fallo estructural
+  de datos, no de capacidad) van en §17.5, no acá. Sigue rigiendo: **rama comparativa
+  condicionada por datos y protocolo, nunca "por tiempo"** (ADR-017). *(Las notas 08-11 →
+  08-15 que estaban en este bullet quedaron como historia en `estado-de-implementacion-adrs.md`,
+  fila 017, que está al día.)*
 
 **Prosa ya redactada y corregida en `94` §8** (redline R-13). Transcribir una versión
 anterior declararía como faltantes G1, la comparación de estrategias, distribución y la
@@ -1766,12 +3346,286 @@ la alerta) · `operacion/97` · `operacion/37`, `38`, `80`, `109` · `decisiones
 
 ---
 
+## Fuente: `docs/informe/entregable/90b-etapa4-texto-extraido.md`
+
+> SHA-256 del bloque: `7f8ee16c9aa4779c61447591b588f78647acfdf678046bf74ad64bde484c2cf1`  
+> Seleccion: TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.5 (2026-08-23), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando.
+
+# 90b — Texto extraído del documento de trabajo: §17.4 Implementación (v1.5)
+
+> **Extracción derivada (2026-08-23)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.4_Implementacion_v1.5.docx`, **solo para búsqueda y cita**
+> (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
+> este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
+> extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
+> `⟦ECUACIÓN: no extraída — ver el .docx⟧` donde estaban. Regenerado con
+> `herramientas/extraer_informe.py` (regla D-C del manual de aplicación).
+
+---
+
+### 17.4. Implementación del prototipo experimental
+
+La presente sección documenta la materialización del diseño arquitectónico desarrollado en la sección 17.3. Su propósito es establecer qué componentes fueron construidos, cómo se concretaron los contratos e interfaces previstos, qué mecanismos de acople y persistencia se implementaron y mediante qué evidencia se verificó el funcionamiento técnico del prototipo experimental.
+
+La descripción se concentra en la implementación y en su verificabilidad. Los resultados comparativos de desempeño del detector, del motor temporal y de la plataforma completa se presentan en la sección 17.5, donde se declaran las combinaciones experimentales, los materiales, los denominadores y las limitaciones de cada medición. Esta separación evita confundir la existencia de una capacidad con su rendimiento cuantitativo.
+
+#### 17.4.1. Componentes construidos y cadena de datos
+
+El prototipo se materializó en tres componentes de plataforma, un módulo funcional de distribución y una cadena de datos externa a la plataforma que produce los insumos experimentales.
+
+El plano de medios implementa el pipeline de inferencia open-vocabulary. Se ejecuta como un servicio gobernado por configuración, carga el modelo una única vez al iniciar y expone una interfaz HTTP para disparar una corrida por vez. El plano de control implementa el motor de patrones de riesgo que consume evidencia de percepción, mantiene estado temporal y registra alertas internas. También se ejecuta como servicio HTTP. El soporte experimental no constituye un plano de ejecución: reúne los catálogos de prompts y experimentos, el runner u orquestador reproducible, la consolidación de artefactos y la webconsole con su backend intermediario.
+
+El módulo de distribución de alertas constituye un cuarto componente funcional y no un tercer plano. Al igual que los dos planos, se ejecuta como un servicio gobernado por configuración con interfaz HTTP propia. Consume las alertas confirmadas desde el bus de alertas, aplica la política de notificación, controla idempotencia y supresión, entrega por MQTT con confirmación de calidad de servicio y conserva un registro de entregas de sólo adición (ledger). La vista de resultados de entrega y el lanzamiento desde la orquestación quedaron integrados.
+
+La **cadena de datos** comprende adquisición, validación, conversión y congelamiento de datasets y bancos de evaluación. Para el banco temporal de video esa cadena comprende la adquisición y curación del material, la preparación y segmentación temporal de los clips, la anotación asistida con revisión humana y la derivación, validación y congelamiento de la referencia; su construcción se documenta en la sección 17.4.8. Alimenta a la plataforma, pero no forma parte de su cadena operativa: su función es producir material reproducible y con procedencia para entrenamiento, selección y evaluación.
+
+**Figura 4.7**
+
+*Vista de procesos y patrones de acople de la plataforma experimental*
+
+⟦FIGURA: no extraída — ver el .docx⟧
+
+*Nota.* La figura representa la materialización efectiva de los dos patrones de acople de la plataforma experimental. El gobierno de las corridas se realiza mediante interfaces HTTP en el plano de medios (:8080), el plano de control (:8081) y el módulo de distribución (:8082), con el runner y la webconsole como clientes de los tres servicios. El flujo de datos se desacopla mediante buses ZeroMQ de patrón publicador-suscriptor con serialización msgpack: eventos de percepción desde medios hacia control (:5557) y alertas confirmadas desde control hacia distribución (:5558). El repositorio por ejecución experimental conserva los artefactos persistentes y el orden live inicia el control, confirma la suscripción y recién entonces habilita los medios.
+
+#### 17.4.2. Correspondencia entre el diseño y los artefactos implementados
+
+Los contratos preliminares definidos durante el diseño se materializaron como modelos de datos, configuraciones versionadas, esquemas serializables, servicios ejecutables y artefactos persistentes. La Tabla 56 establece la correspondencia entre cada denominación conceptual y su realización efectiva.
+
+**Tabla 56**
+
+*Correspondencia entre los contratos del diseño y su materialización efectiva*
+
+| **Contrato del diseño** | **Materialización efectiva** | **Versionado y trazabilidad** | **Componente** |
+| --- | --- | --- | --- |
+| RunConfig | Manifiesto de experimento y configuraciones efectivas por plano | experiment.manifest.v1 | Soporte experimental |
+| SourceDefinition | Sección de fuente de la configuración y registro de adaptadores de ingesta | Esquema de configuración; congelado por el manifiesto | Plano de medios |
+| ModelProfile | Catálogo de perfiles de modelo, con un archivo por variante | Catálogo versionado; un archivo por variante | Plano de medios |
+| PromptDefinition | Conjunto de prompts versionado e identificado en cada corrida | prompt_set_id registrado en cada corrida | Soporte experimental |
+| FrameMetadata | Unidad visual interna y bloque de fuente del evento publicado | Contrato interno; viaja dentro del evento publicado | Plano de medios |
+| PerceptionEvent | Evento de percepción normalizado | media.detection.v1 | Plano de medios |
+| PatternDefinition | Definición declarativa dentro del conjunto de patrones | Conjunto de patrones versionado (pattern set) | Plano de control |
+| PatternStateChanged | Evento de transición del patrón | control.pattern_state.v1 | Plano de control |
+| AlertEvent | Alerta interna con identificador determinista e idempotente | control.alert.v1 | Plano de control |
+| MetricSample | Muestras de métricas de medios y control | media.metric.v2 / control.metric.v1 | Ambos planos |
+| ErrorEvent | Registro de errores y anomalías por corrida | Esquema por componente, registrado por corrida | Ambos planos |
+| Bus interno de eventos | Publicación ZeroMQ con envoltorio versionado | bus.envelope.v1 | Frontera entre planos |
+| Cierre de corrida | Evento de finalización publicado al cerrar la corrida | run.lifecycle.v1 (evento run_finished) | Plano de medios |
+| Repositorio de eventos | Archivos JSONL de sólo adición por corrida | Esquemas de cada evento persistido | Ambos planos |
+| Referencia temporal | Anotación humana de episodios por clip | clip_gt.v2 | Soporte experimental |
+| Reporte experimental | Reporte consolidado report.json y por experimento | Proyección regenerable de los artefactos primarios | Soporte experimental |
+| Alerta distribuida | NotificationEnvelope y DeliveryRecord | control.notification.v1 / control.delivery.v1 | Módulo de distribución |
+
+**Nota.** La tabla documenta la correspondencia semántica entre el diseño y la implementación. El versionado se materializa mediante esquemas explícitos, catálogos, conjuntos de configuración y artefactos congelados por el manifiesto de cada ejecución experimental.
+
+La correspondencia permite verificar que la implementación no sustituyó silenciosamente las fronteras arquitectónicas. El plano de medios continúa produciendo evidencia perceptiva, el plano de control conserva la interpretación temporal y la alerta interna, el soporte experimental gobierna y consolida corridas, y la distribución opera como tramo posterior desacoplado.
+
+#### 17.4.3. Contratos de datos materializados
+
+Cinco contratos concentran los hechos principales de la ejecución: el evento de percepción, el envoltorio del bus, el contrato de ciclo de vida, el evento de transición de patrón y la alerta interna. Los cinco están declarados con su identificador en la tabla anterior; lo que sigue precisa qué lleva cada uno y qué propiedad técnica habilita.
+
+El evento de percepción normaliza la salida del detector. Identifica la corrida y la unidad visual; describe la fuente, el perfil de modelo y el conjunto de prompts efectivos; y transporta las detecciones con sus coordenadas en píxeles y normalizadas, sus puntajes y los tiempos medidos por unidad. Esa composición es la que permite que una detección se atribuya después a una variable concreta de la corrida y no a una combinación desconocida.
+
+El envoltorio del bus encapsula ese mismo contenido para transmitirlo y le agrega un número de secuencia monótono; el contrato de ciclo de vida delimita el inicio y el cierre de la corrida. Juntos habilitan dos propiedades que la persistencia sola no da: cualquier pérdida en el transporte se vuelve detectable como un hueco de secuencia en lugar de pasar por ausencia de evidencia, y el final lógico de la corrida se distingue de una interrupción, de modo que los consumidores puedan cerrarse y los artefactos consolidarse.
+
+El evento de transición registra los cambios entre los estados del patrón —los mismos que fija la máquina de estados del diseño— junto con la evidencia y los hitos temporales que los motivaron; la alerta interna registra la confirmación del episodio con un identificador determinista, de modo que reprocesar la misma corrida produzca la misma identidad de alerta y la deduplicación no requiera estado compartido entre componentes. La alerta conserva además evidencia auditable: sujeto observado, detecciones de soporte, clase de protección ausente, región evaluada, puntaje y justificación legible. Por eso la ausencia no se presenta como una afirmación opaca del detector, sino como una inferencia del plano de control reconstruible sobre evidencia positiva.
+
+#### 17.4.4. Interfaces de servicio y gobierno por configuración
+
+Los dos planos se implementaron como servicios independientes gobernados por configuración y expuestos mediante HTTP. Esta concreción permite disponerlos en un mismo host o en hosts distintos sin modificar su lógica y habilita que el soporte experimental orqueste corridas de manera reproducible. Rutas, fuentes, umbrales, ventanas temporales y opciones de instrumentación se declaran en configuración; cada corrida persiste la configuración efectiva utilizada.
+
+**Tabla 57**
+
+*Interfaces principales de los servicios de la plataforma*
+
+| **Servicio** | **Operación** | **Función** |
+| --- | --- | --- |
+| Plano de medios (:8080) | GET /api/model | Expone el perfil de modelo, dispositivo y umbrales efectivos. |
+| Plano de medios (:8080) | POST /api/runs | Dispara una corrida con fuente, prompts, parámetros, configuración de bus e identificador de experimento. |
+| Plano de medios (:8080) | POST /api/runs/{id}/stop | Detiene cooperativamente la corrida en curso; el cierre se propaga a los consumidores por el bus. |
+| Plano de medios (:8080) | GET /api/runs/{id} | Consulta estado y resumen de la corrida. |
+| Plano de medios (:8080) | GET /api/runs/{id}/detections | Recupera evidencia perceptiva paginada. |
+| Plano de medios (:8080) | POST /api/runs/{id}/evaluate | Ejecuta la evaluación de percepción cuando existe referencia aplicable. |
+| Plano de control (:8081) | POST /api/runs | Dispara una corrida en modo replay o live. |
+| Plano de control (:8081) | GET /api/runs/{id}/alerts | Recupera las alertas internas registradas. |
+| Plano de control (:8081) | GET /api/config | Expone la configuración efectiva de control. |
+| Módulo de distribución (:8082) | POST /api/runs | Inicia una corrida de entrega con fuente de alertas, política, canal e identificador de experimento. |
+| Módulo de distribución (:8082) | GET /api/runs/{id} | Consulta estado y conteos de entrega; determina cuándo consolidar artefactos. |
+| Módulo de distribución (:8082) | POST /api/runs/{id}/cancel | Detiene cooperativamente una corrida de entrega en curso. |
+| Módulo de distribución (:8082) | GET /api/config | Expone la configuración efectiva de distribución. |
+|  | Bus ZeroMQ publicador-suscriptor (msgpack) | Transporta los eventos de percepción y el ciclo de vida de la corrida dentro del envoltorio versionado del bus. |
+|  | Bus ZeroMQ publicador-suscriptor (msgpack) | Transporta las alertas internas confirmadas hacia el módulo de distribución. |
+| Runner y webconsole | Clientes HTTP de los tres servicios | Gobiernan corridas y consolidan artefactos; no consumen los buses de datos. |
+
+*Nota.* La tabla resume las operaciones de gobierno principales; no es un inventario exhaustivo (listados, corrida actual, artefactos por corrida, comprobaciones de salud y limpieza del registro se omiten). La detención figura únicamente donde el servicio la expone: el plano de control no ofrece detención de una corrida en curso, y esa asimetría es deliberada (ver el texto).
+
+El modelo no se transmite en la solicitud de corrida. Se carga una sola vez al iniciar el servicio de medios; por ello, comparar perfiles de modelo implica disponer procesos con perfiles distintos y no reconfigurar pesos dentro de una corrida. Esta decisión mantiene el costo de carga fuera de la ruta crítica y evita estados ambiguos del servicio.
+
+Los tres servicios implementan el mismo contrato de gobierno: admiten una corrida activa por vez y rechazan solicitudes concurrentes señalando la corrida en curso; cada corrida declara su configuración al crearse y el servicio persiste la configuración efectiva utilizada. Las operaciones de consulta de configuración y de perfil de modelo permiten verificar, antes de disparar, que el servicio cargó lo que el experimento requiere: sin ellas, una discrepancia entre lo configurado y lo desplegado sólo se descubriría en los resultados.
+
+En una corrida en vivo, la respuesta afirmativa de cada consumidor del bus implica que su suscripción ya está establecida: la del plano de control sobre el canal de detecciones y la del módulo de distribución sobre el canal de alertas. De esa garantía se deriva el orden de disparo, inverso al flujo de datos: primero la distribución, después el control, por último el plano de medios. Un consumidor suscripto tarde perdería los eventos ya publicados sin ningún error observable; el orden de disparo excluye esa pérdida por construcción.
+
+La detención de corridas es cooperativa en los dos servicios que la exponen: la solicitud marca la corrida y el hilo de ejecución la observa entre unidades, sin cortes abruptos que dejarían artefactos a medio escribir. El plano de control no expone detención, y la asimetría es deliberada: su corrida en vivo se cierra con el evento de finalización que publica el plano de medios —la relación entre ambas corridas es uno a uno—, de modo que la intervención del operador se ejerce aguas arriba y el cierre llega por el mismo canal que los datos. El módulo de distribución, en cambio, requiere cancelación propia: una corrida de entrega puede permanecer a la espera de alertas y debe poder abortarse sin reiniciar el servicio.
+
+#### 17.4.5. Patrones de acople y caminos experimentales
+
+La implementación distingue dos patrones técnicos de acople y dos caminos experimentales. Los patrones describen cómo se coordinan los componentes; los caminos DBE y EBE describen cómo circula la evidencia entre los planos según la naturaleza de la ejecución. Mantener ambas clasificaciones separadas evita reducir la plataforma a una dicotomía incompleta.
+
+En el camino **DBE** el acople entre planos se realiza por archivo. El plano de medios persiste detections.jsonl y el plano de control lo relee. El repositorio de corrida constituye la fuente de verdad y permite repetir el procesamiento bajo condiciones controladas. En el camino **EBE** la evidencia se transmite por el bus ZeroMQ dentro del envoltorio versionado del bus; la relación entre una corrida de medios y una de control es uno a uno y el cierre se comunica mediante el evento de finalización del contrato de ciclo de vida.
+
+El orden de disparo implementado sigue la regla definida en la sección 17.3.8.4: primero se inicia el plano de control y se confirma su suscripción; después se inicia el plano de medios. Cada mensaje incluye un número de secuencia, y cualquier hueco se contabiliza como pérdida del bus y degrada la corrida en lugar de ocultarse.
+
+La evidencia se persiste antes de publicarse. El contenido lógico de la línea JSONL y del payload transmitido es el mismo, lo que permite reevaluar offline una corrida live y reproducir sus artefactos. En los experimentos del presente trabajo, los servicios se ejecutaron co-ubicados en un único host con GPU. Los contratos entre módulos no fijan esa topología, y la configuración de cada corrida registra la disposición efectiva.
+
+#### 17.4.6. Configuración efectiva y catálogo de modelos
+
+El conjunto de patrones efectivo del núcleo es cr01_cr02_v2. CR-01, persona sin casco, se configuró con severidad alta, confirmación a los 4.000 ms y resolución a los 2.000 ms. CR-02, persona sin chaleco reflectivo, se configuró con severidad media, confirmación a los 7.000 ms y resolución a los 3.000 ms. Las precondiciones de evidencia exigen confianza mínima de 0,35 y área mínima de 400 píxeles cuadrados para el sujeto, y confianza mínima de 0,25 para el elemento de protección. La región de búsqueda se define de forma relativa a la caja del sujeto: para CR-01, la franja superior entre el 0 % y el 45 % de la altura con margen lateral del 12 %; para CR-02, la franja del torso entre el 25 % y el 85 % con margen lateral del 8 %.
+
+El conjunto de patrones oficial opera con granularidad de escena. En coherencia con la decisión de diseño que separa la alerta interna de su comunicación (DA-13), el motor registra cada confirmación sin supresión: el cooldown, la agrupación y la limitación de tasa pertenecen a la política del módulo de distribución. La identidad por sujeto se implementó como capacidad activable por configuración del plano de control y se trata en la sección 17.4.11.
+
+La estrategia perceptiva del núcleo utiliza evidencia positiva: person como entidad y helmet y vest como elementos de protección. La ausencia se infiere en el plano de control y no se consulta como una negación opaca al detector.
+
+El catálogo de perfiles de modelo materializa la sustituibilidad prevista en el diseño: variantes de Grounding DINO —tiny y base, cada una con resolución de entrada de 800 y de 560 píxeles— y de YOLOE en cuatro tamaños, todas integradas mediante adaptadores sobre el mismo contrato de salida. Una tercera familia, MM-Grounding DINO, se integró por el mismo mecanismo y fue descartada durante la evaluación; su descarte se informa con los resultados y sus perfiles quedaron archivados fuera del catálogo activo.
+
+El núcleo no fija un modelo único. Cada instancia del servicio de medios carga un perfil al iniciarse, la comparación entre perfiles se materializa disponiendo instancias con perfiles distintos bajo la misma configuración de corrida, y el despliegue integral de la plataforma instancia un servicio por perfil del catálogo, orquestados desde la consola. Los perfiles vigentes se compararon sobre el banco de imágenes congelado; las campañas temporales y en vivo fijan un perfil por corrida, declarado en el manifiesto. Los resultados por modelo y por familia, y los criterios pre-registrados con que se seleccionó el perfil de cada campaña, se presentan en la sección 17.5.
+
+Cada perfil declara sus umbrales y su postproceso en el catálogo, y cada corrida persiste la configuración efectiva utilizada, sin constantes ocultas en el código. A título de ejemplo, el perfil fijado por criterio pre-registrado para las corridas en vivo declara umbral de caja de 0,30 y de texto de 0,25; su postproceso aplica confianza mínima de 0,25, supresión de solapamientos con IoU de 0,50 y área mínima de caja de 100 píxeles cuadrados; y el control de ritmo opera con selección determinista de paso 1 y una cola máxima de ocho unidades.
+
+#### 17.4.7. Artefactos y trazabilidad por corrida
+
+Cada ejecución produce un repositorio de artefactos de sólo adición. La organización por componente conserva la evidencia necesaria para reproducir el flujo, analizar fallas y reconstruir una alerta desde su configuración hasta su salida distribuida.
+
+**Tabla 58**
+
+*Artefactos persistidos por componente y experimento*
+
+| **Tramo** | **Artefactos principales** | **Función de trazabilidad** |
+| --- | --- | --- |
+| Plano de medios | detections.jsonl; metrics.jsonl; errors.jsonl; summary.json; effective_config.yaml; run_manifest.json; run_provenance.json | Reconstruye fuente, unidades procesadas, detecciones, tiempos, errores, configuración, procedencia y versión de código. |
+| Plano de control | pattern_events.jsonl; alerts.jsonl; alerts.csv; metrics.jsonl; errors.jsonl; summary.json; effective_config.yaml | Reconstruye transiciones del patrón, alertas internas, evidencia causal, métricas y configuración del motor. |
+| Soporte experimental | manifest.effective.yaml; copias de artefactos livianos; referencias a artefactos pesados; report.json; | Agrupa las corridas de ambos planos bajo un experiment_id y consolida el resultado de la ejecución experimental. |
+| Distribución | notifications.jsonl (ledger de intentos y entregas, de sólo agregado); dead_letter.jsonl; distribution_summary.json | Relaciona cada intento y resultado de entrega con la alerta interna original sin reescribirla, y conserva por separado los descartes definitivos por agotamiento de reintentos. |
+
+**Nota.** Los nombres de archivo corresponden a los artefactos implementados. Los artefactos pesados se referencian en la ejecución experimental para evitar duplicación, mientras que las configuraciones y reportes se conservan junto al experimento.
+
+Cada plano conserva su repositorio completo por corrida: el plano de medios registra detecciones, métricas, errores, resumen, configuración efectiva, manifiesto y procedencia; el plano de control registra transiciones, alertas, métricas, errores, resumen y configuración efectiva. El soporte experimental consolida la ejecución experimental copiando los artefactos livianos y referenciando los pesados:
+
+runs/<experiment_id>/                (repositorio del soporte experimental)   manifest.effective.yaml   media/           summary.json · metrics.jsonl · effective_config.yaml ·                    detections.ref.json  (referencia al detections.jsonl del plano de medios)   control/         alerts.jsonl · pattern_events.jsonl · metrics.jsonl ·                    summary.json · effective_config.yaml                    (y la evaluación temporal, cuando la corrida la habilita)   distribution/    notifications.jsonl · distribution_summary.json · dead_letter.jsonl                    (cuando la corrida habilita el tramo de distribución)   report/          report.json · report.md
+
+La ejecución experimental consolida así los cuatro componentes bajo una misma clave. La modularidad de la plataforma se expresa en que un tramo pueda no estar habilitado, no en que su evidencia se consolide de otro modo cuando lo está.
+
+El manifiesto de corrida registra la versión de código que produjo los artefactos. Junto con la configuración efectiva, el conjunto de prompts y la procedencia de la fuente, este dato permite reconstruir cada alerta hasta el modelo y el commit que intervinieron. El reporte consolidado declara el estado de aplicabilidad de cada métrica como computada, aplicable no computada, no aplicable o no interpretable, siempre con una causa explícita.
+
+#### 17.4.8. Construcción del banco temporal y de la referencia humana de evaluación
+
+La evaluación temporal se apoya en una referencia humana de episodios por clip, materializada mediante el esquema clip_gt.v2, segunda versión de la referencia: la primera generación registraba alertas esperadas por sujeto y fue reemplazada por episodios a nivel de escena y condición con tiempos en milisegundos, junto con estados de aplicabilidad por clip. Su construcción comprendió la adquisición y conformación del material audiovisual, la preparación y segmentación temporal de los clips, la anotación asistida con revisión humana y la derivación, validación, promoción y congelamiento de la referencia. Para la anotación se seleccionó CVAT, una herramienta de código abierto con soporte de interpolación temporal y exportación estructurada.
+
+##### 17.4.8.1. Adquisición y conformación del material audiovisual
+
+El material del banco proviene de dos fuentes con procedencia y grado de control experimental distintos, y esa diferencia se conserva como atributo de cada clip. La primera fuente es un rodaje guionado ejecutado con el hardware real de captura del prototipo: cada escenario se diseñó en función de una condición de riesgo del núcleo, con un guion segundo a segundo que fija la entrada del sujeto en cumplimiento, el inicio diferido de la infracción y su persistencia sostenida durante lapsos muy superiores a las ventanas de confirmación de los patrones, e incluye escenas negativas y escenas deliberadamente por debajo del umbral de confirmación. Las tomas se registraron con margen temporal adicional respecto del clip previsto, para que el recorte fino fuera una operación posterior y controlada; la grabación y el recorte se realizaron desde la propia consola del prototipo, que incorpora esa capacidad. La segunda fuente es un lote de obra real no guionada obtenido de videos públicos de internet, incorporado como bloque separado con criterios de selección definidos de antemano: material de obra en cumplimiento destinado a medir especificidad y falsos positivos —no sensibilidad—, prohibición de concatenar segmentos cortos para fabricar unidades largas, y exclusiones declaradas con causa y firma en lugar de descartes silenciosos.
+
+*[[PENDIENTE: dirección de origen y fecha de acceso por clip del lote de obra real · depende de completar la ficha de procedencia primaria antes del cierre final del informe]]*
+
+##### 17.4.8.2. Preparación y segmentación temporal de los clips
+
+Los videos maestros se conservaron sin modificación y las unidades de evaluación se generaron como clips derivados, con criterios temporales explícitos fijados antes de ejecutar las campañas y aplicados como reglas ejecutables, no como juicio caso por caso. Cada clip del rodaje se recortó con un preludio fijo de 3,5 s antes del inicio de la condición —el inicio nunca coincide con el primer fotograma, porque un episodio que arranca en el origen impide medir el tiempo hasta la primera detección—, una cola posterior al cierre del episodio de entre 3 y 10 s según el escenario, y un piso de duración que garantiza que una alerta válida pero lenta pueda ocurrir dentro del clip: el inicio del episodio más el techo del objetivo de latencia de alerta de su patrón, más la ventana de resolución y un margen final. Ese piso se verifica mediante un control automático durante la derivación de la referencia, y el clip que no lo alcanza no se vuelve a recortar: sus métricas de latencia y sensibilidad quedan censuradas y así se declaran. El fundamento del dimensionamiento es bidireccional: un clip demasiado corto subestima al sistema, porque produce latencias artefactuales y cuenta como omisión una alerta que no tuvo tiempo de ocurrir; un clip sin tiempo muerto sobreestima la precisión, porque elimina los tramos donde aparecen los falsos positivos. El dimensionamiento correcto elimina ambos artefactos, de modo que cada métrica resulte atribuible al sistema y no al recorte. La selección de tomas se realizó por criterio visual de calidad de la escena, no por duración, y los límites de todos los clips quedaron congelados bajo control de versiones antes de ejecutar las campañas que los evalúan. Los clips del lote de internet no se segmentaron: cada uno es el video original completo, porque recortarlos alteraría precisamente el tiempo negativo que ese bloque aporta a la medición de falsos positivos.
+
+##### 17.4.8.3. Preanotación asistida y revisión humana en CVAT
+
+La anotación no partió de video crudo. Cada clip se preanotó automáticamente con un detector de vocabulario abierto de mayor capacidad que el modelo evaluado —elección deliberada para evitar circularidad entre el sistema medido y su referencia— acoplado a un algoritmo de seguimiento que propone trayectorias por sujeto, con los atributos de protección inicializados por asociación espacial. Sobre esa propuesta se realizó la pasada humana en CVAT: revisión y corrección de cajas y trayectorias, verificación de identidades a lo largo de la secuencia, asignación de los atributos observables por tramo, marcación explícita como estado desconocido de los tramos donde el atributo no resulta observable —en lugar de forzar un valor—, y fijación de los límites temporales de cada episodio. La interpolación temporal y la preanotación redujeron las operaciones repetitivas, pero no sustituyeron la revisión humana de las trayectorias, los atributos ni los límites de cada episodio: la construcción de la referencia fue una actividad intensiva en revisión, no un etiquetado manual fotograma por fotograma ni una validación automática.
+
+##### 17.4.8.4. Derivación, validación, promoción y congelamiento
+
+La salida de la anotación se procesa mediante una cadena reproducible de separación, derivación, validación, promoción y agregación. La cadena valida la estructura de cada exportación antes de derivar, y la derivación clasifica los episodios con las mismas ventanas de confirmación que utiliza el motor de patrones —4.000 ms para CR-01 y 7.000 ms para CR-02—, de modo que la referencia y el sistema evaluado apliquen un criterio temporal idéntico; una divergencia entre ambos produciría omisiones ficticias. Las correcciones humanas posteriores a la derivación se aplican como registros firmados sobre los artefactos versionados —nunca editando la herramienta de anotación— y un control automático falla cuando una corrección firmada no aparece en la referencia derivada. Las anotaciones promovidas quedan congeladas bajo control de versiones, con huella criptográfica por clip y un manifiesto agregado del banco. CVAT funciona así como instrumento de captura: la referencia experimental es la versión promovida en el repositorio, no el estado mutable de la herramienta.
+
+#### 17.4.9. Verificación técnica de la implementación
+
+El criterio de cierre de la implementación exigió que cada unidad funcional produjera evidencia verificable dentro de una corrida y que su comportamiento pudiera repetirse mediante pruebas automatizadas o artefactos persistidos. La verificación se concentró en corrección de contratos, cierre de corridas, paridad entre caminos, determinismo y funcionamiento de la integración, sin sustituir la evaluación de desempeño de la sección 17.5.
+
+**Tabla 59**
+
+*Evidencia de verificación técnica del prototipo*
+
+| **Propiedad verificada** | **Evidencia de implementación** |
+| --- | --- |
+| Servicios ejecutables y gobernados por configuración | Los endpoints de salud, disponibilidad, creación y consulta de corridas operan sobre configuraciones validadas; cada plano limita la concurrencia de corridas activas. |
+| Cadena DBE de extremo a extremo | La relectura por archivo produce detecciones, transiciones, alertas, métricas, resumen y configuración efectiva; repetir el camino conserva los artefactos deterministas. |
+| Cadena EBE y cierre de ciclo de vida | El consumidor confirma la suscripción antes del productor, la corrida cierra con el evento de finalización y los huecos de secuencia se registran como degradación. |
+| Paridad entre repositorio y bus | La evidencia persistida y la transmitida conservan el mismo contenido lógico; una corrida live puede reevaluarse offline. |
+| Motor temporal e idempotencia | Las transiciones respetan las ventanas configuradas y la alerta usa un identificador determinista, estable ante el reprocesamiento de la misma corrida. |
+| Distribución de alertas | Se verificaron replay DBE, consumo EBE, supresión, idempotencia, entrega MQTT QoS 1 contra un broker real, ledger y reporte; la consola y la orquestación quedaron integradas. |
+| Pruebas automatizadas | El relevamiento integral registró 2.203 pruebas aprobadas, sin fallos, en cinco suites de la plataforma; el módulo de distribución añadió posteriormente su suite propia, también verificada. |
+
+**Nota.** La tabla acredita funcionamiento técnico y reproducibilidad. No presenta métricas de desempeño del banco experimental, que se informan con sus denominadores y condiciones en la sección 17.5.
+
+La verificación también confirmó que las fallas instrumentales no se convierten en ceros silenciosos. Una pérdida de bus degrada la corrida, una métrica sin reloj comparable se declara no interpretable y un canal no habilitado se declara no aplicable. Esta política preserva la diferencia entre ausencia de capacidad, ausencia de datos y resultado desfavorable.
+
+#### 17.4.10. Alcance efectivo, límites y brechas
+
+El cierre de la implementación requiere declarar con precisión qué capacidades fueron ejercidas, cuáles permanecen fuera del núcleo y qué resultados continúan abiertos. La Tabla 60 evita tratar todas las brechas como si tuvieran el mismo estatuto.
+
+La concentración del prototipo en el núcleo validable no responde a una reducción tardía del alcance, sino a las condiciones de evaluabilidad de cada condición del catálogo. Las condiciones de Nivel 1 cuentan con datasets públicos y bancos de evaluación con verdad de terreno para persona y elementos de protección personal, lo que permite medir percepción, estado temporal y alerta con denominadores declarados. Las condiciones de Nivel 2 y Nivel 3, en cambio, exigen insumos que el material disponible no provee: verdad de terreno de andamios, arneses, bordes desprotegidos o zonas restringidas; definiciones externas de zona y geometría de cámara controlada; y evaluadores relacionales o de trayectoria cuya validación requeriría bancos propios que no existen en el dominio. Incorporarlas sin esa base habría producido capacidades no medibles, contrarias al criterio metodológico de no convertir extensiones en dependencias del flujo base. El esfuerzo experimental se concentró, en cambio, en llevar el núcleo a capacidad medida: la misma decisión que limitó la cantidad de condiciones cubiertas es la que permite reportar cada resultado con su evidencia.
+
+**Tabla 60**
+
+*Capacidades ejercidas, exclusiones y brechas de implementación*
+
+| **Capacidad** | **Estado de implementación** | **Consecuencia para el informe** |
+| --- | --- | --- |
+| Identidad persistente de sujeto | Implementada y ejercida como decorador configurable de la fuente del plano de control. | La granularidad por sujeto constituye una capacidad medida. Las métricas MOT permanecen excluidas por falta de anotaciones de identidad. |
+| Estrategias directa (E-DIR), indirecta (E-IND) e híbrida (E-HYB) | Las variantes se implementaron y la comparación prevista se ejecutó. | La estrategia indirecta integra el núcleo; los resultados y los veredictos comparativos se presentan en la sección 17.5. |
+| Distribución de alertas | Implementada, verificada e integrada a la consola y a la orquestación. | MQTT constituye el canal ejercido. Los canales adicionales y un tablero operativo propio permanecen fuera del alcance. |
+| Rama comparativa de ajuste fino | Protocolo, procedencia, servicio de inferencia, evaluación y línea base quedaron congelados, y la escalera de tramos pre-registrada se ejecutó completa. Los dos tramos entrenados se evaluaron una única vez contra el banco congelado y ninguno superó los criterios de incorporación, firmados antes de que existiera el checkpoint que se les aplicaría. El tercer tramo se cerró con causa técnica: el único corpus disponible de ese volumen comparte fuentes con el banco de evaluación y deriva la clase de cabeza descubierta de una forma que el vocabulario canónico vigente no admite. | Ningún checkpoint se incorporó como modelo de servicio. El resultado es un veredicto negativo pre-registrado y no un tramo abierto: los criterios y los márgenes se firmaron antes de la evaluación, y las tres expectativas registradas de antemano se confirmaron. Los valores por tramo y la lectura de la curva se informan en la sección 17.5. |
+| Condiciones de riesgo de nivel 2 y 3 | Especificadas, pero no implementadas en el prototipo. | No forman parte del núcleo validable; su incorporación requiere evaluadores relacionales, zonales o de trayectoria y evidencia adecuada. |
+| Preselección liviana en el rol de captura | Implementada para la fuente de captura propia como filtro de personas ejecutado en el dispositivo, con criterio de degradación segura y deshabilitada por defecto; su reducción de carga se midió en una comparación pareada contra el flujo completo, con un 87 % de unidades descartadas antes de salir de la cámara. No existe para las fuentes por red. Permaneció deshabilitada en todas las corridas evaluativas. | La exclusión de lo evaluativo es deliberada y anterior a los resultados: un filtro de fotogramas sin persona suprimiría las detecciones sostenidas que la tasa de falsos positivos por hora existe para medir, y superpondría el error de un detector auxiliar más débil sobre la cadena que se busca caracterizar. Habilitarlo cambiaría la procedencia de esas métricas en lugar de mejorarlas. La capacidad se reporta, entonces, como implementada y caracterizada fuera del régimen evaluativo. |
+| Paridad DBE/EBE sobre fuente equivalente | La paridad de transporte y relectura fue verificada. | La reevaluación offline de una corrida live produce artefactos equivalentes; la paridad de transporte y relectura queda verificada. |
+
+**Nota.** Los estados distinguen capacidad implementada, capacidad medida, exclusión metodológica y resultado todavía abierto.
+
+El prototipo conserva su carácter experimental y asistivo. No implementa reconocimiento de identidad personal, no determina incumplimientos normativos y no reemplaza la supervisión de seguridad. Las alertas son registros no vinculantes producidos bajo una configuración explícita y sujetos a revisión humana.
+
+#### 17.4.11. Extensibilidad implementada y costo de extensión
+
+La extensibilidad se verificó en dos dimensiones: la incorporación de nuevas capacidades mediante puntos de extensión acotados y la evolución aditiva del evento de percepción. La plataforma no sostiene que toda condición pueda incorporarse sólo con lenguaje; delimita qué cambios requieren configuración y cuáles requieren código nuevo.
+
+**Tabla 61**
+
+*Puntos de extensión y costo técnico de incorporación*
+
+| **Extensión** | **Intervención requerida** | **Costo técnico esperado** |
+| --- | --- | --- |
+| Condición del mismo tipo: sujeto sin EPP | Entrada declarativa en el conjunto de patrones y formulaciones de prompt: clase del sujeto, clase ausente, región, umbrales y ventanas. | Sólo configuración; sin reentrenamiento ni cambios en el motor. |
+| Familia nueva de condiciones | Nuevo evaluador para relaciones, zonas, trayectorias u otra semántica no cubierta por spatial_absence. | Código acotado al evaluador; los contratos y el resto de la cadena se conservan. |
+| Modelo de detección | Adaptador que normalice la salida y perfil de modelo en el catálogo. | Código acotado al adaptador y configuración. |
+| Fuente visual | Adaptador de ingesta que produzca unidades visuales normalizadas. | Código acotado al adaptador y su validación. |
+| Canal de notificación | Implementación de un consumidor del contrato de notificación y su integración de ciclo de vida. | Fuera de los dos planos; no modifica la alerta interna. |
+| Dato adicional en la detección | Campo opcional con valor por defecto y consumidor tolerante a su ausencia. | Evolución aditiva sin ruptura del contrato de percepción. |
+
+**Nota.** La frontera entre la primera y la segunda fila delimita la extensibilidad por configuración: una ausencia de EPP sobre un sujeto observable reutiliza el evaluador existente; una relación nueva entre entidades requiere lógica de evaluación específica.
+
+El costo de incorporar vocabulario nuevo se midió en un piloto sobre la clase machinery: no requirió entrenamiento, demandó 48 líneas de configuración y nueve minutos de trabajo. El ejercicio mostró también que la extensión no termina al obtener detecciones; la alineación entre el término elegido y el concepto visual debe validarse, porque una palabra puede producir cajas plausibles sobre objetos distintos del objetivo. El desempeño cuantitativo de ese piloto se presenta en la sección 17.5.
+
+La identidad de sujeto recorrió el segundo camino de extensión. Se implementó como un decorador configurable de la fuente de eventos del plano de control, desactivado por defecto y utilizable tanto en DBE como en EBE. La incorporación no exigió modificar el plano de medios ni romper el contrato de percepción. El identificador se conserva en los artefactos de control; no se persiste en detections.jsonl, pero el seguidor y el orden del flujo son deterministas, por lo que una relectura reproduce las mismas identidades. Su efecto cuantitativo se informa en la sección 17.5.
+
+Lo excluido son las métricas formales de seguimiento multiobjeto, no la capacidad de asociar sujetos. De manera análoga, velocidad, dirección, pose y segmentación permanecen previstos como campos opcionales o artefactos complementarios, pero no se presentan como implementados. Esta distinción conserva la compatibilidad del contrato sin convertir previsiones de evolución en capacidades inexistentes.
+
+En conjunto, la Etapa 4 materializó la cadena video-evento de percepción-patrón-alerta-distribución como un prototipo ejecutable, configurable, reproducible y auditable. La implementación conserva la separación entre planos, permite operar por archivo o por bus, registra la configuración y la procedencia de cada corrida, y explicita sus brechas. Sobre esta base, la sección 17.5 evalúa el rendimiento de la percepción, del estado por persona y de la alerta temporal por episodio sin atribuir a la arquitectura capacidades que no fueron medidas.
+
+---
+
 ## Fuente: `docs/informe/entregable/borradores/17-4.md`
 
-> SHA-256 del bloque: `2d8a2ffa4cd51667216e67b27c7e573ca641bac2bb8d7e5d7db9b806c03b8d5a`  
-> Seleccion: borrador completo de la seccion 17.4, listo para revision.
+> SHA-256 del bloque: `db563af1cd76d10538ab45680bd3c3dc0f939bbef729b74051577d6913562e96`  
+> Seleccion: borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.5: material de consulta, NO redactar desde aca.
 
 # Borrador — §17.4 Implementación del prototipo experimental
+
+> 🔴 **✎ 2026-08-22 — SUPERADO: este borrador ya se pegó y el texto vigente es otro.** La
+> sección §17.4 vive en el `.docx` v1.2 (extraído en `entregable/90b-etapa4-texto-extraido.md`)
+> y las correcciones pendientes de aplicar son los **pases 2 y 3**. Este archivo queda como
+> material de consulta histórico: **no redactar desde acá**. Sus dos advertencias internas
+> (clip retirado en el DTO; fila de verificación sobre `cb_b01_p7`) quedaron resueltas el
+> 2026-08-22 — ejemplo re-transcripto sobre `a_p1_c02` (ver `92` §2.2 y `94` §1.3) y fila
+> integrada sin cifras ni identificador en la Tabla 67 del `.docx`.
 
 > **Qué es esto (2026-08-16).** Borrador de la sección §17.4 del informe (hoy un
 > placeholder: `[Agregado futuro correspondiente a la Etapa 4]`), redactado según las 12
@@ -2270,7 +4124,7 @@ banco.
 
 ## Fuente: `docs/informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md`
 
-> SHA-256 del bloque: `55795252e41c480e61854300db20e32b81c008845424c91ff9c5ea8779a8e5d4`  
+> SHA-256 del bloque: `df87a788130cd72ded970abd01c277781716bdeb765a1241deff146ffa994f32`  
 > Seleccion: documento completo.
 
 # Anexo de concreción técnica — material listo para inyectar en el capítulo
@@ -2376,58 +4230,69 @@ class Detection(BaseModel):           # contracts/detection.py:28
 ### 2.2 El DTO serializado — **línea literal**, verificada carácter por carácter
 
 > ⚠️ **La versión anterior de este bloque estaba fabricada** (una detección `helmet` que no existía en esa
-> línea, y tiempos de postproceso/escritura inventados). Lo que sigue es la **transcripción literal** de
-> `e-ovrt_media-plane/runs/run_20260711_211647_dbe_grounding_dino_6114c6/detections.jsonl`, unidad
-> `frame_000120` — la unidad en la que el sistema confirma la alerta de CR-01, a los 4000 ms exactos.
-> **Único recorte:** de las 22 detecciones de esa unidad se muestran 2, y se indica el recorte.
-> **Regla: no se agrega, no se mejora, no se completa nada.**
+> línea, y tiempos de postproceso/escritura inventados). La regla desde la auditoría del 2026-07-12:
+> **transcripción literal — no se agrega, no se mejora, no se completa nada.**
 >
-> ⚠️ **✎ 2026-08-12 — el `source_id` de esta línea es `cb_b01_p7`, un clip RETIRADO del banco**
-> el 2026-08-03 (licencia sin registrar + GT por IA). Como ejemplo de **esquema** la línea es
-> válida —no se cita ningún resultado suyo—, pero **no debe entrar al informe con ese
-> identificador**. Se resuelve re-transcribiendo un replay sobre un clip del banco vigente, o
-> declarando la omisión del identificador. **No se edita a mano**: eso reintroduciría el
-> problema que la auditoría del 12/07 vino a cerrar. Detalle y opciones: `94` §1.3.
+> ✅ **✎ 2026-08-22 — RESUELTO el clip retirado (opción (a) de `94` §1.3, re-transcripción).** El ejemplo
+> anterior salía de `cb_b01_p7`, retirado del banco el 2026-08-03. Lo que sigue es la **transcripción
+> literal** de
+> `e-ovrt_media-plane/runs/run_20260803_211225_dbe_grounding_dino_1e06f3/detections.jsonl`
+> (corrida real de la campaña del banco congelado sobre **`a_p1_c02`**, clip VIGENTE del rodaje, P1/CR-01),
+> unidad `frame_000229` — **la unidad en la que el sistema confirma CR-01**, exactamente **4.000 ms** después
+> de la primera evidencia (`frame_000109`, 3.633,33 ms → 7.633,33 ms). La confirmación se reprodujo por
+> replay del control-plane el 2026-08-22 y quedó archivada:
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl` (+ `…-summary.json`).
+> **Sin recorte:** la unidad tiene 3 detecciones y se muestran las 3.
 
 ```json
 {
   "schema_version": "media.detection.v1",
   "event_type": "detection_event",
-  "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "unit_id": "frame_000120",
-  "source":  { "source_id": "cb_b01_p7", "source_type": "video_frame",
-               "frame_index": 120, "timestamp_ms": 4000.0,
+  "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "unit_id": "frame_000229",
+  "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",
+               "frame_index": 229, "timestamp_ms": 7633.33,
                "width": 1920, "height": 1080 },
   "model":   { "name": "grounding_dino",
                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },
-  "prompts": { "prompt_set_id": "cr01_cr02_v2_short_inline" },
+  "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },
   "detections": [
     { "detection_id": "det_000001", "label": "person",
-      "prompt_id": "person", "source_prompt": "person", "confidence": 0.8257,
-      "bbox_xyxy": [1734.6, 300.9, 1838.2, 525.8],
-      "bbox_norm_xyxy": [0.9034, 0.2786, 0.9574, 0.4869],
-      "area_px": 23291.6, "model_name": "grounding_dino" },
-    { "detection_id": "det_000002", "label": "person",
-      "prompt_id": "person", "source_prompt": "person", "confidence": 0.837,
-      "bbox_xyxy": [159.5, 402.2, 253.4, 639.8],
-      "bbox_norm_xyxy": [0.0831, 0.3724, 0.132, 0.5924],
-      "area_px": 22312.3, "model_name": "grounding_dino" }
-    // … 20 detecciones más (person / helmet / vest) omitidas por legibilidad
+      "prompt_id": "person", "source_prompt": "person", "confidence": 0.88,
+      "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9],
+      "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],
+      "area_px": 187612.4, "model_name": "grounding_dino" },
+    { "detection_id": "det_000002", "label": "vest",
+      "prompt_id": "vest", "source_prompt": "vest", "confidence": 0.8755,
+      "bbox_xyxy": [1286.5, 235.3, 1459.3, 487.0],
+      "bbox_norm_xyxy": [0.67, 0.2179, 0.76, 0.4509],
+      "area_px": 43490.1, "model_name": "grounding_dino" },
+    { "detection_id": "det_000003", "label": "helmet",
+      "prompt_id": "helmet", "source_prompt": "helmet", "confidence": 0.456,
+      "bbox_xyxy": [1519.0, 432.5, 1648.1, 521.3],
+      "bbox_norm_xyxy": [0.7911, 0.4005, 0.8584, 0.4827],
+      "area_px": 11463.6, "model_name": "grounding_dino" }
   ],
-  "timing": { "normalize_ms": 8.25, "inference_ms": 214.37,
-              "postprocess_ms": 0.2, "write_ms": 0.0, "total_ms": 214.59 }
+  "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,
+              "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 }
 }
 ```
 
-**Dos cosas que esta línea literal enseña, y que el ejemplo fabricado ocultaba:**
+**Tres cosas que esta línea literal enseña, y que un ejemplo fabricado ocultaría:**
 
 1. **`strategy` y `condition_id` no aparecen.** Existen en el modelo Pydantic, pero valen `None` y el
    escritor omite los nulos. El evento **no lleva hoy la condición de riesgo asociada**: la asociación
    condición ↔ evidencia la hace el plano de control. Si se quiere que el evento la lleve, hay que
    poblarla (es aditivo y barato) — pero **no se puede escribir en el informe que ya la lleva**.
-2. **El identificador del conjunto de prompts es `cr01_cr02_v2_short_inline`**, no `cr01_cr02_v2_short`:
-   el sufijo `_inline` registra que el conjunto viajó embebido en el disparo de la corrida, no por
-   referencia a catálogo. Es trazabilidad real, y conviene no "limpiarla" al transcribir.
+2. **La unidad TIENE un `helmet` (0,456) y aun así CR-01 confirma.** El casco detectado está fuera de la
+   región cefálica del sujeto (`det_000001`) — cae a su derecha, más allá del margen lateral configurado.
+   Es E-IND funcionando a la vista: la ausencia se infiere **por sujeto y por región**, no por presencia de
+   la clase en el frame. El `rationale` de la alerta archivada lo dice: *"No se encontro evidencia 'helmet'
+   en region 'upper_body' de 1 sujeto(s)"* — con `vest` (0,8755) como positivo simultáneo del mismo sujeto,
+   por eso CR-02 no abre episodio.
+3. **El conjunto de prompts va por referencia a catálogo (`cr01_cr02_v2_short`)**, el set congelado de las
+   campañas — a diferencia del ejemplo anterior, que llevaba el sufijo `_inline` de un disparo con el set
+   embebido. Ambas formas son trazables; ésta además ancla la corrida al artefacto congelado.
 
 ### 2.3 Dónde se publica
 
@@ -2445,8 +4310,8 @@ LIFECYCLE_TOPIC_PREFIX   = "run.lifecycle.v1."
 ```jsonc
 // envelope (msgpack) — el payload es la MISMA línea que va al JSONL
 { "schema_version": "bus.envelope.v1",
-  "topic": "media.detection.v1.run_20260711_211647_...",
-  "key": "cb_b01_p7",          // source_id
+  "topic": "media.detection.v1.run_20260803_211225_...",
+  "key": "a_p1_c02",           // source_id
   "seq": 41,                   // monótono: el hueco de seq es la ÚNICA señal de pérdida
   "ts_publish_ms": 1783804607379.2,
   "payload": <bytes de la línea JSONL> }
@@ -2592,28 +4457,29 @@ Este es el punto más sustantivo de la observación del tutor:
 ### 4.3 El evento, mostrado con su superficie de crecimiento
 
 > ⚠️ **Corregido tras auditoría.** La versión anterior de este bloque mezclaba valores de tres artefactos
-> distintos. Ahora la detección **emitida hoy** es la línea literal de `frame_000120` (la misma de §2.2),
-> y lo **previsto** va claramente separado, en comentarios, sin fingir que existe.
+> distintos. La detección **emitida hoy** es la línea literal de `frame_000229` (la misma de §2.2,
+> re-transcripta el 2026-08-22 sobre el clip vigente `a_p1_c02`), y lo **previsto** va claramente
+> separado, en comentarios, sin fingir que existe.
 
 ```jsonc
 {
   "schema_version": "media.detection.v1",     // aditivo ⇒ NO cambia al agregar campos nuevos
-  "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "unit_id": "frame_000120",
-  "source":  { "source_id": "cb_b01_p7", "source_type": "video_frame",
-               "frame_index": 120, "timestamp_ms": 4000.0, "width": 1920, "height": 1080 },
+  "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "unit_id": "frame_000229",
+  "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",
+               "frame_index": 229, "timestamp_ms": 7633.33, "width": 1920, "height": 1080 },
   "model":   { "name": "grounding_dino",
                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },
-  "prompts": { "prompt_set_id": "cr01_cr02_v2_short_inline" },
+  "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },
   "detections": [
     {
       // ================= EMITIDO HOY (línea literal del artefacto) =================
-      "detection_id": "det_000002",           // índice por frame: NO es identidad entre frames
-      "label": "person", "confidence": 0.837,
-      "bbox_xyxy":      [159.5, 402.2, 253.4, 639.8],
-      "bbox_norm_xyxy": [0.0831, 0.3724, 0.132, 0.5924],
+      "detection_id": "det_000001",           // índice por frame: NO es identidad entre frames
+      "label": "person", "confidence": 0.88,
+      "bbox_xyxy":      [1239.8, 149.8, 1503.2, 861.9],
+      "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],
       "prompt_id": "person", "source_prompt": "person",
-      "area_px": 22312.3, "model_name": "grounding_dino"
+      "area_px": 187612.4, "model_name": "grounding_dino"
 
       // ============ PREVISTO: aditivo, opcional, sin bump de versión ==============
       // "track_id":      "trk_017",      // única identidad válida entre frames (spec 42 §3)
@@ -2626,8 +4492,8 @@ Este es el punto más sustantivo de la observación del tutor:
       // serializan. Poblarlos es aditivo y barato — pero HOY NO ESTÁN EN EL EVENTO.
     }
   ],
-  "timing": { "normalize_ms": 8.25, "inference_ms": 214.37,
-              "postprocess_ms": 0.2, "write_ms": 0.0, "total_ms": 214.59 }
+  "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,
+              "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 }
 }
 ```
 
@@ -2668,7 +4534,7 @@ class PatternStateChanged(BaseModel):
     source_id: str
     pattern_id: str
     condition_id: str
-    subject_key: str                  # "CR-01:cb_b01_p7" bajo escena
+    subject_key: str                  # "CR-01:a_p1_c02" bajo escena
     previous_state: str               # inactive | candidate | confirmed | sustained | resolved
     state: str
     severity: str                     # high | medium
@@ -2685,32 +4551,36 @@ nunca"*.
 
 ### 5.2 `AlertEvent` — `control.alert.v1` (la alerta del **benchmark**, no de un smoke)
 
-> ⚠️ **Corregido tras auditoría.** La versión anterior mostraba la alerta de la corrida **mock** (el smoke
-> de plomería de `clip_id`), que confirma en 4033,33 ms. La alerta de abajo es la del **benchmark real con
-> GDINO-tiny** sobre `cb_b01_p7`, reproducido y archivado el 2026-07-12 en
-> `operacion/datos/95-2026-07-12-bench-cb_b01_p7-gdino-alerts.jsonl`. Confirma en **4000,0 ms exactos**.
-> Si vas a poner un JSON al lado del número `t_alert-system = 4000 ms`, tiene que ser **este**.
+> ⚠️ **Corregido tras auditoría; ✎ re-transcripta el 2026-08-22 sobre clip VIGENTE.** La primera versión
+> mostraba la alerta de una corrida **mock**; la segunda, la del benchmark del 2026-07-12 sobre
+> `cb_b01_p7`, clip después **retirado del banco**. La alerta de abajo es la del **replay real con
+> GDINO-tiny sobre `a_p1_c02`** (banco vigente, campaña del banco congelado), reproducido y archivado en
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl`. La cadena temporal se lee entera:
+> primera evidencia en `frame_000109` (3.633,33 ms de video) → confirmación en `frame_000229`
+> (7.633,33 ms) = **los 4.000 ms exactos de la ventana de CR-01**; contra el inicio anotado del episodio,
+> el `t_alert-system` de este clip es **4.600,33 ms** (TTFD 600,33 + 4.000 de espera deliberada) — la
+> descomposición que separa cómputo de persistencia, con la re-alerta posterior en `frame_000764`.
 
 ```json
 { "schema_version": "control.alert.v1", "event_type": "alert_event",
-  "control_run_id": "bench_cb_b01_p7_gdino_20260712_20260712T232146Z",
-  "media_run_id":   "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "alert_id": "ff1ffb62-60a9-5e19-a7b8-42d076864f14",
+  "control_run_id": "bench_a_p1_c02_gdino_20260822_20260822T225536Z",
+  "media_run_id":   "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "alert_id": "394c9116-a38d-568d-b620-20d147c4cac9",
   "pattern_id": "CR-01", "condition_id": "CR-01",
-  "subject_key": "CR-01:cb_b01_p7", "source_id": "cb_b01_p7",
+  "subject_key": "CR-01:a_p1_c02", "source_id": "a_p1_c02",
   "severity": "high", "state": "open",
-  "unit_id": "frame_000120", "frame_index": 120, "timestamp_ms": 4000.0,
+  "unit_id": "frame_000229", "frame_index": 229, "timestamp_ms": 7633.33,
   "evidence": {
-    "subject": { "detection_id": "det_000013", "label": "person", "confidence": 0.502,
-                 "bbox_xyxy": [1065.4, 1005.4, 1185.9, 1081.2] },
+    "subject": { "detection_id": "det_000001", "label": "person", "confidence": 0.88,
+                 "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9] },
     "missing_class": "helmet",
-    "supporting": [ { "detection_id": "det_000021", "label": "person", "confidence": 0.4016 },
-                    { "detection_id": "det_000022", "label": "person", "confidence": 0.4147 } ],
-    "score": 0.502, "subjects_in_evidence": 3,
-    "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 3 sujeto(s)." },
-  "frame_index": 120, "timestamp_ms": 4000.0, "subjects_in_evidence_max": 6,
-  "first_evidence_ms": 230525124.622, "first_evidence_unit_id": "frame_000000",
-  "alert_registered_ms": 230525159.420,
+    "supporting": [],
+    "score": 0.88, "subjects_in_evidence": 1,
+    "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 1 sujeto(s)." },
+  "subjects_in_evidence_max": 1,
+  "first_evidence_ms": 41990631.527, "first_evidence_unit_id": "frame_000109",
+  "first_evidence_frame_index": 109,
+  "alert_registered_ms": 41990642.511,
   "experiment_id": null }
 ```
 
@@ -2722,8 +4592,10 @@ Cuatro cosas para señalar en el texto:
 2. **`rationale` en lenguaje natural + `subject` + `supporting[]` + `missing_class`**: la evidencia de la
    ausencia es **auditable**. Es el argumento a favor de E-IND frente al prompt de negación, hecho
    artefacto. Esto es lo que un prompt de negación **no puede darte**.
-3. **La alerta confirma en `timestamp_ms: 4000.0`** — exactamente la ventana de persistencia configurada
-   para CR-01. El sistema hace lo que su configuración declara, al milisegundo.
+3. **La confirmación cae exactamente 4.000 ms después de la primera evidencia** —
+   `frame_000109` (3.633,33 ms) → `frame_000229` (7.633,33 ms): la ventana de persistencia
+   configurada para CR-01, al milisegundo. El sistema hace lo que su configuración declara,
+   y los hitos `first_evidence_*` del propio evento permiten verificarlo sin salir del artefacto.
 4. **`experiment_id: null`**: esta corrida se disparó por CLI, sin manifiesto paraguas. Es honesto y vale
    la pena verlo — el campo existe y viaja; en esta corrida puntual no se lo pobló.
 
@@ -2811,9 +4683,12 @@ no las deseadas. Cada una tiene t0, t1 y su condición de aplicabilidad.
 > con **detector `mock`** (doc 39: `EOVRT_MODEL_REF=mock`, 20 unidades). **No es evidencia de que el sistema
 > cumpla el presupuesto.**
 >
-> La corrida **real** con GDINO-tiny sobre `cb_b01_p7` (`summary.json` archivado) dice:
-> **`g2a: p50 2214,2 ms · p95 2604,1 ms · p95_within_budget: false`** — un orden de magnitud **por encima**
-> del presupuesto 50–250 ms.
+> La corrida **real** con GDINO-tiny dice lo contrario. Sobre el clip vigente `a_p1_c02`
+> (`run_20260803_211225…`, 1.123 unidades, `summary.json` archivado en
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-summary.json` junto a las alertas):
+> **`g2a: p50 1473,1 ms · p95 4953,9 ms · p95_within_budget: false`** — un orden de magnitud **por encima**
+> del presupuesto 50–250 ms. (La corrida histórica del 07-12 sobre el clip luego retirado decía lo mismo:
+> p95 2604,1 ms, `false`.)
 >
 > **No lo escondas: convertilo en hallazgo.** Es exactamente el mismo resultado que el conflicto
 > CR-01 ↔ tiempo real del doc 31 (GDINO sostiene CR-01 pero sólo sigue el 14–22 % del ritmo de cámara), y
@@ -2823,7 +4698,7 @@ no las deseadas. Cada una tiene t0, t1 y su condición de aplicabilidad.
 >
 > Formulación correcta para el informe: *"la instrumentación de G2A opera y detecta el incumplimiento: con
 > detector de referencia el p95 es de 31,8 ms (dentro del presupuesto), mientras que con el detector
-> open-vocabulary evaluado el p95 asciende a 2604 ms y el sistema lo declara fuera de presupuesto. La
+> open-vocabulary evaluado el p95 asciende a 4.953,9 ms y el sistema lo declara fuera de presupuesto. La
 > latencia del detector, y no la instrumentación, es la restricción operativa."*
 | **TTFD** | inicio del episodio en el GT | primera detección positiva dentro del episodio | `_ttfd_for_episode` (`evaluation/temporal.py:438`). Si no hay ninguna: **`None` + `no_positive_detected`** — nunca 0.0 por defecto. |
 | **`t_alert-system`** | inicio anotado del episodio | alerta interna registrada | `avg_latency_ms_from_episode_start`. |

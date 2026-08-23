@@ -23,36 +23,58 @@ El knowledge del Project usa **cuatro archivos**:
    Subí solo el de la etapa que estás trabajando.
 3. `informe/entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`: el informe base —
    autoridad de formato, estilos y estructura; su §17.3 está vaciada a propósito.
-4. `informe/entregable/E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx`: la §17.3
-   **vigente** (la embebida en el v1.1 completo quedó desactualizada — nunca subir el
-   `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` completo por esa razón).
+4. El `.docx` **vigente** de la sección en trabajo (✎ 2026-08-22 — hoy viven en
+   `informe/entregable/desarrollando/`): para la etapa 3,
+   `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx`; para la etapa 4,
+   `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx` — ambos con el pase 1 ya aplicado.
+   Para las demás etapas este cuarto archivo no aplica (salvo que la etapa tenga sección
+   propia cerrada). El histórico `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx`
+   (16-08, PREVIO al pase 1) quedó superado y **no se sube**; tampoco se sube nunca el
+   `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` completo (su §17.3 embebida está
+   desactualizada).
 
-El contexto base y los dos DOCX son estables entre etapas. `INSTRUCCIONES-PROJECT.md`
+El contexto base y el DOCX de formato son estables entre etapas. `INSTRUCCIONES-PROJECT.md`
 se pega en **Project settings → Instructions**. No se carga como archivo. `README.md`,
 el generador y sus pruebas tampoco se suben.
 
 ## Primera carga
 
-*(✎ 2026-08-16 — antes acá se recomendaba arrancar por la etapa 1, porque construye la
-vara bibliográfica que necesita §17.5. **Esa vara ya está redactada** —el borrador
-`entregable/borradores/vara-15.md`, que además viaja dentro de los paquetes de las
-etapas 1 y 5—, así que el camino crítico se corrió a los capítulos nuevos.)*
+**Estado que define el orden (✎ 2026-08-23):**
 
-La etapa inicial recomendada es la **4**: el §17.4 tiene borrador completo y es el más
-barato de cerrar. El orden del manual (`informe/ajustes/08` §3) para este carril es
-**4 → 5 → 6**, y recién después las correcciones de prosa (etapa 3 por el usuario;
-etapas 1, 2 y 0 por los colegas).
+| Sección | Estado | Trabajo que queda |
+|---|---|---|
+| §17.3 | **v1.4** — tres pases aplicados y verificados | revisión del autor · figuras · integrar al maestro |
+| §17.4 | **v1.5** — tres pases aplicados y verificados | revisión del autor · URLs del lote · integrar al maestro |
+| §17.5 | **v1.3** — redactada bajo D-P3-6 y verificada | revisión del autor · figuras · integrar al maestro |
+| §17.6 · §19 | vacías | redactar desde cero |
+| §18 | vacía | redactar **después** de cerrar §17.5: interpreta lo que ella reporta |
+| §15 · §16 · §17.1 · §11–§14 | escritas | correcciones de prosa y poda — **al final**, por decisión del usuario |
+
+**Cada sección se trabaja en su propio documento** (decisión del usuario, 2026-08-23): los
+`.docx` de `entregable/desarrollando/` son la versión de trabajo de §17.3, §17.4 y §17.5, y
+la integración al maestro se resuelve **después**, cuando cada una cierre individualmente.
+Por eso el texto base de cada etapa es su extracción (`90` / `90b` / `90c`) y **no** el
+placeholder del maestro: el maestro todavía tiene §17.3/§17.4 en su versión previa y §17.5
+vacía.
+
+⚠ **Los tres pases de corrección ya están aplicados. NO se re-aplican**: entran al kit como
+criterio de lectura (sus decisiones D1–D4, D-P2-1…6 y D-P3-1…6 siguen rigiendo), no como
+lista de tareas. Re-aplicarlos sobre texto ya corregido es exactamente la falla de
+integración que costó una pasada completa el 2026-08-23.
+
+**Orden recomendado de lo que queda: 6 → 1 → 2 → 0**, con §17.6 y §19 antes que §18.
 
 ```bash
-python3 herramientas/generar_project_kit.py --etapa 4
-python3 herramientas/generar_project_kit.py --etapa 4 --check
+python3 herramientas/generar_project_kit.py --etapa 6
+python3 herramientas/generar_project_kit.py --etapa 6 --check
 ```
 
 Después:
 
 1. Pegar `INSTRUCCIONES-PROJECT.md` en las instrucciones del Project.
-2. Subir los cuatro archivos del knowledge: `00-contexto-base.md`, `01-etapa-4-activa.md`
-   y los dos DOCX de `informe/entregable/`.
+2. Subir los archivos del knowledge: `00-contexto-base.md`, el `01-etapa-<N>-activa.md` de
+   la etapa, `entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` (formato) y, si la etapa
+   tiene documento de trabajo, ese `.docx` de `entregable/desarrollando/`.
 3. Abrir un chat nuevo para la sección que se va a trabajar.
 
 ## Cambiar de etapa

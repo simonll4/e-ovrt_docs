@@ -154,18 +154,37 @@ que el pedido "que no se nos pase nada" tenía que encontrar.**
    la autorización y el RUN manual». Eso era cierto el 2026-08-13. Hoy **la jornada
    completa cerró**: T1 NO-GO, T2 NO-GO, T3 con causa técnica. Pegar esa fila mete una
    afirmación falsa en el informe. **Reescribirla con la curva de tres puntos.**
+   ✅ **RESUELTO 2026-08-22:** la fila del `94` §8 se reescribió con la curva de tres
+   puntos y ese §8 lleva banner de superado-como-texto-guía; para el `.docx` manda
+   **E4-27** (pase 3), que además elimina el `[[PENDIENTE]]` de la Tabla 68. También se
+   actualizaron los ecos en `05` (AJ-5.13), `04` (bullet E-04), `gobierno/99` (filas
+   `ppe_siabar` y ADR-017) y `estado-de-implementacion-adrs` (fila 016).
 2. 🔴 **Un identificador de clip retirado.** El ejemplo de evento de percepción del mismo
    material usa como `source_id` un clip que fue **retirado del banco**. El propio
    material lo marca con una advertencia sin resolver. Cambiar el ejemplo por un clip
    vigente antes de pegarlo.
+   ✅ **RESUELTO 2026-08-22 por la opción (a) del `94` §1.3 (re-transcripción):** los
+   ejemplos de `92` §2.2/§4.3/§5.2 y `94` §1.3/§1.4 ahora transcriben literalmente la
+   unidad `frame_000229` de la corrida real de la campaña sobre **`a_p1_c02`** (clip
+   vigente) y su alerta, reproducida por replay del control-plane y archivada en
+   `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl` (+ summary). Bonus:
+   la unidad nueva contiene un `helmet` fuera de la región del sujeto — muestra la
+   inferencia espacial de ausencia con mejor pedagogía que la anterior.
 3. 🟠 **Un redline sin saldar.** El redline de registro de alcance exige que cada capacidad
    quede **anclada a su regla de exclusión**, «para que se lea como alcance declarado y no
    como omisión». La tabla que debía saldarlo **no contiene ni un solo código de
    exclusión**. O se agrega la columna, o se declara explícitamente que el anclaje se
    resolvió en otra sección — pero no puede quedar como está y darse por cerrado.
+   ✅ **RESUELTO 2026-08-22 por la segunda vía, declarado en `93` R-13:** el anclaje es
+   **sustantivo, no por código** — la columna de E-xx es imposible bajo la regla de
+   autocontención (el informe no puede citar el doc 10). Cada fila de la Tabla 68 lleva
+   su fundamento de exclusión en la columna de consecuencia, la prosa de §17.4.10
+   desarrolla el núcleo-solo por evaluabilidad (D4/E4-17), y el pase 3 completa las dos
+   filas que faltaban (enmienda a E4-22 y E4-27). El mapa código↔fila queda como
+   trazabilidad interna en doc 10 / ADR-015 §3.
 
 ```
-DECISIÓN §3 → [ ] acepto  [ ] modifico  [ ] rechazo
+DECISIÓN §3 → [x] acepto — resuelto el 2026-08-22 (los tres ítems, ver las notas ✅ de arriba)
 ```
 
 ---

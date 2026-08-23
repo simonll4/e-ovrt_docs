@@ -96,15 +96,20 @@ class ManifestAndCheckTest(unittest.TestCase):
 
 class ProjectDocumentationContractTest(unittest.TestCase):
     def test_readme_defines_four_file_upload_and_all_stage_commands(self) -> None:
-        # Contrato vigente desde 2026-08-16 (operacion/122 §6-ter): 2 .md generados
-        # por etapa + los 2 DOCX del entregable. El v1.1 completo NO se sube.
+        # Contrato vigente desde 2026-08-16 (operacion/122 §6-ter), actualizado el
+        # 2026-08-22: 2 .md generados por etapa + el DOCX de formato + el DOCX vigente
+        # de la sección en trabajo (los de desarrollando/, con el pase 1 aplicado).
+        # El v1.1 completo NO se sube; el standalone del 16-08 quedó superado.
         readme = (REPO_ROOT / "informe/project-kit/README.md").read_text(encoding="utf-8")
 
         self.assertIn("cuatro archivos", readme)
         self.assertIn("`00-contexto-base.md`", readme)
         self.assertIn("E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx", readme)
+        self.assertIn("E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx", readme)
+        self.assertIn("E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx", readme)
+        # el standalone previo al pase 1 sigue mencionado, pero como superado
         self.assertIn("E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx", readme)
-        self.assertIn("nunca subir", readme)
+        self.assertIn("no se sube", readme)
         for stage in range(7):
             self.assertIn(f"--etapa {stage}", readme)
             self.assertIn(f"`01-etapa-{stage}-activa.md`", readme)
@@ -209,92 +214,63 @@ class GovernanceMigrationTest(unittest.TestCase):
             if path.name == "00-contexto-base.md"
         )
 
-        # 2026-08-15 (noche): T-FT-043 se cerró — la corrida full quedó ENVIADA
-        # (job 1167640). El estado que "manda sobre el resto" debe decirlo.
-        self.assertIn("T-FT-043 esta CERRADA", base)
-        self.assertIn("1167640", base)
-        # Los cuerpos históricos se conservan (convención del set: se enmienda con ✎, no
-        # se reescribe), pero ninguna declaración superada puede quedar suelta: donde
-        # aparezca, la corrección tiene que estar pegada. Es el defecto de propagación
-        # que costó T-FT-023 y la familia "sin commits" (doc 119).
-        for superada in ("cero jobs full", "último eslabón", "cero full"):
-            desde = 0
-            while (encontrado := base.find(superada, desde)) != -1:
-                # La enmienda puede ir antes o después: lo que se exige es adyacencia,
-                # no un orden. (Una enmienda que cita la frase para declararla superada
-                # lleva el número arriba; un cuerpo histórico lo lleva abajo.)
-                ventana = base[max(0, encontrado - 900) : encontrado + 900]
-                self.assertIn(
-                    "1167640",
-                    ventana,
-                    f"«{superada}» quedó sin la enmienda del envío al lado",
-                )
-                desde = encontrado + 1
-        # Enviar no es medir: la distinción es la que impide que el informe presente
-        # una comparación que todavía no existe.
-        self.assertIn("el envio **no es un\n  resultado**", base)
-        # 2026-08-17: la jornada T1 CERRÓ con NO-GO. El inventario CERRADO/ABIERTO es el
-        # bloque que gana la jerarquía de verdad (INSTRUCCIONES §"Knowledge"), así que si
-        # sigue diciendo que no hay cifra del ajustado, ChatGPT descarta un resultado
-        # firmado. Mismo defecto de propagación que T-FT-023 y "sin commits" (doc 119),
-        # pero en el peor lugar posible.
-        self.assertIn("brazo T1: CERRADO con veredicto NO-GO", base)
+        # 2026-08-21/22: la jornada E-04 está COMPLETA en sus tres tramos (docs 123,
+        # 127 y 117 §2). El bloque que "manda sobre el resto" tiene que decirlo, con
+        # las cifras de la curva — es el mismo defecto de propagación que costó
+        # T-FT-023 y la familia "sin commits" (doc 119), en el peor lugar posible.
+        self.assertIn("JORNADA COMPLETA en sus tres tramos", base)
+        self.assertIn("T1 NO-GO", base)
+        self.assertIn("T2 NO-GO", base)
+        self.assertIn("causa tecnica", base)
+        # Curva de tres puntos: T1 (recall, sin ganancia exigible) y T2 (AP, sin
+        # retención) con sus cifras canónicas.
         self.assertIn("0,0455", base)
         self.assertIn("-11,62 %", base)
-        self.assertIn("hallazgo, no como fracaso", base)
-        self.assertNotIn("(encolada, sin resultado)", base)
-        # El hueco que queda es T2, y sólo T2.
-        self.assertIn("**Resultado del brazo T2**: no existe", base)
-        self.assertIn("T1 ya no es un hueco", base)
-        self.assertIn("D-FT-14", base)
-        self.assertIn("D-FT-15", base)
-        self.assertIn("0,391208", base)  # umbral OV de T2, firmado antes del resultado
-        # La secuencia (veredicto → enmienda posterior → márgenes pre-firmados) es el
-        # argumento: si se suaviza, el encuadre se vuelve indefendible.
-        self.assertIn("la\n  transparencia de la secuencia ES el argumento", base)
-        self.assertIn('jamas por "falta de tiempo"', base)
-        # Ninguna afirmación absoluta de "no hay cifra del ajustado" puede quedar suelta:
-        # donde aparezca, la corrección tiene que estar pegada (patrón de adyacencia).
+        self.assertIn("0,0909", base)
+        self.assertIn("-71,3 %", base)
+        self.assertIn("early stop 16/60", base)
+        # F-127.1 es la lectura de la curva: estructural (datos), no capacidad.
+        self.assertIn("F-127.1", base)
+        self.assertIn("ESTRUCTURAL", base)
+        self.assertIn("2.946 imagenes vs 10,35M parametros", base)
+        # Reglas de cita que sobreviven al cierre.
+        self.assertIn("hallazgo, no fracaso", base)
+        self.assertIn("transparencia de la secuencia ES el argumento", base)
+        self.assertIn("falta de tiempo", base)
+        self.assertIn("T1 gana por recall CR-01", base)
+        self.assertIn("ningun checkpoint se adopto", base.casefold().replace("ó", "o"))
+        self.assertIn("F-123.1", base)  # gate de latencia T1: no medido, se dice
+        self.assertIn("F-120.1", base)  # latencias de la baseline: no se citan
+        self.assertIn("0,0002", base)  # recall CR-01 agregado de la baseline (doc 120)
+        # Estados superados que NO pueden volver a aparecer como vigentes: T2 en cola,
+        # jornada en curso, figuras sin producir, "no hay cifra del ajustado".
+        self.assertNotIn("enviado y en cola, sin empezar", base)
+        self.assertNotIn("T-FT-043 esta CERRADA", base)
+        self.assertNotIn("Resultado del brazo T2**: no existe", base)
+        # "no hay cifra del checkpoint" puede sobrevivir SOLO como cuerpo histórico
+        # con la enmienda pegada (convención del set: se tacha y se enmienda con ✎).
         desde = 0
         while (encontrado := base.find("no hay cifra del checkpoint", desde)) != -1:
-            # Las fuentes enmiendan con saltos de línea y prefijos de cita en el medio
-            # ("SUPERADO\n> el 2026-08-17"), así que la ventana se normaliza antes de
-            # buscar: si no, el guard falla por formato y no por contenido.
-            ventana = " ".join(
-                base[max(0, encontrado - 300) : encontrado + 700].replace(">", " ").split()
-            ).casefold()
+            ventana = base[max(0, encontrado - 400) : encontrado + 400].casefold()
             self.assertTrue(
-                "superado el 2026-08-17" in ventana or "brazo t2" in ventana,
-                "«no hay cifra del checkpoint ajustado» quedó sin la enmienda al lado",
+                "superado" in ventana,
+                "«no hay cifra del checkpoint» quedó sin enmienda adyacente",
             )
             desde = encontrado + 1
-        self.assertIn("1166583", base)
-        self.assertIn("optimizer 12/12", base)
-        self.assertIn("no es reserva ni promesa", base)
-        self.assertNotIn("corrida completa lista para envío manual", base)
-        # T-FT-023 se cerró el 2026-08-13: el estado que "manda sobre el resto" no
-        # puede seguir listándola como causa abierta del NO-GO (doc 119).
-        self.assertIn("procedencia T-FT-023 (cerrada el\n  2026-08-13", base)
-        self.assertNotIn("procedencia T023", base)
-        # 2026-08-15: D-FT-08/12/13 firmadas Y T-FT-031/032 cerradas la misma jornada
-        # (doc 120). El NO-GO quedó reducido a full-authorization + RUN manual; el
-        # bloque que "manda sobre el resto" no puede volver a listar decisiones ni
-        # gates técnicas como abiertas (mismo defecto de propagación que T-FT-023 y
-        # T023 en el doc 119).
-        self.assertIn("no queda ninguna decision humana pendiente", base)
-        self.assertIn("baseline YOLOE-26s corrio UNA vez", base)
-        self.assertIn("0,0002", base)  # recall CR-01 agregado de la baseline (doc 120)
-        self.assertNotIn("NO-GO** por D-FT-08/T-FT-005", base)
-        self.assertNotIn("evaluacion T-FT-031 y baseline YOLOE-26s T-FT-032", base)
-        # La rama no se funde con el núcleo: sin cifra del checkpoint ajustado.
-        self.assertIn("no hay cifra del checkpoint\n  ajustado", base)
-        # La sonda `machinery` quedó derogada SOLO para T1 — el alcance de la
-        # derogación es parte de la declaración, no un detalle.
-        self.assertIn("D-FT-13", base)
-        self.assertIn("derogada para T1 y reasignada a T2/T3", base)
-        self.assertNotIn(
-            "en estado `propuesta` y pendiente de firma del usuario", base
-        )
+        self.assertNotIn("no queda ninguna decision humana pendiente", base)
+        self.assertNotIn("Cinco figuras sin producir", base)
+        self.assertNotIn("rama comparativa separada y en curso", base)
+        # Las figuras están PRODUCIDAS (08-21); lo abierto es insertarlas.
+        self.assertIn("PRODUCIDAS", base)
+        # ✎ 2026-08-23: los tres pases quedaron APLICADOS Y VERIFICADOS en los documentos
+        # de trabajo (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3). Lo abierto pasó a ser la
+        # integración al maestro: el bloque que "manda sobre el resto" no puede seguir
+        # pidiendo que se apliquen (haría que ChatGPT los re-aplicara sobre texto ya
+        # corregido, que es la falla de integración que costó la pasada del 08-23).
+        self.assertIn("APLICADOS Y VERIFICADOS", base)
+        self.assertIn("integrarlas al maestro", base)
+        self.assertNotIn("PENDIENTES de aplicar", base)
+        self.assertIn("90c", base)  # el texto base de la etapa 5 existe
 
     def test_generated_context_declares_two_coupling_patterns(self) -> None:
         """ADR-020 (2026-08-18) derogó ADR-018: los acoples volvieron a ser DOS.

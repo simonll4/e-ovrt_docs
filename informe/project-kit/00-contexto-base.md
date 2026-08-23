@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-22. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-23. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -18,26 +18,38 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    precision y la hibrida por disyuncion fue ejecutada y refutada).
 4. Referencia temporal del banco: anotacion **humana** y congelada; se reporta como
    resultado, no como verificacion preliminar.
-5. Rama de ajuste fino, **brazo T1: CERRADO con veredicto NO-GO** (2026-08-17). Los
-   margenes se firmaron **antes** de la linea base, la corrida se ejecuto una vez y se
-   evaluo una vez, y **el checkpoint ajustado no se adopta como modelo de servicio**.
-   Tiene cifra medida y se escribe como **hallazgo, no como fracaso**: el ajuste rescata
-   `bare_head` del cero absoluto (AP50 0,0000 -> 0,0455) pero **no alcanza el umbral**
-   (faltaron 0,0045) y **rompe la retencion de `person`** (-11,62 %, tope 10 %). Va en
-   tabla propia, por estrato, nunca mezclada con el nucleo zero-shot.
+5. Rama de ajuste fino (E-04): **JORNADA COMPLETA en sus tres tramos, cerrada con
+   veredictos pre-registrados** — T1 NO-GO (2026-08-17) · T2 NO-GO (2026-08-21) · T3
+   cerrado con causa tecnica. Se escribe como **curva de capacidad de tres puntos** y
+   como hallazgo, no fracaso. T1: rescata `bare_head` del cero (AP50 0,0000 -> 0,0455)
+   pero falta 0,0045 al umbral y rompe la retencion de `person` (-11,62 %, tope 10 %).
+   T2 (SGD explicito, D-FT-16): la ganancia PASA (`bare_head` -> 0,0909, el doble de T1)
+   pero colapsa en entrenamiento (early stop 16/60, mejor epoca = 1) y **fallan las dos
+   retenciones** (in-domain: `person` -49,7 %; open-vocabulary: COCO -71,3 %).
+   **F-127.1: el fallo es ESTRUCTURAL (2.946 imagenes vs 10,35M parametros), no de
+   capacidad.** Margenes y expectativas firmados ANTES de cada evaluacion, sin
+   renegociar; ningun checkpoint se adopto; no hay mas brazos contra `bench_v3`.
+   **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
+   metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
+   zero-shot.
 
 **ABIERTO — no se afirma; se marca:**
 
-1. **Resultado del brazo T2**: no existe. T2 se reabrio como tier **exploratorio** por
-   enmienda posterior al NO-GO (D-FT-14) y esta **enviado y en cola, sin empezar**; sus
-   margenes ya estan firmados por adelantado (D-FT-15). No hay ninguna cifra de ese
-   checkpoint y no la habra hasta que corra y se evalue: esa subseccion queda reservada
-   con marcador. **T1 ya no es un hueco**: tiene resultado y se afirma (ver CERRADO 5).
-2. **Cinco figuras sin producir** (vista de procesos, maquina de estados del motor,
-   calidad frente a densidad, cuadro con alerta superpuesta y frontera de juzgabilidad).
-   Se mencionan en el texto con marcador; no se describen como si existieran.
-3. **Procedencia de origen del lote de obra real** (direccion y fecha de acceso por
+1. **Procedencia de origen del lote de obra real** (direccion y fecha de acceso por
    clip): pendiente. No bloquea redactar; si bloquea cerrar la version final.
+2. **Insercion de las figuras en el `.docx`.** Las seis figuras estan **PRODUCIDAS**
+   desde el 2026-08-21 (PNG 300 dpi + SVG en `informe/figuras/`: vista de procesos,
+   maquina de estados, calidad frente a densidad, alerta superpuesta, frontera de
+   juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
+   pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
+   figura como presente mientras la seccion no la tenga insertada.
+3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
+   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
+   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
+   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
+   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
+   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
+   los borradores.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -67,55 +79,23 @@ es honesto; un capitulo que rellena huecos es indefendible.
   `t_alert-notification` **p95 = 64,534 ms (n = 460)** entregas live, y en regimen
   sostenido **p95 = 102,025 ms (n = 104)**; mide `bus de alertas -> PUBACK MQTT`, nunca
   sensor -> notificacion (`operacion/118`).
-- E-04/fine-tuning es una **rama comparativa separada y en curso**. F-100.1 esta
-  resuelta. `1166583` cerro freeze/smoke tecnico con 12 tensores/3.096 parametros y
-  optimizer 12/12; dual gate, serving real y **procedencia T-FT-023 (cerrada el
-  2026-08-13, snapshot tar `639e60df...`)** estan verdes. **El 2026-08-15 el usuario firmo
-  D-FT-08 (contrato de serving), D-FT-12 (objetivo y margenes go/no-go, firmada ANTES de
-  la baseline) y D-FT-13 (derogacion de la sonda `machinery` solo para T1)**, T-FT-005
-  quedo `done` y **no queda ninguna decision humana pendiente**. La misma jornada se
-  cerraron **T-FT-031** (comando de evaluacion congelado + enforcement canonico v2 en
-  config + catalogo finetuned) y **T-FT-032**: la **baseline YOLOE-26s corrio UNA vez
-  sobre las 6.477 imagenes de `bench_v3`** (doc 120) — `bare_head` AP50 **0,000**
-  (6.181 GT / 10 detecciones), recall CR-01 0,0167/0,0000 por fuente y **0,0002
-  agregado**; retencion a proteger person 0,7843 / helmet 0,6286 / vest 0,2642. Estas
-  cifras son **de la rama comparativa**: van SIEMPRE en tablas propias, por estrato, y
-  NO se promueven a `results/` hasta cerrar la jornada; **no hay cifra del checkpoint
-  ajustado** (no existe todavia) ✎ *superado el 2026-08-17: el checkpoint T1 SI tiene
-  cifra — ver la enmienda al pie de esta vineta; el que sigue sin cifra es T2*.
-  F-120.1: las latencias de ese run NO se citan (cambio
-  de energia en curso); el gate de latencia se mide pareado aparte.
-  **✎ 2026-08-15 (noche) — T1 full ENVIADO: T-FT-043 esta CERRADA.** La autorizacion se
-  emitio y verifico en el cluster con sus 7 gates, el ensayo `--test-only` paso, y el
-  `RUN` quedo **encolado como job `1167640`** (1 GPU / 10 CPU / 60 GB / 2 h). Al encolar
-  figuraba en espera, con inicio estimado por el planificador el 2026-08-17; una
-  estimacion del planificador **no es reserva ni promesa**, y el envio **no es un
-  resultado**. Lo que sigue abierto es la corrida en si y, despues, la promocion del
-  checkpoint por hash, su evaluacion unica y el veredicto go/no-go contra los margenes ya
-  firmados. **Hasta que eso ocurra no existe ninguna cifra del modelo ajustado**: la
-  subseccion correspondiente se deja con `[[PENDIENTE: ...]]`, jamas con un valor
-  estimado ni con una redaccion que sugiera que la comparacion ya se hizo.
-  La sonda de clase nueva (`machinery`) quedo **derogada para T1 y reasignada a T2/T3**
-  por D-FT-13; en T2/T3, de vocabulario abierto, sigue siendo exigible.
-  **✎ 2026-08-17 — la jornada T1 CERRO: veredicto NO-GO.** El job `1167640` corrio el
-  16/08, el checkpoint se promovio por hash y se evaluo **una sola vez** contra
-  `bench_v3`: `bare_head` AP50 **0,0000 -> 0,0455** (gate A pedia >= 0,05: **faltaron
-  0,0045**) y la retencion de `person` cayo **0,7843 -> 0,6932 (-11,62 %, tope 10 %)**.
-  **El checkpoint no se adopta.** Los margenes (D-FT-12) estaban firmados desde el 15/08,
-  antes de la baseline, y **no se renegociaron**: eso es lo que hace al resultado
-  defendible. La cifra **existe y es citable**, en tabla propia por estrato; el gate de
-  latencia **no se midio** y se dice explicito (F-123.1), no se omite.
-  **La misma jornada, DESPUES del veredicto, el usuario firmo la enmienda D-FT-14**: T2
-  se reabre como tier **exploratorio** —para separar si el fallo fue de capacidad o
-  estructural—, no como reintento de T1, y **T3 queda cerrado como trabajo futuro con
-  causa tecnica** (sin baseline MM-GDINO geometricamente sana el delta es
-  ininterpretable), **jamas por "falta de tiempo"**. **D-FT-15** fijo los margenes de T2
-  **antes de todo resultado T2**, con la retencion de vocabulario abierto sobre COCO
-  val2017 congelada en mAP50 **0,434676 => umbral NO-GO 0,391208**, y con la expectativa
-  **pre-registrada** de que T2 tambien de NO-GO. **T2 esta enviado y en cola, sin
-  empezar**: no tiene ni una cifra. Al redactar, la secuencia se cuenta completa y en ese
-  orden —veredicto, enmienda posterior, margenes firmados por adelantado—: **la
-  transparencia de la secuencia ES el argumento**, y suavizarla la destruye.
+- E-04/fine-tuning: **jornada COMPLETA y CERRADA en sus tres tramos** (✎ 2026-08-22) —
+  T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 cerrado con causa tecnica
+  (`operacion/117` §2, sin baseline MM-GDINO geometricamente sana el delta es
+  ininterpretable), **jamas "por falta de tiempo"** (ADR-017). Ningun checkpoint se
+  adopto; no hay mas brazos contra `bench_v3` (reabrir exige pre-registracion nueva,
+  acta `operacion/128` §5). Reglas de cita que siguen mandando: las cifras de la rama
+  van SIEMPRE en tablas propias, por estrato, jamas fundidas con el nucleo zero-shot;
+  la secuencia se cuenta completa y en orden (baseline una sola vez -> margenes D-FT-12
+  firmados ANTES -> veredicto T1 -> enmienda D-FT-14 DESPUES del veredicto -> margenes
+  D-FT-15 pre-firmados con expectativas -> corrida y veredicto T2) porque **la
+  transparencia de la secuencia ES el argumento**; T1 gana por recall CR-01 y T2 por AP
+  (no hay "mejor tuned" de metrica unica); el gate de latencia de T1 no se midio y se
+  dice explicito (F-123.1); F-120.1: las latencias del run de la baseline no se citan.
+  Baseline YOLOE-26s (doc 120, una sola corrida sobre `bench_v3`): `bare_head` AP50
+  0,000 (6.181 GT / 10 det), recall CR-01 agregado 0,0002, retencion a proteger person
+  0,7843 / helmet 0,6286 / vest 0,2642. En §17.4 la fila de la Tabla 68 la fija E4-27
+  (pase 3); en §17.5, el bloque ✎ 2026-08-22 de AJ-5.13.
 - **Acoples vigentes (ADR-020, 2026-08-18):** los patrones de acople son DOS, no tres.
   **(a) HTTP config-driven en los TRES modulos** de la plataforma: medios `:8080`,
   control `:8081` y **distribucion `:8082`** (`eovrt-distribute serve`), con la
@@ -1839,7 +1819,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/decisiones/estado-de-implementacion-adrs.md`
 
-> SHA-256 del bloque: `f9e5ab91b178a7e745381d3e324ad93b2a6d7f6c66538c5928b62e39cff013b2`  
+> SHA-256 del bloque: `287f27071f6db27bf61598aac4ae5b7bb9b83fba9a3c3eadc7d72e3c0658197c`  
 > Seleccion: encuadre y tabla resumen vigentes; el detalle historico queda fuera.
 
 # ADRs — Estado de implementación (cierre de trazabilidad)
@@ -1876,7 +1856,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 | 013 | La plataforma **detecta la temporalidad de la fuente** y declara sola la no-aplicabilidad de métricas temporales | **Implementado con evidencia medida** (137 eventos / 0 alertas sobre imágenes) |
 | 014 | Los resultados de un run global se **consolidan con híbrido selectivo** (liviano copiado, crudo referenciado) | **Implementación parcial** [Enmienda 2026-08-14]: consolidación y reporte están ejercitados; el sellado opt-in, el índice durable y la promoción trazable a `results/` siguen diferidos (doc 115 §4, frentes C/D, D-115.2). |
 | **015** | **El alcance creció** en E-03/E-07/E-13 y se registra; **no se agrega ninguna capacidad más**; MQTT queda declarada NO implementada | **Aceptada (usuario, 2026-08-05) y APLICADA al doc 10** (ítem 10 + filas E-03/E-04/E-07/E-13). No es un ADR de implementación: es el cierre del registro de alcance. **R-13 y R-21 desbloqueados**. ✎ **2026-08-10: §2b/§2c/§6 DEROGADOS por ADR-016**; §2a/§3/§4/§5 vigentes (la lista L1–L8 se sigue citando desde §3) |
-| **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada y materializada**: módulo funcional, reporte integrado y broker MQTT real verificado. La vista de webconsole y la orquestación siguen abiertas; el repo aún no tiene commits |
+| **016** | **Reapertura acotada de la distribución** para cerrar la arquitectura: recorte exacto de ADR-005, E-06 sigue excluida, nada más se reabre (✎ 2026-08-11: **E-04 sale del freno por ADR-017**; el freno sigue para EN-3/E-10/E-06/CR nuevas) | **Aceptada y materializada**: módulo funcional, reporte integrado y broker MQTT real verificado. ✎ **2026-08-22** (*esta fila decía "la vista de webconsole y la orquestación siguen abiertas; el repo aún no tiene commits"*): las tres cosas quedaron hechas — vista y orquestación **integradas** (verificación de §17.4.9) y el repo `e-ovrt_alert-distribution` versionado y con remoto desde el 08-14 (doc 119) |
 | **017** | **El fine-tuning (E-04) se ejerce como jornada experimental completa** (escalera T1→T2/T3 con go/no-go pre-registrados, Mendieta, eval contra `bench_v3`), y el encuadre del informe pasa a **rama experimental condicionada por datos y protocolo** — la causa temporal queda prohibida | **Aceptada; implementación en curso, NO-GO T1 full.** F-100.1, freeze/smoke, dual gate, serving real y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032 CERRADAS la misma jornada** (doc 120: comando de evaluación congelado + enforcement canónico v2 + **baseline YOLOE-26s one-shot**, `bare_head` AP50 0,000 / recall CR-01 agregado 0,0002). **Las 7 gates del full-authorization están cerradas**; restan emitirla y el `RUN` manual (T-FT-043). Cero full; **no bloquea el informe**. ✎ **2026-08-15 (noche): T-FT-043 CERRADA — autorización emitida y verificada (7 gates) y `RUN` encolado como job `1167640`.** Abierto: la corrida y su evaluación (T-FT-050→052); sin cifra del modelo ajustado. ✎ **2026-08-17: JORNADA CERRADA — T-FT-044/050/051/052 `done`, veredicto D-FT-12 = NO-GO** (doc 123): el job corrió (`COMPLETED`, 10/10 épocas), el checkpoint se promovió por hash y se evaluó una sola vez — `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, pero faltaron **0,0045** al umbral de ganancia y `person` cayó **−11,62 %** (tope 10 %). Checkpoint **no adoptado**. **ADR-017 pasa de "implementación en curso" a EJERCIDO Y CERRADO en su tramo T1**; ✎ misma fecha, la escalera de `contingencia/20` §6 se aplicó: **T2/T3 NO habilitados** (T1 sin ganancia exigible) — rama cerrada con evidencia, **trabajo futuro con causa técnica, no temporal**. ✎ más tarde ese día, **enmienda D-FT-14** (vía D-FT-03): **T2 reabierto como tier exploratorio** con pre-registración propia (D-FT-15 a firmar antes del RUN), T1 intacto, T2 = último brazo contra `bench_v3`; **T3 sigue cerrado**. ✎ **2026-08-21: T2 CERRADO — D-FT-15 = NO-GO; LA JORNADA E-04 ESTÁ COMPLETA EN SUS TRES TIERS** (doc 127): gain PASA (`bare_head` 0 → 0,0909) pero retención in-domain FALLA ×4 (mAP50 −43,4 %) y retención OV FALLA (COCO −71,3 %); las 3 expectativas pre-registradas confirmadas. Secuencia declarable: `1167864` submuestreado (`optimizer=auto`) ⇒ D-FT-16 pre-resultado ⇒ `1167982` (SGD explícito) colapsó en entrenamiento (early stop 16/60, best=ep1). **F-127.1: el fallo de T1 es estructural (datos), no de capacidad** — curva de 3 puntos completa. Checkpoint no adoptado |
 
 | **018** | **El tercer módulo se acopla por subproceso local, no por servicio HTTP**: el runner del BFF lanza `eovrt-distribute` como proceso hijo (el repo de distribución es CLI, sin FastAPI/uvicorn); el dato sigue viajando por el bus (`:5558`), lo nuevo es el control del ciclo de vida | **Aceptada (usuario, 2026-08-15) y ya implementada** — documenta código verificado, no agrega capacidad. Requisito de despliegue vinculante: la consola dockerizada exige `EOVRT_DISTRIBUTION_EXECUTABLE`. Preflight de binario + drenaje de `stderr` con cap de 1 MiB son propios de este patrón. ✎ **2026-08-18** (*esta fila decía "el repo de distribución es CLI, sin FastAPI/uvicorn"*): eso quedó **superado por ADR-019** — el repo SÍ expone servicio HTTP además del CLI (ver fila 019). Este patrón de subproceso **sigue vigente y sigue siendo el default** del runner de la webconsole; ADR-018 no queda derogada ⛔ **✎ 2026-08-18: DEROGADA por ADR-020** — el subproceso dejó de ser patrón de acople y bajó a fallback operativo; esta fila queda como registro histórico y **no se cita como arquitectura vigente** |

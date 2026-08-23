@@ -2,6 +2,15 @@
 
 > *Gantt ID 4 — "Evaluación y validación", 12/06/26 – 10/07/26.*
 >
+> ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA bajo el esquema temático de D-P3-6
+> y verificada** (185 cifras contra la hoja de datos, cero inventadas, cero marcadores de
+> cifra) — documento de trabajo `§17.5 v1.3` en `entregable/desarrollando/`, texto base en
+> `entregable/90c-etapa5-texto-extraido.md`, tablas 62–67. Lo que queda: revisión del autor,
+> insertar las figuras y la integración al maestro. Las fichas `AJ-5.x` ya fueron
+> incorporadas; se conservan como criterio de lectura.
+>
+> *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
+>
 > **Estado (2026-08-10):** la sección **está vacía** (`[Agregado futuro correspondiente a
 > la Etapa 5]`). Es **redacción desde cero**, y es el **camino crítico**: es la sección
 > que sostiene la defensa.
@@ -36,6 +45,22 @@
 > cola sin empezar**, así que no tiene ni una cifra: ahí sí va `[[PENDIENTE: …]]`. Al
 > redactar se cuenta la secuencia completa y en orden (veredicto → enmienda → márgenes
 > pre-firmados): suavizarla destruye lo único que la hace defendible.
+>
+> ✅ **✎ 2026-08-22 — LA JORNADA ESTÁ COMPLETA EN SUS TRES TRAMOS: `AJ-5.13` quedó
+> TOTALMENTE desbloqueada y ya no hay `[[PENDIENTE]]` que dejar.** T2 corrió el 20/08 y
+> cerró **NO-GO** el 21/08 (`operacion/127`); T3 quedó cerrado con causa técnica
+> (`operacion/117` §2). La subsección del §17.5 se escribe entera como **curva de
+> capacidad de tres puntos** — es el valor declarado del tramo (F-127.1: el fallo es
+> **estructural**, 2.946 imágenes contra 10,35M de parámetros, no de capacidad). Cifras
+> canónicas de T2 (job `1167982`, D-FT-16): ganancia PASA (`bare_head` 0,0000 → **0,0909**,
+> sólo en `shel5k`) · retención in-domain FALLA ×4 (`person` −49,7 %; mAP50 protegido
+> −43,4 %) · retención open-vocabulary FALLA (COCO 0,4347 → 0,1247, **−71,3 %**) · colapso
+> en entrenamiento (early stop 16/60, mejor época = 1). Las 3 expectativas pre-registradas
+> (firmadas el 17/08, con cero cifras tuned) se confirmaron una por una. Ningún checkpoint
+> se adoptó; no hay más brazos contra `bench_v3` — reabrir exige pre-registración nueva
+> (acta `operacion/128` §5). **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no
+> hay una métrica única "mejor tuned".** En §17.4 la fila de la Tabla 68 la fija **E4-27**
+> (pase 3); acá rige este bloque para el §17.5.
 
 > ⚠️ **Los pocos números que aparecen en esta página son anclas de navegación, no fuente
 > de cita.** Toda cifra que entre al informe se transcribe **desde el artefacto** que
@@ -51,6 +76,36 @@
 | Fuerza de cada afirmación | `sintesis/…` §8 — escala **AF-1…AF-11** |
 | Limitaciones y reproducibilidad | `gobierno/99` §2 (sha256 y comandos), §3 (licencias), §4 (L1–L8) |
 | Reglas de honestidad al redactar | `gobierno/97` §3 |
+
+---
+
+## 0. La organización de la sección — decisión del usuario (D-P3-6, ✎ 2026-08-22)
+
+**El §17.5 se organiza por pregunta de medición, no por cronología de campañas.** La sección es un
+**resumen de resultados**: qué se midió, cuánto dio y con qué fuerza — nunca la narración del orden en que
+se experimentó. Los identificadores de campaña (T1/G1/R1–R6/B1/D1/H1/I1/I2…) son **procedencia del dato**,
+no estructura: ningún título de subsección lleva nombre de campaña. Y la sección justifica **todos los
+caminos**: los adoptados (criterio pre-registrado), los probados y no adoptados (el veredicto que los
+descartó) y los no ejecutados o no implementados (**su factor de justificación** — alcance declarado, no
+omisión). El esquema completo, con el reparto §17.4/§17.5/§18, está en el **pase 3, §D.0** (incluido en
+este kit); el modelo estructural es la síntesis de resultados vigente.
+
+**Esquema de referencia y qué ficha alimenta cada bloque** (las fichas AJ-5.x siguen siendo las unidades de
+contenido; este esquema fija su orden y su lugar):
+
+| # | Bloque | Fichas y contenidos que lo alimentan |
+| --- | --- | --- |
+| 1 | Encuadre y reglas de lectura | AJ-5.01 (tres niveles) · AJ-5.03 (de dónde salen las cifras) · AJ-5.06 (reglas no negociables) · AJ-5.08 (dónde arranca el reloj) |
+| 2 | Percepción sobre imágenes | AJ-5.02 (tablas/figuras del banco de imágenes) · veredictos por combinación (E4-26) · piloto de clase nueva |
+| 3 | Estado por sujeto (nivel intermedio) | comparación de estrategias sobre el estado por persona (los resultados; los descartes van al bloque 6) |
+| 4 | Alerta por episodio — el resultado principal | banco 47 clips por estrato y condición · granularidad por sujeto medida · AJ-5.09 (FAR: se reporta, sin cota) · AJ-5.07 (estrato B y frontera de juzgabilidad, sin ranking n = 2) |
+| 5 | Tiempo real | AJ-5.10 (eje de densidad y sus trampas) · cadena de latencias por tramos · latencia del tramo de distribución |
+| 6 | Caminos probados y no adoptados | AJ-5.12 (híbrida: refutada / no ejecutable) · directa vetada por precisión · familia de modelos descartada · AJ-5.13 (ajuste fino: curva de tres puntos) |
+| 7 | Lo no ejecutado / no implementado, con su justificación | Nivel 2/3 (evaluabilidad) · métricas MOT (sin anotación de identidad) · preselección en el borde (excluida de lo evaluativo, pre-registrado) · cota FAR · ancla EBE-desde-clip |
+| 8 | Síntesis de la sección | AJ-5.05 (limitaciones L1–L8, remisión) · AJ-5.11 (círculo con §15) — la interpretación y la escala de conclusiones (AJ-5.04) pertenecen al §18 |
+
+⚠ Con la organización temática, la campaña "T1" del banco de clips y el tramo "T1" del ajuste fino conviven
+en la misma sección: **cada mención dice de cuál habla**.
 
 ---
 
@@ -70,7 +125,7 @@
 | **AJ-5.10** | PRECISA | 🟡 | El **eje de densidad** y sus dos trampas de instrumento. |
 | **AJ-5.11** | PRECISA | 🟡 | El **cierre del círculo con el §15**: la regla de tres tiempos. |
 | **AJ-5.12** | EVIDENCIA | 🟡 | La **estrategia híbrida**: una rama refutada y una no ejecutable. |
-| **AJ-5.13** | EVIDENCIA | 🟠 | ✎ **08-17 — DESBLOQUEADA en T1: la jornada cerró NO-GO** (`operacion/123`). T1 se escribe como hallazgo con cifra (`bare_head` 0,0000 → 0,0455, faltaron 0,0045; `person` −11,62 % > tope 10 %; checkpoint no adoptado; márgenes pre-firmados, sin renegociar). **T2 sigue reservado**: tier exploratorio por enmienda D-FT-14 posterior al veredicto, márgenes D-FT-15 firmados por adelantado, **enviado y en cola, sin cifra** → `[[PENDIENTE: …]]`. *(cuerpo previo ⏳ 08-12: histórico)* |
+| **AJ-5.13** | EVIDENCIA | 🟠 | ✎ **08-22 — JORNADA COMPLETA, TOTALMENTE desbloqueada: T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 causa técnica (`operacion/117` §2).** Se escribe como **curva de capacidad de tres puntos** con márgenes y expectativas pre-registrados: T1 `bare_head` 0,0000 → 0,0455 (faltaron 0,0045) y `person` −11,62 %; T2 ganancia PASA (`bare_head` → 0,0909) pero retención in-domain −49,7 % (`person`) y OV −71,3 % (COCO), colapso early-stop 16/60. **F-127.1: fallo estructural (datos), no de capacidad.** Ningún checkpoint adoptado; sin `[[PENDIENTE]]`. Trampa: T1 gana por recall, T2 por AP. *(notas 08-12/08-17: históricas)* |
 
 El **anexo de reproducibilidad** (§19), del que el §17.5 depende para ser auditable, es
 `AJ-6.02` en la Etapa 6.
@@ -310,10 +365,16 @@ Hay que declarar las dos con precisión distinta:
 
 ---
 
-### AJ-5.13 · 🟠 — ⏳ PENDIENTE: la rama comparativa de fine-tuning (E-04)
+### AJ-5.13 · 🟠 — ✅ CERRADA: la rama comparativa de fine-tuning (E-04)
 
-> **Estado: jornada EN CURSO desde el 2026-08-12.** Este es el único contenido abierto del
-> §17.5. Se actualiza acá cuando cierre; hasta entonces, la subsección **se reserva**.
+> ✅ **✎ 2026-08-22 — Estado: jornada COMPLETA en sus tres tramos; NO queda contenido
+> abierto en el §17.5.** El cierre y las cifras canónicas están en la nota de cabecera de
+> esta página (bloque ✎ 2026-08-22) y en `sintesis/resultados-y-conclusiones.md`; los
+> artefactos, en los índices de `results/`. La subsección se escribe como curva de
+> capacidad de tres puntos, en su propia subsección y sus propias tablas, nunca fundida
+> con el núcleo zero-shot. **Lo que sigue abajo es el protocolo de redacción original
+> (08-12): sus reglas de encuadre siguen valiendo; sus menciones de "jornada en curso",
+> "estado a la entrega" y "cuando existan cifras" quedaron superadas por el cierre.**
 
 **Por qué existe la subsección aunque no haya resultados.** ADR-017 sacó a E-04 de las
 exclusiones y la puso en alcance como **jornada experimental comprometida**. Un §17.5 que
