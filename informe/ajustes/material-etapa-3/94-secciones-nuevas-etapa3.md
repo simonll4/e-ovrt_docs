@@ -109,59 +109,57 @@ ADR-020, doc 124); el subproceso quedó como fallback operativo, fuera del relat
 > efectivamente utilizados; el conjunto de detecciones normalizadas; y la instrumentación temporal de la
 > unidad.
 >
-> El fragmento siguiente reproduce un evento **real** de la corrida de evaluación: la unidad visual en la
-> que el sistema confirma la condición CR-01, a los 4000 ms de persistencia configurados. De las
-> veintidós detecciones que contiene la unidad se muestran dos.
+> El fragmento siguiente reproduce un evento **real** de una corrida de la campaña sobre el banco
+> congelado: la unidad visual en la que el sistema confirma la condición CR-01, exactamente a los
+> 4.000 ms de persistencia configurados desde la primera evidencia. La unidad contiene tres detecciones
+> y se muestran las tres.
 
 **Nota:** presentalo como *Figura N — Evento de percepción (extracto de artefacto real)*, en monoespaciado.
 Es lo que el tutor pidió con nombre propio ("un DTO"). **Este JSON es literal** — verificado contra
-`detections.jsonl`, unidad `frame_000120`. No lo "mejores" al pegarlo.
+`detections.jsonl`, unidad `frame_000229`. No lo "mejores" al pegarlo.
 
-> ⚠️ **2026-08-12 — RESOLVER ANTES DE PEGAR: el `source_id` es de un clip retirado.**
-> La corrida de la que sale esta línea se hizo el 2026-07-11 sobre **`cb_b01_p7`**, y ese clip
-> fue **retirado del banco el 2026-08-03** (licencia sin registrar + GT generado por IA;
-> `datasets/processed/clip_bench/_retired/cb_b01_p7/MOTIVO.md`). El JSON es impecable como
-> **ejemplo de esquema** —no se está citando ningún resultado suyo—, pero **mete en el informe
-> el identificador de un clip que no existe en el banco congelado**, y es exactamente lo que la
-> trampa 5 de `GUIA-REDACTORES` §4 manda no hacer.
->
-> **No se arregla editando el identificador a mano**: eso rompería la garantía de transcripción
-> literal que costó una auditoría establecer (la v1 de este documento tenía un JSON fabricado).
-> Las dos salidas honestas:
->
-> | Opción | Qué implica |
-> |---|---|
-> | **(a) Re-transcribir** ✅ recomendada | Correr un replay DBE sobre un clip **del banco vigente**, y transcribir esa línea literalmente. Es barato (replay, sin GPU nueva) y deja el ejemplo por encima de toda sospecha |
-> | (b) Redactar el identificador | Conservar la línea real y sustituir el `source_id` por `"<clip_id>"`, **declarando en el pie que el identificador fue omitido**. Sigue siendo honesto porque la omisión se declara, pero pierde el "esto salió tal cual de un artefacto" |
->
-> Lo que **no** es opción: pegarlo tal cual y esperar que nadie pregunte qué es `cb_b01_p7`.
+> ✅ **✎ 2026-08-22 — RESUELTO por la opción (a), re-transcripción sobre clip vigente.** La versión
+> anterior de este ejemplo salía de `cb_b01_p7`, retirado del banco el 2026-08-03. El JSON de abajo
+> es la **transcripción literal** de la unidad `frame_000229` de
+> `run_20260803_211225_dbe_grounding_dino_1e06f3` — corrida real de la campaña del banco congelado
+> sobre **`a_p1_c02`** (clip vigente del rodaje, escenario P1, CR-01). La confirmación se reprodujo
+> por replay del control-plane y quedó archivada en
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl` (+ `…-summary.json`).
+> Bonus pedagógico de esta unidad: **contiene un `helmet` (0,456) y aun así CR-01 confirma**, porque
+> el casco está fuera de la región cefálica del sujeto — la inferencia de ausencia es por sujeto y
+> por región, no por presencia de la clase en el frame.
 
 > ```json
 > {
 >   "schema_version": "media.detection.v1",
 >   "event_type": "detection_event",
->   "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
->   "unit_id": "frame_000120",
->   "source":  { "source_id": "cb_b01_p7", "source_type": "video_frame",
->                "frame_index": 120, "timestamp_ms": 4000.0,
+>   "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+>   "unit_id": "frame_000229",
+>   "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",
+>                "frame_index": 229, "timestamp_ms": 7633.33,
 >                "width": 1920, "height": 1080 },
 >   "model":   { "name": "grounding_dino",
 >                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },
->   "prompts": { "prompt_set_id": "cr01_cr02_v2_short_inline" },
+>   "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },
 >   "detections": [
 >     { "detection_id": "det_000001", "label": "person",
->       "prompt_id": "person", "source_prompt": "person", "confidence": 0.8257,
->       "bbox_xyxy":      [1734.6, 300.9, 1838.2, 525.8],
->       "bbox_norm_xyxy": [0.9034, 0.2786, 0.9574, 0.4869],
->       "area_px": 23291.6, "model_name": "grounding_dino" },
->     { "detection_id": "det_000002", "label": "person",
->       "prompt_id": "person", "source_prompt": "person", "confidence": 0.837,
->       "bbox_xyxy":      [159.5, 402.2, 253.4, 639.8],
->       "bbox_norm_xyxy": [0.0831, 0.3724, 0.132, 0.5924],
->       "area_px": 22312.3, "model_name": "grounding_dino" }
+>       "prompt_id": "person", "source_prompt": "person", "confidence": 0.88,
+>       "bbox_xyxy":      [1239.8, 149.8, 1503.2, 861.9],
+>       "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],
+>       "area_px": 187612.4, "model_name": "grounding_dino" },
+>     { "detection_id": "det_000002", "label": "vest",
+>       "prompt_id": "vest", "source_prompt": "vest", "confidence": 0.8755,
+>       "bbox_xyxy":      [1286.5, 235.3, 1459.3, 487.0],
+>       "bbox_norm_xyxy": [0.67, 0.2179, 0.76, 0.4509],
+>       "area_px": 43490.1, "model_name": "grounding_dino" },
+>     { "detection_id": "det_000003", "label": "helmet",
+>       "prompt_id": "helmet", "source_prompt": "helmet", "confidence": 0.456,
+>       "bbox_xyxy":      [1519.0, 432.5, 1648.1, 521.3],
+>       "bbox_norm_xyxy": [0.7911, 0.4005, 0.8584, 0.4827],
+>       "area_px": 11463.6, "model_name": "grounding_dino" }
 >   ],
->   "timing": { "normalize_ms": 8.25, "inference_ms": 214.37,
->               "postprocess_ms": 0.2, "write_ms": 0.0, "total_ms": 214.59 }
+>   "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,
+>               "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 }
 > }
 > ```
 >
@@ -175,31 +173,32 @@ Es lo que el tutor pidió con nombre propio ("un DTO"). **Este JSON es literal**
 > El plano de control produce dos contratos. El **cambio de estado de patrón**
 > (`control.pattern_state.v1`) registra cada transición de la máquina de estados, junto con la evidencia
 > que la motivó y los hitos temporales del episodio. La **alerta interna** (`control.alert.v1`) registra la
-> confirmación de un episodio de riesgo. El fragmento siguiente reproduce la alerta **real** emitida por la
-> corrida de evaluación sobre el clip de obra.
+> confirmación de un episodio de riesgo. El fragmento siguiente reproduce la alerta **real** del replay
+> sobre el mismo clip del banco vigente que el evento de percepción anterior (`a_p1_c02`), archivada el
+> 2026-08-22.
 
 > ```json
 > {
 >   "schema_version": "control.alert.v1",
 >   "event_type": "alert_event",
->   "control_run_id": "bench_cb_b01_p7_gdino_20260712_20260712T232146Z",
->   "media_run_id":   "run_20260711_211647_dbe_grounding_dino_6114c6",
->   "alert_id": "ff1ffb62-60a9-5e19-a7b8-42d076864f14",
+>   "control_run_id": "bench_a_p1_c02_gdino_20260822_20260822T225536Z",
+>   "media_run_id":   "run_20260803_211225_dbe_grounding_dino_1e06f3",
+>   "alert_id": "394c9116-a38d-568d-b620-20d147c4cac9",
 >   "pattern_id": "CR-01", "condition_id": "CR-01",
->   "subject_key": "CR-01:cb_b01_p7", "source_id": "cb_b01_p7",
+>   "subject_key": "CR-01:a_p1_c02", "source_id": "a_p1_c02",
 >   "severity": "high", "state": "open",
->   "unit_id": "frame_000120", "frame_index": 120, "timestamp_ms": 4000.0,
+>   "unit_id": "frame_000229", "frame_index": 229, "timestamp_ms": 7633.33,
 >   "evidence": {
->     "subject": { "detection_id": "det_000013", "label": "person", "confidence": 0.502,
->                  "bbox_xyxy": [1065.4, 1005.4, 1185.9, 1081.2] },
+>     "subject": { "detection_id": "det_000001", "label": "person", "confidence": 0.88,
+>                  "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9] },
 >     "missing_class": "helmet",
->     "supporting": [ { "detection_id": "det_000021", "label": "person", "confidence": 0.4016 },
->                     { "detection_id": "det_000022", "label": "person", "confidence": 0.4147 } ],
->     "score": 0.502, "subjects_in_evidence": 3,
->     "rationale": "No se encontró evidencia de 'helmet' en la región 'upper_body' de 3 sujeto(s)."
+>     "supporting": [],
+>     "score": 0.88, "subjects_in_evidence": 1,
+>     "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 1 sujeto(s)."
 >   },
->   "first_evidence_ms": 230525124.622, "first_evidence_unit_id": "frame_000000",
->   "alert_registered_ms": 230525159.420
+>   "first_evidence_ms": 41990631.527, "first_evidence_unit_id": "frame_000109",
+>   "first_evidence_frame_index": 109,
+>   "alert_registered_ms": 41990642.511
 > }
 > ```
 >
@@ -220,9 +219,10 @@ Es lo que el tutor pidió con nombre propio ("un DTO"). **Este JSON es literal**
 > el argumento principal a favor de la estrategia indirecta adoptada en §17.3.9.2 — un prompt de negación
 > produce una decisión, pero no produce esta evidencia.
 >
-> **El sistema confirma cuando su configuración lo prescribe.** La alerta se registra en la unidad visual
-> correspondiente a `timestamp_ms = 4000,0`, que es exactamente la ventana de persistencia configurada
-> para CR-01.
+> **El sistema confirma cuando su configuración lo prescribe.** La primera evidencia cae en
+> `frame_000109` (3.633,33 ms de video) y la confirmación en `frame_000229` (7.633,33 ms): exactamente
+> los 4.000 ms de la ventana de persistencia configurada para CR-01, verificables desde los hitos
+> `first_evidence_*` que la propia alerta transporta.
 
 ## 1.5 Las interfaces de servicio
 
@@ -606,6 +606,15 @@ clip con dos alertas**. La v2 dice la verdad — y la verdad, contada así, **es
 varias se implementaron después. Esta tabla registra el estado final sin borrar esa
 cronología.
 
+> 🔴 **✎ 2026-08-22 — ESTA TABLA YA FUE INTEGRADA Y QUEDÓ SUPERADA COMO TEXTO GUÍA.** El
+> `.docx` v1.2 la materializó como la **Tabla 68 de §17.4.10**, y sobre esa tabla mandan las
+> unidades del **pase 3**: la **enmienda a E4-22** (fila de preselección en el borde:
+> implementada y medida, excluida de lo evaluativo — NO "no ejercida") y **E4-27** (fila de
+> ajuste fino: jornada COMPLETA, escalera de tres tramos cerrada, sin marcador pendiente).
+> No pegar desde acá: usar el texto base `90b` + pases 2 y 3. Las dos filas de abajo que
+> quedaron vencidas se reescribieron el 2026-08-22 sólo para que este material no vuelva a
+> introducir una afirmación falsa (hallazgos §3.1 de la revisión de cierre).
+
 > ## Alcance efectivo: capacidades no ejercidas
 >
 > El diseño distingue desde su formulación entre el **núcleo validable** y las **extensiones
@@ -621,9 +630,9 @@ cronología.
 > |---|---|---|
 > | **Identidad persistente de sujeto** | **Implementada y medida** como decorador de fuente del control-plane; el media-plane no la persiste en su JSONL | G1 se reporta como capacidad medida; el núcleo validable conserva G0. Las métricas MOT continúan excluidas. |
 > | **Comparación de estrategias de detección** (directa, indirecta, híbrida) | **Implementada y evaluada** | E-IND queda como núcleo; E-DIR fue vetada por precisión y E-HYB-or fue ejecutada y refutada. Las cifras pertenecen a §17.5, no a esta sección de diseño. |
-> | **Distribución de alertas** (canal de notificación) | **Funcionalmente implementada** | DBE/EBE, cooldown, idempotencia, MQTT QoS 1 y reporte fueron verificados. Quedan la vista de webconsole, la orquestación y versionar el repo. |
+> | **Distribución de alertas** (canal de notificación) | **Implementada, verificada e integrada** | DBE/EBE, cooldown, idempotencia, MQTT QoS 1 y reporte fueron verificados; la vista de webconsole y la orquestación quedaron integradas y el repositorio está versionado (✎ 2026-08-22 — antes decía que quedaban pendientes). Canales adicionales y un tablero operativo propio siguen fuera del alcance. |
 > | **Latencia captura-a-resultado en topología de dos nodos** | Instrumentada; **no computable** | Los relojes monotónicos de hosts distintos no son comparables: la métrica se declara **no interpretable**, con causa, en lugar de publicarse. |
-> | **Comparación con modelo adaptado** (ajuste fino) | Rama experimental comprometida; **T1 full en NO-GO técnico** (adenda ADR-017, 2026-08-13) | F-100.1, freeze/smoke, dual gate, serving y procedencia T-FT-023 están cerrados (snapshot `639e60df…`). ✎ **2026-08-15: D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas, y T-FT-031/032 cerradas la misma jornada** (doc 120: baseline 26s one-shot — `bare_head` AP50 0,000, recall CR-01 agregado 0,0002); resta `full-authorization.json` + `RUN` manual. La causa es técnica/protocolar, nunca temporal; se declarará el estado real a la entrega. |
+> | **Comparación con modelo adaptado** (ajuste fino) | **Jornada experimental COMPLETA (✎ 2026-08-22; antes esta fila decía que restaba el RUN): escalera de tres tramos cerrada** — T1 NO-GO (doc 123) · T2 NO-GO (doc 127) · T3 cerrado con causa técnica (doc 117 §2) | La curva de capacidad de tres puntos es el valor declarado del tramo. T1 (10 épocas): rescata `bare_head` de 0,0000 a 0,0455 pero queda a 0,0045 del umbral de ganancia y rompe la retención de `person` (−11,62 %, tope 10 %). T2 (D-FT-16, SGD lr0=0,01): la ganancia PASA (`bare_head` 0 → 0,0909) pero la retención in-domain FALLA ×4 (person −49,7 %) y la open-vocabulary FALLA (COCO −71,3 %); colapsó en entrenamiento (early stop 16/60, mejor época = 1). **F-127.1: el fallo es ESTRUCTURAL (2.946 imgs vs 10,35M parámetros), no de capacidad.** Márgenes y expectativas pre-registrados antes de cada evaluación; las 3 expectativas se confirmaron; ningún checkpoint se adoptó. Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay una métrica única. Nunca "por tiempo" (ADR-017). |
 > | **Métricas de seguimiento multiobjeto** | **No aplicables** | No se dispone de anotación de identidades; su cómputo carecería de referencia. Caso ejemplar de la política de aplicabilidad. |
 > | **Condiciones de riesgo de nivel 2 y 3** | Especificadas, no implementadas | Excluidas conforme al núcleo validable declarado. Se conservan la definición de sus patrones y su vocabulario. |
 > | **Comparación DBE / EBE sobre fuente idéntica** | Paridad de transporte y de reparto **VERIFICADA** | Replay/live producen artefactos de distribución idénticos. El anclaje de sincronización entre reloj de captura y tiempo de media para EBE-desde-clip sigue **NO implementado** (`operacion/97`): la paridad plena queda acotada a lo verificado. |

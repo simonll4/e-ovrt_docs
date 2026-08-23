@@ -101,58 +101,69 @@ class Detection(BaseModel):           # contracts/detection.py:28
 ### 2.2 El DTO serializado — **línea literal**, verificada carácter por carácter
 
 > ⚠️ **La versión anterior de este bloque estaba fabricada** (una detección `helmet` que no existía en esa
-> línea, y tiempos de postproceso/escritura inventados). Lo que sigue es la **transcripción literal** de
-> `e-ovrt_media-plane/runs/run_20260711_211647_dbe_grounding_dino_6114c6/detections.jsonl`, unidad
-> `frame_000120` — la unidad en la que el sistema confirma la alerta de CR-01, a los 4000 ms exactos.
-> **Único recorte:** de las 22 detecciones de esa unidad se muestran 2, y se indica el recorte.
-> **Regla: no se agrega, no se mejora, no se completa nada.**
+> línea, y tiempos de postproceso/escritura inventados). La regla desde la auditoría del 2026-07-12:
+> **transcripción literal — no se agrega, no se mejora, no se completa nada.**
 >
-> ⚠️ **✎ 2026-08-12 — el `source_id` de esta línea es `cb_b01_p7`, un clip RETIRADO del banco**
-> el 2026-08-03 (licencia sin registrar + GT por IA). Como ejemplo de **esquema** la línea es
-> válida —no se cita ningún resultado suyo—, pero **no debe entrar al informe con ese
-> identificador**. Se resuelve re-transcribiendo un replay sobre un clip del banco vigente, o
-> declarando la omisión del identificador. **No se edita a mano**: eso reintroduciría el
-> problema que la auditoría del 12/07 vino a cerrar. Detalle y opciones: `94` §1.3.
+> ✅ **✎ 2026-08-22 — RESUELTO el clip retirado (opción (a) de `94` §1.3, re-transcripción).** El ejemplo
+> anterior salía de `cb_b01_p7`, retirado del banco el 2026-08-03. Lo que sigue es la **transcripción
+> literal** de
+> `e-ovrt_media-plane/runs/run_20260803_211225_dbe_grounding_dino_1e06f3/detections.jsonl`
+> (corrida real de la campaña del banco congelado sobre **`a_p1_c02`**, clip VIGENTE del rodaje, P1/CR-01),
+> unidad `frame_000229` — **la unidad en la que el sistema confirma CR-01**, exactamente **4.000 ms** después
+> de la primera evidencia (`frame_000109`, 3.633,33 ms → 7.633,33 ms). La confirmación se reprodujo por
+> replay del control-plane el 2026-08-22 y quedó archivada:
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl` (+ `…-summary.json`).
+> **Sin recorte:** la unidad tiene 3 detecciones y se muestran las 3.
 
 ```json
 {
   "schema_version": "media.detection.v1",
   "event_type": "detection_event",
-  "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "unit_id": "frame_000120",
-  "source":  { "source_id": "cb_b01_p7", "source_type": "video_frame",
-               "frame_index": 120, "timestamp_ms": 4000.0,
+  "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "unit_id": "frame_000229",
+  "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",
+               "frame_index": 229, "timestamp_ms": 7633.33,
                "width": 1920, "height": 1080 },
   "model":   { "name": "grounding_dino",
                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },
-  "prompts": { "prompt_set_id": "cr01_cr02_v2_short_inline" },
+  "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },
   "detections": [
     { "detection_id": "det_000001", "label": "person",
-      "prompt_id": "person", "source_prompt": "person", "confidence": 0.8257,
-      "bbox_xyxy": [1734.6, 300.9, 1838.2, 525.8],
-      "bbox_norm_xyxy": [0.9034, 0.2786, 0.9574, 0.4869],
-      "area_px": 23291.6, "model_name": "grounding_dino" },
-    { "detection_id": "det_000002", "label": "person",
-      "prompt_id": "person", "source_prompt": "person", "confidence": 0.837,
-      "bbox_xyxy": [159.5, 402.2, 253.4, 639.8],
-      "bbox_norm_xyxy": [0.0831, 0.3724, 0.132, 0.5924],
-      "area_px": 22312.3, "model_name": "grounding_dino" }
-    // … 20 detecciones más (person / helmet / vest) omitidas por legibilidad
+      "prompt_id": "person", "source_prompt": "person", "confidence": 0.88,
+      "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9],
+      "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],
+      "area_px": 187612.4, "model_name": "grounding_dino" },
+    { "detection_id": "det_000002", "label": "vest",
+      "prompt_id": "vest", "source_prompt": "vest", "confidence": 0.8755,
+      "bbox_xyxy": [1286.5, 235.3, 1459.3, 487.0],
+      "bbox_norm_xyxy": [0.67, 0.2179, 0.76, 0.4509],
+      "area_px": 43490.1, "model_name": "grounding_dino" },
+    { "detection_id": "det_000003", "label": "helmet",
+      "prompt_id": "helmet", "source_prompt": "helmet", "confidence": 0.456,
+      "bbox_xyxy": [1519.0, 432.5, 1648.1, 521.3],
+      "bbox_norm_xyxy": [0.7911, 0.4005, 0.8584, 0.4827],
+      "area_px": 11463.6, "model_name": "grounding_dino" }
   ],
-  "timing": { "normalize_ms": 8.25, "inference_ms": 214.37,
-              "postprocess_ms": 0.2, "write_ms": 0.0, "total_ms": 214.59 }
+  "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,
+              "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 }
 }
 ```
 
-**Dos cosas que esta línea literal enseña, y que el ejemplo fabricado ocultaba:**
+**Tres cosas que esta línea literal enseña, y que un ejemplo fabricado ocultaría:**
 
 1. **`strategy` y `condition_id` no aparecen.** Existen en el modelo Pydantic, pero valen `None` y el
    escritor omite los nulos. El evento **no lleva hoy la condición de riesgo asociada**: la asociación
    condición ↔ evidencia la hace el plano de control. Si se quiere que el evento la lleve, hay que
    poblarla (es aditivo y barato) — pero **no se puede escribir en el informe que ya la lleva**.
-2. **El identificador del conjunto de prompts es `cr01_cr02_v2_short_inline`**, no `cr01_cr02_v2_short`:
-   el sufijo `_inline` registra que el conjunto viajó embebido en el disparo de la corrida, no por
-   referencia a catálogo. Es trazabilidad real, y conviene no "limpiarla" al transcribir.
+2. **La unidad TIENE un `helmet` (0,456) y aun así CR-01 confirma.** El casco detectado está fuera de la
+   región cefálica del sujeto (`det_000001`) — cae a su derecha, más allá del margen lateral configurado.
+   Es E-IND funcionando a la vista: la ausencia se infiere **por sujeto y por región**, no por presencia de
+   la clase en el frame. El `rationale` de la alerta archivada lo dice: *"No se encontro evidencia 'helmet'
+   en region 'upper_body' de 1 sujeto(s)"* — con `vest` (0,8755) como positivo simultáneo del mismo sujeto,
+   por eso CR-02 no abre episodio.
+3. **El conjunto de prompts va por referencia a catálogo (`cr01_cr02_v2_short`)**, el set congelado de las
+   campañas — a diferencia del ejemplo anterior, que llevaba el sufijo `_inline` de un disparo con el set
+   embebido. Ambas formas son trazables; ésta además ancla la corrida al artefacto congelado.
 
 ### 2.3 Dónde se publica
 
@@ -170,8 +181,8 @@ LIFECYCLE_TOPIC_PREFIX   = "run.lifecycle.v1."
 ```jsonc
 // envelope (msgpack) — el payload es la MISMA línea que va al JSONL
 { "schema_version": "bus.envelope.v1",
-  "topic": "media.detection.v1.run_20260711_211647_...",
-  "key": "cb_b01_p7",          // source_id
+  "topic": "media.detection.v1.run_20260803_211225_...",
+  "key": "a_p1_c02",           // source_id
   "seq": 41,                   // monótono: el hueco de seq es la ÚNICA señal de pérdida
   "ts_publish_ms": 1783804607379.2,
   "payload": <bytes de la línea JSONL> }
@@ -317,28 +328,29 @@ Este es el punto más sustantivo de la observación del tutor:
 ### 4.3 El evento, mostrado con su superficie de crecimiento
 
 > ⚠️ **Corregido tras auditoría.** La versión anterior de este bloque mezclaba valores de tres artefactos
-> distintos. Ahora la detección **emitida hoy** es la línea literal de `frame_000120` (la misma de §2.2),
-> y lo **previsto** va claramente separado, en comentarios, sin fingir que existe.
+> distintos. La detección **emitida hoy** es la línea literal de `frame_000229` (la misma de §2.2,
+> re-transcripta el 2026-08-22 sobre el clip vigente `a_p1_c02`), y lo **previsto** va claramente
+> separado, en comentarios, sin fingir que existe.
 
 ```jsonc
 {
   "schema_version": "media.detection.v1",     // aditivo ⇒ NO cambia al agregar campos nuevos
-  "run_id": "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "unit_id": "frame_000120",
-  "source":  { "source_id": "cb_b01_p7", "source_type": "video_frame",
-               "frame_index": 120, "timestamp_ms": 4000.0, "width": 1920, "height": 1080 },
+  "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "unit_id": "frame_000229",
+  "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",
+               "frame_index": 229, "timestamp_ms": 7633.33, "width": 1920, "height": 1080 },
   "model":   { "name": "grounding_dino",
                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },
-  "prompts": { "prompt_set_id": "cr01_cr02_v2_short_inline" },
+  "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },
   "detections": [
     {
       // ================= EMITIDO HOY (línea literal del artefacto) =================
-      "detection_id": "det_000002",           // índice por frame: NO es identidad entre frames
-      "label": "person", "confidence": 0.837,
-      "bbox_xyxy":      [159.5, 402.2, 253.4, 639.8],
-      "bbox_norm_xyxy": [0.0831, 0.3724, 0.132, 0.5924],
+      "detection_id": "det_000001",           // índice por frame: NO es identidad entre frames
+      "label": "person", "confidence": 0.88,
+      "bbox_xyxy":      [1239.8, 149.8, 1503.2, 861.9],
+      "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],
       "prompt_id": "person", "source_prompt": "person",
-      "area_px": 22312.3, "model_name": "grounding_dino"
+      "area_px": 187612.4, "model_name": "grounding_dino"
 
       // ============ PREVISTO: aditivo, opcional, sin bump de versión ==============
       // "track_id":      "trk_017",      // única identidad válida entre frames (spec 42 §3)
@@ -351,8 +363,8 @@ Este es el punto más sustantivo de la observación del tutor:
       // serializan. Poblarlos es aditivo y barato — pero HOY NO ESTÁN EN EL EVENTO.
     }
   ],
-  "timing": { "normalize_ms": 8.25, "inference_ms": 214.37,
-              "postprocess_ms": 0.2, "write_ms": 0.0, "total_ms": 214.59 }
+  "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,
+              "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 }
 }
 ```
 
@@ -393,7 +405,7 @@ class PatternStateChanged(BaseModel):
     source_id: str
     pattern_id: str
     condition_id: str
-    subject_key: str                  # "CR-01:cb_b01_p7" bajo escena
+    subject_key: str                  # "CR-01:a_p1_c02" bajo escena
     previous_state: str               # inactive | candidate | confirmed | sustained | resolved
     state: str
     severity: str                     # high | medium
@@ -410,32 +422,36 @@ nunca"*.
 
 ### 5.2 `AlertEvent` — `control.alert.v1` (la alerta del **benchmark**, no de un smoke)
 
-> ⚠️ **Corregido tras auditoría.** La versión anterior mostraba la alerta de la corrida **mock** (el smoke
-> de plomería de `clip_id`), que confirma en 4033,33 ms. La alerta de abajo es la del **benchmark real con
-> GDINO-tiny** sobre `cb_b01_p7`, reproducido y archivado el 2026-07-12 en
-> `operacion/datos/95-2026-07-12-bench-cb_b01_p7-gdino-alerts.jsonl`. Confirma en **4000,0 ms exactos**.
-> Si vas a poner un JSON al lado del número `t_alert-system = 4000 ms`, tiene que ser **este**.
+> ⚠️ **Corregido tras auditoría; ✎ re-transcripta el 2026-08-22 sobre clip VIGENTE.** La primera versión
+> mostraba la alerta de una corrida **mock**; la segunda, la del benchmark del 2026-07-12 sobre
+> `cb_b01_p7`, clip después **retirado del banco**. La alerta de abajo es la del **replay real con
+> GDINO-tiny sobre `a_p1_c02`** (banco vigente, campaña del banco congelado), reproducido y archivado en
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-alerts.jsonl`. La cadena temporal se lee entera:
+> primera evidencia en `frame_000109` (3.633,33 ms de video) → confirmación en `frame_000229`
+> (7.633,33 ms) = **los 4.000 ms exactos de la ventana de CR-01**; contra el inicio anotado del episodio,
+> el `t_alert-system` de este clip es **4.600,33 ms** (TTFD 600,33 + 4.000 de espera deliberada) — la
+> descomposición que separa cómputo de persistencia, con la re-alerta posterior en `frame_000764`.
 
 ```json
 { "schema_version": "control.alert.v1", "event_type": "alert_event",
-  "control_run_id": "bench_cb_b01_p7_gdino_20260712_20260712T232146Z",
-  "media_run_id":   "run_20260711_211647_dbe_grounding_dino_6114c6",
-  "alert_id": "ff1ffb62-60a9-5e19-a7b8-42d076864f14",
+  "control_run_id": "bench_a_p1_c02_gdino_20260822_20260822T225536Z",
+  "media_run_id":   "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "alert_id": "394c9116-a38d-568d-b620-20d147c4cac9",
   "pattern_id": "CR-01", "condition_id": "CR-01",
-  "subject_key": "CR-01:cb_b01_p7", "source_id": "cb_b01_p7",
+  "subject_key": "CR-01:a_p1_c02", "source_id": "a_p1_c02",
   "severity": "high", "state": "open",
-  "unit_id": "frame_000120", "frame_index": 120, "timestamp_ms": 4000.0,
+  "unit_id": "frame_000229", "frame_index": 229, "timestamp_ms": 7633.33,
   "evidence": {
-    "subject": { "detection_id": "det_000013", "label": "person", "confidence": 0.502,
-                 "bbox_xyxy": [1065.4, 1005.4, 1185.9, 1081.2] },
+    "subject": { "detection_id": "det_000001", "label": "person", "confidence": 0.88,
+                 "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9] },
     "missing_class": "helmet",
-    "supporting": [ { "detection_id": "det_000021", "label": "person", "confidence": 0.4016 },
-                    { "detection_id": "det_000022", "label": "person", "confidence": 0.4147 } ],
-    "score": 0.502, "subjects_in_evidence": 3,
-    "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 3 sujeto(s)." },
-  "frame_index": 120, "timestamp_ms": 4000.0, "subjects_in_evidence_max": 6,
-  "first_evidence_ms": 230525124.622, "first_evidence_unit_id": "frame_000000",
-  "alert_registered_ms": 230525159.420,
+    "supporting": [],
+    "score": 0.88, "subjects_in_evidence": 1,
+    "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 1 sujeto(s)." },
+  "subjects_in_evidence_max": 1,
+  "first_evidence_ms": 41990631.527, "first_evidence_unit_id": "frame_000109",
+  "first_evidence_frame_index": 109,
+  "alert_registered_ms": 41990642.511,
   "experiment_id": null }
 ```
 
@@ -447,8 +463,10 @@ Cuatro cosas para señalar en el texto:
 2. **`rationale` en lenguaje natural + `subject` + `supporting[]` + `missing_class`**: la evidencia de la
    ausencia es **auditable**. Es el argumento a favor de E-IND frente al prompt de negación, hecho
    artefacto. Esto es lo que un prompt de negación **no puede darte**.
-3. **La alerta confirma en `timestamp_ms: 4000.0`** — exactamente la ventana de persistencia configurada
-   para CR-01. El sistema hace lo que su configuración declara, al milisegundo.
+3. **La confirmación cae exactamente 4.000 ms después de la primera evidencia** —
+   `frame_000109` (3.633,33 ms) → `frame_000229` (7.633,33 ms): la ventana de persistencia
+   configurada para CR-01, al milisegundo. El sistema hace lo que su configuración declara,
+   y los hitos `first_evidence_*` del propio evento permiten verificarlo sin salir del artefacto.
 4. **`experiment_id: null`**: esta corrida se disparó por CLI, sin manifiesto paraguas. Es honesto y vale
    la pena verlo — el campo existe y viaja; en esta corrida puntual no se lo pobló.
 
@@ -536,9 +554,12 @@ no las deseadas. Cada una tiene t0, t1 y su condición de aplicabilidad.
 > con **detector `mock`** (doc 39: `EOVRT_MODEL_REF=mock`, 20 unidades). **No es evidencia de que el sistema
 > cumpla el presupuesto.**
 >
-> La corrida **real** con GDINO-tiny sobre `cb_b01_p7` (`summary.json` archivado) dice:
-> **`g2a: p50 2214,2 ms · p95 2604,1 ms · p95_within_budget: false`** — un orden de magnitud **por encima**
-> del presupuesto 50–250 ms.
+> La corrida **real** con GDINO-tiny dice lo contrario. Sobre el clip vigente `a_p1_c02`
+> (`run_20260803_211225…`, 1.123 unidades, `summary.json` archivado en
+> `operacion/datos/129-2026-08-22-bench-a_p1_c02-gdino-summary.json` junto a las alertas):
+> **`g2a: p50 1473,1 ms · p95 4953,9 ms · p95_within_budget: false`** — un orden de magnitud **por encima**
+> del presupuesto 50–250 ms. (La corrida histórica del 07-12 sobre el clip luego retirado decía lo mismo:
+> p95 2604,1 ms, `false`.)
 >
 > **No lo escondas: convertilo en hallazgo.** Es exactamente el mismo resultado que el conflicto
 > CR-01 ↔ tiempo real del doc 31 (GDINO sostiene CR-01 pero sólo sigue el 14–22 % del ritmo de cámara), y
@@ -548,7 +569,7 @@ no las deseadas. Cada una tiene t0, t1 y su condición de aplicabilidad.
 >
 > Formulación correcta para el informe: *"la instrumentación de G2A opera y detecta el incumplimiento: con
 > detector de referencia el p95 es de 31,8 ms (dentro del presupuesto), mientras que con el detector
-> open-vocabulary evaluado el p95 asciende a 2604 ms y el sistema lo declara fuera de presupuesto. La
+> open-vocabulary evaluado el p95 asciende a 4.953,9 ms y el sistema lo declara fuera de presupuesto. La
 > latencia del detector, y no la instrumentación, es la restricción operativa."*
 | **TTFD** | inicio del episodio en el GT | primera detección positiva dentro del episodio | `_ttfd_for_episode` (`evaluation/temporal.py:438`). Si no hay ninguna: **`None` + `no_positive_detected`** — nunca 0.0 por defecto. |
 | **`t_alert-system`** | inicio anotado del episodio | alerta interna registrada | `avg_latency_ms_from_episode_start`. |

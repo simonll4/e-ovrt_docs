@@ -1,0 +1,51 @@
+{
+  "schema_version": "control.summary.v1",
+  "control_run_id": "bench_a_p1_c02_gdino_20260822_20260822T225536Z",
+  "media_run_ids": [
+    "run_20260803_211225_dbe_grounding_dino_1e06f3"
+  ],
+  "scenario": "DBE",
+  "pattern_set_id": "cr01_cr02_v2",
+  "active_pattern_ids": [
+    "CR-01",
+    "CR-02"
+  ],
+  "units_processed": 1123,
+  "units_failed": 0,
+  "pattern_events_count": 10,
+  "alerts_count": 2,
+  "errors_count": 0,
+  "avg_processing_ms": 0.039943741823002143,
+  "processing_ms_percentiles": {
+    "p50": 0.03018700226675719,
+    "p95": 0.05618879731628105,
+    "p99": 0.08954996170359661
+  },
+  "ttfa_internal_ms_percentiles": {
+    "p50": 11.892550997436047,
+    "p95": 12.710210902243853,
+    "p99": 12.782891782671214
+  },
+  "output_files": {
+    "effective_config": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/effective_config.yaml",
+    "pattern_events": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/pattern_events.jsonl",
+    "alerts": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/alerts.jsonl",
+    "alerts_csv": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/alerts.csv",
+    "metrics": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/metrics.jsonl",
+    "errors": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/errors.jsonl",
+    "summary": "/tmp/claude-1000/-home-simonll4-projects/a3b40b37-5da6-4c16-8f81-1647787c468f/scratchpad/control_out/bench_a_p1_c02_gdino_20260822_20260822T225536Z/summary.json"
+  },
+  "warnings": [],
+  "degraded": false,
+  "degradation_causes": [],
+  "media_run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",
+  "experiment_id": null,
+  "source": "jsonl",
+  "bus_dropped_events": 0,
+  "pattern_evaluation": {
+    "state": "computed",
+    "causes": []
+  },
+  "started_at": "2026-08-22T22:55:36.662127+00:00",
+  "finished_at": "2026-08-22T22:55:36.765720+00:00"
+}

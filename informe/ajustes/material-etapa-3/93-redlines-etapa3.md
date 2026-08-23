@@ -533,7 +533,19 @@ matching greedy que puede deflacionar recall; inventario de datasets desactualiz
 Cada uno **anclado a su regla de exclusión** (doc 10, E-01…E-13), para que se lea como alcance declarado y
 no como omisión.
 
-**→ Texto completo en `94-secciones-nuevas-etapa3.md` §8.**
+> ✎ **2026-08-22 — CÓMO QUEDÓ SALDADO EL ANCLAJE (hallazgo §3.3 de la revisión de cierre).** La revisión
+> observó que la tabla integrada (Tabla 68 de §17.4.10 en el `.docx` v1.2) **no contiene ningún código
+> E-xx**, y que eso dejaba el redline sin saldar. La resolución es **sustantiva, no por código**, y es la
+> única compatible con la regla de autocontención (el informe no puede citar `doc 10` ni sus códigos):
+> cada fila de la Tabla 68 lleva su fundamento de exclusión escrito en la columna de consecuencia, la
+> prosa de §17.4.10 desarrolla el porqué del núcleo-solo por evaluabilidad (D4/E4-17), y el pase 3 lo
+> completa — la **enmienda a E4-22** deja la exclusión de la preselección declarada con su causa
+> pre-registrada, y **E4-27** hace lo mismo con la rama de ajuste fino. El mapa código ↔ fila (E-xx ↔
+> Tabla 68) queda como trazabilidad **interna** en doc 10 y en ADR-015 §3; al informe no entra. Con eso
+> este redline se considera **saldado**: el anclaje existe, expresado como fundamento y no como código.
+
+**→ Texto completo en `94-secciones-nuevas-etapa3.md` §8** (✎ 2026-08-22: superado como texto guía por la
+Tabla 68 del `.docx` v1.2 + pase 3 — ver el banner de ese §8).
 
 **DECISIÓN:** [ ] acepto  [ ] modifico  [ ] rechazo
 **Notas:**
