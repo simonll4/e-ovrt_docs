@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 0
 
-> Generado el 2026-08-23. Etapa 0: secciones 11 a 14 y ajustes transversales.
+> Generado el 2026-08-28. Etapa 0: secciones 11 a 14 y ajustes transversales.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -32,6 +32,11 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
    metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
    zero-shot.
+6. **Plataforma relevada de punta a punta el 2026-08-28** (`operacion/130`, seis repos, solo
+   lectura): lo estructural coincide con los docs; las 26 cifras de los cuatro indices verifican
+   (EXIT 0); `bench_v3` reproduce byte a byte. Lo que 130 corrigio manda sobre cualquier foto
+   anterior (en particular sobre `operacion/97`).
+7. **Etapa 1 del informe CERRADA** (2026-08-28): §15 + §16 en su documento v1.0, verificador OK.
 
 **ABIERTO — no se afirma; se marca:**
 
@@ -43,13 +48,19 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
    pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
    figura como presente mientras la seccion no la tenga insertada.
-3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
-   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
-   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
-   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
-   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
-   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
-   los borradores.
+3. **La integracion al documento maestro.** ✎ 2026-08-28: cada seccion se trabaja **en su
+   propio documento** en `entregable/desarrollando/`; lo que queda al final es
+   **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
+   **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
+   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
+   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
+   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
+   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
+   `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
+4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
+   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -63,6 +74,44 @@ Reglas: nunca completar un marcador con una estimacion, un valor probable ni una
 redaccion evasiva; nunca borrarlo para que el texto "fluya"; el marcador viaja hasta el
 entregable y recien lo remueve quien aporta el dato. Un capitulo con marcadores visibles
 es honesto; un capitulo que rellena huecos es indefendible.
+
+## Como se trabaja y como se entrega (obligatorio, ✎ 2026-08-27)
+
+**No se trabaja sobre una unidad de Drive conectada, ni editando el documento en su nube.**
+Se trabaja **dentro del Project**, con estos archivos de knowledge como unica fuente: el
+paquete de la etapa activa **ya contiene el texto vigente completo** de la seccion que se
+esta corrigiendo (la extraccion `90`/`90b`/`90c`/`90d`/`90f` segun la etapa). No hace falta ir a
+buscar el documento a ningun lado, y hacerlo empeora el resultado.
+
+*Por que la regla existe.* En la entrega del 2026-08-27 el contenido salio bien pero
+**cinco encabezados numerados contiguos perdieron su estilo de titulo** (`16.5.3`, `16.5.4`,
+`16.5.5`, `16.6`, `16.6.1`): se ven como titulos y no lo son, asi que desaparecen del indice
+automatico y de la numeracion de campos. El defecto aparecio al editar via Drive y no se ve
+leyendo el texto. Ese ida y vuelta tambien pierde los cambios controlados.
+
+**Forma de la entrega**, por seccion y no del documento completo:
+
+1. Un `.docx` armado **sobre una COPIA del DOCX base** de formato, nunca sobrescribiendolo.
+2. **Cada titulo con su estilo de encabezado real** (`Heading 2/3/4/5`), jamas texto en
+   negrita imitando un titulo. Si se elimina una subseccion, **renumerar sus hermanas**: un
+   salto (por ejemplo `16.7.1`, `16.7.2`, `16.7.6`) se ve en el indice.
+3. **Con cambios controlados activados**, o en su defecto con el bloque de trazabilidad por
+   unidad que piden las instrucciones del Project (diagnostico · texto propuesto ·
+   trazabilidad · pendientes).
+4. Sin markdown crudo pegado (`###`, `|---|`, cercos de codigo) y sin identificadores
+   internos: `AJ-`, `R-`, `PODA-`, `E1-`/`E3-`/`E4-`, lineas `SHA-256`, cabeceras
+   `> Seleccion:`. **Excepcion**: los codigos `P-E1-xx` de las preguntas rectoras SI son
+   parte del informe.
+5. Los marcadores `[[PENDIENTE: …]]` / `[[CIFRA: …]]` / `[[FIGURA: …]]` **viajan**: no se
+   completan con estimaciones ni se borran.
+6. **Delta de referencias explicito**: altas completas en APA 7 con DOI/URL, y bajas de lo
+   que dejo de citarse. Si una obra queda citada solo desde la nota de una tabla, decirlo.
+
+**Verificacion mecanica antes de dar una entrega por buena** (la corre el equipo, es parte
+del circuito y no un extra): `python3 herramientas/verificar_entregable.py <entrega.docx>
+--seccion <N>` (p. ej. `--seccion 15 --seccion 16`, o `--seccion 17.1`). Falla con titulos sin estilo, huecos de numeracion, fugas de
+andamiaje, markdown crudo y citas sin entrada en referencias; e informa las referencias
+huerfanas, la misma autoria con años distintos y si faltan los cambios controlados.
 
 ## Estado vigente que manda sobre el resto
 
@@ -116,23 +165,73 @@ es honesto; un capitulo que rellena huecos es indefendible.
   propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
   el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
   normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
+- **Orden de arranque de una corrida live CON distribucion (✎ 2026-08-28, `operacion/130`
+  R-01 — corrige a FIG-A, al CLAUDE.md raiz y a la nota de 128 §4, que decian lo contrario):**
+  el runner lanza **control → distribucion → medios**: primero `POST :8081/api/runs`
+  (`mode: live`, con `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), despues
+  `POST :8082/api/runs` (necesita el `control_run_id`) y por ultimo `POST :8080/api/runs`. La
+  no-perdida en el bus de alertas la garantiza el **handshake XPUB del publicador** (el control
+  espera la suscripcion del distribuidor hasta 10 s), no el orden literal. **NO escribir
+  "distribucion primero" ni "orden inverso al flujo de datos".** §17.4 v1.6 todavia lo dice
+  (pendiente de la etapa 4).
+- **Campeon y sus umbrales (✎ 2026-08-28, `operacion/130` R-04/R-11):** citar siempre el par
+  completo `gdino-tiny-560` = 560 px · `box_threshold` **0,30** · `text_threshold` 0,25 · NMS
+  IoU 0,50 · fp16. **`gdino-tiny` (800 px) corrio a 0,35**: la comparacion "560 no degrada mAP
+  respecto de 800" esta confundida con el umbral en el par tiny (el par base si esta a 0,30 en
+  ambos: 0,453 vs 0,401); el −24 % de latencia no depende del umbral. El **n=5.313** del recall
+  CR-01 (S1/S2) es el del GT del 2026-07-23; con el GT vigente (29-jul) el denominador es 5.308
+  y la medicion no se repitio: citarlo fechado. `effective_config.yaml` imprime tambien los
+  campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35`
+  en YOLOE): **GDINO usa `box`+`text`+`iou`; YOLOE usa `confidence`+`iou`**. El campo
+  `run.scenario` **no clasifica** DBE/EBE (siempre dice `DBE`): se distingue por `source_type` +
+  `bus.enabled`.
+- **Motor de patrones (✎ 2026-08-28, `operacion/130` R-07):** **cinco** estados
+  `inactive → candidate → confirmed → sustained → resolved`, alerta solo al entrar a
+  `confirmed`, reapertura `resolved → candidate`; `cr01_cr02_v2` = CR-01 `high` 4.000/2.000 ms,
+  CR-02 `medium` 7.000/3.000 ms, **sin cooldown** (la capacidad existe en el codigo, desactivada);
+  la persistencia se implementa como **duracion desde la primera evidencia con tolerancia a
+  huecos**, no como proporcion de frames positivos. Hitos persistidos 4 de 5 (la notificacion es
+  del distribuidor). Causa two-node = `clock_skew` (no `cross_node_monotonic_clock`).
+- **Fine-tuning y datos (✎ 2026-08-28, `operacion/130` R-02/R-03):** el entrenamiento efectivo
+  (`finetuning_v1`, T1/T2) uso `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+  train / 483 val** y **EXCLUYO `chv`** por anti-leakage (el 100 % de `chv` es estrato del banco);
+  "css + chv + ppe_siabar" es el rol TRAIN **historico** (`train_v2`, archivado 08-15) y NO se
+  escribe como lo entrenado. El protocolo (Tabla 28 de §17.1) acotaba el split a 500–2.000
+  imagenes: **2.946 es una desviacion que se declara** (100 % de linajes elegibles tras dedup y
+  exclusion del banco; F-127.1 muestra que aun asi es insuficiente). Los checkpoints ajustados
+  **solo se evaluaron en DBE-imagenes**, nunca en clips ni EBE (ΔSDR/Δt_alert/ΔTTFD no existen).
+  De los 9 datasets de la Tabla 26 de §17.1 solo SHEL5K y CHV se usaron (como fuentes del banco);
+  css y ppe_siabar, los que se entrenaron, no figuran en esa tabla.
+- **G2A y la cadena temporal (✎ 2026-08-28, `operacion/130` R-17):** el G2A medido va del
+  **dequeue** (el proceso ya leyo el frame) al **fin de la inferencia**; el tramo sensor→dequeue
+  (`capture_to_host`, 202–217 ms) existe **solo para OAK-D** — para RTSP ese tramo **no se midio**
+  (no "se suma", falta). NVDEC no se uso (decodificacion por software). El SO real es Linux/WSL2,
+  no Windows 11 como decia el protocolo.
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
-  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
-  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
-  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
-  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
-  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
-  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
-  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
-  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
-  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
+  usuario). ✎ 2026-08-28 (`operacion/130` R-09): **esta DEFINIDA y validada por configuracion**
+  desde el 2026-08-19/20 — Dockerfiles en los tres repos de servicio y `infra/platform/` con el
+  compose de 13 servicios y paridad de rutas; lo que sigue **pendiente y diferido a post-entrega
+  es el build y el smoke integral** (nunca se corrieron). Su razon de ser es la
+  **reproducibilidad** (que un tercero levante la plataforma en otra maquina), y su documentacion
+  operativa vive en los repositorios, no en la tesis. **Como escribirla:** "definida y validada
+  por configuracion; despliegue no verificado", como trabajo comprometido con su causa, en el
+  cierre (§17.6/§18) y en el camino de reproducibilidad (§19). **Como NO escribirla:** ni
+  "diferida" (ya esta escrita), ni en presente como capacidad desplegada, ni con instrucciones
+  de despliegue — el informe no es un manual. *Describir el compromiso y su fundamento es correcto; describir un despliegue
+  que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
   duplican cifras que ya se reportan via `evaluate-alerts` con denominadores por estrato.
   **La citabilidad esta materializada**: `t_alert-system` ES la columna `t_alert` del
   clip bench (campo `t_alert_system_ms` de cada `metrics.json`) — citable por campana y
-  por condicion, nunca promediada entre campanas. NO confundir con `t_alert-notification`
+  por condicion, nunca promediada entre campanas. ✎ 2026-08-28 (`operacion/130` R-05): esa
+  cifra es un **PROMEDIO por campana** — `evaluate-alerts` no produce percentiles ni persiste
+  latencias por episodio; los **P50/P95/P99** existen solo para el tramo de plataforma
+  (`summary.json` de medios y control: G2A, `processing_ms`, `ttfa_internal`) y para
+  `t_alert-notification` (`metrics.json` de la campana 118). Decirlo cuando se cite. Y
+  `t_alert-system` cierra en el **reloj de fuente del frame que confirmo** (`alert.timestamp_ms`),
+  no en el registro interno monotónico. NO confundir con `t_alert-notification`
   (bus→PUBACK, la campana de distribucion): son tramos con relojes distintos y **los
   percentiles no se suman entre tramos** — la cadena temporal completa se cita POR TRAMOS
   segun la tabla de `results/index.md`.

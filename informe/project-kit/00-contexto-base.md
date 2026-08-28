@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-23. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-08-28. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -32,6 +32,11 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
    metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
    zero-shot.
+6. **Plataforma relevada de punta a punta el 2026-08-28** (`operacion/130`, seis repos, solo
+   lectura): lo estructural coincide con los docs; las 26 cifras de los cuatro indices verifican
+   (EXIT 0); `bench_v3` reproduce byte a byte. Lo que 130 corrigio manda sobre cualquier foto
+   anterior (en particular sobre `operacion/97`).
+7. **Etapa 1 del informe CERRADA** (2026-08-28): §15 + §16 en su documento v1.0, verificador OK.
 
 **ABIERTO — no se afirma; se marca:**
 
@@ -43,13 +48,19 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
    pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
    figura como presente mientras la seccion no la tenga insertada.
-3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
-   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
-   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
-   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
-   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
-   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
-   los borradores.
+3. **La integracion al documento maestro.** ✎ 2026-08-28: cada seccion se trabaja **en su
+   propio documento** en `entregable/desarrollando/`; lo que queda al final es
+   **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
+   **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
+   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
+   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
+   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
+   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
+   `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
+4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
+   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -63,6 +74,44 @@ Reglas: nunca completar un marcador con una estimacion, un valor probable ni una
 redaccion evasiva; nunca borrarlo para que el texto "fluya"; el marcador viaja hasta el
 entregable y recien lo remueve quien aporta el dato. Un capitulo con marcadores visibles
 es honesto; un capitulo que rellena huecos es indefendible.
+
+## Como se trabaja y como se entrega (obligatorio, ✎ 2026-08-27)
+
+**No se trabaja sobre una unidad de Drive conectada, ni editando el documento en su nube.**
+Se trabaja **dentro del Project**, con estos archivos de knowledge como unica fuente: el
+paquete de la etapa activa **ya contiene el texto vigente completo** de la seccion que se
+esta corrigiendo (la extraccion `90`/`90b`/`90c`/`90d`/`90f` segun la etapa). No hace falta ir a
+buscar el documento a ningun lado, y hacerlo empeora el resultado.
+
+*Por que la regla existe.* En la entrega del 2026-08-27 el contenido salio bien pero
+**cinco encabezados numerados contiguos perdieron su estilo de titulo** (`16.5.3`, `16.5.4`,
+`16.5.5`, `16.6`, `16.6.1`): se ven como titulos y no lo son, asi que desaparecen del indice
+automatico y de la numeracion de campos. El defecto aparecio al editar via Drive y no se ve
+leyendo el texto. Ese ida y vuelta tambien pierde los cambios controlados.
+
+**Forma de la entrega**, por seccion y no del documento completo:
+
+1. Un `.docx` armado **sobre una COPIA del DOCX base** de formato, nunca sobrescribiendolo.
+2. **Cada titulo con su estilo de encabezado real** (`Heading 2/3/4/5`), jamas texto en
+   negrita imitando un titulo. Si se elimina una subseccion, **renumerar sus hermanas**: un
+   salto (por ejemplo `16.7.1`, `16.7.2`, `16.7.6`) se ve en el indice.
+3. **Con cambios controlados activados**, o en su defecto con el bloque de trazabilidad por
+   unidad que piden las instrucciones del Project (diagnostico · texto propuesto ·
+   trazabilidad · pendientes).
+4. Sin markdown crudo pegado (`###`, `|---|`, cercos de codigo) y sin identificadores
+   internos: `AJ-`, `R-`, `PODA-`, `E1-`/`E3-`/`E4-`, lineas `SHA-256`, cabeceras
+   `> Seleccion:`. **Excepcion**: los codigos `P-E1-xx` de las preguntas rectoras SI son
+   parte del informe.
+5. Los marcadores `[[PENDIENTE: …]]` / `[[CIFRA: …]]` / `[[FIGURA: …]]` **viajan**: no se
+   completan con estimaciones ni se borran.
+6. **Delta de referencias explicito**: altas completas en APA 7 con DOI/URL, y bajas de lo
+   que dejo de citarse. Si una obra queda citada solo desde la nota de una tabla, decirlo.
+
+**Verificacion mecanica antes de dar una entrega por buena** (la corre el equipo, es parte
+del circuito y no un extra): `python3 herramientas/verificar_entregable.py <entrega.docx>
+--seccion <N>` (p. ej. `--seccion 15 --seccion 16`, o `--seccion 17.1`). Falla con titulos sin estilo, huecos de numeracion, fugas de
+andamiaje, markdown crudo y citas sin entrada en referencias; e informa las referencias
+huerfanas, la misma autoria con años distintos y si faltan los cambios controlados.
 
 ## Estado vigente que manda sobre el resto
 
@@ -116,23 +165,73 @@ es honesto; un capitulo que rellena huecos es indefendible.
   propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
   el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
   normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
+- **Orden de arranque de una corrida live CON distribucion (✎ 2026-08-28, `operacion/130`
+  R-01 — corrige a FIG-A, al CLAUDE.md raiz y a la nota de 128 §4, que decian lo contrario):**
+  el runner lanza **control → distribucion → medios**: primero `POST :8081/api/runs`
+  (`mode: live`, con `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), despues
+  `POST :8082/api/runs` (necesita el `control_run_id`) y por ultimo `POST :8080/api/runs`. La
+  no-perdida en el bus de alertas la garantiza el **handshake XPUB del publicador** (el control
+  espera la suscripcion del distribuidor hasta 10 s), no el orden literal. **NO escribir
+  "distribucion primero" ni "orden inverso al flujo de datos".** §17.4 v1.6 todavia lo dice
+  (pendiente de la etapa 4).
+- **Campeon y sus umbrales (✎ 2026-08-28, `operacion/130` R-04/R-11):** citar siempre el par
+  completo `gdino-tiny-560` = 560 px · `box_threshold` **0,30** · `text_threshold` 0,25 · NMS
+  IoU 0,50 · fp16. **`gdino-tiny` (800 px) corrio a 0,35**: la comparacion "560 no degrada mAP
+  respecto de 800" esta confundida con el umbral en el par tiny (el par base si esta a 0,30 en
+  ambos: 0,453 vs 0,401); el −24 % de latencia no depende del umbral. El **n=5.313** del recall
+  CR-01 (S1/S2) es el del GT del 2026-07-23; con el GT vigente (29-jul) el denominador es 5.308
+  y la medicion no se repitio: citarlo fechado. `effective_config.yaml` imprime tambien los
+  campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35`
+  en YOLOE): **GDINO usa `box`+`text`+`iou`; YOLOE usa `confidence`+`iou`**. El campo
+  `run.scenario` **no clasifica** DBE/EBE (siempre dice `DBE`): se distingue por `source_type` +
+  `bus.enabled`.
+- **Motor de patrones (✎ 2026-08-28, `operacion/130` R-07):** **cinco** estados
+  `inactive → candidate → confirmed → sustained → resolved`, alerta solo al entrar a
+  `confirmed`, reapertura `resolved → candidate`; `cr01_cr02_v2` = CR-01 `high` 4.000/2.000 ms,
+  CR-02 `medium` 7.000/3.000 ms, **sin cooldown** (la capacidad existe en el codigo, desactivada);
+  la persistencia se implementa como **duracion desde la primera evidencia con tolerancia a
+  huecos**, no como proporcion de frames positivos. Hitos persistidos 4 de 5 (la notificacion es
+  del distribuidor). Causa two-node = `clock_skew` (no `cross_node_monotonic_clock`).
+- **Fine-tuning y datos (✎ 2026-08-28, `operacion/130` R-02/R-03):** el entrenamiento efectivo
+  (`finetuning_v1`, T1/T2) uso `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+  train / 483 val** y **EXCLUYO `chv`** por anti-leakage (el 100 % de `chv` es estrato del banco);
+  "css + chv + ppe_siabar" es el rol TRAIN **historico** (`train_v2`, archivado 08-15) y NO se
+  escribe como lo entrenado. El protocolo (Tabla 28 de §17.1) acotaba el split a 500–2.000
+  imagenes: **2.946 es una desviacion que se declara** (100 % de linajes elegibles tras dedup y
+  exclusion del banco; F-127.1 muestra que aun asi es insuficiente). Los checkpoints ajustados
+  **solo se evaluaron en DBE-imagenes**, nunca en clips ni EBE (ΔSDR/Δt_alert/ΔTTFD no existen).
+  De los 9 datasets de la Tabla 26 de §17.1 solo SHEL5K y CHV se usaron (como fuentes del banco);
+  css y ppe_siabar, los que se entrenaron, no figuran en esa tabla.
+- **G2A y la cadena temporal (✎ 2026-08-28, `operacion/130` R-17):** el G2A medido va del
+  **dequeue** (el proceso ya leyo el frame) al **fin de la inferencia**; el tramo sensor→dequeue
+  (`capture_to_host`, 202–217 ms) existe **solo para OAK-D** — para RTSP ese tramo **no se midio**
+  (no "se suma", falta). NVDEC no se uso (decodificacion por software). El SO real es Linux/WSL2,
+  no Windows 11 como decia el protocolo.
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
-  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
-  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
-  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
-  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
-  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
-  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
-  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
-  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
-  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
+  usuario). ✎ 2026-08-28 (`operacion/130` R-09): **esta DEFINIDA y validada por configuracion**
+  desde el 2026-08-19/20 — Dockerfiles en los tres repos de servicio y `infra/platform/` con el
+  compose de 13 servicios y paridad de rutas; lo que sigue **pendiente y diferido a post-entrega
+  es el build y el smoke integral** (nunca se corrieron). Su razon de ser es la
+  **reproducibilidad** (que un tercero levante la plataforma en otra maquina), y su documentacion
+  operativa vive en los repositorios, no en la tesis. **Como escribirla:** "definida y validada
+  por configuracion; despliegue no verificado", como trabajo comprometido con su causa, en el
+  cierre (§17.6/§18) y en el camino de reproducibilidad (§19). **Como NO escribirla:** ni
+  "diferida" (ya esta escrita), ni en presente como capacidad desplegada, ni con instrucciones
+  de despliegue — el informe no es un manual. *Describir el compromiso y su fundamento es correcto; describir un despliegue
+  que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
   duplican cifras que ya se reportan via `evaluate-alerts` con denominadores por estrato.
   **La citabilidad esta materializada**: `t_alert-system` ES la columna `t_alert` del
   clip bench (campo `t_alert_system_ms` de cada `metrics.json`) — citable por campana y
-  por condicion, nunca promediada entre campanas. NO confundir con `t_alert-notification`
+  por condicion, nunca promediada entre campanas. ✎ 2026-08-28 (`operacion/130` R-05): esa
+  cifra es un **PROMEDIO por campana** — `evaluate-alerts` no produce percentiles ni persiste
+  latencias por episodio; los **P50/P95/P99** existen solo para el tramo de plataforma
+  (`summary.json` de medios y control: G2A, `processing_ms`, `ttfa_internal`) y para
+  `t_alert-notification` (`metrics.json` de la campana 118). Decirlo cuando se cite. Y
+  `t_alert-system` cierra en el **reloj de fuente del frame que confirmo** (`alert.timestamp_ms`),
+  no en el registro interno monotónico. NO confundir con `t_alert-notification`
   (bus→PUBACK, la campana de distribucion): son tramos con relojes distintos y **los
   percentiles no se suman entre tramos** — la cadena temporal completa se cita POR TRAMOS
   segun la tabla de `results/index.md`.
@@ -146,7 +245,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Fuente: `docs/GUIA-REDACTORES.md`
 
-> SHA-256 del bloque: `50e7e63380fb835efad50963c6f57b7fa9ae29ae902539865a29bf39832c7126`  
+> SHA-256 del bloque: `2262b55fb9db73f1ee633fe79530557ecc1ef6dafa328244feed5d9e3f1d97ba`  
 > Seleccion: documento completo.
 
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
@@ -268,6 +367,12 @@ que corregir del texto que ya existe y qué hay que escribir desde cero. **Tres 
 informe están vacías —§17.4 Implementación, §17.5 Evaluación y §17.6 Cierre—**, y ese mapa
 es el que dice qué va en cada una y de dónde sale.
 
+> ✎ **2026-08-28 — vencido:** "vacías" vale sólo para el **maestro** `.docx`. **§17.4 (v1.6) y
+> §17.5 (v1.3) ya tienen documento de trabajo** con sus tres pases E3/E4 aplicados y verificados
+> en `informe/entregable/desarrollando/`; §15+§16 cerraron en v1.0 el 08-28 (Etapa 1 CERRADA) y
+> §17.3 está en v1.4. **Lo que sigue vacío es §17.6, §18 y §19.** Estado vigente:
+> `informe/entregable/00-el-informe-hoy.md`; relevamiento de plataforma: `operacion/130`.
+
 > **Las etapas son seis, y son la guía de desarrollo del proyecto** (Gantt del §14.3 =
 > §14.2): 1 investigación bibliográfica · 2 análisis metodológico · 3 diseño arquitectónico ·
 > 4 implementación MVP · 5 evaluación y validación · 6 documentación y defensa. **El informe
@@ -290,8 +395,8 @@ de `docs/operacion/NN` que la síntesis te indique.
 |---|---|
 | `docs/GUIA-CIERRE.md` y `docs/operacion/113` | Son el checklist operativo **del equipo experimental**, no material de redacción |
 | `docs/informe/92` y `docs/operacion/56` y `92` | **Derogados como fuente de cifras** |
-| `docs/operacion/32`, `36`, `50` | Estado de plataforma superado por `operacion/97` |
-| `../informe-project-kit/` | Kit aplanado externo **eliminado**. Para ChatGPT usar `docs/informe/project-kit/README.md`: cuatro archivos de knowledge — dos `.md` generados por etapa + dos DOCX del entregable (✎ 2026-08-16) |
+| `docs/operacion/32`, `36`, `50` | Estado de plataforma superado por `operacion/97` (✎ 2026-08-28: y `97` a su vez **superado por `operacion/130`** en todo lo que difieran — 5 repos, tres servicios HTTP, distribución medida) |
+| `../informe-project-kit/` | Kit aplanado externo **eliminado**. Para ChatGPT usar `docs/informe/project-kit/README.md`: cuatro archivos de knowledge — dos `.md` generados por etapa + dos DOCX del entregable (✎ 2026-08-16) (✎ 2026-08-28 — definición vigente de los cuatro: `00-contexto-base.md` + `01-etapa-N-activa.md` + el **DOCX base de formato** `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo** (`desarrollando/`); el "Etapa 3 vigente" ya no se sube — `INSTRUCCIONES-PROJECT.md`) |
 | Cualquier doc de `operacion/` con banner ⚠️ | Los banners dicen qué quedó superado. **Leé el banner antes que el cuerpo, siempre** |
 
 **Regla general del set:** un documento con banner de corrección **manda por el banner, no
@@ -495,6 +600,13 @@ sólo dos acoples: están viejos.
 > el anexo de reproducibilidad (§19). **Nunca en presente, nunca como capacidad existente,
 > nunca como instructivo de despliegue.** Regla corta: *describir el compromiso es
 > correcto; describir un despliegue que no corrió es falso.*
+>
+> ✎ **2026-08-28 — estado real (`operacion/130` R-09; doc 126):** "diferida" ya no describe el
+> estado. **Imagen y compose de 13 servicios están escritos y validados por configuración**
+> desde el 2026-08-19/20 (Dockerfiles en los tres repos, `infra/platform/` con paridad de
+> rutas); lo diferido a post-entrega es **build + smoke integral**. Fórmula para el informe:
+> **"definida, despliegue no verificado"** — nunca "diferida", nunca "desplegada". El resto de
+> la regla (no en presente como capacidad verificada, no instructivo) sigue.
 
 > ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
 > bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
@@ -536,16 +648,16 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | La narrativa completa con contexto | `docs/sintesis/resultados-y-conclusiones.md` |
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
-| Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
+| Cómo está implementada la plataforma (concreción técnica) | ✎ 2026-08-28: **`docs/operacion/130-relevamiento-plataforma-pre-etapa-2.md`** — los cinco repos verificados contra los docs y contra §17.1 (tests 643/312/133/668/431; informes por repo en `operacion/datos/130-relevamiento-pre-etapa-2/`). `operacion/97` (08-05, "2.203 tests") queda como memoria de implementación, superado en todo lo que difieran |
 | El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019) · **`operacion/125`** — HTTP como acople (ADR-020). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13. Desde el 2026-08-18 expone servicio HTTP propio en `:8082`; **HTTP constituye el acople predeterminado**. ADR-018 quedó derogada por ADR-020 |
-| El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
+| El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) (✎ 2026-08-28: los dos DOCX son el **base de formato** `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo** — §15+§16 v1.0 · §17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3 · §17.1 en preparación; el "Etapa 3 vigente" no se sube) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
 | Qué figura/tabla va en cada sección | `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
 | **Qué hay que cambiarle al informe, etapa por etapa** | ✎ **`docs/informe/ajustes/00-mapa-de-ajustes.md`** — el mapa de Etapa 1 a Etapa 6, con un documento por etapa (`01`…`06`). **Empezá por acá y no por el 93**: el 93 cubre solo la Etapa 3 |
 | **Cómo se aplica todo eso: dónde escribís, en qué orden, qué te toca** | ✎ **`docs/informe/ajustes/08-manual-de-aplicacion.md`** — **es el documento del día 1.** Trae el reparto de trabajo, el orden con su dependencia dura (la vara del §15 antes que el §17.5), el loop repetible por sección, las cuatro puertas de cierre y el tablero de las 109 unidades. **Leelo después de esta guía y antes de tocar nada** |
 | Qué hay que corregir del **§17.3** (Etapa 3) | `docs/informe/93` — los **26 redlines** (R-01…R-26). Enrutados desde `informe/ajustes/03-etapa-3-diseno-arquitectonico.md` |
-| Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe. Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
+| Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe (✎ 2026-08-28: **en el maestro**; §17.4 v1.6 y §17.5 v1.3 **ya están redactadas** en `entregable/desarrollando/` — sólo §17.6, §18 y §19 se escriben desde cero). Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
 | Qué **recortar** del informe (está muy extenso) | ✎ `docs/informe/ajustes/07-critica-extension-y-poda.md` — 18 podas medidas (`PODA-nn`, ~27% del texto), con guardrails de qué NO tocar. Se aplica junto con los `AJ-`/`R-` de cada sección |
 | Texto ya redactado para adaptar | `docs/informe/94` (§1–§9: cubre 9 de los 26 redlines, y es el modelo de estilo) |
 | Por qué se decidió algo | Los **ADR** (`docs/decisiones/`) + `docs/nucleo/10` (alcance y exclusiones) |
@@ -569,13 +681,15 @@ que haya que resolver escribiendo con ambigüedad.
 
 **Verificación mecánica disponible:** `python3 docs/operacion/datos/96-verificar-indices.py`
 comprueba que las cifras citadas en los índices coincidan con los artefactos en disco (19
-cifras sobre las 16 campañas). Si dudás de un número, corrélo.
+cifras sobre las 16 campañas) (✎ 2026-08-28: hoy son **26 cifras sobre 17 campañas, 3 deltas
+bootstrap, 35 docs de procedencia, 1.452 enlaces / 0 rotos — EXIT 0 el 2026-08-28**,
+`operacion/130` §2; el 19/16 era el conteo del 08-09). Si dudás de un número, corrélo.
 
 ---
 
 ## Fuente: `docs/13-glosario-y-convenciones-de-lectura.md`
 
-> SHA-256 del bloque: `46bb82a42e1ba730ff693f4627610b11d6327d3d089d258e3a1e02614cbfdc5c`  
+> SHA-256 del bloque: `1941c65d7e4cdc6a18ea4e6a8c4cc00d3a2959a0a53efa7ff461f033d94c32e9`  
 > Seleccion: documento completo.
 
 # 13 — Glosario y convenciones de lectura del set documental
@@ -682,18 +796,18 @@ los tres módulos, y bus ZeroMQ), no tres.
 | **DBE** | Dataset-Based Evaluation: escenario offline; el media-plane escribe `detections.jsonl` y el control-plane lo relee (replay). El archivo es la fuente de verdad. |
 | **EBE** | Environment-Based Evaluation: escenario live; acople por bus ZeroMQ PUB/SUB (`bus.envelope.v1`, msgpack), corrida 1:1 (ADR-007), cierre por `run_finished`. Toda corrida live es re-evaluable offline con artefactos byte-idénticos. |
 | **media-plane** | El plano de medios/inferencia: servicio FastAPI :8080, carga un modelo OVD al arranque (`EOVRT_MODEL_REF`), ingiere fuentes visuales y emite `media.detection.v1`. Repo `e-ovrt_media-plane`. |
-| **control-plane** | El plano de control: servicio FastAPI :8081, motor de patrones con histéresis (`inactive→candidate→confirmed→resolved`) que consume detecciones y emite alertas. Repo `e-ovrt_control-plane`. |
+| **control-plane** | El plano de control: servicio FastAPI :8081, motor de patrones con histéresis (~~`inactive→candidate→confirmed→resolved`~~ ✎ 2026-08-28: son **cinco** estados, `inactive→candidate→confirmed→sustained→resolved`, con reapertura `resolved→candidate` (nunca a `inactive`); alerta sólo al entrar a `confirmed` — `operacion/130` §2 y R-07, FIG-E) que consume detecciones y emite alertas. Repo `e-ovrt_control-plane`. |
 | **alert-distribution** | El módulo de distribución: consume las alertas confirmadas del bus (`:5558`) y las entrega por MQTT QoS 1 con ledger de idempotencia. Desde ADR-019 es también servicio FastAPI **:8082** (`eovrt-distribute serve`); desde **ADR-020** (2026-08-18) ese es el acople predeterminado — el subproceso queda como fallback operativo. Conserva su CLI (`replay`/`live`) para el camino offline. Repo `e-ovrt_alert-distribution`. |
 | **experimental-setup** | Repo `e-ovrt_experimental-setup`: config experimental centralizada (ADR-009), runner reproducible que orquesta por HTTP los dos planos **y el módulo de distribución** (ADR-004; ADR-020 desde 2026-08-18), consolidación de artefactos (ADR-014), reporte, y la **webconsole**. |
 | **webconsole / BFF** | Consola web de gestión: frontend React (Vite :5173) + backend FastAPI :8090 que actúa de Backend-For-Frontend proxy HTTP de los servicios de medios, control **y distribución** (`:8082`, ADR-020). Superficie de gestión primaria (ADR-009). |
-| **runner** | CLI del experimental-setup que gobierna las corridas de los dos planos en el orden correcto —live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero— y, cuando corresponde, la distribución posterior (por HTTP desde ADR-020; el subproceso queda como fallback). |
+| **runner** | CLI del experimental-setup que gobierna las corridas de los dos planos en el orden correcto —live ⇒ control primero (su 201 garantiza suscripción al bus), replay ⇒ media primero— y, cuando corresponde, la distribución ~~posterior~~ (✎ 2026-08-28: en live la distribución **no es posterior**: corre **concurrente**, disparada **después del control y antes que el media** — orden real `control → distribución → medios`, `operacion/130` R-01; la no-pérdida en `:5558` la garantiza el handshake XPUB del control, `wait_for_subscriber_ms ≥ 10 s`, no el orden) (por HTTP desde ADR-020; el subproceso queda como fallback). |
 | **G0 / G1 / (G2)** | Granularidades del patrón (ADR-002): **G0 = escena** (sin identidad de personas; el núcleo validable), **G1 = sujeto** (con tracker IoU como decorador en el control-plane). ✎ 2026-08-06: G1 es **capacidad operativa medida** — F1 0,930 sobre los 34 clips **del Bloque A** (el rodaje; ✎ 08-12: decía "del banco", y el banco es de 47 — 34 es el bloque), el mejor resultado, con detecciones bit a bit idénticas a G0 (adenda ADR-002 + ADR-015 E-03; *decía "solo demostrativa"*). Siguen excluidas las métricas MOT (E-10). |
 | **G2A** | "Glass-to-algorithm": latencia captura→resultado algorítmico en el media-plane (`g2a_ms` por unidad; presupuesto 50–250 ms). Parte de la métrica `t_capture→alert` (spec 40 §5.2.4). |
 | **t_alert** | Latencia de alerta del sistema: desde que la condición se sostiene hasta que el patrón confirma. Con umbral 4000 ms, el valor ideal medido fue 4000,0 ms exactos. |
 | **TTFD** | Time To First Detection: ms desde el inicio del episodio GT hasta la primera detección de la evidencia correspondiente. |
 | **SDR** | Sustained Detection Rate: fracción del episodio GT cubierta por detecciones (clamp 0–1). |
 | **re_alerts** | Alertas repetidas de un mismo episodio (el motor emite en cada confirmación, ADR-011); el evaluador las cuenta aparte y **no** las penaliza como falsos positivos. |
-| **Estados de aplicabilidad** | ADR-006/013: cuando una métrica no corresponde, se declara con causa en vez de omitirse: `not_applicable/non_temporal_source` (imágenes), `not_interpretable/dbe_media_time` (video DBE), `not_interpretable/cross_node_monotonic_clock` (two-node), `not_applicable/no_ground_truth`, etc. |
+| **Estados de aplicabilidad** | ADR-006/013: cuando una métrica no corresponde, se declara con causa en vez de omitirse: `not_applicable/non_temporal_source` (imágenes), `not_interpretable/dbe_media_time` (video DBE), `not_interpretable/cross_node_monotonic_clock` (two-node) (✎ 2026-08-28: el código emite **`clock_skew`** como causa two-node, no `cross_node_monotonic_clock` — `operacion/130` R-08; y `not_applicable/no_ground_truth` lo emite `report.py` del experimental-setup, no el control-plane), `not_applicable/no_ground_truth`, etc. |
 | **D1…D6** | Las seis dimensiones de decisión del doc 03 (estrategia de detección, granularidad, bus, config paraguas, distribución, reporte), formalizadas en ADR-001…006. |
 | **E-IND / E-DIR / E-HYB** | Estrategias de detección de D1: **E-IND** = indirecta (detectar persona + EPP y razonar la ausencia — la adoptada como encuadre, ADR-001), **E-DIR** = directa (prompt que describe la infracción, variantes negación/observable), **E-HYB** = fusión de ambas (dual-run con gating por persona). El experimento del doc 04/12 las comparó. ✎ 2026-08-06: **D1 corrió en los dos niveles** (acta firmada 2026-07-29, doc 76; *decía "bloqueada por el acta `edir_v1`"*): E-IND queda como núcleo (F1 0,789), E-DIR **vetada por precisión** (0,146 < 0,5) y E-HYB-or refutada (F-87.2); `hyb_and` no ejecutada con causa (D-90.4). |
 | **E-01…E-13** | El registro de **exclusiones** de alcance del doc 10 (qué NO se implementa y bajo qué regla del informe). E-07 es el nodo de borde: OAK-D quedó integrada y EN-2 implementada opcional. |
@@ -723,6 +837,8 @@ los tres módulos, y bus ZeroMQ), no tres.
 | **`control.pattern_progress.v1`** | Progreso parcial 0–1 de un patrón en estado `candidate` (observabilidad; no toca la máquina de estados). |
 | **`media.dropped_unit.v1`** | Ledger por-frame de descartes del media-plane (`rate_gate`, `queue_full`, `staleness_timeout`, `channel_closed`). |
 | **`clip_gt.v2`** | Contrato de ground truth temporal de un clip: episodios por condición con ventanas en ms, flag `negative`, `sub_threshold_events`, `provenance`. |
+| **Umbrales por familia de modelo** (✎ agregado 2026-08-28, `operacion/130` R-16) | **Regla de lectura de `effective_config.yaml`:** GDINO usa `box_threshold` + `text_threshold` + `iou_threshold`; YOLOE usa `confidence_threshold` + `iou_threshold`. El archivo imprime **también los campos inertes de la otra familia** (`confidence_threshold 0,25` en un run GDINO; `box_threshold 0,35` en un run YOLOE): **no citarlos**. El campeón `gdino-tiny-560` corre a `box_threshold 0,30` / `text_threshold 0,25` / NMS IoU 0,50; `gdino-tiny` (800) corrió a `box_threshold 0,35` (ver `operacion/64` ✎ 08-28). Citar siempre el par (resolución, umbral). |
+| **`run.scenario`** (✎ agregado 2026-08-28, `operacion/130` §2) | El campo **no clasifica DBE/EBE**: los 472 runs locales dicen `DBE`, incluidos los 73 `oak_d` y 21 `rtsp` live. DBE/EBE se distingue por **`source_type`** (`image_folder`/`video_file` vs `rtsp`/`oak_d`) **+ `bus.enabled`**. Los artefactos del media-plane son `effective_config.yaml`, `run_manifest.json`, `detections.jsonl`, `metrics.jsonl`, `summary.json`, `run_provenance.json`, `dropped_units.jsonl` — **no existen `report.json` ni `metrics.json` en ese plano** (son del control-plane / experimental-setup). |
 
 ### 4.1 Códigos que se citan en todo el set (✎ agregado 2026-08-10)
 
@@ -753,8 +869,10 @@ R-13", "el argumento A1", "el piloto A1 de clase nueva".
 ### 4.2 IDs de campaña (✎ agregado 2026-08-10)
 
 Las tablas de resultados usan estos IDs como filas, sin leyenda. Son **16 campañas con
-artefacto**; cada una es **una combinación concreta**, y el contraste entre filas *es* el
-experimento.
+artefacto** (✎ 2026-08-28: **17** con `t_alert_notification`, la campaña de distribución del
+doc 118 — es lo que cubre `96-verificar-indices.py`: 26 cifras sobre 17 campañas, EXIT 0 el
+2026-08-28; `operacion/130` §2 y R-19); cada una es **una combinación concreta**, y el
+contraste entre filas *es* el experimento.
 
 | ID | Qué varía respecto de la línea de base | Nivel |
 |---|---|---|
@@ -816,7 +934,7 @@ obra y anotaciones subpíxel."*
 | Término | Definición |
 |---|---|
 | **canonical_v2** | Vocabulario canónico de clases compartido entre repos: `person`, `helmet`, `vest`, `bare_head` (+ atributos `has_helmet`/`has_vest` solo en BENCH). Las vistas `*_cr01_cr02` están **eliminadas**. |
-| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064. El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes**, congelado el 2026-07-23, estratificado sobre **3 fuentes independientes** — `construction_site_safety` (Roboflow Universe, CC BY 4.0), `chv` y `shel5k`. Sus **estratos** son `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000). ⚠️ **`bench_obra` NO es una cuarta fuente ni un dataset externo**: es el nombre del **estrato curado internamente a partir de `construction_site_safety`** — ver `estrato ≠ fuente` en §3. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
+| **TRAIN / BENCH / DEMO** | Splits v2 de imágenes: 5540 / 196 / 1064 (✎ 2026-08-28: los manifiestos de rol TRAIN/BENCH/DEMO y su generador se **archivaron en `legacy/` el 2026-08-15** — huérfanos; sólo se citan como historia. **Fine-tuning efectivo** (`finetuning_v1`, T1/T2): `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946 train / 483 val, `chv` EXCLUIDO** por anti-leakage — el 100 % de sus 1.330 imágenes es estrato del banco. El rol TRAIN histórico css+chv+ppe_siabar NO es lo que se entrenó; `operacion/130` R-02). El BENCH de imágenes mide percepción (AP por clase, recall CR-01). ⚠️ ✎ **2026-08-10 — el "BENCH de 196" NO es el banco vigente y no se cita**: se auditó como **20–25% fuera de dominio** (selfies de COVID, PASCAL VOC, aeropuerto — doc 63) y se conserva solo como artefacto histórico. **El banco de imágenes vigente es `bench_v3`: 6.477 imágenes**, congelado el 2026-07-23, estratificado sobre **3 fuentes independientes** — `construction_site_safety` (Roboflow Universe, CC BY 4.0), `chv` y `shel5k`. Sus **estratos** son `bench_obra` (147) · `chv` (1.330) · `shel5k` (5.000). ⚠️ **`bench_obra` NO es una cuarta fuente ni un dataset externo**: es el nombre del **estrato curado internamente a partir de `construction_site_safety`** — ver `estrato ≠ fuente` en §3. **Reportar siempre por estrato Y agregado, nunca solo el agregado** (el agregado está dominado por `shel5k`, 77%). |
 | **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). ✎ **2026-08-10 — corregido: decía "1 clip promovido (`cb_b01_p7`) en `gt_preliminary`". Doblemente falso**: ese clip fue **RETIRADO** el 2026-08-03 (licencia sin registrar + GT generado por IA) y **no debe citarse**. **Hoy el banco tiene 47 clips con GT HUMANO** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…`, en dos bloques: **A** = rodaje guionado (34) y **B** = lote de internet (13). Es el escenario EBE oficial del informe. |
 | **video-gt-lab** | El pipeline semiautomático de GT temporal: `prepare_clip` → preanotación (GDINO-**base** anti-circularidad + ByteTrack) → CVAT (humano) → `derive_clip_gt` → `validate` → `promote_clip`. |
 | **`gt_preliminary`** | Estado de un GT sin pasada humana (anotador `claude-vision-preliminary`). Ver regla de oro #7. |
@@ -829,7 +947,7 @@ obra y anotaciones subpíxel."*
 
 | Cosa | Valor |
 |---|---|
-| Repos de código | `e-ovrt_media-plane`, `e-ovrt_control-plane`, `e-ovrt_experimental-setup`, `e-ovrt_datasets` (hermanos en disco; el acople cross-repo asume esa disposición) |
+| Repos de código | `e-ovrt_media-plane`, `e-ovrt_control-plane`, `e-ovrt_experimental-setup`, `e-ovrt_datasets` (hermanos en disco; el acople cross-repo asume esa disposición) (✎ 2026-08-28: falta el quinto, **`e-ovrt_alert-distribution`** — servicio HTTP `:8082`, `eovrt-distribute serve`; son **cinco** repos de código, `operacion/130` §1 y R-19) |
 | Este repo | `docs/` — git propio, con remote (`e-ovrt_docs`) desde 2026-08-10, cuando el equipo empezó a necesitar acceso ✎ *(decía "local sin remote": esa fue la decisión inicial del 2026-07-09, superada al sumar redactores externos)* |
 | Puertos | media :8080 · control :8081 · **distribución :8082** · BFF webconsole :8090 · frontend dev :5173 |
 | Entry points | `uvicorn --factory eovrt_media.service.app:create_app` · `eovrt-control serve` · `eovrt-distribute serve` |
@@ -838,7 +956,7 @@ obra y anotaciones subpíxel."*
 
 ## Fuente: `docs/informe/ajustes/08-manual-de-aplicacion.md`
 
-> SHA-256 del bloque: `5b7a1a6005c86e333165ef9a9f9136bdbdecbcfaa34212e4afbc449834bfd781`  
+> SHA-256 del bloque: `5702870503539b030947f6966045d5e0b8a69df56913b2a73f3001d17278edcc`  
 > Seleccion: documento completo.
 
 # Manual de aplicación — cómo se pasan los 109 ajustes al informe
@@ -857,6 +975,16 @@ obra y anotaciones subpíxel."*
 trabajo. Cero aplicadas.** Los insumos están completos y verificados; lo que falta es el
 pase.
 
+> ✎ **2026-08-28 — estado real (fuente: `informe/entregable/00-el-informe-hoy.md` 08-28;
+> `operacion/130` §5 / `docs-set.md` #6):** "Cero aplicadas" es la foto del 08-10.
+> **Etapa 1 CERRADA el 2026-08-28** — §15+§16 **v1.0** con los **16 `AJ-1.xx`** resueltos y
+> las **podas 01–11** aplicadas (cinco pases E1; el Anexo A salió a `90e`). **§17.3 v1.4,
+> §17.4 v1.6 y §17.5 v1.3** tienen sus tres pases E3/E4 **aplicados y verificados**
+> (`correcciones-etapa-3-4*.md`) — las fichas `AJ-4.x`/`AJ-5.x` y las 26 redlines quedaron
+> absorbidas por esos pases. **Etapa 2 (§17.1) arrancando** tras el relevamiento `operacion/130`.
+> Pendiente de redacción: §17.6, §18, §19 (Etapa 6) e integración al maestro. El tablero del
+> §5 se marcó según esto.
+
 ---
 
 ## 1. El problema que hay que resolver antes de escribir la primera línea
@@ -869,6 +997,9 @@ Cuatro hechos que, juntos, son un conflicto de edición esperando:
 2. **`entregable/*.md` es una foto, no un espejo.** Se extrajo una vez y **no se regenera**:
    si alguien edita el Word, esos `.md` quedan viejos en silencio. **No existe script de
    extracción** — se verificó: no hay ninguna herramienta en el repo que lo haga.
+   (✎ 2026-08-28: **superado** — existen `herramientas/extraer_informe.py` (extractor
+   `.docx`→md, operativo desde el 08-16) y `herramientas/verificar_entregable.py` (verificador
+   del entregable, 08-27); los `90b`–`90e` se re-extraen desde el `.docx` vigente.)
 3. **Ahora hay cuatro manos** (los dos colegas que redactan, el usuario y Claude), donde
    antes había una.
 4. **Tres secciones no son corrección, son capítulos nuevos** (§17.4, §17.5, §17.6).
@@ -970,7 +1101,9 @@ ella el orden queda cerrado.
 §17.5 escribe cada conclusión en **tres tiempos** —*qué dice la literatura* → *qué medimos*
 → *qué aporte queda*—, y la vara de la literatura la construyen `AJ-1.01`, `AJ-1.02` y
 `AJ-1.13` en el §15. **Hoy esa vara no existe**, así que el §17.5 no tiene contra qué
-contrastar.
+contrastar. (✎ 2026-08-28: **la vara ya existe** — `AJ-1.01`/`1.02`/`1.13` están escritas e
+integradas en §15 **v1.0** (Etapa 1 CERRADA 08-28, `00-el-informe-hoy`); §17.5 v1.3 ya
+contrasta contra ella.)
 
 ⇒ **No se empieza por el §17.5. Se empieza por esos tres ajustes del §15**, que son 3 de 16
 y desbloquean el camino crítico.
@@ -1037,13 +1170,22 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 [ ] AJ-0.07
 ```
 
-**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: colegas** *(la vara ★: borrador de Claude, ✎ 2026-08-16)*
+**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: colegas** *(la vara ★: borrador de Claude, ✎ 2026-08-16)* — ✅ **CERRADA 2026-08-28 (v1.0)**
 ```
-[ ] AJ-1.01 ★  [ ] AJ-1.02 ★  [ ] AJ-1.03   [ ] AJ-1.04   [ ] AJ-1.05   [ ] AJ-1.06
-[ ] AJ-1.07    [ ] AJ-1.08    [ ] AJ-1.09   [ ] AJ-1.10   [ ] AJ-1.11   [ ] AJ-1.12
-[ ] AJ-1.13 ★  [ ] AJ-1.14    [ ] AJ-1.15   [ ] AJ-1.16
+[x] AJ-1.01 ★  [x] AJ-1.02 ★  [x] AJ-1.03   [x] AJ-1.04   [x] AJ-1.05   [x] AJ-1.06
+[x] AJ-1.07    [x] AJ-1.08    [x] AJ-1.09   [x] AJ-1.10   [x] AJ-1.11   [x] AJ-1.12
+[x] AJ-1.13 ★  [x] AJ-1.14    [x] AJ-1.15   [x] AJ-1.16
 ```
 ★ = **la vara**. Son el tramo 0 del §3: se hacen primero y solos.
+(✎ 2026-08-28: los 16 marcados como **resueltos** — constancia en `00-el-informe-hoy` 08-28;
+`AJ-1.04` y `AJ-1.05` se cerraron como ⊘ "no se aplica" según esa constancia. El Anexo A salió
+del entregable a `90e` por decisión del usuario del 08-27.)
+
+> ✎ **2026-08-28 — sobre las casillas granulares de las etapas 3, 4 y 5 de abajo:** quedaron
+> **superadas por los pases** `correcciones-etapa-3-4*.md` (E3-01…E3-42 / E4-01…E4-30 / D-P3-x),
+> aplicados y verificados en §17.3 v1.4, §17.4 v1.6 y §17.5 v1.3 (`00-el-informe-hoy` 08-28). No
+> se marcan una a una acá: **se marcan al integrar cada sección al maestro**. El mapeo R-xx /
+> AJ-4.x / AJ-5.x → E3-/E4- queda como deuda de trazabilidad (`93` ✎ 08-28).
 
 **Etapa 2 · §17.1 · Anexos C y D — 12 · responsable: colegas**
 ```
@@ -1069,7 +1211,7 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 ```
 [ ] AJ-5.01   [ ] AJ-5.02   [ ] AJ-5.03   [ ] AJ-5.04   [ ] AJ-5.05   [ ] AJ-5.06
 [ ] AJ-5.07   [ ] AJ-5.08   [ ] AJ-5.09   [ ] AJ-5.10   [ ] AJ-5.11   [ ] AJ-5.12
-[ ] AJ-5.13 ✅ DESBLOQUEADO 2026-08-17 — la jornada CERRÓ: veredicto NO-GO (`operacion/123`)
+[ ] AJ-5.13 ✅ DESBLOQUEADO 2026-08-17 — la jornada CERRÓ: veredicto NO-GO (`operacion/123`) (✎ 2026-08-28: + **T2 NO-GO 08-21**, `operacion/127`, F-127.1; T3 causa técnica; jornada COMPLETA, acta `128`)
 ```
 
 **Etapa 6 · §17.6 · §18 · §19 *(redacción)* — 5 · responsable: usuario + Claude**
@@ -1079,10 +1221,13 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 
 **Poda · transversal — 18 · se aplica con el pase de su sección**
 ```
-[ ] PODA-01  [ ] PODA-02  [ ] PODA-03  [ ] PODA-04  [ ] PODA-05  [ ] PODA-06
-[ ] PODA-07  [ ] PODA-08  [ ] PODA-09  [ ] PODA-10  [ ] PODA-11  [ ] PODA-12
+[x] PODA-01  [x] PODA-02  [x] PODA-03  [x] PODA-04  [x] PODA-05  [x] PODA-06
+[x] PODA-07  [x] PODA-08  [x] PODA-09  [x] PODA-10  [x] PODA-11  [ ] PODA-12
 [ ] PODA-13  [ ] PODA-14  [ ] PODA-15  [ ] PODA-16  [ ] PODA-17  [ ] PODA-18
 ```
+(✎ 2026-08-28: PODA-01…11 **aplicadas el 08-27** en §15/§16 v1.0 —22.266 → 10.870 palabras,
+con las enmiendas E1-10/E1-08—; 12–14 esperan la Etapa 2 (§17.1); 15–16 (§17.3) y 17–18
+según `90e`. Constancia: `00-el-informe-hoy` 08-28.)
 
 ---
 
@@ -1115,7 +1260,7 @@ capítulo escrito sin sus figuras se reescribe.
 tutor técnico, ya está especificada caja por caja, y la piden dos secciones distintas.
 
 > ✎ **2026-08-19 — enmienda del pase de cierre de §17.3/§17.4**
-> (`entregable/desarrollando/correcciones-etapa-3-4.md`, decisiones firmadas por el usuario):
+> (`entregable/desarrollando/archivado/correcciones-etapa-3-4.md` —✎ 2026-08-28: ruta con `archivado/`, donde vive desde el 08-20—, decisiones firmadas por el usuario):
 > la doctrina de reparto dejó a §17.3 **sin puertos ni vista de procesos** — FIG-A pasa a
 > destino **único §17.4.1** (en §17.3.5 la necesidad de R-09 la cubren la Figura 4.1
 > conceptual y la justificación de tecnologías, así que ya **no la piden dos secciones**);
@@ -1164,7 +1309,7 @@ entre etapas).
 
 ## Fuente: `docs/sintesis/resultados-y-conclusiones.md`
 
-> SHA-256 del bloque: `46befb86aea8ac41bd567924d4d2e7abb5f029809ce198ea15326d1c11c1fb37`  
+> SHA-256 del bloque: `2d99d09b658ae91e9170eab745ce11a688450e53b47f42963f93bf335a1903f6`  
 > Seleccion: documento completo.
 
 # Síntesis de resultados y conclusiones — E-OVRT-VDP
@@ -1377,7 +1522,8 @@ temporal— aplicada a obra real en movimiento.
 
 ## 5. Nivel B — alertas contra GT temporal humano (el resultado principal)
 
-**Banco:** 34 clips del rodaje (2026-07-25), **35 episodios (28 CR-01 / 7 CR-02), 34
+**Banco:** (✎ 2026-08-28: **Bloque A (rodaje) del banco de 47 clips** — 32 positivos + 15
+negativos, 37 episodios; lo que sigue describe sólo el Bloque A) 34 clips del rodaje (2026-07-25), **35 episodios (28 CR-01 / 7 CR-02), 34
 evaluables** (1 censurado con causa — denominador citable: **"34 evaluables sobre
 35"**). GT **humano en CVAT, `gt_ready` desde 2026-08-03** (doc 80) ⇒ estas métricas
 se reportan como **RESULTADO** de la tesis. Escenarios P1–P9; los 4 clips negativos
@@ -1793,8 +1939,8 @@ Los desfases corregidos fueron de **propagación y redacción**, no de datos:
 | ~~**CVAT del lote de internet**~~ ✎ **HECHO 2026-08-06 (doc `operacion/102`)**: llegaron 3 (`v04_c01`, `v06_c01`, `v10_c01`), GT humano derivado/validado/promovido — banco 34→37, **L4 parcialmente levantada** (n = 2 episodios ⇒ fila aparte, D-90.6). Ojo: la trampa del runbook NO aplicó — estos exports eran **task-level** (`split_cvat_project.py` habría sido el error simétrico; mirar `meta/task` vs `meta/project`). Dos escenarios corregidos contra el GT (`v04_c01` P8→P1, `v06_c01` P5→P2); `v06_c01` **no salió negativo** ⇒ sigue sin haber soak y **L1 no se mueve**. Los 11 restantes: marginales (doc 93). **✎ 2026-08-09 — CERRADO y con dos correcciones al registro de arriba** (docs `operacion/108` §6 y `111`): el lote quedó en **13 de 14 con GT** (banco **47**; `v08_c01` excluido con causa firmada), y de los dos escenarios que el GT parecía desmentir **solo `v04_c01` estaba mal** — el **P5 de `v06_c01` era correcto**: su episodio CR-02 era **error de anotación**, así que el clip **es negativo y es el único clip soak del banco** ⇒ **L1 sí se movió** (FAR/hora pasó a computable, aunque insuficiente para sostener una cota). Los "11 restantes" se anotaron salvo uno. Fuente de verdad del GT = las anotaciones versionadas del repo, no CVAT | ~~equipo~~ | — |
 | ~~Runs/evals del estrato B~~ ✎ **HECHO 2026-08-06**: I1/I2 corrieron. **El resultado no cierra el banco con un número — abre un hallazgo nuevo** (doc `operacion/103`): en `v06_c01` (127 personas GT) `scene` recall 0,000 (F-81.2(a) extremo) y `subject` recall 1,000 / precision 0,010 (182 identidades del tracker con FP, más que las 127 reales). **Decisión pendiente del equipo:** si esto entra al informe como limitación nueva (densidad de escena) o como ampliación de L4/L6, y si vale anotar más clips en densidad intermedia. **✎ 2026-08-09 — la gen. 3 corrió sobre el lote completo** (doc `operacion/111` §6) **y esa misma noche la revisión CIEGA del GT tiró 3 de los 5 episodios** (doc 113 §B): cifras vigentes `scene` F1 **0,333** vs `subject` **0,190** sobre **2 episodios evaluables** — el mecanismo se confirmó a escala, pero **ese `n` no sostiene ningún ranking entre granularidades** (F-111.1 enmendado); lo robusto es la **asimetría de FP** (~6× en positivos, **12× en los 11 negativos**: 26 vs 323). Nivel A de video: CR-01 **0,031** / CR-02 **0,018**. **Las dos preguntas de esta fila quedaron CERRADAS el 08-09 (D-113.1):** anotar más clips **NO** (doc 112 §8) y el encuadre es **precisar L4** — el set L1–L8 de `informe/99` §6 sigue cerrado, no se crea `L9`. Celda vigente: `results/index.md` §L4; doc 103 §3 cerrado con la misma decisión | ~~Claude~~ / ~~equipo decide el encuadre~~ ✅ decidido | nombra el límite real de G1/scene, no solo "material no guionado" |
 | **Videos V1–V3 de la defensa** (pausados; 2 preguntas de alcance, D-90.7) | usuario decide | material de defensa, no resultado |
-| Redacción §17.x + regenerar `informe-project-kit` | después de lo anterior (orden 2026-08-05) | el informe |
-| Corregir el §15 del informe (erratas + línea base EPP supervisada + backbone de cada cifra + cruce con evidencia propia — ver §7.1/§7.4 de este doc) | pase de redlines (misma puerta que §17.x) | estado del arte defendible |
+| ~~Redacción §17.x + regenerar `informe-project-kit`~~ ✎ **2026-08-28: VENCIDO** — la redacción arrancó el 08-16 (`operacion/122`) y desde el 08-21 es el **único frente activo** (`operacion/128` §4); el kit externo `informe-project-kit` fue eliminado y hoy el kit es `informe/project-kit/` (generado). Estado: §15+§16 **v1.0 CERRADA** (08-28), §17.3 v1.4, §17.4 v1.6, §17.5 v1.3 en `informe/entregable/desarrollando/`; Etapa 2 (§17.1) en curso; faltan §17.6/§18/§19 | ~~después de lo anterior (orden 2026-08-05)~~ en curso | el informe |
+| ~~Corregir el §15 del informe (erratas + línea base EPP supervisada + backbone de cada cifra + cruce con evidencia propia — ver §7.1/§7.4 de este doc)~~ ✎ **2026-08-28: HECHO** — Etapa 1 CERRADA en v1.0 con los 16 `AJ-1.xx` resueltos y podas 01–11 aplicadas (`00-el-informe-hoy`) | ~~pase de redlines~~ ✅ | estado del arte defendible |
 | ~~Licencias de los catálogos de modelos~~ ✅ **CERRADO 2026-08-10** — y **la premisa era falsa**: los 11 catálogos ya declaraban `license:` y `source:`. Lo que faltaba era el registro, ya escrito: sección **"PESOS DE MODELO"** en `license_registry.md` (GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0**, las tres verificadas contra evidencia independiente: model cards y la cadena embebida en el `.pt`), con la implicancia AGPL declarada. **Residual: los repos no tienen `LICENSE` propio** — decisión del usuario antes de publicar, no bloqueo de defensa | ~~verificar y registrar~~ ✅ | citar los modelos en el informe |
 | URL + fecha de acceso por video del lote (evidencia perecedera) — ✎ **son 18 `clip.yaml` con `video_url: TODO`** (14 del lote + 4 del piloto) y **13 copias promovidas** que lo arrastran: se arregla re-promoviendo, no a mano (doc `operacion/113` §C1) | usuario | robustece la cita de la fuente |
 | Consentimiento escrito del rodaje (resuelto por declaración; plantilla disponible) | equipo/facultad | formalidad administrativa |
@@ -1809,7 +1955,9 @@ clip bench, el texto de L4 y el contexto del control de FP.
 
 **Cómo re-verificar esta página:** correr
 `python3 docs/operacion/datos/96-verificar-indices.py` — desde el 2026-08-09 cubre
-**19 cifras sobre las 16 campañas con artefacto** (incluidas I1/I2 del estrato B y el
+**19 cifras sobre las 16 campañas con artefacto** (✎ 2026-08-28: hoy **26 cifras sobre 17
+campañas** —con `t_alert_notification`—, 3 deltas bootstrap, 35 docs de procedencia, 1.452
+enlaces / 0 rotos; EXIT 0 el 2026-08-28, `operacion/130` §2) (incluidas I1/I2 del estrato B y el
 Nivel A sobre video de §4.1/§5.1), los deltas de bootstrap, y un **guard de cobertura**
 que falla si aparece una campaña sin cifra verificada. Comparar el resto contra los 4 índices de
 `e-ovrt_experimental-setup/results/` — cada tabla de allá tiene su artefacto
@@ -1819,12 +1967,12 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/decisiones/estado-de-implementacion-adrs.md`
 
-> SHA-256 del bloque: `287f27071f6db27bf61598aac4ae5b7bb9b83fba9a3c3eadc7d72e3c0658197c`  
+> SHA-256 del bloque: `57b185cd178638d42c5a3e1f172aad5e357360a824a73f6de81b13ec3f26d6d8`  
 > Seleccion: encuadre y tabla resumen vigentes; el detalle historico queda fuera.
 
 # ADRs — Estado de implementación (cierre de trazabilidad)
 
-- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-18
+- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-28 (✎ 2026-08-28: nombres verificados contra código en `operacion/130` R-08 — causa two-node `clock_skew`, 12 endpoints; antes decía 2026-08-18 aunque las filas 016/017 ya tenían ✎ del 08-21/08-22)
 - **Propósito:** cerrar el loop **decisión → implementación** para cada ADR. Los ADRs
   se escribieron *antes* de implementar y expresan su impacto como trabajo futuro;
   este documento registra, con rutas reales, endpoints y evidencia medida, **cómo
@@ -1848,7 +1996,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 | 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **Funcionalmente implementado** (✎ 2026-08-12): seis criterios de spec 45 verificados, incluidos DBE/EBE, MQTT QoS 1 contra broker real y `report.json`. ✎ 2026-08-14: los pendientes del 08-12 (vista de outcomes en la **webconsole**, **orquestación** integral y versionar el repo) se cerraron el 2026-08-13 — `13c801e`, `42529e2`, y repo con `c9903cc`/`1e6d8fa` |
 | 006 | El reporte consolidado junta ambos planos por `experiment_id` y **cada métrica declara su aplicabilidad** con causa | **Implementado** (report.json/md + estados en todos los evaluadores) |
 | 007 | En vivo, la corrida del control-plane es **1:1** con el run del media-plane y cierra por `run_finished` | **Implementado y verificado E2E** |
-| 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) |
+| 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) (✎ 2026-08-28: son **12 rutas** en `:8081` según el código — `operacion/130` §1 y R-08) |
 | 009 | La config experimental se **centraliza** en experimental-setup y la **webconsole es la superficie de gestión primaria** | **Implementación incompleta** [Enmienda 2026-08-14]: la UI está rediseñada, pero el historial durable y la promoción `runs/`→`results/` quedaron diferidos (doc 115 §2.2, frentes C/D, D-115.2). La calificación histórica “superado” describía la UI, no el ciclo de evidencia. |
 | 010 | Se ejecuta **la plataforma primero**, la evaluación después; el clip bench se dispara al cierre del spec 44 | **Cumplida** (orden 40→41→42→44 ejecutado; tooling del 43 completo) |
 | 011 | El motor **emite en cada confirmación**; cooldown y supresión son política de notificación (módulo de distribución) | **Implementado en ambos lados de la frontera**: el motor emite todo; el distribuidor aplica cooldown por `(condition_id, source_id)` y lo registra |
@@ -1880,7 +2028,7 @@ que falla si aparece una campaña sin cifra verificada. Comparar el resto contra
 
 ## Fuente: `docs/nucleo/10-registro-alcance-y-exclusiones.md`
 
-> SHA-256 del bloque: `cc3311fa1b29f3791b208bb8eb7236c5352c333b522edad4f68e9ca2ebae69fa`  
+> SHA-256 del bloque: `6be1096e3431d59f2e29841e2d26df43b96ecfc77a2b22a610c66df07363e37a`  
 > Seleccion: documento completo.
 
 # Registro de alcance y exclusiones — cierre formal del "no se implementa"
@@ -2171,6 +2319,11 @@ declaración → condición de habilitación futura.
   full-authorization están cerradas**; restan emitirla y el `RUN` manual. El estado de
   la jornada al momento de la entrega se declara tal cual, con causa técnica —
   nunca temporal (ADR-017 §2f).
+  ✎ **2026-08-28 — las puertas se atravesaron todas y la jornada está COMPLETA**
+  (`operacion/128` §1; `operacion/130` §5): la autorización se emitió y el `RUN` corrió;
+  **T1 NO-GO 08-17** (`operacion/123`), **T2 NO-GO 08-21** (`operacion/127`, F-127.1: fallo
+  estructural, 2.946 imgs vs 10,35 M parámetros), **T3 cerrado con causa técnica**. Ver la
+  Declaración y el bloque hermano de arriba (08-21); este pasaje quedó en el 08-15.
 
 ### E-05 — Broker de eventos (Kafka/RabbitMQ/NATS)
 
@@ -2319,7 +2472,7 @@ declaración → condición de habilitación futura.
 | E-01 | CR-03/CR-04 | Especificada, no implementada | Tabla 17; Tabla C.3 (0 fuentes); Tabla 38 | Tabla 24, Anexo C |
 | E-02 | CR-05/CR-06 | Especificada (criterios de activación) | Tabla 23; §17.1.5.2.4 | §17.1.5.3.6, Anexo C |
 | E-03 | G1 como modo del núcleo / GT de identidades | ✎ **Ampliada (ADR-015, 2026-08-05)**: G1 no es demostrativa — es **capacidad operativa medida en los 34 clips** (F1 0,930) y verificada en vivo. **Sigue excluido**: GT de identidades y validación MOT | DA-06; §17.1.10.2 | ADR-002 + adenda 08-04; **ADR-015**; doc 89; `results/clip_bench/g1_*` |
-| E-04 | Fine-tuning / TN | ✎ **Rama experimental comprometida; T1 full en NO-GO (adenda ADR-017, 2026-08-13).** F-100.1 resuelta; `1166583` validó freeze/smoke técnico 12 tensores/3.096 parámetros y optimizer 12/12; dual gate y serving real verdes. Pendientes D-FT-08/T-FT-005, T-FT-031 y baseline T-FT-032; T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`). Cero full. La proyección Slurm 2026-08-18 no es promesa. ✎ **2026-08-15: esos pendientes cerraron y el job full se ENVIÓ** (T-FT-043 cerrada; autorización 7 gates, `RUN` encolado como job `1167640`). Abierto queda **la corrida y su evaluación**: no hay cifra del modelo ajustado. ✎ **2026-08-17: EJERCIDA Y CERRADA — veredicto D-FT-12 = NO-GO** (doc 123): job `1167640` `COMPLETED` 10/10 épocas → promoción por hash → eval única. `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, `vest` 0,2642 → **0,3292**; contra `person` 0,7843 → 0,6932 y mAP50 0,4193 → 0,4171. Falla el gain gate por **0,0045** y la retención por `person` (−11,62 %, tope 10 %). **Ya hay cifra del modelo ajustado**; checkpoint no adoptado; negativo **pre-registrado**. Encuadre: causa técnica/protocolar, nunca temporal | Tabla 37; §15.2.4.5 | docs 100/116/117/**123**; `contingencia/20`; **ADR-017** |
+| E-04 | Fine-tuning / TN | ✎ **Rama experimental comprometida; T1 full en NO-GO (adenda ADR-017, 2026-08-13).** F-100.1 resuelta; `1166583` validó freeze/smoke técnico 12 tensores/3.096 parámetros y optimizer 12/12; dual gate y serving real verdes. Pendientes D-FT-08/T-FT-005, T-FT-031 y baseline T-FT-032; T-FT-023 quedó CERRADA el 2026-08-13 (snapshot tar `639e60df…`). Cero full. La proyección Slurm 2026-08-18 no es promesa. ✎ **2026-08-15: esos pendientes cerraron y el job full se ENVIÓ** (T-FT-043 cerrada; autorización 7 gates, `RUN` encolado como job `1167640`). Abierto queda **la corrida y su evaluación**: no hay cifra del modelo ajustado. ✎ **2026-08-17: EJERCIDA Y CERRADA — veredicto D-FT-12 = NO-GO** (doc 123): job `1167640` `COMPLETED` 10/10 épocas → promoción por hash → eval única. `bare_head` AP50 **0,0000 → 0,0455**, recall CR-01 **0,0002 → 0,2089**, `vest` 0,2642 → **0,3292**; contra `person` 0,7843 → 0,6932 y mAP50 0,4193 → 0,4171. Falla el gain gate por **0,0045** y la retención por `person` (−11,62 %, tope 10 %). **Ya hay cifra del modelo ajustado**; checkpoint no adoptado; negativo **pre-registrado**. Encuadre: causa técnica/protocolar, nunca temporal. ✎ **2026-08-28 — falta T2: T2 NO-GO 08-21** (`operacion/127`, job `1167982`, D-FT-16 SGD lr0=0,01): colapso en entrenamiento (early stop 16/60, `best_epoch=1`); ganancia PASA (`bare_head` 0→0,0909, sólo shel5k) pero retención in-domain FALLA ×4 (`person` −49,7 %) y OV FALLA (COCO −71,3 %). **F-127.1**: el fallo de T1 no era capacidad, es **estructural** (2.946 imgs vs 10,35 M params); curva de 3 puntos completa. T3 cerrado con causa técnica. **Jornada E-04 COMPLETA** — acta `operacion/128` | Tabla 37; §15.2.4.5 | docs 100/116/117/**123**/**127**/**128**; `contingencia/20`; **ADR-017** |
 | E-05 | Broker | Diseñada (seam) | DA-03 | docs 05 §7, 06 §17 |
 | E-06 | Canales extra + dashboard | Diseñada (anexo) | §17.3.10.3; DA-13 | doc 06 completo |
 | E-07 | Borde / EN-2 / OAK-D | Parcial: OAK-D como **fuente** ejercida (2026-07-13) y EN-2 (preselección) implementada opcional, default off (2026-07-15), con **87% de descarte on-device** medido A/B contra GDINO; inferencia en borde (EN-3) sigue no ejercida | DA-11; §17.1.4.2.3–4 | Tabla 56; two-node = EN-0/1/2; **ADR-015** |
@@ -2374,7 +2527,7 @@ posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
 
 ## Fuente: `docs/nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md`
 
-> SHA-256 del bloque: `6fcff2323b871885bb8a176d4dd8a0b67e2599b7f01f04b9590c70a5aafed403`  
+> SHA-256 del bloque: `4468e07e8c397994edcb9de2e0da7a499f029769ed856c7c5e50fe1e376be158`  
 > Seleccion: documento completo.
 
 # 19 — Cierre de la arquitectura: el ciclo de vida de la alerta y su distribución
@@ -2390,6 +2543,14 @@ posteriores del 2026-07-09** donde se indica — ver `decisiones/ADR-002` y
 > operativo, así que los patrones de acople de la plataforma son **dos**, no tres. **El cierre conceptual de este documento
 > sigue siendo válido** — el ciclo de vida y los contratos que describe son los que el
 > código implementa; lo que cambió es que ya no son promesa sino código verificado.
+>
+> ✎ **2026-08-28 — cinco precisiones verificadas contra el código (`operacion/130` R-10 y R-20;
+> informe `datos/130-relevamiento-pre-etapa-2/alert-distribution.md`), anotadas en sitio:**
+> §4.6 (`DeliveryRecord` trae además `latency_mode` y `experiment_id`) · §5 (el broker de la
+> **medición** del doc 118 fue **`amqtt 0.11.3`**; Mosquitto es el del **despliegue**; y el ledger
+> deduplica del lado **publicador**, no las re-entregas broker→suscriptor) · §6 ("ninguna cifra
+> sale de este módulo" está superado por el 118: p95 64,534 ms n=460) · §6.1 (el desfase está
+> **resuelto**: el inicio de `t_alert-notification` es `ts_publish_ms` del envelope del bus).
 
 - **Fecha de relevamiento:** 2026-08-10
 - **Qué cierra:** la cadena de la plataforma termina en una alerta confirmada. Este
@@ -2513,7 +2674,8 @@ cola persistente, y es deliberado.
 **6. `DeliveryRecord` (`control.delivery.v1`)** — separa **alerta confirmada**, **intento**
 y **resultado**, sin tocar la semántica del evento interno. Lleva `channel`, `mode`
 (`dry_run`|`live`), `attempt`, `outcome`, `error`, `talert_notification_ms`, `attempted_at`
-y `delivered_at`.
+y `delivered_at` (✎ 2026-08-28: también **`latency_mode`** y **`experiment_id`** — `operacion/130` R-20;
+y los outcomes son **cinco**: `delivered / failed / skipped_duplicate / dead_letter / suppressed_cooldown`).
 
 **Salidas por corrida:** `notifications.jsonl`, `dead_letter.jsonl` y
 `distribution_summary.json` (conteos por outcome + agregados de `t_alert-notification`).
@@ -2523,7 +2685,10 @@ y `delivered_at`.
 MQTT es el canal **elegido para demostrar el mecanismo**, no una integración con un sistema
 real de obra. El fundamento (doc 07 D5):
 
-- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional.
+- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional. (✎ 2026-08-28:
+  Mosquitto es el broker del **despliegue** (`infra/platform/`, sin build ejecutado); el broker
+  con el que se **midió** la campaña del doc 118 fue **`amqtt 0.11.3`** — al citar la cifra,
+  citar ese broker. `operacion/130` R-10.)
 - **Estándar de integración IoT** — es la respuesta defendible a "¿cómo se conecta esto con
   el mundo?".
 - **Medición limpia** — `t_alert-notification` sin la variabilidad de una API externa. Un
@@ -2532,6 +2697,13 @@ real de obra. El fundamento (doc 07 D5):
 **Y una consecuencia que no es opcional:** MQTT QoS 1 puede **duplicar entregas**. Por eso
 el ledger no es un lujo de diseño — es requisito del canal elegido. Lo mismo valdría para
 cualquier broker at-least-once.
+
+> ✎ **2026-08-28 — precisión (`operacion/130` R-20):** el párrafo mezcla dos deduplicaciones.
+> El **ledger deduplica del lado publicador** — la misma alerta procesada dos veces por el
+> distribuidor (re-ejecución, replay) produce `skipped_duplicate`, con clave
+> (`notification_id`, `channel`), `notification_id = sha1(alert_id)[:16]`. Las **re-entregas
+> broker→suscriptor** propias de QoS 1 las deduplica **el consumidor** por `notification_id`
+> del payload; el ledger no las ve. QoS 1 es el único valor admitido; topic `eovrt/alerts/<severity>`.
 
 **Qué queda explícitamente afuera (E-06):** canales adicionales y dashboard dedicado. La
 vista de alertas va en la **webconsole existente**. ADR-016 ratifica esta exclusión.
@@ -2555,6 +2727,11 @@ el 2026-07-18 y al 2026-08-10 está así:
 ADR-005. Entre el 2026-08-05 y esa fecha estuvo declarado como exclusión cerrada por
 ADR-015 §2c, cláusula hoy derogada. **Ninguna cifra del informe sale de este módulo**, y su
 implementación **no bloquea la redacción**: si no llega a tiempo, se declara como estaba.
+(✎ 2026-08-28: **superado** — el módulo está implementado, verificado (133 tests + 1 de
+integración MQTT) y **medido**: `t_alert-notification` p95 **64,534 ms n=460** (doc 118), tramo
+**bus de alertas → PUBACK QoS 1**, dos relojes de pared del mismo host; sostenido (2.ª+) 102,025
+ms n=104; 1.ª entrega 49,869 ms n=356; cooldown del distribuidor 30 s, 376/836 suprimidas =
+44,98 %. Sí sale una cifra del informe de este módulo. `operacion/130` §2.)
 
 ### 6.1 Un desfase que quien implemente va a chocar
 
@@ -2565,6 +2742,14 @@ sí tiene es `timestamp_ms` (del evento que confirmó), `alert_registered_ms` y
 instante de confirmación —y esa decisión afecta directamente a `t_alert-notification`, que
 es la métrica del tramo. Queda anotado acá para que se resuelva con criterio y no por
 descarte.
+
+> ✎ **2026-08-28 — RESUELTO (`operacion/130` §2 y R-10):** el instante inicial de
+> `t_alert-notification` es **`ts_publish_ms` del envelope del bus de alertas** —el momento en
+> que el control-plane publica la alerta confirmada—, y el final es `puback_wall_ms`:
+> `t_alert-notification = puback_wall_ms − ts_publish_ms`. Por eso el tramo medido es
+> **bus → PUBACK**, no "confirmación → PUBACK": **no arranca en la confirmación del patrón**
+> ni usa `timestamp_ms`/`alert_registered_ms`/`first_evidence_ms`. Dos relojes de pared del
+> mismo host, no monotónico, declarado. No se suma con otros tramos.
 
 ## 7. Qué leer después
 
@@ -2908,7 +3093,7 @@ aceptado, fases y hashes) más `integrated-runs.json`, que enumera `media_run_id
 
 ## Fuente: `e-ovrt_experimental-setup/results/bench_imagenes/index.md`
 
-> SHA-256 del bloque: `4a94dab6d80ae791f3ba23008a051ac822e49e877b6dbbf895c7dee4017e259f`  
+> SHA-256 del bloque: `1ee87a476d10d5a9bbfa3b86f81d023b42406c851218fa9a51d24ef1cc44fe2a`  
 > Seleccion: documento completo.
 
 # Bench de imágenes — resultados consolidados
@@ -2999,6 +3184,19 @@ probado.
 † Las latencias p50 provienen de la matriz sobre el BENCH v2 (196 imgs, doc 64), no
 se re-midieron sobre `bench_v3`.
 
+> ✎ **2026-08-28 — dos precisiones sobre esta tabla (`docs/operacion/130`, R-04 y R-11).**
+> (a) **El `n=5.313` del recall CR-01 es el del GT del 2026-07-23**; con el GT vigente
+> `person_gt_bench_obra.json` (fix del 2026-07-29: 60 violadores en `bench_obra` en vez de
+> 65) el denominador sería 5.308. La medición **no se repitió**: la cifra se cita fechada.
+> (b) **La comparación de resolución S1/S2 en `tiny` no está a umbral igual**: `gdino-tiny`
+> (800 px) corrió a `box_threshold` 0,35 y `gdino-tiny-560` a 0,30 (catálogos
+> `configs/models/grounding-dino/gdino-tiny.yaml` y `gdino-tiny-560.yaml` del media-plane;
+> así en todas las corridas). El par `gdino-base`/`gdino-base-560` sí está a 0,30 en ambos.
+> Por eso "560 px iguala o mejora el mAP de 800 px" en `tiny` está **confundido con el
+> umbral** (léase "560 @0,30 ≥ 800 @0,35"); el mAP50 0,551 del campeón sigue siendo el dato
+> de la combinación (560 · 0,30 · text 0,25), y el **−24 % de latencia no depende del
+> umbral**.
+
 **El campeón se sostiene en las dos escalas** — `gdino-tiny-560` gana mAP50 tanto en
 el núcleo curado (147) como en el bench completo (6.477): **es robusto a la fuente**,
 no un artefacto del denominador chico.
@@ -3028,7 +3226,9 @@ no un artefacto del denominador chico.
 2. **`gdino-base-560` es el especialista, con rol acotado, en dos ejes:**
    **`bare_head` (evidencia de CR-01)** — casi empate en `bench_obra` (0,400 vs
    0,369, n=65) que **se separa con claridad al sumar `shel5k`** (0,599 vs 0,308,
-   n=5.313): no era ruido de denominador chico, es un efecto real — **y `vest`
+   n=5.313 — ✎ 2026-08-28: GT del 2026-07-23; con el GT vigente `person_gt_bench_obra.json`
+   del 07-29 el denominador es 5.308; la medición no se repitió, `docs/operacion/130`): no
+   era ruido de denominador chico, es un efecto real — **y `vest`
    (CR-02)** (0,582 vs 0,520 en `bench_obra`; en video, SDR CR-02 0,281→0,920 — T2).
    (✎ 2026-08-06: *la etiqueta anterior "especialista CR-02/`bare_head`" mezclaba
    los dos ejes* — `bare_head` es evidencia de CR-01, no de CR-02.)

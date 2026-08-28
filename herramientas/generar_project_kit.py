@@ -93,34 +93,161 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
         ),
     ),
     1: (
-        SourceSlice("informe/entregable/96c-informe-v11-estado-del-arte.md"),
-        SourceSlice("informe/entregable/96d-informe-v11-marco-teorico.md"),
         SourceSlice(
-            "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
-            start_heading="### 19.1. Anexo A - Comparativas técnicas y estado del arte complementario",
-            end_heading="### 19.2. Anexo B - Infraestructura, nodos y parámetros experimentales",
-            note="Anexo A vigente",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-1.md",
+            note="pase 1 de alineacion de la etapa 1 (2026-08-27): YA APLICADO Y VERIFICADO en el"
+            " documento de trabajo - NO volver a aplicarlo. Sus comentarios E1-01 a E1-12 y sus"
+            " decisiones D-E1-1 a D-E1-6 siguen rigiendo como criterio de lectura; su seccion 1"
+            " (la plataforma efectivamente construida) sigue siendo el blanco de la alineacion y"
+            " NO se cita en el informe",
         ),
-        SourceSlice("informe/ajustes/01-etapa-1-fundamentacion-teorica.md"),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-2.md",
+            note="pase 2 (2026-08-27): revision de la primera iteracion y E1-13 a E1-23. YA APLICADO"
+            " Y VERIFICADO (su seccion 6) salvo tres RESIDUALES que SI son trabajo pendiente:"
+            " R1 (una fila de la Tabla 4 sin sostener en prosa), R2 (formato de la ficha de"
+            " Florence-2) y R3 (delta de referencias: altas Kumar 2022, Lee 2023, OASIS 2019,"
+            " Ultralytics 2026; Luxonis lleva letra s. f.-b; bajas de PODA-18). Sus decisiones"
+            " D-E1-7 (la Tabla A.1 se conserva y corrige: PODA-17 invertida) y D-E1-8 rigen",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-5.md",
+            note="pase 5 (2026-08-27/28): **YA APLICADO Y VERIFICADO** - NO volver a aplicarlo. Fue el"
+            " pase de formato y terminologia (F1-F6); la entrega de GPT llego con cambios controlados y"
+            " cumplio los seis. Su seccion de verificacion registra ademas E1-57 (una capacidad no"
+            " implementada descrita como el sistema, corregida) y E1-58 (formato roto en mitad de"
+            " palabra heredado del pase 3, reparado). **Con esto la ETAPA 1 queda CERRADA.**",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-4.md",
+            note="pase 4 (2026-08-27): **YA APLICADO Y VERIFICADO** - E1-52 y E1-53 se repararon de forma"
+            " deterministica sobre el .docx (estilos de encabezado trasplantados de hermanas sanas y"
+            " renumeracion 16.7.6 a 16.7.3), con prueba de no-regresion: el texto quedo identico."
+            " **El CONTENIDO de la etapa 1 esta CERRADO; el unico trabajo activo es el pase 5 (formato"
+            " y terminologia).** Su seccion 0"
+            " certifica que entro el pase 3 completo y su seccion 2 fija el flujo obligatorio:"
+            " **se trabaja dentro del Project, NO sobre Drive**",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-3.md",
+            note="pase 3 (2026-08-27): **YA APLICADO Y VERIFICADO** (constancia en la seccion 0 del"
+            " pase 4) - NO volver a aplicarlo. Fue el relevamiento que AJ-1.16 declaraba pendiente:"
+            " cubrio la seccion 16 y el Anexo A, que nunca habian recibido pase. Sus comentarios"
+            " E1-24 a E1-51 y sus decisiones D-E1-9 a D-E1-12 siguen rigiendo como criterio de"
+            " lectura -en particular la inversion de la poda 17 y las enmiendas a las podas 06, 07"
+            " y 11-. **D-E1-11 sigue ABIERTA y es del equipo**: la aplicabilidad de la inscripcion"
+            " ante la AAIP, hoy marcada en el texto con un [[PENDIENTE]] que debe viajar",
+        ),
+        SourceSlice(
+            "informe/entregable/90d-etapa1-texto-extraido.md",
+            note="TEXTO BASE FINAL DE LA ETAPA 1 - **el DESARROLLO: seccion 15 y seccion 16**,"
+            " extraido de 'E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx', con los **cinco pases YA APLICADOS Y"
+            " VERIFICADOS**, los 16 AJ-1.xx resueltos, las podas 01-11 aplicadas, formato y"
+            " terminologia unificados (el verificador da OK). **SUPERA al 96c y al 96d** del informe"
+            " v1.1, que por eso ya no forman parte de este paquete. **El entregable de la etapa es SOLO"
+            " el desarrollo**: el Anexo A y el listado de referencias salieron del documento por"
+            " decision del usuario -los arma el equipo- y quedaron en `90e`. **La etapa esta CERRADA:"
+            " no queda trabajo de contenido, formato ni terminologia** sobre este texto; no cambiar una"
+            " palabra de fondo. Lo unico abierto de fondo es D-E1-11, que decide el equipo y viaja"
+            " como [[PENDIENTE]]",
+        ),
+        SourceSlice(
+            "informe/entregable/90e-etapa1-anexo-a-y-referencias.md",
+            note="Anexo A y listado de Referencias, ya corregidos en los cuatro pases pero FUERA del entregable de la etapa: el Anexo A pertenece a la seccion 19 y las referencias son globales del informe, y los arma el equipo. Se conserva porque **el cuerpo de la seccion 15 cita la Tabla A.1 y la 15.3.3 cita la Tabla A.2**: si esas tablas no llegan a la seccion 19, quedan dos remisiones colgadas. NO se redacta desde aca",
+        ),
+        SourceSlice(
+            "informe/ajustes/01-etapa-1-fundamentacion-teorica.md",
+            note="tablero ORIGINAL AJ-1.01 a AJ-1.16 (2026-08-10), con el relevamiento que dio"
+            " origen a la etapa y las cifras de vara con su marca de confianza. **Los 16 estan"
+            " RESUELTOS** -AJ-1.04 y AJ-1.05 por eliminacion de las fichas, AJ-1.09 en el Anexo A,"
+            " AJ-1.16 por el pase 3-. Se conserva como historia y como fuente de las cifras: NO es"
+            " una lista de tareas",
+        ),
         SourceSlice(
             "informe/entregable/borradores/vara-15.md",
-            note="borrador listo para integrar: la vara del 15 (AJ-1.01/1.02/1.13)",
+            note="borrador historico (2026-08-16) de la vara del 15: YA INTEGRADO al texto base"
+            " (AJ-1.01/1.02/1.13 estan aplicados). Material de consulta para las cifras y sus marcas"
+            " de confianza, NO redactar desde aca",
+        ),
+        SourceSlice(
+            "informe/ajustes/07-critica-extension-y-poda.md",
+            end_heading="## 3. §15 Estado del Arte (21.575 palabras)",
+            note="encuadre de la crítica de extension: la regla de gobierno (no hay limite de"
+            " extension y no se poda por cuota, se poda por APORTE) y los cinco criterios C1 a C5"
+            " que cada PODA cita por su sigla. Sin esto, las fichas de poda no se pueden leer",
         ),
         SourceSlice(
             "informe/ajustes/07-critica-extension-y-poda.md",
             start_heading="## 3. §15 Estado del Arte (21.575 palabras)",
             end_heading="## 5. §17.1 Consolidación Metodológica (32.222 palabras)",
-            note="podas 01 a 11 aplicables a las secciones 15 y 16",
+            note="podas 01 a 11 aplicables a las secciones 15 y 16: YA APLICADAS Y VERIFICADAS (etapa 1"
+            " CERRADA 2026-08-28) - se conservan solo como criterio de lectura, NO reaplicar."
+            " Dos enmiendas del pase de alineacion: la poda 04 se aplica CON la excepcion E1-10"
+            " (el parrafo de RTSP/RTP y la seccion 15.4.3 completa se conservan) y la poda 03 CON"
+            " el matiz E1-08 (las metricas MOT se comprimen, no se eliminan)",
+        ),
+        SourceSlice(
+            "informe/ajustes/07-critica-extension-y-poda.md",
+            start_heading="## 7. §18, §19 y Referencias (12.339 palabras)",
+            note="de este bloque, a la etapa 1 le tocan la poda 17 (Anexo A, que es su tercera"
+            " pieza: decision D-E1-4) y la poda 18 (Referencias, que se poda sola al caer secciones"
+            " y con el pase de AJ-1.10); las demas son de otras etapas. Incluye ademas el tablero"
+            " completo y, sobre todo, los GUARDRAILS: su punto 1 protege 16.2 y 16.3 —el corazon"
+            " conceptual de la tesis— de las podas 05 a 11, y su punto 6 fija que las adiciones de"
+            " vara mandan sobre las podas (la poda les hace lugar, no compite con ellas)",
         ),
         SourceSlice("sintesis/fundamentos-teoricos.md"),
     ),
     2: (
-        SourceSlice("informe/entregable/96b-informe-v11-17-1-consolidacion-metodologica.md"),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-2.md",
+            note="EL PASE DE LA ETAPA 2 (2026-08-28): comentarios E2-01..E2-26 y decisiones D-E2-1..9."
+            " **YA APLICADO Y VERIFICADO** en el documento de trabajo v1.3 (misma jornada; constancia en"
+            " `correcciones-etapa-2-pase-2.md`) - **NO volver a aplicarlo**. Sigue rigiendo como criterio"
+            " de lectura y manda sobre las fichas AJ-2.xx donde las precisa o corrige",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-2.md",
+            note="pase 2 de la etapa 2 (2026-08-28, noche): la VERIFICACION de la entrega v1.2 y el cierre en"
+            " v1.3 - estado por unidad E2, los tres arreglos de forma E2-27..E2-29, los residuales que NO se"
+            " corrigen, el delta de referencias (13 bajas) y lo que queda fuera del .docx (90g y handoffs)",
+        ),
+        SourceSlice(
+            "informe/entregable/90f-etapa2-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de la seccion 17.1: extraido del documento de trabajo"
+            " `E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx` (2026-08-28), con el pase"
+            " E2-01..E2-26 y el pase de formato F1-F6 **YA APLICADOS Y VERIFICADOS** (28.534 palabras,"
+            " 118 titulos, verificador OK). No cambiar una palabra de fondo sin un pase nuevo explicito."
+            " El 96b (v1.1 sin correcciones) queda como foto historica fuera del paquete. Las ecuaciones"
+            " de Word aparecen como ⟦ECUACIÓN⟧: no son erratas",
+        ),
         SourceSlice(
             "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 19.3. Anexo C - Prompts, datos, datasets, benchmarks y logística",
             end_heading="## Referencias",
-            note="Anexos C y D vigentes",
+            note="Anexos C y D del informe v1.1 (texto vigente). Por D-E2-1 NO van en el .docx de la etapa:"
+            " se corrigen aparte (AJ-2.07, duplicaciones de ajustes/09) y quedan en 90g para la seccion 19",
+        ),
+        SourceSlice(
+            "operacion/130-relevamiento-plataforma-pre-etapa-2.md",
+            start_heading="## 4. Protocolo §17.1 vs lo construido — la tabla que alimenta el pase de la Etapa 2",
+            end_heading="## 7. Qué cambió en el set a partir de este relevamiento (misma jornada, 2026-08-28)",
+            note="relevamiento de la plataforma del 2026-08-28: la tabla prescripcion -> CUMPLIDA/PARCIAL/NO"
+            " EJERCIDA/DESVIADA por subseccion de 17.1 (lo que se declara en 17.4/17.5 y lo que se ajusta"
+            " como protocolo en 17.1) y las decisiones D-E2 firmadas",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
+            start_heading="## E. Hechos verificados en este pase — NO \"corregir\" estos valores",
+            end_heading="## F. Mapa comentario → unidad — los 29 hilos, ninguno sin destino",
+            note="hechos del pase 3 que dependen de la etapa 2: CPN/EN/TN y las siglas t_alert-system/TTFD/SDR"
+            " NACEN en 17.1 (17.3 las usa sin redefinir) - no moverlas ni renombrarlas",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
+            start_heading="## I. Diferidos y dependencias inversas",
+            note="dependencias inversas hacia la etapa 2: C-1 (bautismo E-DIR/E-IND/E-HYB, ahora firmado por"
+            " D-E2-2), el solape 17.3.3.1/17.3.3.2 y la anomalia de la sigla OMML en 17.1.7.5.1",
         ),
         SourceSlice("informe/ajustes/02-etapa-2-consolidacion-metodologica.md"),
         SourceSlice(
@@ -133,14 +260,14 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     3: (
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
-            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO",
+            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplica ahora en §17.1.5.4.2 y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
         ),
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-pase-2.md",
             note="pase de cierre 2 (2026-08-20): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; sus decisiones D-P2-1..6 siguen rigiendo como criterio de lectura",
         ),
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
             note="pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo",
         ),
         SourceSlice(
@@ -162,14 +289,14 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     4: (
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
-            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO",
+            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplica ahora en §17.1.5.4.2 y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
         ),
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-pase-2.md",
             note="pase de cierre 2 (2026-08-20): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; sus decisiones D-P2-1..6 siguen rigiendo como criterio de lectura",
         ),
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
             note="pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo",
         ),
         SourceSlice(
@@ -181,21 +308,32 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
         SourceSlice("informe/ajustes/04-etapa-4-implementacion.md"),
         SourceSlice(
             "informe/entregable/90b-etapa4-texto-extraido.md",
-            note="TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.5 (2026-08-23), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando",
+            note="TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.6 (re-extraido 2026-08-28), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando. Pendiente detectado por operacion/130 R-01: su parrafo sobre el orden de disparo con distribucion debe decir control -> distribucion -> medios",
         ),
         SourceSlice(
             "informe/entregable/borradores/17-4.md",
-            note="borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.5: material de consulta, NO redactar desde aca",
+            note="borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.6: material de consulta, NO redactar desde aca",
         ),
         SourceSlice("informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md"),
         SourceSlice("informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md"),
-        SourceSlice("operacion/97-relevamiento-plataforma-2026-08-05.md"),
+        SourceSlice(
+            "operacion/130-relevamiento-plataforma-pre-etapa-2.md",
+            end_heading="## 5. Set documental — auditoría documento contra documento",
+            note="FOTO VIGENTE de la plataforma (2026-08-28): estado de los seis repos, hechos citables por"
+            " modulo con ruta:linea en datos/130-…, divergencias doc<->codigo y la tabla protocolo 17.1 vs"
+            " construido. Manda sobre operacion/97 en todo lo que difieran",
+        ),
+        SourceSlice(
+            "operacion/97-relevamiento-plataforma-2026-08-05.md",
+            note="FOTO HISTORICA del 2026-08-05, SUPERADA por operacion/130: decia 4 repos, dos servicios HTTP y"
+            " distribucion no implementada. Solo para trazabilidad; no citar su estado",
+        ),
         SourceSlice("nucleo/14-mapa-de-la-cadena.md"),
         SourceSlice("nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md"),
     ),
     5: (
         SourceSlice(
-            "informe/entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md",
+            "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
             note="pase de cierre 3 (2026-08-22): su seccion D fija las restricciones que rigen la redaccion de la etapa 5",
         ),
         SourceSlice(
@@ -245,10 +383,72 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     ),
 }
 
+STAGE_CONTRACTS: dict[int, tuple[str, ...]] = {
+    1: (
+        "**Restriccion propia de esta etapa: el estado del arte tiene que quedar alineado"
+        " con la plataforma que efectivamente se construyo.** Un modelo, metodo o protocolo"
+        " se desarrolla si tiene rol en el trabajo; y todo resultado que el informe reporte"
+        " mas adelante necesita aca su **vara** (cifra publicada) o su **brecha** declarada."
+        " Ese es el criterio que ordena tanto las adiciones como las podas.",
+        "La seccion 1 del pase de alineacion describe la plataforma construida. Es el blanco"
+        " de la alineacion y **no se cita**: en las secciones 15 y 16 no entra ningun numero"
+        " propio, ningun experimento y ninguna eleccion de diseno del proyecto.",
+        "Estado del trabajo (✎ 2026-08-27, cierre): **el CONTENIDO de la etapa 1 esta CERRADO.**"
+        " Los pases 1, 2 y 3 estan APLICADOS Y VERIFICADOS sobre las tres piezas -seccion 15,"
+        " seccion 16 y Anexo A-, los 16 `AJ-1.xx` estan resueltos y las podas 01-11 aplicadas."
+        " **NO reaplicar nada de eso, ni volver a redactar.**",
+        "**ETAPA 1 CERRADA (✎ 2026-08-28): los cinco pases estan aplicados y verificados.** Documento"
+        " final: `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx` (secciones 15 y 16). **No hay trabajo pendiente"
+        " de redaccion, formato ni terminologia.** Si este paquete se abre para otra cosa, no rehacer"
+        " nada de lo hecho; cualquier cambio sobre la etapa 1 requiere un pase nuevo, explicito.",
+        "**El entregable de la etapa es SOLO el desarrollo (secciones 15 y 16).** Sin Anexo A, sin"
+        " Anexo B y sin listado de Referencias: los arma el equipo. El Anexo A y las referencias ya"
+        " corregidos estan en `90e` para la seccion 19, porque el cuerpo cita las Tablas A.1 y A.2.",
+        "**No se trabaja sobre Drive ni editando el documento en la nube.** El texto vigente"
+        " completo de la etapa esta en este paquete (`90d`: secciones 15 y 16),"
+        " asi que ir a buscar el documento afuera es innecesario y ademas lo daña: los dos"
+        " defectos que quedan aparecieron exactamente asi. El detalle del circuito de entrega"
+        " esta en la seccion 'Como se trabaja y como se entrega' del contexto base y en la"
+        " seccion 2 del pase 4.",
+        "Queda **una decision del equipo, no del redactor**: D-E1-11, la aplicabilidad de la"
+        " inscripcion ante la AAIP al contexto experimental. Esta correctamente marcada en el"
+        " texto con `[[PENDIENTE: ...]]` y **ese marcador debe viajar**: no se completa con una"
+        " estimacion ni se borra.",
+    ),
+    2: (
+        "**Restriccion propia de esta etapa: §17.1 se corrige COMO PROTOCOLO** (regla de"
+        " no-anacronismo, mapa regla 5). Entran decisiones, definiciones, criterios y valores de"
+        " configuracion elegidos dentro de rangos declarados; **NO entran resultados medidos ni"
+        " estados de implementacion**: eso se declara en §17.4/§17.5. Lo que el protocolo"
+        " prescribio y no se ejercio (templates de prompt, vocabulario aislado-vs-completo cruzado,"
+        " espanol, doble anotacion/kappa, MOT17/OVT-B y metricas MOT, NVDEC) **NO se borra ni se"
+        " 'corrige' en §17.1**: queda como protocolo y §17.5 lo reporta como no ejercido.",
+        "**Texto base = `90f` = §17.1 v1.3 (28.534 palabras, 118 titulos, Tablas 16–38), con el pase"
+        " `correcciones-etapa-2.md` (E2-01..E2-26: las 12 fichas AJ-2.xx, la AJ-2.13, las podas 12–14 y"
+        " los handoffs de las etapas 1 y 3) y el pase de formato F1–F6 YA APLICADOS Y VERIFICADOS el"
+        " 2026-08-28. **La seccion esta CERRADA en contenido; no reaplicar nada.** Lo que queda de la"
+        " etapa es externo al .docx: `90g` (Anexos C y D) y los handoffs hacia 17.3/17.4/17.5. **Guardrails:** §17.1.5 y §17.1.7 no se comprimen (no hay"
+        " 'segunda vuelta'); los nombres de metrica que se ven vacios o como ⟦ECUACIÓN⟧ son"
+        " objetos de ecuacion de Word, NO erratas; CPN/EN/TN y las siglas t_alert-system/TTFD/SDR"
+        " nacen aca y §17.3/§17.4 las usan — no renombrar.",
+        "**Decisiones firmadas (2026-08-28):** D-E2-1 el .docx es SOLO §17.1 (Anexos C y D aparte, en"
+        " 90g) · D-E2-2 los codigos E-DIR/E-IND/E-HYB se bautizan en §17.1.5.4.2 y §17.3.6.4 recorta su"
+        " glosa a una remision · D-E2-5 el nivel intermedio 'estado observable por persona' se declara"
+        " en §17.1.7.3.1 (AJ-2.13) · D-E2-6 MOT17/OVT-B y metricas MOT intactos con ⊘ explicito ·"
+        " D-E2-3 la regla 're-alerta ≠ FP' va en §17.1.7.8.3 · D-E2-4 los 4.000/7.000 ms entran como"
+        " decision dentro del rango de la Tabla 24, sin la palabra 'efectivos' · D-E2-7 marcador"
+        " espejo de la AAIP en §17.1.11 · D-E2-8 PODA-14 solo recorta §17.1.4.",
+        "**Formato:** el documento hereda del maestro un defecto que el pase corrige: §17.1.1 esta en"
+        " estilo Heading 2 (el nivel de §17.1) con tabulador tras el numero — debe ser Heading 3 con"
+        " espacio, como sus hermanas §17.1.2…§17.1.12. La remision a 'la seccion 16.7.6' es hoy"
+        " §16.7.3. Verificacion: `verificar_entregable.py <entrega.docx> --seccion 17.1`.",
+    ),
+}
+
 STAGE_DESCRIPTIONS = {
     0: "Etapa 0: secciones 11 a 14 y ajustes transversales",
-    1: "Etapa 1: secciones 15 y 16, y Anexo A",
-    2: "Etapa 2: seccion 17.1 y Anexos C y D",
+    1: "Etapa 1: secciones 15 y 16 (CERRADA 2026-08-28; el Anexo A corregido vive en 90e)",
+    2: "Etapa 2: seccion 17.1 (los Anexos C y D se corrigen aparte, D-E2-1)",
     3: "Etapa 3: seccion 17.3, diseno arquitectonico",
     4: "Etapa 4: seccion 17.4, implementacion del prototipo",
     5: "Etapa 5: seccion 17.5, evaluacion y validacion",
@@ -286,6 +486,11 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
    metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
    zero-shot.
+6. **Plataforma relevada de punta a punta el 2026-08-28** (`operacion/130`, seis repos, solo
+   lectura): lo estructural coincide con los docs; las 26 cifras de los cuatro indices verifican
+   (EXIT 0); `bench_v3` reproduce byte a byte. Lo que 130 corrigio manda sobre cualquier foto
+   anterior (en particular sobre `operacion/97`).
+7. **Etapa 1 del informe CERRADA** (2026-08-28): §15 + §16 en su documento v1.0, verificador OK.
 
 **ABIERTO — no se afirma; se marca:**
 
@@ -297,13 +502,19 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
    pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
    figura como presente mientras la seccion no la tenga insertada.
-3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
-   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
-   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
-   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
-   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
-   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
-   los borradores.
+3. **La integracion al documento maestro.** ✎ 2026-08-28: cada seccion se trabaja **en su
+   propio documento** en `entregable/desarrollando/`; lo que queda al final es
+   **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
+   **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
+   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
+   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
+   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
+   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
+   `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
+4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
+   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -317,6 +528,44 @@ Reglas: nunca completar un marcador con una estimacion, un valor probable ni una
 redaccion evasiva; nunca borrarlo para que el texto "fluya"; el marcador viaja hasta el
 entregable y recien lo remueve quien aporta el dato. Un capitulo con marcadores visibles
 es honesto; un capitulo que rellena huecos es indefendible.
+
+## Como se trabaja y como se entrega (obligatorio, ✎ 2026-08-27)
+
+**No se trabaja sobre una unidad de Drive conectada, ni editando el documento en su nube.**
+Se trabaja **dentro del Project**, con estos archivos de knowledge como unica fuente: el
+paquete de la etapa activa **ya contiene el texto vigente completo** de la seccion que se
+esta corrigiendo (la extraccion `90`/`90b`/`90c`/`90d`/`90f` segun la etapa). No hace falta ir a
+buscar el documento a ningun lado, y hacerlo empeora el resultado.
+
+*Por que la regla existe.* En la entrega del 2026-08-27 el contenido salio bien pero
+**cinco encabezados numerados contiguos perdieron su estilo de titulo** (`16.5.3`, `16.5.4`,
+`16.5.5`, `16.6`, `16.6.1`): se ven como titulos y no lo son, asi que desaparecen del indice
+automatico y de la numeracion de campos. El defecto aparecio al editar via Drive y no se ve
+leyendo el texto. Ese ida y vuelta tambien pierde los cambios controlados.
+
+**Forma de la entrega**, por seccion y no del documento completo:
+
+1. Un `.docx` armado **sobre una COPIA del DOCX base** de formato, nunca sobrescribiendolo.
+2. **Cada titulo con su estilo de encabezado real** (`Heading 2/3/4/5`), jamas texto en
+   negrita imitando un titulo. Si se elimina una subseccion, **renumerar sus hermanas**: un
+   salto (por ejemplo `16.7.1`, `16.7.2`, `16.7.6`) se ve en el indice.
+3. **Con cambios controlados activados**, o en su defecto con el bloque de trazabilidad por
+   unidad que piden las instrucciones del Project (diagnostico · texto propuesto ·
+   trazabilidad · pendientes).
+4. Sin markdown crudo pegado (`###`, `|---|`, cercos de codigo) y sin identificadores
+   internos: `AJ-`, `R-`, `PODA-`, `E1-`/`E3-`/`E4-`, lineas `SHA-256`, cabeceras
+   `> Seleccion:`. **Excepcion**: los codigos `P-E1-xx` de las preguntas rectoras SI son
+   parte del informe.
+5. Los marcadores `[[PENDIENTE: …]]` / `[[CIFRA: …]]` / `[[FIGURA: …]]` **viajan**: no se
+   completan con estimaciones ni se borran.
+6. **Delta de referencias explicito**: altas completas en APA 7 con DOI/URL, y bajas de lo
+   que dejo de citarse. Si una obra queda citada solo desde la nota de una tabla, decirlo.
+
+**Verificacion mecanica antes de dar una entrega por buena** (la corre el equipo, es parte
+del circuito y no un extra): `python3 herramientas/verificar_entregable.py <entrega.docx>
+--seccion <N>` (p. ej. `--seccion 15 --seccion 16`, o `--seccion 17.1`). Falla con titulos sin estilo, huecos de numeracion, fugas de
+andamiaje, markdown crudo y citas sin entrada en referencias; e informa las referencias
+huerfanas, la misma autoria con años distintos y si faltan los cambios controlados.
 
 ## Estado vigente que manda sobre el resto
 
@@ -370,23 +619,73 @@ es honesto; un capitulo que rellena huecos es indefendible.
   propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
   el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
   normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
+- **Orden de arranque de una corrida live CON distribucion (✎ 2026-08-28, `operacion/130`
+  R-01 — corrige a FIG-A, al CLAUDE.md raiz y a la nota de 128 §4, que decian lo contrario):**
+  el runner lanza **control → distribucion → medios**: primero `POST :8081/api/runs`
+  (`mode: live`, con `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), despues
+  `POST :8082/api/runs` (necesita el `control_run_id`) y por ultimo `POST :8080/api/runs`. La
+  no-perdida en el bus de alertas la garantiza el **handshake XPUB del publicador** (el control
+  espera la suscripcion del distribuidor hasta 10 s), no el orden literal. **NO escribir
+  "distribucion primero" ni "orden inverso al flujo de datos".** §17.4 v1.6 todavia lo dice
+  (pendiente de la etapa 4).
+- **Campeon y sus umbrales (✎ 2026-08-28, `operacion/130` R-04/R-11):** citar siempre el par
+  completo `gdino-tiny-560` = 560 px · `box_threshold` **0,30** · `text_threshold` 0,25 · NMS
+  IoU 0,50 · fp16. **`gdino-tiny` (800 px) corrio a 0,35**: la comparacion "560 no degrada mAP
+  respecto de 800" esta confundida con el umbral en el par tiny (el par base si esta a 0,30 en
+  ambos: 0,453 vs 0,401); el −24 % de latencia no depende del umbral. El **n=5.313** del recall
+  CR-01 (S1/S2) es el del GT del 2026-07-23; con el GT vigente (29-jul) el denominador es 5.308
+  y la medicion no se repitio: citarlo fechado. `effective_config.yaml` imprime tambien los
+  campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35`
+  en YOLOE): **GDINO usa `box`+`text`+`iou`; YOLOE usa `confidence`+`iou`**. El campo
+  `run.scenario` **no clasifica** DBE/EBE (siempre dice `DBE`): se distingue por `source_type` +
+  `bus.enabled`.
+- **Motor de patrones (✎ 2026-08-28, `operacion/130` R-07):** **cinco** estados
+  `inactive → candidate → confirmed → sustained → resolved`, alerta solo al entrar a
+  `confirmed`, reapertura `resolved → candidate`; `cr01_cr02_v2` = CR-01 `high` 4.000/2.000 ms,
+  CR-02 `medium` 7.000/3.000 ms, **sin cooldown** (la capacidad existe en el codigo, desactivada);
+  la persistencia se implementa como **duracion desde la primera evidencia con tolerancia a
+  huecos**, no como proporcion de frames positivos. Hitos persistidos 4 de 5 (la notificacion es
+  del distribuidor). Causa two-node = `clock_skew` (no `cross_node_monotonic_clock`).
+- **Fine-tuning y datos (✎ 2026-08-28, `operacion/130` R-02/R-03):** el entrenamiento efectivo
+  (`finetuning_v1`, T1/T2) uso `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+  train / 483 val** y **EXCLUYO `chv`** por anti-leakage (el 100 % de `chv` es estrato del banco);
+  "css + chv + ppe_siabar" es el rol TRAIN **historico** (`train_v2`, archivado 08-15) y NO se
+  escribe como lo entrenado. El protocolo (Tabla 28 de §17.1) acotaba el split a 500–2.000
+  imagenes: **2.946 es una desviacion que se declara** (100 % de linajes elegibles tras dedup y
+  exclusion del banco; F-127.1 muestra que aun asi es insuficiente). Los checkpoints ajustados
+  **solo se evaluaron en DBE-imagenes**, nunca en clips ni EBE (ΔSDR/Δt_alert/ΔTTFD no existen).
+  De los 9 datasets de la Tabla 26 de §17.1 solo SHEL5K y CHV se usaron (como fuentes del banco);
+  css y ppe_siabar, los que se entrenaron, no figuran en esa tabla.
+- **G2A y la cadena temporal (✎ 2026-08-28, `operacion/130` R-17):** el G2A medido va del
+  **dequeue** (el proceso ya leyo el frame) al **fin de la inferencia**; el tramo sensor→dequeue
+  (`capture_to_host`, 202–217 ms) existe **solo para OAK-D** — para RTSP ese tramo **no se midio**
+  (no "se suma", falta). NVDEC no se uso (decodificacion por software). El SO real es Linux/WSL2,
+  no Windows 11 como decia el protocolo.
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
-  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
-  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
-  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
-  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
-  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
-  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
-  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
-  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
-  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
+  usuario). ✎ 2026-08-28 (`operacion/130` R-09): **esta DEFINIDA y validada por configuracion**
+  desde el 2026-08-19/20 — Dockerfiles en los tres repos de servicio y `infra/platform/` con el
+  compose de 13 servicios y paridad de rutas; lo que sigue **pendiente y diferido a post-entrega
+  es el build y el smoke integral** (nunca se corrieron). Su razon de ser es la
+  **reproducibilidad** (que un tercero levante la plataforma en otra maquina), y su documentacion
+  operativa vive en los repositorios, no en la tesis. **Como escribirla:** "definida y validada
+  por configuracion; despliegue no verificado", como trabajo comprometido con su causa, en el
+  cierre (§17.6/§18) y en el camino de reproducibilidad (§19). **Como NO escribirla:** ni
+  "diferida" (ya esta escrita), ni en presente como capacidad desplegada, ni con instrucciones
+  de despliegue — el informe no es un manual. *Describir el compromiso y su fundamento es correcto; describir un despliegue
+  que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
   duplican cifras que ya se reportan via `evaluate-alerts` con denominadores por estrato.
   **La citabilidad esta materializada**: `t_alert-system` ES la columna `t_alert` del
   clip bench (campo `t_alert_system_ms` de cada `metrics.json`) — citable por campana y
-  por condicion, nunca promediada entre campanas. NO confundir con `t_alert-notification`
+  por condicion, nunca promediada entre campanas. ✎ 2026-08-28 (`operacion/130` R-05): esa
+  cifra es un **PROMEDIO por campana** — `evaluate-alerts` no produce percentiles ni persiste
+  latencias por episodio; los **P50/P95/P99** existen solo para el tramo de plataforma
+  (`summary.json` de medios y control: G2A, `processing_ms`, `ttfa_internal`) y para
+  `t_alert-notification` (`metrics.json` de la campana 118). Decirlo cuando se cite. Y
+  `t_alert-system` cierra en el **reloj de fuente del frame que confirmo** (`alert.timestamp_ms`),
+  no en el registro interno monotónico. NO confundir con `t_alert-notification`
   (bus→PUBACK, la campana de distribucion): son tramos con relojes distintos y **los
   percentiles no se suman entre tramos** — la cadena temporal completa se cita POR TRAMOS
   segun la tabla de `results/index.md`.
@@ -540,6 +839,7 @@ def build_outputs(
             "- No se trasladan resultados propios hacia secciones cronologicamente anteriores.",
             f"- Nombre propio de esta etapa ({stage_filename(stage)}): regenerarla no pisa"
             " el paquete de ninguna otra etapa.",
+            *(f"- {bullet}" for bullet in STAGE_CONTRACTS.get(stage, ())),
         ]
     )
     active_stage = render_document(

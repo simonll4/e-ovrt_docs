@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 1
 
-> Generado el 2026-08-23. Etapa 1: secciones 15 y 16, y Anexo A.
+> Generado el 2026-08-28. Etapa 1: secciones 15 y 16 (CERRADA 2026-08-28; el Anexo A corregido vive en 90e).
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -32,6 +32,11 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
    metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
    zero-shot.
+6. **Plataforma relevada de punta a punta el 2026-08-28** (`operacion/130`, seis repos, solo
+   lectura): lo estructural coincide con los docs; las 26 cifras de los cuatro indices verifican
+   (EXIT 0); `bench_v3` reproduce byte a byte. Lo que 130 corrigio manda sobre cualquier foto
+   anterior (en particular sobre `operacion/97`).
+7. **Etapa 1 del informe CERRADA** (2026-08-28): §15 + §16 en su documento v1.0, verificador OK.
 
 **ABIERTO — no se afirma; se marca:**
 
@@ -43,13 +48,19 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
    pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
    figura como presente mientras la seccion no la tenga insertada.
-3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
-   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
-   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
-   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
-   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
-   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
-   los borradores.
+3. **La integracion al documento maestro.** ✎ 2026-08-28: cada seccion se trabaja **en su
+   propio documento** en `entregable/desarrollando/`; lo que queda al final es
+   **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
+   **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
+   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
+   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
+   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
+   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
+   `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
+4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
+   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -63,6 +74,44 @@ Reglas: nunca completar un marcador con una estimacion, un valor probable ni una
 redaccion evasiva; nunca borrarlo para que el texto "fluya"; el marcador viaja hasta el
 entregable y recien lo remueve quien aporta el dato. Un capitulo con marcadores visibles
 es honesto; un capitulo que rellena huecos es indefendible.
+
+## Como se trabaja y como se entrega (obligatorio, ✎ 2026-08-27)
+
+**No se trabaja sobre una unidad de Drive conectada, ni editando el documento en su nube.**
+Se trabaja **dentro del Project**, con estos archivos de knowledge como unica fuente: el
+paquete de la etapa activa **ya contiene el texto vigente completo** de la seccion que se
+esta corrigiendo (la extraccion `90`/`90b`/`90c`/`90d`/`90f` segun la etapa). No hace falta ir a
+buscar el documento a ningun lado, y hacerlo empeora el resultado.
+
+*Por que la regla existe.* En la entrega del 2026-08-27 el contenido salio bien pero
+**cinco encabezados numerados contiguos perdieron su estilo de titulo** (`16.5.3`, `16.5.4`,
+`16.5.5`, `16.6`, `16.6.1`): se ven como titulos y no lo son, asi que desaparecen del indice
+automatico y de la numeracion de campos. El defecto aparecio al editar via Drive y no se ve
+leyendo el texto. Ese ida y vuelta tambien pierde los cambios controlados.
+
+**Forma de la entrega**, por seccion y no del documento completo:
+
+1. Un `.docx` armado **sobre una COPIA del DOCX base** de formato, nunca sobrescribiendolo.
+2. **Cada titulo con su estilo de encabezado real** (`Heading 2/3/4/5`), jamas texto en
+   negrita imitando un titulo. Si se elimina una subseccion, **renumerar sus hermanas**: un
+   salto (por ejemplo `16.7.1`, `16.7.2`, `16.7.6`) se ve en el indice.
+3. **Con cambios controlados activados**, o en su defecto con el bloque de trazabilidad por
+   unidad que piden las instrucciones del Project (diagnostico · texto propuesto ·
+   trazabilidad · pendientes).
+4. Sin markdown crudo pegado (`###`, `|---|`, cercos de codigo) y sin identificadores
+   internos: `AJ-`, `R-`, `PODA-`, `E1-`/`E3-`/`E4-`, lineas `SHA-256`, cabeceras
+   `> Seleccion:`. **Excepcion**: los codigos `P-E1-xx` de las preguntas rectoras SI son
+   parte del informe.
+5. Los marcadores `[[PENDIENTE: …]]` / `[[CIFRA: …]]` / `[[FIGURA: …]]` **viajan**: no se
+   completan con estimaciones ni se borran.
+6. **Delta de referencias explicito**: altas completas en APA 7 con DOI/URL, y bajas de lo
+   que dejo de citarse. Si una obra queda citada solo desde la nota de una tabla, decirlo.
+
+**Verificacion mecanica antes de dar una entrega por buena** (la corre el equipo, es parte
+del circuito y no un extra): `python3 herramientas/verificar_entregable.py <entrega.docx>
+--seccion <N>` (p. ej. `--seccion 15 --seccion 16`, o `--seccion 17.1`). Falla con titulos sin estilo, huecos de numeracion, fugas de
+andamiaje, markdown crudo y citas sin entrada en referencias; e informa las referencias
+huerfanas, la misma autoria con años distintos y si faltan los cambios controlados.
 
 ## Estado vigente que manda sobre el resto
 
@@ -116,23 +165,73 @@ es honesto; un capitulo que rellena huecos es indefendible.
   propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
   el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
   normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
+- **Orden de arranque de una corrida live CON distribucion (✎ 2026-08-28, `operacion/130`
+  R-01 — corrige a FIG-A, al CLAUDE.md raiz y a la nota de 128 §4, que decian lo contrario):**
+  el runner lanza **control → distribucion → medios**: primero `POST :8081/api/runs`
+  (`mode: live`, con `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), despues
+  `POST :8082/api/runs` (necesita el `control_run_id`) y por ultimo `POST :8080/api/runs`. La
+  no-perdida en el bus de alertas la garantiza el **handshake XPUB del publicador** (el control
+  espera la suscripcion del distribuidor hasta 10 s), no el orden literal. **NO escribir
+  "distribucion primero" ni "orden inverso al flujo de datos".** §17.4 v1.6 todavia lo dice
+  (pendiente de la etapa 4).
+- **Campeon y sus umbrales (✎ 2026-08-28, `operacion/130` R-04/R-11):** citar siempre el par
+  completo `gdino-tiny-560` = 560 px · `box_threshold` **0,30** · `text_threshold` 0,25 · NMS
+  IoU 0,50 · fp16. **`gdino-tiny` (800 px) corrio a 0,35**: la comparacion "560 no degrada mAP
+  respecto de 800" esta confundida con el umbral en el par tiny (el par base si esta a 0,30 en
+  ambos: 0,453 vs 0,401); el −24 % de latencia no depende del umbral. El **n=5.313** del recall
+  CR-01 (S1/S2) es el del GT del 2026-07-23; con el GT vigente (29-jul) el denominador es 5.308
+  y la medicion no se repitio: citarlo fechado. `effective_config.yaml` imprime tambien los
+  campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35`
+  en YOLOE): **GDINO usa `box`+`text`+`iou`; YOLOE usa `confidence`+`iou`**. El campo
+  `run.scenario` **no clasifica** DBE/EBE (siempre dice `DBE`): se distingue por `source_type` +
+  `bus.enabled`.
+- **Motor de patrones (✎ 2026-08-28, `operacion/130` R-07):** **cinco** estados
+  `inactive → candidate → confirmed → sustained → resolved`, alerta solo al entrar a
+  `confirmed`, reapertura `resolved → candidate`; `cr01_cr02_v2` = CR-01 `high` 4.000/2.000 ms,
+  CR-02 `medium` 7.000/3.000 ms, **sin cooldown** (la capacidad existe en el codigo, desactivada);
+  la persistencia se implementa como **duracion desde la primera evidencia con tolerancia a
+  huecos**, no como proporcion de frames positivos. Hitos persistidos 4 de 5 (la notificacion es
+  del distribuidor). Causa two-node = `clock_skew` (no `cross_node_monotonic_clock`).
+- **Fine-tuning y datos (✎ 2026-08-28, `operacion/130` R-02/R-03):** el entrenamiento efectivo
+  (`finetuning_v1`, T1/T2) uso `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+  train / 483 val** y **EXCLUYO `chv`** por anti-leakage (el 100 % de `chv` es estrato del banco);
+  "css + chv + ppe_siabar" es el rol TRAIN **historico** (`train_v2`, archivado 08-15) y NO se
+  escribe como lo entrenado. El protocolo (Tabla 28 de §17.1) acotaba el split a 500–2.000
+  imagenes: **2.946 es una desviacion que se declara** (100 % de linajes elegibles tras dedup y
+  exclusion del banco; F-127.1 muestra que aun asi es insuficiente). Los checkpoints ajustados
+  **solo se evaluaron en DBE-imagenes**, nunca en clips ni EBE (ΔSDR/Δt_alert/ΔTTFD no existen).
+  De los 9 datasets de la Tabla 26 de §17.1 solo SHEL5K y CHV se usaron (como fuentes del banco);
+  css y ppe_siabar, los que se entrenaron, no figuran en esa tabla.
+- **G2A y la cadena temporal (✎ 2026-08-28, `operacion/130` R-17):** el G2A medido va del
+  **dequeue** (el proceso ya leyo el frame) al **fin de la inferencia**; el tramo sensor→dequeue
+  (`capture_to_host`, 202–217 ms) existe **solo para OAK-D** — para RTSP ese tramo **no se midio**
+  (no "se suma", falta). NVDEC no se uso (decodificacion por software). El SO real es Linux/WSL2,
+  no Windows 11 como decia el protocolo.
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
-  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
-  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
-  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
-  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
-  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
-  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
-  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
-  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
-  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
+  usuario). ✎ 2026-08-28 (`operacion/130` R-09): **esta DEFINIDA y validada por configuracion**
+  desde el 2026-08-19/20 — Dockerfiles en los tres repos de servicio y `infra/platform/` con el
+  compose de 13 servicios y paridad de rutas; lo que sigue **pendiente y diferido a post-entrega
+  es el build y el smoke integral** (nunca se corrieron). Su razon de ser es la
+  **reproducibilidad** (que un tercero levante la plataforma en otra maquina), y su documentacion
+  operativa vive en los repositorios, no en la tesis. **Como escribirla:** "definida y validada
+  por configuracion; despliegue no verificado", como trabajo comprometido con su causa, en el
+  cierre (§17.6/§18) y en el camino de reproducibilidad (§19). **Como NO escribirla:** ni
+  "diferida" (ya esta escrita), ni en presente como capacidad desplegada, ni con instrucciones
+  de despliegue — el informe no es un manual. *Describir el compromiso y su fundamento es correcto; describir un despliegue
+  que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
   duplican cifras que ya se reportan via `evaluate-alerts` con denominadores por estrato.
   **La citabilidad esta materializada**: `t_alert-system` ES la columna `t_alert` del
   clip bench (campo `t_alert_system_ms` de cada `metrics.json`) — citable por campana y
-  por condicion, nunca promediada entre campanas. NO confundir con `t_alert-notification`
+  por condicion, nunca promediada entre campanas. ✎ 2026-08-28 (`operacion/130` R-05): esa
+  cifra es un **PROMEDIO por campana** — `evaluate-alerts` no produce percentiles ni persiste
+  latencias por episodio; los **P50/P95/P99** existen solo para el tramo de plataforma
+  (`summary.json` de medios y control: G2A, `processing_ms`, `ttfa_internal`) y para
+  `t_alert-notification` (`metrics.json` de la campana 118). Decirlo cuando se cite. Y
+  `t_alert-system` cierra en el **reloj de fuente del frame que confirmo** (`alert.timestamp_ms`),
+  no en el registro interno monotónico. NO confundir con `t_alert-notification`
   (bus→PUBACK, la campana de distribucion): son tramos con relojes distintos y **los
   percentiles no se suman entre tramos** — la cadena temporal completa se cita POR TRAMOS
   segun la tabla de `results/index.md`.
@@ -144,36 +243,1719 @@ es honesto; un capitulo que rellena huecos es indefendible.
 
 ## Contrato de uso
 
-- **Etapa activa:** 1 - Etapa 1: secciones 15 y 16, y Anexo A.
+- **Etapa activa:** 1 - Etapa 1: secciones 15 y 16 (CERRADA 2026-08-28; el Anexo A corregido vive en 90e).
 - Este archivo contiene el texto vigente que se modifica y sus insumos de ajuste.
 - No se trasladan resultados propios hacia secciones cronologicamente anteriores.
 - Nombre propio de esta etapa (01-etapa-1-activa.md): regenerarla no pisa el paquete de ninguna otra etapa.
+- **Restriccion propia de esta etapa: el estado del arte tiene que quedar alineado con la plataforma que efectivamente se construyo.** Un modelo, metodo o protocolo se desarrolla si tiene rol en el trabajo; y todo resultado que el informe reporte mas adelante necesita aca su **vara** (cifra publicada) o su **brecha** declarada. Ese es el criterio que ordena tanto las adiciones como las podas.
+- La seccion 1 del pase de alineacion describe la plataforma construida. Es el blanco de la alineacion y **no se cita**: en las secciones 15 y 16 no entra ningun numero propio, ningun experimento y ninguna eleccion de diseno del proyecto.
+- Estado del trabajo (✎ 2026-08-27, cierre): **el CONTENIDO de la etapa 1 esta CERRADO.** Los pases 1, 2 y 3 estan APLICADOS Y VERIFICADOS sobre las tres piezas -seccion 15, seccion 16 y Anexo A-, los 16 `AJ-1.xx` estan resueltos y las podas 01-11 aplicadas. **NO reaplicar nada de eso, ni volver a redactar.**
+- **ETAPA 1 CERRADA (✎ 2026-08-28): los cinco pases estan aplicados y verificados.** Documento final: `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx` (secciones 15 y 16). **No hay trabajo pendiente de redaccion, formato ni terminologia.** Si este paquete se abre para otra cosa, no rehacer nada de lo hecho; cualquier cambio sobre la etapa 1 requiere un pase nuevo, explicito.
+- **El entregable de la etapa es SOLO el desarrollo (secciones 15 y 16).** Sin Anexo A, sin Anexo B y sin listado de Referencias: los arma el equipo. El Anexo A y las referencias ya corregidos estan en `90e` para la seccion 19, porque el cuerpo cita las Tablas A.1 y A.2.
+- **No se trabaja sobre Drive ni editando el documento en la nube.** El texto vigente completo de la etapa esta en este paquete (`90d`: secciones 15 y 16), asi que ir a buscar el documento afuera es innecesario y ademas lo daña: los dos defectos que quedan aparecieron exactamente asi. El detalle del circuito de entrega esta en la seccion 'Como se trabaja y como se entrega' del contexto base y en la seccion 2 del pase 4.
+- Queda **una decision del equipo, no del redactor**: D-E1-11, la aplicabilidad de la inscripcion ante la AAIP al contexto experimental. Esta correctamente marcada en el texto con `[[PENDIENTE: ...]]` y **ese marcador debe viajar**: no se completa con una estimacion ni se borra.
 
 ---
 
-## Fuente: `docs/informe/entregable/96c-informe-v11-estado-del-arte.md`
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-1.md`
 
-> SHA-256 del bloque: `f618796da1aa4d49104725653785c9ef722e62f0d208ba89a4ff5e7e7950ed27`  
-> Seleccion: documento completo.
+> SHA-256 del bloque: `0942b5f992b600a2a7b4b70ed52d77ecf3095bfb566d6ab0f7ca6fcbd19fd78e`  
+> Seleccion: pase 1 de alineacion de la etapa 1 (2026-08-27): YA APLICADO Y VERIFICADO en el documento de trabajo - NO volver a aplicarlo. Sus comentarios E1-01 a E1-12 y sus decisiones D-E1-1 a D-E1-6 siguen rigiendo como criterio de lectura; su seccion 1 (la plataforma efectivamente construida) sigue siendo el blanco de la alineacion y NO se cita en el informe.
 
-# 96c — Texto extraído del informe v1.1: §15 Estado del Arte
+# Correcciones a la Etapa 1 — §15 Estado del Arte
 
-> **Extracción derivada (2026-07-18)** del `.docx`
-> `informe/entregable/E-OVRT-VDP_v1.1_05062026-sin-indice.docx`, **solo para búsqueda y cita**
+- **Fecha:** 2026-08-27 · **Sobre:** `Etapa 1.docx` (§15 completo, 22.169 palabras).
+- **Para quién:** el redactor de la Etapa 1. El equipo de plataforma **no edita** esta
+  sección; este documento dice **qué ajustar y contra qué**.
+- **Objetivo del pase:** que el estado del arte quede **alineado con el proyecto que se
+  construyó** — que cada modelo, método y protocolo que el §15 desarrolla tenga un rol en la
+  tesis, y que cada resultado que el informe va a reportar más adelante (§17.5) tenga en el
+  §15 su **vara** de literatura o su **brecha** declarada.
+- **Regla que gobierna todo el pase — no-anacronismo:** el §15 narra el estado del arte
+  *antes* del proyecto. **No entra ningún número medido por nosotros, ningún experimento
+  propio, ninguna elección de diseño.** El §15 deja la vara (cifra publicada) o la brecha
+  (lo que la literatura no responde); el cruce con lo medido se escribe en §17.5 y §18.
+  Cuando abajo se cita una cifra del proyecto, es solo para explicar *qué vara falta* — esa
+  cifra **no** va al §15.
+- **IDs:** `E1-nn` comentarios (con prioridad 🔴 alta · 🟠 media · 🟡 baja) ·
+  `PODA-nn` remite a la crítica de extensión ya existente (`ajustes/07`).
+
+---
+
+## 0. Alcance del archivo
+
+**`Etapa 1.docx` cubre 1 de las 3 piezas de la Etapa 1.** La Etapa 1 del informe es
+**§15 + §16 (Marco Teórico) + Anexo A**. El archivo trae §15 completo, nada de §16 y ninguna
+tabla del Anexo A (las cita: "Tabla A.1", "Tabla A.3"). Tres consecuencias:
+
+1. **§16 y Anexo A deben llegar como Etapa 1**, no como parte de la etapa siguiente
+   (§17.1). El §16 todavía no fue relevado (`AJ-1.16`).
+2. La corrección de licencias de GDINO 1.5 / DINO-X (`AJ-1.09`) quedó bien **en la prosa**
+   del §15, pero la **Tabla A.1**, donde estaba la errata, no se puede verificar desde este
+   archivo. Confirmar que también se corrigió.
+3. El §15 apunta hacia adentro del §16 tres veces ("sección 16.5.1", "16.5.2.3 y 16.5.2.5")
+   y una vez a algo que no existe en el §15 ("el modelado de apariencia descrito en el
+   análisis del modelado de apariencia", §15.3.1.2). El §16.5 va a reestructurarse
+   (PODA-06…09): **cerrar §15 y §16 juntos** para que estos punteros no queden rotos.
+
+---
+
+## 1. Qué es la plataforma (el blanco de la alineación)
+
+Descripción en llano de lo que se construyó y midió, para decidir qué del §15 sostiene algo
+y qué no. Todo esto está verificado en el código de los repositorios.
+
+| Componente | Lo que se implementó | Lo que **no** se implementó |
+|---|---|---|
+| **Detectores** | Grounding DINO en dos backbones — **Swin-T** (campeón, a 560 px) y **Swin-B** (especialista en `bare_head`, a 560 px) — y **YOLOE-26** en tallas s/m/l/x (release de Ultralytics posterior al paper). MM-Grounding-DINO se evaluó y se descartó. | Ningún otro modelo del catálogo (OmDet-Turbo, OWL, Detic, Florence-2, APE, LLMDet, T-Rex2, Grounded SAM…). Sin segmentación. |
+| **Uso de los modelos** | **Zero-shot** con calibración operativa: resolución, vocabulario (prompt sets congelados), umbrales, estabilización temporal. | — |
+| **Fine-tuning** | Jornada experimental cerrada sobre **YOLOE-26s**, con las **dos recetas estándar de Ultralytics**: *linear probing* (solo la proyección de clases) y *full tuning*. Se **midió** la retención in-domain y la retención open-vocabulary. Ningún checkpoint se adoptó. | No se ajustó Grounding DINO. |
+| **Identidad por sujeto (tracking)** | Tracker **propio y mínimo**: asociación por IoU entre cuadros, **sin filtro de Kalman ni modelo de apariencia**, determinista. Su valor se mide por su efecto en las alertas, **no con MOTA/IDF1/HOTA** (métricas MOT excluidas del alcance con causa). | Ni ByteTrack, ni OC-SORT, ni DeepSORT, ni end-to-end en la plataforma. (ByteTrack se usó solo como herramienta de preanotación de ground truth.) |
+| **Ingesta de video** | **RTSP** (cámaras IP) y **captura por SDK** de una cámara inteligente (OAK-D, con prefiltrado en el dispositivo). Servidor de medios (`mediamtx`) solo como herramienta de desarrollo. | Ni WebRTC, ni HLS/DASH, ni RTMP, ni SRT, ni RIST, ni servidor de medios en producción. Sin inferencia en el borde. |
+| **Interior del sistema** | Bus de eventos publish/subscribe entre el plano de detección y el motor de reglas (condiciones CR-01 sin casco / CR-02 sin chaleco, con histéresis temporal). | — |
+| **Salida** | Alertas confirmadas distribuidas por **MQTT QoS 1** con idempotencia; consola web. | — |
+| **Evaluación** | Benchmark de imágenes propio y congelado (3 fuentes, 6.477 imgs), benchmark de clips con GT humano, latencia extremo a extremo (G2A), tasa de falsas alarmas, persistencia mínima. | Métricas MOT. Benchmarks generales (COCO/LVIS) solo como referencia externa. |
+
+---
+
+## 2. Alineación: qué ajustar en cada bloque
+
+### 2.1 §15.2 Detección OVD — bien encuadrado, con huecos de vara
+
+El §15.2 ya dejó bien puestas la vara supervisada de EPP (YOLOR 0,883 SHEL5K con `head`
+0,907; YOLOv5x 0,866 CHV; YOLOv9-e ≈0,71 SH17), la vara zero-shot OVD×EPP (Choi & Greer
+2024; Chen & Zou 2025), la caída COCO→ODinW de GDINO, la convención de métricas
+(AP 0,50:0,95 vs mAP@0,5, nunca en la misma columna) y la distinción "calibración operativa
+vs adaptación paramétrica". Eso **no se toca**. Lo que falta:
+
+**E1-01 · 🟠 · Swin-B no tiene vara.** El proyecto despliega **dos** backbones de Grounding
+DINO y el §17.5 reportará ambos. El §15 da la cifra zero-shot de Swin-L (52,5 COCO) y de
+Swin-T (≈48,4) pero **no menciona Swin-B**. Ojo con la trampa: la cifra publicada del
+GroundingDINO-B en el README oficial (~56,7 AP COCO) **no es zero-shot** — COCO figura entre
+sus datos de preentrenamiento (verificar en la fuente). Pedido: una oración en §15.2.1.1.3
+que diga que la variante Swin-B se distribuye con pesos abiertos pero **sin cifra zero-shot
+comparable**, y por qué. Sin esa oración, el §17.5 no tiene vara honesta para el
+especialista.
+
+**E1-02 · 🟡 · YOLOE-v8 (paper) vs YOLOE-26 (plataforma).** El §15 cita YOLOE-v8-S/L
+(Wang et al., 2025). La plataforma corre **YOLOE-26**, release posterior de Ultralytics
+sobre YOLO26 sin paper propio. Pedido: decir que la familia tiene variantes v8/11/26 y que
+las cifras publicadas corresponden a v8; si no, el §17.5 compara `yoloe-26s` contra la vara
+de v8-S sin aviso.
+
+**E1-03 · 🟠 · Tabla 4, fila YOLOE — contradicción latente con §17.5.** La fila dice:
+*Transferring (linear probing / full tuning) → Retención OVD "No" → "Modelo reparametrizado
+como YOLO estándar"*. El proyecto ejerció **exactamente esas dos recetas** y **midió** la
+retención open-vocabulary como un número. Si el §15 afirma "No" absoluto por
+reparametrización, el §17.5 va a reportar una retención medida y el lector verá una
+contradicción (¿cómo se mide lo que no existe?). Reformular, sin adelantar nada: *"No
+evaluada por los autores; la receta estándar produce un modelo de vocabulario fijo; la
+retención debe medirse re-inyectando el vocabulario abierto sobre el modelo ajustado."* Ese
+enunciado es el que el §17.5 puede confirmar o refutar.
+
+**E1-04 · 🟡 · §15.2.4.5 pesa donde no se ejerció.** ~60 % del texto de fine-tuning
+desarrolla recetas para Grounding DINO (las tres estrategias de MM-GDINO, LoRA en imagen
+médica). La jornada fue sobre YOLOE. No es un error — GDINO es el campeón y la brecha se
+declara — pero la vara que el §17.5 va a citar es la del Bloque B (YOLOE), que hoy tiene
+menos desarrollo. Equilibrar. Además, el resultado del fine-tuning se va a explicar por la
+relación entre **tamaño del conjunto de ajuste y parámetros entrenables**; hoy la única
+frase que lo ancla es "PEFT relevante para datasets de dominio reducidos". Agregar una
+oración con fuente sobre esa relación como condición de la retención. *(Sin cifras
+nuestras.)*
+
+**E1-05 · 🟠 · El Bloque D está mal rotulado.** Título: "Modelos generativos guiados por
+instrucciones". De sus 4 modelos, **3 no son generativos en inferencia**, y el propio texto lo
+dice: APE "no depende de decodificación autoregresiva, produciendo predicciones estructuradas
+de manera directa"; LLMDet "en inferencia opera como un detector OVD convencional sin LLM";
+T-Rex2 "entra en el Bloque D por su foco en prompting generalista multimodal". La Tabla 2 lo
+agrava: fila "Generativo guiado por instrucciones" con mecanismo "APE: predicción directa con
+alineamiento por producto punto". Un jurado atento lo ve. Renombrar el bloque (por ejemplo
+*"Modelos guiados por prompts generalistas: generativos e híbridos"*) y corregir la fila de
+la Tabla 2; alternativa: mover APE/T-Rex2 al Bloque A y LLMDet a la ficha de MM-GDINO.
+
+**E1-06 · 🟡 · Duplicación interna (es la superficie de PODA-01/02).** La introducción de
+§15.2.1 (párrafos 2–8) ya describe GDINO, OmDet-Turbo, YOLO-World, YOLOE, OWL-ViT y Florence-2
+con las mismas cifras que sus fichas de más abajo (52,5 AP; 35,9 AP a 102,5 FPS; etc.).
+Criterio: los paradigmas en la introducción; **fichas completas solo para los modelos con rol
+en la tesis** (Grounding DINO y MM-GDINO · YOLO-World y YOLOE · OWLv2 como único comparable
+externo zero-shot sobre obra · GDINO 1.5/DINO-X como techo de API cerrada). El resto, una
+línea en la Tabla A.1. La Tabla 3 se reduce a esas filas — y con ella se van las cifras aún
+sin verificar de OmDet-Turbo (ver §3).
+
+### 2.2 §15.3 Seguimiento multiobjeto — la recomendación del texto no es lo que se construyó
+
+**E1-07 · 🟠 · §15.3.2.1 recomienda un método que el diseño no adoptó.** El cierre dice que
+"ByteTrack y OC-SORT representan alternativas particularmente equilibradas" y que "la
+familia SORT extendida se presenta como la opción más adecuada". La plataforma usa algo
+**más simple que SORT** (asociación IoU, sin modelo de movimiento) y lo mide por alertas.
+Cuando el §17.3 lo describa, el lector que vuelva al §15 verá que el estado del arte
+"recomendaba otra cosa". El §15 no debe elegir método (eso es del diseño): reescribir el
+cierre en clave de **criterios** — independencia respecto del detector, determinismo y
+reproducibilidad, costo nulo de entrenamiento, transparencia para auditoría — que son los
+que fundan lo construido, sin nombrar ganador. La ficha de SORT (tracking-by-detection +
+IoU + asignación) es la vara conceptual que queda; los demás métodos, comprimidos en la
+Tabla 6.
+
+Erratas del bloque: "FairMOT" aparece en §15.3.2.1 sin haber sido introducido (la sección
+presenta TrackFormer/MOTR) · §15.3.1.2 refiere a "el análisis del modelado de apariencia",
+que no existe en el §15.
+
+**E1-08 · 🟡 · §15.3.3 métricas MOT — comprimir, no eliminar (matiz a PODA-03).** PODA-03
+pide eliminar §15.3.3 entero. Matiz: la tesis **excluye** MOTA/IDF1/HOTA con causa, y para
+que el §17.1/§17.5 justifiquen esa exclusión el lector tiene que saber qué miden esas
+métricas y por qué no capturan valor operativo. Ese argumento (último párrafo de §15.3.3.3)
+es el que motiva medir por alerta. Dejar ~120 palabras: las tres métricas en una oración
+cada una + ese párrafo. La ecuación (1) y las tres subsecciones sobran.
+
+**E1-09 · 🟡 · Tabla 7.** La fila "ausencia de datasets de construcción con anotaciones de
+tracking → protocolo propio con datos del proyecto" está **alineada** (el proyecto construyó
+ese GT) — se queda. La fila "ausencia de semántica en identificadores… correlación
+inter-cámara" está fuera del alcance (una cámara) — podable.
+
+### 2.3 §15.4 Streaming — comprimir fuerte, con una excepción
+
+**E1-10 · 🔴 · Aplicar PODA-04, conservando RTSP/RTP íntegro y §15.4.3 entero.** El §15.4
+tiene **8.068 palabras** (protocolos 4.054 · servidores de medios 2.616) para una ingesta que
+es **solo RTSP + SDK de cámara**. Ni WebRTC, ni HLS/DASH/CMAF, ni RTMP, ni SRT, ni RIST, ni
+Janus/Kurento/OME/SRS sostienen una decisión del sistema construido. **Excepción, que la
+crítica de extensión no había marcado:** el párrafo de RTSP/RTP (latencia ~200–800 ms en
+condiciones favorables, dominada por el *play-out buffer* del receptor — Axis 2015) es la
+**única vara de literatura** para la latencia de captura que el §17.5 va a reportar y para la
+regla de que la latencia extremo a extremo se descompone en captura + procesamiento. **Ese
+párrafo se queda entero.** Y **§15.4.3 (brechas) se queda entero**: §15.4.3.1 "ausencia de
+benchmarks end-to-end integrados para pipelines OVD" es exactamente la brecha que la
+medición de latencia del proyecto ocupa — es de las mejores piezas del §15. Todo lo demás se
+comprime a una tabla-mapa de protocolos de ingesta (la Tabla 8 ya casi lo es) más un párrafo
+de criterios. La *justificación* de la elección (RTSP en la entrada, bus de eventos adentro)
+no va acá: es del §17.1/§17.3.
+
+**E1-11 · 🟠 · Falta la vara de dos cosas que sí se construyeron.**
+(a) **Ingesta por SDK de cámara inteligente** (OAK-D, prefiltrado en el dispositivo): el
+§15.4 solo conoce protocolos de red. Si la cobertura vive en §16.5.4 (borde), el §15.4 debe
+al menos nombrar la captura por SDK como alternativa al stream de red.
+(b) **Distribución de alertas por mensajería pub/sub (MQTT QoS 1)**: es un componente
+implementado y medido y **no tiene una sola línea de estado del arte** — ni protocolos de
+mensajería IoT, ni garantías de entrega, ni idempotencia. §15.4.3.4 habla de "la
+notificación al operador" sin fuente. Un párrafo con fuente, o dejar declarado que lo cubre
+el §16/§17.3. Sin vara, la latencia de distribución que reporte el §17.5 queda flotando.
+
+**E1-12 · 🔴 · Texto de instrucción colado al informe.** §15.4.1.2 (RTMP): *"Esto es clave
+para la plantilla: cuando el documento menciona latencias, debe quedar claro que…"*. Es una
+directiva de redacción, no prosa del informe. Eliminar. Es 🔴 no por gravedad técnica sino
+porque delata el proceso ante el jurado.
+
+Erratas del bloque: "jitter en el receptor.." (doble punto) · "Ahmad et al., 2005" es un
+paper de **transcodificación** y está citado para "el comportamiento bajo carga" de Janus
+(§15.4.2.5) — atribución errónea; bastan Amirante 2014/2015 · Tabla 8 rotula RTSP/RTP como
+"Pull" mientras §15.4.1.1 alinea RTP con *push* (RTSP controla, RTP empuja: decirlo así o
+unificar).
+
+### 2.4 Lo que está bien alineado — no tocar
+
+- §15.2.5.1 contextualización limitada → justifica un motor de reglas sobre las detecciones. ✔
+- §15.2.5.2 sin consistencia temporal nativa → justifica estabilización temporal e identidad
+  por sujeto. ✔
+- §15.2.5.3 sensibilidad al prompt → justifica prompt sets congelados; y Choi & Greer
+  (asociación jerárquica: `head` 0,1024 vs `hardhat` 0,6493) es la vara natural para
+  comparar formulaciones directas e indirectas del vocabulario. ✔
+- §15.2.5.4 / §15.2.5.5 → baseline zero-shot propia, test congelado, latencia de alerta,
+  tasa de falsas alarmas, persistencia mínima: es exactamente el protocolo que se ejerció. ✔
+- §15.2.2 composición de pipelines → la arquitectura **es** composición (detector + tracker
+  + motor de reglas + distribución). ✔ El ejemplo es Grounded SAM y no hay segmentación en la
+  tesis: podable a la mitad, conservando la idea.
+- §15.2.6 calibración operativa vs adaptación paramétrica → el encuadre correcto. ✔
+
+---
+
+## 3. Pendientes del pase de corrección anterior
+
+Del tablero `AJ-1.01…1.16` quedaron **12 resueltos**. Falta:
+
+| ID | Qué falta |
+|---|---|
+| AJ-1.04 | OmDet-Turbo-Tiny "30,3 AP LVIS-minival" (Tabla 3 y ficha): probable *mislabel* de ODinW-13. Verificar contra el paper y corregir o anotar. (Si se aplica E1-06, la fila se va.) |
+| AJ-1.05 | OmDet-Turbo-Base "53,4 AP COCO bajo evaluación zero-shot": verificar que sea zero-shot; si no, etiquetar. |
+| AJ-1.09 | Confirmar la Tabla A.1 del Anexo A (la prosa ya está bien). |
+| AJ-1.16 | Relevar el §16 — llega con la segunda pieza de la Etapa 1. |
+| Cifra nueva | "Grounding DINO Swin-L alcanza 63,0 AP en COCO tras fine-tuning closed-set" (§15.2.4.5) entró sin pasar el filtro de verificación. Plausible (paper: 62,6 val / 63,0 test-dev): declarar el split. |
+
+---
+
+## 4. Poda: el pase no se aplicó
+
+La crítica de extensión (`ajustes/07`) fijó que la poda se aplica **en el mismo pase** que las
+correcciones. Ese pase no vino:
+
+| Bloque | Palabras hoy | Poda propuesta | Aplicada |
+|---|---:|---|---|
+| §15 total | 22.169 | ~−11.900 | no |
+| §15.2.1 catálogo de modelos | 4.777 | PODA-01 −2.000 (ver E1-06) | no |
+| §15.2.3 + §15.2.4 síntesis duplicada | 3.877 | PODA-02 fusionar en una, −1.500 | no |
+| §15.3 MOT | 2.530 | PODA-03 −1.600 (ver matiz E1-08) | no |
+| §15.4 streaming y servidores | 8.068 | **PODA-04 −6.800** (ver excepción E1-10) | **no** |
+
+El criterio de poda **no es cuota, es aporte**: una sección se queda si sostiene un
+resultado, una decisión de diseño o un argumento de defensa. Las adiciones de vara
+(AJ-1.01/1.13, E1-01/02/11) mandan sobre las podas: la poda les hace lugar.
+
+---
+
+## 5. Decisiones del equipo (marcar antes de enviar)
+
+| ID | Decisión | Recomendación | ✔ |
+|---|---|---|---|
+| D-E1-1 | ¿La poda de §15 se aplica **en este pase** o en un pase transversal al final? | En este pase. §16 es Etapa 1 también y trae PODA-05…11; los punteros §15→§16.5 se arreglan una sola vez. | [ ] |
+| D-E1-2 | ¿§16 y Anexo A llegan como **Etapa 1**, antes de §17.1? | Sí, en un `.docx` propio. | [ ] |
+| D-E1-3 | Excepción a PODA-04: conservar RTSP/RTP íntegro y §15.4.3 entero. | Sí. Anotar la enmienda en `ajustes/07`. | [ ] |
+| D-E1-4 | Tabla A.1: confirmar licencias corregidas y resolver PODA-17. | Migrar la Tabla A.1 corregida al Anexo B; eliminar el resto del Anexo A. | [ ] |
+| D-E1-5 | Bloque D: renombrar vs mover modelos. | Renombrar y corregir la fila de la Tabla 2 — menor cirugía. | [ ] |
+| D-E1-6 | Al cerrar el pase: re-extraer el §15 a `entregable/` y fechar en `00-el-informe-hoy.md` (regla D-C); versionar el `.docx` como los demás (`…Seccion_15_Estado_del_Arte_v1.x.docx`). | Hacerlo al cerrar, no antes. | [ ] |
+
+---
+
+## 6. Orden sugerido
+
+1. **Erratas duras** (sin decisión): E1-12 · Ahmad 2005 · doble punto · FairMOT · referencia
+   colgada §15.3.1.2 · Tabla 8 push/pull · split del 63,0 · AJ-1.04/1.05.
+2. **Alineación**: E1-01 Swin-B · E1-02 YOLOE-26 · E1-03 Tabla 4 · E1-05 Bloque D ·
+   E1-07 cierre de §15.3.2.1 · E1-11 SDK + MQTT.
+3. **Poda** (con D-E1-1/D-E1-3): PODA-01/02 (E1-06) · PODA-03 con E1-08 · PODA-04 con E1-10 ·
+   E1-09.
+4. **§16 y Anexo A** como Etapa 1 (D-E1-2): AJ-1.16 · PODA-05…11 · D-E1-4 · reparar los
+   punteros desde §15.
+5. **Cierre**: D-E1-6.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-2.md`
+
+> SHA-256 del bloque: `3b045781d1eab95f146589b17e8ff81db96b018db5829f40ac023a7887c1bc89`  
+> Seleccion: pase 2 (2026-08-27): revision de la primera iteracion y E1-13 a E1-23. YA APLICADO Y VERIFICADO (su seccion 6) salvo tres RESIDUALES que SI son trabajo pendiente: R1 (una fila de la Tabla 4 sin sostener en prosa), R2 (formato de la ficha de Florence-2) y R3 (delta de referencias: altas Kumar 2022, Lee 2023, OASIS 2019, Ultralytics 2026; Luxonis lleva letra s. f.-b; bajas de PODA-18). Sus decisiones D-E1-7 (la Tabla A.1 se conserva y corrige: PODA-17 invertida) y D-E1-8 rigen.
+
+# Correcciones a la Etapa 1 — pase 2: revisión de la iteración de GPT sobre §15
+
+- **Fecha:** 2026-08-27 · **Sobre:** `desarrollando/Etapa 1 — copia ajustada E1 2026-08-27.docx`
+  (10.870 palabras; sin control de cambios ni comentarios).
+- **Contra qué se revisa:** el texto base `90d` (22.266 palabras) y el pase 1
+  (`correcciones-etapa-1.md`: E1-01…E1-12, AJ- abiertos, podas con dos enmiendas, guardrails).
+- **Tres preguntas que ordenan la revisión:** (1) ¿cumplió lo pedido? (2) ¿la reducción a la
+  mitad está justificada por aporte, o hubo poda por poda? (3) ¿sigue siendo un estado del
+  arte de tesis, o quedó un texto acomodado a nuestro diseño?
+- **IDs:** los comentarios nuevos continúan la serie: **E1-13…E1-23**. Las decisiones nuevas:
+  **D-E1-7, D-E1-8**. Nada de esto está aplicado.
+
+---
+
+## 0. Veredicto en cuatro líneas
+
+1. **Cumplimiento: alto.** 11 de los 12 `E1-` están aplicados; el que falta (E1-06) es el de
+   menor peso. Los `AJ-` abiertos quedaron resueltos (dos de ellos por eliminación). Cero
+   fugas de andamiaje, cero resultados propios: la regla de no-anacronismo se respetó.
+2. **Extensión: justificada en el agregado.** 22.266 → 10.870 palabras (−51 %). La poda
+   pre-autorizada (`ajustes/07`, PODA-01…04 con las enmiendas del pase 1) proyectaba
+   ~10.300. GPT cortó **lo que se le dijo que cortara y conservó lo que se le dijo que
+   conservara** (§15.2.5 brechas 0 % · §15.4.3 brechas 0 % · RTSP/RTP · Tabla 8 · las 7
+   tablas). No hay poda por poda **en el qué**; hay daño colateral **en el cómo**.
+3. **Daño colateral: seis puntos concretos**, todos de una misma clase — *la prosa se
+   comprimió más rápido que lo que dependía de ella*: tablas que quedaron con filas que el
+   texto ya no explica, una brecha que cita un análisis borrado, numeración con huecos, un
+   paradigma sin ficha, citas huérfanas en notas, y la síntesis de licencias perdida.
+4. **Registro de tesis: se sostiene, con dos correcciones.** Dos pasajes nuevos afirman en
+   voz normativa —y sin fuente— criterios que son *nuestros* (los tres niveles de evaluación
+   del proyecto; los criterios de selección del tracker). Un jurado los leería como "el
+   autor decide y lo disfraza de literatura". Se corrigen convirtiéndolos en brecha con cita.
+
+---
+
+## 1. Cumplimiento del pase 1
+
+| Unidad | Estado | Dónde / observación |
+|---|---|---|
+| E1-01 Swin-B sin vara | ✅ | §15.2.1.1.3, párrafo nuevo: pesos públicos, sin cifra zero-shot comparable porque COCO está en su entrenamiento. **Pero** se asentó como hecho lo que el pase 1 marcó **[R] a verificar**, y cita "(IDEA-Research, 2024)" **sin letra**, colisionando con 2024a/b/c → E1-21 |
+| E1-02 YOLOE-v8 vs YOLOE-26 | ✅ | §15.2.1.2.2: "los resultados publicados para YOLOE-v8 no deben utilizarse como si fueran una medición de las variantes YOLOE-26" (Ultralytics, 2026) |
+| E1-03 Tabla 4 fila YOLOE | ✅ | Fila reescrita: "No evaluada por los autores · la receta estándar produce vocabulario fijo; la retención requiere reinyectar y evaluar vocabulario abierto". La prosa (§15.2.4 ¶4) lo acompaña |
+| E1-04 equilibrar fine-tuning | ✅ parcial | Se sumó la vara tamaño-de-datos/parámetros (Kumar et al., 2022; Lee et al., 2022) y YOLOE ganó peso. El costo: la Tabla 4 quedó sin sostén → E1-14 |
+| E1-05 Bloque D mal rotulado | ✅ | Renombrado "Modelos guiados por prompts generalistas: generativos e híbridos"; fila de Tabla 2 corregida. El costo: el bloque quedó **sin ninguna ficha** → E1-13 |
+| E1-06 duplicación intro/fichas | ❌ | Los párrafos 2–8 de §15.2.1 están **idénticos** al base: siguen dando 52,5 AP, 35,9 AP @102,5 FPS, etc., que las fichas repiten → E1-19 |
+| E1-07 cierre de §15.3.2.1 | ✅ | Reescrito en criterios, "no una elección anticipada de un tracker particular". FairMOT y la referencia colgada desaparecieron. **Pero** el párrafo quedó **sin una sola cita** → E1-16 |
+| E1-08 métricas MOT comprimir | ✅ | 126 palabras, una oración por métrica + el argumento del valor operativo. Ecuación fuera |
+| E1-09 Tabla 7 | ✅ | Fila inter-cámara eliminada; fila de datasets conservada |
+| E1-10 PODA-04 con excepción | ✅ | RTSP/RTP íntegro en lo esencial (200–800 ms, play-out buffer, Axis 2015, ONVIF); **§15.4.3 intacta (0 %)**; Tabla 8 completa |
+| E1-11a ingesta por SDK | ✅ | §15.4.2 ¶2 (Luxonis, s. f.), sin equipararla a inferencia en el borde |
+| E1-11b MQTT / pub-sub | ✅ | §15.4.2 ¶4 (OASIS, 2019): QoS 1, PUBACK, reentregas, idempotencia |
+| E1-12 texto de plantilla | ✅ | Desapareció con el párrafo de RTMP |
+| Erratas: Ahmad 2005 · ".." · FairMOT · Tabla 8 push/pull · split del 63,0 | ✅ | Ahmad 2005 ahora sostiene *transcodificación* (uso correcto); Tabla 8: "RTSP controla la sesión; RTP transporta el flujo"; "62,6 AP en COCO val y 63,0 AP en test-dev" |
+| AJ-1.04 / AJ-1.05 (OmDet-Turbo) | ✅ por eliminación | Ficha y filas de Tabla 3 eliminadas. Queda una cita huérfana en la Fuente de Tabla 3 → E1-20 |
+| AJ-1.09 Tabla A.1 · AJ-1.16 §16 | — | Fuera de este `.docx`. Ver D-E1-7 |
+
+---
+
+## 2. La extensión: qué se cortó y si estaba justificado
+
+| Bloque | Base | GPT | Δ | Qué salió | Juicio |
+|---|---:|---:|---:|---|---|
+| §15.1 alcance | 181 | 181 | 0 % | — | ✅ |
+| §15.2.1 paradigmas y fichas | 4.641 | 2.070 | −55 % | Fichas de GLIP/GLIPv2, OV-DETR, OV-DINO, OmDet-Turbo, Detic, DetCLIP; las 4 del Bloque D colapsadas a un párrafo; **Bloque E completo** (Grounded SAM, OVTrack, Roboflow Rapid) | ✅ es exactamente PODA-01 (quedan los modelos con rol + techo de API cerrada). Tres pérdidas a reparar: numeración (E1-13), paradigma 4 sin ficha (E1-13), genealogía GLIP (E1-18) |
+| §15.2.2 composición | 665 | 128 | −81 % | La descripción larga de Grounded SAM/SAM 2 | ✅ la idea (desacoplar etapas, costo del pipeline completo) sobrevive y es la que la plataforma necesita; no hay segmentación en la tesis |
+| §15.2.3 síntesis + Tabla 2/3 | 1.129 | 1.088 | −4 % | Filas de OmDet en Tabla 3 | ✅ |
+| ex-§15.2.4 ventajas/limitaciones (.1–.4) | ~1.000 | 0 | −100 % | Eficiencia (duplicaba 15.2.3) · generalización · **licencias y riesgo de adopción** · segmentación (duplicaba 15.2.2) | ⚠ tres de las cuatro eran duplicación (PODA-02). **La de licencias no**: es criterio de selección declarado y se perdió su síntesis → E1-17 |
+| §15.2.4 fine-tuning (ex-.5) | 2.688 | 885 | −67 % | Las recetas de MM-GDINO en detalle, LoRA médico (Rasaee), el hallazgo del text encoder frágil de YOLO-World, OWL-ST/n-gramas, Florence-2 LoRA (Ucar/Skalski), *catastrophic forgetting* (Kirkpatrick) | ⚠ la compresión es defendible, pero **la Tabla 4 conserva 11 filas que nombran esas recetas** y la prosa ya no las presenta → E1-14 |
+| **§15.2.5 brechas + Tabla 5** | 1.737 | 1.737 | **0 %** | — | ✅ **el núcleo, intacto** |
+| §15.2.6 cierre | 161 | 161 | 0 % | — | ✅ |
+| §15.3.1 métodos MOT | 806 | 277 | −66 % | Fichas de DeepSORT/ByteTrack/OC-SORT/BoT-SORT → un párrafo de contraste | ✅ PODA-03; Tabla 6 conserva la comparativa completa |
+| §15.3.2 síntesis + Tabla 6 | 554 | 436 | −21 % | — | ✅ (ver E1-16 por las citas) |
+| §15.3.3 métricas | 373 | 126 | −66 % | Tres subsecciones y la ecuación | ✅ E1-08 (ver E1-16 por el cierre) |
+| §15.3.4 brechas + Tabla 7 | 633 | 567 | −10 % | Fila inter-cámara | ✅ |
+| §15.4.1 protocolos | 4.025 | 1.039 | −74 % | RTMP, HLS/DASH/CMAF, WebRTC, SRT, RIST en prosa (→ un párrafo en 15.4.2) | ✅ PODA-04 con la excepción cumplida: criterios de clasificación + RTSP/RTP íntegros |
+| §15.4.2 servidores → "alternativas complementarias" | 2.544 | 322 | −87 % | Roles del servidor en detalle, observabilidad, edge/cloud/híbrido, Janus/Kurento/MediaMTX/OME/SRS | ✅ nada de eso sostiene una decisión; el reemplazo trae lo que faltaba (SDK, MQTT). Una consecuencia sin reparar → E1-15 |
+| **§15.4.3 brechas** | 737 | 737 | **0 %** | — | ✅ **intacta, como se pidió** |
+| §15.4.4 síntesis + Tabla 8 | 589 | 594 | +1 % | — | ✅ |
+| **Total** | **22.266** | **10.870** | **−51 %** | | **Dentro del 5 % de lo pre-autorizado (~10.300)** |
+
+**Lectura:** la mitad que se fue es la mitad que el `07` había identificado hace dos
+semanas como *survey de tecnologías no usadas* (16 % del informe entre §15.4 y §15.3) y
+*catálogo sin uso posterior* (25 modelos para 3 familias evaluadas). Lo que sostiene un
+argumento de defensa —las brechas, las varas, las tablas de síntesis— está **palabra por
+palabra**. La reducción de páginas está justificada. Lo que hay que arreglar es el
+**acabado**: seis lugares donde el texto comprimido dejó colgando algo que dependía de él.
+
+---
+
+## 3. Lo que no cumplió o hay que mejorar
+
+### 3.1 Consecuencias de la compresión (acabado)
+
+**E1-13 · 🟠 · Numeración con huecos y un paradigma sin ficha.** Al borrar fichas se
+conservaron los números viejos: el Bloque A pasa de su título a **15.2.1.1.3** (Grounding
+DINO) y **15.2.1.1.5** (DINO-X) — faltan .1, .2 y .4, y se ve en el índice. Renumerar
+(.1 y .2). Además, el **Bloque D quedó sin ninguna ficha** mientras A, B y C conservan el
+formato *Arquitectura · Mecanismo · Resultados · Licencia*: el paradigma 4 de la
+introducción (generativo, Florence-2) es el único de los cuatro **sin desarrollo propio**.
+Restituir una ficha breve de Florence-2 (~120 palabras: seq2seq, DaViT, FLD-5B, 37,5 mAP
+COCO zero-shot, MIT) — es el representante declarado del paradigma y aparece en Tabla 2,
+Tabla 4 y §15.2.5.2.
+
+**E1-14 · 🟠 · Tabla 4 quedó sin sostén en la prosa.** De sus 11 filas, **7 nombran recetas
+que el texto ya no presenta**: "MixedGroundingDataset", "MultiModalDataset",
+"Reparametrización eficiente (sin RepVL-PAN)", "Adaptación LoRA", "Self-training (OWL-ST)
+con pseudo-anotaciones / n-gramas", "Florence-2 fine-tuning con LoRA". Su Fuente cita a
+Rasaee (2025) y Ucar (2025), que no aparecen en ningún párrafo. Una tabla con términos que
+el lector no encontró antes es indefendible. Dos salidas, elegir una: (a) restituir **una
+oración por familia** que nombre la receta (≈150 palabras en total), o (b) reducir la
+Tabla 4 a las filas que la prosa sostiene (GDINO closed/open-set, YOLO-World con/sin
+encoder, YOLOE transferring, OWL-ST). Recomendación: (a) — la tabla es el resumen que
+§17.5 va a citar. Errata en el mismo bloque: dos oraciones seguidas anuncian la tabla
+("La Tabla 4 resume…" / "La Tabla 4 sintetiza…"); dejar una.
+
+**E1-15 · 🟠 · §15.4.3.3 cita un análisis que fue borrado.** Dice: *"Si bien se estableció
+un mapa de roles potenciales por familia de protocolos y se analizaron las capacidades de
+interoperabilidad de servidores de medios de código abierto…"*. Ese análisis (ex-§15.4.2.5)
+ya no existe. Reescribir el arranque: *"Aun cuando la literatura describe los roles del
+servidor de medios (§15.4.2), no ofrece evidencia consolidada sobre el overhead real…"*.
+
+**E1-17 · 🟡 · Se perdió la síntesis de licencias.** La ex-§15.2.4.3 ("Licencias y riesgo
+de adopción") no era duplicación: reunía GPL-3.0 (YOLO-World) / AGPL-3.0 (YOLOE) /
+CC BY-NC-SA (OV-DETR) frente a Apache-2.0 (GDINO, OmDet, LLMDet) y la API cerrada de
+1.5/DINO-X, y cerraba con *"el régimen de disponibilidad se mantiene como criterio técnico
+de evaluación"* — que es un criterio de selección que §17.1 usa. Hoy la información quedó
+dispersa en las líneas "Licencia" de cada ficha y la Tabla A.1. Restituir **un párrafo**
+(~100 palabras) en §15.2.3, después de la Tabla 2.
+
+**E1-18 · 🟡 · Genealogía y vocabulario estándar.** Con GLIP eliminado, Grounding DINO
+aparece sin su antecedente directo (el preentrenamiento por *grounding* región–palabra que
+GDINO hereda). Una oración en §15.2.1.1.3 basta: *"Grounding DINO extiende la formulación
+de detección como phrase grounding introducida por GLIP (Li et al., 2021)…"*. Del mismo
+modo, el término *catastrophic forgetting* (Kirkpatrick et al., 2017) —el nombre estándar
+del fenómeno que §15.2.4 describe— desapareció; conviene una mención, porque es el
+vocabulario con el que el jurado va a preguntar.
+
+**E1-19 · 🟡 · E1-06 sigue sin aplicar.** Los párrafos 2–8 de §15.2.1 son idénticos al
+texto base y repiten las cifras de las fichas (52,5 AP Swin-L; 35,9 AP @102,5 FPS; OWL-ST
+"más de mil millones"). Dos opciones: dejar la introducción **sin cifras** (solo el
+mecanismo de cada paradigma) y que las cifras vivan en las fichas; o al revés. Recomendación:
+la primera — la introducción explica *qué* es cada paradigma, las fichas *cuánto* rinden.
+
+**E1-20 · 🟡 · Citas huérfanas en notas de tabla.** Tabla 3: la Fuente cita "T. Zhao et al.
+(2024)" (OmDet-Turbo) y ya no hay fila de OmDet. Tabla 5: la Fuente cita "Zhou et al.
+(2022a" (Detic, eliminado); las filas solo usan 2022b. Corregir las dos Fuentes. La Fuente
+de la Tabla 8 cita ~12 obras que ya no aparecen en prosa (Pantos, DASH-IF, Roy, Sonono,
+VSF, W3C…): APA lo admite —una tabla es una cita válida— pero hay que **decidirlo
+conscientemente** (D-E1-8), porque esas entradas van a sobrevivir en la lista de
+referencias sostenidas solo por una nota.
+
+### 3.2 Registro de tesis (la pregunta 3)
+
+Verificado: **no hay ningún resultado propio, ningún nombre de configuración, ningún
+identificador de la plataforma** en el texto (`bench_v3`, E-IND, 560 px, ZeroMQ,
+histéresis, umbrales: cero apariciones). Las brechas se cierran con *"la respuesta
+experimental corresponde a las secciones posteriores"*. En eso el texto es un estado del
+arte y no una justificación del diseño. Pero hay **dos pasajes nuevos** donde nuestro
+marco se cuela en voz normativa y sin fuente:
+
+**E1-16 · 🟠 · Dos párrafos prescriben criterios nuestros como si fueran literatura.**
+(a) §15.3.3 cierra: *"la evaluación del seguimiento debe distinguirse de la evaluación del
+**estado por persona** y de la **alerta temporal producida por la plataforma**"*. Esos son
+los tres niveles de evaluación del proyecto (§17.1), enunciados aquí como conclusión del
+estado del arte, sin cita. (b) §15.3.2.1 enumera como criterios *"independencia respecto
+del detector, determinismo y reproducibilidad, ausencia de entrenamiento adicional y
+transparencia de las reglas de asociación"* — que son exactamente las propiedades de
+nuestro tracker — y el párrafo **no tiene una sola cita** (el original citaba a Adžemović,
+2025, para la compatibilidad de los métodos geométricos con OVD). Un jurado lee: *"el
+autor eligió y lo disfrazó de literatura"*. Corrección para (a): formularlo como **brecha**
+—*"estas métricas caracterizan al tracker pero no miden el valor temporal de una alerta;
+la evaluación de un sistema asistivo exige niveles adicionales, cuya definición
+corresponde al protocolo experimental"*— sin los términos propios. Para (b): restituir la
+cita de Adžemović (2025) y anclar los criterios en el hecho publicado (los métodos sin
+apariencia no dependen de un dominio de entrenamiento), no en su deseabilidad.
+
+**El resto del texto nuevo pasa la prueba.** El párrafo de MQTT (OASIS, 2019) describe
+QoS 1 y la idempotencia como propiedades del estándar, no como nuestra política. El de SDK
+(Luxonis, s. f.) evita explícitamente equipararlo a inferencia en el borde. El de Swin-B se
+limita al régimen de la cifra. Los de Kumar/Lee traen literatura general de fine-tuning
+que no conocía el texto y que es la vara correcta para lo que §17.5 va a decir.
+
+### 3.3 Referencias y trazabilidad
+
+**E1-21 · 🟠 · Seis referencias nuevas sin entrada verificable, y una colisión.** El pase
+introdujo: *IDEA-Research (2024)* —**sin letra**, en un informe que ya tiene 2024a/b/c—,
+*Ultralytics (2026)*, *Kumar et al. (2022)*, *Lee et al. (2022)*, *Luxonis (s. f.)*,
+*OASIS (2019)*. Ninguna está en el `96e` actual. Pedir el **delta de referencias** (altas
+completas en APA 7 con DOI/URL, y las bajas que PODA-18 arrastra: GLIP, OV-DETR, OV-DINO,
+OmDet, Detic, DetCLIP, APE, T-Rex2, Grounded SAM, Roboflow, servidores de medios, RTMP/
+HLS/SRT/RIST en prosa…). Dos verificaciones puntuales antes de que queden: (1) la
+afirmación sobre GroundingDINO-B (COCO en su entrenamiento) se asentó **como hecho** y el
+pase 1 la marcó **[R]**: confirmar contra el README oficial y citar esa entrada concreta;
+(2) *Lee et al.* ("Surgical fine-tuning") es arXiv 2022 pero **ICLR 2023** — fijar el año
+según la versión que se cite.
+
+**E1-22 · 🟡 · El cuerpo ahora depende de la Tabla A.1.** §15.2.3 remite a *"la Tabla A.1
+del Anexo A… matriz ampliada… modelos representativos según familia, mecanismo, métricas,
+rendimiento y licenciamiento"* — y con las fichas podadas, **esa tabla es el único lugar
+donde el estado del arte conserva su amplitud** (los ~25 modelos). PODA-17 proponía
+eliminar el Anexo A. Ya no se puede: hay que **invertir PODA-17** — la Tabla A.1 se
+conserva, se corrige (AJ-1.09, licencias de 1.5/DINO-X) y se le agregan las filas de los
+modelos que salieron del cuerpo si no las tiene. → D-E1-7.
+
+**E1-23 · proceso · El `.docx` llegó sin control de cambios ni bloque de trazabilidad.**
+No hay forma de auditar qué se movió sin la extracción y el diff que hizo esta revisión.
+Para la próxima iteración pedir **una de dos**: cambios controlados de Word, o el bloque
+*diagnóstico · texto propuesto · trazabilidad* por unidad que INSTRUCCIONES exige.
+
+---
+
+## 4. Decisiones del equipo
+
+| ID | Decisión | Recomendación | ✔ |
+|---|---|---|---|
+| D-E1-7 | PODA-17 (eliminar Anexo A) queda **invertida**: la Tabla A.1 se conserva y corrige, porque el cuerpo podado depende de ella para la amplitud del catálogo. Actualizar `ajustes/07` y la D-E1-4 del pase 1. | Sí. Es la forma de podar el cuerpo sin achicar el estado del arte. | [ ] |
+| D-E1-8 | Referencias sostenidas solo por notas de tabla (Tabla 8: ~12 obras). ¿Se aceptan o se poda la Tabla 8 a las filas con prosa? | Aceptar: la Tabla 8 es la síntesis que §15.4.4 comenta, y APA admite la cita en tabla. Dejarlo declarado. | [ ] |
+
+---
+
+## 5. Instrucciones para la próxima iteración de GPT (en orden)
+
+1. **Acabado de la poda** (sin cambiar el alcance de lo cortado): E1-13 renumerar y ficha
+   breve de Florence-2 · E1-14 una oración por receta de la Tabla 4 y borrar la oración
+   duplicada · E1-15 reescribir el arranque de §15.4.3.3 · E1-20 corregir las Fuentes de
+   Tablas 3 y 5.
+2. **Registro de tesis:** E1-16 (a) y (b) — brecha con cita, sin términos propios.
+3. **Restituciones cortas:** E1-17 párrafo de licencias en §15.2.3 · E1-18 una oración de
+   genealogía (GLIP) y una mención de *catastrophic forgetting*.
+4. **E1-19** (E1-06 pendiente): introducción de §15.2.1 sin cifras.
+5. **E1-21** delta de referencias completo + las dos verificaciones.
+6. **Entregar con cambios controlados** (E1-23).
+
+**Lo que NO hay que hacer:** volver a alargar. Ninguna de estas correcciones supera las
+~600 palabras en total; el texto debe quedar en el orden de las 11.500. Y no volver a
+aplicar E1-01…E1-12 ni los AJ- ya resueltos: están hechos.
+
+---
+
+## 6. ✎ Verificación de la nueva versión (2026-08-27, segunda iteración de GPT)
+
+Se re-extrajo `Etapa 1 — copia ajustada E1 2026-08-27.docx` (segunda versión, 05:01) y se
+hizo diff contra la primera. **10.870 → 10.725 palabras (−145): no volvió a alargar**, y
+las restituciones pedidas se pagaron con la compresión de la introducción (E1-19).
+
+| Unidad | Estado | Verificación |
+|---|---|---|
+| E1-13 numeración · ficha Florence-2 | ✅ | Bloque A renumerado **.1/.2**; Bloque D gana **15.2.1.4.1 Florence-2** (DaViT, seq2seq, FLD-5B 126 M imgs / 5,4 mil M anotaciones, 37,5 mAP COCO zero-shot, MIT — cifras correctas) |
+| E1-14 Tabla 4 sin sostén | ✅ 10/11 | La prosa ya nombra MixedGroundingDataset, MultiModalDataset, reparametrización sin RepVL-PAN, LoRA (Rasaee), OWL-ST/n-gramas, Florence-2 LoRA (Ucar). Oración duplicada eliminada. **Residual R1** abajo |
+| E1-15 §15.4.3.3 | ✅ | Arranca "Aun cuando la literatura describe los roles del servidor de medios… (§15.4.2)" |
+| E1-16 registro de tesis | ✅ | (a) §15.3.3 cierra "la evaluación de un sistema asistivo exige niveles adicionales, cuya definición corresponde al protocolo experimental" — sin "estado por persona" ni "alerta temporal producida por la plataforma". (b) §15.3.2.1 cita Adžemović (2025) y Wojke et al. (2017), ya no enumera nuestros criterios, y cierra "por sí sola, no determina la elección de un tracker" |
+| E1-17 licencias | ✅ | Párrafo nuevo en §15.2.3: GPL/AGPL vs Apache vs API cerrada; "distinguir entre licencia del código, licencia de los pesos y condiciones del servicio" — con 6 citas |
+| E1-18 genealogía · término | ✅ | "Grounding DINO extiende la formulación de detección como phrase grounding introducida por GLIP (Li et al., 2021)"; "olvido catastrófico (catastrophic forgetting)… (Kirkpatrick et al., 2017)" |
+| E1-19 (ex E1-06) intro sin cifras | ✅ | Los cuatro párrafos de paradigmas reescritos **sin ninguna cifra**; las cifras viven solo en las fichas |
+| E1-20 Fuentes de Tablas 3 y 5 | ✅ | T. Zhao fuera de Tabla 3; Zhou 2022a fuera de Tabla 5 |
+| E1-21 citas nuevas | ✅ parcial | IDEA-Research pasa a **2024c** — correcto: por orden APA de títulos, 2024a = DINO-X-API, 2024b = Grounded-SAM-2, 2024c = GroundingDINO. Lee → **2023** ✓. **La afirmación sobre Swin-B se verificó contra el README oficial** (`IDEA-Research/GroundingDINO`, tabla de checkpoints): fila GroundingDINO-B → Data `COCO,O365,GoldG,Cap4M,OpenImage,ODinW-35,RefCOCO`, box AP `56.7`; la T → `O365,GoldG,Cap4M`, `48.4 (zero-shot)`. **Exacto: deja de ser [R], es [P].** El delta de referencias sigue pendiente → R3 |
+| E1-23 cambios controlados | ❌ | De nuevo cero `w:ins`/`w:del`, cero comentarios |
+| No-anacronismo / fugas | ✅ | Cero identificadores de plataforma, cero andamiaje |
+
+### Residuales (lo único que queda sobre el texto)
+
+- **R1 · 🟡 · Tabla 4, fila "OWL-ViT/OWLv2 · Fine-tuning end-to-end con regularización · Parcial".** Es la única fila que la prosa ya no sostiene: "regularización" aparece solo en la tabla. Una oración en el párrafo de dual-encoders (*"el ajuste sobre datasets cerrados exige regularizar para no colapsar el espacio de embeddings compartido, Minderer et al., 2022"*) o eliminar la fila.
+- **R2 · 🟡 · Formato de la ficha nueva.** Florence-2 lleva el rótulo "Arquitectura, entrenamiento y disponibilidad." **sin negrita**; las demás fichas usan rótulos en negrita. Y el punto quedó inconsistente entre fichas ("**Arquitectura base.**" vs "**Arquitectura base**."). Unificar al aplicar al maestro.
+- **R3 · 🟠 · Delta de referencias, todavía no entregado.** Verificado contra `96e`: **existen** AILab-CVC 2024, Google 2022/2023, Kirkpatrick 2017, Li L. H. 2021 (GLIP), Microsoft 2024, THU-MIG 2025, IDEA-Research 2024a/c, Adžemović, Rasaee, Ucar. **No existen** y hay que darlas de alta en APA 7: *Kumar et al. (2022)* · *Lee et al. (2023)* · *OASIS (2019)* · *Ultralytics (2026)*. **Corregir** *Luxonis (s. f.)* → la entrada de `96e` es **"Luxonis. (s. f.-b). OAK-D Pro PoE"** — lleva letra. Y las **bajas** de PODA-18 (todo lo que dejó de citarse: OV-DETR, OV-DINO, OmDet, Detic, DetCLIP, Grounded SAM/SAM 2, OVTrack, Roboflow, Janus/Kurento/OME/SRS, RTMP/HLS/SRT/RIST en prosa, MEC…) — cuidando que lo citado solo en la nota de la Tabla 8 **se conserva** (D-E1-8).
+- **R4 · proceso ·** tercera entrega sin cambios controlados. Si la próxima vuelve sin ellos, el equipo audita por extracción y diff como hasta ahora — funciona, pero cuesta una pasada.
+
+**Estado del §15 al 2026-08-27 (noche): pase 1 y pase 2 APLICADOS Y VERIFICADOS**, salvo
+R1–R3. El texto base del kit se re-extrajo de esta versión (`90d`). Lo que sigue de la Etapa
+1 es **§16 y el Anexo A** (D-E1-2, D-E1-7).
+
+---
+
+## 7. Fuentes de esta revisión
+
+Extracción de ambos `.docx` con `herramientas/extraer_informe.py` (2026-08-27); conteo de
+palabras por encabezado numerado; diff textual por sección; búsqueda de identificadores de
+plataforma y de andamiaje (cero hallazgos); verificación de citas nuevas contra los títulos
+publicados. Pase 1: `correcciones-etapa-1.md`. Crítica de extensión: `ajustes/07`.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-5.md`
+
+> SHA-256 del bloque: `057da506c6cf463d87626c5ba8ddc401d60165d2785ef335f74adddc32c9cff2`  
+> Seleccion: pase 5 (2026-08-27/28): **YA APLICADO Y VERIFICADO** - NO volver a aplicarlo. Fue el pase de formato y terminologia (F1-F6); la entrega de GPT llego con cambios controlados y cumplio los seis. Su seccion de verificacion registra ademas E1-57 (una capacidad no implementada descrita como el sistema, corregida) y E1-58 (formato roto en mitad de palabra heredado del pase 3, reparado). **Con esto la ETAPA 1 queda CERRADA.**.
+
+# Etapa 1 — pase 5: unificación de formato y terminología (versión final)
+
+- **Fecha:** 2026-08-27 · **Sobre:** `Etapa 1 — final 2026-08-27.docx` (§15 y §16; 22.800
+  palabras; 92 títulos; 13 tablas). **Es el archivo que se te entrega junto con este brief.**
+- **Qué es este pase:** el último. **El contenido está cerrado y verificado** — cuatro pases
+  aplicados y comprobados unidad por unidad (64 de 64). Lo que queda es que el documento
+  quede **uniforme en formato y en terminología**, alineado a la convención de las secciones
+  ya cerradas del informe (§17.3, §17.4, §17.5). Nada más.
+- **Cómo trabajar:** dentro del Project, sobre el `.docx` entregado, **sin Drive**. El texto
+  vigente también está en el knowledge (`90d`), pero **el entregable se construye editando
+  este `.docx`**, no regenerándolo.
+
+---
+
+## 0. Límites — leer antes de tocar nada
+
+Este pase **no es de redacción**. Se corrige formato; el texto queda como está.
+
+**Prohibido:**
+- Reescribir, resumir, ampliar, reordenar o "mejorar" párrafos. Ni uno.
+- Tocar cifras, citas, años, nombres de modelos, filas o celdas de tablas (salvo los cambios
+  de rótulo indicados abajo).
+- Agregar o quitar párrafos, secciones, tablas, notas o referencias.
+- Reaplicar cualquier corrección anterior: **ya están todas** (E1-01 a E1-56, las 16 `AJ-`,
+  las 11 podas). Si algo parece faltar, **no lo agregues**: anótalo en el registro de cambios.
+- Agregar Anexo A, Anexo B o listado de Referencias: **el entregable es solo el desarrollo**.
+- Borrar o completar el marcador `[[PENDIENTE: … AAIP …]]` de §16.6.2.2: **viaja tal cual**.
+- Cambiar el estilo de encabezado de ningún título (los 92 tienen su `Heading N` correcto).
+
+**Criterio de aceptación:** el diff entre el archivo entregado y tu versión debe mostrar
+**únicamente** los cambios de las secciones 1 a 6. El conteo de palabras debe quedar en
+22.800 ± 60 (los cambios de terminología mueven unas pocas decenas, nada más).
+
+---
+
+## 1. Títulos: tipo frase (F1)
+
+**Vara:** las secciones cerradas del informe usan títulos **tipo frase** — solo mayúscula
+inicial, más nombres propios y siglas (85 de 86 títulos en §17.3/§17.4/§17.5). En Etapa 1
+**39 de los 92 títulos** están en Title Case. Ejemplos:
+
+| Hoy | Debe quedar |
+|---|---|
+| 15.2.1. Paradigmas Arquitectónicos y Modelos Representativos | 15.2.1. Paradigmas arquitectónicos y modelos representativos |
+| 15.2.3. Síntesis Comparativa y Trade-Offs para Tiempo Real | 15.2.3. Síntesis comparativa y *trade-offs* para tiempo real |
+| 16.2. Condiciones de Riesgo Observables | 16.2. Condiciones de riesgo observables |
+| 16.5.2. Descomposición Instrumental de Glass-to-Algorithm | 16.5.2. Descomposición instrumental de Glass-to-Algorithm |
+
+**Conservan mayúscula:** nombres propios y de modelos (Grounding DINO, DINO-X, YOLO-World,
+YOLOE, OWL-ViT, OWLv2, Florence-2, SORT, CLIP), siglas (OVD, MOT, DETR, DINO, EPP, IoU),
+Glass-to-Algorithm / Glass-to-Glass como denominaciones, y "Ley", "Decreto", "Resolución",
+"ISO 45001".
+
+**Los cuatro títulos de bloque** usan hoy dos separadores distintos ("Bloque A —" y
+"Bloque B:", con un doble dos-puntos en el D). Unificar con **raya**:
+- 15.2.1.1. Bloque A — Detectores end-to-end tipo DETR/DINO con fusión visión–lenguaje en el decoder
+- 15.2.1.2. Bloque B — Detectores one-stage tipo YOLO con puntuación región–texto
+- 15.2.1.3. Bloque C — Detectores basados en dual-encoders (CLIP-like) y matching por similitud
+- 15.2.1.4. Bloque D — Modelos guiados por prompts generalistas: generativos e híbridos
+
+Cambiar **solo las mayúsculas y el separador**: ni una palabra del título.
+
+## 2. Rótulo de tabla: negrita simple (F2)
+
+**Vara:** `**Tabla N**` en negrita, y el título de la tabla debajo **en itálica** (así están
+las 29 tablas de §17.3–§17.5). En Etapa 1, las Tablas **2 a 8** llevan el rótulo en
+negrita+itálica (`***Tabla 2***`) y las 9 a 12 en negrita simple. Pasar las siete a negrita
+simple. Los títulos ya están en itálica: no tocar.
+
+## 3. Rótulo de nota: *Nota.* en itálica (F3)
+
+**Vara:** APA 7 — *Nota.* en itálica, con el punto dentro de la itálica, y el resto del
+párrafo en redonda (es la forma de las seis notas de §17.5, la sección más reciente). Hoy
+conviven cuatro variantes: `**Nota.**` (×5), `*Nota.*` (×4), `**Nota**.` (×1) y una
+malformada `**Nota***.*` (Tabla 8). Unificar las 11 a *Nota.* itálica. La "Fuente: …" sigue
+dentro del mismo párrafo, como está.
+
+## 4. Rótulos de párrafo: negrita con el punto dentro (F4)
+
+Las fichas usan `**Arquitectura base.**` (punto dentro de la negrita) en 24 de 28 casos.
+Cuatro lo llevan fuera: `**Convención de lectura**.`, `**Alta latencia (>~3 s)**.`,
+`**Latencia media (~0,5 a 3 s)**.` y `**Baja latencia (<~500 ms)**.` → mover el punto
+dentro. Nada más en esos párrafos.
+
+## 5. Terminología: una palabra por concepto (F5)
+
+El documento debe ser **internamente consistente**; la convención para todo el informe se
+fija en la integración, pero la Etapa 1 no puede usar tres palabras para lo mismo.
+
+| Concepto | Hoy en el texto | Usar | Excepción que se conserva |
+|---|---|---|---|
+| unidad de video | **cuadro** (21) · fotograma (7) · *frame* (15) | **cuadro** | ninguna — "frame-a-frame", "frame-to-frame" y "frame-by-frame" pasan a **"cuadro a cuadro"** o "entre cuadros consecutivos" |
+| latencia de punta a punta | **extremo a extremo** (4) · end-to-end (3) · E2E (2) | **extremo a extremo** | **"arquitecturas end-to-end"** (DETR) es término de arte: **se conserva** |
+| asociación temporal | **seguimiento** (20) · tracking (19) | **seguimiento** en prosa | **"tracking-by-detection"** y "seguimiento multiobjeto (MOT)" se conservan como términos de arte |
+
+**Se conservan tal como están** (son el vocabulario canónico del informe y de su glosario):
+*open-vocabulary*, *zero-shot*, *fine-tuning*, *prompt*, *pipeline*, *benchmark*, *linear
+probing*, *full tuning*, *phrase grounding*, *tracking-by-detection*, *ground truth*. No
+traducirlos ni ponerlos en itálica donde no la tengan.
+
+**Prueba de aceptación de F5:** al terminar, "fotograma" = 0, "frame" = 0 fuera de nombres
+propios, "end-to-end" solo junto a "arquitecturas", "E2E" = 0, "tracking" solo dentro de
+"tracking-by-detection".
+
+## 6. Siglas: definir la primera vez (F6)
+
+El glosario del informe (§11) ya define OVD, EPP, AP, FPS y MOT: **no se redefinen**. Faltan
+tres, todas de una sola intervención:
+
+- **IoU** — primera aparición en la "Convención de lectura" de §15.2.1: *"…AP promediado entre
+  umbrales IoU de 0,50 a 0,95"* → *"…umbrales de intersección sobre unión (IoU) de 0,50 a
+  0,95"*.
+- **SFU** y **NACK** — aparecen solo en la Tabla 8 (fila WebRTC). Agregar a la Nota de esa
+  tabla, junto a las siglas que ya define: *"SFU = Selective Forwarding Unit. NACK = Negative
+  Acknowledgement."*
+- **E2E** — desaparece con F5 (cabecera "Latencia típica E2E" → "Latencia típica extremo a
+  extremo", y la Nota de la Tabla 8).
+
+---
+
+## 7. Lo que está bien y **no se toca**
+
+- Los 92 títulos tienen su estilo `Heading N` correcto y la numeración es contigua.
+- Las 13 tablas tienen columnas uniformes, título en itálica, nota y fuente, y mención en prosa.
+- La ecuación (1) de §16.5.2 está centrada e introducida en prosa.
+- Las 83 obras citadas están todas en el listado global (que **no** va en este archivo).
+- El `[[PENDIENTE: …]]` de la AAIP.
+- Los separadores decimales: **coma** decimal y **punto** de miles (19.587 y 25.326 son
+  números de ley; 5.210, 1.000, 2.000 y 50.000 son miles). Todos correctos.
+- Cero identificadores internos, cero resultados propios, cero andamiaje.
+
+---
+
+## 8. Forma de la entrega
+
+1. **Un `.docx`**, construido editando el archivo entregado — no un documento regenerado.
+2. **Con cambios controlados activados**, para que cada cambio de F1–F6 sea visible.
+3. **Estilos intactos**: mismo `Heading N` en cada título; sin negrita imitando títulos; sin
+   markdown crudo (`###`, `|---|`).
+4. **Un registro de cambios** al pie del chat (no dentro del documento), con el conteo por
+   ítem: títulos cambiados (esperado 39 + 4 de bloque) · rótulos de tabla (7) · notas (11)
+   · rótulos de párrafo (4) · reemplazos de terminología por palabra · siglas (3). Si algún
+   conteo difiere de lo esperado, decir cuál y por qué.
+5. **Sin** Anexo A, Anexo B ni Referencias.
+
+## ✎ Verificación de la entrega (2026-08-28)
+
+**Entrega:** `Etapa_1_final_ajustada_pase_5.docx` (22.846 palabras; **con cambios controlados:
+173 inserciones / 170 borrados — la primera entrega que los trae**).
+
+| Ítem | Resultado |
+|---|---|
+| F1 títulos tipo frase | ✅ 39 → 0 (el único "Title Case" residual es *Glass-to-Algorithm*, nombre propio) · los cuatro Bloques con raya |
+| F2 rótulo de tabla | ✅ 11 × `**Tabla N**`, ninguno en negrita+itálica |
+| F3 rótulo de nota | ✅ 11 × `*Nota.*`, una sola variante |
+| F4 punto dentro del rótulo | ✅ 0 casos con el punto fuera |
+| F5 terminología | ✅ fotograma 0 · frame 0 · E2E 0 · "end-to-end" solo en "arquitecturas end-to-end" (×2 + título del Bloque A) · "tracking" solo en *tracking-by-detection* y en el nombre de SORT |
+| F6 siglas | ✅ IoU definida en la Convención de lectura · SFU y NACK en la Nota de la Tabla 8 |
+| Contenido | ✅ las 26 líneas de prosa que cambiaron son todas terminología o rótulo; 22.798 → 22.846 palabras (+48, dentro del ± 60) |
+| Verificador | ✅ OK, exit 0 |
+
+**Lectura completa de punta a punta** (las 22.800 palabras, contra el diseño y la
+implementación de la plataforma). Dos cosas que ningún pase anterior había visto:
+
+- **E1-57 · 🟠 · una capacidad no implementada descrita como el sistema.** §15.4.3.1 decía que
+  la brecha impide predecir *"el desempeño de un sistema que combina **ingesta
+  multi-protocolo, decodificación acelerada**, inferencia OVD y emisión de eventos"*. La
+  plataforma no tiene ni lo uno ni lo otro (ingesta RTSP + SDK; decodificación por software).
+  Texto heredado del v1.1 que PODA-04 conservó al proteger §15.4.3. Corregido a *"ingesta de
+  video, inferencia OVD y emisión de eventos"*.
+- **E1-58 · 🟠 · formato roto en mitad de palabra.** Tres frases de §16.5.2, §16.5.4 y §16.5.5
+  llevaban runs en **negrita+itálica que empezaban y terminaban dentro de una palabra**
+  (*"pro|tocolo reproducible sin anticipar la s|elección"*): en Word se ven letras sueltas en
+  cursiva negrita. Más el título §16.6.2.1 con negrita parcial a nivel de run. **Venía desde
+  la entrega del pase 3** (verificado en las cuatro versiones), no es de esta pasada. Los
+  cuatro casos se repararon quitando el formato de run; el estilo del párrafo gobierna.
+
+Ambos arreglos se aplicaron de forma determinista sobre el `.docx`, con validación XML
+previa. **Diff contra la entrega: solo los cuatro párrafos afectados.** Verificador OK.
+
+**Documento final de la Etapa 1: `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx`.** La entrega de GPT y el
+final previo quedaron en `archivado/`.
+
+**Tres frases que NO se tocaron y conviene saber que existen:** *"sin anticipar la estrategia
+que adopte el diseño"* (§16.3.4), *"sin anticipar la selección del stack"* (§16.5.5) y *"no se
+anticipa en esta sección"* (§16.7.3). Son la regla de no-anacronismo **filtrándose a la prosa**
+como comentario del autor sobre su propio texto. Correctas, pero un jurado las lee como
+meta-texto. Si se quiere pulir, es borrar la cláusula final de cada una — tres tijeretazos que
+pueden hacerse al integrar al maestro.
+
+## 9. Cómo se va a verificar
+
+El equipo corre `verificar_entregable.py` (debe dar **OK**) y un diff palabra por palabra
+contra el archivo entregado. **Cualquier cambio fuera de F1–F6 hace rechazar la entrega
+entera**, aunque sea una mejora. Si algo del contenido te parece incorrecto, **no lo
+corrijas**: anótalo en el registro de cambios y el equipo lo evalúa.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-4.md`
+
+> SHA-256 del bloque: `e43847e0116fba2c3ec40c0d5520519fa4e7dc50ecf780b92b858e86fcdf0820`  
+> Seleccion: pase 4 (2026-08-27): **YA APLICADO Y VERIFICADO** - E1-52 y E1-53 se repararon de forma deterministica sobre el .docx (estilos de encabezado trasplantados de hermanas sanas y renumeracion 16.7.6 a 16.7.3), con prueba de no-regresion: el texto quedo identico. **El CONTENIDO de la etapa 1 esta CERRADO; el unico trabajo activo es el pase 5 (formato y terminologia).** Su seccion 0 certifica que entro el pase 3 completo y su seccion 2 fija el flujo obligatorio: **se trabaja dentro del Project, NO sobre Drive**.
+
+# Correcciones a la Etapa 1 — pase 4: cierre de formato y flujo de trabajo
+
+- **Fecha:** 2026-08-27 · **Sobre:** `Etapa 1 — copia ajustada E1 2026-08-27 (2).docx`
+  (26.685 palabras: §15 + §16 + Anexo A + Referencias).
+- **Qué es:** el pase más corto de la serie. **El contenido de la Etapa 1 está cerrado.** Lo
+  que queda son **dos defectos de formato** y una **regla de flujo de trabajo** para que no
+  vuelvan a aparecer.
+- **IDs:** **E1-52** y **E1-53**.
+
+---
+
+## 0. Veredicto: el pase 3 se aplicó, y bien
+
+Verificado por diff contra la entrega anterior y por extracción. **Todo lo sustantivo entró:**
+
+| Unidad | Estado | Verificación |
+|---|---|---|
+| **E1-25** el mecanismo central de la tesis | ✅ **lo mejor del pase** | §16.3.4 nueva: *"Composicionalidad, Negación y Condiciones Definidas por Ausencia"*, con ARO (Yuksekgonul et al., 2023) y Winoground (Thrush et al., 2022), y las **dos formulaciones** enunciadas como alternativas conceptuales sin decir cuál eligió el proyecto. Exactamente lo pedido |
+| **E1-24** la contradicción con §15 | ✅ | La afirmación sobre familias arquitectónicas desapareció de §16.3.5 **y** de §16.7; el puntero roto "§15.2.4.5" también |
+| **E1-36** la ecuación vacía | ✅ | `t_G2A = t_capture + t_transport + t_preprocess + t_inference (1)` |
+| **E1-37** descomposición de 4 componentes | ✅ | §16.5.2 reescrita como *"Descomposición Instrumental de Glass-to-Algorithm"*, con `t_preprocess` definido y su fila propia |
+| **E1-38** productor/consumidor y pub-sub | ✅ | §16.5.3 *"Separación de Planos y Flujo Productor-Consumidor"*; MQTT ×3, Cugola ×3, contrapresión presente |
+| **E1-26** las cuatro secciones de criterios | ✅ | §16.3.6 pasó a *"Dimensiones de Comparación de Modelos OVD"*; §16.4.4, §16.5.5 y §16.7.4 eliminadas o reconvertidas |
+| **E1-44 / E1-45** §16.7.4 y §16.7.5 | ✅ | Ambas eliminadas; *"event sourcing"* ya no aparece |
+| **E1-46** Tabla 12 | ✅ | Columna renombrada a *"Restricción que impone…"*; *"Decisión de diseño implicada"* desapareció |
+| **E1-47** la obligación AAIP | ✅ | Resuelta **como corresponde**: `[[PENDIENTE: definir con el equipo la aplicabilidad de esta inscripción al contexto experimental y documentar el recaudo adoptado en §17.1 y §17.4]]`. No la inventó: la marcó |
+| **E1-33 / E1-34** Anexo A | ✅ | Licencias corregidas (*"API cerrada; Apache-2.0 aplica al SDK, no a los pesos"*) y la matriz pasó de **12 a 20 filas**, ahora **con Grounding DINO Swin-T/Swin-L y MM-Grounding-DINO** |
+| **E1-35 / D-E1-9** tablas huérfanas | ✅ | Tabla A.3 (servidores) eliminada; A.2 reescrita en términos de límites frente a la alerta |
+| **E1-40** letras de cita falsas | ✅ | `Jeong` y `X. Wang 2020` desaparecieron con las subsecciones duplicadas; `Shi et al., 2016` quedó sin letra |
+| **R1 / R2 / R3** residuales de §15 | ✅ | Regularización ahora en prosa · rótulo de la ficha en negrita · **las cuatro altas de referencias están** (Kumar, Lee 2023, OASIS, Ultralytics) y Luxonis con su letra |
+| Referencias | ✅ | 83 entradas · **cero huérfanas** · cero citas sin entrada |
+| No-anacronismo | ✅ | Cero identificadores de plataforma, cero resultados propios, cero andamiaje |
+
+**Extensión:** §16 pasó de 30.749 a **11.563** palabras y el Anexo A creció de 771 a **3.945**
+(la inversión de PODA-17). §15 quedó en 10.399. Total de la Etapa 1: **26.685**.
+
+---
+
+## 1. Lo que falta
+
+### E1-52 · 🔴 · Cinco encabezados perdieron su estilo de título
+
+Son **contiguos**, lo que delata que se pegó texto plano sobre esa región:
+
+| Sección | Título |
+|---|---|
+| §16.5.3 | Separación de Planos y Flujo Productor-Consumidor |
+| §16.5.4 | Computación en el Borde y Filtrado Cercano al Origen |
+| §16.5.5 | Brecha de Evaluación Integrada |
+| **§16.6** | **Marco Ético-Legal para el Análisis Automatizado de Video en Entornos Laborales** |
+| §16.6.1 | Encuadre ético-legal y carácter asistivo |
+
+**El texto está y es correcto** — el problema es que esos párrafos son prosa común con
+aspecto de título. Consecuencias: **no aparecen en el índice automático**, no entran en la
+numeración de campos de Word, y §16.6 —una sección de primer nivel— queda visualmente colgada
+dentro de §16.5.
+
+**Arreglo:** aplicarles el estilo de encabezado correcto (`Heading 3` a §16.5.3/.4/.5 y
+§16.6.1; `Heading 2` a §16.6), del mismo nivel que sus hermanas. No hay que tocar una palabra
+del contenido.
+
+### E1-53 · 🟡 · Hueco de numeración en §16.7
+
+Quedó **§16.7.1 · §16.7.2 · §16.7.6**: la subsección sobreviviente conservó su número viejo
+tras eliminarse las tres del medio. Se ve en el índice. **Renumerar a §16.7.3**, y verificar
+que las remisiones a las preguntas rectoras sigan resolviendo (§17.1 las invoca por número).
+
+### Y una decisión del equipo, no del redactor
+
+**D-E1-11** sigue abierta y ahora está correctamente marcada en el texto: la aplicabilidad de
+la inscripción ante la AAIP al contexto experimental, y qué recaudo se documenta en
+§17.1/§17.4. El marcador `[[PENDIENTE]]` viaja hasta que el equipo lo resuelva.
+
+---
+
+## 2. Flujo de trabajo: por qué no hay que usar Drive
+
+Los dos defectos que quedan **no son errores de redacción: son daño de transporte**. Aparecieron
+al conectar el Project a una unidad de Drive y editar el documento allí. Ninguno se ve leyendo
+el texto, y ambos son invisibles para quien revisa contenido.
+
+**El punto de fondo: ir a Drive era innecesario.** El paquete de la etapa que está cargado en
+el Project **ya contiene el texto vigente completo** — la extracción `90d`. El documento nunca
+hizo falta como fuente; conectarlo solo agregó una copia peor.
+
+### Cómo se trabaja de ahora en más
+
+1. **Todo dentro del Project.** Knowledge = `00-contexto-base.md` + `01-etapa-N-activa.md`.
+   Sin conectores de Drive, sin editar en la nube. El texto vigente de la sección está en el
+   paquete.
+2. **La entrega es un `.docx` por sección**, armado sobre una **copia** del DOCX base de
+   formato, nunca sobrescribiéndolo.
+3. **Cada título con su estilo de encabezado real.** Nunca negrita imitando un título. Si se
+   elimina una subsección, **renumerar sus hermanas**.
+4. **Con cambios controlados activados** — o, en su defecto, con el bloque de trazabilidad por
+   unidad. Las tres entregas anteriores llegaron sin ellos y auditar qué se movió costó
+   reconstruir el diff cada vez.
+5. **Sin markdown crudo** (`###`, `|---|`) y **sin identificadores internos** (`AJ-`, `R-`,
+   `PODA-`, `E1-`, líneas `SHA-256`, cabeceras `> Seleccion:`). Los `P-E1-xx` de las preguntas
+   rectoras **sí** son parte del informe.
+6. **Los marcadores `[[…]]` viajan.** No se completan con estimaciones ni se borran.
+7. **Delta de referencias explícito**: altas en APA 7 con DOI/URL, y bajas de lo que dejó de
+   citarse.
+
+Estas siete reglas quedaron escritas **dentro del propio kit** (sección *"Cómo se trabaja y
+cómo se entrega"* del contexto base), así que viajan con el knowledge y no dependen de que
+alguien las recuerde.
+
+### Verificación mecánica, del lado del equipo
+
+Se agregó `herramientas/verificar_entregable.py`. Sobre cualquier entrega:
+
+```bash
+python3 herramientas/verificar_entregable.py "<entrega>.docx" --seccion 15 --seccion 16 --seccion 19
+```
+
+**Falla** (y hay que corregir) con: títulos numerados sin estilo de encabezado · huecos y
+desórdenes de numeración · fugas de andamiaje interno · markdown pegado sin convertir · citas
+sin entrada en referencias.
+**Informa** (para revisar): referencias que el cuerpo ya no cita · la misma autoría citada con
+años distintos · inventario de marcadores · si faltan los cambios controlados.
+
+Sobre esta entrega reporta exactamente los dos defectos de arriba, y nada más. Los dos habrían
+aparecido en un segundo en vez de requerir una lectura completa.
+
+---
+
+## 3. ✎ Resuelto el 2026-08-27 — **no hizo falta ChatGPT**
+
+E1-52 y E1-53 eran dos arreglos mecánicos sobre un documento **cuyo contenido ya estaba
+correcto**. Devolvérselo a ChatGPT habría significado regenerar 26.685 palabras para cambiar
+cinco estilos de párrafo: mucho riesgo de regresión de contenido, y una verificación completa
+más, a cambio de nada. Se resolvieron de forma determinista sobre el `.docx`.
+
+**Documento final: `Etapa 1 — final 2026-08-27.docx`** (la entrega original no se sobrescribió).
+
+| Qué se hizo | Cómo |
+|---|---|
+| §16.5.3, §16.5.4, §16.5.5, §16.6.1 → `Heading3` | Se les trasplantó el `w:pPr` y el `w:rPr` de **§16.5.2**, una hermana sana del mismo nivel |
+| §16.6 → `Heading2` | Donante: **§16.5**, hermana sana del mismo nivel |
+| §16.7.6 → **§16.7.3** | Reemplazo del número en el texto del título |
+
+El mapeo no tuvo margen de decisión: **37 hermanas de nivel 3 usan `Heading3` y 12 de nivel 2
+usan `Heading2`**. Los marcadores de posición del donante se eliminaron (llevan identificador
+único) y cada párrafo conservó el suyo. Solo cambió `word/document.xml` (+797 bytes); el resto
+del paquete quedó byte a byte.
+
+**Prueba de no-regresión:** extraído el documento reparado y comparado con el anterior, la
+**única diferencia de texto en las 26.685 palabras es la renumeración intencional**. Los
+encabezados markdown pasaron de 90 a 95 — los cinco restaurados—, que es lo que explica el
++5 en el conteo de palabras.
+
+**Verificación:** `verificar_entregable.py` pasa de 6 problemas duros a **OK — ningún problema
+duro** (código de salida 0). El paquete abre correctamente (zip íntegro, XML válido).
+
+### E1-54 y E1-55 · verificación exhaustiva de contenido y formato
+
+Se pasó el documento por una revisión completa —no solo el verificador— y aparecieron **dos
+incumplimientos de la regla de la casa** (*"Tablas y figuras: número y título arriba, notas y
+fuente debajo, mencionadas en el texto"*). Ambos corregidos:
+
+- **E1-54** — la **Tabla 5** era la única de las 13 sin frase que la anunciara en prosa: la
+  introducía solo el título de su subsección. Se agregó, con el formato del párrafo que
+  anuncia la Tabla 10: *"La Tabla 5 organiza las brechas identificadas en las subsecciones
+  precedentes con su descripción técnica y su implicación específica para el proyecto."*
+- **E1-55** — la **Tabla 9** era la única sin Nota ni Fuente. **Es un defecto heredado del
+  informe v1.1**, no introducido en esta entrega. Se agregó, clonando el formato de la Nota de
+  la Tabla 10 (su vecina en §16): *"Nota. Cada dominio se corresponde con una sección de este
+  capítulo; la columna «Contribución al proyecto» indica qué aporta al desarrollo posterior, no
+  un resultado alcanzado. Fuente: elaboración propia."*
+
+**Lo que la revisión confirmó como correcto:**
+
+| Dimensión | Resultado |
+|---|---|
+| Estilos de encabezado | **94 títulos, todos con `Heading<nivel>` exacto** — cero desviaciones |
+| Defecto inverso | Ningún párrafo de prosa lleva estilo de encabezado |
+| Numeración de secciones | Sin huecos ni desórdenes en ningún nivel |
+| Remisiones internas | **Todas resuelven, y apuntan al lugar semánticamente correcto** — incluida la de zero-shot, que se actualizó a §16.3.5 al insertarse la sección nueva |
+| Tablas | 13, estructuralmente sanas (columnas uniformes), numeración contigua 2–12 + A.1/A.2 |
+| Tablas: nota, fuente y mención | **Las 13 completas** tras E1-54/E1-55 |
+| Ecuación (1) | Centrada, introducida en prosa y con sus cuatro términos explicados |
+| Referencias | 83 entradas · cero huérfanas · cero citas sin entrada |
+| Andamiaje / anacronismo | Cero identificadores internos, cero resultados propios, cero markdown crudo |
+| Marcadores | 1 `[[PENDIENTE]]` — el de la AAIP, que **debe viajar** |
+
+**Un hallazgo que NO se corrigió, a propósito.** El rótulo de las notas aparece con cinco
+variantes tipográficas (`**Nota.**`, `*Nota.*`, `Nota.`, y una malformada `**Nota***.*`). **No
+es un problema de la Etapa 1: es de todo el informe** — §17.3 tiene seis variantes, §17.5 usa
+`*Nota.*` y §17.1 usa `Nota.` sin formato. Unificarlo solo en este capítulo lo dejaría
+inconsistente con el resto. **Corresponde al pase de integración final**, sobre el documento
+maestro completo.
+
+### E1-56 · precisión sobre YOLOE-11 (2026-08-27, revisión final a pedido)
+
+Al revisar cómo quedó nombrado YOLOE-26 (E1-02), apareció una imprecisión factual en la
+oración que lo introduce (§15.2.1.2.2): *"La familia fue extendida **posteriormente en
+implementaciones de Ultralytics sobre YOLO11 y YOLO26**"*. **Verificado contra el repositorio
+oficial del paper (THU-MIG/yoloe): las variantes YOLOE-11-S/M/L son del trabajo original**, no
+de una extensión posterior — solo YOLOE-26 lo es. Corregido a: *"…variantes YOLOE-v8 evaluadas
+en el trabajo original, que también publica variantes construidas sobre YOLO11 (YOLOE-11) con
+resultados equivalentes (Wang et al., 2025). Las variantes sobre YOLO26 (YOLOE-26) son una
+extensión posterior de Ultralytics, sin evaluación en el trabajo original; por lo tanto, los
+resultados publicados para YOLOE-v8 no deben utilizarse como si fueran una medición de
+YOLOE-26 (Ultralytics, 2026)."* Único cambio (diff verificado); `Wang et al., 2025` ya estaba
+en el listado. De paso se confirmó que las cifras de la Tabla 3 para YOLOE-v8-S/L (305,8 FPS ·
+27,9 AP · 102,5 FPS · 35,9 AP) coinciden con la tabla oficial.
+
+### Lo que queda, y no es redacción
+
+1. **D-E1-11 — decisión del equipo, y así queda.** La aplicabilidad de la inscripción ante la
+   AAIP al contexto experimental. **Se deja como pendiente en el documento**, marcada con
+   `[[PENDIENTE: …]]`, hasta que el equipo la resuelva y se documente el recaudo en §17.1/§17.4.
+2. **Dependencia hacia la Etapa 2** *(anotada, se corrige después — no bloquea)*. §17.1
+   (`96b`, línea 589) remite a "la sección **16.7.6**", que tras la renumeración es §16.7.3.
+3. **Abrir el `.docx` en Word una vez** y actualizar el índice (F9) para confirmar que las
+   seis entradas aparecen donde corresponde. Es una comprobación visual, no un arreglo.
+
+**Lo que NO hay que hacer:** volver a redactar nada · tocar el contenido de §15, §16 o el
+Anexo A · reaplicar ningún pase anterior · devolver el documento a ChatGPT.
+
+---
+
+## 4. Fuentes
+
+Entrega verificada: `desarrollando/Etapa 1 — copia ajustada E1 2026-08-27 (2).docx`,
+extraída con `herramientas/extraer_informe.py` y contrastada por diff contra la entrega
+previa. Verificación mecánica: `herramientas/verificar_entregable.py` (26 tests). Pases
+anteriores: `correcciones-etapa-1.md`, `-pase-2.md`, `-pase-3.md`.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-1-pase-3.md`
+
+> SHA-256 del bloque: `fff5c0a3d73948fba931b67ebad07bb6622eef02d4c0015f0742ef49c0ba663c`  
+> Seleccion: pase 3 (2026-08-27): **YA APLICADO Y VERIFICADO** (constancia en la seccion 0 del pase 4) - NO volver a aplicarlo. Fue el relevamiento que AJ-1.16 declaraba pendiente: cubrio la seccion 16 y el Anexo A, que nunca habian recibido pase. Sus comentarios E1-24 a E1-51 y sus decisiones D-E1-9 a D-E1-12 siguen rigiendo como criterio de lectura -en particular la inversion de la poda 17 y las enmiendas a las podas 06, 07 y 11-. **D-E1-11 sigue ABIERTA y es del equipo**: la aplicabilidad de la inscripcion ante la AAIP, hoy marcada en el texto con un [[PENDIENTE]] que debe viajar.
+
+# Correcciones a la Etapa 1 — pase 3: §16 Marco Teórico, Anexo A y cierre de §15
+
+- **Fecha:** 2026-08-27 · **Para:** el redactor de la Etapa 1.
+- **Qué cubre:** las **dos piezas de la Etapa 1 que nunca recibieron un pase** — §16 Marco
+  Teórico (30.749 palabras) y el Anexo A — más los tres residuales que dejó el pase 2 sobre
+  §15. Con esto la Etapa 1 queda completa.
+- **Por qué existe:** `AJ-1.16` declaraba un hueco: *"el §16 no fue relevado contra el estado
+  actual del proyecto… es un hueco de relevamiento, **no** una afirmación de que el §16 esté
+  bien"*. Este documento **es** ese relevamiento.
+- **IDs:** continúan la serie — comentarios **E1-24…E1-4x**, decisiones **D-E1-9…**.
+- **Estado de §15:** pases 1 y 2 **aplicados y verificados**; no se vuelve a tocar salvo R1–R3.
+
+---
+
+## 0. Veredicto
+
+**§16 está en peor estado que §15 antes del pase 1**, por tres razones que no se pisan:
+
+1. **Nunca se le aplicó ningún pase.** Las erratas de cita que `AJ-1.10` corrigió en §15
+   siguen enteras acá, y ahora **producen contradicciones entre secciones del mismo
+   informe**: la misma obra citada con dos años distintos en §15 y en §16.
+2. **Una afirmación de §16 quedó refutada por el §15 corregido.** §16.3.5.1 sostiene que la
+   retención open-vocabulary depende de la familia arquitectónica; §15.2.3 y §15.2.4, tras
+   el pase, dicen exactamente lo contrario y con fundamento. Si se entregan así, el informe
+   se contradice a sí mismo en una página.
+3. **Falta el fundamento conceptual del mecanismo central de la tesis.** La palabra
+   *negación* aparece **cero veces** en §16 — y §16.3 es, por guardrail, "el corazón
+   conceptual". Eso es una **adición**, no una poda, y manda sobre las podas.
+
+Además, §16 repite el patrón que el pase 2 corrigió en §15, pero **peor**: tiene **cuatro**
+secciones "Criterios orientadores para la selección de X" (3.628 palabras) que enuncian, en
+voz normativa, requisitos que son decisiones del proyecto — **§16.4.4 y §16.7.4 no tienen ni
+una sola cita**, y varias exigen capacidades que el trabajo nunca ejerció (prompts visuales,
+segmentación, multi-protocolo, multi-flujo, jornadas de 8–10 h). Y hay un dato que ordena
+todo el capítulo: **§16.7 y §16.8 suman 4.790 palabras con cero referencias** — la única masa
+de texto de ese tamaño sin literatura en todo el marco teórico, y justo donde más prescribe.
+
+**Sobre la extensión:** §16 tiene 30.749 palabras y las podas autorizadas (PODA-05…11)
+proyectan **≈−16.500**. Igual que en §15, la reducción está justificada **en el agregado**:
+§16.5 solo (12.926 palabras, el 42 % del capítulo) desarrolla códecs acelerados, frameworks,
+nube y niebla que la plataforma no usa, y contiene **1.425 palabras que son la misma
+subsección escrita dos veces**. Pero hay dos advertencias que cambian cómo se aplica:
+
+- **PODA-06 y PODA-07 no son recortes, son reescrituras:** lo que mandan conservar **hoy no
+  está escrito o está mal**. La ecuación que define la latencia extremo a extremo **está
+  vacía** en el archivo; la descomposición de §16.5 tiene **seis** componentes y la que usa el
+  resto del informe tiene **cuatro** (y le falta `t_preprocess`); y el patrón
+  productor/consumidor que PODA-07 manda conservar **no aparece en el capítulo**.
+- **§16 no debe salir solo más corto: debe salir con el mecanismo de la tesis fundado**, que
+  hoy no está (E1-25).
+
+---
+
+## 1. Residuales de §15 (cierre del pase 2)
+
+Rápidos y acotados; ninguno supera las 150 palabras.
+
+**R1 · 🟡 · Tabla 4, fila OWL-ViT/OWLv2 "Fine-tuning end-to-end con regularización".** Es la
+única fila que la prosa ya no sostiene: la palabra "regularización" aparece **solo dentro de
+la tabla**. Agregar una oración en el párrafo de dual-encoders de §15.2.4 —*"el ajuste sobre
+datasets cerrados exige estrategias de regularización para no colapsar el espacio de
+embeddings compartido del que depende la capacidad abierta (Minderer et al., 2022)"*— o
+eliminar la fila.
+
+**R2 · 🟡 · Formato de la ficha de Florence-2.** Su rótulo ("Arquitectura, entrenamiento y
+disponibilidad.") va **sin negrita**, mientras las demás fichas usan rótulos en negrita.
+Unificar también la puntuación del rótulo, que quedó inconsistente entre fichas
+(`**Arquitectura base.**` vs `**Arquitectura base**.`).
+
+**R3 · 🟠 · Delta de referencias.** Verificado contra el listado vigente:
+- **Dar de alta** (no existen): *Kumar et al. (2022)* · *Lee et al. (2023)* · *OASIS (2019)*
+  · *Ultralytics (2026)*.
+- **Corregir**: la cita dice *Luxonis (s. f.)* y la entrada del listado es
+  **`Luxonis. (s. f.-b). OAK-D Pro PoE`** — lleva letra.
+- **Ya existen y están bien** (no tocar): AILab-CVC 2024 · Google 2022/2023 · Kirkpatrick 2017
+  · Li, L. H. 2021 (GLIP) · Microsoft 2024 · THU-MIG 2025 · IDEA-Research 2024a/2024c ·
+  Adžemović · Rasaee · Ucar.
+- **Bajas** que arrastra la poda de §15: OV-DETR, OV-DINO, OmDet-Turbo, Detic, DetCLIP,
+  Grounded SAM / SAM 2, OVTrack, Roboflow/RF-DETR, Janus, Kurento, MediaMTX, OvenMediaEngine,
+  SRS, y las obras de RTMP/HLS/DASH/CMAF/WebRTC/SRT/RIST **que ya no se citan en prosa**.
+  ⚠ **Cuidado:** lo que sobreviva citado **solo en la nota de la Tabla 8 se conserva**
+  (decisión D-E1-8). Verificar fuente por fuente antes de dar de baja.
+
+---
+
+## 2. §16 — hallazgos transversales
+
+Estos cuatro valen para todo el capítulo y conviene resolverlos en una sola pasada.
+
+### E1-24 · 🔴 · §16 contradice al §15 corregido sobre retención y fine-tuning
+
+**Dice hoy** (§16.3.5.1, criterio "Independencia de entrenamiento específico por dominio"):
+
+> *"la evidencia analizada en la sección 15.2.4.5 muestra que la capacidad de una
+> arquitectura para preservar su generalización open-vocabulary durante el fine-tuning varía
+> sustancialmente entre familias de modelos. Los detectores con fusión visión-lenguaje
+> profunda y no removible exhiben mayor resiliencia frente al ajuste de dominio, mientras que
+> aquellos con módulos de texto reparametrizables o desacoplables tienden a converger hacia un
+> comportamiento closed-set."*
+
+**Por qué está mal.** El §15, ya corregido, sostiene lo contrario y lo argumenta: *"La
+evidencia revisada **no permite atribuir** la retención open-vocabulary a una familia
+arquitectónica por sí sola, porque las comparaciones utilizan datos, módulos entrenables y
+protocolos diferentes. La retención depende de la receta aplicada… **no debe inferirse de la
+profundidad o removibilidad de la fusión**"* (§15.2.3), y §15.2.4 cierra: *"no corresponde
+afirmar que una familia tolere mejor el ajuste completo"*. Son dos afirmaciones incompatibles
+en el mismo informe, separadas por unas páginas.
+
+**Encima, el puntero está roto:** cita **"sección 15.2.4.5"**, que tras la reorganización de
+§15 ya no existe (el fine-tuning es ahora **§15.2.4**).
+
+**Qué hacer.** Reescribir el criterio alineado al §15: la retención se describe **por receta
+concreta** (qué parámetros se actualizan o congelan, si se conserva supervisión lingüística
+amplia, si se evalúan categorías no vistas) y **no se infiere de la arquitectura**. Corregir
+el puntero a §15.2.4. Es la corrección más urgente del capítulo.
+
+### E1-25 · 🔴 · Falta el fundamento conceptual del mecanismo central de la tesis
+
+**Qué pasa hoy.** En las 30.749 palabras de §16, la palabra **"negación" aparece cero veces**;
+**"bolsa de palabras" / *bag-of-words*, cero**. §16.3 —que el guardrail protege como *"el
+corazón conceptual de la tesis"*— explica qué es OVD, cómo alinea visión y lenguaje y que los
+prompts son sensibles a la redacción, pero **nunca explica por qué una condición formulada
+como negación puede fallar**, ni qué alternativa conceptual existe.
+
+**Por qué importa.** Ese es el mecanismo que la tesis ejerce: el sistema **no le pide al
+modelo la infracción como frase**, sino evidencia positiva, e **infiere la ausencia por
+relación espacial**. El §15 ya trae la evidencia empírica de la dificultad (Chen y Zou 2025:
+IoU < 20 % con restricciones de atributo; Choi y Greer 2024: `head` 0,1024 frente a `hardhat`
+0,6493 sobre las mismas imágenes) — **pero la evidencia no es el fundamento**. Hoy el lector
+llega a §17 sin haber leído nunca por qué el sistema razona la ausencia en vez de pedirla.
+
+**Qué hacer.** Un bloque nuevo en §16.3 (≈400–500 palabras, entre §16.3.3 y §16.3.4), con dos
+piezas y **sin un solo dato propio**:
+
+1. **Por qué la composición y la negación son difíciles para un encoder contrastivo.** El
+   entrenamiento contrastivo optimiza la correspondencia global imagen–texto y no obliga a
+   representar la estructura de la frase; en consecuencia estos modelos se comportan, en
+   buena medida, como *bolsa de palabras*: la representación de una frase con modificador
+   queda dominada por sus sustantivos. Literatura verificada y directamente aplicable:
+   - **Yuksekgonul, M., Bianchi, F., Kalluri, P., Jurafsky, D., & Zou, J.** — *"When and why
+     vision-language models behave like bags-of-words, and what to do about it?"*
+     (arXiv:2210.01936). Introduce el benchmark **ARO** (Attribution, Relation, Order,
+     >50.000 casos) y muestra el desempeño pobre de VLMs de referencia en relación y
+     atribución. **Es la cita canónica del mecanismo.**
+   - **Thrush, T., Jiang, R., Bartolo, M., Singh, A., Williams, A., Kiela, D., & Ross, C.** —
+     *"Winoground: Probing Vision and Language Models for Visio-Linguistic Compositionality"*
+     (arXiv:2204.03162): con captions de **palabras idénticas y distinto orden**, los modelos
+     evaluados no superan el azar. Aísla la composición del contenido léxico.
+2. **La consecuencia de diseño, enunciada como alternativa conceptual y no como decisión
+   nuestra:** si el modelo resuelve mejor "qué hay" que "qué falta", una condición definida
+   por ausencia admite dos formulaciones —pedir la ausencia al modelo, o pedir la evidencia
+   positiva y derivar la ausencia mediante razonamiento espacial sobre las detecciones—, y
+   **cuál rinde mejor es una pregunta empírica que el estado del arte no responde**. Eso
+   enlaza limpio con §15.2.5.1 (contextualización semántica limitada) y deja la brecha
+   abierta para que §17.5 la conteste.
+
+**Redacción, sin violar el no-anacronismo:** describir el problema y las dos formulaciones
+posibles. **No** escribir que el proyecto eligió una, ni nombrar `E-IND`/`E-DIR`, ni dar
+umbrales, regiones anatómicas ni resultados.
+
+### E1-26 · 🟠 · Las cuatro secciones "Criterios orientadores": el mismo fallo que el pase 2 corrigió en §15
+
+§16 tiene **cuatro** secciones de criterios de selección: **§16.3.5** (modelos OVD, 1.135 w),
+**§16.4.4** (métodos MOT, 340 w), **§16.5.5** (protocolos y stack, 1.343 w) y **§16.7.4**
+(selección tecnológica, 810 w) — **3.628 palabras**. Enuncian en voz normativa ("el modelo
+**debe** sostener…", "**resultan preferibles** modelos que…") requisitos que son las
+decisiones del proyecto. Es exactamente lo que en §15.3.2.1 hubo que reescribir (E1-16).
+
+Tres agravantes concretos, verificados:
+
+- **§16.4.4.1 no tiene ni una cita.** Sus cinco criterios ("Compatibilidad con detección
+  open-vocabulary", "Latencia compatible con tiempo real", "Desacoplamiento arquitectónico",
+  "Independencia de entrenamiento específico", "Robustez operativa suficiente") son las
+  propiedades exactas del tracker que se construyó, presentadas como conclusión de la
+  literatura. El último llega a justificar la elección de antemano: *"aun cuando no alcance el
+  máximo rendimiento en benchmarks académicos"*.
+- **Dos criterios exigen capacidades que el trabajo nunca ejerció.** §16.3.5.1 declara que
+  *"el modelo **debe** permitir… ejemplos visuales de referencia (visual prompts)"* — la
+  plataforma nunca usó prompts visuales; y §16.3.5.2 propone *"capacidad de extensión hacia
+  segmentación"* — no hay segmentación en la tesis. Por la **regla de honestidad** (lo
+  pre-registrado y no ejercido no se borra en silencio), o se baja de requisito a dimensión
+  descrita en la literatura, o se declara con su causa. Lo que **no** puede quedar es un
+  "debe" que el trabajo incumple sin decirlo.
+- **§16.3.5.2 propone una arquitectura que el proyecto probó y descartó:** *"Configuraciones
+  híbridas —donde diferentes modelos se ejecutan según la complejidad de la consulta o el
+  contexto operativo— emergen como alternativas viables"*. Es especulación no fundada, y
+  además anticipa un camino cuyo resultado se relata en §17.5.
+
+**Qué hacer con las cuatro.** El §16 debe dejar **dimensiones de comparación con cita**, no
+requisitos. Fórmula: *"la literatura permite comparar los métodos a lo largo de N ejes —
+X (fuente), Y (fuente), Z (fuente)—; qué peso recibe cada eje es una decisión del diseño, que
+se toma y se justifica en el protocolo experimental"*. Con eso las cuatro secciones se
+comprimen fuerte y dejan de invadir a §17.1. PODA-09 y PODA-05 ya autorizan comprimir dos de
+ellas; E1-26 extiende el criterio a las cuatro.
+
+### E1-27 · 🟠 · Erratas de cita: `AJ-1.10` nunca se aplicó a §16, y ahora contradice a §15
+
+`AJ-1.10` unificó las citas inconsistentes **solo en §15**. En §16 siguen, y el contraste
+entre secciones es verificable por cualquiera:
+
+| Obra | §16 cita | §15 (corregido) cita | Problema |
+|---|---|---|---|
+| Grounding DINO (Liu et al.) | **2023** | **2024** | misma obra, dos años, en el mismo informe |
+| Florence-2 (Xiao et al.) | **2023** | **2024** | ídem |
+| MS COCO (Lin et al.) | **2014 y 2015** (ambos, en §16) | **2014** | ídem, y ya inconsistente dentro de §16 |
+| CoOp / prompt learning (Zhou et al.) | **2021, 2022a, 2022b** *(y 2019)* | **2022b** | la **misma obra citada como 2021 y como 2022a en párrafos contiguos** (§16.3.3) |
+| Ren et al. | 2024, 2024a, 2024b, 2024c | "Ren, Jiang / Ren, Chen / Ren, Liu, et al." | dos convenciones distintas para desambiguar |
+| Minderer et al. | 2022 | 2022 y 2023 | falta OWLv2 en §16 |
+
+**Qué hacer.** Unificar §16 **contra §15**, que es el que ya pasó verificación, y adoptar en
+todo el capítulo la convención de desambiguación por apellido de segundo autor que §15 usa
+para Ren.
+
+### E1-28 · 🟠 · Tres referencias cruzadas colgadas o hacia adelante
+
+- **§16.4.2.3:** *"En sistemas que incorporan apariencia **(el análisis del modelado de
+  apariencia)**, la asociación se beneficia…"* — paréntesis que perdió su destino. **Es
+  literalmente el mismo defecto que se corrigió en §15.3.1.2**: viene del documento fuente y
+  hay que buscarlo en todo el capítulo, no solo acá. Reemplazar por "(§16.4.2.4)".
+- **§16.4.3:** *"…mantiene la separabilidad entre el **plano de medios** —ingesta y
+  procesamiento de video— y el **plano de control** —gestión de eventos y alertas—, de acuerdo
+  con **la arquitectura modular definida**"*. Doble problema: nombra **nuestra** arquitectura
+  con **nuestros** nombres, y remite a una sección posterior. Es anacronismo. Reescribir en
+  términos genéricos ("separación entre la etapa de percepción y la de razonamiento sobre
+  eventos") y quitar el reenvío.
+- **§16.2.2.2:** *"…asegurando coherencia con el marco de evaluación **definido para el
+  proyecto**"* — reenvío hacia adelante. Basta con "que se define en el protocolo
+  experimental".
+
+---
+
+## 3. §16 — hallazgos por bloque
+
+### 3.1 §16.1 Organización (474 w) y §16.2 Condiciones de riesgo (3.008 w) — **el ancla, se conserva**
+
+Guardrail 1 protege §16.2: es lo que ancla las condiciones a la normativa; sin esto, las
+condiciones que el sistema detecta son arbitrarias. **Está bien construido y se conserva**: la
+cadena Ley 19.587 → Decreto 351/79 → Decreto 911/96 → Resoluciones SRT → ISO 45001 es sólida,
+y la **Tabla 10** (obligación normativa → evidencia visual → condición detectable en video) es
+el artefacto que justifica todo el dominio de aplicación. Su nota ya aclara que no constituye
+selección de prompts. Correcto que liste ocho categorías aunque el trabajo ejerza dos: es el
+universo normativo, no el alcance.
+
+**E1-29 · 🟠 · §16.2.3 describe nuestra arquitectura de eventos.** El último párrafo dice:
+
+> *"esta integración puede modelarse mediante una arquitectura orientada a eventos (EDA), en
+> la cual cada evidencia visual detectada se materializa como un evento estructurado —por
+> ejemplo, `persona_sin_casco_detectada`— que es publicado por el módulo de análisis de video
+> y consumido por componentes especializados en evaluación de patrones, generación de alertas
+> y registro de trazabilidad… la detección visual constituye la fuente primaria de eventos
+> dentro del **plano de control** del sistema"*.
+
+Eso no es marco teórico: es el diseño del sistema (§17.3), con su vocabulario. Además es
+justo lo que PODA-10 autoriza a recortar de §16.2.3 (~300 palabras). **Eliminar el párrafo**;
+el concepto que sí vale —que la prevención es un proceso continuo y que la alerta es insumo
+de supervisión humana, no decisión autónoma— ya está dicho en los párrafos anteriores y en
+§16.2.1.7.
+
+### 3.2 §16.3 Percepción visión-lenguaje (2.542 w) — **el corazón, hay que reforzarlo**
+
+Se conserva por guardrail. §16.3.1 (closed-set → open-vocabulary), §16.3.2 (alineación
+contrastiva, CLIP) y §16.3.4 (zero-shot y long-tail) están bien y son el fundamento correcto.
+Sobre esta sección operan **E1-25** (la adición del mecanismo de negación/composicionalidad —
+lo más importante del pase) y **E1-24/E1-26** (§16.3.5).
+
+**E1-30 · 🟠 · §16.3.3 dice tres veces lo mismo, con tres citas distintas de la misma obra.**
+La subsección (589 w) tiene **tres párrafos consecutivos** que repiten el mismo contenido —
+sensibilidad del prompt → *prompt learning* con tokens aprendibles → la optimización
+automática supera al diseño manual (Du et al., 2022)— citando a Zhou como **2022a**, como
+**2021** y de nuevo como **2021**. Consolidar en **un** párrafo (~250 w) con una sola cita
+correcta. Es, además, el punto donde §16 duplica a §15.2.5.3, que ya trata la sensibilidad al
+prompt: dejar en §16 el **fundamento** (por qué el texto es una especificación y por qué su
+forma importa) y en §15 la **brecha** documentada.
+
+### 3.3 §16.4 Persistencia temporal y MOT (2.684 w) — PODA-05
+
+**Se conserva** lo que funda el trabajo: **§16.4.1** (la limitación del fotograma: por qué una
+detección que no persiste no puede sostener una alerta — es el fundamento de la histéresis
+temporal) y **§16.4.3** (integración OVD+MOT, que funda la identidad por sujeto). Ambos están
+bien escritos y son de los mejores pasajes del capítulo.
+
+**E1-31 · 🟡 · §16.4.2 (1.551 w) comprimir a ~700, como manda PODA-05.** Es un tratado de
+fundamentos MOT: formulación del problema, filtro de Kalman y estimación de estado, LAP y
+algoritmo húngaro con su complejidad O(n³), *gating*, distancia de Mahalanobis, ReID y
+DeepSORT, oclusiones. La plataforma usa asociación **geométrica sin filtro de movimiento ni
+apariencia**, y las métricas MOT están excluidas del alcance. Conservar: la formulación del
+problema (predicción · similitud · asignación), IoU como métrica de similitud, y el
+desacoplamiento *tracking-by-detection* —que es lo que permite integrar un detector OVD sin
+reentrenar nada—. Comprimir fuerte Kalman, Mahalanobis, ReID/DeepSORT y complejidad
+algorítmica: son correctos pero no sostienen ninguna decisión ni ningún resultado.
+**Errata de paso:** §16.4.2.3 y §16.4.2.4 **explican IoU dos veces**, casi con las mismas
+palabras.
+
+**E1-32 · 🟠 · §16.4.4 (340 w): PODA-05 la elimina; aplicar con el criterio de E1-26.** No
+hubo selección de método de catálogo, y sus cinco criterios no tienen citas. Si se prefiere
+conservar algo, que sea **una** oración de dimensiones con cita dentro de §16.4.3.
+
+### 3.4 Anexo A — la pieza que D-E1-7 rescató
+
+**E1-33 · 🔴 · La Tabla A.1 conserva la errata de licencias que §15 ya corrigió.** Lista
+**DINO-X**, **G-DINO 1.5 Pro** y **G-DINO 1.5 Edge** como **"Apache-2.0"**. El §15, corregido,
+dice: *"se ofrecen mediante API y no publican pesos abiertos; la licencia Apache-2.0
+corresponde al SDK de acceso y no al modelo"*. Es `AJ-1.09` sin aplicar, y hoy **contradice
+frontalmente al cuerpo**. Corregir a "API cerrada — Apache-2.0 aplica al SDK, no a los pesos".
+
+**E1-34 · 🔴 · Grounding DINO no está en la Tabla A.1.** La matriz tiene 12 filas —DINO-X,
+G-DINO 1.5 Pro, G-DINO 1.5 Edge, LLMDet, OV-DINO, DetCLIPv3, OWLv2 L/14, YOLOE-v8-L,
+YOLO-World-L, OmDet-Turbo, YOLOE-v8-S, Florence-2-L— y **falta el Grounding DINO original**
+(y MM-Grounding-DINO). Es el modelo sobre el que se construyó el trabajo. Con **D-E1-7** la
+Tabla A.1 pasó a ser el lugar que conserva la amplitud del catálogo que salió del cuerpo, así
+que el hueco es doblemente grave. **Agregar las filas de Grounding DINO (Swin-T y Swin-L, con
+sus regímenes) y MM-Grounding-DINO**, y las de los modelos cuyas fichas se podaron del cuerpo
+y no estén ya (GLIP, OV-DETR, Detic, APE, T-Rex2).
+
+**E1-35 · 🟠 · Las Tablas A.2 y A.3 quedaron huérfanas.** Tras la poda, el §15 **solo** cita
+la Tabla A.1: la **A.2** (limitaciones de MOTA/IDF1/HOTA) y la **A.3** (comparativa de
+servidores de medios) ya no las llama nadie. Decidir explícitamente → **D-E1-9**. Recomendación:
+**conservar la A.2** citándola desde §15.3.3 (sostiene la exclusión de las métricas MOT con un
+argumento que hoy está comprimido en tres líneas) y **eliminar la A.3**, porque los servidores
+de medios ya no sostienen ninguna decisión ni aparecen en el cuerpo.
+
+---
+
+## 4. Podas de §16 — qué se conserva, y con qué criterio
+
+Las podas están autorizadas desde `ajustes/07` §4. El criterio es **aporte, no cuota**: una
+subsección se queda si sostiene un concepto que el resto del informe usa. Y rige el
+**guardrail 6**: las adiciones mandan sobre las podas — E1-25 (el mecanismo de negación)
+**entra** aunque el capítulo esté adelgazando.
+
+| Poda | Sobre | Hoy | Acción | Enmienda de este pase |
+|---|---|---:|---|---|
+| PODA-05 | §16.4 MOT | 2.684 | conservar 16.4.1 y 16.4.3; comprimir 16.4.2 → ~700; eliminar 16.4.4 | E1-31, E1-32 |
+| **PODA-06** | §16.5.2 descomposición | 4.881 | conservar solo lo que define la latencia y sus componentes | ⚠ **es REESCRITURA**: la ecuación está vacía y la descomposición no coincide con la del informe (E1-36, E1-37) |
+| **PODA-07** | §16.5.3 arquitecturas | 3.604 | comprimir a ~600 con el patrón productor/consumidor | ⚠ **es REDACCIÓN NUEVA**: ese patrón no está escrito, y hay que **agregar publish/subscribe** o el bus y MQTT quedan sin fundamento (E1-38) |
+| PODA-08 | §16.5.4 borde | 2.741 | comprimir a ~700 | salvar **sí o sí** el filtrado cerca del origen y la convención borde/niebla/nube (E1-39 y tabla de §5) |
+| PODA-09 | §16.5.5 criterios de stack | 1.437 | párrafo puente | aplicar con el criterio de E1-26; **no reciclar** el criterio multi-protocolo |
+| PODA-10 | §16.6 ético-legal | 4.266 | conservar 16.6.2 y 16.6.6; podar 16.6.4/16.6.5; comprimir 16.6.7 | rescatar **una frase** de cada podada; E1-46, E1-47 |
+| **PODA-11** | §16.7 + §16.8 | 4.790 | fusionar en un cierre de ~1.000; rescatar el mapa de brechas | ⚠ **el mapa está 5/6 duplicado con §15** (E1-51): se rescata **una** fila, no la tabla |
+| — | §16.5.1 latencia como restricción | 503 | **NO TOCAR** (guardrail 3) | — |
+| — | §16.2, §16.3 | 5.550 | **NO TOCAR** (guardrail 1) | salvo E1-29, E1-30 y **la adición E1-25** |
+
+**Resultado esperado:** de 30.749 a **≈14.000 palabras**, con el mecanismo central de la tesis
+fundado por primera vez. La cifra es consecuencia, no meta.
+
+---
+
+## 5. §16.5 — Operación en tiempo real (12.926 w, el 42 % del capítulo)
+
+Aquí operan PODA-06 a PODA-09. Pero **dos de las cuatro no son recortes: son reescrituras**,
+porque lo que mandan conservar hoy no está escrito o está mal.
+
+### E1-36 · 🔴 · La ecuación que define la latencia extremo a extremo **está vacía**
+
+En §16.5.2 (líneas 373–375) la ecuación **(1)** —la que descompone la latencia en sus
+componentes— quedó como una tabla de dos celdas vacías: `|  | (1) |`. Se perdió al exportar
+el documento. Lo mismo pasó con los símbolos en la nota de la Tabla 11 y, fuera de §16, en
+§17.1.7 (*"no corresponde reportar ."*, *"G2A abarca , , y ."*).
+
+Es **exactamente el contenido que PODA-06 manda conservar**, y hoy no existe. Reponer la
+ecuación **antes** de podar nada; si no, la poda deja la sección sin su único aporte.
+
+### E1-37 · 🔴 · La descomposición de §16.5 no coincide con la que usa el resto del informe
+
+§16.5.2 descompone el pipeline en **seis** componentes (captura · codificación · transporte ·
+decodificación · **renderizado** · inferencia). El §17.1.7 formaliza la latencia
+extremo a extremo con **cuatro**: `t_capture`, `t_transport`, **`t_preprocess`**,
+`t_inference`. Consecuencias:
+
+- **`t_preprocess`** —redimensionado, normalización, copia de memoria hacia el acelerador—
+  **no existe en §16.5.2**, y es el término que usan §17.1.7, §17.5 y las figuras.
+- **Codificación, decodificación y renderizado no son componentes** de la latencia que el
+  informe define y mide.
+- La **Tabla 11** se titula *"Componentes de latencia del pipeline glass-to-algorithm"* pero
+  incluye una fila *"Renderizado / Jitter Buffer ~10–120 ms"*, que por la propia definición de
+  §16.5.1 pertenece al recorrido **hasta el vidrio**, no hasta el algoritmo. **La tabla mide
+  una cosa y se llama por otra.**
+
+**Por eso PODA-06 es una reescritura.** El bloque de ~1.400 palabras que se conserva debe
+**establecer la descomposición de cuatro componentes** con la notación de §17.1.7, no podar
+la de seis. Rehacer la Tabla 11 a cuatro filas o sustituirla por prosa.
+
+### E1-38 · 🟠 · Lo que PODA-07 manda conservar tampoco está escrito
+
+PODA-07 dice comprimir §16.5.3 "a ~600: el patrón productor/consumidor como fundamento
+conceptual". **Ese patrón no aparece en §16.5**: la pareja "productor/consumidor" no está
+escrita en ninguna parte del capítulo, y *backpressure* aparece dos veces, una en un párrafo
+de meta-texto y otra dentro de una advertencia sobre un decodificador de hardware. Hay que
+**redactar** esas ~200 palabras, no comprimirlas.
+
+**Y hay un riesgo peor.** La plataforma acopla sus planos con un **bus publish/subscribe** y
+distribuye alertas por **MQTT**. En todo el marco teórico, MQTT se menciona **una sola vez**,
+de refilón, dentro del párrafo sobre un framework de terceros — **que es justamente uno de los
+párrafos que PODA-07 elimina**. Aplicada tal cual, la poda dejaría al informe sin ningún
+fundamento conceptual para el bus de eventos ni para la mensajería de alertas, que son dos
+piezas centrales del sistema. El bloque comprimido debe incluir **publish/subscribe
+desacoplado** como patrón, con cita (Cugola y Margara 2012 ya está citado en §16.5.3.1 y
+sirve para ambos).
+
+### E1-39 · 🟠 · Prescripciones de diseño y promesas incumplidas dentro de §16.5
+
+- **§16.5.5 completa (1.437 w) es un pliego de requisitos del prototipo, no marco teórico.**
+  Ejemplo: *"resulta conveniente que el framework… permita modificar parámetros de códec…
+  **priorizando la flexibilidad de configuración sobre la portabilidad multiplataforma, que
+  excede el alcance del prototipo**"* — una decisión de alcance del proyecto, sin cita,
+  presentada como conclusión del análisis. La sección incluso **se autodesmiente**: abre
+  diciendo *"La formulación de criterios no anticipa decisiones de diseño"* y a continuación
+  las anticipa. → cae con PODA-09 (ver E1-26).
+- **Promete evaluación multi-protocolo que nunca ocurrió** (§16.5.5.1.2: *"El soporte
+  multi-protocolo… habilitar roles diferenciados según el tramo del pipeline"*). La ingesta
+  construida es RTSP + SDK, y nada más. No reciclar ese criterio en el párrafo puente.
+- **Promete un plano de control en la nube** (§16.5.3.1): *"escalabilidad distribuida, que
+  habilita la ejecución del plano de medios en un nodo edge y el de control **en la nube**"*,
+  y en la misma oración *"permite evaluar alternativas como GStreamer versus FFmpeg"*. Ni lo
+  uno ni lo otro existió: un solo host, sin nube, y esa comparación nunca se hizo. §16.5.3.1
+  **se conserva** (es el fundamento de la separación de planos, y está bien citado), pero
+  **con esas dos cláusulas borradas**.
+- **Tres subsecciones abren diciendo que analizan alternativas "para E-OVRT-VDP"** (códecs
+  acelerados, mecanismos de comunicación entre procesos): ninguna de esas tecnologías entró al
+  sistema. Caen con PODA-07.
+- **La Tabla 11 receta protocolos que no se usaron**: *"SRT con latency budget ajustado"*,
+  *"inferencia por GPU (TensorRT)"*. Al rehacerla, dejar solo estrategias documentadas sin
+  nombrar stacks que el informe no vuelve a mencionar.
+
+### E1-40 · 🟠 · Duplicación masiva, con prueba forense de que el material se escribió dos veces
+
+- **§16.5.3.5 y §16.5.4.4 son la misma subsección escrita dos veces** (532 + 893 = 1.425 w):
+  ambas sobre plataformas de hardware para el borde, ambas con Jetson, ambas argumentando que
+  la métrica TOPS no es comparable, ambas remitiendo al mismo benchmark.
+  **La prueba:** el mismo trabajo aparece como `Jeong et al., 2022a` en una y
+  `Jeong et al., 2022b` en la otra, **con una sola entrada en el listado de referencias**.
+  Idéntico patrón con `Shi et al., 2016a/2016b` y `X. Wang et al., 2020a/2020b`.
+  **Las letras de desambiguación son falsas** y hay que corregirlas donde el texto sobreviva.
+- **El umbral perceptual de interacción humana aparece cuatro veces**, siempre con las mismas
+  dos citas: en §16.5.1, dos veces en §16.5.2.7 y otra en §16.5.5.1.1 (más una quinta vez en
+  §15.4). Sobrevive **solo** el de §16.5.1, que es el que el guardrail protege.
+- **Codificación y decodificación se explican dos veces** (I/P/B-frames, GOP, buffer de
+  imágenes decodificadas), y el propio texto lo admite: *"Como se describió al tratar las
+  configuraciones de codificación…"*. Ambas caen con PODA-06.
+
+### E1-41 · 🟡 · Meta-texto y un anuncio que describe una estructura inexistente
+
+Cuatro pasajes anuncian lo que viene en vez de decir algo. Uno es defectuoso además de
+inútil: *"Las subsecciones siguientes caracterizan en detalle la latencia de inferencia…"* —
+y **no hay subsecciones**: lo que sigue son párrafos. Otro cierra con una promesa sin destino:
+*"Este concepto será ampliado en secciones posteriores"*, sin puntero ni sección
+identificable. Eliminar los cuatro.
+
+### E1-42 · 🟡 · Un encabezado con nivel equivocado
+
+§16.5.2.5 ("Latencia de Renderizado") está un nivel más abajo que sus hermanas 16.5.2.1–.4,
+así que hoy renderiza como hija de §16.5.2.4. Si se regenera la numeración automáticamente,
+"16.5.2.5" pasa a ser "16.5.2.4.3". Como PODA-06 elimina esa subsección, el punto se resuelve
+solo — pero **conviene verificar que no haya más encabezados con nivel mal puesto** antes de
+regenerar la numeración del capítulo.
+
+> ✅ **Un riesgo que ya está resuelto.** El §15 anterior remitía a "las secciones 16.5.2.3 y
+> 16.5.2.5", que PODA-06 elimina. **El §15 vigente ya no contiene ningún puntero hacia §16**
+> (desaparecieron al podar §15.4). Verificado: cero coincidencias. No hay nada que arreglar
+> de ese lado; el trabajo pendiente es solo el inverso, los punteros de §16 hacia §15
+> (E1-24, E1-28).
+
+### Qué se conserva de §16.5, en concreto
+
+| Bloque | Se conserva | Se va |
+|---|---|---|
+| **§16.5.1** (503 w) | **Íntegra** (guardrail 3): la latencia como restricción, la distinción entre el recorrido hasta el vidrio y hasta el algoritmo, el umbral perceptual y el principio de **presupuestar** el buffer en vez de eliminarlo | — |
+| **§16.5.2** (4.881 → ~1.400) | Un bloque único que **define la latencia y sus cuatro componentes** con la notación de §17.1.7 + la ecuación repuesta (E1-36) · captura acotada por el período de cuadro · el transporte como el componente de mayor variabilidad externa, y que **lo que compromete el tiempo real es su cola, no su media** (funda el reporte por percentiles) · **párrafo nuevo de `t_preprocess`** · dos rangos de referencia de inferencia | codificación · decodificación · **renderizado** (no es parte de la latencia que se mide) · el catálogo de técnicas de optimización · §16.5.2.7 (duplica §16.5.1) |
+| **§16.5.3** (3.604 → ~600) | **§16.5.3.1 separación de planos** casi íntegra, menos las dos cláusulas de E1-39 · **~200 w nuevos**: productor/consumidor con cola acotada y contrapresión, y **publish/suscripción** como patrón de notificación desacoplada (E1-38) | intro (meta-texto normativo) · códecs acelerados por hardware · comunicación entre procesos · frameworks de terceros · plataformas de borde (duplica §16.5.4.4) |
+| **§16.5.4** (2.741 → ~700) | Las tres tensiones que motivan el borde · **la convención terminológica borde/niebla/nube y los tres patrones de despliegue** (permite entender, en §17.3, que se ejerció el prefiltrado en el dispositivo y se excluyó la inferencia en el borde) · **el punto de que filtrar cerca del origen reduce el consumo aguas abajo** — *es el fundamento conceptual del prefiltrado y lo único que PODA-08 debe salvar sí o sí* · opcional: que la latencia en el borde se juzga por percentiles | taxonomías de nube y niebla · geo-distribución y ciudades inteligentes · catálogo de aceleradores y métricas de hardware |
+| **§16.5.5** (1.437 → ~120) | **Nada de los siete criterios.** Un párrafo que enuncie **la brecha**: la literatura evalúa por separado protocolos, stacks de códec y modelos, y no ofrece un marco integrado para presupuestar latencia extremo a extremo en un pipeline con inferencia open-vocabulary. Como esa brecha **ya está en §15.4.3.1**, el puente debe remitir sin repetirla | los siete criterios y las consideraciones complementarias |
+
+**Ahorro de §16.5: ≈9.800 palabras** (de 12.926 a ~3.100).
+
+---
+
+## 6. §16.6 ético-legal, §16.7 convergencias y §16.8 (9.056 w)
+
+### E1-43 · 🔴 · §16.7 y §16.8 suman **4.790 palabras con cero citas**
+
+Es la única masa de texto de ese tamaño en todo el marco teórico que no se apoya en
+literatura — y es justamente donde el capítulo prescribe con más fuerza. El **62 % de §16.7**
+es literalmente recapitulación de §16.2–§16.6 o anticipo de §17: 1.393 palabras de resumen,
+455 que describen la arquitectura del sistema y 838 de proyección metodológica. PODA-11 tenía
+razón en llamarlo "meta-texto puro".
+
+### E1-44 · 🔴 · §16.7.4: los "siete criterios orientadores" son el diseño del proyecto, sin una sola fuente
+
+La subsección abre diciendo *"El análisis del estado del arte no selecciona tecnologías:
+establece los criterios que deben orientar esa selección"* —es decir, se declara derivada de
+la literatura— y a continuación desarrolla 810 palabras y una tabla **sin ninguna referencia**.
+Cuatro de los siete criterios son el sistema construido, escrito en futuro:
+
+- *"El flujo de video… y la lógica de negocio… **deben operar en planos arquitectónicamente
+  separados**"*, evaluable por *"posibilidad de sustituir el modelo sin modificar el sistema
+  de alertas"*. Eso **es** la arquitectura de dos planos, no un criterio de la literatura.
+- *"Latencia de alerta medida en percentiles (P50, P95, P99)…"* — es el protocolo de medición
+  propio.
+- **El criterio 3 repite la afirmación que E1-24 refuta**: *"la preservación de esta capacidad
+  **varía significativamente entre familias arquitectónicas**"*, otra vez sin fuente. Es la
+  **segunda** aparición de la afirmación incompatible con el §15 corregido: al aplicar E1-24
+  hay que corregir **las dos**.
+
+Agravante: §16.8.2 presenta esos siete criterios como un **logro** del capítulo, así que el
+problema es estructural. **Acción:** §16.7.4 completa se va (PODA-11). Lo que se quiera
+conservar, va a §17.1 como decisión metodológica propia y declarada — que es donde
+corresponde—, no a §16 como derivación del estado del arte.
+
+### E1-45 · 🔴 · §16.7.5 describe la arquitectura implementada dentro del marco teórico
+
+455 palabras, cero citas: *"El plano de medios… se estructura en cuatro etapas secuenciales:
+ingesta… normalización… inferencia… tracking"*; *"Todos los eventos… se registran de manera
+inmutable en el repositorio de event sourcing"*; *"La ruta crítica de latencia del sistema pasa
+íntegramente por este plano"*. **El propio texto admite el origen**: *"coherente con la
+arquitectura de dos planos planteada en el anteproyecto del proyecto"* — o sea, viene del
+anteproyecto, no del estado del arte. Es anacronismo puro e invade §17.3. **Eliminar íntegra.**
+Si algo se salva, una línea diciendo que la separación entre plano de medios y plano de
+control es un patrón documentado — y eso ya vive, **con citas**, en §16.5.3.1.
+
+### E1-46 · 🔴 · La Tabla 12 llama "decisiones de diseño" a controles que nunca se implementaron
+
+§16.6.6 es **núcleo vivo** y la única tabla densamente citada del tramo (21 citas), pero su
+columna se titula **"Decisión de diseño implicada"** y lista, entre otros: *"control de acceso
+basado en roles con principio de mínimo privilegio; cifrado de flujos de video en tránsito;
+registros de auditoría de acceso"*, *"señalización visible en obra; mecanismo de contacto con
+el responsable del tratamiento"*, *"política explícita de retención y borrado seguro"*. En un
+prototipo académico de un solo host, **leídas como decisiones tomadas son falsas**.
+
+**El arreglo es de una palabra y salva la subsección entera:** renombrar la columna a
+**"Restricción que impone al diseño"** y pasar a voz de exigencia las tres o cuatro celdas
+que hoy están en presente descriptivo. Con eso dejan de ser falsas y quedan correctas.
+
+### E1-47 · 🟠 · Una obligación legal abierta que el informe nunca cierra
+
+§16.6.7 afirma: *"Cualquier validación experimental del prototipo que involucre personas en el
+campo visual de las cámaras requiere evaluar la obligación de inscripción ante la AAIP y la
+elaboración previa del manual de tratamiento… deberán definirse en la etapa 2."* **El proyecto
+sí grabó personas.** Hoy queda una obligación planteada, remitida a una etapa, y nunca cerrada
+— exactamente el hilo del que un jurado tira.
+
+Además, esa fila **no es una brecha**: la inscripción es un requisito explícito y vigente,
+resuelto en la norma; está en la tabla equivocada. **Acción:** sacarla de la tabla de brechas
+e integrarla como una frase en §16.6.2.2, donde el requisito ya se enuncia; y **cerrar el
+punto en §17.1/§17.4** (por qué el contexto controlado y académico no dispara la inscripción,
+qué recaudo se tomó). → **D-E1-11**.
+
+### E1-48 · 🟠 · Se promete razonamiento relacional multi-entidad; el trabajo entregó atributo por entidad
+
+§16.7.3 y su párrafo de desarrollo concluyen que *"la arquitectura **debe** incluir una capa de
+razonamiento contextual sobre las trayectorias… capaz de evaluar condiciones que involucren
+**múltiples entidades y su relación espacial**"*, con ejemplos como *"persona en zona
+restringida sin señalero visible"*. Las condiciones que el sistema evalúa son de **entidad
+única más atributo**, con persistencia temporal. **No hay razonamiento relacional
+multi-entidad**, y §17.5 no puede satisfacer esa expectativa.
+
+Conservar la **brecha conceptual** (la detección por fotograma no modela relaciones — eso sí
+es literatura y §15.2.5.1 ya lo dice con citas) y **borrar la prescripción arquitectónica**, o
+declarar explícitamente que queda fuera del alcance. Mismo criterio para la enumeración
+"arnés, chaleco reflectivo y señalero" cuando solo se ejercieron casco y chaleco.
+
+### E1-49 · 🟠 · Dos preguntas rectoras quedaron huérfanas
+
+§16.7.6 plantea ocho preguntas rectoras con código propio. Verificado sobre todo el
+entregable: seis se retoman en §17.1, pero **dos no se retoman en ninguna parte** — la de
+condiciones experimentales y la de recaudos ético-legales (que incluye *"consentimiento
+informado… protocolo de anonimización"*, y es justo la que conecta con E1-47). O se eliminan
+de la lista, o §17.1 las responde. No pueden quedar planteadas y sin retomar.
+
+⚠ **Dependencia a vigilar:** §17.1 cita **"la sección 16.7.6" por su número** y usa los
+códigos de esas preguntas nueve veces. Si §16.7.6 desaparece como subsección numerada al
+fusionar, hay que actualizar esa remisión y las nueve invocaciones.
+
+### E1-50 · 🟡 · Duplicación en §16.6 y §16.8
+
+- **La introducción de §16.6 y §16.6.1 son el mismo texto dos veces** (249 + 243 w): ambas
+  abren con la asimetría entre el trabajador y el sistema y con que *"esa asimetría no se
+  resuelve declarando que el propósito es preventivo"*. Hay incluso un tercer párrafo que
+  repite el encuadre. Las 492 palabras se comprimen a ~150.
+- **§16.8 (429 w) no aporta nada que §16.7 no diga**, salvo tres líneas: las **tres
+  limitaciones del propio marco teórico** de §16.8.2 (evolución acelerada del campo; datos de
+  rendimiento obtenidos en condiciones no operativas; dinamismo del marco regulatorio). Eso
+  se rescata; el resto —incluida la autoevaluación *"permitieron alcanzar los objetivos
+  propuestos"*— se va. *(Al citarlas: no confundir con las limitaciones numeradas del
+  proyecto, que son otra serie.)*
+- **Tautologías** para eliminar de paso: *"deben utilizarse en la instancia de diseño
+  arquitectónico para estructurar las decisiones de diseño arquitectónico"* · *"El diseño de
+  esta capa es una decisión arquitectónica de la instancia de diseño arquitectónico"*. Y
+  §16.7.2 es un título con 29 palabras de cuerpo, cuyo nombre es indistinguible del de
+  §16.7.1.
+
+### E1-51 · 🟠 · Corrección a PODA-11: el "mapa de brechas" que mandaba rescatar está 5/6 duplicado
+
+PODA-11 designa el mapa de brechas transversales de §16.7.3 como *"lo único que se rescata"*.
+**Verificado: cinco de sus seis filas ya están en §15**, algunas por triplicado:
+
+| Fila de §16.7.3 | Ya está en |
+|---|---|
+| Ausencia de benchmarks para construcción | §15.2.5.4 · §15.3.4 · §15.4.3.1 |
+| Métricas académicas no alineadas con el valor operativo | §15.2.5.5 · §15.3.4 · §15.4.3.4 — **triplicada** |
+| Integración del pipeline no caracterizada | §15.4.3.1 · §15.4.3.2 |
+| Condiciones composicionales | §15.2.5.1 |
+| Sensibilidad al diseño de prompts | §15.2.5.3, casi textual |
+| **Marco normativo-ético como restricción arquitectónica** | **única genuinamente nueva** |
+
+**Lo transversal de verdad es una sola fila.** El cierre debe conservarla en prosa y
+reemplazar las otras cinco por **una frase de remisión** a las tablas de §15 — no re-tabularlas.
+
+### Qué se conserva de §16.6–§16.8, en concreto
+
+| Bloque | Se conserva | Se va |
+|---|---|---|
+| **§16.6** (4.266 → ~2.850) | **§16.6.2 completa** (imagen como dato personal, etapas del tratamiento, roles, régimen argentino, identificabilidad indirecta, los tres ejes de la disposición aplicable): es lo que sostiene la minimización de evidencia visual efectivamente implementada · **§16.6.3** (seguridad de la información y retención) · **§16.6.6 con la Tabla 12 intacta**, aplicando E1-46 · **§16.6.7 comprimida a ~400 w en prosa**: las cuatro brechas legítimas con sus citas, sin la columna de implicaciones · **un solo párrafo** de encuadre (E1-50) | §16.6.4 referentes comparados — **rescatando una frase**: la distinción entre captación de video e identificación biométrica, que es lo que fundamenta excluir el reconocimiento facial · §16.6.5 gobernanza — **rescatando una frase** que sostenga las dos filas de la Tabla 12 que dependen de esas fuentes · el párrafo duplicado del encuadre · la fila de la AAIP (E1-47) |
+| **§16.7 + §16.8** (4.790 → ~950) | Un cierre único, en cuatro bloques: **(1)** interdependencia de los dominios, ~200 w, sin "event sourcing" · **(2)** la única brecha genuinamente transversal, ~200 w (E1-51) · **(3)** las preguntas rectoras **como lista**, ~350 w, resolviendo las dos huérfanas (E1-49) · **(4)** cierre con la viabilidad teórica y **las tres limitaciones del marco** de §16.8.2, ~200 w | §16.7.2 y sus tres subsecciones (recapitulación) · la Tabla 14 como tabla · **§16.7.4 completa** (E1-44) · **§16.7.5 completa** (E1-45) · introducción de §16.8, la autoevaluación y la transición |
+
+**Ahorro de §16.6–§16.8: ≈5.240 palabras** (algo más que las ~4.800 previstas, porque el mapa
+de brechas resulta redundante y §16.8.3 también cae).
+
+---
+
+## 7. Acciones previas obligatorias
+
+Estas cuatro van **antes** de aplicar cualquier poda; si se podan primero, se pierde material
+que hay que reponer igual.
+
+1. **Reponer la ecuación (1)** de §16.5.2, hoy vacía, con la notación de cuatro términos que
+   usa §17.1.7 — y revisar los símbolos perdidos en §17.1.7 (*"G2A abarca , , y ."*). Es el
+   contenido que PODA-06 debe conservar (E1-36).
+2. **Fijar la descomposición en cuatro componentes** (E1-37), incluida la definición nueva de
+   `t_preprocess`, antes de recortar la de seis.
+3. **Redactar** el patrón productor/consumidor y publish/subscribe (E1-38) **antes** de
+   eliminar §16.5.3.2–.3.5, o el bus de eventos y MQTT se quedan sin fundamento.
+4. **Corregir las citas con letra de desambiguación falsa** —`Jeong 2022a/b`, `Shi 2016a/b`,
+   `X. Wang 2020a/b`, una sola entrada cada una— dondequiera que el texto sobreviva (E1-40).
+
+---
+
+## 8. Orden de trabajo sugerido
+
+1. **§15, residuales:** R1, R2, R3 (§1). Cierra la sección.
+2. **§16, contradicciones y erratas duras** (una pasada, sin decisión previa): **E1-24** (las
+   **dos** apariciones: §16.3.5.1 y §16.7.4) · E1-27 citas · E1-28 referencias colgadas ·
+   E1-36 ecuación · E1-40 letras falsas · E1-50 tautologías.
+3. **§16, la adición:** **E1-25** — el mecanismo de negación y composicionalidad en §16.3. Es
+   lo más valioso del pase; hacerlo antes de podar, para que no se pierda en el ajetreo.
+4. **§16, alineación:** E1-26 (las cuatro secciones de criterios) · E1-29 · E1-30 · E1-37 ·
+   E1-38 · E1-39 · E1-44 · E1-45 · E1-46 · E1-47 · E1-48 · E1-49.
+5. **§16, podas** con las enmiendas de §4: PODA-05…11, en ese orden.
+6. **Anexo A:** E1-33 licencias · E1-34 filas faltantes · E1-35 tablas huérfanas.
+7. **Delta de referencias** del capítulo entero (altas de E1-25, bajas de las podas).
+
+**Lo que NO hay que hacer:** volver a tocar §15 más allá de R1–R3 · reaplicar E1-01…E1-23 ·
+podar §16.2, §16.3 o §16.5.1 · dejar §16 más corto pero sin el fundamento de E1-25.
+
+---
+
+## 9. Decisiones del equipo
+
+| ID | Decisión | Recomendación | ✔ |
+|---|---|---|---|
+| D-E1-9 | Tablas A.2 y A.3 quedaron sin quien las cite (E1-35). | Conservar **A.2** y citarla desde §15.3.3; **eliminar A.3**. | [ ] |
+| D-E1-10 | La adición E1-25 suma ~450 palabras a un capítulo que se está podando. | Aceptar: es el fundamento del mecanismo central y rige el guardrail 6. | [ ] |
+| D-E1-11 | La obligación de inscripción ante la AAIP (E1-47) queda planteada en §16 y nunca cerrada, y el proyecto sí grabó personas. | Sacarla de la tabla de brechas **y cerrarla en §17.1/§17.4** con el recaudo efectivamente tomado. **Requiere una definición del equipo, no del redactor.** | [ ] |
+| D-E1-12 | Dos preguntas rectoras quedaron huérfanas (E1-49): condiciones experimentales y recaudos ético-legales. | Eliminarlas de la lista, salvo que §17.1 vaya a responderlas. Ligada a D-E1-11. | [ ] |
+
+---
+
+## 10. Fuentes de esta revisión
+
+Texto de §16: `entregable/96d`. Anexo A: `entregable/96e` §19.1. Tablero original:
+`ajustes/01` (`AJ-1.16`). Podas y guardrails: `ajustes/07` §4 y §9. Teoría vigente del
+trabajo, contra la que `AJ-1.16` pide contrastar: `sintesis/fundamentos-teoricos.md`.
+Citas nuevas verificadas contra arXiv (lista de autores exacta): **arXiv:2210.01936** (ARO) y
+**arXiv:2204.03162** (Winoground). Estado de §15: `correcciones-etapa-1.md` y
+`correcciones-etapa-1-pase-2.md`.
+
+---
+
+## Fuente: `docs/informe/entregable/90d-etapa1-texto-extraido.md`
+
+> SHA-256 del bloque: `1f7281bdd1666c319042c8dabb54e1d9e288fd0b1250534d039a595eb0782855`  
+> Seleccion: TEXTO BASE FINAL DE LA ETAPA 1 - **el DESARROLLO: seccion 15 y seccion 16**, extraido de 'E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx', con los **cinco pases YA APLICADOS Y VERIFICADOS**, los 16 AJ-1.xx resueltos, las podas 01-11 aplicadas, formato y terminologia unificados (el verificador da OK). **SUPERA al 96c y al 96d** del informe v1.1, que por eso ya no forman parte de este paquete. **El entregable de la etapa es SOLO el desarrollo**: el Anexo A y el listado de referencias salieron del documento por decision del usuario -los arma el equipo- y quedaron en `90e`. **La etapa esta CERRADA: no queda trabajo de contenido, formato ni terminologia** sobre este texto; no cambiar una palabra de fondo. Lo unico abierto de fondo es D-E1-11, que decide el equipo y viaja como [[PENDIENTE]].
+
+# 90d — Texto extraído del documento de trabajo: §15 Estado del Arte y §16 Marco Teórico (v1.0)
+
+> **Extracción derivada (2026-08-28)** del `.docx`
+> `informe/entregable/desarrollando/E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx`, **solo para búsqueda y cita**
 > (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
 > este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
-> extraen. **La §17.3 embebida en el docx NO se incluye en esta serie: está
-> desactualizada** — la Etapa 3 vigente es el doc 90 (extracción del standalone).
-> Partición completa: 96a (frontmatter+intro+objetivos+plan), 96b (§17.1
-> consolidación metodológica — el protocolo), 96c (estado del arte), 96d (marco
-> teórico), 96e (cierre+anexos+referencias).
+> extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
+> `⟦ECUACIÓN: no extraída — ver el .docx⟧` donde estaban. Regenerado con
+> `herramientas/extraer_informe.py` (regla D-C del manual de aplicación).
 
 ---
 
-## 15. Estado del Arte
+## 15. Estado del arte
 
 El estado del arte reúne los antecedentes técnicos y metodológicos necesarios para contextualizar el desarrollo de una plataforma experimental de detección open-vocabulary en video en tiempo real. Su propósito es revisar los enfoques, modelos y arquitecturas que permiten comprender el alcance actual de la detección visual guiada por lenguaje natural, así como sus limitaciones cuando se la traslada a escenarios dinámicos, con restricciones temporales y requerimientos de seguridad laboral.
-
 
 ### 15.1. Alcance del estado del arte y propósito de la fundamentación teórica
 
@@ -181,596 +1963,318 @@ El análisis se organiza en torno a los dominios que condicionan la viabilidad d
 
 Esta revisión no tiene por finalidad elegir de forma aislada un modelo, protocolo o herramienta, sino establecer un marco crítico para distinguir qué capacidades se encuentran suficientemente maduras, qué aspectos requieren validación experimental y qué limitaciones deben ser consideradas durante el diseño e implementación del prototipo. A partir de esta base se derivan criterios para la selección tecnológica, la definición del alcance experimental y la construcción posterior del protocolo de evaluación.
 
-
 ### 15.2. Detección open-vocabulary: modelos, paradigmas y brechas del estado del arte
 
-
-#### 15.2.1. Paradigmas Arquitectónicos y Modelos Representativos
+#### 15.2.1. Paradigmas arquitectónicos y modelos representativos
 
 El estado del arte en OVD no constituye una solución homogénea, sino que se organiza en familias arquitectónicas con compromisos claramente diferenciados entre expresividad semántica, complejidad computacional y eficiencia temporal. A partir de un relevamiento exhaustivo realizado durante la investigación bibliográfica, se identificaron cuatro paradigmas dominantes, de los cuales se presentan a continuación los aspectos y modelos representativos más relevantes para el contexto de sistemas de video en tiempo real.
 
-El primer paradigma extiende arquitecturas end-to-end basadas en Transformers —derivadas de DETR y DINO (Carion et al., 2020; H. Zhang et al., 2022)— incorporando el lenguaje dentro del proceso de predicción mediante mecanismos explícitos de fusión multimodal. El modelo representativo de esta familia es Grounding DINO (Liu et al., 2023), que introduce una fusión multimodal profunda estructurada en tres componentes: un Feature Enhancer que alinea semánticamente regiones visuales con tokens textuales, un Language-guided Query Selection que inicializa las consultas del decoder condicionadas por el texto y un Cross-modality Decoder que refina cajas y asocia predicciones a fragmentos del prompt mediante atención cruzada. Esta arquitectura resulta especialmente efectiva para expresiones referenciales complejas y frases con atributos, reportando 52.5 AP en COCO en configuración zero-shot (Liu et al., 2023).
+El primer paradigma extiende arquitecturas end-to-end basadas en Transformers —derivadas de DETR y DINO (Carion et al., 2020; H. Zhang et al., 2022)— e incorpora el lenguaje dentro de la predicción mediante fusión multimodal. Grounding DINO (Liu et al., 2024) organiza esa integración en un Feature Enhancer que alinea representaciones visuales y textuales, una selección de consultas guiada por lenguaje y un decoder de modalidad cruzada que refina cajas y las vincula con fragmentos del prompt. La fusión profunda favorece expresiones referenciales y consultas con atributos, aunque incrementa el costo computacional y la complejidad de despliegue.
 
-Desarrollos posteriores como OmDet-Turbo (Zhao et al., 2024) abordan explícitamente la limitación de latencia de este paradigma mediante un módulo de fusión eficiente que permite reutilizar los embeddings textuales entre cuadros consecutivos, amortizando el costo del procesamiento lingüístico cuando el vocabulario de consulta permanece constante. Esta estrategia es directamente relevante para escenarios de monitoreo continuo, donde el conjunto de condiciones de riesgo se define al inicio de la sesión y se mantiene estable a lo largo del flujo de video.
+El segundo paradigma adapta detectores one-stage de la familia YOLO para puntuar regiones frente a representaciones textuales. YOLO-World (Cheng et al., 2024) incorpora interacción visión-lenguaje en su neck y permite reutilizar un vocabulario precomputado; YOLOE (A. Wang et al., 2025) amplía la reparametrización para admitir prompts textuales, visuales y un modo sin prompt. Esta familia prioriza eficiencia y compatibilidad con pipelines de baja latencia, a cambio de una expresividad más acotada ante consultas relacionales o altamente composicionales.
 
-Un segundo paradigma traslada la detección OVD a arquitecturas one-stage de alta eficiencia, derivadas de la familia YOLO, diseñando la integración visión-lenguaje para minimizar el costo adicional en inferencia. El exponente principal es YOLO-World (Cheng et al., 2024), que introduce un mecanismo de Re-Parameterizable Vision-Language Path Aggregation Network (RepVL-PAN) y un módulo de Cross-Modal Late Interaction (CSAM) para alinear características visuales densas con embeddings textuales durante el entrenamiento. En inferencia, los embeddings textuales pueden reparametrizarse como pesos equivalentes a los de un detector YOLO estándar, eliminando el overhead de la fusión multimodal en tiempo de ejecución. Su sucesor, YOLOE (A. Wang et al., 2025), extiende este principio logrando overhead computacional cero tras la reparametrización, reportando 35.9 AP en LVIS-minival con 102.5 FPS en hardware de inferencia optimizado. Este paradigma prioriza tasas de inferencia elevadas y baja latencia, a cambio de una menor expresividad semántica frente a consultas complejas o con atributos relacionales.
+Una tercera familia deriva la detección del paradigma dual-encoder de CLIP: imagen y texto se proyectan en un espacio compartido y la clase de cada región se obtiene por compatibilidad semántica, no mediante logits fijos. OWL-ViT y OWLv2 (Minderer et al., 2022, 2023) representan este enfoque y muestran cómo el autoentrenamiento puede escalar la supervisión sin alterar el mecanismo de consulta. Su principal ventaja es la modularidad: el vocabulario cambia con los prompts; su costo depende del número de consultas y puede mitigarse mediante el cacheo de embeddings cuando el vocabulario permanece estable.
 
-Una tercera familia plantea la detección como una extensión del paradigma de clasificación zero-shot de CLIP, utilizando un encoder visual y un encoder textual que proyectan imagen y texto en un espacio semántico compartido. La clasificación abierta se resuelve mediante puntajes de compatibilidad —producto punto entre embeddings visuales locales y embeddings textuales— en lugar de logits de clase fijos. El representante más relevante es OWL-ViT y su evolución OWLv2 (Minderer et al., 2022, 2024), que escala el entrenamiento mediante auto-entrenamiento sobre datos web a gran escala, generando más de mil millones de ejemplos de entrenamiento mediante pseudo-anotaciones. Esta estrategia mejora significativamente el rendimiento en categorías raras del benchmark LVIS (Gupta et al., 2019).
-
-La ventaja principal de este paradigma es su modularidad, donde cambiar el vocabulario de consulta equivale simplemente a cambiar los prompts, sin modificar la arquitectura del modelo. La limitación principal reside en que el cómputo de embeddings textuales por cada nueva consulta introduce latencia variable, aunque esta puede mitigarse mediante caching cuando el vocabulario permanece estable entre cuadros consecutivos.
-
-Un cuarto paradigma reformula la detección como un problema secuencia-a-secuencia condicionado por instrucciones en lenguaje natural, donde el modelo genera salidas estructuradas —texto que codifica cajas delimitadoras, etiquetas y descripciones— mediante decodificación autoregresiva. El modelo representativo es Florence-2 (Xiao et al., 2023), que unifica múltiples tareas de visión —detección, segmentación, captioning y razonamiento visual— bajo un esquema de prompting generalista, sin necesidad de rediseñar cabezales específicos por tarea. La ventaja de este paradigma es su flexibilidad para abordar condiciones de riesgo que requieren descripciones complejas o ricas en contexto.
-
-La limitación crítica para aplicaciones de video en tiempo real es la dependencia de decodificación autoregresiva, que introduce mayor latencia de inferencia y variabilidad temporal respecto a los paradigmas anteriores. La naturaleza secuencial de la generación impide el paralelismo completo de la inferencia, y la inestabilidad frame-to-frame es más pronunciada en este paradigma que en los enfoques de predicción directa, dado que la variabilidad del proceso generativo se acumula entre cuadros consecutivos (Xiao et al., 2023). Esta característica limita su adecuación para sistemas de monitoreo continuo con requisitos estrictos de latencia E2E.
+El cuarto paradigma agrupa modelos guiados por prompts generalistas, generativos e híbridos. Florence-2 (Xiao et al., 2024) formula las tareas como traducción secuencia-a-secuencia y genera representaciones textuales de cajas, etiquetas u otras salidas estructuradas; APE, LLMDet y T-Rex2 adoptan prompting generalista sin compartir necesariamente una decodificación autoregresiva (Shen et al., 2023; Fu et al., 2025; Jiang et al., 2024). Esta flexibilidad amplía la variedad de tareas y modalidades de consulta, pero en los modelos generativos introduce latencia variable y menor paralelismo que la predicción directa.
 
 A continuación, se revisan modelos representativos de cada paradigma, enfocando el análisis en: (i) decisiones arquitectónicas, (ii) mecanismo de fusión/compatibilidad visión–lenguaje, (iii) régimen de entrenamiento y tipo de supervisión, y (iv) resultados en benchmarks estándar (COCO, LVIS), junto con consideraciones prácticas de inferencia relevantes para aplicaciones en vídeo.
 
+**Convención de lectura.** Salvo indicación expresa, las cifras de COCO y LVIS corresponden a AP promediado entre umbrales de intersección sobre unión (IoU) de 0,50 a 0,95; en LVIS se conserva el protocolo Fixed AP cuando así lo informa la fuente. Los resultados de literatura supervisada de EPP se presentan como mAP@0,5 o AP@0,5 en una serie separada y no deben compararse numéricamente con COCO/LVIS AP.
 
-##### 15.2.1.1. Bloque A — Detectores End-to-End Tipo DETR/DINO con Fusión Visión–Lenguaje en el Decoder
+##### 15.2.1.1. Bloque A — Detectores end-to-end tipo DETR/DINO con fusión visión–lenguaje en el decoder
 
+###### 15.2.1.1.1. Grounding DINO
 
-###### 15.2.1.1.1. GLIP y GLIPv2
+**Arquitectura base.** Grounding DINO extiende la formulación de detección como phrase grounding introducida por GLIP (L. H. Li et al., 2021) y la integra en la línea DETR/DINO. El modelo emplea una arquitectura dual-encoder/single-decoder: un backbone visual —frecuentemente Swin Transformer— extrae características multiescala y un backbone textual BERT codifica el prompt; un Transformer produce predicciones condicionadas por ambas modalidades (Liu et al., 2024).
 
-Arquitectura base. GLIP (Grounded Language-Image Pre-training) unifica detección y phrase grounding bajo una formulación común: el modelo recibe una imagen y un prompt textual con las categorías o frases de interés. Su implementación se construye sobre un detector tipo Dynamic Head y emplea un backbone visual Swin Transformer, junto con un encoder de texto BERT y un módulo de fusión multimodal profunda (Li et al., 2021).
+**Mecanismo visión–lenguaje.** La contribución central es una fusión multimodal profunda basada en atención cruzada en distintas etapas. Grounding DINO divide la fusión en tres componentes: Feature Enhancer (interacciones imagen–texto para alinear semántica y regiones), Language-guided Query Selection (inicializa consultas del decoder condicionadas por texto), y Cross-modality Decoder (agrega atención cruzada con texto para refinar cajas y asociar predicciones a fragmentos del prompt). Esto hace que el modelo sea especialmente efectivo con expresiones referenciales o frases con atributos (Liu et al., 2024).
 
-Mecanismo visión–lenguaje. La contribución central de GLIP es reformular la clasificación cerrada como alineamiento región–palabra/región–frase: en lugar de producir logits de clase fijos, reemplaza el clasificador por puntajes de alineamiento entre features visuales de región y features lingüísticas de tokens. A diferencia de enfoques donde visión y texto solo interactúan al final, GLIP enfatiza fusión profunda para integrar señales lingüísticas dentro del pipeline de detección (Li et al., 2021).
+**Resultados reportados.** En configuración zero-shot, Grounding DINO con backbone Swin-L reporta 52,5 AP en COCO y 26,1 mean AP en ODinW; la variante Swin-T reporta aproximadamente 48,4 AP en COCO bajo el mismo protocolo (Liu et al., 2024).
 
-Entrenamiento y supervisión. GLIP escala el preentrenamiento mediante datos de grounding a gran escala, combinando 3 millones de anotaciones humanas y 24 millones de pares imagen–texto web con pseudo-cajas generadas mediante self-training, totalizando 27 millones de ejemplos (Li et al., 2021).
+La variante GroundingDINO-B con backbone Swin-B dispone de pesos públicos, pero su checkpoint declara COCO entre los datos de entrenamiento, junto con O365, GoldG, Cap4M, OpenImages, ODinW-35 y RefCOCO. Por ello, el 56,7 AP publicado en COCO no constituye una cifra zero-shot directamente comparable con la variante Swin-T entrenada sin COCO (IDEA-Research, 2024c).
 
-Evolución GLIPv2. GLIPv2 extiende el enfoque hacia un modelo unificado que cubre tareas de localización (detección, segmentación por instancias, grounding) y comprensión visión–lenguaje (VQA, captioning). El preentrenamiento unifica tres tareas: phrase grounding, region–word contrastive learning y masked language modeling (Zhang et al., 2022).
+**Evolución Grounding DINO 1.5.** La versión 1.5 Pro, orientada a máxima generalización, entrena con Grounding-20M (más de 20 millones de imágenes) y logra 54,3 AP en COCO y 55,7 AP en LVIS-minival en zero-shot transfer. La versión 1.5 Edge, orientada a despliegue eficiente, reporta 75,2 FPS y 36,2 AP en LVIS-minival con TensorRT, y despliegue en NVIDIA Orin NX con más de 10 FPS (Ren, Jiang, et al., 2024).
 
-Resultados reportados. GLIP alcanza 49.8 AP en COCO y 26.9 AP en LVIS en evaluación directa zero-shot. Con fine-tuning en COCO, reporta 60.8 AP en val y 61.5 AP en test-dev. GLIPv2-H logra 60.6 AP en COCO test-dev y 59.8 AP (caja) en LVIS-minival (Li et al., 2021; Zhang et al., 2022).
+**Licencia y disponibilidad.** El repositorio del Grounding DINO original se distribuye bajo licencia Apache-2.0. Las variantes Grounding DINO 1.5 Pro y Grounding DINO 1.5 Edge se ofrecen mediante API y no publican pesos abiertos; la licencia Apache-2.0 corresponde al SDK de acceso y no al modelo (IDEA-Research, 2024c; Ren, Jiang, et al., 2024).
 
+**Implementación MM-Grounding-DINO.** MM-Grounding-DINO proporciona una tubería unificada de grounding y detección sobre la familia Grounding DINO. Sus variantes Tiny reportan entre 50,4 y 50,6 AP@[0,50:0,95] en COCO zero-shot y entre 35,7 y 41,4 AP@[0,50:0,95] en LVIS-minival, según la configuración y el backbone evaluados (X. Zhao et al., 2024).
 
-###### 15.2.1.1.2. OV-DETR
+###### 15.2.1.1.2. DINO-X
 
-Arquitectura base. OV-DETR (Zang et al., 2022) representa un enfoque temprano para llevar la detección end-to-end tipo DETR al escenario open-vocabulary. Parte de Deformable DETR como detector base (Zhu et al., 2020) y utiliza CLIP para representar consultas abiertas en forma de texto o imágenes ejemplares.
+**Arquitectura base.** DINO-X es un modelo unificado y object-centric para detección open-world/open-vocabulary, desarrollado como evolución directa de Grounding DINO 1.5, manteniendo un esquema Transformer encoder–decoder orientado a representaciones a nivel objeto. A diferencia de detectores OV que dependen estrictamente de listas de clases, DINO-X soporta múltiples tipos de prompt: texto, prompts visuales y prompts personalizados (Ren, Chen, et al., 2024).
 
-Mecanismo visión–lenguaje. El obstáculo central al extender DETR a open-vocabulary es que el entrenamiento estándar usa matching bipartito con un costo de clasificación definido sobre clases conocidas. OV-DETR evita este problema reformulando el aprendizaje como matching condicional binario: dado un concepto (texto o imagen), el modelo aprende a decidir si una predicción corresponde o no a esa consulta, en lugar de resolver una clasificación multiclase cerrada (Zang et al., 2022).
+**Mecanismo visión–lenguaje.** La idea distintiva de DINO-X es combinar flexibilidad de entrada con un mecanismo prompt-free mediante un Universal Object Prompt que permite "detectar cualquier cosa" sin definir clases específicas (Ren, Chen, et al., 2024).
 
-Resultados reportados. OV-DETR alcanza 17.4 AP en clases novedosas en el protocolo OV-LVIS y 29.4 AP50 en categorías novedosas en OV-COCO, demostrando que la formulación condicional permite detectar categorías no vistas con un marco end-to-end (Zang et al., 2022).
+**Entrenamiento.** El trabajo construye y utiliza Grounding-100M, un conjunto con más de 100 millones de muestras de grounding de alta calidad para preentrenamiento (Ren, Chen, et al., 2024).
 
-Licencia. El código se distribuye bajo licencia CC BY-NC-SA 4.0, lo que restringe el uso comercial (Zang, 2022).
+**Resultados reportados.** DINO-X Pro alcanza 56,0 AP en COCO, 59,8 AP en LVIS-minival y 63,3 AP en clases raras de LVIS-minival, estableciendo un nuevo estado del arte en detección abierta (Ren, Chen, et al., 2024).
 
+**Licencia.** DINO-X se ofrece mediante API y no publica pesos abiertos; la licencia Apache-2.0 corresponde al SDK o cliente de acceso y no a los pesos del modelo (IDEA-Research, 2024a; Ren, Chen, et al., 2024).
 
-###### 15.2.1.1.3. Grounding DINO
-
-Arquitectura base. Grounding DINO propone un detector open-set construido sobre la línea DETR/DINO, con razonamiento global vía Transformer y diseño explícito para integrar lenguaje durante la predicción. El modelo emplea una arquitectura dual-encoder/single-decoder: un backbone visual (frecuentemente Swin Transformer) extrae características multi-escala y un backbone textual (BERT) codifica el prompt (Liu et al., 2023).
-
-Mecanismo visión–lenguaje. La contribución central es una fusión multimodal profunda basada en atención cruzada en distintas etapas. Grounding DINO divide la fusión en tres componentes: Feature Enhancer (interacciones imagen–texto para alinear semántica y regiones), Language-guided Query Selection (inicializa consultas del decoder condicionadas por texto), y Cross-modality Decoder (agrega atención cruzada con texto para refinar cajas y asociar predicciones a fragmentos del prompt). Esto hace que el modelo sea especialmente efectivo con expresiones referenciales o frases con atributos (Liu et al., 2023).
-
-Resultados reportados. En configuración zero-shot, Grounding DINO reporta 52.5 AP en COCO y un récord de 26.1 mAP promedio en ODinW (Liu et al., 2023).
-
-Evolución Grounding DINO 1.5. La versión 1.5 Pro, orientada a máxima generalización, entrena con Grounding-20M (más de 20 millones de imágenes) y logra 54.3 AP en COCO y 55.7 AP en LVIS-minival en zero-shot transfer. La versión 1.5 Edge, orientada a despliegue eficiente, reporta 75.2 FPS y 36.2 AP en LVIS-minival con TensorRT, y despliegue en NVIDIA Orin NX con más de 10 FPS (Ren et al., 2024b).
-
-Licencia. El repositorio oficial se distribuye bajo licencia Apache-2.0 (IDEA-Research, 2024 -a).
-
-
-###### 15.2.1.1.4. OV-DINO
-
-Arquitectura base. OV-DINO propone un detector open-vocabulary dentro del paradigma DETR/DINO, orientado a robustecer el preentrenamiento a gran escala y reducir el impacto del ruido típico de las pseudo-anotaciones. La receta se organiza alrededor de dos ideas: unificar fuentes de datos heterogéneas en un formato "detection-centric" y mejorar la fusión multimodal durante la predicción (Wang et al., 2024).
-
-Mecanismo visión–lenguaje. OV-DINO introduce Unified Data Integration (UniDI) para integrar múltiples fuentes mitigando ruido de pseudo-labeling, y Language-Aware Selective Fusion (LASF), un módulo de fusión selectiva guiada por lenguaje para alineación visión–lenguaje más efectiva (Wang et al., 2024).
-
-Resultados reportados. En evaluación zero-shot, OV-DINO reporta 50.6 AP en COCO y 40.1 AP en LVIS-minival (Wang et al., 2024).
-
-Licencia. El repositorio oficial está bajo licencia Apache-2.0 (Wang, 2024).
-
-
-###### 15.2.1.1.5. DINO-X
-
-Arquitectura base. DINO-X es un modelo unificado y object-centric para detección open-world/open-vocabulary, desarrollado como evolución directa de Grounding DINO 1.5, manteniendo un esquema Transformer encoder–decoder orientado a representaciones a nivel objeto. A diferencia de detectores OV que dependen estrictamente de listas de clases, DINO-X soporta múltiples tipos de prompt: texto, prompts visuales y prompts personalizados (Ren et al., 2024a).
-
-Mecanismo visión–lenguaje. La idea distintiva de DINO-X es combinar flexibilidad de entrada con un mecanismo prompt-free mediante un Universal Object Prompt que permite "detectar cualquier cosa" sin definir clases específicas (Ren et al., 2024a).
-
-Entrenamiento. El trabajo construye y utiliza Grounding-100M, un conjunto con más de 100 millones de muestras de grounding de alta calidad para preentrenamiento (Ren et al., 2024a).
-
-Resultados reportados. DINO-X Pro alcanza 56.0 AP en COCO, 59.8 AP en LVIS-minival y 63.3 AP en clases raras de LVIS-minival, estableciendo un nuevo estado del arte en detección abierta (Ren et al., 2024a).
-
-Licencia. El repositorio público indica licencia Apache-2.0 (IDEA-Research, 2024 -c).
-
-
-###### 15.2.1.1.6. OmDet-Turbo
-
-Arquitectura base. OmDet-Turbo es un detector open-vocabulary basado en Transformers, diseñado explícitamente para tiempo real. El trabajo identifica cuellos de botella típicos en detectores OV tipo DETR y propone un módulo central llamado Efficient Fusion Head (EFH) que incluye ELA-Encoder (Efficient Language-Aware Encoder) para generar consultas eficientemente y ELA-Decoder que evita operaciones lentas tipo ROIAlign (Zhao et al., 2024).
-
-Caching de embeddings textuales. Un punto clave para vídeo es que, si el vocabulario se mantiene constante a lo largo de una secuencia, OmDet-Turbo permite cachear embeddings textuales evitando recomputar el backbone textual en cada frame, ahorrando aproximadamente 40 ms en la variante Tiny (Zhao et al., 2024).
-
-Resultados reportados. OmDet-Turbo-Base alcanza 53.4 AP en COCO y 34.7 AP en LVIS-minival con 18.6 FPS (PyTorch) y 100.2 FPS (TensorRT) en A100. La variante Tiny alcanza 42.5 AP en COCO con 140.0 FPS (TensorRT), posicionándolo como atractivo cuando el requerimiento dominante es latencia (Zhao et al., 2024).
-
-Licencia. El repositorio oficial se publica bajo licencia Apache-2.0 y está integrado en Hugging Face Transformers (om-ai-lab, 2024.; Hugging Face, 2024).
-
-
-##### 15.2.1.2. Bloque B: Detectores one-stage tipo YOLO con puntuación región–texto
-
+##### 15.2.1.2. Bloque B — Detectores one-stage tipo YOLO con puntuación región–texto
 
 ###### 15.2.1.2.1. YOLO-World
 
-Arquitectura base. YOLO-World adapta un detector one-stage de la familia YOLO al escenario open-vocabulary manteniendo predicción densa y diseño orientado a despliegue. Su contribución arquitectónica central es RepVL-PAN (Re-parameterizable Vision-Language Path Aggregation Network), un neck multiescala que incorpora interacción visión–lenguaje sin abandonar la estructura backbone–PAN–head propia de YOLO (Cheng et al., 2024).
+**Arquitectura base.** YOLO-World adapta un detector one-stage de la familia YOLO al escenario open-vocabulary manteniendo predicción densa y diseño orientado a despliegue. Su contribución arquitectónica central es RepVL-PAN (Re-parameterizable Vision-Language Path Aggregation Network), un neck multiescala que incorpora interacción visión–lenguaje sin abandonar la estructura backbone–PAN–head propia de YOLO (Cheng et al., 2024).
 
-Mecanismo visión–lenguaje. El modelo puntúa regiones mediante similitud en un espacio compartido región–texto. RepVL-PAN implementa esta interacción con Text-guided CSPLayer para inyectar guía textual en las features visuales e Image Pooling Attention para enriquecer embeddings textuales con contexto visual. En despliegue, YOLO-World opera con vocabulario offline y habilita una reparametrización que permite prescindir del encoder textual durante inferencia (Cheng et al., 2024).
+**Mecanismo visión–lenguaje.** El modelo puntúa regiones mediante similitud en un espacio compartido región–texto. RepVL-PAN implementa esta interacción con Text-guided CSPLayer para inyectar guía textual en las features visuales e Image Pooling Attention para enriquecer embeddings textuales con contexto visual. En despliegue, YOLO-World opera con vocabulario offline y habilita una reparametrización que permite prescindir del encoder textual durante inferencia (Cheng et al., 2024).
 
-Resultados reportados. YOLO-World-L reporta 35.4 AP en LVIS-minival con 52.0 FPS en NVIDIA V100 (sin TensorRT), mostrando un punto de operación competitivo para aplicaciones con restricción de latencia (Cheng et al., 2024).
+**Resultados reportados.** YOLO-World-L reporta 35,4 AP en LVIS-minival con 52,0 FPS en NVIDIA V100 (sin TensorRT), mostrando un punto de operación competitivo para aplicaciones con restricción de latencia (Cheng et al., 2024).
 
-Licencia. El repositorio declara licencia GPL-3.0, con posibilidad de gestionar licencia alternativa para uso comercial (AILab-CVC, 2024).
-
+**Licencia.** El repositorio declara licencia GPL-3.0, con posibilidad de gestionar licencia alternativa para uso comercial (AILab-CVC, 2024).
 
 ###### 15.2.1.2.2. YOLOE
 
-Arquitectura base. YOLOE, presentado como "Real-Time Seeing Anything", propone un modelo one-stage que unifica detección y segmentación manteniendo el esquema backbone–PAN–heads típico de YOLO. Sus módulos de alineamiento se diseñan para que, tras reparametrización, el grafo de inferencia quede equivalente al de un YOLO cerrado (Wang et al., 2025).
+**Arquitectura base.** YOLOE, presentado como "Real-Time Seeing Anything", propone un modelo one-stage que unifica detección y segmentación manteniendo el esquema backbone–PAN–heads típico de YOLO. Sus módulos de alineamiento se diseñan para que, tras reparametrización, el grafo de inferencia quede equivalente al de un YOLO cerrado (A. Wang et al., 2025).
 
-Mecanismo visión–lenguaje. YOLOE integra tres modalidades: prompts de texto mediante RepRTA (Re-parameterizable Region-Text Alignment), prompts visuales mediante SAVPE (Semantic-Activated Visual Prompt Encoder), y modo prompt-free mediante LRPC (Lazy Region-Prompt Contrast) que reformula la asignación como retrieval evitando dependencia de modelos de lenguaje en inferencia (Wang et al., 2025).
+**Mecanismo visión–lenguaje.** YOLOE integra tres modalidades: prompts de texto mediante RepRTA (Re-parameterizable Region-Text Alignment), prompts visuales mediante SAVPE (Semantic-Activated Visual Prompt Encoder), y modo prompt-free mediante LRPC (Lazy Region-Prompt Contrast) que reformula la asignación como retrieval evitando dependencia de modelos de lenguaje en inferencia (A. Wang et al., 2025).
 
-Resultados reportados. En LVIS-minival zero-shot, YOLOE-v8-S reporta 27.9 AP con 305.8 FPS (NVIDIA T4, TensorRT) y YOLOE-v8-L alcanza 35.9 AP con 102.5 FPS, superando a YOLO-Worldv2-S por +3.5 AP con mayor velocidad (Wang et al., 2025).
+**Resultados reportados.** En LVIS-minival zero-shot, YOLOE-v8-S reporta 27,9 AP con 305,8 FPS (NVIDIA T4, TensorRT) y YOLOE-v8-L alcanza 35,9 AP con 102,5 FPS, superando a YOLO-Worldv2-S por +3,5 AP con mayor velocidad (A. Wang et al., 2025).
 
-Licencia. El repositorio declara licencia AGPL-3.0, lo que introduce requisitos copyleft que pueden condicionar adopción en integraciones propietarias (THU-MIG, 2025).
+Las cifras anteriores corresponden a las variantes YOLOE-v8 evaluadas en el trabajo original, que también publica variantes construidas sobre YOLO11 (YOLOE-11) con resultados equivalentes (Wang et al., 2025). Las variantes sobre YOLO26 (YOLOE-26) son una extensión posterior de Ultralytics, sin evaluación en el trabajo original; por lo tanto, los resultados publicados para YOLOE-v8 no deben utilizarse como si fueran una medición de YOLOE-26 (Ultralytics, 2026).
 
+**Licencia.** El repositorio declara licencia AGPL-3.0, lo que introduce requisitos copyleft que pueden condicionar adopción en integraciones propietarias (THU-MIG, 2025).
 
-##### 15.2.1.3. Bloque C: Detectores Basados en Dual-Encoders (CLIP-like) y Matching por Similitud
-
+##### 15.2.1.3. Bloque C — Detectores basados en dual-encoders (CLIP-like) y matching por similitud
 
 ###### 15.2.1.3.1. OWL-ViT y OWLv2
 
-Arquitectura base. OWL-ViT propone una receta directa para llevar modelos visión–lenguaje a detección open-vocabulary usando un Vision Transformer (ViT) encoder-only con modificaciones mínimas. Se mantienen los tokens espaciales y se agregan cabezales livianos que predicen, por token, una caja y un embedding de compatibilidad. La clasificación abierta se logra reemplazando un clasificador cerrado por embeddings derivados del texto (Minderer et al., 2022).
+**Arquitectura base.** OWL-ViT propone una receta directa para llevar modelos visión–lenguaje a detección open-vocabulary usando un Vision Transformer (ViT) encoder-only con modificaciones mínimas. Se mantienen los tokens espaciales y se agregan cabezales livianos que predicen, por token, una caja y un embedding de compatibilidad. La clasificación abierta se logra reemplazando un clasificador cerrado por embeddings derivados del texto (Minderer et al., 2022).
 
-Entrenamiento. OWLv2 escala mediante self-training (OWL-ST): usa un modelo OWL-ViT como annotator para generar pseudo-cajas sobre datos web a gran escala (WebLI). OWLv2 introduce mejoras de eficiencia de entrenamiento: un objectness head para entrenar pérdidas solo sobre un subconjunto de tokens más plausibles como objeto, y token dropping durante entrenamiento (Minderer et al., 2023).
+**Entrenamiento.** OWLv2 escala mediante self-training (OWL-ST): usa un modelo OWL-ViT como annotator para generar pseudo-cajas sobre datos web a gran escala (WebLI). OWLv2 introduce mejoras de eficiencia de entrenamiento: un objectness head para entrenar pérdidas solo sobre un subconjunto de tokens más plausibles como objeto, y token dropping durante entrenamiento (Minderer et al., 2023).
 
-Resultados reportados. OWL-ViT L/14 alcanza 34.6 AP y 31.2 AP en clases raras en LVIS. OWLv2 L/14 con OWL-ST reporta 44.6 AP en clases raras zero-shot en LVIS-val, y la variante G/14 alcanza 47.2 AP en clases raras (Minderer et al., 2022, 2023).
+**Resultados reportados.** OWL-ViT L/14 alcanza 34,6 AP y 31,2 AP en clases raras en LVIS. OWLv2 L/14 con OWL-ST reporta 44,6 AP en clases raras zero-shot en LVIS-val, y la variante G/14 alcanza 47,2 AP en clases raras (Minderer et al., 2022, 2023).
 
-Licencia. Los pesos se distribuyen bajo Apache-2.0 (Google, 2022; Google, 2023).
+**Licencia.** Los pesos se distribuyen bajo Apache-2.0 (Google, 2022; Google, 2023).
 
+##### 15.2.1.4. Bloque D — Modelos guiados por prompts generalistas: generativos e híbridos
 
-###### 15.2.1.3.2. Detic
+Esta familia reúne modelos que amplían el tipo de consulta o la variedad de tareas sin compartir necesariamente un mecanismo generativo en inferencia. Florence-2 constituye el caso propiamente secuencia-a-secuencia: interpreta instrucciones de tarea y genera una representación textual de cajas, etiquetas u otras salidas estructuradas, con la flexibilidad y el costo temporal propios de la decodificación autoregresiva (Xiao et al., 2024). APE, en cambio, utiliza prompting generalista pero produce predicciones estructuradas de forma directa; LLMDet incorpora conocimiento de un LLM durante el entrenamiento y descarta ese componente en inferencia; T-Rex2 combina prompts textuales y visuales mediante una formulación multimodal (Shen et al., 2023; Fu et al., 2025; Jiang et al., 2024). En conjunto, estos trabajos muestran que el prompting generalista constituye una dimensión transversal y no equivale, por sí mismo, a generación autoregresiva.
 
-Arquitectura base. Detic ("Detecting Twenty-thousand Classes using Image-level Supervision") aborda la detección open-vocabulary desde un enfoque two-stage clásico (RPN y ROI head), planteando que en escenarios de gran vocabulario el cuello de botella no suele ser la generación de propuestas sino la clasificación de regiones (Zhou et al., 2022a).
+###### 15.2.1.4.1. Florence-2
 
-Mecanismo visión–lenguaje. En configuración open-vocabulary, Detic reemplaza el clasificador cerrado por un esquema de matching: las features de región se puntúan contra embeddings lingüísticos de los nombres de clase usando embeddings de CLIP como pesos del clasificador (Zhou et al., 2022a).
+**Arquitectura, entrenamiento y disponibilidad.** Florence-2 utiliza un encoder visual DaViT y un Transformer encoder-decoder multimodal bajo una formulación secuencia-a-secuencia: recibe una imagen y una instrucción de tarea, y genera texto o tokens de localización que representan cajas, regiones y otras salidas estructuradas. El modelo se preentrenó sobre FLD-5B, un banco de 126 millones de imágenes con 5,4 mil millones de anotaciones, y la variante large reporta 37,5 mAP en detección zero-shot sobre COCO. Esta unificación evita cabezales específicos por tarea, pero la generación autoregresiva introduce un costo temporal distinto del de los detectores de predicción directa. Los pesos publicados por Microsoft se distribuyen bajo licencia MIT (Xiao et al., 2024; Microsoft, 2024).
 
-Entrenamiento. El rasgo distintivo es cómo incorpora supervisión débil (labels a nivel imagen) para expandir el vocabulario. Su receta mezcla minibatches de datos con cajas y datos con etiquetas a nivel imagen, donde supervisa la clasificación usando la propuesta de mayor tamaño como proxy de objeto. Utiliza datasets de clasificación a gran escala (ImageNet-21K) para escalar hacia decenas de miles de conceptos (Zhou et al., 2022a).
+#### 15.2.2. Composición de modelos y pipelines de percepción
 
-Resultados reportados. En OV-LVIS, Detic reporta 26.8 mask mAP y 17.8 AP en clases raras. En OV-COCO alcanza 45.0 mAP50 (all) y 27.8 en categorías novel. Detic suele usarse como baseline fuerte para vocabularios grandes, aunque su naturaleza two-stage lo ubica lejos de objetivos de tiempo real (Zhou et al., 2022a).
+Los detectores OVD pueden integrarse en pipelines que combinan capacidades complementarias. Grounded SAM ejemplifica esta composición al encadenar detección condicionada por texto con segmentación universal, mientras que OVTrack formaliza una extensión temporal mediante tracking-by-detection en vocabulario abierto (Ren, Liu, et al., 2024; S. Li et al., 2023). El aporte conceptual de estos enfoques no es un modelo aislado, sino la posibilidad de desacoplar etapas con responsabilidades distintas.
 
-Licencia. El repositorio indica licencia Apache-2.0 (Zhou, s.f.).
+La modularidad permite sustituir componentes y ampliar capacidades, pero también acumula latencia, dependencias de integración y fuentes de variabilidad. Para sistemas de video en tiempo real, la evaluación debe considerar el pipeline completo y no sólo la precisión de cada modelo por separado; este criterio enlaza la detección con el seguimiento temporal y con las etapas posteriores de generación de eventos.
 
-
-###### 15.2.1.3.3. Familia DetCLIP
-
-Arquitectura base. La familia DetCLIP se centra en escalar el aprendizaje open-vocabulary mediante preentrenamiento que integra datos heterogéneos (detección/grounding/imagen–texto) con mecanismos que refuerzan la semántica lingüística. DetCLIP se apoya en un detector tipo ATSS con backbone Swin y expansión semántica mediante un diccionario de conceptos (Yao et al., 2022).
-
-Evolución. DetCLIPv2 reformula el objetivo hacia alineamiento fino palabra–región aprendido end-to-end directamente desde pares imagen–texto, sin depender de teachers CLIP congelados (Yao et al., 2023). DetCLIPv3 empuja el paradigma hacia detección más generativa incorporando un cabezal de captioning para etiquetas jerárquicas (Yao et al., 2024).
-
-Resultados reportados. DetCLIP reporta 35.9 AP en LVIS (Swin-T). DetCLIPv2 alcanza 40.4 AP (Swin-T) y 44.7 AP (Swin-L) en LVIS-minival. DetCLIPv3 reporta 48.8 AP en LVIS-minival (Swin-L) y 49.9 AP en categorías raras (Yao et al., 2022, 2023, 2024).
-
-
-##### 15.2.1.4. Bloque D: Modelos generativos guiados por instrucciones
-
-
-###### 15.2.1.4.1. APE (Aligning and Prompting Everything)
-
-Paradigma y tipo de consulta. APE se ubica en la línea de prompting generalista guiado por lenguaje: el mismo modelo puede ejecutarse como detección/segmentación open-vocabulary y como grounding a partir de listas grandes de categorías y/o descripciones en lenguaje natural. Aunque es guiado por prompts, APE no depende de decodificación autoregresiva, produciendo predicciones estructuradas de manera directa (Shen et al., 2023).
-
-Arquitectura base. APE se construye sobre un pipeline tipo DETR (encoder–decoder Transformer) y combina vision backbone (ViT), modelo de lenguaje para embeddings de prompts, cross-modality encoder para fusionar texto–imagen, y decoder que produce predicciones a nivel objeto. Soporta salidas de detección (cajas) y segmentación (máscaras) (Shen et al., 2023).
-
-Mecanismo visión–lenguaje. El núcleo de APE es alinear instancias con texto mediante una formulación unificada: cada prompt se procesa de forma independiente y el modelo calcula puntajes de alineamiento mediante producto punto. Para escalar a miles de categorías sin costo prohibitivo, APE introduce una interacción cross-modal "gated" que puede simplificarse para vocabularios grandes (Shen et al., 2023).
-
-Resultados reportados. APE-L (D) reporta 59.6 AP (caja) y 53.0 AP (máscara) en LVIS, y 58.3 AP (caja) en COCO con un solo conjunto de pesos. En suites "in the wild", reporta 64.7 en Roboflow100 y 57.9 en ODinW-13 (Shen et al., 2023).
-
-Licencia. El repositorio declara licencia Apache-2.0 (Shen, s.f.).
-
-
-###### 15.2.1.4.2. Florence-2
-
-Paradigma y tipo de consulta. Florence-2 se enmarca en el paradigma generativo guiado por instrucciones: interpreta un prompt textual de tarea (por ejemplo, "object detection", "dense caption", "OCR") y genera una salida en texto que se post-procesa para recuperar cajas, etiquetas u otras estructuras. Opera con task tokens y puede combinarse con texto adicional (Xiao et al., 2024).
-
-Arquitectura base. Florence-2 adopta una formulación sequence-to-sequence con un Transformer encoder–decoder multimodal. El input combina tokens visuales producidos por un encoder de visión DaViT (Dual Attention Vision Transformer) y embeddings del prompt de tarea. Para representar salida espacial, el modelo amplía el vocabulario con tokens de localización cuantizados usando 1000 bins (Xiao et al., 2023; Ding et al., 2022).
-
-Entrenamiento. El modelo se preentrena sobre FLD-5B, un dataset con 126 millones de imágenes y más de 5 mil millones de anotaciones desglosadas como 500 millones de anotaciones de texto, 1.3 mil millones de anotaciones región–texto y 3.6 mil millones de anotaciones texto–frase–región (Xiao et al., 2023).
-
-Resultados reportados. En zero-shot, Florence-2-L (0.77B parámetros) reporta 37.5 mAP en COCO Det y 135.6 CIDEr en COCO Caption. Tras fine-tuning multitarea, alcanza 43.4 mAP en COCO Det y 93.4 Accuracy@0.5 en RefCOCO (Xiao et al., 2023).
-
-Implicaciones para vídeo. Un solo modelo puede cubrir detección, grounding, captioning y OCR, útil para prototipado rápido. Sin embargo, al ser autoregresivo, el costo de inferencia y la latencia tienden a ser más altos y variables, y en vídeo esa variabilidad suele traducirse en inestabilidad temporal si no se complementa con tracking (Xiao et al., 2023).
-
-Licencia. Los pesos publicados para Florence-2-large indican licencia MIT (Microsoft, 2024).
-
-
-###### 15.2.1.4.3. LLMDet
-
-Paradigma y tipo de consulta. LLMDet se ubica en una línea híbrida: incorpora señales generativas y conocimiento lingüístico de un LLM durante el entrenamiento, pero en inferencia opera como un detector open-vocabulary convencional sin LLM. El tipo de consulta en despliegue es el habitual: lista de clases y/o frases (Fu et al., 2025).
-
-Arquitectura base. El trabajo toma como detector base MM Grounding DINO y añade un proyector que mapea features visuales al espacio de entrada del LLM, y un LLM que recibe features globales y por región para generar texto durante entrenamiento. El LLM se descarta en inferencia, eliminando overhead en producción (Fu et al., 2025).
-
-Entrenamiento. Se construye el conjunto GroundingCap-1M, en el cual cada muestra incluye una imagen, texto de grounding, cajas asociadas a frases y un caption largo. El entrenamiento combina la pérdida de grounding del detector con pérdidas de language modeling, orientadas tanto a la generación de captions largos a nivel de imagen como de descripciones cortas a nivel de región. La incorporación de captions largos contribuye a mejorar el desempeño en clases raras y escenarios de long-tail (Fu et al., 2025).
-
-Resultados reportados. Con Swin-L, LLMDet reporta 51.1 AP en LVIS-minival y 42.0 AP en LVIS-val, con mejoras marcadas en clases raras. También reportan mejoras en ODinW y robustez ante shift de distribución en COCO-O (Fu et al., 2025).
-
-Licencia. El repositorio indica licencia Apache-2.0 (iSEE-Laboratory, 2025).
-
-
-###### 15.2.1.4.4. T-Rex2
-
-Paradigma y tipo de consulta. T-Rex2 entra en el Bloque D por su foco en prompting generalista multimodal: soporta prompts de texto, prompts visuales y prompts combinados, distinguiendo flujos interactivos (refinables) y genéricos (visual prompts reutilizables) (Jiang et al., 2024).
-
-Arquitectura base. El paper plantea un modelo práctico de open-set object detection que explota la complementariedad: texto abstrae bien objetos comunes, mientras los prompts visuales representan mejor objetos raros o difíciles de describir. Su contribución de ingeniería clave es una fusión tardía que permite iterar/refinar prompts sin recalcular el encoder de imagen múltiples veces (Jiang et al., 2024).
-
-Entrenamiento. El paper reporta entrenamiento diferenciado para texto y visual prompts con mezcla de datos etiquetados y pseudo-etiquetas, incluyendo self-training sobre SA-1B para visual prompts y cyclical training alternando texto/visual (Jiang et al., 2024).
-
-Resultados reportados. Con Swin-L, T-Rex2 alcanza 46.7 AP en LVIS-minival (texto) y 46.8 AP (visual-genérico), además de números competitivos en ODinW y Roboflow100. El trabajo muestra que el texto gana en categorías frecuentes mientras que el visual gana en muchas categorías raras (Jiang et al., 2024).
-
-Implicación para vídeo. T-Rex2 es interesante por permitir anclar la detección a un ejemplo visual (útil para seguimiento) y por fusión tardía que favorece flujos interactivos sin multiplicar el costo del encoder visual (Jiang et al., 2024).
-
-
-##### 15.2.1.5. Bloque E — Pipelines, segmentación y despliegue (extensiones prácticas)
-
-
-###### 15.2.1.5.1. Grounded SAM y Grounded SAM 2
-
-Paradigma. Grounded SAM es representativo de una estrategia de pipeline (ensamblado de modelos foundation) más que de una arquitectura monolítica: resuelve segmentación open-vocabulary descomponiéndola en grounding/detección condicionado por texto y segmentación guiada condicionada por cajas/puntos (Ren et al., 2024c).
-
-Arquitectura base. El pipeline estándar es: 1) Grounding DINO, 2) cajas (condicionadas por prompt textual) y luego 3) SAM con máscaras usando esas cajas como box prompts. SAM por sí solo no "entiende" texto; Grounded SAM lo vuelve text-promptable delegando la parte semántica al detector open-set (Kirillov et al., 2023; Ren et al., 2024c).
-
-Evolución Grounded SAM 2. Grounded SAM 2 actualiza el componente de segmentación a SAM 2 (que soporta imagen y vídeo) y agrega demos de "ground & track". El repositorio soporta varios grounders (Grounding DINO, Florence-2, DINO-X) combinables con SAM 2 para segmentación y tracking (IDEA-Research, 2024 -b; Ravi et al., 2024).
-
-Resultados reportados. Grounded SAM reporta 48.7 mean AP en SegInW con Grounding DINO-Base + SAM-Huge (Ren et al., 2024c).
-
-Valor práctico. El pipeline es ideal para auto-anotación y análisis donde la segmentación precisa vale más que la latencia. En vídeo, Grounded SAM 2 empuja hacia ground & track con SAM 2, aunque el costo de encadenar modelos grandes no es el camino natural al tiempo real estricto (Ren et al., 2024c).
-
-Licencia. Grounded-Segment-Anything se distribuye bajo Apache-2.0; Grounded-SAM-2 incluye componentes bajo Apache-2.0 y BSD-3-Clause (IDEA-Research, 2023; IDEA-Research, 2024 -b).
-
-
-###### 15.2.1.5.2. OVTrack
-
-Paradigma. OVTrack formaliza open-vocabulary multiple object tracking (MOT) como un problema donde, en test, el sistema recibe una lista de clases de interés (base + novel) y debe detectar y asociar instancias a lo largo del tiempo. La evaluación permite medir precisión/recobrado y calidad de clasificación para clases no vistas durante entrenamiento (Li et al., 2023).
-
-Arquitectura base. OVTrack sigue el paradigma tracking-by-detection: localizador agnóstico a clase basado en Faster R-CNN para proponer cajas por frame, cabezas de embeddings (texto e imagen) para reemplazar el clasificador cerrado por un mecanismo abierto, y head de tracking que produce embedding de apariencia y realiza asociación mediante memoria de tracks (Li et al., 2023).
-
-Entrenamiento. OVTrack entrena el tracker usando sólo imágenes estáticas (LVIS), evitando dependencia de grandes datasets de vídeo etiquetados. Para aprender apariencia útil en tracking sin vídeo real, introduce data hallucination con modelos de difusión (DDPM) para sintetizar pares de instancias positivas/negativas (Li et al., 2023).
-
-Resultados reportados. En TAO open-vocabulary, OVTrack obtiene TETA 35.5 (base) y 27.8 (novel) en validation, y TETA 32.6 (base) y 24.1 (novel) en test (Li et al., 2022, 2023).
-
-Implicaciones para despliegue. El embedding textual del vocabulario puede precalcularse/cachearse si la lista de clases se mantiene fija. Al depender de un detector two-stage por frame más asociación por embeddings, no está pensado como solución real-time end-to-end, sino como baseline fuerte y medible para escenarios abiertos y long-tail (Li et al., 2023).
-
-Licencia. El repositorio reporta licencia Apache-2.0 (SysCV, 2023).
-
-
-###### 15.2.1.5.3. Roboflow Rapid
-
-Paradigma. Roboflow Rapid no es un modelo OVD en sentido estricto de inferencia con vocabulario abierto, sino un pipeline de operacionalización: parte de una consulta en lenguaje natural y/o ejemplos para auto-etiquetar, entrenar y desplegar rápidamente un detector funcional. El lenguaje se usa principalmente para definir el concepto y generar etiquetas, mientras que el modelo final opera como detector especialista (Deschere, 2025).
-
-Arquitectura del sistema. Rapid implementa un flujo de extremo a extremo: ingesta de imágenes o vídeo, etiquetado asistido por prompt, entrenamiento de un modelo RF-DETR custom, y despliegue automático vía Roboflow Serverless API (Robicheaux et al., 2025; Roboflow, 2025a, 2025b).
-
-Implicaciones prácticas. Rapid es útil para acelerar baselines y datasets, pero no reemplaza un OVD "real" cuando el requisito es cambiar vocabulario en tiempo de ejecución sin reentrenar. El modelo final se comporta más como cerrado/dominio-específico que como vocabulario abierto en tiempo de ejecución (Roboflow, 2025a).
-
-Licencia. Rapid es un producto/plataforma sujeto a condiciones del servicio. RF-DETR (arquitectura base) se publica como open-source bajo Apache-2.0 (Robicheaux et al., 2025; Robinson et al., 2025).
-
-
-#### 15.2.2. Composición de Modelos y Pipelines de Percepción
-
-Los paradigmas arquitectónicos analizados en la sección 15.2.1 comparten un supuesto implícito: el modelo de detección opera como un componente autosuficiente que recibe una imagen y produce un conjunto de cajas delimitadoras con puntajes de compatibilidad semántica. Sin embargo, la experiencia acumulada en la literatura y en los ecosistemas de despliegue muestra que, en la práctica, los modelos OVD rara vez operan de manera aislada. Del análisis realizado, se identifican enfoques composicionales que integran capacidades complementarias —detección, segmentación de instancias y seguimiento temporal— para abordar tareas que exceden el alcance de un detector individual (Ren et al., 2024). Esta observación es relevante para el marco teórico del proyecto porque introduce una dimensión de diseño que no se reduce a la selección de un modelo, sino a la articulación de capacidades en una arquitectura de percepción.
-
-El exponente más representativo de este enfoque composicional es Grounded SAM (Ren et al., 2024), un pipeline que descompone la segmentación open-vocabulary en dos etapas encadenadas: primero, un detector condicionado por texto —típicamente Grounding DINO (Liu et al., 2023)— genera cajas delimitadoras asociadas a las descripciones del prompt; luego, un modelo de segmentación universal —SAM, Segment Anything Model (Kirillov et al., 2023)— produce máscaras de instancia precisas utilizando esas cajas como señal de localización. El diseño es deliberadamente modular: SAM por sí solo carece de comprensión semántica, y Grounding DINO por sí solo no produce segmentación; es la composición la que habilita una capacidad que ninguno de los componentes posee individualmente. Esta arquitectura composicional introduce un compromiso explícito. Por un lado, la modularidad permite sustituir componentes de manera independiente —reemplazar el detector, actualizar el segmentador o intercalar etapas de procesamiento— sin rediseñar el pipeline completo. Por otro lado, la ejecución secuencial de múltiples modelos foundation acumula latencia y consumo de recursos, lo que limita su aplicabilidad directa en escenarios de video en tiempo real con requisitos estrictos de latencia extremo a extremo. Esta tensión entre modularidad y eficiencia es inherente al patrón composicional y debe considerarse como un factor de diseño en la evaluación de alternativas para etapas posteriores.
-
-La evolución hacia Grounded SAM 2 (Ravi et al., 2024) extiende el pipeline al dominio temporal, incorporando SAM 2 como componente de segmentación capaz de operar tanto sobre imágenes estáticas como sobre secuencias de video, habilitando funcionalidades de segmentación y seguimiento combinados (ground and track).
-
-Paralelamente, trabajos como OVTrack (S. Li et al., 2023) formalizan el problema del seguimiento multi-objeto en vocabulario abierto (open-vocabulary MOT), donde el sistema debe detectar y asociar temporalmente instancias de clases tanto conocidas como no vistas durante el entrenamiento. OVTrack adopta el paradigma tracking-by-detection con un localizador agnóstico a clase y cabezas de embeddings textuales y visuales para clasificación abierta, entrenando exclusivamente sobre imágenes estáticas mediante técnicas de data hallucination con modelos de difusión para sintetizar pares de apariencia (S. Li et al., 2023). Si bien el análisis detallado de los mecanismos de seguimiento temporal se desarrolla en la sección 15.3, la existencia de OVTrack como marco formalizado refuerza la observación de que la OVD se concibe cada vez más como un componente dentro de un sistema de percepción más amplio, no como una solución terminal.
-
-La implicación de esta tendencia es que, en la práctica industrial y en la literatura reciente, los sistemas de percepción basados en OVD no se despliegan como detectores aislados, sino como cadenas de procesamiento donde la detección semántica constituye una etapa dentro de un flujo más amplio que típicamente incluye preprocesamiento de la señal visual, segmentación, seguimiento temporal y generación de eventos o alertas (S. Li et al., 2023; Ren et al., 2024). Esta observación refuerza que la evaluación de modelos OVD no puede limitarse a métricas de precisión aisladas, sino que debe considerar la integrabilidad de cada componente dentro de pipelines compuestos, incluyendo factores como la compatibilidad de formatos de entrada y salida entre etapas, el overhead acumulado por la ejecución secuencial de modelos y la estabilidad temporal de las predicciones a lo largo del flujo.
-
-
-#### 15.2.3. Síntesis Comparativa y Trade-Offs para Tiempo Real
+#### 15.2.3. Síntesis comparativa y trade-offs para tiempo real
 
 La Tabla 2 sintetiza las características fundamentales de los cuatro paradigmas arquitectónicos analizados, con énfasis en las dimensiones más relevantes para la viabilidad del sistema E-OVRT-VDP en un contexto de vídeo en tiempo real.
 
-Tabla 2
+**Tabla 2**
 
-Síntesis comparativa de paradigmas arquitectónicos OVD según dimensiones relevantes para sistemas de video en tiempo real
+*Síntesis comparativa de paradigmas arquitectónicos OVD según dimensiones relevantes para sistemas de video en tiempo real*
 
-
-| Paradigma | Modelo(s) representativos | Mecanismo visión-lenguaje | Fortaleza principal | Limitación para tiempo real |
+| **Paradigma** | **Modelo(s) representativos** | **Mecanismo visión-lenguaje** | **Fortaleza principal** | **Limitación para tiempo real** |
 | --- | --- | --- | --- | --- |
-| DETR/DINO + fusión profunda | Grounding DINO, OV-DINO, OmDet-Turbo, DINO-X | Fusión multimodal en decoder mediante atención cruzada visión-lenguaje | Alta precisión semántica; manejo de expresiones referenciales complejas | Costo computacional elevado; requiere optimización explícita para tiempo real |
+| DETR/DINO + fusión profunda | Grounding DINO, MM-Grounding-DINO, DINO-X | Fusión multimodal en decoder mediante atención cruzada visión-lenguaje | Alta precisión semántica; manejo de expresiones referenciales complejas | Costo computacional elevado; requiere optimización explícita para tiempo real |
 | One-stage YOLO + puntuación región-texto | YOLO-World, YOLOE | Alineamiento región-texto reparametrizable; reducción progresiva del overhead de fusión mediante reparametrización | Alta velocidad de inferencia; compatible con hardware de borde | Menor expresividad semántica frente a consultas complejas o con atributos compuestos |
-| Dual-encoder CLIP-like + matching por similitud | OWL-ViT, OWLv2, DetCLIP | Matching por similitud en espacio de embeddings compartido; reutilización directa de preentrenamiento contrastivo | Modularidad; cambio de vocabulario sin modificar el modelo | latencia variable según tamaño del vocabulario; requiere caching para vocabularios estables; requiere cómputo de embeddings por consulta |
-| Generativo guiado por instrucciones | Florence-2, APE | Florence-2: decodificación autoregresiva seq2seq condicionada por instrucciones; APE: predicción directa con alineamiento por producto punto (Xiao et al., 2023; Shen et al., 2023) | Flexibilidad multitarea; soporte para prompts complejos y multimodales | Florence-2: latencia de inferencia variable e inestabilidad temporal por decodificación autoregresiva; APE: costo de prompting masivo escalable pero sin garantías de tiempo real estricto |
+| Dual-encoder CLIP-like + matching por similitud | OWL-ViT, OWLv2 | Matching por similitud en espacio de embeddings compartido; reutilización directa de preentrenamiento contrastivo | Modularidad; cambio de vocabulario sin modificar el modelo | latencia variable según tamaño del vocabulario; requiere caching para vocabularios estables; requiere cómputo de embeddings por consulta |
+| Prompts generalistas: generativo e híbrido | Florence-2, APE, LLMDet, T-Rex2 | Mecanismos heterogéneos: generación autoregresiva en Florence-2; predicción directa o integración híbrida en APE, LLMDet y T-Rex2 | Flexibilidad multitarea; soporte para prompts complejos y multimodales | Florence-2: latencia de inferencia variable e inestabilidad temporal por decodificación autoregresiva; APE: costo de prompting masivo escalable pero sin garantías de tiempo real estricto |
 
-Nota. La columna “Limitación para tiempo real” describe el principal factor restrictivo de cada paradigma en escenarios de monitoreo continuo. Los modelos listados son representativos de cada familia; no constituyen una lista exhaustiva. Las métricas de velocidad son contextuales al hardware y configuración de inferencia reportados en la literatura primaria. Fuente: Elaboración propia basada en las fuentes mencionadas (Cheng et al., 2024; Liu et al., 2023; Minderer et al., 2022, 2024; A. Wang et al., 2025; Xiao et al., 2023).
+*Nota.* La columna “Limitación para tiempo real” describe el principal factor restrictivo de cada paradigma en escenarios de monitoreo continuo. Los modelos listados son representativos de cada familia; no constituyen una lista exhaustiva. Las métricas de velocidad son contextuales al hardware y configuración de inferencia reportados en la literatura primaria. Fuente: Elaboración propia basada en las fuentes mencionadas (Cheng et al., 2024; Liu et al., 2024; Minderer et al., 2022, 2023; A. Wang et al., 2025; Xiao et al., 2024).
+
+El régimen de disponibilidad constituye una dimensión independiente del rendimiento. YOLO-World y YOLOE se publican bajo GPL-3.0 y AGPL-3.0, respectivamente, mientras que el Grounding DINO original y OWLv2 utilizan licencias permisivas Apache-2.0; por otra parte, Grounding DINO 1.5 y DINO-X se ofrecen mediante API sin pesos abiertos. Estas diferencias afectan la reproducción independiente, la redistribución de artefactos y la continuidad tecnológica, aun en un prototipo académico. Por ello, la comparación de alternativas debe distinguir entre licencia del código, licencia de los pesos y condiciones del servicio de acceso (AILab-CVC, 2024; Google, 2022, 2023; IDEA-Research, 2024a, 2024c; THU-MIG, 2025).
 
 Como complemento a esta síntesis por paradigmas, en la Tabla A.1 del Anexo A se incluye una matriz ampliada orientada a prototipado, donde se comparan modelos representativos según familia arquitectónica, mecanismo visión-lenguaje, métricas reportadas, rendimiento y licenciamiento. Dicha matriz conserva el detalle técnico necesario para respaldar la selección posterior de alternativas, sin sobrecargar el cuerpo principal del estado del arte.
 
-Del análisis comparativo emergen tres tensiones técnicas que deben considerarse explícitamente como criterios orientadores para la selección tecnológica en etapas posteriores. La primera es la tensión entre precisión semántica y latencia de inferencia, ya que los modelos con fusión visión-lenguaje más profunda logran mayor robustez frente a consultas complejas, pero a un costo computacional que puede comprometer la tasa de frames procesados. La segunda es la tensión entre generalización zero-shot y especialización de dominio, cuya cuestión principal reside en que los benchmarks estándar sobre los que se reportan los resultados no representan las condiciones visuales de una obra civil, por lo que el desempeño reportado en la literatura no es directamente transferible al dominio objetivo. Esta tensión adquiere una dimensión adicional cuando se considera la posibilidad de adaptación de dominio mediante fine-tuning. El análisis detallado realizado anteriormente refleja que la capacidad de preservar la generalización open-vocabulary durante el ajuste de pesos varía sustancialmente entre familias arquitectónicas. Los detectores con fusión visión-lenguaje profunda y no removible, como Grounding DINO, exhiben mayor resiliencia, mientras que los detectores con módulos de texto reparametrizables, como YOLO-World y YOLOE, tienden a converger hacia un comportamiento closed-set bajo las configuraciones estándar de fine-tuning (Cheng et al., 2024; X. Zhao et al., 2024). Esta diferenciación entre arquitecturas constituye un factor relevante para la selección de modelos cuando se anticipa la necesidad de adaptación al dominio de la construcción civil. La tercera es la tensión entre expresividad semántica y simplicidad del prompt: consultas más precisas requieren mayor cuidado en la formulación, introduciendo una variable de diseño que no existe en sistemas closed-set.
+Del análisis comparativo emergen tres tensiones técnicas que deben considerarse como criterios de selección. La primera es la tensión entre precisión semántica y latencia de inferencia: los modelos con fusión visión-lenguaje más profunda suelen ofrecer mayor capacidad frente a consultas complejas, pero con un costo computacional que puede reducir la tasa de procesamiento. La segunda es la tensión entre generalización zero-shot y especialización de dominio: los benchmarks generales no representan por sí mismos las condiciones visuales de una obra civil. Esta tensión se extiende al fine-tuning. La evidencia revisada no permite atribuir la retención open-vocabulary a una familia arquitectónica por sí sola, porque las comparaciones utilizan datos, módulos entrenables y protocolos diferentes. La retención depende de la receta aplicada: qué parámetros se ajustan o congelan, si se conserva supervisión lingüística amplia y si se evalúan categorías no vistas (Cheng et al., 2024; Minderer et al., 2023; X. Zhao et al., 2024). Por ello, debe describirse para cada configuración y no inferirse de la profundidad o removibilidad de la fusión. La tercera es la tensión entre expresividad semántica y simplicidad del prompt: las consultas más precisas exigen mayor control de formulación, introduciendo una variable de diseño ausente en sistemas closed-set.
 
-Una observación transversal del análisis es que la reutilización de embeddings textuales entre cuadros consecutivos —cuando el vocabulario de consulta permanece estable— constituye la estrategia más relevante para aproximar la inferencia OVD a los requisitos de tiempo real, independientemente del paradigma arquitectónico adoptado (A. Wang et al., 2025; Zhao et al., 2024). Es en este contexto donde el conjunto de condiciones de riesgo se define al inicio de la sesión y se mantiene constante, esta estrategia es directamente aplicable y puede reducir significativamente el overhead de la fusión multimodal.
+Una observación transversal es que, en los modelos que permiten reutilizar la representación textual, el cacheo de embeddings entre cuadros reduce el costo recurrente cuando el vocabulario permanece estable (A. Wang et al., 2025; T. Zhao et al., 2024). Dado que las condiciones de riesgo se definen al inicio de la sesión y se mantienen constantes, esta estrategia resulta directamente aplicable al escenario considerado.
 
 Adicionalmente, la tendencia hacia pipelines composicionales descrita en esta sección introduce una cuarta tensión que opera en un plano distinto a las anteriores: la tensión entre modularidad e integrabilidad. Los enfoques que ensamblan múltiples modelos foundation —como la combinación de un detector OVD con un segmentador universal— ofrecen mayor flexibilidad para sustituir componentes y abordar tareas compuestas, pero acumulan latencia de inferencia por la ejecución secuencial de etapas y aumentan la complejidad de integración entre formatos de entrada y salida. Esta tensión no invalida el patrón composicional, pero señala que la evaluación de alternativas en etapas posteriores deberá considerar no solo el rendimiento de cada modelo de forma aislada, sino el costo total del pipeline resultante bajo las restricciones temporales del escenario de aplicación.
 
+##### 15.2.3.1. Análisis de rendimiento para tiempo real
 
-##### 15.2.3.1. Análisis de Rendimiento para Tiempo Real
+Desde el punto de vista del desempeño temporal, varios de los modelos analizados presentan características compatibles con aplicaciones de análisis de vídeo en tiempo real. La Tabla 3 resume puntos de operación publicados para modelos representativos y calcula, a partir de sus FPS, una latencia teórica por cuadro; estos valores no constituyen mediciones homogéneas de latencia.
 
-Desde el punto de vista del desempeño temporal, varios de los modelos analizados presentan características compatibles con aplicaciones de análisis de vídeo en tiempo real. La Tabla 3 resume el rendimiento reportado por los modelos más representativos, considerando distintos compromisos entre velocidad de inferencia, precisión en benchmarks open-vocabulary y viabilidad de despliegue sobre hardware acelerado.
+**Tabla 3**
 
-Tabla 3
+*Análisis comparativo de rendimiento de modelos OVD para tiempo real*
 
-Análisis comparativo de rendimiento de modelos OVD para tiempo real
-
-
-| Modelo | Hardware | Framework | FPS | Latencia | LVIS AP |
+| **Modelo** | **Hardware** | **Framework** | **FPS** | **Latencia derivada (ms/cuadro)** | **LVIS-minival AP@[0,50:0,95]** |
 | --- | --- | --- | --- | --- | --- |
-| YOLOE-v8-S | T4 | TensorRT | 305.8 | 3.3 ms | 27.9 |
-| OmDet-Turbo-Tiny | A100 | TensorRT | 140.0 | 7.1 ms | 30.3 |
-| YOLOE-v8-L | T4 | TensorRT | 102.5 | 9.8 ms | 35.9 |
-| OmDet-Turbo-Base | A100 | TensorRT | 100.2 | 10 ms | 34.7 |
-| G-DINO 1.5 Edge | A100 | TensorRT | 75.2 | 13.3 ms | 36.2 |
-| YOLO-World-L | V100 | PyTorch | 52.0 | 19.2 ms | 35.4 |
+| YOLOE-v8-S | T4 | TensorRT | 305,8 | 3,3 ms | 27,9 |
+| YOLOE-v8-L | T4 | TensorRT | 102,5 | 9,8 ms | 35,9 |
+| G-DINO 1.5 Edge | A100 | TensorRT | 75,2 | 13,3 ms | 36,2 |
+| YOLO-World-L | V100 | PyTorch | 52,0 | 19,2 ms | 35,4 |
 
-Nota: Los valores de FPS, latencia y AP reportados provienen de los trabajos originales y no siempre fueron obtenidos bajo condiciones idénticas de hardware, resolución, batch size o framework. En consecuencia, deben interpretarse como indicativos y comparativos, no como benchmarks estrictamente normalizados. Fuente: elaboración propia basada en Wang et al. (2025), Zhao et al. (2024), Ren et al. (2024b) y Cheng et al. (2024).
+*Nota.* La columna «Latencia derivada» se calculó como 1000/FPS y expresa milisegundos por cuadro inferidos de la tasa publicada; no corresponde a una medición independiente de latencia. Los valores de FPS y AP provienen de trabajos originales con hardware, resolución, batch size y runtime no homogéneos. Por ello, la tabla muestra puntos de operación indicativos, no benchmarks normalizados ni latencia extremo a extremo. Fuente: elaboración propia basada en A. Wang et al. (2025), Ren, Jiang, et al. (2024) y Cheng et al. (2024).
 
+Los puntos de operación de la tabla describen rendimiento publicado sobre benchmarks generales y no constituyen una predicción del desempeño sobre condiciones de EPP en construcción. La brecha entre benchmark general y condición de dominio se desarrolla en la sección 15.2.5.4.
 
-#### 15.2.4. Ventajas, Limitaciones y Trade-Offs Observables
+#### 15.2.4. Adaptabilidad mediante fine-tuning y preservación de capacidad open-vocabulary
 
-El análisis de arquitecturas y modelos de detección open-vocabulary pone de manifiesto que no existe una solución dominante que optimice simultáneamente precisión semántica, latencia, robustez open-set y facilidad de despliegue. En la práctica, cada enfoque introduce compromisos específicos que deben evaluarse en función del contexto de aplicación, particularmente cuando el objetivo es el análisis de video en tiempo real.
+El ajuste de un modelo preentrenado introduce un compromiso entre especialización de dominio y preservación de las representaciones adquiridas. La literatura muestra que actualizar todos los parámetros puede mejorar el desempeño in-domain y, al mismo tiempo, deteriorar la generalización fuera de distribución frente a estrategias que congelan la mayor parte del modelo; este fenómeno se vincula con el olvido catastrófico (catastrophic forgetting) y exige medir la retención de forma explícita (Kirkpatrick et al., 2017; Kumar et al., 2022). Cuando la evidencia del dominio es limitada, la cantidad y ubicación de los parámetros actualizados también importan: el ajuste selectivo de capas puede preservar mejor información preentrenada que el ajuste completo (Lee et al., 2023).
 
+En Grounding DINO se documentan fine-tuning closed-set, preentrenamiento continuado open-set y ajuste open-vocabulary; MM-Grounding-DINO muestra que la retención depende de mantener supervisión y evaluación sobre categorías no vistas (X. Zhao et al., 2024). La adaptación con LoRA constituye una variante de actualización acotada en la que se conservan congelados los backbones y se entrenan adaptadores de bajo rango (Rasaee et al., 2025). Como referencia de especialización, Grounding DINO con Swin-L reporta 62,6 AP en COCO val y 63,0 AP en test-dev tras fine-tuning closed-set, frente a 52,5 AP en su evaluación zero-shot; los regímenes no son equivalentes y no deben confundirse (Liu et al., 2024).
 
-##### 15.2.4.1. Eficiencia y Latencia
+Para YOLO-World, la documentación distingue el ajuste con MixedGroundingDataset, que conserva textos y tareas de grounding, del ajuste closed-set con MultiModalDataset y vocabulario fijo. La variante reparametrizada elimina RepVL-PAN y el encoder textual, con lo cual prioriza eficiencia a costa de cerrar el vocabulario. El ajuste del encoder textual puede degradar la generalización, mientras que congelarlo o conservar supervisión abierta reduce ese riesgo (AILab-CVC, 2024; Cheng et al., 2024).
 
-Los modelos que declaran soporte para escenarios de tiempo real suelen apoyarse en dos estrategias principales. La primera consiste en reducir el costo de la fusión multimodal, ya sea limitando el uso de atención cruzada profunda o reparametrizando la influencia del lenguaje para preservar el paralelismo de la inferencia (Zhao et al., 2024). La segunda se basa en el caching de embeddings textuales, especialmente relevante en flujos de video donde el vocabulario permanece constante durante intervalos prolongados.
+YOLOE ofrece linear probing y full tuning para transferencia a un dominio. La receta estándar produce un modelo de vocabulario fijo después del ajuste; los autores no reportan una métrica de retención open-vocabulary para ese camino. Evaluarla exige reinyectar vocabulario abierto y aplicar un protocolo explícito, de modo que especialización in-domain y capacidad abierta permanezcan como dimensiones separadas (A. Wang et al., 2025).
 
-En este sentido, enfoques como OmDet-Turbo hacen explícita esta línea de diseño, permitiendo amortizar el costo del procesamiento lingüístico a lo largo de múltiples cuadros (T. Zhao et al., 2024). De forma complementaria, variantes optimizadas como Grounding DINO 1.5 Edge formalizan una orientación específica a despliegues acelerados, reportando métricas concretas de FPS bajo inferencia optimizada con TensorRT (Ren et al., 2024b). YOLOE representa el avance más significativo al lograr overhead cero después de reparametrización, igualando exactamente la velocidad de detectores YOLO estándar (Wang et al., 2025).
+En los dual-encoders, el ajuste de extremo a extremo sobre datasets cerrados requiere estrategias de regularización para evitar el colapso del espacio de embeddings compartido del que depende la capacidad abierta (Minderer et al., 2022). OWLv2 aporta además la receta OWL-ST de autoentrenamiento con pseudoanotaciones; el uso de un vocabulario diverso derivado de n-gramas preserva mejor la generalización que un espacio de etiquetas estrecho (Minderer et al., 2023). En Florence-2, el ajuste mediante LoRA modifica una fracción acotada de parámetros, aunque la retención de clases base se informa como parcial y dependiente de la configuración (Ucar et al., 2025; Xiao et al., 2024).
 
+En síntesis, no existe una jerarquía universal de familias frente al fine-tuning. La comparación defendible se realiza por receta concreta, distinguiendo parámetros actualizados, datos de adaptación y evaluación posterior de generalización. La Tabla 4 resume las estrategias documentadas y sus condiciones de retención.
 
-##### 15.2.4.2. Generalización Semántica y Robustez Open-Set
+**Tabla 4**
 
-Desde el punto de vista de la generalización, los modelos con fusión visión-lenguaje profunda tienden a mostrar mayor robustez frente a conceptos no vistos y descripciones complejas. Grounding DINO enfatiza una integración estrecha entre lenguaje y visión, con evaluaciones explícitas en benchmarks como COCO, LVIS y ODinW (Liu et al., 2023). DINO-X alcanza 63.3 AP en categorías raras de LVIS, demostrando capacidad excepcional para el long-tail semántico (Ren et al., 2024a).
+*Estrategias de fine-tuning documentadas y retención OVD reportada por familia arquitectónica*
 
-Enfoques como OV-DINO introducen mecanismos adicionales para reducir el ruido asociado al pseudo-etiquetado y mejorar la alineación selectiva guiada por lenguaje (Wang et al., 2024). LLMDet demuestra que la integración de conocimiento lingüístico externo vía un LLM puede llevar la detección open-vocab a niveles de precisión sin precedentes, aunque con arquitectura compleja y alta demanda computacional (Fu et al., 2025).
-
-
-##### 15.2.4.3. Licencias y Riesgo de Adopción
-
-Un aspecto frecuentemente subestimado en el análisis técnico, pero crucial para prototipos con proyección, es el régimen de licenciamiento. YOLO-World y YOLOE presentan casos paradigmáticos: ofrecen combinaciones muy competitivas de velocidad y precisión open-vocabulary, pero sus licencias GPLv3 y AGPL-3.0 respectivamente introducen restricciones relevantes para usos comerciales o integraciones cerradas (Cheng et al., 2024; Wang et al., 2025). De forma similar, OV-DETR bajo CC BY-NC-SA 4.0 limita explícitamente su uso fuera del ámbito académico (Zang et al., 2022). En contraste, modelos como Grounding DINO, OmDet-Turbo, LLMDet y varios checkpoints modernos se alinean con licencias permisivas como Apache-2.0 o MIT, reduciendo la fricción legal y simplificando su incorporación en prototipos experimentales con potencial de evolución futura.
-
-En el contexto del presente trabajo, las consideraciones de licenciamiento no constituyen un condicionante operativo. El proyecto se desarrolla con fines estrictamente académicos y experimentales, sin orientación a explotación comercial ni a integración en productos cerrados.
-
-
-##### 15.2.4.4. Integración de Segmentación y Seguimiento
-
-Una tendencia emergente es combinar detección OVD con segmentación de instancias y seguimiento temporal. Grounded SAM ilustra esta integración: al acoplar un detector open-vocabulary con un segmentador universal, es posible localizar y segmentar cualquier región indicada por texto (Ren et al., 2024c). La extensión Grounded SAM 2 demuestra que es factible incorporar un módulo de tracking para seguir objetos segmentados a lo largo de un vídeo.
-
-X-Decoder (Zou et al., 2023) explora un enfoque unificado con un decodificador capaz de producir tanto máscaras píxel a píxel como descripciones textuales, logrando estado del arte en segmentación open-vocabulary y segmentación referencial. YOLOE integra capacidad de segmentación directamente en la arquitectura, añadiendo una rama de máscara con mínima sobrecarga (Wang et al., 2025).
-
-
-##### 15.2.4.5. Adaptabilidad Mediante Fine-Tuning y Preservación de Capacidad Open-Vocabulary
-
-Las secciones precedentes evaluaron los modelos OVD en su modalidad zero-shot, es decir, utilizando exclusivamente los pesos obtenidos durante el preentrenamiento a gran escala. Sin embargo, la literatura reciente documenta de manera creciente el comportamiento de estas arquitecturas cuando se someten a fine-tuning sobre datasets de dominio específico, revelando un compromiso fundamental que no se manifiesta en los detectores closed-set convencionales. En un detector tradicional, el fine-tuning mejora el rendimiento en las categorías del dataset objetivo sin costo conceptual adicional. En un modelo OVD, el ajuste de los pesos puede degradar la capacidad de generalización semántica que constituye la propiedad distintiva de estos sistemas, fenómeno conocido en la literatura de modelos foundation como olvido catastrófico o catastrophic forgetting (Kirkpatrick et al., 2017). La intensidad de esta degradación varía significativamente según la profundidad de la fusión visión-lenguaje en la arquitectura, las capas que se ajustan y la estrategia de entrenamiento empleada.
-
-Es por ello que a continuación se analizará la evidencia disponible para cada familia arquitectónica identificada anteriormente, con foco en las estrategias de fine-tuning documentadas, su efecto sobre la capacidad OVD residual y las implicancias para la selección de modelos en el proyecto.
-
-Bloque A: Detectores end-to-end tipo DETR/DINO con fusión profunda. Grounding DINO (Liu et al., 2023) presenta la arquitectura más favorable para preservar capacidad OVD durante el fine-tuning, debido a que la integración del lenguaje ocurre en múltiples etapas del detector (Feature Enhancer, Language-guided Query Selection y Cross-modality Decoder) y no puede removerse sin destruir la funcionalidad del modelo. Los estudios de ablación muestran que la eliminación de cualquier componente de fusión reduce el AP zero-shot en más de 12 puntos, mientras que el impacto sobre el rendimiento en fine-tuning closed-set es mínimo, lo que indica que la maquinaria de fusión multimodal es esencial específicamente para la generalización open-set (Liu et al., 2023).
-
-El proyecto MM-Grounding-DINO (X. Zhao et al., 2024) implementó y comparó tres estrategias de fine-tuning sobre la arquitectura Grounding DINO, ofreciendo la evaluación más completa disponible hasta el momento. La primera estrategia, denominada fine-tuning closed-set, optimiza el modelo directamente sobre el dataset objetivo y restringe el vocabulario textual a las categorías del dataset tras el ajuste, eliminando la capacidad OVD. La segunda, denominada preentrenamiento continuado open-set, reduce el learning rate y congela módulos específicos mientras continúa el entrenamiento sobre el dataset objetivo, o combina el dataset objetivo con datos de preentrenamiento originales, preservando la generalización. La tercera, fine-tuning open-vocabulary, entrena sobre categorías base y evalúa sobre categorías novedosas no vistas, midiendo explícitamente la retención de capacidad OVD (X. Zhao et al., 2024). Las dos últimas estrategias fueron diseñadas específicamente para mantener la generalizabilidad del modelo mientras mejoran el rendimiento en el dataset objetivo.
-
-Adicionalmente, la adaptación mediante técnicas de ajuste eficiente de parámetros (PEFT) ha mostrado resultados prometedores. Grounding DINO puede adaptarse al dominio de imagen médica por ultrasonido mediante adaptadores LoRA (Low-Rank Adaptation) aplicados sobre backbones ViT y BERT congelados, habilitando segmentación guiada por prompts textuales sin reentrenar las redes subyacentes (Rasaee et al., 2025). Este enfoque resulta especialmente relevante para contextos con datasets de dominio reducidos, dado que minimiza tanto el costo computacional como el riesgo de degradación de la capacidad OVD. Grounding DINO alcanza 63.0 AP en COCO con fine-tuning closed-set frente a 52.5 AP en zero-shot (Liu et al., 2023), evidenciando un margen sustancial de mejora disponible mediante adaptación de dominio.
-
-Bloque B: Detectores one-stage tipo YOLO con alineamiento visión-lenguaje. YOLO-World (Cheng et al., 2024) presenta un comportamiento frente al fine-tuning cualitativamente distinto al de Grounding DINO, debido a que su mecanismo de fusión visión-lenguaje (RepVL-PAN) fue diseñado para ser reparametrizable, es decir, los embeddings textuales pueden incorporarse como pesos fijos del modelo, permitiendo remover el text encoder durante la inferencia. Esta decisión arquitectónica, orientada a maximizar la velocidad de despliegue, implica que el módulo de lenguaje es estructuralmente desacoplable del detector visual.
-
-Su documentación oficial documenta tres recetas de fine-tuning (AILab-CVC, 2024). La primera, fine-tuning normal, utiliza MixedGroundingDataset con textos ricos y tareas de grounding, orientada a preservar la capacidad open-vocabulary. La segunda, fine-tuning closed-set, utiliza MultiModalDataset con un JSON de vocabulario fijo, restringiendo las clases detectables al dataset objetivo. La tercera, fine-tuning reparametrizado, remueve el RepVL-PAN y el text encoder, produciendo un modelo con arquitectura equivalente a YOLOv8 pero inicializado con pesos preentrenados a gran escala; esta variante ofrece mayor velocidad pero elimina completamente la capacidad OVD.
-
-Un hallazgo crítico es la fragilidad del text encoder CLIP frente al fine-tuning (Cheng et al., 2024). Se observó que el ajuste del encoder textual CLIP durante el entrenamiento sobre Objects365 produce una caída severa del rendimiento, atribuyendo esta degradación a que el fine-tuning sobre un vocabulario cerrado destruye la capacidad de generalización del encoder. Este resultado sugiere que, en la familia YOLO-World, la preservación de capacidad OVD post-fine-tuning requiere congelar o ajustar con learning rate muy reducido el text encoder, concentrando la adaptación en las capas visuales y en el RepVL-PAN. La evaluación de segmentación open-vocabulary confirma este patrón. Cuando solo se ajusta el head de segmentación, el modelo retiene las capacidades zero-shot adquiridas durante el preentrenamiento; cuando se ajustan todos los módulos, el modelo se adapta mejor al dataset pero puede exhibir degradación de las capacidades zero-shot (Cheng et al., 2024).
-
-YOLOE (Wang et al., 2025) comparte la filosofía de reparametrización y la amplía. Su estrategia RepRTA (Re-parameterizable Region-Text Alignment) permite que, tras el entrenamiento, los parámetros del modelo se reparametricen en un head YOLO estándar, preservando FLOPs y velocidad idénticos a los de YOLOv8 o YOLO11 (Wang et al., 2025). El pipeline de transferencia a datasets de dominio (denominado transferring en la documentación oficial) soporta tanto linear probing (es decir, solo la última convolución del head de clasificación es entrenable) como full tuning (todos los parámetros son entrenables). En ambos casos, el modelo resultante opera como un detector closed-set convencional. La capacidad OVD se preserva únicamente si se mantiene la rama de text prompts o visual prompts activa, lo que requiere configuración específica fuera del pipeline estándar de Ultralytics.
-
-Bloque C: Detectores basados en dual-encoders CLIP-like. OWL-ViT (Minderer et al., 2022) y su sucesor OWLv2 (Minderer et al., 2023) ofrecen una perspectiva diferente sobre la relación entre fine-tuning y capacidad OVD. Estos modelos utilizan encoders de visión y texto preentrenados contrastivamente (CLIP o SigLIP) con heads ligeros de clasificación y localización adjuntos directamente a los tokens de salida del encoder visual. La detección open-vocabulary se habilita reemplazando los pesos fijos de clasificación por los embeddings de texto derivados del encoder lingüístico (Minderer et al., 2022). Dado que la capacidad OVD depende enteramente de la calidad del espacio de embeddings compartido, el fine-tuning sobre datasets cerrados requiere estrategias de regularización para evitar el colapso de dicho espacio. Dichas estrategias ya son proporcionadas por los mismos autores, sobre todo para lograr rendimiento competitivo tanto en detección zero-shot condicionada por texto como en detección one-shot condicionada por imagen (Minderer et al., 2022).
-
-OWLv2 introduce una innovación relevante para el problema de la adaptación de dominio sin fine-tuning manual. Mediante la receta OWL-ST (OWL Self-Training), el modelo utiliza un detector existente para generar pseudo-anotaciones de cajas sobre pares imagen-texto a escala web, entrenándose sobre más de mil millones de ejemplos sin anotaciones humanas adicionales. Este enfoque mejora el AP en categorías raras de LVIS de 31.2% a 44.6% con arquitectura L/14 (Minderer et al., 2023). La selección del espacio de etiquetas para las pseudo-anotaciones resulta determinante. El uso de un vocabulario curado produce buen rendimiento en las clases del vocabulario pero generaliza pobremente a clases y datasets no vistos, mientras que la supervisión débil pero diversa derivada de n-gramas del texto asociado a cada imagen preserva la generalización open-vocabulary (Minderer et al., 2023). Esta evidencia refuerza la observación transversal de que la amplitud y diversidad del vocabulario de entrenamiento es un factor protector de la capacidad OVD.
-
-Bloque D: Modelos generativos guiados por instrucciones. Florence-2 (Xiao et al., 2023) formula todas las tareas de visión como problemas de secuencia a secuencia, utilizando un encoder visual DaViT y un decoder Transformer estándar. Esta arquitectura unificada implica que el fine-tuning afecta al pipeline generativo completo, no a un módulo de fusión localizado. Florence-2 puede fine-tunearse para detección de objetos en entornos no estructurados y desordenados, alcanzando valores de mAP comparables a los de YOLOv8, YOLOv9 y YOLOv10 mediante LoRA y ajuste cuidadoso de capas Transformer (Ucar et al., 2025). La guía de Roboflow para fine-tuning de Florence-2 en detección (Skalski, 2025) reporta que el modelo fine-tuneado retiene parcialmente la capacidad de detectar clases base del preentrenamiento, aunque con rendimiento degradado respecto al modelo original. Los autores de Florence-2 reportan además que el fine-tuning con el encoder de imagen descongelado produce mejoras respecto al enfoque con encoder congelado (Xiao et al., 2023), pero esta estrategia maximiza el riesgo de degradación en categorías no vistas.
-
-Síntesis y tabla comparativa. El análisis transversal revela un patrón consistente. La preservación de la capacidad OVD post-fine-tuning está directamente correlacionada con la profundidad e inextricabilidad de la fusión visión-lenguaje en la arquitectura. Los modelos con fusión profunda y no removible (Grounding DINO) ofrecen mayor resiliencia, dado que el fine-tuning necesariamente opera sobre una arquitectura que integra lenguaje en cada etapa de predicción. Los modelos con módulos de lenguaje removibles o reparametrizables (YOLO-World, YOLOE) tienden a perder capacidad OVD durante el fine-tuning estándar, salvo que se adopten configuraciones específicas de preservación. Los detectores dual-encoder (OWL-ViT/v2) dependen de la integridad del espacio de embeddings compartido y requieren regularización explícita o estrategias de self-training para mantener la generalización. Los modelos generativos (Florence-2) pueden adaptarse a dominios específicos mediante PEFT, pero el impacto sobre categorías no vistas requiere evaluación caso a caso.
-
-La Tabla 4 sintetiza las estrategias de fine-tuning documentadas para los modelos representativos, indicando si preservan la capacidad OVD y las condiciones bajo las cuales lo hacen.
-
-Tabla 4
-
-Estrategias de fine-tuning documentadas y preservación de capacidad OVD por familia arquitectónica
-
-
-| Familia / Modelo | Estrategia de fine-tuning | Preserva OVD | Condición clave |
+| **Familia / Modelo** | **Estrategia de fine-tuning** | **Retención OVD reportada** | **Condición clave** |
 | --- | --- | --- | --- |
 | Grounding DINO | Fine-tuning closed-set | No | Vocabulario restringido post-ajuste |
 | Grounding DINO | Preentrenamiento continuado open-set | Sí | LR reducido; módulos congelados; datos mixtos |
-| Grounding DINO | Fine-tuning open-vocabulary (base→novel) | Sí | Evaluación explícita en categorías no vistas |
+| Grounding DINO | Fine-tuning open-vocabulary (base a novel) | Sí | Evaluación explícita en categorías no vistas |
 | Grounding DINO | Adaptación LoRA | Sí | Backbones congelados; solo adapters entrenables |
 | YOLO-World | Fine-tuning con MixedGroundingDataset | Parcial | Depende de capas ajustadas; text encoder frágil |
 | YOLO-World | Fine-tuning closed-set (MultiModalDataset) | No | Vocabulario fijo en JSON |
 | YOLO-World | Reparametrización eficiente (sin RepVL-PAN) | No | Text encoder removido; equivale a YOLOv8 |
-| YOLOE | Transferring (linear probing / full tuning) | No | Modelo reparametrizado como YOLO estándar |
-| OWL-ViT / OWLv2 | Fine-tuning end-to-end con regularización | Parcial | Requiere estrategias de regularización |
+| YOLOE | Transferring (linear probing / full tuning) | No evaluada por los autores | La receta estándar produce vocabulario fijo; la retención requiere reinyectar y evaluar vocabulario abierto |
+| OWL-ViT / OWLv2 | Fine-tuning de extremo a extremo con regularización | Parcial | Requiere estrategias de regularización |
 | OWL-ViT / OWLv2 | Self-training (OWL-ST) con pseudo-anotaciones | Sí | Vocabulario diverso (n-gramas) preserva OVD |
 | Florence-2 | Fine-tuning con LoRA | Parcial | Retención parcial de clases base; encoder congelado recomendado |
 
-Nota. "Preserva OVD" indica si el modelo resultante puede recibir prompts textuales arbitrarios en inferencia y detectar categorías no vistas durante el fine-tuning. "Parcial" indica preservación dependiente de la configuración específica (capas congeladas, learning rate, datos de entrenamiento). Fuente: Elaboración propia basada en AILab-CVC (2024), Cheng et al. (2024), Liu et al. (2023), Minderer et al. (2022, 2023), Rasaee et al. (2025), Ucar et al. (2025), Wang et al. (2025), Xiao et al. (2023) y Zhao et al. (2024b).
+*Nota.* “Retención OVD reportada” resume el comportamiento informado para la receta y el protocolo indicados; no constituye una propiedad universal de la familia arquitectónica. “Parcial” indica una retención dependiente de la configuración específica —capas congeladas, tasa de aprendizaje, datos de entrenamiento y evaluación sobre categorías no vistas—. Fuente: elaboración propia basada en AILab-CVC (2024), Cheng et al. (2024), Liu et al. (2024), Minderer et al. (2022, 2023), Rasaee et al. (2025), Ucar et al. (2025), A. Wang et al. (2025), Xiao et al. (2024) y X. Zhao et al. (2024).
 
-La evidencia sintetizada en la Tabla 4 permite identificar una regularidad en la literatura. La preservación de la capacidad OVD post-fine-tuning depende de tres factores que operan conjuntamente. El primero es la profundidad de la integración visión-lenguaje en la arquitectura, donde los modelos con fusión profunda y no removible exhiben mayor resiliencia que aquellos con módulos de texto desacoplables. El segundo es la estrategia de congelamiento de parámetros, donde las técnicas de ajuste eficiente (LoRA, linear probing, congelamiento selectivo de capas) reducen el riesgo de degradación respecto del ajuste completo de todos los módulos. El tercero es la amplitud y diversidad del vocabulario utilizado durante el fine-tuning, donde los enfoques que mantienen vocabularios ricos o mixtos preservan mejor la generalización que aquellos que restringen el entrenamiento a un conjunto cerrado de categorías. Estos factores no son independientes entre sí, sino que interactúan de manera que las arquitecturas con fusión profunda toleran mejor el ajuste completo, mientras que las arquitecturas con módulos removibles requieren estrategias de preservación más conservadoras para retener capacidad OVD.
-
+La evidencia sintetizada en la Tabla 4 permite identificar tres factores recurrentes: qué parámetros se ajustan o congelan, la amplitud y diversidad del vocabulario utilizado durante el entrenamiento, y la existencia de una evaluación explícita sobre categorías no vistas. Estos factores interactúan con la arquitectura, pero los trabajos revisados no aíslan sus efectos mediante un protocolo común. Por ello, no corresponde afirmar que una familia tolere mejor el ajuste completo; corresponde describir qué receta retuvo capacidad OVD, bajo qué datos y con qué protocolo de evaluación.
 
 #### 15.2.5. Brechas identificadas en el dominio de la construcción civil
 
-A partir de la revisión y síntesis de los enfoques presentados, se pone de manifiesto un conjunto de limitaciones estructurales que no quedan plenamente resueltas por los modelos actuales de detección open-vocabulary. Estas brechas delinean líneas de trabajo relevantes para etapas posteriores del proyecto y permiten anticipar desafíos técnicos que deberán abordarse durante el diseño arquitectónico y la implementación del prototipo.
-
+A partir de la revisión y síntesis de los enfoques presentados, se pone de manifiesto un conjunto de limitaciones estructurales que no quedan plenamente resueltas por los modelos actuales de detección *open-vocabulary*. Estas brechas delinean líneas de trabajo relevantes para etapas posteriores del proyecto y permiten anticipar desafíos técnicos que deberán abordarse durante el diseño arquitectónico y la implementación del prototipo.
 
 ##### 15.2.5.1. Contextualización semántica limitada
 
-La mayoría de los detectores OVD actuales resuelven la detección como una combinación de localización espacial y compatibilidad textual evaluada de manera independiente para cada región candidata (Zareian et al., 2021; Liu et al., 2023). Este enfoque, aunque efectivo para identificar objetos individuales, no garantiza consistencia contextual entre múltiples entidades detectadas ni permite razonar sobre relaciones espaciales o semánticas entre ellas.
+La mayoría de los detectores OVD actuales resuelven la detección como una combinación de localización espacial y compatibilidad textual evaluada de manera independiente para cada región candidata (Zareian et al., 2021; Liu et al., 2024). Este enfoque, aunque efectivo para identificar objetos individuales, no garantiza consistencia contextual entre múltiples entidades detectadas ni permite razonar sobre relaciones espaciales o semánticas entre ellas.
 
-En entornos industriales y de construcción, muchos conceptos relevantes para la seguridad son inherentemente composicionales y dependen del contexto espacial. Condiciones como "persona sin casco cerca de excavación", "operario en zona de tránsito vehicular" o "escalera bloqueando salida de emergencia" requieren no solo detectar cada elemento de manera aislada, sino también evaluar sus relaciones geométricas y semánticas. Los modelos OVD actuales carecen de mecanismos nativos para este tipo de razonamiento relacional, lo que sugiere la necesidad de incorporar módulos adicionales de inferencia contextual o reglas de negocio que operen sobre las detecciones primarias.
-
+En entornos industriales y de construcción, muchos conceptos relevantes para la seguridad son inherentemente composicionales y dependen del contexto espacial. Condiciones como "persona sin casco cerca de excavación", "operario en zona de tránsito vehicular" o "escalera bloqueando salida de emergencia" requieren no solo detectar cada elemento de manera aislada, sino también evaluar sus relaciones geométricas y semánticas. Esta limitación impide dar por resueltas las condiciones relacionales a partir de la salida local del detector y exige que cualquier tratamiento adicional se defina y valide de forma explícita.
 
 ##### 15.2.5.2. Ausencia de consistencia temporal nativa
 
-Los modelos de detección open-vocabulary operan predominantemente sobre imágenes estáticas, procesando cada fotograma de manera independiente sin mantener memoria de estados previos ni modelar explícitamente la evolución temporal de las detecciones. Esta característica introduce variabilidad frame-to-frame que puede manifestarse como fluctuaciones en los puntajes de confianza, apariciones y desapariciones espurias de detecciones, e inconsistencias en la asignación de etiquetas entre cuadros consecutivos.
+Los modelos de detección open-vocabulary operan predominantemente sobre imágenes estáticas, procesando cada cuadro de manera independiente sin mantener memoria de estados previos ni modelar explícitamente la evolución temporal de las detecciones. Esta característica introduce variabilidad entre cuadros consecutivos que puede manifestarse como fluctuaciones en los puntajes de confianza, apariciones y desapariciones espurias de detecciones, e inconsistencias en la asignación de etiquetas entre cuadros consecutivos.
 
-En aplicaciones de vídeo, particularmente aquellas orientadas a monitoreo continuo, esta variabilidad temporal resulta problemática. Los enfoques generativos, como Florence-2, tienden a exhibir mayor inestabilidad debido a la naturaleza autoregresiva de su decodificación (Xiao et al., 2023). La literatura reciente sugiere que la integración con módulos de seguimiento multi-objeto (MOT) constituye una estrategia efectiva para mitigar este problema, permitiendo que el tracker aporte coherencia temporal a las detecciones semánticamente ricas del OVD (Li et al., 2023). No obstante, esta integración introduce complejidad arquitectónica adicional y requiere considerar la compatibilidad entre el detector y el método de tracking seleccionado.
-
+En aplicaciones de vídeo, particularmente aquellas orientadas a monitoreo continuo, esta variabilidad temporal resulta problemática. Los enfoques generativos, como Florence-2, tienden a exhibir mayor inestabilidad debido a la naturaleza autoregresiva de su decodificación (Xiao et al., 2024). La literatura reciente sugiere que la integración con módulos de seguimiento multi-objeto (MOT) constituye una estrategia efectiva para mitigar este problema, permitiendo que el tracker aporte coherencia temporal a las detecciones semánticamente ricas del OVD (S. Li et al., 2023). No obstante, esta integración introduce complejidad arquitectónica adicional y requiere considerar la compatibilidad entre el detector y el método de seguimiento seleccionado.
 
 ##### 15.2.5.3. Sensibilidad a la formulación del prompt
 
 La flexibilidad semántica que caracteriza a la detección open-vocabulary introduce una dependencia significativa respecto de la formulación exacta de las consultas textuales. Investigaciones en modelos visión-lenguaje han demostrado que pequeños cambios en la redacción de las consultas pueden producir diferencias significativas en el desempeño, incluso cuando diferentes formulaciones refieren al mismo concepto subyacente (Zhou et al., 2022b). Esta sensibilidad tiene implicancias directas para la usabilidad del sistema: usuarios con diferentes niveles de experiencia o distintas convenciones lingüísticas pueden obtener resultados heterogéneos ante objetivos de detección equivalentes.
 
-Esta observación motivó el desarrollo de técnicas de prompt learning, donde los tokens de contexto se reemplazan por vectores aprendibles que se optimizan con datos etiquetados del dominio objetivo (Zhou et al., 2022b; Khattak et al., 2023). Sin embargo, las estrategias desarrolladas para clasificación de imágenes no se transfieren directamente al contexto de detección. Se demostró que la optimización automática de representaciones de prompts —específicamente diseñada para tareas de detección— supera consistentemente a los prompts elaborados mediante ingeniería manual, evidenciando la necesidad de enfoques especializados para el dominio OVD (Du et al., 2022) . Adicionalmente, algunos modelos recientes abordan parcialmente esta limitación mediante el soporte de prompts visuales que permiten anclar la detección a ejemplos concretos en lugar de depender exclusivamente de descripciones textuales (Jiang et al., 2024).
-
+Esta observación motivó el desarrollo de técnicas de prompt learning, donde los tokens de contexto se reemplazan por vectores aprendibles que se optimizan con datos etiquetados del dominio objetivo (Zhou et al., 2022b; Khattak et al., 2023). Sin embargo, las estrategias desarrolladas para clasificación de imágenes no se transfieren directamente al contexto de detección. Se demostró que la optimización automática de representaciones de prompts —específicamente diseñada para tareas de detección— supera consistentemente a los prompts elaborados mediante ingeniería manual, evidenciando la necesidad de enfoques especializados para el dominio OVD (Du et al., 2022). Adicionalmente, algunos modelos recientes abordan parcialmente esta limitación mediante el soporte de prompts visuales que permiten anclar la detección a ejemplos concretos en lugar de depender exclusivamente de descripciones textuales (Jiang et al., 2024).
 
 ##### 15.2.5.4. Sensibilidad al dominio de aplicación
 
 Los benchmarks estándar utilizados para evaluar modelos OVD —como MS COCO con 80 categorías de objetos cotidianos (Lin et al., 2014) o LVIS con más de 1200 categorías de distribución long-tail (Gupta et al., 2019)— no representan plenamente las condiciones visuales y semánticas de entornos industriales especializados. En el contexto específico de obras de construcción, factores como iluminación extrema, oclusiones frecuentes por maquinaria y estructuras, indumentaria especializada de protección, y presencia de equipamiento industrial introducen distribuciones visuales que difieren significativamente de los datos de preentrenamiento.
 
-Esta brecha de dominio sugiere que, incluso con la capacidad de generalización zero-shot que caracteriza a los modelos OVD, será necesario algún grado de adaptación o calibración para optimizar el rendimiento en el dominio objetivo. Las estrategias potenciales incluyen el ajuste de umbrales de confianza por tipo de escena, la incorporación de filtros de post-procesamiento para falsos positivos recurrentes, y eventualmente el refinamiento ligero (fine-tuning) sobre conjuntos reducidos de imágenes representativas del entorno de obra. No obstante, el fine-tuning en modelos OVD introduce un compromiso entre mejora de rendimiento en categorías vistas y potencial degradación de la capacidad open-vocabulary, cuya intensidad depende de la arquitectura del modelo y de la estrategia de ajuste empleada.
+Los resultados publicados en benchmarks generales no predicen por sí mismos el desempeño sobre una condición de dominio específica. Grounding DINO con backbone Swin-L pasa de 52,5 AP en COCO a 26,1 mean AP sobre los 35 conjuntos de ODinW. En consecuencia, la transferencia al dominio de construcción debe verificarse mediante una línea base zero-shot propia y un conjunto de prueba congelado, sin asumir equivalencia entre COCO o LVIS y la condición objetivo (Liu et al., 2024).
 
+Como referencia supervisada in-domain, YOLOR alcanzó un mAP@0,5 de 0,883 sobre SHEL5K y un AP@0,5 de 0,907 para la clase head; YOLOv5x alcanzó un mAP@0,5 de 0,866 sobre CHV; y YOLOv9-e reportó un mAP@0,5 aproximado de 0,71 sobre SH17, con valores entre 0,58 y 0,69 para las variantes de YOLOv8 (Otgonbold et al., 2022; Wang et al., 2021; Ahmad & Rahimi, 2025).
+
+Estas cifras corresponden a detectores entrenados sobre taxonomías específicas de EPP y no constituyen una comparación directa con los resultados de COCO o LVIS. En particular, el AP@0,5 de 0,907 para la clase *head* muestra que un detector supervisado puede alcanzar un desempeño alto sobre esa categoría en SHEL5K. La cifra no permite inferir una dificultad intrínseca universal, pero sí establece una referencia in-domain para analizar el costo de formular la condición sin entrenamiento específico.
+
+La evidencia ubicada específicamente en el cruce entre vocabulario abierto y EPP es todavía limitada. Choi y Greer (2024) evaluaron OWLv2 zero-shot sobre 5.210 imágenes: obtuvieron AP@IoU>0,5 de 0,6767 para *person* y 0,6493 para detección directa de *hardhat*. Al introducir asociación jerárquica, la clase *head* —cabeza sin casco— alcanzó 0,1024 AP y la cascada multietapa obtuvo 0,2699 AP para detección de casco. Estas cifras no equivalen a una métrica de condición o alerta, pero muestran que la asociación persona–cabeza–EPP agrega dificultad respecto de detectar los componentes por separado.
+
+Como evidencia adyacente, Chen y Zou (2025) evaluaron modelos visión-lenguaje generativos en una tarea de visual grounding y observaron IoU total inferior al 20 % para objetivos con restricciones de atributo, como trabajadores con casco blanco. El resultado no constituye un benchmark de detectores OVD, pero respalda la dificultad de localizar condiciones visuales finamente especificadas mediante lenguaje natural.
+
+El relevamiento de publicaciones entre 2023 y 2026 no identificó evaluaciones de Grounding DINO o YOLO-World zero-shot sobre SHEL5K o CHV, ni un benchmark multi-fuente de EPP bajo protocolo COCO. Esta ausencia constituye una brecha del estado del arte: los benchmarks generales no resuelven la evaluación de una condición de dominio expresada mediante lenguaje natural, por lo que se requiere una línea base zero-shot propia y un conjunto de prueba congelado. La respuesta experimental a esta brecha corresponde a las secciones posteriores.
 
 ##### 15.2.5.5. Protocolos de evaluación específicos para seguridad industrial
 
-Las métricas de evaluación predominantes en la literatura OVD —como Average Precision (AP) en COCO o LVIS— constituyen indicadores generales de rendimiento que no capturan adecuadamente el valor operativo de un sistema de detección en el contexto de seguridad industrial (Gupta et al., 2019). Estas métricas evalúan la precisión de localización y clasificación frame-by-frame, sin considerar aspectos temporales ni el impacto diferenciado de distintos tipos de error en escenarios de monitoreo de riesgos.
+Las métricas de evaluación predominantes en la literatura OVD —como Average Precision (AP) en COCO o LVIS— constituyen indicadores generales de rendimiento que no capturan adecuadamente el valor operativo de un sistema de detección en el contexto de seguridad industrial (Gupta et al., 2019). Estas métricas evalúan la precisión de localización y clasificación cuadro a cuadro, sin considerar aspectos temporales ni el impacto diferenciado de distintos tipos de error en escenarios de monitoreo de riesgos.
 
 Para validar la plataforma en su dominio de aplicación, resulta necesario diseñar métricas y protocolos de evaluación alineados con los objetivos de seguridad en construcción. Esto incluye considerar la tasa de eventos de riesgo detectados correctamente a lo largo de secuencias de video, el tiempo transcurrido entre el inicio de una condición de riesgo y su detección (latencia de alerta), la tasa de falsas alarmas por unidad de tiempo de monitoreo, y la persistencia mínima requerida para considerar válida una detección.
 
-
 ##### 15.2.5.6. Tabla comparativa de brechas identificadas
 
-Tabla 5
+La Tabla 5 organiza las brechas identificadas en las subsecciones precedentes con su descripción técnica y su implicación específica para el proyecto.
 
-Brechas identificadas en la aplicación de modelos OVD al dominio de seguridad en construcción civil
+**Tabla 5**
 
+*Brechas identificadas en la aplicación de modelos OVD al dominio de seguridad en construcción civil*
 
-| Brecha identificada | Descripción | Implicación para el proyecto |
+| **Brecha identificada** | **Descripción** | **Implicación para el proyecto** |
 | --- | --- | --- |
-| Contextualización semántica limitada | Los modelos OVD detectan entidades localmente pero no infieren relaciones espaciales complejas entre ellas (p. ej., “persona dentro de zona restringida” requiere razonamiento relacional) | El sistema no puede depender exclusivamente del detector para condiciones composicionales; se requieren módulos adicionales de razonamiento contextual |
-| Ausencia de consistencia temporal nativa | La detección frame-a-frame introduce variabilidad en puntajes de confianza, apariciones y desapariciones espurias entre cuadros consecutivos | Necesidad de integración con módulo MOT para aportar coherencia temporal a las detecciones semánticas (S. Li et al., 2023) |
-| Sensibilidad a la formulación del prompt | Pequeños cambios en la redacción producen diferencias significativas en el desempeño, incluso para conceptos equivalentes (Zhou et al., 2022b) | El diseño de prompts para condiciones de riesgo requiere un proceso sistemático; la selección informal puede comprometer la robustez del sistema |
-| Brecha de dominio con benchmarks estándar | MS COCO (80 categorías) y LVIS (1200+ categorías) no representan las condiciones visuales de obras civiles: iluminación extrema, oclusiones por maquinaria, indumentaria especializada (Gupta et al., 2019; Lin et al., 2015) | El desempeño reportado en benchmarks no es directamente transferible al dominio objetivo; se requiere evaluación empírica en condiciones representativas |
-| Ausencia de protocolos de evaluación específicos para seguridad industrial | Las métricas AP en COCO/LVIS (Gupta et al., 2019; Lin et al., 2015) no capturan el valor operativo del sistema: no consideran latencia de alerta, persistencia de la detección ni impacto diferenciado de falsos positivos/negativos. | La Etapa 2 del proyecto debe diseñar métricas y protocolos de evaluación alineados con los objetivos de seguridad laboral |
+| Contextualización semántica limitada | Los modelos OVD detectan entidades localmente pero no infieren relaciones espaciales complejas entre ellas (p. ej., “persona dentro de zona restringida” requiere razonamiento relacional) | Las condiciones composicionales no pueden evaluarse a partir de la salida local del detector sin una estrategia adicional explícitamente definida y validada. |
+| Ausencia de consistencia temporal nativa | La detección cuadro a cuadro introduce variabilidad en puntajes de confianza, apariciones y desapariciones espurias entre cuadros consecutivos | Necesidad de integración con módulo MOT para aportar coherencia temporal a las detecciones semánticas (S. Li et al., 2023) |
+| Sensibilidad a la formulación del prompt | Pequeños cambios en la redacción producen diferencias significativas en el desempeño, incluso para conceptos equivalentes (Zhou et al., 2022b) | El diseño de prompts para condiciones de riesgo requiere un proceso sistemático; la selección informal puede comprometer la robustez del sistema |
+| Brecha de dominio con benchmarks estándar | Los resultados en COCO o LVIS no garantizan transferencia al dominio objetivo. Grounding DINO con backbone Swin-L pasa de 52,5 AP en COCO a 26,1 mean AP en ODinW. | El protocolo debe incorporar una línea base zero-shot propia y un conjunto de prueba de dominio congelado; los benchmarks generales funcionan únicamente como referencia externa. |
+| Ausencia de protocolos de evaluación específicos para seguridad industrial | Las métricas AP en COCO/LVIS (Gupta et al., 2019; Lin et al., 2014) no capturan el valor operativo del sistema: no consideran latencia de alerta, persistencia de la detección ni impacto diferenciado de falsos positivos/negativos. | El protocolo experimental debe definir métricas alineadas con el valor operativo de la alerta, incluyendo persistencia temporal, latencia y tratamiento diferenciado de falsos positivos y falsos negativos. |
+| Escasez de evaluación OVD × EPP | La literatura ofrece evidencia directa limitada. Choi y Greer (2024) reportan AP@IoU>0,5 de 0,6767 para *person*, 0,6493 para detección directa de *hardhat*, 0,1024 para la clase *head* y 0,2699 para la cascada multietapa. El relevamiento no identificó evaluaciones de Grounding DINO o YOLO-World zero-shot sobre SHEL5K o CHV, ni un benchmark de EPP multi-fuente bajo protocolo COCO. | Se requiere una línea base zero-shot propia y un conjunto de prueba congelado; la respuesta experimental se presenta fuera del estado del arte. |
 
-Nota. Las brechas listadas no constituyen limitaciones insalvables, sino desafíos técnicos que definen el espacio de problemas a abordar en las Etapas 2 y 3 del proyecto. Fuente: Elaboración propia basada en las fuentes mencionadas (Gupta et al., 2019; S. Li et al., 2023; Lin et al., 2015; Liu et al., 2023; Zareian et al., 2021; Zhou et al., 2022a, 2022b).
-
+*Nota.* Las brechas listadas delimitan problemas técnicos que el protocolo y la arquitectura deben abordar; no se presentan como limitaciones insalvables. Fuente: elaboración propia basada en Choi y Greer (2024), Chen y Zou (2025), Gupta et al. (2019), S. Li et al. (2023), Lin et al. (2014), Liu et al. (2024), Zareian et al. (2021) y Zhou et al. (2022b).
 
 #### 15.2.6. Síntesis de la sección y avance al seguimiento multi-objeto
 
-El análisis de los paradigmas OVD evidencia que la viabilidad de su integración en sistemas de monitoreo continuo está condicionada por cuatro factores: balance entre expresividad semántica y eficiencia de inferencia, diseño sistemático de prompts para el dominio específico, mecanismos de compensación de la variabilidad temporal frame-a-frame, y evaluación empírica en condiciones visuales de construcción civil. Los dos últimos factores remiten directamente al problema de persistencia temporal: dado que la OVD produce observaciones instantáneas sin identidad ni continuidad, la sección siguiente analiza los métodos de seguimiento multiobjeto como mecanismo para sostener esas detecciones a lo largo del tiempo
+El análisis de los paradigmas OVD evidencia que la viabilidad de su integración en sistemas de monitoreo continuo está condicionada por cuatro factores: balance entre expresividad semántica y eficiencia de inferencia, diseño sistemático de prompts para el dominio específico, mecanismos de compensación de la variabilidad temporal cuadro a cuadro, y evaluación empírica en condiciones visuales de construcción civil. Los dos últimos factores remiten directamente al problema de persistencia temporal: dado que la OVD produce observaciones instantáneas sin identidad ni continuidad, la sección siguiente analiza los métodos de seguimiento multiobjeto como mecanismo para sostener esas detecciones a lo largo del tiempo.
 
+En las secciones posteriores se distinguirá entre calibración operativa y adaptación paramétrica. La primera comprende cambios de resolución de entrada, formulación del vocabulario, umbrales, postproceso y estabilización temporal sin modificar los pesos del modelo; la segunda refiere exclusivamente al ajuste de parámetros mediante fine-tuning u otras técnicas de entrenamiento. Con esta distinción se evita presentar configuraciones de plataforma como si fueran modelos reentrenados.
 
 ### 15.3. Seguimiento multiobjeto: métodos, métricas y brechas del estado del arte
 
 El seguimiento multiobjeto (MOT) constituye el mecanismo que transforma las detecciones instantáneas producidas por el sistema OVD en trayectorias persistentes a lo largo del tiempo, habilitando la agregación temporal de evidencias necesaria para la generación de alertas operativas. En esta sección se analizan los métodos representativos del estado del arte en MOT para sistemas de video en tiempo real, las métricas de evaluación relevantes para el contexto del proyecto y las brechas identificadas en la intersección entre MOT y detección open-vocabulary.
 
-
-#### 15.3.1. Métodos Representativos
+#### 15.3.1. Métodos representativos
 
 El estado del arte en MOT para sistemas de video en tiempo real está dominado por la familia SORT extendida, cuya evolución refleja el progreso en el manejo de oclusiones, la explotación de detecciones de baja confianza y la eliminación de dependencias de entrenamiento específico por dominio.
-
 
 ##### 15.3.1.1. SORT
 
 SORT (Simple Online and Realtime Tracking) establece el esquema de referencia del paradigma tracking-by-detection moderno. Combina el filtro de Kalman para el modelado del movimiento con el algoritmo Húngaro para la asignación óptima de detecciones a trayectorias, utilizando IoU como única métrica de similitud. Su diseño minimalista prescinde de cualquier modelado de apariencia, lo que resulta en latencia muy baja —capacidad de operar a tasas superiores a 200 FPS— y ausencia total de dependencias de entrenamiento. La principal limitación de SORT es su baja robustez ante oclusiones: cuando un objeto no es detectado durante varios cuadros consecutivos, la trayectoria se termina y la re-asociación posterior puede producir un cambio de identificador (ID switch), fragmentando la trayectoria en múltiples segmentos (Bewley et al., 2016).
 
+##### 15.3.1.2. Contraste con variantes posteriores
 
-##### 15.3.1.2. DeepSORT
-
-DeepSORT extiende SORT incorporando el modelado de apariencia descrito en el análisis del modelado de apariencia, con el objetivo de mitigar las ambigüedades de asociación en presencia de oclusiones y cruces (Wojke et al., 2017). En términos operativos, mantiene el marco de predicción de movimiento y validación cinemático-estadística, pero introduce un término adicional de similitud visual basado en embeddings extraídos por una red neuronal, integrando la evidencia de movimiento y apariencia en la función de costo de asociación (Wojke et al., 2017).
-
-La consecuencia directa es una reducción significativa de cambios de identidad y una mayor capacidad de re-asociación tras desapariciones temporales, particularmente en secuencias con oclusiones parciales o alta densidad de objetos. Sin embargo, este aumento de robustez implica mayores requerimientos computacionales y dependencia de un modelo de re-identificación entrenado. En aplicaciones estrictamente en tiempo real, esta dependencia puede degradar el rendimiento si no se optimiza adecuadamente el extractor de características. Asimismo, en entornos open-vocabulary dinámicos, la dependencia de embeddings entrenados con dominios específicos puede introducir restricciones adicionales o degradaciones cuando el dominio visual o las categorías observadas se alejan del régimen de entrenamiento (Wojke et al., 2017).
-
-
-##### 15.3.1.3. ByteTrack
-
-ByteTrack introduce una innovación conceptualmente simple pero con impacto significativo sobre la robustez del tracker: en lugar de descartar las detecciones por debajo de un umbral de confianza del detector —como hace SORT—, las utiliza en una segunda etapa de asociación para mantener la continuidad de trayectorias existentes. La idea central es que una detección de baja confianza en el cuadro t puede corresponder a un objeto parcialmente ocluso cuya trayectoria fue establecida en cuadros anteriores; descartarla produce una fragmentación innecesaria. La asociación se estructura en dos pasos jerárquicos: primero se asocian las detecciones de alta confianza con las trayectorias activas; luego, las trayectorias no asociadas se intentan conectar con las detecciones de baja confianza. ByteTrack mantiene la ausencia de modelos de apariencia y logra tasas de inferencia superiores a 170 FPS, siendo directamente compatible con detectores one-stage como YOLO-World (Adžemović, 2025; Y. Zhang et al., 2022).
-
-
-##### 15.3.1.4. OC-SORT
-
-OC-SORT (Observation-Centric SORT) aborda una limitación distinta de SORT: la degradación del modelo de movimiento durante los períodos de oclusión. En SORT, cuando un objeto no es detectado durante varios cuadros, el filtro de Kalman continúa actualizando el estado interno basándose únicamente en predicciones del modelo dinámico, acumulando error de estimación que se manifiesta en asociaciones incorrectas cuando el objeto reaparece. OC-SORT introduce dos correcciones principales: el Observation-Centric Momentum (OCM), que estima la dirección y magnitud del movimiento del objeto a partir de sus observaciones históricas en lugar de basarse en las predicciones del filtro, y el Observation-Centric Re-Update (OCR), que reajusta las estimaciones del filtro utilizando las observaciones reales durante los períodos de oclusión. Estas correcciones reducen los ID switches sin incorporar modelos de apariencia ni incrementar significativamente el costo computacional (Cao et al., 2023).
-
-
-##### 15.3.1.5. BoT-SORT y métodos end-to-end
-
-BoT-SORT (Aharon et al., 2022) representa un punto de convergencia entre la eficiencia de ByteTrack y la robustez de DeepSORT: incorpora embeddings de apariencia, compensación de movimiento de cámara (CMC) mediante homografía, y la estrategia de asociación jerárquica de ByteTrack. Este diseño maximiza la precisión en benchmarks a costa de una mayor complejidad computacional y la dependencia de un modelo ReID preentrenado, posicionándolo como una opción de alta precisión cuando la robustez prima sobre la latencia.
-
-En el extremo opuesto del espectro de complejidad, los enfoques end-to-end basados en Transformers —como TrackFormer (Meinhardt et al., 2022) y MOTR— formulan el tracking como un problema de predicción conjunta de detecciones y asociaciones en una única red entrenada conjuntamente. Si bien estas arquitecturas ofrecen ventajas teóricas en términos de coherencia global del pipeline, sus altos requisitos computacionales, la complejidad del entrenamiento conjunto y la limitada flexibilidad para integrar detectores OVD externos hacen que su adopción en sistemas experimentales de tiempo real sea actualmente limitada (Adžemović, 2025).
-
+Las extensiones de tracking-by-detection introducen distintos mecanismos para mejorar la continuidad: DeepSORT agrega apariencia mediante ReID (Wojke et al., 2017); ByteTrack reutiliza detecciones de baja confianza para sostener trayectorias (Y. Zhang et al., 2022); y OC-SORT corrige la estimación de movimiento durante oclusiones sin requerir apariencia (Cao et al., 2023). En el extremo de mayor complejidad, BoT-SORT combina movimiento y ReID, mientras que TrackFormer y MOTR aprenden detección y asociación de manera conjunta. Estas variantes permiten contrastar robustez, dependencia de entrenamiento y costo computacional, pero no establecen por sí mismas un método preferente para una plataforma OVD modular; la síntesis comparativa se conserva en la Tabla 6.
 
 #### 15.3.2. Síntesis comparativa de métodos MOT
 
 La Tabla 6 sintetiza las características principales de los métodos MOT analizados, con énfasis en las dimensiones más relevantes para su integración en el sistema E-OVRT-VDP: paradigma, modelo de movimiento, estrategia de asociación, robustez ante oclusiones, latencia y dependencias de entrenamiento.
 
-Tabla 6
+**Tabla 6**
 
-Síntesis comparativa de métodos MOT representativos según dimensiones relevantes para sistemas de video en tiempo real con detección open-vocabulary
+*Síntesis comparativa de métodos MOT representativos según dimensiones relevantes para sistemas de video en tiempo real con detección open-vocabulary*
 
-
-| Método | Paradigma | Modelo de movimiento | Asociación de datos | Robustez a oclusiones | Latencia / FPS | Dependencia de entrenamiento |
+| **Método** | **Paradigma** | **Modelo de movimiento** | **Asociación de datos** | **Robustez a oclusiones** | **Latencia / FPS** | **Dependencia de entrenamiento** |
 | --- | --- | --- | --- | --- | --- | --- |
-| SORT | Tracking-by- detection | Kalman lineal | IoU + Húngaro | Baja | Muy alta (>200 FPS) | Ninguna |
-| DeepSORT | Tracking-by- detection | Kalman lineal | Cascada: movimiento + apariencia | Media-Alta | Media | Modelo ReID preentrenado |
-| ByteTrack | Tracking-by- detection | Kalman lineal | Jerárquica: alta/baja confianza + IoU | Alta | Muy alta (>170 FPS) | Ninguna |
-| OC-SORT | Tracking-by- detection | Kalman + correcciones OC | IoU + consistencia de momento (OCM) | Media-Alta | Muy alta | Ninguna |
-| BoT-SORT | Tracking-by- detection | Kalman mejorado + CMC | Fusión IoU-ReID | Alta | Media | Modelo ReID preentrenado |
+| SORT | Tracking-by-detection | Kalman lineal | IoU + Húngaro | Baja | Muy alta (>200 FPS) | Ninguna |
+| DeepSORT | Tracking-by-detection | Kalman lineal | Cascada: movimiento + apariencia | Media-Alta | Media | Modelo ReID preentrenado |
+| ByteTrack | Tracking-by-detection | Kalman lineal | Jerárquica: alta/baja confianza + IoU | Alta | Muy alta (>170 FPS) | Ninguna |
+| OC-SORT | Tracking-by-detection | Kalman + correcciones OC | IoU + consistencia de momento (OCM) | Media-Alta | Muy alta | Ninguna |
+| BoT-SORT | Tracking-by-detection | Kalman mejorado + CMC | Fusión IoU-ReID | Alta | Media | Modelo ReID preentrenado |
 | TrackFormer / MOTR | End-to-end (Transformer) | Atención temporal aprendida | Mecanismo de atención global | Muy alta | Baja | Entrenamiento conjunto requerido |
 
-Nota. CMC = Compensación de Movimiento de Cámara (Camera Motion Compensation). OC = Observation-Centric. La columna 'Dependencia de entrenamiento' refiere a componentes adicionales al detector base que requieren entrenamiento supervisado. FPS estimados corresponden a las configuraciones reportadas en los trabajos originales sobre hardware de referencia; pueden variar significativamente según el hardware y la resolución de entrada. Fuente: Elaboración propia basada en las fuentes citadas (Adžemović, 2025; Aharon et al., 2022; Bewley et al., 2016; Cao et al., 2023; Wojke et al., 2017; Y. Zhang et al., 2022).
-
+*Nota.* CMC = Compensación de Movimiento de Cámara (Camera Motion Compensation). OC = Observation-Centric. La columna 'Dependencia de entrenamiento' refiere a componentes adicionales al detector base que requieren entrenamiento supervisado. FPS estimados corresponden a las configuraciones reportadas en los trabajos originales sobre hardware de referencia; pueden variar significativamente según el hardware y la resolución de entrada. Fuente: Elaboración propia basada en las fuentes citadas (Adžemović, 2025; Aharon et al., 2022; Bewley et al., 2016; Cao et al., 2023; Wojke et al., 2017; Y. Zhang et al., 2022).
 
 ##### 15.3.2.1. Observaciones críticas sobre la comparativa
 
-La comparativa evidencia que los métodos de tracking-by-detection puramente geométricos, como SORT, ByteTrack y OC-SORT, presentan una mayor compatibilidad con detectores open-vocabulary, ya que no dependen de modelos de apariencia entrenados en dominios específicos y permiten desacoplar el detector del módulo de seguimiento. Esta propiedad resulta especialmente relevante en sistemas donde las clases de interés pueden variar dinámicamente según las consultas del usuario y donde se requiere sustituir modelos sin reentrenamiento. En términos operativos, se observa un trade-off entre velocidad y robustez: los métodos geométricos alcanzan altas tasas de procesamiento y menor latencia, aunque son más sensibles a oclusiones prolongadas, mientras que enfoques como DeepSORT o BoT-SORT mejoran la estabilidad de identidades mediante embeddings visuales, a costa de mayor carga computacional. Por su parte, los métodos end-to-end como FairMOT o TrackFormer ofrecen integración profunda entre detección y seguimiento, pero su necesidad de entrenamiento conjunto limita la flexibilidad requerida por pipelines OVD modulares. En este marco, ByteTrack y OC-SORT representan alternativas particularmente equilibradas, al introducir mejoras sobre SORT —asociación de detecciones de baja confianza y correcciones observation-centric— sin perder eficiencia computacional. Por ello, para una plataforma experimental de detección open-vocabulary en tiempo real, la familia SORT extendida se presenta como la opción más adecuada, al combinar independencia del detector, bajo costo computacional, robustez suficiente y mayor transparencia para la iteración, auditoría y diagnóstico de fallos.
-
+La literatura comparativa muestra que los métodos de seguimiento difieren no sólo en sus resultados agregados, sino también en las dependencias que introducen. Los enfoques geométricos sin modelos de apariencia pueden acoplarse a detectores externos sin requerir entrenamiento adicional de ReID, mientras que las variantes basadas en apariencia o entrenamiento conjunto dependen de datos y componentes específicos (Adžemović, 2025; Wojke et al., 2017). Esta diferencia delimita un compromiso entre simplicidad de integración y robustez de asociación; por sí sola, no determina la elección de un tracker para una plataforma OVD.
 
 #### 15.3.3. Métricas de evaluación para MOT
 
-La evaluación del desempeño de algoritmos MOT requiere métricas estandarizadas que capturen diferentes aspectos del problema: precisión de detección, consistencia de identidad y localización espacial. Las tres métricas principales en la literatura son MOTA, IDF1 y HOTA, cada una con sesgos y alcances distintos que hacen necesaria su interpretación conjunta (Luiten et al., 2021).
-
-
-##### 15.3.3.1. MOTA (Multiple Object Tracking Accuracy)
-
-MOTA es la métrica clásica de evaluación MOT. Se define como: MOTA = 1 − (FN + FP + IDSW) / GT, donde FN son falsos negativos, FP son falsos positivos, IDSW son cambios de identidad, y GT es el total de objetos ground truth. MOTA está sesgada hacia medir la precisión de detección, penalizando fuertemente los errores de detección sobre los errores de asociación (Bernardin & Stiefelhagen, 2008).
-
-
-##### 15.3.3.2. IDF1 (Identification F1-Score)
-
-IDF1 se enfoca en la consistencia de identidad a largo plazo. Calcula el F1-score entre detecciones verdaderas positivas que mantienen la identidad correcta. IDF1 está sesgada hacia medir la asociación, a expensas de ignorar mejoras en la detección (Ristani et al., 2016).
-
-
-##### 15.3.3.3. HOTA (Higher Order Tracking Accuracy)
-
-HOTA surge como respuesta a las limitaciones de MOTA e IDF1. HOTA balancea explícitamente la precisión de detección y asociación mediante la fórmula:
-
-
-|  | (1) |
-| --- | --- |
-
-donde DetA es la precisión de detección y AssA es la precisión de asociación (Luiten et al., 2021). HOTA también incorpora la precisión de localización, ausente en MOTA e IDF1. La métrica ha sido adoptada por los principales benchmarks como MOTChallenge y se recomienda para evaluaciones comprehensivas de trackers modernos.
-
-Sin embargo, las tres métricas presentan una limitación común para el dominio de seguridad laboral: evalúan el desempeño del tracker de manera agnóstica al valor operativo de cada tipo de error. Un ID switch en una trayectoria de persona dentro de zona restringida tiene un impacto operativo muy diferente a un ID switch en una trayectoria de maquinaria estacionaria, pero ambos contribuyen de manera idéntica al cómputo de MOTA o HOTA. Esta homogeneización del error es incompatible con los requisitos de un sistema de alerta cuya efectividad depende de distinguir entre tipos de error con consecuencias asimétricas. La consolidación metodológica posterior del proyecto deberá abordar el diseño de criterios de evaluación complementarios alineados con los objetivos de seguridad laboral.
-
+MOTA resume falsos negativos, falsos positivos y cambios de identidad respecto del ground truth, aunque su lectura está fuertemente condicionada por los errores de detección (Bernardin & Stiefelhagen, 2008). IDF1 enfatiza la consistencia de identidad a lo largo de la secuencia (Ristani et al., 2016), mientras que HOTA separa y combina calidad de detección, asociación y localización (Luiten et al., 2021). Estas métricas caracterizan al tracker, pero no miden el valor temporal de una alerta; la evaluación de un sistema asistivo exige niveles adicionales, cuya definición corresponde al protocolo experimental. Una comparación ampliada de estas métricas y de sus limitaciones se presenta en la Tabla A.2 del Anexo A.
 
 #### 15.3.4. Brechas identificadas y desafíos para el prototipo
 
 El análisis del estado del arte en MOT revela un conjunto de brechas que condicionan el diseño del prototipo y las decisiones metodológicas de la consolidación metodológica posterior. La Tabla 7 organiza estas brechas con su descripción técnica y su implicación específica para el proyecto.
 
-Tabla 7
+**Tabla 7**
 
-Brechas identificadas en la aplicación de métodos MOT al contexto de seguridad en construcción civil en combinación con detección open-vocabulary
+*Brechas identificadas en la aplicación de métodos MOT al contexto de seguridad en construcción civil en combinación con detección open-vocabulary*
 
-
-| Brecha identificada | Descripción | Implicación para el proyecto |
+| **Brecha identificada** | **Descripción** | **Implicación para el proyecto** |
 | --- | --- | --- |
-| Dependencia de la calidad del detector subyacente | El rendimiento del MOT está fuertemente acoplado al desempeño del detector. Errores de detección —FP, FN, bounding boxes inestables— se propagan al tracking, produciendo fragmentación de trayectorias, pérdidas de identidad y asociaciones erróneas (S. Li et al., 2025) | En el pipeline OVD + MOT, la variabilidad inherente de la detección open-vocabulary puede amplificar errores de asociación; el diseño del sistema debe contemplar estrategias de filtrado y umbralización que reduzcan el ruido de entrada al tracker |
-| Fragilidad ante oclusiones prolongadas | Aunque los métodos modernos manejan oclusiones breves, las oclusiones de larga duración producen terminación prematura de trayectorias, re-asociaciones inciertas y aumento de ID switches (Du et al., 2024) | En entornos de obra civil con alta densidad de obstrucciones (andamios, maquinaria, materiales), la robustez ante oclusiones es una restricción de diseño relevante que debe evaluarse empíricamente |
-| Ausencia de semántica en los identificadores de tracking | Los identificadores asignados por MOT son puramente internos y efímeros: no persisten entre sesiones, cámaras ni reinicios del sistema (Du et al., 2024) | El sistema no puede utilizar el tracking para correlación inter-cámara sin mecanismos adicionales; las alertas basadas en persistencia de identidad quedan limitadas al contexto temporal inmediato de cada flujo de video |
-| Métricas estándar no alineadas con objetivos operativos de seguridad | Las métricas MOTA, IDF1 y HOTA evalúan el desempeño del tracking frame-a-frame sin considerar el impacto operativo diferenciado de distintos tipos de error en el contexto de seguridad laboral (Luiten et al., 2021) | Se deben definir criterios de evaluación del componente MOT alineados con el dominio: persistencia mínima para disparar alertas, penalización diferenciada de ID switches en condiciones de riesgo, y tolerancia ante falsos positivos por oclusión |
-| Ausencia de datasets de construcción con anotaciones de tracking | Los benchmarks estándar de MOT (MOT17, MOT20, DanceTrack) no contemplan el dominio de obras civiles; la evaluación del tracker en condiciones representativas requiere datos del dominio específico (Dendorfer et al., 2020; Milan et al., 2016) | La validación del componente MOT en el prototipo no puede apoyarse en benchmarks estándar; se requiere la definición de un protocolo de evaluación propio con datos recopilados en el contexto del proyecto |
+| Dependencia de la calidad del detector subyacente | El rendimiento del MOT está fuertemente acoplado al desempeño del detector. Errores de detección —FP, FN, bounding boxes inestables— se propagan al seguimiento, produciendo fragmentación de trayectorias, pérdidas de identidad y asociaciones erróneas (S. Li et al., 2025) | En el pipeline OVD + MOT, la variabilidad inherente de la detección open-vocabulary puede amplificar errores de asociación; el diseño del sistema debe contemplar estrategias de filtrado y umbralización que reduzcan el ruido de entrada al tracker |
+| Fragilidad ante oclusiones prolongadas | Aunque los métodos modernos manejan oclusiones breves, las oclusiones de larga duración producen terminación prematura de trayectorias, re-asociaciones inciertas y aumento de ID switches (Du et al., 2024) | En entornos de obra civil con alta densidad de obstrucciones (andamios, maquinaria, materiales), la robustez ante oclusiones es una restricción de diseño relevante que debe evaluarse empíricamente |
+| Métricas estándar no alineadas con objetivos operativos de seguridad | Las métricas MOTA, IDF1 y HOTA evalúan el desempeño del seguimiento cuadro a cuadro sin considerar el impacto operativo diferenciado de distintos tipos de error en el contexto de seguridad laboral (Luiten et al., 2021) | Se deben definir criterios de evaluación del componente MOT alineados con el dominio: persistencia mínima para disparar alertas, penalización diferenciada de ID switches en condiciones de riesgo, y tolerancia ante falsos positivos por oclusión |
+| Ausencia de datasets de construcción con anotaciones de seguimiento | Los benchmarks estándar de MOT (MOT17, MOT20, DanceTrack) no contemplan el dominio de obras civiles; la evaluación del tracker en condiciones representativas requiere datos del dominio específico (Dendorfer et al., 2020; Milan et al., 2016) | La validación del componente MOT en el prototipo no puede apoyarse en benchmarks estándar; se requiere la definición de un protocolo de evaluación propio con datos recopilados en el contexto del proyecto |
 
-Nota. Las brechas listadas definen el espacio de problemas abiertos que deben abordarse en el diseño experimental (etapa 2) y en la implementación del prototipo (etapa 4). Fuente: Elaboración propia basada en las fuentes citadas (Adžemović, 2025; Dendorfer et al., 2020; Du et al., 2024; S. Li et al., 2025; Luiten et al., 2021; Milan et al., 2016).
+*Nota.* Las brechas listadas definen el espacio de problemas abiertos que deben abordarse en el diseño experimental (etapa 2) y en la implementación del prototipo (etapa 4). Fuente: Elaboración propia basada en las fuentes citadas (Adžemović, 2025; Dendorfer et al., 2020; Du et al., 2024; S. Li et al., 2025; Luiten et al., 2021; Milan et al., 2016).
 
-La brecha de ausencia de datasets de construcción con anotaciones de tracking merece una consideración adicional. Los benchmarks estándar de MOT —MOT17, MOT20, DanceTrack— fueron diseñados para escenarios de peatones en entornos urbanos y eventos de danza respectivamente, con distribuciones visuales que difieren significativamente de una obra civil: densidad de cámara fija en planos elevados, entidades heterogéneas (personas, maquinaria, materiales), indumentaria de protección que puede confundir a los modelos de apariencia, y configuraciones de oclusión determinadas por la geometría de la obra. Esta brecha no puede resolverse mediante adaptación de los benchmarks existentes; requiere la definición de un protocolo de evaluación propio que se apoyará en los datos recopilados durante la fase experimental del proyecto.
-
+La brecha de ausencia de datasets de construcción con anotaciones de seguimiento merece una consideración adicional. Los benchmarks estándar de MOT —MOT17, MOT20, DanceTrack— fueron diseñados para escenarios de peatones en entornos urbanos y eventos de danza respectivamente, con distribuciones visuales que difieren significativamente de una obra civil: densidad de cámara fija en planos elevados, entidades heterogéneas (personas, maquinaria, materiales), indumentaria de protección que puede confundir a los modelos de apariencia, y configuraciones de oclusión determinadas por la geometría de la obra. Esta brecha no puede resolverse mediante adaptación de los benchmarks existentes; requiere la definición de un protocolo de evaluación propio que se apoyará en los datos recopilados durante la fase experimental del proyecto.
 
 ### 15.4. Video en tiempo real y streaming: protocolos, servidores y brechas del estado del arte
-
 
 #### 15.4.1. Protocolos de transmisión de video de baja latencia
 
@@ -780,273 +2284,96 @@ Desde una perspectiva general, los protocolos de streaming pueden diferenciarse 
 
 En esta sección, el análisis se limita a revisar los protocolos y familias de transmisión más relevantes para aplicaciones de baja latencia, identificando sus características principales, sus restricciones prácticas y su grado de compatibilidad con un sistema de análisis automatizado de vídeo. Esta revisión permite establecer criterios preliminares para la selección posterior del stack de medios, sin definir todavía una implementación definitiva.
 
-
 ##### 15.4.1.1. Criterios de clasificación de protocolos
 
-Modelo de entrega push. En el modelo push, una vez establecida la sesión, el emisor entrega el flujo de manera continua hacia el receptor (típicamente sobre UDP o sobre una sesión persistente), minimizando esperas asociadas a la solicitud de unidades discretas de contenido. Protocolos de tiempo real, como RTP y flujos interactivos como WebRTC, se alinean más naturalmente con push (ISO/IEC, 2022; May, 2017a).
+**Modelo de entrega push.** En el modelo push, una vez establecida la sesión, el emisor entrega el flujo de manera continua hacia el receptor (típicamente sobre UDP o sobre una sesión persistente), minimizando esperas asociadas a la solicitud de unidades discretas de contenido. Protocolos de tiempo real, como RTP y flujos interactivos como WebRTC, se alinean más naturalmente con push (ISO/IEC, 2022; May, 2017).
 
-Modelo de entrega pull. En el modelo pull, el control de la entrega reside principalmente en el cliente: el receptor solicita (por HTTP) segmentos o partes de segmentos en forma sucesiva, habilitando escalabilidad y cacheo, pero introduciendo buffering y latencias asociadas a segmentación y recarga. Los esquemas adaptativos sobre HTTP, como HLS y MPEG-DASH, responden al patrón pull (cliente-driven).
+**Modelo de entrega pull.** En el modelo pull, el control de la entrega reside principalmente en el cliente: el receptor solicita (por HTTP) segmentos o partes de segmentos en forma sucesiva, habilitando escalabilidad y cacheo, pero introduciendo buffering y latencias asociadas a segmentación y recarga. Los esquemas adaptativos sobre HTTP, como HLS y MPEG-DASH, responden al patrón pull (cliente-driven).
 
-Esquema de distribución unicast. En unicast, cada cliente mantiene una conexión individual y recibe un flujo dedicado, lo que simplifica control por receptor (adaptación, seguridad, métricas), pero escala el consumo de ancho de banda en el emisor.
+**Esquema de distribución unicast.** En unicast, cada cliente mantiene una conexión individual y recibe un flujo dedicado, lo que simplifica control por receptor (adaptación, seguridad, métricas), pero escala el consumo de ancho de banda en el emisor.
 
-Esquema de distribución multicast. En multicast, el emisor envía un único flujo a un grupo multicast y la red replica hacia múltiples receptores, siendo eficiente en redes administradas. Protocolos basados en RTP pueden operar sobre unicast o multicast; sin embargo, el multicast IP no es viable en Internet abierta (en general no es ruteable extremo-a-extremo y complica control de congestión por receptor).
+**Esquema de distribución multicast.** En multicast, el emisor envía un único flujo a un grupo multicast y la red replica hacia múltiples receptores, siendo eficiente en redes administradas. Protocolos basados en RTP pueden operar sobre unicast o multicast; sin embargo, el multicast IP no es viable en Internet abierta (en general no es ruteable extremo-a-extremo y complica control de congestión por receptor).
 
-Orden de magnitud de latencia. Otra forma práctica de categorizar protocolos es por la latencia end-to-end típica que habilitan bajo configuraciones habituales. En términos operativos pueden distinguirse tres rangos:
+**Orden de magnitud de latencia.** Otra forma práctica de categorizar protocolos es por la latencia extremo a extremo típica que habilitan bajo configuraciones habituales. En términos operativos pueden distinguirse tres rangos:
 
-Alta latencia (>~3 s). Protocolos orientados a distribución masiva y robustez. Aquí se ubican implementaciones “clásicas” de HLS y MPEG-DASH con segmentos de varios segundos. Al apoyarse en HTTP/HTTPS y CDN, priorizan escalabilidad y tolerancia a fallos, usualmente con latencias del orden de varios segundos a decenas de segundos (ISO/IEC, 2022; May, 2017a).
+**Alta latencia (>~3 s).** Protocolos orientados a distribución masiva y robustez. Aquí se ubican implementaciones “clásicas” de HLS y MPEG-DASH con segmentos de varios segundos. Al apoyarse en HTTP/HTTPS y CDN, priorizan escalabilidad y tolerancia a fallos, usualmente con latencias del orden de varios segundos a decenas de segundos (ISO/IEC, 2022; May, 2017).
 
-Latencia media (~0,5 a 3 s). Incluye protocolos como RTMP (en ingesta), RTSP cuando se opera con buffers conservadores o sobre TCP, y variantes de baja latencia de HLS/DASH basadas en segmentación fina y entrega parcial.
+**Latencia media (~0,5 a 3 s).** Incluye protocolos como RTMP (en ingesta), RTSP cuando se opera con buffers conservadores o sobre TCP, y variantes de baja latencia de HLS/DASH basadas en segmentación fina y entrega parcial.
 
-Baja latencia (<~500 ms). Protocolos diseñados para interactividad estricta y respuesta casi en tiempo real: WebRTC, SRT, RIST y flujos RTP con mínima capa de sesión. En general emplean UDP para evitar la penalidad de retransmisiones fuera de plazo y operan con buffers pequeños, compensando la pérdida con estrategias específicas (p. ej., ARQ “dentro de un presupuesto de tiempo” en SRT/ RIST). En WebRTC, además, la conectividad extremo-a-extremo depende de mecanismos de traversal NAT como ICE, que influyen en la latencia efectiva según el tipo de red (Keranen et al., 2018; Nakagawa et al., 2021; Schulzrinne et al., 2003b; M. P. Sharabayko et al., 2024; Video Services Forum, 2020).
-
+**Baja latencia (<~500 ms).** Protocolos diseñados para interactividad estricta y respuesta casi en tiempo real: WebRTC, SRT, RIST y flujos RTP con mínima capa de sesión. En general emplean UDP para evitar la penalidad de retransmisiones fuera de plazo y operan con buffers pequeños, compensando la pérdida con estrategias específicas (p. ej., ARQ “dentro de un presupuesto de tiempo” en SRT/ RIST). En WebRTC, además, la conectividad extremo-a-extremo depende de mecanismos de traversal NAT como ICE, que influyen en la latencia efectiva según el tipo de red (Keranen et al., 2018; Nakagawa et al., 2021; Schulzrinne et al., 2003; Sharabayko et al., 2024; Video Services Forum, 2020).
 
 ##### 15.4.1.2. Mapa de familias de protocolos según los criterios de clasificación
 
 En esta sección, se analizan los protocolos más relevantes aplicando sistemáticamente (i) modelo de entrega, (ii) esquema de distribución y (iii) latencia típica, además de consideraciones prácticas pertinentes a cada protocolo (NAT, resiliencia, seguridad, tooling).
 
-RTSP/RTP: El estándar de cámaras IP industriales. El Real-Time Streaming Protocol (RTSP) es un protocolo de capa de aplicación orientado al control de sesiones de streaming. Fue especificado inicialmente en el RFC 2326 (Schulzrinne et al., 1998a) y posteriormente revisado en RTSP 2.0 mediante el RFC 7826, dejando obsoleta la versión original (Schulzrinne et al., 2016). En términos funcionales, RTSP opera como plano de control: define cómo un cliente describe una sesión, negocia parámetros y ejecuta acciones de control, mientras que el transporte del audio y el video no suele ocurrir en RTSP sino en un protocolo de medios separado. RTSP mantiene estado de sesión y utiliza comandos bidireccionales con sintaxis similar a HTTP.
+RTSP/RTP: el estándar de cámaras IP industriales. El Real-Time Streaming Protocol (RTSP) es un protocolo de capa de aplicación orientado al control de sesiones de streaming. Fue especificado inicialmente en el RFC 2326 (Schulzrinne et al., 1998) y posteriormente revisado en RTSP 2.0 mediante el RFC 7826 (Schulzrinne et al., 2016). RTSP opera como plano de control: el cliente describe la sesión, negocia parámetros y ejecuta acciones de control, mientras que el audio y el video suelen transportarse mediante un protocolo de medios separado.
 
-En este esquema, el transporte de medios suele realizarse con el Real-time Transport Protocol (RTP), definido en el RFC 3550, acompañado por RTCP que informa métricas como pérdida y jitter, útiles para diagnóstico y sincronización (Schulzrinne et al., 2003b). RTP se encapsula típicamente sobre UDP e incorpora cabeceras con timestamps y números de secuencia para facilitar la reconstrucción temporal del flujo, la sincronización entre medios y el manejo del jitter en el receptor..
+En este esquema, el transporte de medios suele realizarse con Real-time Transport Protocol (RTP), definido en el RFC 3550, acompañado por RTCP para informar pérdida y jitter (Schulzrinne et al., 2003). RTP se encapsula típicamente sobre UDP e incorpora timestamps y números de secuencia para facilitar la reconstrucción temporal y el manejo del jitter. RTSP/RTP se adoptó ampliamente en videovigilancia y cámaras IP por su madurez y compatibilidad; ONVIF Profile S lo utiliza como mecanismo central de consumo y control de streams (ONVIF, 2019). En redes controladas puede utilizar UDP para el transporte, mientras que RTP/RTCP interleaved sobre la conexión TCP de RTSP simplifica el cruce de firewalls a costa de los compromisos propios de TCP (Schulzrinne et al., 1998, 2016).
 
-RTSP/RTP se adoptó ampliamente en entornos industriales y de videovigilancia por su compatibilidad y madurez, y su uso se encuentra alineado con especificaciones del ecosistema IP de seguridad, como ONVIF Profile S, donde RTSP aparece como componente central para consumo/control de streams (ONVIF, 2019). Operativamente, la combinación RTSP/RTP es particularmente conveniente en redes controladas (LAN) por su eficiencia cuando se usa UDP; no obstante, en escenarios con NAT y firewalls puede aparecer fricción por la necesidad de múltiples flujos/puertos para RTP/RTCP. Para mitigar este problema, RTSP contempla la posibilidad de transportar RTP/RTCP interleaved sobre la misma conexión TCP, simplificando el cruce de firewalls, aunque introduciendo trade-offs propios de TCP (por ejemplo, mayor sensibilidad a variaciones y efectos de bloqueo por orden) (Schulzrinne et al., 1998a, 2016). En términos de puertos, el registro de IANA asocia comúnmente rtsp con 554/TCP y 554/UDP, y rtsps con 322/TCP y 322/UDP, aunque en la práctica los vendors pueden operar con puertos alternativos por configuración (Internet Assigned Numbers Authority, s/f).
+En cuanto a latencia, los valores reportados para un protocolo son rangos típicos y no compromisos del estándar. La latencia extremo a extremo depende de captura, codificación, red, decodificación y, de manera marcada, del buffer del receptor. Axis Communications AB (2015) identifica el play-out buffer como un componente que puede dominar el retardo cuando se prioriza estabilidad frente a jitter. Bajo condiciones favorables, RTSP/RTP puede operar en el orden de cientos de milisegundos —aproximadamente 200–800 ms—; configuraciones de videovigilancia con buffering conservador pueden elevar ese valor a 1.000–2.000 ms o más (Axis Communications AB, 2015).
 
-En cuanto a latencia, es importante explicitar un criterio: los valores reportados para un protocolo son rangos típicos observados y no compromisos del estándar. Ni RTSP ni RTP garantizan un valor en específico. La latencia end-to-end (glass-to-glass) se ve dominada por el pipeline completo (captura, codificación, red, decodificación) y, de manera muy marcada, por el buffer del receptor y las políticas del cliente de reproducción. En literatura técnica de videovigilancia se describe explícitamente que múltiples etapas suman retardo y que el play-out buffer puede convertirse en un componente dominante, elevando la latencia para priorizar estabilidad ante jitter (Axis Communications AB, 2015). Bajo condiciones favorables, RTSP/RTP puede operar con latencias del orden de cientos de milisegundos (por ejemplo, ~200–800 ms). En despliegues reales con Video Management Software (VMS), donde se prioriza continuidad y tolerancia a variaciones de red, es frecuente observar valores que suben a 1.000–2.000 ms o más, configurados explícitamente por buffering y por el comportamiento del cliente (Axis Communications AB, 2015).
+#### 15.4.2. Alternativas complementarias de ingesta, transporte y distribución
 
-RTMP: El protocolo de ingesta dominante de la era Flash. El Real-Time Messaging Protocol (RTMP) fue impulsado históricamente por el ecosistema Flash y, aunque Flash Player quedó oficialmente descontinuado (fin de soporte el 31/12/2020 y bloqueo de contenido desde el 12/01/2021), RTMP sigue teniendo un rol vigente como protocolo de ingesta hacia plataformas y servidores de streaming (Adobe, 2021; Twitch Developers, s/f). Conceptualmente, RTMP se apoya sobre TCP y establece una conexión persistente en la que viajan audio, video y datos de control multiplexados; el diseño incorpora un mecanismo de “chunking” para intercalar flujos y sostener continuidad de entrega: el tamaño máximo de chunk por defecto es 128 bytes, aunque puede renegociarse mediante mensajes de control (Parmar & Thornburgh, 2012). En la práctica operativa, suele utilizar el puerto 1935 (por defecto), y existen variantes para atravesar restricciones de red, como RTMPS (RTMP sobre TLS) o tunelado por HTTP (The FFmpeg developers, s/f-b).
+Además de RTSP/RTP, la literatura de transmisión de baja latencia comprende familias con compromisos diferentes. Los esquemas HTTP adaptativos —HLS y MPEG-DASH, incluidas sus extensiones de baja latencia— priorizan escalabilidad y robustez mediante segmentación; WebRTC integra negociación, transporte y control de congestión para interacción sub-segundo; y SRT/RIST agregan recuperación selectiva de pérdidas sobre UDP para enlaces variables. Estas alternativas no son directamente equivalentes: la latencia observada depende del códec, los buffers, la red y la implementación, por lo que su comparación debe interpretarse como un mapa de propiedades y no como un ranking universal. La Tabla 8 resume estas diferencias.
 
-Desde el punto de vista de arquitectura, RTMP se comporta como un canal “siempre abierto” entre codificador (OBS/encoder/cámara) y servidor/plataforma, en el que la sesión intercambia comandos y metadatos además de los paquetes de medios (Parmar & Thornburgh, 2012). Esa persistencia simplifica la ingesta en escenarios clásicos de broadcasting, y explica por qué muchas plataformas todavía aceptan RTMP como entrada aunque distribuyan al público con otros formatos; por ejemplo, Twitch describe explícitamente que el envío hacia su infraestructura se realiza usando RTMP (Twitch Developers, s/f).
+La captura mediante SDK constituye una alternativa distinta del consumo de un stream ya codificado. En cámaras inteligentes, el host puede gobernar un pipeline ejecutado en el dispositivo y recibir las unidades visuales o salidas requeridas para el procesamiento posterior. Esta modalidad permite desplazar operaciones acotadas de adquisición o preprocesamiento hacia la fuente sin equipararla a inferencia OVD en el borde (Luxonis, s. f.-b).
 
-En latencia, RTMP suele ubicarse en un rango “bajo” comparado con protocolos segmentados, pero no es ultra-bajo en sentido estricto: en implementaciones reales, es común observar ~2–5 s (2000–5000 ms) de glass-to-glass en configuraciones típicas, muy influido por el buffering del reproductor y por la estabilidad de la red (Roy (Whalen), 2024).
+Los servidores de medios implementan combinaciones de retransmisión, pasarela, reempaquetamiento o transcodificación. Su aporte a la latencia depende de si transforman el contenido o sólo lo reenvían: la transcodificación incorpora decodificación y recodificación, mientras que un relay agrega principalmente un salto de red y gestión de colas. Para un pipeline de analítica visual, esta distinción resulta más relevante que un catálogo extenso de productos, porque permite separar el costo del transporte del costo de transformación multimedia (Ahmad et al., 2005; Amirante et al., 2014, 2015).
 
-Además, varios stacks incorporan buffers explícitos del lado cliente/encoder: por ejemplo, en tooling común se expone un “client buffer time” configurable y con valores por defecto del orden de 3000 ms (The FFmpeg developers, s/f-b). Esto es clave para la plantilla: cuando el documento menciona latencias, debe quedar claro que el número final no es una propiedad “fija” del protocolo, sino la resultante del buffering + RTT/jitter + códec + política de retransmisión de TCP.
-
-En cuanto a vigencia y compatibilidad, el motivo principal por el que RTMP persiste es pragmático: es un “idioma común” de ingesta para encoders y plataformas. Sin embargo, para un diseño nuevo orientado a tiempo real, sus límites aparecen rápido ya que, al estar sobre TCP, en presencia de pérdida/jitter el comportamiento de retransmisión puede traducirse en demoras variables (latencia “elástica”), y en general no ofrece, por sí mismo, garantías modernas de resiliencia/recuperación orientadas a tiempo real como las que hoy se buscan con alternativas basadas en UDP (p. ej., SRT/WebRTC en otras secciones). En paralelo, también hay un punto de “futuro del ecosistema”: RTMP tiene una especificación publicada y ampliamente implementada, pero su evolución no siguió una trayectoria de estandarización comparable a los RFCs, y buena parte de su protagonismo histórico estuvo atado a Flash (Adobe, 2021; Parmar & Thornburgh, 2012).
-
-Respecto de códecs, el RTMP “clásico” se consolidó como baseline interoperable en FLV con H.264/AAC, y plataformas documentan RTMP/RTMPS con soporte típico de H.264 como opción compatible (Parmar & Thornburgh, 2012). Aun así, el estado del arte se está moviendo: especificaciones como Enhanced RTMP/Enhanced FLV proponen extensiones (incluida señalización por FOURCC) para habilitar códecs modernos como HEVC y AV1, y tooling ampliamente usado ya lo implementa en escenarios acotados (p. ej., OBS con Enhanced RTMP en beta para YouTube). Por lo tanto, es más preciso afirmar que la limitación es principalmente de interoperabilidad y soporte homogéneo (encoder + servidor + plataforma) que una imposibilidad conceptual absoluta.
-
-Protocolos HTTP adaptativos: HLS, MPEG-DASH y CMAF. Las tecnologías de streaming adaptativo sobre HTTP se consolidaron como estándar para distribuir vídeo a grandes audiencias por su escalabilidad y porque reutilizan infraestructura web existente (CDN, proxies, cachés y firewalls “amigables” con HTTP). En esta familia, HLS y MPEG-DASH comparten la idea central de “segmentar + describir en un manifiesto + descargar por HTTP”, y CMAF aparece como pieza clave para reducir duplicación de contenedores y habilitar variantes de baja latencia. Sin embargo, incluso en sus modos “low latency”, suelen ubicarse en el rango de latencia de pocos segundos, muy por encima de los protocolos de ultra-baja latencia orientados a interactividad estricta.
-
-HTTP Live Streaming (HLS). Define un esquema en el cual el contenido se publica como una secuencia de segmentos (históricamente MPEG-TS, y en implementaciones modernas también fMP4/CMAF) y se expone un manifiesto (playlist M3U8) para que el cliente los descargue y reproduzca en orden (May, 2017a). En su configuración “clásica”, la latencia tiende a ser elevada porque el cliente suele mantener un buffer de seguridad y porque los segmentos suelen tener duraciones de varios segundos; el propio RFC 8216 describe el modelo de “segmentos + playlist” y un comportamiento típico de segmentación que, en la práctica, deriva en latencias del orden de decenas de segundos dependiendo del empaquetado y del reproductor (May, 2017a).
-
-Con Low-Latency HLS (LL-HLS) el objetivo es reducir la latencia sin abandonar HTTP/CDN, principalmente habilitando la entrega “temprana” de contenido antes de que el segmento completo esté terminado. Este comportamiento está especificado en la evolución del estándar, incorporando mecanismos como partial segments (PART), recargas bloqueantes del playlist y señales para “preanunciar” contenido próximo (Pantos, 2025). En términos prácticos, LL-HLS puede configurarse para emitir “partes” muy cortas —por ejemplo, del orden de ~200 ms— que el cliente puede comenzar a consumir apenas se codifican, sin esperar el cierre del segmento completo (Apple Developer, s/f). Importante: esos 200 ms son un tamaño de “parte/chunk” (granularidad de publicación), no la latencia end-to-end total; la latencia final depende también de parámetros como el hold-back del reproductor, el buffer mínimo, la cadencia de actualización del playlist, la latencia de codificación (GOP), y la red. En presentaciones técnicas de Apple sobre LL-HLS se reporta la posibilidad de lograr streaming “casi en vivo” con latencias sub-2s en escenarios optimizados, precisamente gracias a este enfoque de entrega incremental sobre HTTP (Apple Developer, 2019).
-
-MPEG-DASH (ISO/IEC 23009-1). Cuenta con un manifiesto (MPD) que describe representaciones (bitrate/resolución) y el cliente descarga segmentos por HTTP, permitiendo adaptación dinámica. Su modo de baja latencia se apoya en CMAF y en técnicas de entrega temprana (por ejemplo, HTTP chunked transfer) para que el reproductor pueda empezar a consumir el segmento mientras se produce. Documentos de la industria (DASH-IF) definen explícitamente el objetivo de “low-latency service offering” con una latencia objetivo típicamente entre 2 y 10 segundos, manteniendo compatibilidad con CDN y con clientes legacy que seguirían reproduciendo con más delay si no soportan el modo LL (DASH Industry Forum, 2020). Esto vuelve a reforzar la idea clave: en HTTP adaptativo, la baja latencia es “baja” en términos OTT (segundos), no en términos de interactividad estricta (centenas de ms).
-
-CMAF (ISO/IEC 23000-19). No es un protocolo sino un formato contenedor y de segmentación basado en fragmented MP4, pensado para que un mismo set de fragmentos/segmentos sea utilizable tanto por HLS como por DASH, reduciendo duplicaciones y facilitando interoperabilidad. En el contexto de baja latencia, CMAF permite estructurar el contenido en unidades más pequeñas (chunks/fragments) que pueden ser decodificables progresivamente; por ejemplo, en materiales técnicos vinculados a perfiles DVB/DASH se ven parámetros que acotan la duración máxima de un “chunk” a ~500 ms en ciertos esquemas de señalización, nuevamente como granularidad de entrega y no como garantía de latencia end-to-end (Law, 2020). En otras palabras: que el sistema “empaquete” en 200 ms o 500 ms ayuda, pero la latencia total sigue estando dominada por decisiones de pipeline y buffers de reproducción.
-
-Ventajas y limitaciones. HLS/DASH (y sus variantes LL sobre CMAF) siguen siendo imbatibles para distribución masiva y robusta —aprovechan CDNs, se comportan bien con firewalls y permiten bitrate adaptativo—, pero pagan el costo de una latencia que, aún optimizada, suele quedar en pocos segundos.
-
-WebRTC: Ultra-baja latencia para aplicaciones interactivas. Web Real-Time Communication (WebRTC) no es un protocolo único, sino una pila completa de estándares y APIs orientada a comunicación de audio/video en tiempo real, nacida en el contexto del navegador pero extendida hoy a SDKs móviles y servidores. A nivel de estandarización, WebRTC se apoya en un conjunto de especificaciones IETF (por ejemplo, el documento de visión general y la definición de transportes) y en la API JavaScript normalizada por W3C, que expone primitivas como RTCPeerConnection para establecer sesiones de comunicación con latencias típicamente sub-segundo cuando la red lo permite (World Wide Web Consortium, 2025).
-
-En términos funcionales, WebRTC resuelve “de punta a punta” (en el sentido de la pila de comunicación) tres problemas que otros enfoques suelen delegar a componentes externos: (1) negociación de conectividad en presencia de NAT/firewalls, (2) transporte de medios en tiempo real sobre UDP con control de congestión y métricas de calidad, y (3) cifrado obligatorio del canal de medios. Esta integración es relevante para casos donde la latencia es prioritaria y donde la operación ocurre en redes variables (obra, 4G/5G, Wi-Fi corporativo), porque evita depender de segmentación HTTP y reduce buffering estructural.
-
-La arquitectura base combina señalización (fuera de banda) con transporte de medios. WebRTC utiliza SDP con el modelo offer/answer para describir capacidades (códecs, direcciones, parámetros), pero el “plano de señalización” no está fijado por WebRTC y queda en manos de la aplicación (HTTP, WebSocket, MQTT, etc.). En la práctica, el estándar JSEP define cómo una aplicación JavaScript controla esa máquina de estados de establecimiento y aplica las descripciones SDP a la conexión, manteniendo la flexibilidad de integrar WebRTC en arquitecturas más grandes sin imponer un protocolo de señalización único.
-
-En la capa de conectividad, WebRTC se apoya en ICE para atravesar NAT, usando STUN para descubrir direcciones públicas y TURN como relé cuando no hay ruta directa viable. ICE está estandarizado en RFC 8445 y, además, la especificación de transportes de WebRTC explicita requerimientos de soporte (incluyendo el uso de TURN para escenarios de NATs restrictivos), lo que lo vuelve un “supuesto operativo” del stack y no un agregado opcional.
-
-Respecto de la latencia —bajo el marco conceptual desarrollado en la sección 16.5.1— conviene distinguir dos métricas que suelen confundirse: el RTT de red (ida y vuelta de paquetes, útil para caracterizar conectividad) y la latencia glass-to-glass (captura → codificación → transporte → decodificación → render). En WebRTC pueden observarse RTTs muy bajos en rutas P2P favorables; sin embargo, el desempeño “glass-to-glass” depende principalmente del pipeline extremo a extremo (códec, parámetros del encoder como GOP/B-frames/rate control, jitter buffer y render del receptor). En mediciones experimentales sobre escenarios WebRTC se reportan latencias extremo a extremo del orden de centenas de milisegundos cuando el pipeline está optimizado. Asimismo, en estudios con usuarios reales, una fracción relevante de conexiones P2P alcanza RTTs compatibles con aplicaciones altamente sensibles a sincronización, aunque no es un comportamiento universal porque depende del acceso y de las condiciones de NAT.
-
-En seguridad, WebRTC impone cifrado en el plano de medios como requisito: el establecimiento de claves se hace mediante DTLS y luego el contenido viaja cifrado con SRTP (DTLS-SRTP), lo que elimina configuraciones “sin cifrar” a nivel de medios. La arquitectura y el modelo de amenazas de WebRTC están desarrollados en documentos específicos de seguridad, que además aclaran implicancias prácticas (por ejemplo, exposición de direcciones, consideraciones de privacidad y superficie de ataque). Un matiz relevante para arquitectura: cuando se introduce un servidor intermedio (p. ej., SFU), el cifrado sigue existiendo en los enlaces WebRTC, pero el “extremo” criptográfico puede ser el servidor (no necesariamente un cifrado E2E entre productor y consumidor final), salvo que se implementen mecanismos adicionales a nivel aplicación.
-
-Para simplificar su uso en streaming (ingesta/egreso) sin implementar señalización compleja, surgen perfiles HTTP. WHIP ya está estandarizado como RFC 9725 y define un mecanismo de ingesta WebRTC basado en HTTP que reduce fricción operativa (publicación vía HTTP y negociación asociada).
-
-SRT: Transporte confiable de baja latencia sobre UDP. Secure Reliable Transport (SRT) es un protocolo de transporte para video en vivo diseñado para mantener baja latencia tolerando pérdida, jitter y variaciones de ancho de banda en redes no confiables. Desarrollado por Haivision y liberado como código abierto en 2017, actualmente es mantenido por la SRT Alliance. Su especificación técnica fue documentada como Internet-Draft en IETF, lo que formaliza su comportamiento y terminología (M. P. Sharabayko et al., 2024).
-
-SRT utiliza UDP como transporte base y agrega una capa de control a nivel de usuario para lograr confiabilidad selectiva. El receptor detecta huecos en la secuencia de paquetes y solicita retransmisiones puntuales mediante NACK (Negative Acknowledgements), un esquema conocido como ARQ selectivo. La diferencia fundamental con TCP radica en que SRT opera con un presupuesto de tiempo configurable, denominado SRT Latency: dentro de esa ventana, el protocolo intenta recuperar paquetes perdidos; si un paquete no puede recuperarse a tiempo, se descarta mediante el mecanismo TLPKTDROP (Too-Late Packet Drop) para mantener la continuidad del flujo. De este modo, la latencia no es un valor fijo universal sino una configuración que se ajusta según las condiciones del enlace, permitiendo latencia acotada y predecible (M. Sharabayko, 2022; M. P. Sharabayko et al., 2024).
-
-En condiciones prácticas, SRT opera con latencias configuradas típicamente entre 120 y 500 ms, pudiendo incrementarse si el RTT es alto o la pérdida significativa. En redes locales de muy baja pérdida puede configurarse más agresivamente, respetando el piso operativo recomendado de aproximadamente 120 ms (M. P. Sharabayko et al., 2024).
-
-En cuanto a conectividad, SRT soporta modos Caller, Listener y Rendezvous, lo que facilita escenarios de despliegue detrás de NAT o firewalls sin requerir aperturas permanentes de puertos entrantes en todos los extremos. Esto resulta relevante para entornos donde la conectividad depende de routers 4G/5G o redes con reglas de acceso restrictivas (M. P. Sharabayko et al., 2024). Además, SRT incorpora cifrado opcional con AES (128, 192 o 256 bits), proporcionando confidencialidad del contenido en tránsito cuando se habilita (M. P. Sharabayko et al., 2024).
-
-RIST: Estándar abierto para transporte resiliente de video. Reliable Internet Stream Transport (RIST) es una especificación para transporte confiable de video en tiempo real sobre redes IP no administradas, desarrollada por el Video Services Forum (VSF) con un foco explícito en interoperabilidad multivendor. El protocolo se publica como Recomendaciones Técnicas (TR) de acceso público, organizadas en perfiles incrementales: Simple Profile (TR-06-1), Main Profile (TR-06-2) y Advanced Profile (TR-06-3), donde cada perfil agrega capacidades sobre el anterior (Video Services Forum, 2020, 2024).
-
-El punto diferencial de RIST es su elección de base protocolar: se apoya en el ecosistema existente de RTP/RTCP (Schulzrinne et al., 2003b) y añade mecanismos de recuperación de pérdidas de forma interoperable. En el Simple Profile, el enfoque central es un esquema ARQ impulsado por el receptor, donde la pérdida se detecta por discontinuidades en los números de secuencia RTP y se solicitan retransmisiones mediante mensajes NACK a través de RTCP, conforme al perfil de retroalimentación extendido RTP/AVPF (Video Services Forum, 2020, 2024). Esto permite recuperar paquetes perdidos dentro de una ventana temporal definida, evitando convertir el transporte en un flujo perfecto pero excesivamente tardío para reproducción en tiempo real. Al igual que SRT, el diseño busca un equilibrio práctico: recuperar lo recuperable a tiempo y descartar lo que llegue demasiado tarde.
-
-La latencia en RIST, al igual que en SRT, no es una propiedad fija del protocolo sino resultado del presupuesto de buffering y de las condiciones del enlace. La ventana disponible para retransmisión está acotada por la latencia objetivo del pipeline; cuanto mayor es el RTT y la variabilidad, mayor debe ser el buffer para mantener alta tasa de recuperación. En evaluaciones empíricas comparando RIST Simple Profile y SRT bajo condiciones controladas de laboratorio, se observó que ambos protocolos pueden comportarse de manera comparable en recuperación de pérdida y latencia cuando se configuran con presupuestos equivalentes, y que las diferencias prácticas aparecen más por implementación y parametrización que por el mecanismo ARQ en sí (Sonono, 2019).
-
-En comparación con SRT, la discusión práctica se organiza en torno a tres ejes. Primero, la base protocolar: RIST prioriza RTP/RTCP y un modelo de extensiones alineado con estándares del broadcast, mientras que SRT utiliza un stack propio sobre UDP derivado de UDT (M. P. Sharabayko et al., 2024). Segundo, la distribución: RIST incluye soporte explícito para IP multicast y escenarios uno-a-muchos desde su Simple Profile (Video Services Forum, 2020), mientras que SRT se utiliza predominantemente en contribución unicast. Tercero, la seguridad: SRT incorpora cifrado AES integrado a nivel de protocolo, mientras que RIST Main Profile emplea DTLS con autenticación basada en certificados, un enfoque que ofrece mayor granularidad en la gestión de identidades (Video Services Forum, 2024).
-
-
-#### 15.4.2. Servidores de medios de código abierto para transmisión en baja latencia
-
-
-##### 15.4.2.1. Roles funcionales del servidor de medios
-
-Un servidor de medios puede desempeñar diferentes funciones según los requisitos del sistema. La literatura y las especificaciones técnicas distinguen roles que afectan tanto la latencia end-to-end como la complejidad computacional.
-
-En particular, clasificaremos estos roles entre (i) aquellos que no requieren decodificar/recodificar y (ii) aquellos que sí implican procesamiento multimedia. Adicionalmente, se considera el rol de gateway como función de interoperabilidad entre protocolos y ecosistemas heterogéneos.
-
-
-###### 15.4.2.1.1. Roles que no requieren decodificar/recodificar
-
-Relay (retransmisión). En este modo, el servidor actúa como punto de paso que recibe paquetes desde un origen y los reenvía a uno o más destinos sin modificar el contenido multimedia. En arquitecturas WebRTC, este rol se implementa típicamente mediante servidores TURN (Traversal Using Relays around NAT), especificados en el RFC 5766, para habilitar conectividad cuando no existe una ruta directa viable entre extremos (Mahy et al., 2010).
-
-Un relay no introduce retardo por procesamiento de medios (no hay decodificación/recodificación). Sin embargo, puede aumentar la latencia efectiva al agregar un salto adicional en la ruta (tráfico vía relé), sumando tiempo de propagación y overhead de entrada/salida. Por lo tanto, su contribución típica a la latencia es baja en comparación con roles que procesan contenido, aunque queda condicionada por ubicación del relé, congestión y buffering del receptor, factores vinculados con los componentes de transporte y renderizado desarrollados en las secciones 16.5.2.3 y 16.5.2.5.
-
-Selective Forwarding Unit (SFU). SFU es uno de los patrones más utilizados en arquitecturas WebRTC multiparte. Cada cliente publica uno (o pocos) flujos hacia el servidor y la SFU reenvía selectivamente esos flujos a los receptores correspondientes sin decodificar ni transcodificar. En términos de latencia, esto es relevante porque, evitar procesamiento pesado sobre el contenido multimedia, la SFU tiende a no sumar retardos comparables a los de una transcodificación; su impacto se concentra en el salto adicional, el enrutamiento, el manejo de colas y el comportamiento bajo carga.
-
-En el caso de Janus, su concepción como gateway WebRTC modular y extensible habilita el uso en configuraciones tipo SFU mediante plugins (Amirante et al., 2014), y su análisis de performance reporta escenarios de videoconferencia y “webinar” donde el cuello de botella pasa a estar dominado por recursos del servidor y número de conexiones simultáneas (Amirante et al., 2015).
-
-Ahora bien, la performance real de una SFU depende del setup y del perfil de carga. En estudios comparativos realizados con el framework KITE se observaron diferencias claras entre implementaciones bajo campañas controladas: algunas SFU mantienen el RTT bajo durante la rampa de carga y degradan de forma gradual, mientras que otras exhiben incrementos mayores de RTT y/o inestabilidad al alcanzar la carga objetivo (Andre et al., 2018). Asimismo, se ha señalado que métricas como RTT o bitrate constituyen indicadores útiles de estrés y degradación, pero no son equivalentes por sí mismas a la latencia glass-to-glass ni agotan la caracterización de la calidad percibida, la cual puede deteriorarse de forma marcada cuando el bitrate desciende por debajo de ciertos umbrales (Andre et al., 2018).
-
-Transmux (re-empaquetamiento). La operación de transmuxing consiste en cambiar el contenedor o el protocolo de entrega sin modificar los flujos ya codificados de audio y video (es decir, sin decodificar ni recodificar). Por ejemplo, al convertir una ingesta RTMP hacia una salida HLS, el sistema puede re-empaquetar el flujo comprimido en segmentos y manifiestos HLS, manteniendo el códec original (May, 2017; Parmar & Thornburgh, 2012).
-
-Aunque el transmux suele agregar poca sobrecarga computacional por no transcodificar, el paso desde un esquema persistente a uno segmentado puede introducir latencia principalmente por segmentación y buffering del reproductor (May, 2017). En streaming adaptativo, el empaquetamiento dinámico se utiliza para flexibilizar la entrega sin duplicar el costo de codificación y para evitar mantener representaciones pre-empaquetadas en múltiples formatos, con beneficios operativos en escenarios a escala (Bentaleb et al., 2019).
-
-
-###### 15.4.2.1.2. Roles que sí implican procesamiento multimedia
-
-Transcode (transcodificación). La transcodificación implica la decodificación completa del flujo entrante y su posterior recodificación con parámetros distintos (códec, resolución, tasa de bits o frecuencia de cuadros). En sistemas de tiempo real, introduce procesamiento directo sobre el contenido, con impacto material en el retardo. La transcodificación tiene como objetivos centrales: (i) aprovechar información del bitstream original, (ii) preservar calidad visual cerca a una codificación directa desde la fuente y (iii) minimizar retardo y memoria para cumplir requisitos de tiempo real (Ahmad et al., 2005).
-
-En cuanto a latencia, la transcodificación suele convertirse en uno de los aportes dominantes cuando el pipeline exige recodificar en línea. El retardo agregado depende de la complejidad del códec, la resolución, la estructura del GOP y los recursos de hardware. Algunos documentos muestran que la aceleración por hardware permite sostener altas tasas de procesamiento con latencias más controladas que implementaciones puramente en software, y que decisiones de codificación como el uso de B-frames tienden a aumentar la latencia, mientras GOPs más cortos pueden reducir retardo a costa de menor eficiencia de compresión.
-
-
-###### 15.4.2.1.3. Interoperabilidad
-
-Gateway (pasarela). Un gateway de medios actúa como puente entre distintos protocolos, redes o tecnologías, habilitando interoperabilidad cuando fuentes y consumidores no comparten el mismo transporte o señalización. En WebRTC, Janus fue concebido explícitamente como gateway de propósito general para interconectar clientes WebRTC con tecnologías de tiempo real heredadas mediante una arquitectura modular basada en plugins (Amirante et al., 2014).
-
-Este rol es particularmente relevante cuando se integran fuentes legacy —por ejemplo, cámaras IP que exponen RTSP en ecosistemas ONVIF— con consumidores modernos en navegador, donde WebRTC suele ser el mecanismo natural para interacción en tiempo real (ONVIF, 2019; Schulzrinne et al., 1998b). Desde la perspectiva de latencia end-to-end, el impacto del gateway depende de qué transformación realice: puede limitarse a señalización y reenvío, o incorporar transmux/transcodificación según el caso, alterando sustancialmente su contribución al retardo total.
-
-
-##### 15.4.2.2. Capacidades transversales y operación
-
-Además de los roles funcionales, en sistemas de transmisión de baja latencia la operación diaria del servidor de medios exige capacidades transversales para diagnosticar degradaciones, validar supuestos de configuración y sostener objetivos bajo carga. Entre ellas, la observabilidad resulta clave porque vincula métricas del servidor y de la red con el comportamiento de protocolos y topologías discutidos en las secciones anteriores.
-
-
-###### 15.4.2.2.1. Observabilidad y monitoreo
-
-Los servidores de medios contemporáneos suelen incorporar capacidades de observabilidad para monitorear el estado del sistema en tiempo real y facilitar diagnóstico operativo.
-
-Un ejemplo representativo de esto es Kurento, el cual expone métricas y estadísticas mediante APIs programables, facilitando integración con sistemas de monitoreo externos. Entre las señales típicas se incluyen: flujos/sesiones activas, utilización de CPU/memoria, indicadores de desempeño del pipeline y eventos de error. Esta información es clave para detectar cuellos de botella, validar configuraciones de buffers y sostener objetivos de latencia bajo distintas condiciones de carga (Garcia et al., 2017).
-
-
-##### 15.4.2.3. Patrones de despliegue
-
-La ubicación física del servidor de medios respecto a las fuentes de video y a los consumidores finales tiene un impacto directo sobre la latencia end-to-end del sistema . En particular, el emplazamiento condiciona el componente de red (propagación + jitter + pérdida), la necesidad de buffers para estabilizar la reproducción/análisis y, por ende, el grado en que resulta viable sostener perfiles de ultra-baja latencia con los protocolos discutidos anteriormente. Con base en la literatura de edge computing, es útil organizar el análisis en tres patrones: despliegue en el borde, centralizado en nube y un enfoque híbrido edge-cloud.
-
-Despliegue en el borde (Edge). El paradigma de Multi-access Edge Computing (MEC) propone ubicar cómputo y almacenamiento en proximidad a usuarios/dispositivos, reduciendo la distancia física del tramo crítico y, por lo tanto, la latencia asociada al transporte hacia un centro remoto (Filali et al., 2020). En surveys de MEC y offloading se destaca que la reducción de latencia es uno de los objetivos de QoS más recurrentes en la literatura, precisamente por la sensibilidad de aplicaciones interactivas y “casi en tiempo real” a demoras y variabilidad de red (Mach & Becvar, 2017).
-
-En el caso de streaming, esta proximidad se vuelve particularmente relevante por la intensidad de tráfico. Los requisitos de bitrate para video de muy alta resolución pueden escalar a órdenes elevados (por ejemplo, rangos típicos reportados de ~20–50 Mbps para 4K y ~50–200 Mbps para 8K, según supuestos y configuraciones), lo que refuerza el valor de procesar cerca de la fuente para evitar que enlaces WAN se conviertan en cuello de botella (Khan et al., 2022). Para videovigilancia/visión por computadora en tiempo real, un nodo edge también reduce la dependencia de conectividad hacia la nube central en el tramo donde se requieren decisiones rápidas, ayudando a sostener objetivos estrictos de latencia operacional.
-
-Adicionalmente, la literatura muestra estrategias específicas para “hacer viable” edge cuando hay restricciones de recursos. Existe un enfoque de transcodificación liviana en el borde, orientado a reducir costo computacional y tráfico de red asociado, lo que es consistente con el objetivo de reservar el presupuesto de latencia para el pipeline crítico (captura-codificación-red-procesamiento-alerta) y no consumir innecesariamente en transporte a un cloud remoto (Erfanian et al., 2021).
-
-Despliegue centralizado (Cloud). En el modelo centralizado, los servidores de medios residen en centros de datos remotos operados por proveedores cloud. Este enfoque simplifica operación (consolidación, elasticidad y administración), pero agrega latencia por distancia geográfica y por la variabilidad típica de enlaces de acceso hacia la nube. En consecuencia, para requerimientos de ultra-baja latencia, la literatura de MEC suele contrastar este patrón con edge indicando que el acceso a nubes centralizadas introduce retardos estructurales que pueden ser problemáticos para cargas altamente sensibles a la latencia (Filali et al., 2020).
-
-Dicho esto, el modelo centralizado sigue siendo apropiado cuando el caso de uso tolera mayor latencia: almacenamiento de grabaciones, analítica diferida, enriquecimiento histórico, o distribución a audiencias amplias mediante mecanismos tolerantes a segundos. En un diseño modular, esto permite separar explícitamente el “plano crítico” de detección/alerta (sensitivo a ms) de funciones cloud que priorizan escala y persistencia.
-
-Despliegue híbrido (Edge-Cloud). Las arquitecturas híbridas combinan nodos edge para el procesamiento sensible a la latencia con recursos cloud para funciones que requieren mayor capacidad elástica o almacenamiento a largo plazo. En la práctica, propuestas de edge-assisted para tareas de visión por computadora buscan precisamente repartir el pipeline para cumplir restricciones de “tiempo real” en el borde, dejando al cloud tareas menos urgentes o más pesadas (L. Liu et al., 2019).
-
-
-##### 15.4.2.4. Impacto en latencia y gestión de buffers
-
-Como se mencionó anteriormente, la latencia end-to-end resulta de la suma de contribuciones de las etapas a lo largo de todo el pipeline. En consecuencia, cuando en esta sección se discuten “latencias” asociadas a un componente (p. ej., el servidor), deben interpretarse como una porción del retardo total.
-
-En roles que no procesan el contenido multimedia, la contribución del servidor tiende a ser baja en comparación con etapas como codificación/decodificación, porque el servidor se limita a recibir y reenviar paquetes sin recodificar (Amirante et al., 2015). Aun así, el retardo efectivo puede aumentar por factores “sistémicos” como un salto adicional en la ruta o colas internas bajo carga.
-
-Cuando el servidor asume roles de procesamiento o adaptación del flujo, la contribución a la latencia puede volverse material. En particular, en escenarios donde el sistema pasa de un esquema continuo a uno segmentado, la latencia final suele quedar dominada por la segmentación y por las políticas de buffering del reproductor, más que por el costo computacional del servidor (Bentaleb et al., 2019; May, 2017b). La transcodificación, por su parte, requiere decodificación completa y recodificación, por lo que suele ser la operación más demandante del pipeline y puede agregar desde cientos de milisegundos hasta varios segundos según códec, resolución, estructura de GOP y hardware disponible (Ahmad et al., 2005; Li et al., 2019; Žádník et al., 2022).
-
-La gestión de buffers es el otro factor crítico que condiciona la latencia percibida. Cada milisegundo de buffer “comprado” para estabilidad incrementa la latencia end-to-end. Por eso, si el caso de uso exige respuesta humana rápida, el problema no es “eliminar buffers”, sino presupuestarlos: definir un presupuesto de latencia total y repartirlo explícitamente entre codificación, red/recuperación y reproducción, validándolo con mediciones glass-to-glass y no solo con métricas de red como RTT.
-
-En términos de orden de magnitud, como referencia para sistemas human-in-the-loop, se reporta que latencias constantes por debajo de ~300 ms pueden ser manejables, mientras que a partir de ese umbral se vuelve significativamente más difícil mantener operación en tiempo real en tareas de control remoto.
-
-
-##### 15.4.2.5. Servidores de medios de código abierto
-
-El ecosistema de servidores de medios de código abierto reúne herramientas con perfiles técnicos distintos: (a) gateways/SFUs WebRTC orientados a interactividad y baja latencia, (b) servidores con pipelines de procesamiento multimedia integrables (útiles cuando se evalúa procesamiento “en el plano de medios”), y (c) routers/gateways multiprotocolo pensados para compatibilidad y operación liviana, además de alternativas enfocadas en broadcasting con salidas WebRTC y/o LL-HLS. Estas opciones se presentan como posibles candidatos a evaluar en etapas posteriores.
-
-Janus WebRTC Gateway. Janus es un gateway WebRTC modular que, en configuraciones típicas de videoconferencia y distribución interna, implementa un patrón publish/subscribe mediante su plugin VideoRoom, operando como una SFU (Meetecho, s/f). Su diseño por plugins lo vuelve relevante cuando se requiere separar un núcleo de señalización/gestión WebRTC de funcionalidades específicas (p. ej., videoroom, streaming), y su comportamiento bajo carga fue estudiado en distintos escenarios de publicación/suscripción (Ahmad et al., 2005; Amirante et al., 2014, 2015).
-
-Kurento Media Server. Kurento se caracteriza por un enfoque orientado a media pipelines: además de endpoints (p. ej., WebRTC), define “media elements” encadenables para construir grafos de procesamiento. Esta arquitectura resulta pertinente cuando se analiza la alternativa de integrar procesamiento multimedia (p. ej., módulos basados en OpenCV) dentro del pipeline del servidor, en lugar de tratar al servidor como un componente de transporte puro (Garcia et al., 2017; López et al., 2016). Para E-OVRT-VDP, Kurento se ubica naturalmente en el grupo de servidores donde la evaluación debe considerar explícitamente el trade-off entre capacidad de procesamiento y latencia agregada.
-
-MediaMTX. MediaMTX se presenta como un servidor/proxy “zero-dependency” concebido como media router, con capacidad de publicar/leer/proxy/record/playback y de convertir entre protocolos de manera directa (bluenviron, s/f). De acuerdo con su documentación, soporta un conjunto amplio de entradas/salidas típicas para integración (incluyendo RTSP, RTMP, WebRTC, SRT, HLS/LL-HLS, MPEG-TS y RTP), lo que lo posiciona como candidato cuando el objetivo principal es compatibilidad multiprotocolo y operación liviana en escenarios cercanos a las fuentes (bluenviron, s/f; Go Packages, s/f).
-
-OvenMediaEngine. OvenMediaEngine (OME) se presenta como un servidor orientado a baja latencia y escala, con soporte de ingesta multiprotocolo (p. ej., WebRTC, SRT, RTMP, RTSP, MPEG-2 TS) y salidas centradas en WebRTC y LL-HLS (AirenSoft, s/f-a, s/f-b). En su documentación se explicita que LL-HLS apunta a latencias end-to-end del orden de segundos (≈2–5 s) y que el soporte oficial está disponible desde versiones específicas del proyecto (AirenSoft, s/f-a, s/f-b). En un marco de evaluación, OME es relevante cuando se desea comparar un enfoque “broadcast-oriented” que combine una salida ultra-baja latencia (WebRTC) con una salida HTTP de baja latencia (LL-HLS) para compatibilidad.
-
-SRS (Simple Realtime Server). SRS se describe como un servidor de medios de alta eficiencia con soporte para múltiples protocolos de ingestión/entrega (p. ej., RTMP, WebRTC, HLS, HTTP-FLV, SRT, MPEG-DASH, entre otros) y con un rol explícito de media gateway, facilitando conversiones entre protocolos en un modelo publish/subscribe (OSSRS, s/f). Esto lo vuelve candidato cuando se busca evaluar compatibilidad y comparar un “gateway multiprotocolo” frente a alternativas más especializadas (SFU pura, procesamiento embebido, etc.).
-
-Puede verse un análisis comparativo de estos servidores en la Tabla A.3 del Anexo A.
-
+En la salida del pipeline, los patrones publicador-suscriptor permiten desacoplar la generación de eventos de sus consumidores. MQTT formaliza distintos niveles de calidad de servicio; QoS 1 garantiza entrega al menos una vez mediante confirmación PUBACK, por lo que una aplicación debe tolerar posibles reentregas y controlar idempotencia cuando un mismo evento no deba producir efectos duplicados (OASIS, 2019). Esta propiedad permite distinguir la generación interna de una alerta de su distribución posterior.
 
 #### 15.4.3. Brechas del estado del arte en el streaming/OVD
 
 Las tecnologías y arquitecturas actuales de streaming presentan un conjunto de limitaciones que condicionan directamente el diseño del pipeline experimental.
 
-
-##### 15.4.3.1. Ausencia de benchmarks end-to-end integrados para pipelines OVD
+##### 15.4.3.1. Ausencia de benchmarks extremo a extremo integrados para pipelines OVD
 
 La literatura revisada evidencia una fragmentación sistemática en la evaluación de desempeño: los benchmarks de inferencia de modelos OVD (p. ej., AP en COCO/LVIS, FPS en GPU aislada) operan de forma independiente respecto de los benchmarks de streaming (latencia de transporte, throughput de protocolo) y de las métricas de plataformas de edge computing (TOPS, FPS bajo carga térmica). Para una plataforma como E-OVRT-VDP el criterio de selección debe basarse en mediciones reproducibles del pipeline completo, y no extrapolarse directamente de métricas parciales o aisladas.
 
-Esta brecha implica que no existen referentes directos en la literatura que permitan predecir con confianza el desempeño de un sistema que combina ingesta multi-protocolo, decodificación acelerada, inferencia OVD y emisión de eventos bajo restricciones de latencia propias de operación en tiempo real. En consecuencia, la validación empírica del pipeline completo constituye una contribución necesaria del proyecto, y la definición de protocolos de medición reproducibles deberá abordarse como parte del diseño experimental en la etapa 2.
-
+Esta brecha implica que no existen referentes directos en la literatura que permitan predecir con confianza el desempeño de un sistema que combina ingesta de video, inferencia OVD y emisión de eventos bajo restricciones de latencia propias de operación en tiempo real. En consecuencia, la validación empírica del pipeline completo constituye una contribución necesaria del proyecto, y la definición de protocolos de medición reproducibles deberá abordarse como parte del diseño experimental en la etapa 2.
 
 ##### 15.4.3.2. Integración de modelos OVD dentro de pipelines de streaming optimizados
 
-Los frameworks de streaming más maduros para video analytics en tiempo real, como NVIDIA DeepStream, han sido históricamente diseñados y optimizados para detectores de clases fijas con arquitecturas convolucionales estándar, cuyos patrones de integración asumen una entrada de imagen y un conjunto predefinido de clases de salida (NVIDIA, 2024). Si bien el ecosistema ha comenzado a incorporar soporte para modelos open-vocabulary —por ejemplo, NVIDIA TAO Toolkit incluye flujos de exportación y despliegue para Grounding DINO (NVIDIA, s/f-g)—, la integración de estos modelos en pipelines de streaming presenta desafíos técnicos que no se resuelven con la misma inmediatez que los detectores convencionales.
+Los frameworks de streaming más maduros para video analytics en tiempo real, como NVIDIA DeepStream, han sido históricamente diseñados y optimizados para detectores de clases fijas con arquitecturas convolucionales estándar, cuyos patrones de integración asumen una entrada de imagen y un conjunto predefinido de clases de salida (NVIDIA, 2024). Si bien el ecosistema ha comenzado a incorporar soporte para modelos open-vocabulary —por ejemplo, NVIDIA TAO Toolkit incluye flujos de exportación y despliegue para Grounding DINO (NVIDIA, s. f.-g)—, la integración de estos modelos en pipelines de streaming presenta desafíos técnicos que no se resuelven con la misma inmediatez que los detectores convencionales.
 
-En particular, la conversión de modelos OVD a formatos optimizados como TensorRT puede requerir adaptaciones no triviales cuando la arquitectura incluye operadores no soportados nativamente o componentes dinámicos asociados a la codificación de prompts textuales. Dado que TensorRT no admite entradas de tipo texto, la etapa de tokenización debe separarse del grafo del modelo y gestionarse externamente (NVIDIA, s/f-g), lo que introduce complejidad adicional en el diseño del pipeline. Más ampliamente, la arquitectura multi-modal que caracteriza a los modelos OVD —con un encoder visual y un encoder textual que interactúan mediante mecanismos de fusión— no se alinea directamente con los patrones de integración nativos de los plugins de inferencia estándar de estos frameworks, aunque rutas alternativas como la integración con Triton Inference Server ofrecen mayor flexibilidad al soportar modelos en múltiples formatos y frameworks (NVIDIA, s/f-h). Esta brecha, si bien se está reduciendo, sugiere que la integración de modelos OVD dentro del pipeline de streaming requerirá capas de adaptación específicas cuya complejidad y costo deberán evaluarse empíricamente.
-
+En particular, la conversión de modelos OVD a formatos optimizados como TensorRT puede requerir adaptaciones no triviales cuando la arquitectura incluye operadores no soportados nativamente o componentes dinámicos asociados a la codificación de prompts textuales. Dado que TensorRT no admite entradas de tipo texto, la etapa de tokenización debe separarse del grafo del modelo y gestionarse externamente (NVIDIA, s. f.-g), lo que introduce complejidad adicional en el diseño del pipeline. Más ampliamente, la arquitectura multi-modal que caracteriza a los modelos OVD —con un encoder visual y un encoder textual que interactúan mediante mecanismos de fusión— no se alinea directamente con los patrones de integración nativos de los plugins de inferencia estándar de estos frameworks, aunque rutas alternativas como la integración con Triton Inference Server ofrecen mayor flexibilidad al soportar modelos en múltiples formatos y frameworks (NVIDIA, s. f.-h). Esta brecha, si bien se está reduciendo, sugiere que la integración de modelos OVD dentro del pipeline de streaming requerirá capas de adaptación específicas cuya complejidad y costo deberán evaluarse empíricamente.
 
 ##### 15.4.3.3. Interoperabilidad efectiva entre protocolos heterogéneos
 
-Si bien se estableció un mapa de roles potenciales por familia de protocolos y se analizaron las capacidades de interoperabilidad de servidores de medios de código abierto, la literatura no ofrece evidencia consolidada sobre el overhead real introducido por las pasarelas de protocolo (p. ej., RTSP a WebRTC, RTMP a SRT) en condiciones de operación representativas del caso de uso. La transcodificación, el re-empaquetamiento entre formatos contenedores de medios (p. ej., MPEG-TS, FLV, fMP4) y la adaptación entre pilas de transporte pueden introducir latencias adicionales y puntos de fallo que no se capturan en las especificaciones de protocolo individuales.
+Aun cuando la literatura describe los roles del servidor de medios y las funciones de pasarela, reempaquetamiento y transcodificación (§15.4.2), no ofrece evidencia consolidada sobre el overhead real introducido por las conversiones entre protocolos —por ejemplo, de RTSP a WebRTC o de RTMP a SRT— en condiciones de operación representativas. La transcodificación, el reempaquetamiento entre contenedores de medios —como MPEG-TS, FLV o fMP4— y la adaptación entre pilas de transporte pueden agregar latencia y puntos de fallo que no quedan reflejados en las especificaciones de cada protocolo por separado.
 
 Esta brecha resulta relevante en el contexto de E-OVRT-VDP, dado que en entornos reales de obra el parque de cámaras puede exponer flujos mediante protocolos diversos. Si bien el prototipo experimental operará previsiblemente con un conjunto acotado de fuentes y protocolos, la identificación de este vacío en la literatura permite anticipar un factor de complejidad para escenarios de despliegue más amplios y orienta el diseño hacia soluciones que no introduzcan dependencias rígidas con un único protocolo de ingesta.
-
 
 ##### 15.4.3.4. Métricas de evaluación alineadas con objetivos de seguridad laboral
 
 Las métricas estándar de evaluación de sistemas de streaming, tales como latencia media, throughput, tasa de pérdida de paquetes y calidad visual (PSNR/SSIM), no capturan adecuadamente el valor operativo de un sistema orientado a la detección asistiva de riesgos en obra. De manera análoga a lo identificado en la sección de OVD respecto de las métricas de detección, las métricas de streaming convencionales no consideran aspectos como el tiempo transcurrido entre el inicio de una condición de riesgo y la notificación al operador, la continuidad de detección bajo variaciones de calidad del stream, o el impacto diferenciado de artefactos de compresión sobre la detectabilidad de elementos de protección personal.
 
-
 #### 15.4.4. Síntesis comparativa de protocolos
 
 La Tabla 8 sintetiza las características principales de los protocolos analizados, con énfasis en las dimensiones de mayor relevancia para el diseño del sistema E-OVRT-VDP.
 
-Tabla 8
+**Tabla 8**
 
-Comparativa de protocolos de transmisión de video de baja latencia para sistemas de video analítico en tiempo real
+*Comparativa de protocolos de transmisión de video de baja latencia para sistemas de video analítico en tiempo real*
 
-
-| Protocolo | Latencia típica E2E | Transporte base | Modelo de entrega | Resiliencia a pérdida | Cifrado nativo | Caso de uso principal |
+| **Protocolo** | **Latencia típica extremo a extremo** | **Transporte base** | **Modelo de entrega** | **Resiliencia a pérdida** | **Cifrado nativo** | **Caso de uso principal** |
 | --- | --- | --- | --- | --- | --- | --- |
-| RTSP/RTP | ~200–800 ms | UDP (o TCP) | Pull (sesión controlada) | Media (con RTCP) | Opcional (RTSPS) | Cámaras IP industriales, CCTV, entornos LAN controlados |
+| RTSP/RTP | ~200–800 ms | UDP (o TCP) | RTSP controla la sesión; RTP transporta el flujo | Media (con RTCP) | Opcional (RTSPS) | Cámaras IP industriales, CCTV, entornos LAN controlados |
 | RTMP | ~2–5 s | TCP | Push | Alta (TCP garantiza entrega) | Sí (RTMPS/TLS) | Ingesta a plataformas de streaming; encoders hacia servidores |
 | HLS / MPEG-DASH | ~5–45 s (LL: ~2–10 s) | HTTP/TCP | Pull (segmentado) | Alta (CDN + HTTP) | Sí (HTTPS) | Distribución masiva de contenido; viewers simultáneos elevados |
 | WebRTC | < 500 ms | UDP (SRTP sobre DTLS) | Push/Pull (P2P o SFU) | Media (con NACK/FEC) | Sí (DTLS-SRTP, obligatorio) | Interactividad ultra-baja latencia; videoconferencia; monitoreo P2P |
 | SRT | ~120–500 ms (configurable) | UDP + ARQ selectivo | Push o Pull | Alta (ARQ con presupuesto de tiempo) | Sí (AES-128/256) | Contribución broadcast; enlaces WAN no confiables; 4G/5G |
 | RIST | ~120–500 ms | RTP + ARQ (RTCP FB) | Push o Pull (multicast posible) | Alta (ARQ + FEC) | Sí (DTLS) | Broadcast profesional; distribución multicast en redes gestionadas |
 
-Nota. Los rangos de latencia E2E reportados son valores típicos dependientes de configuración, no compromisos de los estándares. La latencia final está determinada por el pipeline completo (captura, codificación, transporte, decodificación, inferencia), no únicamente por el protocolo. HLS/DASH LL = Low-Latency HLS / DASH. DTLS-SRTP = combinación de Datagram TLS y Secure RTP (cifrado obligatorio en WebRTC). ARQ = Automatic Repeat reQuest. FEC = Forward Error Correction. Fuente: Elaboración propia basada en Axis Communications AB (2015), DASH Industry Forum (2020), ISO/IEC (2022), Keranen et al. (2018), May (2017), Pantos (2025), Parmar y Thornburgh (2012), Roy (2024), Schulzrinne et al. (1998, 2003, 2016), Sharabayko et al. (2024), Sonono (2019), Video Services Forum (2020, 2024) y World Wide Web Consortium (2025).
+*Nota.* Los rangos de latencia extremo a extremo reportados son valores típicos dependientes de configuración, no compromisos de los estándares. La latencia final está determinada por el pipeline completo (captura, codificación, transporte, decodificación, inferencia), no únicamente por el protocolo. HLS/DASH LL = Low-Latency HLS / DASH. DTLS-SRTP = combinación de Datagram TLS y Secure RTP (cifrado obligatorio en WebRTC). ARQ = Automatic Repeat reQuest. FEC = Forward Error Correction. SFU = Selective Forwarding Unit. NACK = Negative Acknowledgement. Fuente: Elaboración propia basada en Axis Communications AB (2015), DASH Industry Forum (2020), ISO/IEC (2022), Keranen et al. (2018), May (2017), Pantos (2025), Parmar y Thornburgh (2012), Roy (2024), Schulzrinne et al. (1998, 2003, 2016), Sharabayko et al. (2024), Sonono (2019), Video Services Forum (2020, 2024) y World Wide Web Consortium (2025).
 
 La tabla muestra que no existe un protocolo que maximice simultáneamente latencia mínima, alta resiliencia a pérdidas y escalabilidad, lo cual es coherente con el enfoque de diseño de cada estándar, orientado a prioridades diferentes según el contexto de aplicación. En arquitecturas comúnmente adoptadas, esta situación suele abordarse mediante esquemas híbridos que emplean protocolos distintos por tramo del flujo de video: uno para ingesta y transporte desde el origen hacia un servidor o plataforma de medios (en entornos LAN o WAN con distintos niveles de control), y otro para distribución/visualización hacia clientes finales, donde los requerimientos de interactividad, número de usuarios y compatibilidad con navegadores influyen de manera determinante. De forma complementaria, también es habitual que los protocolos HTTP adaptativos (HLS/DASH) se reserven para consumo masivo, reproducción diferida o escenarios donde la prioridad sea la escalabilidad y la tolerancia a variaciones de red, más que la inmediatez. En consecuencia, la evidencia comparativa respalda que la selección de protocolos debe abordarse como una decisión dependiente del escenario y de la infraestructura, y suele validarse mediante pruebas empíricas sobre el pipeline completo (captura, codificación, transporte, decodificación e integración con analítica), antes de su adopción en un sistema específico.
 
----
-
-## Fuente: `docs/informe/entregable/96d-informe-v11-marco-teorico.md`
-
-> SHA-256 del bloque: `f9d18899356a0b4f74e1278602023ffb08f98dcf9cfcc86a4de545d68907b8cd`  
-> Seleccion: documento completo.
-
-# 96d — Texto extraído del informe v1.1: §16 Marco Teórico
-
-> **Extracción derivada (2026-07-18)** del `.docx`
-> `informe/entregable/E-OVRT-VDP_v1.1_05062026-sin-indice.docx`, **solo para búsqueda y cita**
-> (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
-> este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
-> extraen. **La §17.3 embebida en el docx NO se incluye en esta serie: está
-> desactualizada** — la Etapa 3 vigente es el doc 90 (extracción del standalone).
-> Partición completa: 96a (frontmatter+intro+objetivos+plan), 96b (§17.1
-> consolidación metodológica — el protocolo), 96c (estado del arte), 96d (marco
-> teórico), 96e (cierre+anexos+referencias).
-
----
-
-## 16. Marco Teórico
+## 16. Marco teórico
 
 El marco teórico concentra los conceptos, categorías normativas y fundamentos técnicos que sostienen el diseño posterior del prototipo. A diferencia del Estado del arte, no funciona como un inventario exhaustivo de modelos o herramientas, sino como base conceptual para justificar qué se detecta, cómo se interpreta, bajo qué restricciones opera el sistema y qué condiciones ético-legales delimitan su uso.
 
-
-### 16.1. Organización Interna del Marco Teórico
+### 16.1. Organización interna del marco teórico
 
 El marco teórico se organiza a partir de los dominios conceptuales que sustentan el diseño y la evaluación de la plataforma experimental. Cada dominio responde a una pregunta central del proyecto y permite delimitar, desde una perspectiva técnica o normativa, las condiciones bajo las cuales resulta posible construir un sistema de detección open-vocabulary aplicado al monitoreo de seguridad en construcción civil.
 
@@ -1054,24 +2381,24 @@ En primer lugar, se aborda el dominio de aplicación, vinculado con la seguridad
 
 La Tabla 9 resume la relación entre cada dominio del marco teórico, la pregunta que orienta su desarrollo y su contribución dentro del proyecto.
 
-Tabla 9
+**Tabla 9**
 
-Correspondencia entre dominios del marco teórico, preguntas articuladoras y contribución al proyecto.
+*Correspondencia entre dominios del marco teórico, preguntas articuladoras y contribución al proyecto*
 
-
-| Dominio del marco teórico | Pregunta articuladora | Contribución al proyecto |
+| **Dominio del marco teórico** | **Pregunta articuladora** | **Contribución al proyecto** |
 | --- | --- | --- |
 | Seguridad laboral y condiciones de riesgo observables | ¿Qué condiciones debe poder identificar el sistema? | Define el dominio de aplicación y traduce obligaciones preventivas en evidencias visuales detectables. |
 | Detección open-vocabulary y modelos visión-lenguaje | ¿Cómo puede el sistema interpretar descripciones abiertas en lenguaje natural? | Fundamenta el uso de modelos capaces de detectar conceptos no restringidos a un vocabulario cerrado. |
-| Seguimiento multiobjeto | ¿Cómo se mantiene la continuidad temporal de las detecciones? | Justifica la incorporación de mecanismos de tracking para reducir inestabilidad frame-to-frame y evaluar persistencia. |
+| Seguimiento multiobjeto | ¿Cómo se mantiene la continuidad temporal de las detecciones? | Justifica la incorporación de mecanismos de seguimiento para reducir inestabilidad entre cuadros consecutivos y evaluar persistencia. |
 | Video en tiempo real, streaming y latencia | ¿Qué restricciones impone el procesamiento continuo de video? | Delimita los componentes del pipeline, las fuentes de latencia y los criterios para operar en tiempo real. |
 | Marco ético-legal y privacidad | ¿Bajo qué condiciones es legítimo aplicar visión computacional en entornos laborales? | Establece límites de uso responsable, minimización de datos, carácter asistivo y ausencia de identificación personal. |
-| Convergencias y criterios orientadores | ¿Qué criterios surgen de integrar los dominios anteriores? | Articula brechas, restricciones y criterios que orientan el diseño metodológico y técnico del prototipo. |
+| Convergencias y preguntas rectoras | ¿Qué brechas atraviesan los dominios y qué debe definir el protocolo experimental? | Integra restricciones, explicita límites y formula las preguntas que guían la consolidación metodológica. |
+
+*Nota.* Cada dominio se corresponde con una sección de este capítulo; la columna «Contribución al proyecto» indica qué aporta al desarrollo posterior, no un resultado alcanzado. Fuente: elaboración propia.
 
 El punto de partida del análisis es el dominio de aplicación. Antes de evaluar qué puede detectar el sistema, es necesario precisar qué debe detectar y por qué, definiendo así qué condiciones de riesgo son relevantes en una obra de construcción, qué las hace observables visualmente y qué obligación normativa impone su prevención. Sin esa delimitación, cualquier evaluación del desempeño técnico del sistema carecería de criterio de referencia.
 
-
-### 16.2. Condiciones de Riesgo Observables
+### 16.2. Condiciones de riesgo observables
 
 La viabilidad técnica de un sistema de detección visual depende, en primer lugar, de una definición precisa de su objeto: qué condiciones deben ser detectadas, bajo qué criterio se las considera riesgosas y por qué son observables mediante visión por computadora. En el contexto de la construcción civil, esa definición no es arbitraria. Emerge de un marco normativo consolidado que establece, con carácter obligatorio, cuáles son las obligaciones del empleador en materia de prevención y qué condiciones físicas en la obra constituyen incumplimiento de esas obligaciones. Las siguientes secciones sistematizan ese marco y lo traducen al plano de los observables visuales que el sistema deberá identificar.
 
@@ -1079,60 +2406,51 @@ El sector de la construcción combina tareas simultáneas, entornos cambiantes y
 
 Para un proyecto que analiza video en obra y emite alertas asistivas, la normativa no debe interpretarse como una lista de verificación aislada, sino como el fundamento que permite traducir riesgos típicos (por ejemplo, trabajo en altura sin protección colectiva o sin anclaje, presencia de personas en zonas de exclusión de equipos móviles o izajes, o interacción peatón-vehículo fuera de circuitos señalizados) en criterios observables y verificables. Esta sección desarrolla el marco normativo argentino aplicable y propone una articulación conceptual entre las obligaciones legales y las evidencias susceptibles de detección automatizada.
 
-
-#### 16.2.1. La Normativa como Fuente de Condiciones de Riesgo
+#### 16.2.1. La normativa como fuente de condiciones de riesgo
 
 La seguridad laboral en la industria de la construcción civil se organiza a partir de un conjunto de instrumentos normativos que prescriben obligaciones concretas para empleadores, trabajadores y empresas. Una distinción metodológica relevante separa la normativa de cumplimiento obligatorio —leyes, decretos reglamentarios y resoluciones técnicas con fuerza vinculante— de los estándares voluntarios de gestión, que no generan exigibilidad legal por sí mismos, pero aportan marcos conceptuales útiles para organizar la prevención de manera sistemática. Ambos tipos de instrumentos resultan pertinentes para este análisis, siendo la normativa obligatoria la que define qué condiciones deben cumplirse y en consecuencia qué incumplimientos constituyen riesgo, y los estándares de gestión, en cambio, ofrecen un marco para comprender cómo se monitorea y verifica ese cumplimiento en la práctica operativa.
 
-
-##### 16.2.1.1. Normativa de Cumplimiento Obligatorio
+##### 16.2.1.1. Normativa de cumplimiento obligatorio
 
 En Argentina, el sistema normativo de higiene y seguridad laboral se estructura jerárquicamente a partir de la Ley 19.587, reglamentada con carácter general por el Decreto 351/79 y con especificidad sectorial por el Decreto 911/96 para la industria de la construcción. Este cuerpo normativo se complementa con resoluciones técnicas emitidas por la Superintendencia de Riesgos del Trabajo, que operacionalizan los mecanismos de control y coordinación preventiva.
 
-
-##### 16.2.1.2. Ley 19.587 y el Principio de Prevención
+##### 16.2.1.2. Ley 19.587 y el principio de prevención
 
 La Ley 19.587 de Higiene y Seguridad en el Trabajo establece el marco general aplicable a todo el territorio nacional y fija como eje conceptual el principio de prevención: las condiciones laborales deben ajustarse a normas técnicas destinadas a prevenir daños a la salud y a la integridad de las personas (Ley 19.587, 1972). Su alcance no se limita a un sector específico, sino que delimita obligaciones generales vinculadas al ambiente de trabajo, las instalaciones, los procesos productivos y la organización preventiva.
 
 La contribución conceptual de esta ley para el presente análisis reside en instalar el deber de anticipación como componente central de la gestión de seguridad. La prevención no se concibe como respuesta reactiva a incidentes, sino como identificación y control sistemático de condiciones que preceden al daño. En una obra civil, por ejemplo, donde el riesgo se reconfigura constantemente con el avance de los trabajos, este principio implica que el sistema de monitoreo debe orientarse a detectar condiciones de riesgo antes de que se materialicen en accidentes, y no únicamente a registrar eventos ya ocurridos.
 
-
-##### 16.2.1.3. Decreto 351/79: Reglamentación General
+##### 16.2.1.3. Decreto 351/79: reglamentación general
 
 El Decreto 351/79 aprueba la reglamentación de la Ley 19.587 y desarrolla un conjunto de exigencias técnicas que permiten trasladar el deber general de prevención a requisitos operativos verificables (Decreto 351/79, 1979). Organiza aspectos como condiciones edilicias, instalaciones, señalización, iluminación, ventilación, protecciones de máquinas, orden y limpieza, y la estructuración de servicios especializados en higiene y seguridad.
 
 El aporte conceptual de este decreto para el análisis es la noción de condición controlable, ya que muchos riesgos se expresan como estados observables del entorno —ausencia de resguardos, obstrucciones en vías de circulación, falta de señalización, desorden en zonas de trabajo—, lo que habilita estrategias de verificación sistemática basadas en la observación del espacio físico. El decreto consolida la idea de que la seguridad puede monitorearse a partir de indicadores verificables en el lugar de trabajo, idea que resulta directamente relevante para un sistema de monitoreo visual.
 
-
-##### 16.2.1.4. Decreto 911/96: Reglamento Específico de Construcción
+##### 16.2.1.4. Decreto 911/96: reglamento específico de construcción
 
 El Decreto 911/96 aprueba el Reglamento de Higiene y Seguridad específico para la industria de la construcción, atendiendo a particularidades que distinguen a este sector de otros entornos laborales, definiendo cuestiones del contexto de la obra como establecimiento temporal con geometría cambiante, la coexistencia simultánea de múltiples contratistas y subcontratistas, la presencia de estructuras provisorias en permanente transformación, y la exposición a riesgos que varían día a día con el avance de los trabajos (Decreto 911/96, 1996).
 
 Este reglamento aborda de manera específica los riesgos más frecuentes y graves de la actividad: trabajos en altura con andamios y plataformas, excavaciones, instalaciones eléctricas provisorias, movimiento de materiales y operación de equipos pesados. Su contribución conceptual es doble. Por un lado, explicita que el riesgo en construcción no depende únicamente del comportamiento individual del trabajador, sino también del diseño del entorno físico —protecciones colectivas, delimitación de áreas, condiciones de acceso y circulación—. Por otro lado, vincula la seguridad a la gestión integral de la obra como sistema, donde la coordinación entre empleadores concurrentes y la planificación preventiva son tan relevantes como las medidas individuales de protección.
 
-
-##### 16.2.1.5. Resoluciones SRT: Programas y Coordinación Preventiva
+##### 16.2.1.5. Resoluciones SRT: programas y coordinación preventiva
 
 La Resolución SRT 51/97 y la Resolución SRT 35/98 completan el marco normativo estableciendo la dimensión organizacional de la prevención. La primera fija la obligación de comunicar el inicio de obra y de elaborar programas de seguridad específicos para cada proyecto, con intervención verificadora de las ART mediante visitas sistemáticas (SRT, 1997). La segunda regula los casos de concurrencia de múltiples empleadores imponiendo la coordinación de esos programas y su verificación conjunta (SRT, 1998).
 
-En el ámbito de la construcción, el cumplimiento normativo se articula con instrumentos operativos impulsados por la Superintendencia de Riesgos del Trabajo (SRT) y por las Aseguradoras de Riesgos del Trabajo (ART). De forma complementaria, el Programa de Construcción difundido por la SRT explicita como objetivo el establecimiento de mecanismos de adopción de medidas preventivas, correctivas y de control, incluyendo la verificación de avisos de obra y la coordinación de programas (SRT, s/f).
+En el ámbito de la construcción, el cumplimiento normativo se articula con instrumentos operativos impulsados por la Superintendencia de Riesgos del Trabajo (SRT) y por las Aseguradoras de Riesgos del Trabajo (ART). De forma complementaria, el Programa de Construcción difundido por la SRT explicita como objetivo el establecimiento de mecanismos de adopción de medidas preventivas, correctivas y de control, incluyendo la verificación de avisos de obra y la coordinación de programas (SRT, s. f.).
 
 Estas resoluciones refuerzan la concepción de la prevención como proceso continuo y organizado, no como conjunto de medidas puntuales. En este contexto, su relevancia conceptual reside en que sitúan la detección de condiciones de riesgo en un marco institucional más amplio, dado que las alertas generadas por un sistema de monitoreo asistivo no son decisiones autónomas, sino insumos para los mecanismos de supervisión humana y gestión preventiva previstos por la normativa vigente.
 
-
-##### 16.2.1.6. Estándares Voluntarios de Gestión
+##### 16.2.1.6. Estándares voluntarios de gestión
 
 Los estándares internacionales de gestión constituyen herramientas complementarias al marco legal. Si bien su adopción no es obligatoria, proporcionan estructuras sistemáticas para organizar la prevención de riesgos en torno a procesos definidos, responsabilidades asignadas y ciclos de mejora continua. En proyectos que integran tecnología al monitoreo de seguridad, estos estándares ofrecen un marco conceptual para situar las herramientas dentro de un sistema de gestión más amplio.
 
-
-##### 16.2.1.7. ISO 45001 y Sistemas de Gestión de SST
+##### 16.2.1.7. ISO 45001 y sistemas de gestión de SST
 
 La norma ISO 45001:2018 constituye el estándar internacional de referencia para sistemas de gestión de seguridad y salud en el trabajo. Si bien su adopción no es obligatoria bajo la normativa argentina, su marco conceptual resulta relevante para comprender cómo se organiza la prevención como sistema gestionable y auditable (ISO, 2018). El estándar integra identificación de peligros, evaluación de riesgos, control operacional, preparación ante emergencias y revisión del desempeño mediante auditorías y acciones correctivas, todo ello estructurado en el ciclo Planificar-Hacer-Verificar-Actuar (PDCA).
 
 Su valor para el presente análisis reside en que convierte el cumplimiento normativo en una práctica gestionable y verificable: la organización no solo debe cumplir las obligaciones legales, sino demostrar que identifica peligros, implementa controles, verifica resultados y mejora sistemáticamente. Esta perspectiva permite ubicar un sistema de monitoreo asistivo como componente de un sistema de gestión más amplio, evitando interpretarlo como sustituto de la supervisión humana o del control institucional. Las alertas generadas por el sistema son insumos para ese ciclo de gestión, no reemplazos de ninguna de sus etapas.
 
-
-#### 16.2.2. Operacionalización: Prescripción Normativa y Observable Visual
+#### 16.2.2. Operacionalización: prescripción normativa y observable visual
 
 El propósito de las secciones anteriores fue establecer el marco legal y conceptual que define qué condiciones deben cumplirse en una obra civil. Sin embargo, para que este marco resulte operativo en un sistema de monitoreo visual, es necesario traducir las obligaciones normativas a condiciones físicamente observables que puedan ser identificadas en imágenes o video. Este proceso constituye lo que en metodología de investigación se denomina operacionalización, es decir, el proceso de traducción de un concepto abstracto o normativo en indicadores concretos y verificables (Decreto 351/79, 1979; Decreto 911/96, 1996).
 
@@ -1140,8 +2458,7 @@ La operacionalización aplicada en este capítulo parte de las obligaciones tipi
 
 Es importante señalar que esta operacionalización tiene limitaciones inherentes. La visión por computadora captura información visual bidimensional proyectada desde ángulos específicos, lo que puede generar ambigüedades de interpretación. Por ejemplo, un casco que en realidad está siendo transportado en la mano puede proyectarse de manera similar a uno que está siendo usado correctamente desde ciertos ángulos de cámara. Estas ambigüedades no invalidan el valor asistivo del sistema, pero refuerzan la necesidad de que las alertas generadas sean interpretadas por supervisores humanos con capacidad de contextualización, y no como determinaciones definitivas de cumplimiento o incumplimiento normativo.
 
-
-##### 16.2.2.1. Taxonomía de Categorías de Riesgo
+##### 16.2.2.1. Taxonomía de categorías de riesgo
 
 Para que la operacionalización sea sistemática y trazable al marco normativo, es necesario organizar el análisis en categorías de riesgo que agrupen obligaciones de naturaleza similar. En la construcción civil, las categorías de riesgo más relevantes para este proyecto son aquellas que combinan tres condiciones: presencia normativa, criticidad preventiva y posibilidad de observación visual.
 
@@ -1149,17 +2466,15 @@ Bajo ese criterio, se consideran principalmente las siguientes categorías: incu
 
 Esta taxonomía no pretende agotar el universo de riesgos en obra. Su función es construir un puente entre obligaciones legales y evidencias verificables en video, de modo que las condiciones priorizadas puedan justificarse tanto desde el marco normativo como desde su factibilidad técnica de detección visual.
 
-
-##### 16.2.2.2. Matriz de Evidencias Visuales
+##### 16.2.2.2. Matriz de evidencias visuales
 
 La Tabla 10 presenta la operacionalización del marco normativo en términos de evidencias visuales y condiciones detectables en video. Cada fila articula una obligación normativa tipificada, la evidencia física que la materializa, y la condición de riesgo observable que correspondería a su incumplimiento o ausencia. Esta tabla constituye el artefacto analítico central de este capítulo y funciona como insumo conceptual para las etapas posteriores del proyecto en las que se definirán los patrones de consulta del sistema.
 
-Tabla 10
+**Tabla 10**
 
-Correspondencia entre obligaciones normativas, evidencias visuales y condiciones de riesgo detectables en video
+*Correspondencia entre obligaciones normativas, evidencias visuales y condiciones de riesgo detectables en video*
 
-
-| Categoría de riesgo | Prescripción normativa | Evidencia operativa / visual | Condición detectable en video |
+| **Categoría de riesgo** | **Prescripción normativa** | **Evidencia operativa / visual** | **Condición detectable en video** |
 | --- | --- | --- | --- |
 | Uso de EPP — casco | Ley 19.587, arts. 8-9; Dec. 911/96, arts. 98-115 | Casco de seguridad en región cefálica | Persona sin casco; persona en borde elevado sin protección cefálica visible |
 | Uso de EPP — chaleco reflectivo | Ley 19.587, arts. 8-9; Dec. 911/96, arts. 98-115 | Chaleco de alta visibilidad en torso | Persona sin chaleco reflectivo en zona de tráfico o maquinaria |
@@ -1170,12 +2485,11 @@ Correspondencia entre obligaciones normativas, evidencias visuales y condiciones
 | Orden, limpieza y gestión de obstáculos | Dec. 351/79, cap. 5; Dec. 911/96, arts. 46-47 | Superficies libres; materiales apilados; escombros contenidos | Pasillos obstruidos; materiales inestables; riesgo de tropiezo por desorden visible |
 | Instalaciones eléctricas provisorias | Dec. 911/96, arts. 74-87 | Tableros protegidos; cables con doble aislación; disyuntores | Cableado expuesto en zonas de tránsito; conexiones improvisadas visibles |
 
-Nota. La columna “Condición detectable en video” describe situaciones susceptibles de ser identificadas por análisis visual, no determinaciones de cumplimiento normativo. La tabla no constituye selección de prompts ni especificación de sistema; es un artefacto analítico conceptual cuya elaboración es independiente de la tecnología de detección que se adopte en etapas posteriores. Fuente: Elaboración propia basada en las fuentes citadas (Decreto 351/79, 1979; Decreto 911/96, 1996; Ley 19.587, 1972).
+*Nota.* La columna “Condición detectable en video” describe situaciones susceptibles de ser identificadas por análisis visual, no determinaciones de cumplimiento normativo. La tabla no constituye selección de prompts ni especificación de sistema; es un artefacto analítico conceptual cuya elaboración es independiente de la tecnología de detección que se adopte en etapas posteriores. Fuente: Elaboración propia basada en las fuentes citadas (Decreto 351/79, 1979; Decreto 911/96, 1996; Ley 19.587, 1972).
 
-Para que las evidencias visuales sistematizadas en la tabla precedente resulten operativas en el contexto del sistema propuesto, es necesario establecer criterios de evaluabilidad que permitan valorar su detección de manera objetiva y reproducible. En este sentido, cada condición observable debe poder vincularse a métricas de desempeño del modelo —tales como precisión, exhaustividad (recall) y tasa de falsos positivos— así como a indicadores de rendimiento en tiempo real, entre los que se incluyen la latencia de inferencia y la tasa de cuadros procesados por segundo. Esta formalización permite no solo validar el comportamiento del sistema en escenarios controlados, sino también comparar configuraciones y arquitecturas de detección alternativas, asegurando coherencia con el marco de evaluación definido para el proyecto. Cabe señalar que los umbrales específicos y las expresiones formales de estos criterios constituyen decisiones de implementación que se abordarán en etapas posteriores del trabajo.
+Para que las evidencias visuales sistematizadas en la tabla precedente resulten operativas en el contexto del sistema propuesto, es necesario establecer criterios de evaluabilidad que permitan valorar su detección de manera objetiva y reproducible. En este sentido, cada condición observable debe poder vincularse a métricas de desempeño del modelo —tales como precisión, exhaustividad (recall) y tasa de falsos positivos— así como a indicadores de rendimiento en tiempo real, entre los que se incluyen la latencia de inferencia y la tasa de cuadros procesados por segundo. Esta formalización permite no solo validar el comportamiento del sistema en escenarios controlados, sino también comparar configuraciones y arquitecturas de detección alternativas, asegurando coherencia con el marco de evaluación que se define en el protocolo experimental. Cabe señalar que los umbrales específicos y las expresiones formales de estos criterios constituyen decisiones de implementación que se abordarán en etapas posteriores del trabajo.
 
-
-#### 16.2.3. Integración con Sistemas de Monitoreo Asistivo
+#### 16.2.3. Integración con sistemas de monitoreo asistivo
 
 De las secciones anteriores, es posible apreciar que el marco normativo de la construcción civil genera un conjunto definido y justificado de condiciones de riesgo que son, en principio, observables en el espacio físico de la obra. Esta observabilidad no es un hallazgo trivial, sino que implica la existencia de una correspondencia estructural entre las obligaciones legales y las señales visuales que un sistema de monitoreo puede capturar, lo que fundamenta la viabilidad conceptual del proyecto como herramienta de apoyo a la prevención.
 
@@ -1183,749 +2497,212 @@ Sin embargo, esta correspondencia tiene límites que deben quedar explícitos. E
 
 La integración de estas condiciones en un sistema de este tipo tiene coherencia con el enfoque de la normativa vigente, que concibe la prevención como un proceso continuo de verificación y corrección (ISO, 2018; SRT, 1997, 1998). Un sistema que detecta señales de riesgo a modo de asistencia puede contribuir a sostener la continuidad del control en entornos con múltiples frentes de trabajo simultáneos, complementando la capacidad de observación de los supervisores humanos sin desplazar sus responsabilidades legales ni sustituir los mecanismos institucionales de fiscalización.
 
-Desde la perspectiva del diseño de sistemas, esta integración puede modelarse mediante una arquitectura orientada a eventos (event-driven architecture, EDA), en la cual cada evidencia visual detectada se materializa como un evento estructurado —por ejemplo, persona_sin_casco_detectada— que es publicado por el módulo de análisis de video y consumido por componentes especializados en evaluación de patrones, generación de alertas y registro de trazabilidad. Esta aproximación desacopla la etapa de detección del procesamiento posterior, lo que facilita la escalabilidad del sistema y permite enrutar los eventos de manera diferenciada —por ejemplo, hacia registros de auditoría, notificaciones en tiempo real o módulos de análisis retrospectivo— sin modificar la lógica de detección subyacente. De este modo, la detección visual constituye la fuente primaria de eventos dentro del plano de control del sistema, operando como insumo base que puede enriquecerse mediante reglas configurables o procesamiento paralelo en etapas subsiguientes del flujo.
-
 Esta lectura es coherente con el enfoque de las resoluciones de la SRT relativas a programas de seguridad, coordinación entre empleadores y verificación en obra, que conciben la prevención como un proceso continuo y organizado (SRT, 1997, 1998). La tecnología no sustituye la evaluación técnica en terreno ni el rol de las ART o de los responsables de seguridad, sino que puede integrarse como un soporte instrumental para fortalecer la detección, la trazabilidad y la respuesta ante condiciones de riesgo observables.
 
-
-### 16.3. Percepción Visión-Lenguaje: Fundamentos conceptuales de la Detección Open-Vocabulary
+### 16.3. Percepción visión-lenguaje: fundamentos conceptuales de la detección open-vocabulary
 
 Como se mencionó anteriormente, la detección de objetos en imágenes ha sido históricamente un problema de clasificación cerrada, donde los sistemas reconocen únicamente las categorías para las que fueron entrenados. Este supuesto es incompatible con el dominio de seguridad laboral, donde las condiciones de riesgo son heterogéneas, cambian según la etapa de la obra y pueden formularse con precisión en lenguaje natural pero difícilmente acotarse en un conjunto fijo de clases predefinidas. El paradigma de detección de vocabulario abierto (OVD) rompe esa restricción al incorporar un encoder de lenguaje que permite guiar la detección mediante descripciones textuales arbitrarias.
 
 La presente sección caracteriza los fundamentos conceptuales de la detección open-vocabulary, con énfasis en la transición desde los enfoques de vocabulario cerrado hacia modelos capaces de vincular información visual y lenguaje natural. En particular, se desarrollan los principios de alineación visión-lenguaje, el rol del prompt como mecanismo de especificación dinámica y las condiciones que hacen posible formular consultas abiertas sobre escenas visuales.
 
+#### 16.3.1. Del closed-set al open-vocabulary
 
-#### 16.3.1. Del Closed-Set al Open-Vocabulary
-
-En la detección de objetos tradicional, el modelo aprende a localizar instancias en una imagen y a clasificarlas dentro de un vocabulario fijo, establecido de antemano y sin posibilidad de expansión en tiempo de inferencia. Esta formulación permite optimizar el rendimiento sobre benchmarks bien delimitados, como MS COCO con 80 categorías (Lin et al., 2015) o PASCAL VOC (Everingham et al., 2010), pero introduce una dependencia estructural entre el dominio de entrenamiento y el dominio de aplicación, siendo que el sistema solo puede detectar lo que fue explícitamente contemplado en el diseño.
+En la detección de objetos tradicional, el modelo aprende a localizar instancias en una imagen y a clasificarlas dentro de un vocabulario fijo, establecido de antemano y sin posibilidad de expansión en tiempo de inferencia. Esta formulación permite optimizar el rendimiento sobre benchmarks bien delimitados, como MS COCO con 80 categorías (Lin et al., 2014) o PASCAL VOC (Everingham et al., 2010), pero introduce una dependencia estructural entre el dominio de entrenamiento y el dominio de aplicación, siendo que el sistema solo puede detectar lo que fue explícitamente contemplado en el diseño.
 
 La detección open-vocabulary supera esta restricción al separar el espacio semántico del conjunto de categorías de entrenamiento. En lugar de aprender representaciones para clases discretas y fijas, los modelos OVD aprenden a alinear regiones visuales con descripciones lingüísticas en un espacio de embeddings compartido. La noción de clase deja de ser un identificador discreto y pasa a representarse como una entidad semántica continua, definida dinámicamente por el contenido de la consulta (Zareian et al., 2021). En consecuencia, una categoría expresada en lenguaje natural durante la inferencia puede ser reconocida aunque el modelo nunca la haya visto etiquetada durante el entrenamiento, siempre que su representación semántica sea coherente con el espacio aprendido.
 
-Esta capacidad no es absoluta. La calidad de la generalización zero-shot —ampliada en la sección 16.3.4— depende de la calidad y amplitud del preentrenamiento multimodal, y el desempeño sobre categorías muy específicas o visualmente inusuales puede ser significativamente inferior al observado sobre categorías cotidianas bien representadas en los datos de entrenamiento. Reconocer la potencia del paradigma OVD sin ignorar sus condiciones y límites es el propósito de las secciones que siguen.
+Esta capacidad no es absoluta. La calidad de la generalización zero-shot —ampliada en la sección 16.3.5— depende de la calidad y amplitud del preentrenamiento multimodal, y el desempeño sobre categorías muy específicas o visualmente inusuales puede ser significativamente inferior al observado sobre categorías cotidianas bien representadas en los datos de entrenamiento. Reconocer la potencia del paradigma OVD sin ignorar sus condiciones y límites es el propósito de las secciones que siguen.
 
-
-#### 16.3.2. Mecanismos de Alineación Visión-Lenguaje
+#### 16.3.2. Mecanismos de alineación visión-lenguaje
 
 El pilar técnico central de OVD es el uso de representaciones conjuntas de visión y lenguaje. Estas representaciones se obtienen mediante modelos multimodales entrenados para proyectar imágenes, regiones visuales y textos en un espacio latente compartido, donde la proximidad geométrica refleja afinidad semántica. El trabajo seminal en esta dirección es CLIP (Contrastive Language–Image Pre-training), que demostró la viabilidad de entrenar modelos con cientos de millones de pares imagen-texto recopilados de la web para aprender representaciones visuales altamente transferibles, alineadas con descripciones en lenguaje natural (Radford et al., 2021).
 
-El entrenamiento contrastivo opera sobre la base de maximizar la compatibilidad entre pares imagen-texto correctos y minimizar entre pares incorrectos, produciendo un encoder visual y un encoder textual que proyectan imagen y texto a un espacio semántico compartido (Minderer et al., 2022; Radford et al., 2021). El proceso de detección resultante puede describirse en tres etapas conceptuales, donde 1) a partir de una imagen, el backbone visual genera representaciones asociadas a regiones candidatas, 2) a partir de una consulta textual (prompt), el encoder de lenguaje obtiene una representación semántica y finalmente, 3) la detección se resuelve evaluando la compatibilidad entre ambas representaciones mediante funciones de similitud, atención cruzada u otros mecanismos de alineación, aplicando non-maximum suppression sobre las regiones con mayor compatibilidad semántica. Este esquema introduce una separación conceptual entre localización espacial y reconocimiento semántico, lo que permite evaluar nuevas descripciones en tiempo de inferencia sin modificar los parámetros del modelo (Minderer et al., 2022).
+El entrenamiento contrastivo opera sobre la base de maximizar la compatibilidad entre pares imagen-texto correctos y minimizar entre pares incorrectos, produciendo un encoder visual y un encoder textual que proyectan imagen y texto a un espacio semántico compartido (Minderer et al., 2022, 2023; Radford et al., 2021). El proceso de detección resultante puede describirse en tres etapas conceptuales, donde 1) a partir de una imagen, el backbone visual genera representaciones asociadas a regiones candidatas, 2) a partir de una consulta textual (prompt), el encoder de lenguaje obtiene una representación semántica y finalmente, 3) la detección se resuelve evaluando la compatibilidad entre ambas representaciones mediante funciones de similitud, atención cruzada u otros mecanismos de alineación, aplicando non-maximum suppression sobre las regiones con mayor compatibilidad semántica. Este esquema introduce una separación conceptual entre localización espacial y reconocimiento semántico, lo que permite evaluar nuevas descripciones en tiempo de inferencia sin modificar los parámetros del modelo (Minderer et al., 2022).
 
+#### 16.3.3. Rol del lenguaje natural como especificación dinámica
 
-#### 16.3.3. Rol del Lenguaje Natural como Especificación Dinámica
+En detección open-vocabulary, el lenguaje funciona como una especificación de inferencia: la consulta textual define qué concepto debe localizarse sin modificar el clasificador ni volver a entrenar el modelo. Esta propiedad permite expresar entidades, atributos y relaciones mediante vocabulario natural, pero introduce una variable ausente en los detectores closed-set: formulaciones semánticamente cercanas no necesariamente producen representaciones equivalentes. La sensibilidad depende del encoder textual, del contexto léxico y del régimen de alineación empleado durante el preentrenamiento (Zhou et al., 2022b).
 
-En los enfoques OVD, el lenguaje natural actúa como un mecanismo de especificación dinámica del objetivo de detección. A diferencia de los detectores cerrados, donde cada clase se asocia a un vector de clasificación aprendido, en OVD el texto define el criterio semántico de forma flexible y contextual. Esta flexibilidad tiene implicaciones directas para el dominio de seguridad laboral: condiciones de riesgo como “persona sin casco”, “trabajador en zona restringida sin señalero visible” o “maquinaria operando en pasillo peatonal” son enunciados naturales para un supervisor humano y pueden ser formulados directamente como prompts de consulta al sistema, sin requerir que esas categorías hayan sido anticipadas en el diseño.
+La literatura aborda este problema mediante ingeniería sistemática de prompts, prompt learning con tokens de contexto aprendibles y, en algunas arquitecturas, prompts visuales que anclan la consulta a un ejemplo (Du et al., 2022; Jiang et al., 2024; Khattak et al., 2023). Estas alternativas son modalidades de consulta documentadas, no requisitos universales. Para evaluar una condición de dominio, la formulación textual debe tratarse como parte del protocolo experimental: deben compararse variantes bajo los mismos datos, umbrales y métricas, evitando atribuir al modelo diferencias producidas únicamente por la redacción.
 
-Sin embargo, el lenguaje natural introduce también una fuente de variabilidad que no existe en los sistemas closed-set, siendo esta la sensibilidad a la formulación exacta de la consulta. Investigaciones en modelos visión-lenguaje han demostrado que pequeños cambios en la redacción de las consultas pueden producir diferencias significativas en el desempeño, incluso cuando diferentes formulaciones refieren al mismo concepto subyacente (Zhou et al., 2022a). Esta observación motivó el desarrollo de técnicas de prompt learning, donde los tokens de contexto se reemplazan por vectores aprendibles optimizados con datos del dominio objetivo (Khattak et al., 2023; Zhou et al., 2022b). Adicionalmente, algunos modelos recientes soportan prompts visuales que permiten anclar la detección a ejemplos concretos en lugar de depender exclusivamente de descripciones textuales, ampliando la expresividad del mecanismo de consulta (Jiang et al., 2024).
+#### 16.3.4. Composicionalidad, negación y condiciones definidas por ausencia
 
-La implicación práctica para el proyecto es que el diseño de los prompts de consulta no es un paso trivial ni secundario, más bien es una decisión de ingeniería que afecta directamente el desempeño del sistema.
+El aprendizaje contrastivo aproxima representaciones globales de imágenes y textos al recompensar la compatibilidad entre pares correctos y separar pares incorrectos. Ese objetivo no obliga a codificar de manera explícita quién realiza una acción, qué atributo modifica a cada entidad ni en qué orden aparecen los términos. Esto no significa que los modelos ignoren las palabras, sino que un buen desempeño de recuperación puede coexistir con baja sensibilidad a la estructura relacional de la frase.
 
-Un desafío documentado en la literatura es la sensibilidad de los modelos visión-lenguaje a variaciones aparentemente menores en la formulación de las consultas. (Zhou et al., 2021) identificaron que pequeños cambios en la redacción pueden producir diferencias significativas en el desempeño, lo que convierte al diseño de prompts en una tarea que requiere experimentación iterativa. Esta observación motivó el desarrollo de técnicas de prompt learning, donde los tokens de contexto se reemplazan por vectores aprendibles que se optimizan con datos etiquetados del dominio objetivo (Zhou et al., 2021; Khattak et al., 2023). Tales enfoques han demostrado mejoras sustanciales respecto a los prompts diseñados manualmente, aunque introducen requisitos adicionales de datos y entrenamiento.
+Yuksekgonul et al. (2023) estudian esta limitación mediante ARO, un benchmark con más de 50.000 casos organizados en atribución, relación y orden. Los resultados muestran que modelos visión-lenguaje de referencia pueden apoyarse fuertemente en el inventario léxico y resolver coincidencias globales sin representar con igual robustez los vínculos entre sustantivos, atributos y relaciones. El comportamiento se aproxima así a una bolsa de palabras: los conceptos dominantes conservan gran peso aunque se intercambien modificadores o cambie la estructura que determina el significado.
 
-Desde una perspectiva complementaria, el prompt engineering manual —entendido como el diseño deliberado de plantillas y formulaciones textuales— permanece relevante en escenarios donde el ajuste fino no es viable o donde se requiere máxima flexibilidad para consultas ad-hoc. En el contexto específico de la detección open-vocabulary, se demostró que la optimización automática de representaciones de prompts —específicamente diseñada para tareas de detección— supera consistentemente a los prompts elaborados mediante ingeniería manual, evidenciando que las estrategias de formulación desarrolladas para clasificación de imágenes no se transfieren directamente al dominio de la detección de objetos (Du et al., 2022). Estos hallazgos sugieren que la efectividad de una consulta depende no solo de su contenido semántico, sino también de su estructura sintáctica y su alineación con los patrones lingüísticos presentes en el corpus de preentrenamiento del modelo (Gu et al., 2021).
+Winoground aísla la composicionalidad con pares de captions que contienen exactamente las mismas palabras en distinto orden y se asocian con dos imágenes diferentes. Los modelos evaluados no superaron de manera consistente el azar al vincular cada caption con la imagen correcta (Thrush et al., 2022). La prueba elimina la ventaja del contenido léxico compartido y muestra que la alineación global no garantiza razonamiento visio-lingüístico sobre roles y relaciones.
 
-En consecuencia, el desempeño del sistema no depende únicamente de la calidad de las características visuales, sino también de la capacidad del modelo para interpretar correctamente el contenido semántico de consultas formuladas con terminología de dominio. Esta intersección entre lenguaje técnico y representación visual constituye un área de investigación activa con implicancias directas para la aplicabilidad de los modelos OVD en entornos industriales.
+En detección y phrase grounding, la asociación entre tokens y regiones aporta localización más fina que la recuperación global, pero la negación mantiene una dificultad conceptual. Una frase como «persona sin casco» contiene el concepto positivo casco; sin embargo, la ausencia no constituye una región visible que pueda recibir una caja. Además, el solapamiento léxico puede hacer que el sustantivo positivo conserve influencia aun cuando el modificador cambie la condición solicitada (Liu et al., 2024). Evaluar ausencia exige definir qué región de la persona resulta pertinente, qué evidencia positiva debería encontrarse y bajo qué relación espacial se considera asociada.
 
+Por ello, una condición definida por ausencia admite al menos dos formulaciones conceptuales: solicitar directamente al modelo que localice la infracción completa, o solicitar evidencia positiva —persona y elemento de protección— y derivar la ausencia mediante razonamiento sobre las detecciones. La primera delega composición y negación al modelo; la segunda separa percepción y relación, pero introduce reglas y posibles errores de asociación. La literatura no establece una alternativa universalmente superior. Su desempeño depende del modelo, del prompt, de la granularidad espacial y del dominio, por lo que la comparación debe permanecer como pregunta empírica. Esta limitación enlaza con la brecha de contextualización semántica de la sección 15.2.5.1 sin anticipar la estrategia que adopte el diseño.
 
-#### 16.3.4. Generalización Zero-Shot y el Problema del Long-Tail Semántico
+#### 16.3.5. Generalización zero-shot y el problema del long-tail semántico
 
 Un concepto estrechamente vinculado a la OVD es la generalización zero-shot, siendo esta la capacidad de reconocer conceptos no observados explícitamente durante el entrenamiento supervisado. Esta propiedad resulta especialmente relevante en dominios caracterizados por distribuciones de clases desbalanceadas o por una fuerte presencia de categorías poco frecuentes, denominadas en la literatura como long-tail semántico.
 
-Los modelos OVD no eliminan por completo las limitaciones impuestas por los datos de preentrenamiento: categorías visualmente inusuales o semánticamente distantes de los conceptos bien representados en los datos de preentrenamiento pueden exhibir un desempeño notablemente inferior al observado en las categorías frecuentes. Para el dominio de construcción civil, esto implica que categorías como “arnés de seguridad”, “chaleco reflectivo” o “señalero” —que son relevantes operativamente pero no son objetos cotidianos frecuentes en los datasets de preentrenamiento— pueden presentar un desempeño inferior al esperado en condiciones zero-shot puras.
+Los modelos OVD no eliminan por completo las limitaciones impuestas por los datos de preentrenamiento: categorías visualmente inusuales o semánticamente distantes de los conceptos mejor representados pueden exhibir un desempeño inferior al observado en categorías frecuentes. En construcción civil, esto afecta especialmente a categorías especializadas del dominio —incluidos determinados EPP y roles operativos— cuya representación en los datos generalistas puede ser limitada. Por ello, su desempeño zero-shot debe verificarse en material de dominio y no inferirse desde benchmarks generales.
 
+La ampliación de datos y el autoentrenamiento mejoran la cobertura de categorías raras, pero no eliminan la brecha entre benchmarks generalistas y dominios especializados (Minderer et al., 2023).
 
-#### 16.3.5. Criterios Orientadores para la Selección de Modelos OVD
+#### 16.3.6. Dimensiones de comparación de modelos OVD
 
-El análisis del estado del arte realizado en las secciones precedentes permite identificar un conjunto de criterios técnicos que deberán orientar la selección de modelos de detección open-vocabulary en etapas posteriores del proyecto. Estos criterios emergen de la intersección entre las características observadas en los modelos representativos, los trade-offs documentados en la literatura y los requisitos específicos de una implementación concreta orientada al análisis de video en tiempo real.
+La literatura permite comparar modelos OVD a lo largo de dimensiones distintas: capacidad de generalización zero-shot y transferencia de dominio; expresividad frente a atributos y relaciones; latencia y dependencia del hardware; modalidad de consulta; disponibilidad de código y pesos; y posibilidades de adaptación paramétrica. Ninguna dimensión determina por sí sola la adecuación de una alternativa, y los resultados de benchmarks no son directamente transferibles entre hardware, resoluciones y regímenes de evaluación diferentes (Cheng et al., 2024; Liu et al., 2024; Minderer et al., 2022, 2023).
 
+La retención open-vocabulary después del fine-tuning tampoco puede atribuirse a la familia arquitectónica. Como se sintetiza en la sección 15.2.4, depende de la receta concreta: qué parámetros se actualizan o congelan, si se conserva supervisión lingüística amplia y si el protocolo evalúa categorías no vistas (A. Wang et al., 2025; X. Zhao et al., 2024). Los prompts visuales, la segmentación o la ejecución híbrida entre modelos pueden describirse como capacidades presentes en parte de la literatura, pero no constituyen requisitos generales. El peso asignado a cada dimensión pertenece a la metodología y al diseño posterior, donde debe justificarse con relación al alcance experimental.
 
-##### 16.3.5.1. Criterios derivados del análisis teórico
+### 16.4. Persistencia temporal de entidades y fundamentos conceptuales del seguimiento multiobjeto
 
-A partir de la revisión bibliográfica y la comparativa sistemática, se identifican seis ejes de evaluación relevantes para la selección futura de modelos OVD en el contexto de sistemas de vídeo en tiempo real.
+Una detección aislada no basta para sustentar una alerta temporal. Para distinguir entre una aparición breve y una condición que permanece, se requiere continuidad entre cuadros, una propiedad que la detección por cuadro no provee. El seguimiento multiobjeto (MOT) cumple esa función al asignar identificadores temporales internos a las entidades detectadas, estimar sus trayectorias cuadro a cuadro y sostener la continuidad ante omisiones breves. La presente sección caracteriza los fundamentos técnicos de ese mecanismo, sus métodos representativos y los compromisos relevantes para integrarlo en un sistema de monitoreo.
 
-Capacidad de inferencia en tiempo real. El modelo debe sostener tasas de procesamiento compatibles con flujos de video en vivo, típicamente en el orden de 20-30 FPS o superiores según los requisitos operativos del sistema. Este criterio implica evaluar no solo la latencia de inferencia aislada, sino también el overhead introducido por la fusión visión-lenguaje y la viabilidad de optimización mediante frameworks de aceleración como TensorRT (Zhao et al., 2024; Ren et al., 2024a). La comparativa sistemática evidencia que los modelos con fusión multimodal profunda tienden a presentar mayores latencias que aquellos basados en arquitecturas one-stage o con mecanismos de reparametrización (Wang et al., 2025; Cheng et al., 2024).
+#### 16.4.1. La limitación temporal de la detección por cuadro
 
-Generalización semántica open-set. El modelo debe demostrar capacidad efectiva para detectar conceptos no observados explícitamente durante el entrenamiento supervisado, respondiendo a consultas textuales arbitrarias sin degradación significativa del rendimiento. Este criterio resulta central para aplicaciones donde el vocabulario de interés puede variar dinámicamente según las necesidades del usuario (Zareian et al., 2021). La evaluación en benchmarks con distribución long-tail como LVIS (Gupta et al., 2019) proporciona indicadores relevantes de esta capacidad, particularmente el rendimiento en categorías raras no vistas durante el entrenamiento (Liu et al., 2023).
+Un detector de objetos —incluyendo los modelos OVD— opera de manera fundamentalmente estática: dada una imagen, produce un conjunto de regiones detectadas con sus etiquetas semánticas y puntajes de confianza. Esta operación se realiza de manera independiente para cada cuadro del flujo de video, sin memoria ni referencia a los cuadros anteriores. En consecuencia, el mismo objeto físico presente en dos cuadros consecutivos es tratado como dos entidades sin relación; no existe ningún mecanismo que les asigne una identidad común ni que modele su trayectoria a lo largo del tiempo (Bewley et al., 2016; Luo et al., 2021).
 
-Compatibilidad con procesamiento de video. A diferencia de la detección sobre imágenes estáticas, el análisis de video introduce requisitos adicionales de estabilidad temporal y eficiencia sostenida. Resultan preferibles arquitecturas que soporten mecanismos de reutilización de embeddings textuales entre cuadros consecutivos, reduciendo el costo computacional cuando el vocabulario de consulta permanece constante durante intervalos prolongados (Zhao et al., 2024). Esta consideración adquiere relevancia particular en escenarios de monitoreo continuo donde el conjunto de clases de interés se define al inicio de la sesión y se mantiene estable a lo largo del flujo de video.
+Esta limitación tiene consecuencias operativas directas para el sistema de monitoreo. En primer lugar, la variabilidad cuadro a cuadro que caracteriza a los modelos OVD —fluctuaciones en puntajes de confianza, apariciones y desapariciones espurias e inconsistencias entre cuadros consecutivos (Xiao et al., 2024)— no puede filtrarse ni estabilizarse sin una capa que integre información temporal. En segundo lugar, muchas condiciones de riesgo no son eventos instantáneos, sino estados que deben persistir durante un intervalo mínimo para resultar operativamente significativos: una presencia sostenida en una zona restringida no equivale a una detección espuria de un único cuadro (Du et al., 2024). En tercer lugar, las alertas basadas en evidencia sostenida —y no en detecciones aisladas— pueden reducir la carga cognitiva y la fatiga de alerta asociada con falsos positivos frecuentes (Du et al., 2024).
 
-Desacoplamiento arquitectónico. El modelo de detección debe integrarse de forma modular con componentes de seguimiento temporal y, eventualmente, segmentación de instancias, sin introducir dependencias rígidas que dificulten la sustitución o actualización de módulos individuales. Este criterio favorece arquitecturas que exponen interfaces claras entre etapas del pipeline, facilitando la experimentación y evolución incremental del sistema (Ren et al., 2024c). La literatura reciente muestra que los enfoques de pipeline —donde un detector OVD se combina con segmentadores o trackers independientes— ofrecen mayor flexibilidad que las arquitecturas monolíticas end-to-end (Li et al., 2023).
+El seguimiento multiobjeto aporta la capa de integración temporal que la detección por cuadro no ofrece: asigna identificadores temporales internos a las entidades detectadas, modela su estado y trayectoria a lo largo de la secuencia y produce trayectorias estructuradas sobre las que puede agregarse evidencia temporal (Du et al., 2024; Milan et al., 2016).
 
-Independencia de entrenamiento específico por dominio. Para maximizar la generalidad y reproducibilidad del prototipo experimental, resultan preferibles modelos que operen de manera efectiva con pesos preentrenados, sin requerir fine-tuning extensivo sobre datasets del dominio de aplicación. No obstante, debe considerarse que cierto grado de adaptación o calibración puede resultar necesario para optimizar el rendimiento en condiciones visuales específicas, dado que los benchmarks estándar como MS COCO o LVIS no capturan plenamente la complejidad de dominios especializados (Lin et al., 2014; Gupta et al., 2019). En este contexto, la evidencia analizada en la sección 15.2.4.5 muestra que la capacidad de una arquitectura para preservar su generalización open-vocabulary durante el fine-tuning varía sustancialmente entre familias de modelos. Los detectores con fusión visión-lenguaje profunda y no removible exhiben mayor resiliencia frente al ajuste de dominio, mientras que aquellos con módulos de texto reparametrizables o desacoplables tienden a converger hacia un comportamiento closed-set bajo las configuraciones estándar de fine-tuning (Cheng et al., 2024; X. Zhao et al., 2024). Este criterio implica, por tanto, evaluar no solo el rendimiento zero-shot del modelo, sino también su perfil de adaptabilidad, entendido como la viabilidad de mejorar el rendimiento en categorías del dominio sin degradar la capacidad de responder a consultas semánticas arbitrarias.
+#### 16.4.2. Fundamentos del MOT y del paradigma tracking-by-detection
 
-Soporte para prompts multimodales. El modelo debe permitir la especificación del objetivo de detección no solo mediante descripciones textuales, sino también a través de ejemplos visuales de referencia (visual prompts). Esta capacidad resulta relevante en escenarios donde la descripción textual de un objeto, condición o patrón de riesgo puede ser ambigua, incompleta o dependiente del contexto, permitiendo al operador anclar la detección a una instancia visual concreta. Desde el punto de vista del sistema, el soporte para prompts multimodales amplía la expresividad del mecanismo de consulta y mejora la usabilidad en entornos operativos complejos (Jiang et al., 2024; Ren et al., 2024b).
+El seguimiento multiobjeto estima trayectorias a partir de detecciones ruidosas e incompletas. En el paradigma tracking-by-detection, un detector externo localiza objetos en cada cuadro y el tracker mantiene un estado temporal para cada trayectoria activa. Este desacoplamiento permite integrar detectores con vocabularios y arquitecturas diferentes sin reentrenar necesariamente el componente temporal, aunque conserva una dependencia inevitable: toda trayectoria se origina en las observaciones entregadas por el detector (Adžemović, 2025; Bewley et al., 2016).
 
+El estado de una trayectoria resume información acumulada dentro de la secuencia: identificador temporal, última caja observada, antigüedad y número de cuadros sin asociación, entre otros atributos posibles. Ese identificador sólo organiza observaciones dentro del flujo; no representa identidad personal ni garantiza continuidad entre cámaras, sesiones o reinicios. Una trayectoria puede encontrarse en estado tentativo, activo o perdido según la evidencia disponible, pero la terminología concreta depende del método y no constituye un requisito universal (Milan et al., 2016).
 
-##### 16.3.5.2. Consideraciones complementarias
+El ciclo de seguimiento comprende tres operaciones conceptuales. La predicción estima dónde debería encontrarse una trayectoria en el cuadro siguiente; puede utilizar el último estado observado o un modelo de movimiento. La similitud cuantifica la compatibilidad entre una predicción y una detección. La intersección sobre unión (IoU) divide el área de intersección de dos cajas por el área de su unión y ofrece una señal geométrica interpretable, sin parámetros aprendidos. Su principal límite aparece cuando el desplazamiento, la oclusión o la inestabilidad de las cajas reducen la superposición aun cuando ambas observaciones correspondan a la misma entidad (Bewley et al., 2016).
 
-Además de los criterios primarios, el análisis identifica factores adicionales que pueden incidir en la evaluación según el contexto específico de implementación:
+La asignación convierte la matriz de similitudes en correspondencias globales. Habitualmente se formula como un problema bipartito entre trayectorias y detecciones y se resuelve con el algoritmo húngaro. Los mecanismos de gating descartan pares incompatibles antes de asignar; los umbrales controlan qué costo resulta aceptable. Las detecciones no asignadas pueden iniciar trayectorias nuevas y las trayectorias sin observación pueden conservarse durante una ventana limitada. Esta memoria tolera omisiones breves, pero incrementarla también aumenta el riesgo de reasociar una detección a la trayectoria equivocada.
 
-Balance entre precisión y velocidad. La comparativa sistemática evidencia una tensión inherente entre modelos que priorizan la máxima precisión zero-shot —alcanzando valores superiores a 55 AP en LVIS— y aquellos optimizados para baja latencia —con inferencias inferiores a 10 ms (Ren et al., 2024b; Zhao et al., 2024). La selección deberá ponderar este trade-off en función de los requisitos operativos concretos, considerando que ambos extremos del espectro pueden resultar relevantes para diferentes configuraciones del sistema.
+La apariencia agrega embeddings de reidentificación a la evidencia geométrica y puede mejorar la reasociación durante cruces u oclusiones. A cambio, introduce cómputo, parámetros entrenados y sensibilidad al dominio visual (Wojke et al., 2017). Los métodos puramente geométricos reducen esas dependencias, pero son más frágiles cuando varias personas ocupan posiciones cercanas o desaparecen por intervalos prolongados. Ningún mecanismo recupera información que el detector nunca observó: falsos negativos, cajas inestables y detecciones espurias pueden fragmentar trayectorias o producir cambios de identificador.
 
-Capacidad de extensión hacia segmentación. Algunos modelos OVD presentan variantes o extensiones que incorporan segmentación de instancias con overhead reducido (Wang et al., 2025; Ren et al., 2024c). Esta capacidad, aunque no constituye un requisito primario para el prototipo inicial, puede resultar valiosa para escenarios donde la localización precisa de contornos aporte información relevante para la evaluación de condiciones de riesgo.
+Por ello, el aporte del tracker debe interpretarse como organización temporal de evidencia, no como corrección semántica automática. La evaluación del seguimiento distingue localización, asociación y continuidad; la evaluación de una alerta agrega otras decisiones —persistencia mínima, reglas de estado y tratamiento de episodios— que pertenecen al protocolo experimental. Esta separación evita trasladar métricas MOT a la plataforma completa cuando no existen anotaciones ni objetivos específicos para ese problema.
 
-Implicancias para etapas posteriores. Los criterios enunciados no determinan una selección única, sino que definen un espacio de soluciones factibles dentro del cual deberán evaluarse alternativas concretas durante las etapas de diseño arquitectónico e implementación. El análisis teórico sugiere que tanto los detectores basados en arquitecturas Transformer con fusión eficiente como los detectores one-stage con mecanismos de reparametrización presentan, en principio, perfiles compatibles con los requisitos identificados, aunque con diferentes compromisos entre generalización semántica y eficiencia computacional.
+#### 16.4.3. Integración conceptual entre OVD y MOT
 
-La tensión entre modelos de alta precisión open-set y modelos orientados a tiempo real no debe interpretarse como una dicotomía excluyente. Configuraciones híbridas —donde diferentes modelos se ejecutan según la complejidad de la consulta o el contexto operativo— emergen como alternativas viables que permiten aprovechar las fortalezas de cada enfoque sin comprometer los requisitos críticos del sistema.
+Un detector OVD produce cajas, etiquetas abiertas y puntajes condicionados por el prompt; un tracker opera principalmente sobre geometría, movimiento y continuidad temporal. La identidad de seguimiento es, por lo tanto, un identificador interno y efímero dentro de un flujo, no una identidad personal ni un mecanismo de reconocimiento. Esta separación permite agregar evidencia por entidad a lo largo de una secuencia sin atribuir nombre o identidad civil a la persona observada.
 
-La decisión final deberá considerar además factores prácticos —disponibilidad de implementaciones optimizadas, compatibilidad con el stack tecnológico seleccionado, requisitos de hardware y resultados de pruebas preliminares en el dominio de aplicación— que exceden el alcance de la fundamentación teórica y serán abordados en la etapa 2 (análisis metodológico) y etapa 3 (diseño arquitectónico) del proyecto.
+La integración básica encadena percepción y asociación: las detecciones de cada cuadro alimentan al tracker, que actualiza trayectorias; sobre esas trayectorias pueden agregarse puntajes, evaluar persistencia y reconocer cambios de estado. El tracker aporta continuidad, pero no resuelve por sí mismo la incertidumbre semántica. Si la etiqueta o el puntaje del detector fluctúan, el sistema necesita una regla separada de agregación temporal para decidir qué evidencia conserva y durante cuánto tiempo.
 
+La literatura muestra que el seguimiento puede reducir la sensibilidad a detecciones aisladas y sostener evidencia durante omisiones breves, aunque su calidad continúa limitada por la estabilidad del detector y por las oclusiones (S. Li et al., 2023, 2025). Una asociación geométricamente correcta no implica que la condición semántica esté bien interpretada; de manera inversa, una detección semánticamente correcta puede asignarse a una trayectoria equivocada. Esta distinción justifica evaluar percepción y persistencia como niveles relacionados pero no equivalentes.
 
-### 16.4. Persistencia Temporal de Entidades y Fundamentos Conceptuales del Seguimiento Multi-Objeto
+Los métodos sin apariencia reducen dependencias de entrenamiento, mientras que los métodos con ReID pueden mejorar la reasociación a costa de modelos y datos adicionales (Adžemović, 2025; Wojke et al., 2017). La selección del mecanismo, las ventanas de vida de las trayectorias y las reglas de estabilización pertenecen al protocolo y al diseño posterior.
 
-Una detección que no persiste no puede ser la base de una alerta. Para que el sistema distinga entre una persona que cruza brevemente una zona restringida y una que permanece en ella, necesita algo que la detección por fotograma no provee: identidad estable a lo largo del tiempo. El seguimiento multi-objeto (MOT) es el mecanismo que cumple esa función. Asigna a cada entidad detectada un identificador persistente, modela su trayectoria cuadro a cuadro y mantiene esa continuidad incluso cuando el detector falla en algún fotograma puntual. El presente capítulo caracteriza los fundamentos técnicos de ese mecanismo, sus métodos representativos y los trade-offs relevantes para su integración en el sistema E-OVRT-VDP.
+### 16.5. Operación en tiempo real, transmisión y procesamiento cercano a la fuente
 
+Un sistema de percepción puede ser preciso y, aun así, resultar operativamente inadecuado si la evidencia llega después del margen disponible para interpretarla. La latencia es una propiedad acumulativa del pipeline completo y no del modelo o del protocolo por separado. Esta sección delimita los tramos temporales relevantes, una descomposición instrumental de Glass-to-Algorithm y los patrones arquitectónicos que permiten sostener flujos continuos sin confundir transporte, inferencia, confirmación temporal y notificación.
 
-#### 16.4.1. La Limitación Temporal de la Detección por Fotograma
+#### 16.5.1. La latencia extremo a extremo como restricción de diseño
 
-Un detector de objetos —incluyendo los modelos OVD— opera de manera fundamentalmente estática: dada una imagen, produce un conjunto de regiones detectadas con sus etiquetas semánticas y puntajes de confianza. Esta operación se realiza de manera independiente para cada fotograma del flujo de video, sin memoria ni referencia a los cuadros anteriores. En consecuencia, el mismo objeto físico presente en dos cuadros consecutivos es tratado como dos entidades sin relación; no existe ningún mecanismo que les asigne una identidad común ni que modele su trayectoria a lo largo del tiempo (Bewley et al., 2016; Luo et al., 2021).
+En sistemas de video analítico, la expresión latencia extremo a extremo sólo resulta interpretable cuando se declara el punto inicial y el punto final. Glass-to-Glass (G2G) abarca desde la captura hasta la presentación del contenido en una interfaz; Glass-to-Algorithm (G2A) termina cuando el resultado algorítmico asociado a un cuadro queda disponible (Axis Communications AB, 2015; Bachhuber et al., 2018). En una plataforma de alertas, G2A caracteriza un subtramo instrumental por cuadro: no incluye por sí solo la asociación temporal, la ventana necesaria para confirmar una condición, el registro de la alerta ni su distribución.
 
-Esta limitación tiene consecuencias operativas directas para el sistema de monitoreo. En primer lugar, la variabilidad frame-a-frame que caracteriza a los modelos OVD —fluctuaciones en puntajes de confianza, apariciones y desapariciones espurias de detecciones, inconsistencias en la asignación de etiquetas entre cuadros consecutivos (Xiao et al., 2023)— no puede filtrarse ni estabilizarse sin una capa que integre información temporal. En segundo lugar, muchas condiciones de riesgo relevantes para la seguridad en construcción no son eventos instantáneos, sino estados que deben persistir durante un intervalo mínimo para ser considerados operativamente significativos: una persona dentro de una zona restringida durante tres segundos representa un riesgo cualitativamente diferente a una detección espuria de un único cuadro (Du et al., 2024). En tercer lugar, la generación de alertas basadas en comportamientos sostenidos —y no en detecciones aisladas— es una condición necesaria para mantener la carga cognitiva de los supervisores en niveles manejables, evitando la fatiga de alerta por falsos positivos frecuentes (Du et al., 2024).
+La percepción humana aporta una referencia, no una cota universal. Retardos alrededor de 100 ms comienzan a afectar la sensación de inmediatez en tareas interactivas, y diferencias de decenas de milisegundos pueden percibirse en tareas de manipulación directa (Card et al., 2008; Deber et al., 2015). Un sistema de supervisión puede admitir presupuestos mayores según el perfil temporal del riesgo, el tipo de intervención y el papel del operador. La magnitud admisible debe fijarse en el protocolo experimental y relacionarse con la condición evaluada.
 
-El seguimiento multi-objeto provee exactamente la capa de integración temporal que la detección por fotograma no puede ofrecer: asigna identidades persistentes a las entidades detectadas, modela su estado y trayectoria a lo largo del tiempo, y produce como salida trayectorias estructuradas que permiten razonar sobre el comportamiento de las entidades en el dominio temporal (Du et al., 2024; Milan et al., 2016).
+La latencia total es acumulativa. Captura, suministro de la fuente, transformaciones, copias de memoria e inferencia aportan retardos de naturaleza diferente. Optimizar un componente no garantiza una reducción equivalente del total si otro domina la ruta crítica. Además, una tasa media compatible con tiempo real puede ocultar colas crecientes o episodios de saturación; por eso la medición debe considerar percentiles, backlog y comportamiento sostenido, no sólo el promedio.
 
+El buffering ilustra el compromiso central. Una cola o jitter buffer absorbe variaciones y desacopla ritmos entre productor y consumidor, pero cada unidad retenida incrementa el retardo. El diseño debe presupuestar los buffers y declarar sus políticas: eliminarlos indiscriminadamente puede producir pérdidas e inestabilidad, mientras sobredimensionarlos convierte un déficit de throughput en latencia acumulada (Axis Communications AB, 2015; Gettys & Nichols, 2012).
 
-#### 16.4.2. Fundamentos del MOT y el paradigma tracking-by-detection
+#### 16.5.2. Descomposición instrumental de Glass-to-Algorithm
 
-El problema MOT se formula como la estimación simultánea del número de objetos presentes en una secuencia de video y de sus trayectorias individuales a lo largo del tiempo, a partir de un flujo de observaciones ruidosas e incompletas. Formalmente, dado un conjunto de detecciones en cada instante, el objetivo es asignar cada detección a una trayectoria existente o inicializar una nueva, de modo que el conjunto de trayectorias resultante sea coherente con las observaciones y minimice errores de asociación, fragmentación e ID switches (Adžemović, 2025).
+Para mantener una notación consistente con el protocolo experimental, el subtramo G2A se descompone en cuatro componentes observables:
 
-El paradigma dominante en MOT es el de tracking-by-detection, que desacopla el problema en dos etapas independientes: (1) detección de objetos en cada cuadro, producida por un detector externo, y (2) asociación de las detecciones entre cuadros consecutivos mediante un algoritmo de tracking que mantiene el estado de las trayectorias activas. Este desacoplamiento tiene una consecuencia arquitectónica fundamental para el proyecto: el tracker no impone restricciones sobre el tipo de detector utilizado, lo que permite integrar un modelo OVD con vocabulario abierto y consultas dinámicas sin necesidad de adaptar ni reentrenar el componente de tracking (Adžemović, 2025).
+t_G2A = t_capture + t_transport + t_preprocess + t_inference (1)
 
-Dentro del paradigma tracking-by-detection, el problema de asociación de datos puede descomponerse en tres subproblemas técnicos: modelado del movimiento (predicción del estado futuro de cada trayectoria activa), cálculo de similitud (medida de compatibilidad entre cada trayectoria predicha y cada nueva detección) y asignación óptima (resolución del problema combinatorio de emparejamiento entre trayectorias y detecciones, típicamente mediante el algoritmo Húngaro) (Bewley et al., 2016).
+t_capture representa la adquisición o lectura del cuadro hasta su disponibilidad para el host o consumidor instrumentado. t_transport comprende el suministro efectivo de la fuente —red, stream o lectura local—, incluidos los buffers y operaciones de entrada/salida que correspondan. t_preprocess agrupa decodificación cuando aplique, conversión de formato, redimensionado, normalización y transferencias de memoria. t_inference mide la ejecución del modelo hasta producir su salida algorítmica. La separación evita introducir renderizado o notificación en una métrica que termina antes de la interfaz (Bachhuber et al., 2018; H. Wang et al., 2022).
 
+La Tabla 11 sintetiza los cuatro componentes instrumentales y los criterios necesarios para interpretar cada uno.
 
-##### 16.4.2.1. Formulación general del problema MOT
+**Tabla 11**
 
-Desde una perspectiva conceptual, el problema de MOT puede descomponerse en tres subproblemas fundamentales (Du et al., 2024):
+*Componentes instrumentales del subtramo Glass-to-Algorithm*
 
-Estimación del estado del objeto. Cada objeto es modelado mediante un estado interno que suele incluir su posición espacial (por ejemplo, centro del bounding box), velocidad y, en algunos enfoques, aceleración u otros atributos geométricos. El objetivo es predecir cómo evolucionará este estado entre fotogramas consecutivos.
-
-Asociación de datos (data association). Dado un conjunto de detecciones en el fotograma actual y un conjunto de trayectorias activas, el sistema debe decidir qué detección corresponde a qué trayectoria. Este paso es crítico y constituye una de las principales fuentes de error en MOT (Rakai et al., 2022).
-
-Gestión del ciclo de vida de las trayectorias. Incluye la inicialización de nuevas trayectorias cuando aparecen objetos no vistos previamente, el mantenimiento de trayectorias activas durante oclusiones temporales y la terminación de trayectorias cuando un objeto abandona la escena de forma definitiva.
-
-Estos tres componentes interactúan de manera continua y deben resolverse bajo restricciones de tiempo real en aplicaciones prácticas.
-
-
-##### 16.4.2.2. Modelado de movimiento y estimación de estado
-
-El filtro de Kalman es el modelo de movimiento de referencia en los métodos MOT modernos. Asume que el estado de cada objeto —posición, dimensiones y velocidad del bounding box— evoluciona de acuerdo con un modelo lineal-gaussiano, y proporciona una estimación bayesiana óptima del estado actual dado el historial de observaciones. En cada cuadro, el filtro realiza dos operaciones: predicción del estado en el instante siguiente según el modelo dinámico, y corrección del estado predicho a partir de la nueva detección asociada (Bewley et al., 2016). Esta estructura permite mantener estimaciones de estado coherentes incluso durante períodos en los que el objeto no es detectado, extendiendo la trayectoria a través de breves oclusiones o gaps de detección.
-
-La principal limitación del filtro de Kalman lineal es su supuesto de movimiento rectilíneo uniforme, que puede ser inadecuado para entidades con trayectorias no lineales, cambios bruscos de velocidad, o movimiento de cámara. Métodos como OC-SORT introducen correcciones observation-centric que mejoran la estimación del modelo dinámico durante los períodos de oclusión, reduciendo el error de predicción cuando las trayectorias retoman la observación tras una ausencia (Cao et al., 2023).
-
-En escenarios más complejos, donde los movimientos son no lineales o altamente impredecibles, se han explorado variantes como filtros extendidos, filtros de partículas o incluso modelos aprendidos mediante redes neuronales. No obstante, estos enfoques suelen implicar un mayor costo computacional (Li et al., 2025).
-
-
-##### 16.4.2.3. Asociación de datos y métricas de similitud
-
-La asociación de datos constituye el núcleo del seguimiento multiobjetivo. Dado un conjunto de trayectorias predichas y un conjunto de detecciones actuales, el sistema debe resolver un problema de asignación óptima que determine qué detección corresponde a cada trayectoria existente (Emami et al., 2021). Este problema se formula como una optimización bipartita: un conjunto de nodos representa las trayectorias activas, otro las detecciones del fotograma actual, y las aristas están ponderadas por un costo que refleja la probabilidad de correspondencia. La formulación más directa corresponde al problema de asignación lineal (Linear Assignment Problem, LAP), que busca un emparejamiento de peso mínimo en el grafo bipartito resultante.
-
-Para construir la matriz de costos se emplean, típicamente, señales complementarias: métricas geométricas, métricas cinemático-estadísticas (derivadas del modelo de movimiento) y, en enfoques más robustos, términos de apariencia. Las métricas geométricas evalúan proximidad espacial entre predicciones y detecciones. Entre ellas, la intersección sobre unión (IoU) entre cajas delimitadoras es ampliamente utilizada por su simplicidad y por ofrecer una medida normalizada entre 0 y 1, invariante al tamaño absoluto (Bewley et al., 2016). Alternativamente, la distancia euclídea entre centroides constituye una opción computacionalmente simple, aunque menos robusta ante variaciones de escala y deformaciones del objeto observado (Pereira et al., 2022).
-
-En paralelo, la consistencia temporal puede evaluarse mediante la distancia de Mahalanobis, que incorpora la incertidumbre de la predicción a través de la matriz de covarianza del filtro de Kalman. Esta distancia permite estimar cuán probable es que una detección corresponda a una trayectoria, considerando simultáneamente la posición predicha y la incertidumbre asociada (Wojke et al., 2017). En sistemas que incorporan apariencia (el análisis del modelado de apariencia), la asociación se beneficia de descriptores visuales que complementan la evidencia geométrica y cinemática, especialmente ante cruces de trayectorias u oclusiones.
-
-Una vez construida la matriz de costos, el problema de asignación se resuelve mediante el algoritmo húngaro, propuesto por Kuhn (1955) y refinado por Munkres (1957), que garantiza la asignación óptima en tiempo polinómico O(n³). No obstante, su complejidad crece cúbicamente con el número de objetos, lo que motiva la aplicación de técnicas de gating o validación que restringen el conjunto de asociaciones candidatas. El gate define un umbral basado en la distancia estadística entre predicción y mediciones, de modo que solo las detecciones dentro de esta región se consideran candidatas válidas (Bar-Shalom et al., 2011). Este mecanismo reduce significativamente los pares a evaluar sin comprometer la precisión del seguimiento (Bar-Shalom et al., 1990).
-
-
-##### 16.4.2.4. Modelado de apariencia y re-identificación
-
-La medida de similitud entre trayectorias predichas y nuevas detecciones puede basarse en criterios geométricos, criterios de apariencia o una combinación de ambos. La similitud geométrica más utilizada es la Intersección sobre la Unión (IoU) entre el bounding box predicho por el tracker y el bounding box reportado por el detector: una IoU alta indica que la trayectoria predicha y la nueva detección corresponden probablemente al mismo objeto físico (Bewley et al., 2016).
-
-El modelado de apariencia incorpora descriptores visuales —embeddings extraídos por redes de re-identificación (ReID)— para complementar la similitud geométrica, particularmente en situaciones donde múltiples objetos presentan trayectorias que se cruzan o donde la IoU es ambigua. DeepSORT (Wojke et al., 2017) es el exponente paradigmático de este enfoque: introduce una función de costo que combina distancia de Mahalanobis sobre el estado predicho por Kalman y distancia coseno entre embeddings de apariencia, resolviendo la asignación mediante una estrategia en cascada que prioriza las trayectorias activas más recientes. La contrapartida es la dependencia de un modelo ReID preentrenado, cuyo rendimiento puede degradarse cuando el dominio visual del entorno de despliegue difiere del dominio de entrenamiento.
-
-Los enfoques modernos incorporan vectores de características (embeddings) que capturan información visual distintiva del objeto, como textura, color o forma. Estas representaciones permiten comparar detecciones actuales con apariencias históricas, mejorando la capacidad de mantener la identidad a lo largo del tiempo.
-
-Este principio se relaciona estrechamente con el problema de re-identificación (ReID), donde el objetivo es reconocer el mismo objeto tras una interrupción temporal o espacial. En MOT, la ReID no busca identificar a una persona concreta en términos biométricos, sino preservar la consistencia de los identificadores internos del sistema.
-
-
-##### 16.4.2.5. Gestión de oclusiones y ambigüedades
-
-Las oclusiones representan uno de los desafíos más complejos del seguimiento multi-objeto. Durante una oclusión, un objeto puede desaparecer parcial o totalmente del campo visual, generando ambigüedad en la asociación futura (Du et al., 2024).
-
-Para mitigar este problema, los sistemas MOT suelen mantener trayectorias "latentes" durante un número limitado de fotogramas sin detecciones, usar predicciones de movimiento para estimar la posición esperada del objeto oculto, y reasociar detecciones posteriores basándose en criterios de similitud acumulada. El diseño de estos mecanismos implica un delicado equilibrio: mantener trayectorias demasiado tiempo puede generar asociaciones incorrectas, mientras que terminarlas prematuramente incrementa la fragmentación de identidades.
-
-
-##### 16.4.2.6. Implicancias para sistemas en tiempo real y open-vocabulary
-
-En el contexto de sistemas de análisis de video en tiempo real, los fundamentos descritos deben adaptarse a restricciones estrictas de latencia y recursos computacionales. Esto favorece enfoques determinísticos y eficientes, con mínima dependencia de reentrenamientos, y capaces de operar de forma desacoplada respecto al detector.
-
-Estas características resultan especialmente compatibles con plataformas de detección open-vocabulary, donde el conjunto de objetos detectados puede variar dinámicamente según las consultas del usuario. En este escenario, el tracking no puede asumir un conjunto fijo de clases ni entrenarse específicamente para cada una, sino que debe operar sobre representaciones genéricas y detecciones dinámicas, reforzando la necesidad de algoritmos de MOT robustos, modulares y agnósticos al vocabulario (Li et al., 2025).
-
-
-#### 16.4.3. Integración conceptual OVD + MOT
-
-La integración de un detector OVD con un método MOT no es trivial desde el punto de vista arquitectónico. El detector produce detecciones con etiquetas semánticas abiertas —determinadas por el prompt de consulta— mientras que el tracker opera sobre bounding boxes y estados cinemáticos sin referencia semántica. Esta asimetría implica que la identidad asignada por el tracker es puramente geométrica y temporal, independiente de la etiqueta semántica de la detección. En consecuencia, el sistema puede rastrear entidades cuya etiqueta semántica varía entre cuadros —si el modelo OVD produce detecciones inconsistentes para el mismo objeto físico—, fenómeno que los trackers actuales no modelan explícitamente dado que operan bajo supuestos geométricos tradicionales sin integrar incertidumbre semántica (S. Li et al., 2025). La definición de una estrategia de estabilización semántica —por ejemplo, mediante agregación de etiquetas o ponderación por confianza a lo largo de la trayectoria— constituye un desafío de diseño que deberá abordarse durante las etapas de implementación del prototipo.
-
-La arquitectura de integración más directa y modularmente limpia organiza el procesamiento en cuatro etapas secuenciales: cada cuadro de entrada es procesado por el detector OVD, que genera detecciones con sus etiquetas semánticas; estas detecciones son recibidas por el método MOT, que asigna identidades y actualiza las trayectorias activas; finalmente, un módulo de razonamiento temporal evalúa condiciones de persistencia sobre dichas trayectorias para decidir la emisión de alertas. Este flujo preserva el desacoplamiento entre los componentes, permite sustituir cualquiera de ellos de manera independiente, y mantiene la separabilidad entre el plano de medios —ingesta y procesamiento de video— y el plano de control —gestión de eventos y alertas—, de acuerdo con la arquitectura modular definida.
-
-La literatura reciente confirma que esta integración es técnicamente viable y que el MOT puede aportar coherencia temporal significativa a las detecciones OVD, reduciendo la tasa de falsas alarmas generadas por detecciones espurias de corta duración (S. Li et al., 2023). No obstante, la calidad de la integración depende críticamente de la estabilidad del detector subyacente: un modelo OVD con alta variabilidad frame-a-frame introduce ruido en la entrada del tracker que puede superar la capacidad de corrección de los filtros de movimiento y las estrategias de asociación jerárquica.
-
-
-#### 16.4.4. Criterios orientadores para la selección de métodos MOT
-
-El análisis del estado del arte realizado en las secciones precedentes permite identificar un conjunto de criterios técnicos que deberán orientar la selección de métodos de seguimiento multi-objeto en las etapas posteriores del trabajo. Estos criterios emergen de la intersección entre las características observadas en los métodos representativos y los requisitos específicos de una implementación concreta orientada al análisis de vídeo en tiempo real.
-
-
-##### 16.4.4.1. Criterios derivados del análisis teórico
-
-A partir de la revisión bibliográfica y la comparativa sistemática, se identifican cinco ejes de evaluación relevantes para la selección futura:
-
-Compatibilidad con detección open-vocabulary. El método de tracking debe operar sobre detecciones cuyas clases pueden variar dinámicamente según las consultas del usuario, sin asumir un vocabulario cerrado ni requerir entrenamiento específico por categoría.
-
-Latencia compatible con tiempo real. Para aplicaciones de monitoreo continuo, el sistema completo (detección + tracking) debe sostener tasas de procesamiento que permitan respuesta operativa, típicamente en el orden de 20-30 FPS o superiores.
-
-Desacoplamiento arquitectónico. Siguiendo el paradigma tracking-by-detection, el módulo de seguimiento debe integrarse de forma independiente al detector, permitiendo la sustitución o actualización de componentes sin rediseño del pipeline.
-
-Independencia de entrenamiento específico. Para maximizar la generalidad y reproducibilidad del prototipo, resultan preferibles métodos que no requieran datasets de entrenamiento adicionales ni modelos auxiliares preentrenados en dominios específicos.
-
-Robustez operativa suficiente. El método debe ofrecer estabilidad de identidades adecuada para evaluar persistencia temporal de condiciones, aun cuando no alcance el máximo rendimiento en benchmarks académicos.
-
-
-##### 16.4.4.2. Implicancias para etapas posteriores
-
-Los criterios enunciados no determinan una selección única, sino que definen un espacio de soluciones factibles dentro del cual deberán evaluarse alternativas concretas durante las etapas de diseño arquitectónico e implementación. El análisis teórico sugiere que los métodos de la familia tracking-by-detection basados en asociación geométrica presentan, en principio, mayor alineación con estos criterios que los enfoques end-to-end o aquellos que dependen de modelos de apariencia entrenados.
-
-La decisión final deberá considerar además factores prácticos —disponibilidad de implementaciones, documentación, compatibilidad con el stack tecnológico seleccionado— que exceden el alcance de la fundamentación teórica y serán abordados en la etapa de análisis y diseño arquitectónico.
-
-
-### 16.5. Operación en Tiempo Real y Fundamentos de Transmisión, Aceleración y Arquitecturas de Borde
-
-Un sistema que detecta correctamente y rastrea con precisión puede ser, aun así, operativamente inútil. Si el tiempo que transcurre entre la aparición de una condición de riesgo y la generación de la alerta supera el margen disponible para intervenir, la detección llega tarde. La latencia no es un parámetro de rendimiento secundario: es una restricción de diseño que atraviesa cada componente del pipeline, desde el protocolo por el que ingresa el video hasta el hardware donde corre la inferencia. Esta sección caracteriza ese marco de restricciones —componentes de latencia, protocolos de transmisión, estrategias de aceleración por hardware y arquitecturas de procesamiento en el borde— y establece los criterios que deberán orientar las decisiones de diseño de etapas posteriores.
-
-
-#### 16.5.1. La latencia end-to-end como restricción de diseño
-
-En sistemas de video analítico en tiempo real, la latencia end-to-end —denominada también glass-to-glass (G2G) o sensor-to-screen— se define como el intervalo temporal desde que un fotograma es capturado por la cámara hasta que el resultado del análisis está disponible para el supervisor (Axis Communications AB, 2015). Esta definición general admite una distinción conceptual importante para el sistema E-OVRT-VDP: la latencia glass-to-glass (G2G) mide el tiempo hasta que el frame se visualiza en pantalla, mientras que la latencia glass-to-algorithm (G2A) mide el tiempo hasta que el módulo de inferencia produce un resultado sobre ese frame (Bachhuber et al., 2018). Para un sistema cuyo objetivo es generar alertas, la métrica operativamente relevante es G2A, ya que determina cuándo la condición de riesgo puede detectarse, no cuándo el video puede verse.
-
-La latencia G2A puede modelarse como la suma de contribuciones de cada etapa del pipeline de procesamiento (H. Wang et al., 2022):
-
-
-|  | (1) |
-| --- | --- |
-
-Cada término representa una fuente de retardo cuantificable y, en la mayoría de los casos, configurable mediante decisiones de diseño. El componente de inferencia introduce la latencia del módulo OVD al pipeline, transformando lo que en un sistema de videovigilancia convencional sería un pipeline de cinco etapas en uno de seis, con la particularidad de que la latencia de la etapa de inferencia es la de mayor variabilidad y de mayor dependencia de las decisiones de diseño arquitectónico del sistema (X. Li et al., 2022).
-
-Un criterio de referencia relevante para calibrar el presupuesto de latencia del sistema proviene de la literatura sobre interacción humano-computadora: retrasos superiores a 100 ms en sistemas interactivos comienzan a erosionar la percepción de inmediatez en tareas de atención directa (Card et al., 2008), y estudios con interfaces táctiles evidencian que los usuarios perciben diferencias de latencia del orden de decenas de milisegundos en tareas de alta demanda atencional (Deber et al., 2015). Para sistemas de videovigilancia de seguridad con un operador humano en el bucle (human-in-the-loop), la literatura sobre sistemas de control remoto sitúa en el orden de las centenas de milisegundos el umbral de interactividad aceptable. Este rango de referencia es un insumo conceptual para la definición del presupuesto de latencia del prototipo, cuya formalización como requisito operativo corresponde a la segunda etapa del proyecto.
-
-Una implicación crítica de la descomposición por componentes es que la latencia del sistema no es una propiedad del protocolo de streaming ni del modelo de inferencia por separado: es la resultante acumulada de todas las etapas del pipeline. En consecuencia, la optimización de un único componente puede resultar insuficiente si otro componente domina el presupuesto de latencia total. La gestión de buffers en el receptor es un ejemplo paradigmático: cada milisegundo de buffer añadido para estabilizar el flujo ante jitter de red incrementa directamente la latencia E2E, por lo que el diseño del sistema debe presupuestar explícitamente cuánto de la latencia total se asigna a cada componente (Axis Communications AB, 2015).
-
-
-#### 16.5.2. Descomposición de componentes del pipeline
-
-La Tabla 11 presenta la descomposición de los componentes de latencia del pipeline E2E, con sus rangos de referencia documentados en la literatura y las principales estrategias de reducción identificadas. Esta tabla constituye el marco analítico que guiará la instrumentación de medición de latencia en las fases experimentales del proyecto.
-
-Tabla 11
-
-Componentes de latencia del pipeline glass-to-algorithm en sistemas de video analítico con Computer Vision
-
-
-| Componente | Rango de referencia | Principales factores determinantes | Estrategias de reducción documentadas |
+| **Componente** | **Definición operativa** | **Fuentes principales de variabilidad** | **Criterio de interpretación** |
 | --- | --- | --- | --- |
-| Captura | ~1 período de cuadro (≈33 ms a 30 fps) | Tasa de frames del sensor; exposición; procesamiento ISP interno (10–50 ms); algoritmos AEC/AGC | Aumentar frame rate; reducir tiempo de exposición; deshabilitar funciones no esenciales del ISP |
-| Codificación | ~10–100 ms | Códec (H.264 vs H.265 vs AV1); GOP size; B-frames; aceleración HW | Perfil zerolatency; GOP=1; desactivar B-frames; encoder por GPU (NVENC, VA-API) |
-| Transporte | ~1–500 ms según protocolo y red | RTT de red; jitter; pérdida de paquetes; buffers de transmisión; ARQ | Protocolo UDP sobre LAN; SRT con latency budget ajustado; minimizar saltos de red |
-| Decodificación | ~5–50 ms | Complejidad del códec; dependencias entre frames; aceleración HW | Decodificación por GPU; streams con bajo nivel de dependencias entre frames |
-| Renderizado / Jitter Buffer | ~10–120 ms | Tamaño del jitter buffer; tasa de refresco de pantalla; sincronización | Reducir jitter buffer al mínimo compatible con estabilidad; sincronización con v-sync |
-| Inferencia OVD | ~10–150 ms por frame (modelo-dependiente) | Arquitectura del modelo; resolución de entrada; hardware de inferencia; caching de embeddings | Modelos one-stage con reparametrización; caching de text embeddings; inferencia por GPU (TensorRT) |
+| t_capture | Captura, lectura o dequeue del cuadro en el punto temporal definido por la instrumentación | Período de cuadro, exposición, ISP y buffering de la fuente | Debe declararse el origen exacto del timestamp; a 30 fps, un período de cuadro es ≈33,3 ms |
+| t_transport | Entrega del cuadro desde la fuente al consumidor del pipeline, por red, stream o I/O local | Jitter, colas, pérdida, retransmisiones, buffers y ritmo de lectura | La cola y los percentiles describen mejor la estabilidad que la media aislada |
+| t_preprocess | Preparación de la entrada del modelo | Decodificación, formato de píxel, resize, normalización y movimiento CPU–GPU | Debe medirse por configuración porque las copias de memoria pueden dominar en pipelines acelerados |
+| t_inference | Ejecución del modelo hasta obtener detecciones o resultados equivalentes | Arquitectura, resolución, vocabulario, runtime y hardware | La literatura reporta órdenes de 10–30 ms para alternativas one-stage optimizadas y 50–150 ms para Transformers sin optimización equivalente |
 
-Nota. Los rangos de referencia son dependientes de configuración y hardware; no constituyen garantías de los protocolos o modelos. corresponde al componente adicional introducido por el módulo OVD respecto de un pipeline de videovigilancia convencional, cuya incorporación al modelo de latencia G2A está fundamentada en Bachhuber et al. (2018). La distinción entre rango de modelos one-stage (~10–30 ms) y arquitecturas Transformer sin optimización (~50–150 ms) sigue a Cheng et al. (2024) y Ren et al. (2024). El factor de caching de text embeddings y su impacto (~40 ms) sigue a Zhao et al. (2024). G2A = Glass-to-Algorithm. HW = Hardware. GOP = Group of Pictures. Fuente: Elaboración propia basada en Axis Communications AB (2015), Bachhuber et al. (2018), Cheng et al. (2024), Li et al. (2022), Wang et al. (2022) y Zhao et al. (2024)
+*Nota.* Los rangos son referencias contextuales y no garantías. G2A no equivale a latencia de alerta: el seguimiento, el razonamiento, la ventana de persistencia y la distribución pertenecen a tramos posteriores. Fuente: elaboración propia basada en Axis Communications AB (2015), Bachhuber et al. (2018), Cheng et al. (2024), H. Wang et al. (2022) y Ren, Jiang, et al. (2024).
 
-La tabla evidencia que los seis componentes del pipeline presentan perfiles de variabilidad heterogéneos. Mientras los componentes de captura, decodificación y renderizado operan dentro de rangos relativamente acotados por las propiedades físicas del sensor, la complejidad algorítmica del códec y los ciclos de refresco del display, los componentes codificación, transporte e inferencia exhiben rangos que se extienden hasta dos órdenes de magnitud según el protocolo, la infraestructura de red y la arquitectura del modelo empleados. Esta heterogeneidad implica que la latencia G2A no es una propiedad emergente uniforme del pipeline, sino el resultado acumulado de contribuciones con naturalezas de variabilidad distintas. Las implicaciones de este perfil para la definición del protocolo experimental se desarrollan en los apartados metodológicos posteriores.
+La captura está condicionada por el ritmo de origen. A 30 fps, el período entre cuadros es de aproximadamente 33,3 ms, aunque el punto de observación puede encontrarse después de exposición, procesamiento interno o buffers de cámara. Por ello, “captura” no debe suponerse equivalente al instante físico en que la luz alcanza el sensor: la instrumentación debe declarar si comienza en el sensor, en la recepción, en la lectura o en el dequeue de la aplicación.
 
+El transporte es el componente más expuesto a variación externa. Propagación y procesamiento de red suelen ser relativamente estables; el encolado, el jitter y las retransmisiones dependen de la carga. En una fuente local, el término sigue existiendo como costo de lectura, demultiplexado o buffering. Lo que compromete el tiempo real no es sólo un valor medio elevado, sino una cola que crece porque el consumidor procesa por debajo del ritmo de entrada. Percentiles y ocupación de cola permiten distinguir un episodio aislado de un déficit sostenido (Gettys & Nichols, 2012; Kurose & Ross, 2021).
 
-##### 16.5.2.1. Latencia de Captura
+El preprocesamiento debe incluir todas las transformaciones efectivamente ejecutadas antes del modelo. La decodificación, la conversión de color, el redimensionado, la normalización y las transferencias CPU–GPU pueden constituir una fracción relevante, especialmente cuando se introducen copias intermedias. Agruparlas bajo un término explícito evita atribuir a la inferencia demoras que pertenecen a la preparación de datos.
 
-Este componente abarca múltiples factores en la etapa de adquisición de imagen, desde que la luz llega al sensor hasta que el frame está disponible para codificación y transmisión.
+La inferencia depende de arquitectura, resolución, número de consultas, runtime y hardware. Los rangos publicados para alternativas one-stage optimizadas y Transformers no optimizados son órdenes de magnitud obtenidos en configuraciones heterogéneas; no deben trasladarse como predicción. La medición por componentes permite identificar si una configuración está limitada por el modelo, por la fuente o por el movimiento de datos, y separa el costo por cuadro de la confirmación temporal de una alerta.
 
-El factor dominante es la frecuencia de muestreo del sensor: en un sistema operando a 30 fps, por ejemplo, cada fotograma requiere aproximadamente 33,3 ms para completar su ciclo de exposición y lectura (Axis Communications AB, 2015). Este valor representa el límite temporal mínimo entre fotogramas consecutivos y constituye una restricción fundamental que no puede reducirse sin incrementar la frecuencia de captura. La relación es directamente proporcional: duplicar la frecuencia a 60 fps reduce el período de frame a 16,7 ms, aunque esto incrementa el ancho de banda requerido y la carga computacional de procesamiento posterior.
+La instrumentación debe fijar límites observables y utilizar un dominio temporal coherente. Cuando el origen no expone el instante físico de captura —situación habitual en streams, archivos o SDK de cámara—, t_capture comienza en el punto más temprano que la aplicación puede medir y esa convención debe declararse. Los timestamps de CPU y acelerador tampoco son intercambiables sin sincronización: una operación asíncrona puede parecer concluida antes de que el dispositivo haya terminado el trabajo. Por ello, los límites de t_preprocess y t_inference deben definirse con las barreras o sincronizaciones que correspondan al runtime (H. Wang et al., 2022).
 
-Un segundo elemento significativo de latencia en esta etapa proviene del procesamiento interno de la cámara mediante el Image Signal Processor (ISP). El ISP ejecuta funciones internas de mejora (balance de blancos, reducción de ruido, estabilización, etc.), cuyas operaciones pueden introducir una latencia adicional que varía entre los 10-50 ms, según la complejidad de la etapa del pipeline (Axis Communications AB, 2015). En aplicaciones donde el tiempo real estricto cobra importancia, resulta posible (y hasta necesario) disminuir esta latencia, deshabilitando funciones no esenciales del ISP, sacrificando calidad de imagen por capacidad de respuesta. El uso intensivo de funciones de ISP, según fabricantes, puede aumentar la latencia entre 2 y 6 frames (Active Silicon Ltd, 2025).
+La ecuación expresa el recorrido temporal de una unidad, pero no implica que la tasa de procesamiento sea el inverso de esa latencia. En un pipeline, distintas etapas pueden solaparse: mientras un cuadro se infiere, otro puede estar siendo capturado o preparado. El throughput describe cuántas unidades se completan por unidad de tiempo; la latencia describe cuánto tarda una unidad desde su origen hasta su salida. Para localizar cuellos de botella deben medirse ambos y evitarse sumas de promedios obtenidos sobre corridas o poblaciones diferentes (Bachhuber et al., 2018; Bass et al., 2022).
 
-Otro elemento determinante en la latencia son los algoritmos de control automático de exposición y ganancia (AEC/AGC), cuyo mecanismo de retroalimentación introduce una latencia que puede alcanzar los dos frames en entornos de iluminación variable (Shim et al., 2019). Al igual que en el punto anterior, su desactivación puede constituir una mejora en los tiempos de respuesta, a cosa de trabajar con configuraciones manuales o entornos más controlados.
+Un reporte reproducible debe declarar período de calentamiento, tamaño de lote, resolución, vocabulario o número de consultas, precisión numérica, runtime, fuente de video y política de colas. Además del tamaño muestral y la tendencia central, conviene informar percentiles de latencia, cuadros descartados, ocupación máxima de cola y throughput sostenido. Estas variables permiten distinguir variación ocasional de saturación sistemática y vincular el resultado global con el componente que la produce (Gettys & Nichols, 2012).
 
+#### 16.5.3. Separación de planos y flujo productor-consumidor
 
-##### 16.5.2.2. Latencia de Codificación
+En sistemas de análisis continuo resulta útil distinguir una ruta de datos —captura, transformación e inferencia— de una ruta de control que administra configuración, eventos y coordinación. La separación deriva de patrones de planos de datos y control y permite optimizar el flujo continuo sin bloquearlo con operaciones discretas de gobierno o notificación (Kreutz et al., 2015). No prescribe una distribución física ni una tecnología particular: ambos planos pueden coexistir en un host o distribuirse cuando el diseño lo justifique.
 
-La latencia de codificación representa el tiempo requerido para transformar los datos crudos del sensor en un flujo de video comprimido listo para transmisión. Este componente depende fundamentalmente de la complejidad algorítmica del códec empleado, su configuración operativa y el tipo de implementación utilizada (software vs hardware acelerado). La elección de estas variables define un compromiso entre eficiencia de compresión, latencia de procesamiento y calidad visual resultante. Las tecnologías de aceleración por hardware para codificación serán abordadas en detalle en la sección 16.5.3.2 , dado que constituyen un componente arquitectónico crítico de los sistemas de procesamiento de video en tiempo real.
+La ruta de datos prioriza throughput sostenido, latencia acotada y un orden definido de transformaciones. La ruta de control procesa comandos, cambios de configuración y eventos a ritmos no necesariamente ligados a la tasa de cuadros. Mantener responsabilidades diferenciadas facilita aislar cuellos de botella y evita que una operación de registro o notificación bloquee la recepción del siguiente cuadro (Bass et al., 2022). Esta separación es conceptual: no convierte por sí sola al sistema en distribuido ni exige una nube.
 
+La ruta crítica puede modelarse como una cadena productor-consumidor. Cada etapa produce unidades que la siguiente consume; cuando el productor supera sostenidamente la capacidad del consumidor, una cola sin límite convierte el déficit de throughput en latencia creciente. Las colas acotadas, la contrapresión y las políticas explícitas de descarte, muestreo o sustitución permiten mantener el sistema observable. La política adecuada depende de la semántica: conservar todas las unidades puede ser necesario para relectura reproducible, mientras que una ruta viva puede priorizar evidencia reciente para evitar procesar cuadros obsoletos.
 
-###### 16.5.2.2.1. Naturaleza del Componente y Factores Determinantes
+El desacoplamiento no elimina la necesidad de medir. Deben observarse ritmo de producción, ritmo de consumo, ocupación de cola, unidades descartadas y tiempo de residencia. Un sistema que reporta FPS aceptables pero acumula backlog no opera en tiempo real; simplemente procesa con retraso.
 
-La latencia de codificación depende principalmente de (1) la complejidad del códec y (2) los recursos disponibles para ejecutarlo. Códecs modernos como H.264/AVC y H.265/HEVC reducen el tamaño de los datos explotando redundancias temporales (entre fotogramas) y espaciales (dentro de un fotograma), pero lo hacen con costos computacionales distintos.
+Para eventos discretos, el patrón publish/subscribe separa productores y consumidores: el emisor publica sin conocer todos los destinos y cada suscriptor procesa los tipos de evento pertinentes. Conviene distinguir tres responsabilidades: el transporte en ejecución entrega eventos a consumidores activos; la persistencia conserva hechos para relectura o auditoría; y la distribución externa comunica una alerta. Un bus puede desacoplar componentes, pero no garantiza por sí mismo que los eventos sobrevivan a una desconexión; la durabilidad requiere un repositorio o una política de retención independiente de la mensajería en vivo (Cugola & Margara, 2012).
 
-H.264/AVC, publicado como estándar ISO/IEC 14496-10 e ITU-T H.264 en 2003, procesa video en unidades denominadas macrobloques de tamaño fijo 16×16 píxeles (Wiegand et al., 2003). Implementaciones optimizadas para baja latencia de este códec pueden alcanzar tiempos de procesamiento del orden de decenas de milisegundos por fotograma en configuraciones básicas (Axis Communications AB, 2015). Su amplia adopción en videovigilancia, videoconferencia y transmisión en vivo se debe a un equilibrio favorable entre eficiencia de compresión, latencia aceptable y disponibilidad ubicua de decodificadores compatibles (Wiegand et al., 2003).
+Las garantías de entrega también forman parte del contrato conceptual. Una entrega al menos una vez puede producir reenvíos y, por lo tanto, duplicados; una entrega como máximo una vez puede perder mensajes; y exactamente una vez exige coordinación adicional. Cuando una alerta no debe producir efectos repetidos, el evento necesita una identidad estable y el consumidor debe procesarlo de manera idempotente. MQTT QoS 1 ejemplifica la primera semántica mediante confirmación, sin convertirla en una garantía de ausencia de duplicados (OASIS, 2019). Estas propiedades fundamentan la evaluación de mensajería sin prescribir una tecnología arquitectónica concreta.
 
-H.265/HEVC, estandarizado en 2013 como ITU-T H.265 e ISO/IEC 23008-2, representa un avance significativo en eficiencia de compresión: ofrece aproximadamente un 50% de reducción de bitrate respecto a H.264/AVC para la misma calidad perceptual (Sullivan et al., 2012). Esta ganancia en eficiencia se logra mediante algoritmos de mayor complejidad computacional. HEVC utiliza Coding Tree Units (CTUs) de tamaño variable que pueden abarcar desde 16×16 hasta 64×64 píxeles, en contraste con los macrobloques fijos de 16×16 en H.264 (Sullivan et al., 2012). Esta flexibilidad permite al codificador asignar bloques grandes a regiones uniformes de la imagen (como cielos despejados) y bloques pequeños a regiones con alto detalle (como texturas o bordes), optimizando así la asignación de bits disponibles. Sin embargo, el proceso de decisión óptima sobre el tamaño y particionamiento de las CTUs introduce una carga computacional significativa: los codificadores HEVC se espera que sean varias veces más complejos que los codificadores H.264/AVC (Bossen et al., 2012).
+#### 16.5.4. Computación en el borde y filtrado cercano al origen
 
-El compromiso fundamental reside en que mayor eficiencia de compresión requiere algoritmos más sofisticados, lo que incrementa tanto la latencia de codificación como la demanda de recursos computacionales. En sistemas donde la latencia end-to-end debe minimizarse, puede ser preferible emplear H.264 en configuraciones de baja latencia antes que HEVC, a pesar de la penalización en eficiencia de compresión. Alternativamente, el uso de aceleración hardware mediante motores dedicados de codificación (como NVIDIA NVENC, Intel Quick Sync o AMD VCE) puede mitigar significativamente la latencia introducida por la codificación.
+La literatura utiliza edge, fog y cloud con fronteras variables. En este trabajo, edge designa cómputo en el dispositivo, gateway inmediato o servidor próximo a la fuente; fog, una capa intermedia de agregación cercana o regional; y cloud, centros de datos centralizados (Iorga et al., 2018; Yousefpour et al., 2019). La convención permite describir tres patrones: procesamiento en el dispositivo, procesamiento en un nodo cercano y partición colaborativa entre niveles (Chen & Ran, 2019).
 
+Acercar cómputo al origen puede reducir ida y vuelta de red, ancho de banda y exposición de video crudo, pero introduce límites de memoria, energía y temperatura (Satyanarayanan, 2017; Shi et al., 2016). La nube ofrece elasticidad y recursos centralizados, aunque depende de conectividad y amplía el recorrido del dato. Una capa fog puede agregar varias fuentes, aplicar políticas o resumir información antes de enviarla a niveles superiores. Ningún nivel es intrínsecamente superior: su conveniencia depende del tramo que se desplace y de la carga sostenida.
 
-###### 16.5.2.2.2. Configuraciones para Minimizar Latencia
+No toda operación cercana al sensor equivale a inferencia completa en el borde. Una cámara inteligente puede ejecutar adquisición, filtrado, selección de cuadros, conversión o preprocesamiento y enviar sólo las unidades necesarias al consumidor principal. Este reparto reduce el consumo aguas abajo sin atribuir al dispositivo capacidades de detección que no ejecuta. La distinción es importante para analizar gateways y cámaras programables sin confundir prefiltrado con despliegue integral del modelo.
 
-Existen modos operativos específicos orientados a reducir la latencia de codificación, los cuales sacrifican eficiencia de compresión en favor de un procesamiento más rápido y menor buffering. Para comprender estas configuraciones es necesario primero definir los tipos básicos de fotogramas utilizados en compresión de vídeo.
+En video analytics, filtrar o resumir cerca del origen disminuye tráfico y carga posterior. Ananthanarayanan et al. (2017) muestran que procesar cerca de las cámaras permite reducir ancho de banda y distribuir recursos en cargas de video a escala. En un prototipo, el mismo principio puede evaluarse de forma acotada: cuánto trabajo se ejecuta antes del host, qué evidencia se descarta y qué impacto tiene esa decisión sobre calidad y latencia.
 
-Los códecs de vídeo modernos emplean tres tipos fundamentales de fotogramas (Wiegand et al., 2003):
+El punto de partición debe evaluarse por latencia, throughput, privacidad, capacidad sostenida y reproducibilidad. Métricas nominales como TOPS no bastan para anticipar el comportamiento de una aplicación. Bajo carga prolongada, límites térmicos, memoria compartida y variaciones del runtime pueden degradar el ritmo; por ello, los percentiles de latencia, el uso de memoria, el throughput efectivo y los eventos de saturación resultan más informativos que un máximo instantáneo (Satyanarayanan, 2017; Shi et al., 2016). La decisión de ejecutar inferencia en el borde, en un host cercano o en infraestructura remota debe mantenerse separada de la decisión de filtrar cerca del origen.
 
-I-frames (Intra-coded frames): Fotogramas codificados de manera independiente sin referencias a otros fotogramas. Contienen una imagen completa comprimida utilizando únicamente redundancia espacial dentro del propio fotograma. Funcionan como puntos de acceso aleatorios y referencias para la decodificación de fotogramas posteriores.
+El filtrado cercano al origen introduce, a su vez, un compromiso metodológico. Seleccionar cuadros, reducir resolución, limitar regiones o descartar unidades disminuye carga y ancho de banda, pero modifica la evidencia que recibe el detector y puede afectar la continuidad temporal. Por ello, la política de prefiltrado debe declararse junto con la fuente y conservar parámetros suficientes para reproducirla; dos configuraciones sólo son comparables si procesan materiales y reglas de selección equivalentes.
 
-P-frames (Predictive frames): Fotogramas codificados mediante predicción desde uno o más fotogramas de referencia previos. Contienen únicamente las diferencias (residuales de predicción) respecto a los fotogramas de referencia, junto con vectores de movimiento que indican las transformaciones espaciales entre el fotograma actual y las referencias. Requieren que el fotograma de referencia haya sido decodificado antes de poder procesar el P-frame.
+Desplazar procesamiento hacia la fuente puede reducir la transmisión de video crudo, pero no elimina por sí mismo el tratamiento de datos personales. Metadatos temporales, zonas, trayectorias y recortes pueden mantener capacidad de identificación indirecta, por lo que la minimización debe evaluarse sobre el conjunto de datos producido y no únicamente sobre la ubicación física del cómputo (European Data Protection Board, 2020).
 
-B-frames (Bi-predictive frames): Fotogramas que pueden utilizar referencias tanto de fotogramas pasados como futuros (en orden de presentación). Permiten predicción bidireccional mediante interpolación de referencias temporalmente anteriores y posteriores, logrando mayor eficiencia de compresión que los P-frames. Sin embargo, introducen latencia adicional al requerir que el codificador procese fotogramas futuros antes de codificar el B-frame actual, y al obligar al decodificador a mantener en buffer tanto referencias pasadas como futuras.
+#### 16.5.5. Brecha de evaluación integrada
 
-Con base en estos tipos de fotogramas, las técnicas principales para minimizar latencia son:
-
-Reducción del tamaño del Group of Pictures (GOP). Un GOP define la estructura de secuencia de tipos de fotogramas entre dos I-frames consecutivos. Un GOP corto (menor cantidad de cuadros entre I-frames) reduce el intervalo de dependencia temporal entre fotogramas, permitiendo que cada segmento pueda decodificarse de manera más independiente. Esto reduce el buffering necesario en el decodificador y facilita la recuperación ante pérdidas de paquetes, dado que el próximo I-frame restaura una referencia completa sin dependencias (Axis Communications AB, 2015). En configuraciones de latencia ultra-baja puede emplearse GOP=1, generando únicamente I-frames, aunque esto incrementa sustancialmente el bitrate requerido.
-
-Eliminación de cuadros B (bi-predictive frames). Los cuadros B utilizan referencias tanto de fotogramas pasados como futuros, lo que introduce latencia adicional al requerir que el codificador espere a procesar fotogramas posteriores antes de codificar el cuadro B actual, y al obligar al decodificador a reordenar los fotogramas recibidos antes de su presentación. La configuración Baseline Profile de H.264/AVC excluye explícitamente los cuadros B, utilizando únicamente cuadros I (intra-coded) y P (predictive), lo que permite la codificación y decodificación en orden de presentación sin necesidad de reordenamiento ni buffering adicional de fotogramas futuros (Wiegand et al., 2003). Este perfil fue diseñado específicamente para aplicaciones de tiempo real como videoconferencia y transmisión en vivo donde la baja latencia es prioritaria.
-
-Uso exclusivo de cuadros I y P. Al operar con solo cuadros I y P, cada fotograma puede decodificarse inmediatamente tras su recepción completa, sin esperar a futuros fotogramas de referencia. Esta configuración minimiza la interdependencia temporal entre fotogramas, reduciendo así tanto la latencia de codificación como la de decodificación (Axis Communications AB, 2015). El decodificador solo necesita mantener en su buffer de fotogramas decodificados (Decoded Picture Buffer, DPB) las referencias pasadas estrictamente necesarias, eliminando la necesidad de almacenar fotogramas futuros.
-
-Estos ajustes tienen como consecuencia un incremento en el bitrate necesario para mantener una calidad visual equivalente, dado que se reduce la capacidad del códec para explotar redundancias temporales entre fotogramas distantes mediante predicción bidireccional. Sin embargo, en escenarios donde la latencia end-to-end es crítica para la operación del sistema, este compromiso resulta aceptable e incluso necesario (Wiegand et al., 2003).
-
-
-##### 16.5.2.3. Latencia de Transporte
-
-La latencia de transporte representa el tiempo requerido para que los paquetes de video codificados atraviesen la infraestructura de red desde el punto de transmisión hasta el punto de recepción. A diferencia de los componentes previos, es altamente variable y depende de factores externos al sistema de procesamiento de video, tales como la topología de red, el nivel de congestión y la distancia física entre nodos.
-
-
-###### 16.5.2.3.1. Componentes de la Latencia de Transporte
-
-La latencia total de transporte en redes de conmutación de paquetes se compone de cuatro elementos principales, cuya suma determina el retardo experimentado por cada paquete individual (Kurose & Ross, 2021):
-
-Retardo de propagación. Tiempo físico de propagación de la señal a través del medio de transmisión, limitado por la velocidad de la luz en el material conductor.
-
-Retardo de encolado. Tiempo que un paquete permanece en las colas de dispositivos de red (routers, switches) antes de ser transmitido. Suele ser el componente más variable de la latencia de transporte porque depende directamente del nivel de congestión momentáneo, esto es, con tráfico bajo puede ser inferior a 1 ms, mientras que bajo alta carga puede escalar a decenas de milisegundos. Además, este retardo puede incrementarse de forma marcada cuando existen buffers excesivos en la red (fenómeno conocido como bufferbloat), alcanzando incluso cientos de milisegundos en conexiones de banda ancha (Gettys & Nichols, 2012).
-
-Retardo de procesamiento. Tiempo que requieren los dispositivos de red para procesar encabezados de paquetes, realizar lookups de tablas de enrutamiento y tomar decisiones de reenvío.
-
-Retardo de retransmisión. Presente únicamente cuando se utilizan protocolos orientados a confiabilidad, como TCP o protocolos de streaming con ARQ (Automatic Repeat reQuest). La retransmisión de paquetes perdidos introduce un retardo adicional equivalente al tiempo de ida y vuelta (RTT, Round-Trip Time) completo. Para aplicaciones de video en tiempo real, se priorizan protocolos de transporte no confiables como UDP en combinación con RTP (Real-time Transport Protocol) que eliminan el retardo de retransmisión a cambio de tolerar pérdidas ocasionales de paquetes (Schulzrinne et al., 2003a).
-
-
-###### 16.5.2.3.2. Variabilidad Temporal: Jitter de Red
-
-El jitter de red es la variación del retardo de llegada entre paquetes consecutivos. En redes de conmutación de paquetes, cada paquete puede experimentar un retardo distinto debido a fluctuaciones en el encolado y, en menor medida, a cambios en la ruta o en el estado instantáneo de los enlaces. Como resultado, aun cuando el emisor genere un flujo a intervalos regulares, el receptor observa irregularidades temporales en la entrega, lo que impacta directamente en la estabilidad del playout de video (Kurose & Ross, 2021).
-
-En la práctica, protocolos de transporte de tiempo real como RTP, junto con RTCP, permiten estimar y reportar esta variabilidad a partir de timestamps y números de secuencia, facilitando el monitoreo de calidad y la adaptación del receptor ante condiciones cambiantes (Schulzrinne et al., 2003a). Para amortiguar el efecto del jitter sobre la continuidad del video, el extremo receptor utiliza buffers de reproducción (playout/de-jitter), que suavizan la entrega a costa de introducir latencia adicional.
-
-
-##### 16.5.2.4. Latencia de Decodificación
-
-La latencia de decodificación corresponde al tiempo requerido para reconstruir los fotogramas de vídeo a partir del flujo comprimido recibido en el extremo receptor. Este componente del pipeline de procesamiento de video es fundamental para sistemas de tiempo real, dado que determina el retardo mínimo entre la recepción de datos codificados y la disponibilidad de fotogramas decodificados listos para su visualización. Al igual que en la codificación, la latencia de decodificación depende de la complejidad algorítmica del códec empleado, la estructura de predicción temporal utilizada, y el tipo de implementación (software o aceleración hardware).
-
-
-###### 16.5.2.4.1. Complejidad Algorítmica y Dependencias de Predicción
-
-La complejidad de decodificación varía significativamente entre códecs de diferentes generaciones. Estudios de análisis de complejidad mediante perfilado de ciclos de CPU demuestran que la decodificación de H.265/HEVC presenta un incremento del 61% al 87% en complejidad computacional respecto a H.264/AVC, dependiendo del perfil de codificación empleado (Viitanen et al., 2012). Este aumento de complejidad se debe a las unidades de codificación de tamaño variable (CTUs de hasta 64×64 píxeles en HEVC frente a macrobloques fijos de 16×16 en H.264), las estructuras de predicción jerárquicas más sofisticadas, y los filtros de post-procesamiento adicionales como el Sample Adaptive Offset (SAO) incorporados en HEVC (Sullivan et al., 2012).
-
-La estructura de predicción temporal (GOP) incide directamente en la latencia de decodificación porque determina dependencias entre fotogramas y, por ende, el buffering mínimo requerido en el receptor. Como se describió al tratar las configuraciones de codificación orientadas a baja latencia, los fotogramas I se reconstruyen sin referencias, mientras que P y B dependen de fotogramas de referencia.En decodificación, esto se traduce en dos efectos principales: (i) la necesidad de mantener referencias en el Decoded Picture Buffer (DPB) y (ii) la reordenación entre el orden de decodificación y el orden de presentación, especialmente cuando existen fotogramas B. En configuraciones de baja latencia (p. ej., sin B-frames y con GOP corto), se reduce el tamaño efectivo del DPB y puede eliminarse el retardo por reordenamiento, habilitando la presentación del fotograma inmediatamente tras su decodificación (Axis Communications AB, 2015; Wiegand et al., 2003).
-
-Los decodificadores modernos explotan oportunidades de paralelización a nivel de slice (segmentos independientes dentro de un fotograma) y a nivel de macrobloque o CTU. Esta capacidad de procesamiento paralelo permite distribuir la carga computacional entre múltiples núcleos de CPU, reduciendo el tiempo de decodificación en arquitecturas multinúcleo. Sin embargo, el overhead de sincronización entre hilos y las dependencias de datos imponen límites prácticos a la escalabilidad del paralelismo (Viitanen et al., 2012).
-
-
-###### 16.5.2.4.2. Implementaciones: Software vs Aceleración Hardware
-
-La decodificación puede realizarse mediante implementaciones de software ejecutadas sobre CPUs de propósito general o mediante aceleración hardware utilizando unidades especializadas integradas en GPUs, VPUs (Video Processing Units) o ASICs dedicados. Las implementaciones por software típicamente exhiben latencias en el orden de 10 a 50 ms dependiendo de la potencia del procesador, la resolución del video y la complejidad del códec empleado. En contraste, los decodificadores hardware ofrecen latencias predecibles y significativamente menores, típicamente en el rango de los 5 a 15 ms (según códec, resolución y pipeline), junto con un consumo energético sustancialmente inferior (Axis Communications AB, 2015). Esta ventaja resulta particularmente relevante para códecs de alta complejidad como H.265/HEVC, donde la decodificación por software puede no alcanzar desempeño en tiempo real para resoluciones altas (4K UHD o superiores) sin hardware especializado.
-
-La disponibilidad generalizada de decodificadores hardware para H.264/AVC y H.265/HEVC en dispositivos modernos ha mitigado el impacto de la mayor complejidad algorítmica de HEVC, permitiendo decodificación en tiempo real incluso para resoluciones elevadas. La elección de la vía de aceleración (GPU/VPU/ASIC) afecta la latencia, throughput y consumo energético, por lo que constituye una decisión arquitectónica relevante.
-
-
-###### 16.5.2.5. Latencia de Renderizado
-
-La latencia de renderizado abarca el tiempo transcurrido desde que los fotogramas decodificados están disponibles hasta su presentación visual efectiva en el dispositivo de visualización. Este componente comprende dos elementos principales: la compensación de la variabilidad en la llegada de paquetes mediante buffers de reproducción (playout buffers), y la sincronización con los ciclos de refresco del display. Este componente introduce un compromiso explícito entre continuidad de reproducción y latencia total del sistema, constituyendo el último punto de ajuste antes de la percepción visual por parte del usuario.
-
-
-###### 16.5.2.5.1. Jitter Buffer y Compensación de Variabilidad
-
-El jitter de red constituye la variabilidad en el retardo de llegada de paquetes consecutivos, fenómeno inherente a las redes de conmutación de paquetes. En el extremo receptor, los sistemas de video en tiempo real incorporan buffers de reproducción (playout buffers o de-jitter buffers) cuya función es absorber esta variabilidad mediante la introducción de un retardo deliberado que permita entregar los paquetes decodificados a una tasa constante hacia el subsistema de visualización, garantizando así una reproducción fluida y continua.
-
-El dimensionamiento del jitter buffer impone un compromiso directo entre robustez y latencia: buffers más profundos toleran mayor jitter y disminuyen la probabilidad de interrupciones (paquetes que llegan tarde respecto al instante de presentación), pero incrementan la latencia end-to-end; buffers pequeños, en cambio, minimizan la latencia agregada, aunque aumentan la sensibilidad a fluctuaciones de red (Clark et al., 2013).
-
-En la práctica, se emplean buffers fijos (profundidad constante) o adaptativos (profundidad variable según condiciones observadas). En aplicaciones interactivas (p. ej., videoconferencia) se utilizan típicamente buffers de 20–100 ms para limitar la latencia percibida, mientras que en streaming no interactivo pueden adoptarse buffers de segundos para priorizar continuidad ante variaciones de red (Axis Communications AB, 2015; Schulzrinne et al., 2003a).
-
-
-###### 16.5.2.5.2. Tasa de Refresco de Pantalla y Sincronización
-
-La tasa de refresco del dispositivo de visualización afecta la latencia de presentación al imponer instantes discretos en los que la imagen puede actualizarse (ciclo de refresco). Los monitores convencionales operan típicamente a 60 Hz, lo que representa un intervalo de aproximadamente 16,7 ms entre refrescos consecutivos. Dispositivos orientados a aplicaciones profesionales, juegos de alto rendimiento o sistemas de tiempo crítico pueden operar a frecuencias superiores (120 Hz, 144 Hz, 240 Hz o incluso 500 Hz), reduciendo proporcionalmente este componente de latencia (Axis Communications AB, 2015).
-
-La sincronización entre la disponibilidad de fotogramas decodificados y el ciclo de refresco del display afecta la latencia de presentación. Sin sincronización vertical (VSync), el framebuffer puede actualizarse durante el escaneo del display, produciendo tearing. Al habilitar VSync, la actualización queda restringida al intervalo de vertical blanking (VBLANK), eliminando ese artefacto pero introduciendo espera: en el peor caso, un fotograma listo debe aguardar hasta el próximo refresco, añadiendo hasta un período completo (≈16,7 ms a 60 Hz) (Axis Communications AB, 2015).
-
-Para reducir este compromiso, tecnologías de tasa de refresco variable (VRR) —por ejemplo, NVIDIA G-Sync y AMD FreeSync— ajustan dinámicamente el refresco del display a la cadencia de generación de fotogramas, mitigando tearing sin la penalización típica de VSync, siempre que exista soporte de GPU y monitor. Cuando la tasa de fotogramas es inestable o no se alinea con el refresco, puede aparecer stuttering (duraciones desiguales de fotogramas), lo que refuerza la necesidad de mantener una cadencia lo más constante posible para preservar fluidez y previsibilidad temporal.
-
-
-##### 16.5.2.6. Componente Adicional en Sistemas de Detección Asistida por IA
-
-Las subsecciones siguientes caracterizan en detalle la latencia de inferencia como componente adicional del pipeline de video analítico: los factores que la determinan, los valores reportados en modelos open-vocabulary de referencia, las técnicas de optimización disponibles y sus implicaciones para el presupuesto total de latencia del sistema.
-
-Factores que Determinan la Latencia de Inferencia. La latencia de inferencia en modelos de detección de objetos depende de múltiples factores interrelacionados. En primer lugar, la complejidad arquitectónica del modelo, medida en términos de número de parámetros, profundidad de capas y tipo de operaciones (convoluciones vs. mecanismos de atención transformer), determina el volumen de cómputo requerido por fotograma. Los modelos basados en transformers, como Grounding DINO, generalmente presentan mayor complejidad computacional que arquitecturas convolucionales como YOLO debido al costo cuadrático de los mecanismos de atención multi-cabeza (S. Liu et al., 2023).
-
-En segundo lugar, la resolución de entrada del frame afecta directamente el tiempo de procesamiento: incrementar la resolución de 640×640 a 1280×1280 puede cuadruplicar el número de operaciones en capas convolucionales, introduciendo un trade-off fundamental entre precisión de detección (favorecida por mayores resoluciones) y velocidad de inferencia.
-
-En tercer lugar, el hardware de ejecución constituye quizás el factor más determinante: GPUs modernas pueden acelerar la inferencia entre 5 y 10 veces comparado con CPUs, mientras que aceleradores especializados como TPUs o hardware de edge computing (NVIDIA Jetson, Google Coral) ofrecen trade-offs específicos entre eficiencia energética, latencia y disponibilidad de memoria (Zou et al., 2023). La literatura sobre deep video analytics en el borde evidencia que estos factores operan de manera conjunta: la selección del punto de operación óptimo —en términos de precisión del modelo, resolución de entrada y capacidad de hardware— constituye un problema de optimización multi-objetivo que no puede resolverse a partir de métricas aisladas de cada componente (Li et al., 2022).
-
-Latencias Típicas en Modelos Open-Vocabulary. Los modelos de detección open-vocabulary presentan latencias variables según su diseño arquitectónico y optimizaciones. YOLO-World, optimizado para velocidad mediante arquitectura convolucional ligera y alineación visión-lenguaje eficiente, alcanza tasas de inferencia del orden de 10–30 ms por frame en GPUs de gama alta (NVIDIA RTX 3090 o superiores), lo que equivale a 30–100 FPS (Cheng et al., 2024). Grounding DINO, en su versión original basada en transformers pesados, presenta latencias significativamente mayores: aproximadamente 50–150 ms por frame en la misma clase de hardware, alcanzando apenas 6–20 FPS. No obstante, la versión Grounding DINO 1.5 Edge, optimizada para despliegue en dispositivos edge mediante arquitectura EfficientViT y TensorRT, logra reducir esta latencia a aproximadamente 13 ms por frame (75 FPS) en GPU A100, representando una mejora de 4× respecto a la implementación PyTorch nativa (Ren et al., 2024).
-
-En dispositivos de edge computing como NVIDIA Jetson Orin NX, Grounding DINO 1.5 Edge alcanza tasas de 10–14 FPS (70–100 ms por frame) con resolución de entrada 640×640, demostrando la viabilidad de detección OV en plataformas de recursos limitados. En contraste, la ejecución en CPU de propósito general puede incrementar la latencia de 5–10 veces, tornando impracticable el procesamiento en tiempo real para la mayoría de aplicaciones críticas (Zou et al., 2023).
-
-Técnicas de Optimización. Diversas técnicas permiten reducir la latencia de inferencia sin comprometer excesivamente la precisión de detección. La cuantización de pesos y activaciones, que reduce la precisión numérica de FP32 a FP16 o INT8, puede acelerar la inferencia en hardware con soporte nativo para estas operaciones. Frameworks de optimización como TensorRT de NVIDIA y ONNX Runtime incorporan técnicas de fusión de operadores (kernel fusion), optimización de grafos computacionales y selección automática de implementaciones de bajo nivel, logrando mejoras adicionales del orden de 20–50% sobre implementaciones PyTorch o TensorFlow estándar.
-
-Técnicas de compresión de modelos como knowledge distillation y network pruning permiten reducir la complejidad del modelo preservando gran parte de su capacidad de generalización. El despliegue en dispositivos edge, si bien introduce restricciones de memoria y cómputo, ofrece ventajas en términos de latencia de red al procesar localmente, evitando el overhead de transmisión hacia servidores remotos (Shi et al., 2016a).
-
-Implicaciones para el Presupuesto de Latencia del Sistema. La latencia de inferencia representa la adición más variable e incierta al presupuesto G2A total: a diferencia de los componentes del pipeline clásico, cuya contribución puede acotarse mediante configuración de protocolo y codec, la latencia del modelo depende de variables de diseño —complejidad arquitectónica, resolución de entrada, hardware disponible— cuyas interacciones no son lineales (Li et al., 2022). Este carácter multi-variable implica que los valores reportados en benchmarks de modelos individuales (FPS en GPU aislada, AP en COCO/LVIS) no son directamente trasladables al rendimiento del pipeline completo, como se argumenta en la sección 15.4.3.1 .
-
-La revisión bibliográfica permite identificar dos rangos de referencia relevantes para el diseño experimental: el rango de 10–30 ms por frame, asociado a modelos convolucionales ligeros con optimización hardware (Cheng et al., 2024), y el rango de 50–150 ms, característico de arquitecturas transformer sin optimización específica para edge (Ren et al., 2024). La aceleración por hardware emerge como condición necesaria —y no suficiente— para mantener la contribución de este componente dentro de márgenes compatibles con la generación de alertas en tiempo real (Zou et al., 2023). La cuantificación precisa de estos márgenes en el contexto del pipeline completo de E-OVRT-VDP constituye uno de los objetivos de la validación experimental planificada para etapas posteriores.
-
-
-##### 16.5.2.7. Umbrales Perceptuales y Requisitos de Interactividad
-
-Desde la perspectiva de la interacción humano-computadora, existen umbrales de latencia más allá de los cuales el retraso se torna perceptible y degrada la experiencia del usuario. Investigaciones seminales establecieron que retrasos superiores a 100 ms en sistemas interactivos comienzan a erosionar la sensación de inmediatez y respuesta instantánea (Card et al., 2008). Estudios más recientes en interfaces táctiles han demostrado que los usuarios pueden percibir diferencias de latencia del orden de decenas de milisegundos en tareas de manipulación directa, afectando su percepción de fluidez y responsividad del sistema (Deber et al., 2015).
-
-En contextos críticos de video en tiempo real —tales como teleoperación remota, conducción autónoma o videovigilancia activa de seguridad— la minimización de la latencia resulta fundamental para garantizar que las acciones correctivas o alertas se produzcan de manera oportuna. El paradigma de computación en el borde (edge computing) ha surgido precisamente para abordar los requisitos de baja latencia mediante el procesamiento de datos cerca de su fuente de generación, reduciendo significativamente los retardos asociados al tránsito por redes extendidas (Shi et al., 2016a). Este enfoque permite que sistemas sensibles al tiempo, como los de videovigilancia inteligente, operen con latencias sustancialmente inferiores a las alcanzables mediante arquitecturas centralizadas en la nube.
-
-A partir de los umbrales perceptuales reportados en la literatura y de la naturaleza operativa de sistemas de monitoreo y respuesta, se observa que la interactividad en escenarios human-in-the-loop requiere latencias acotadas al orden de las centenas de milisegundos, rango en el cual la respuesta del sistema se percibe como fluida y la capacidad de intervención humana no se ve comprometida significativamente (Card et al., 2008; Deber et al., 2015). Estos hallazgos constituyen un insumo conceptual relevante para la definición del presupuesto de latencia del sistema, cuya cuantificación específica —como umbral operativo del prototipo— corresponde a la Etapa 2 del proyecto, donde se establecerán los criterios experimentales en función de las restricciones concretas de hardware, conectividad y carga de inferencia.
-
-
-#### 16.5.3. Arquitecturas de procesamiento de video en tiempo real
-
-El diseño de sistemas de análisis de video en tiempo real exige decisiones arquitectónicas que trascienden la elección de protocolos de streaming. En este tipo de plataformas, el desempeño no depende únicamente del transporte, sino principalmente de cómo se organiza el procesamiento interno: dónde se introduce buffering, cómo se gestiona el flujo de datos (backpressure), qué tan costosas son las transferencias de memoria, y cómo se desacoplan los componentes para integrar módulos heterogéneos sin degradar la latencia.
-
-En el contexto de E-OVRT-VDP, la arquitectura debe sostener un pipeline continuo de video (ingesta, decodificación, preprocesamiento, inferencia y salida) con latencia acotada y predecible, a la vez que habilita funciones de coordinación (configuración, eventos, alertas, trazabilidad y escalamiento) sin bloquear la ruta crítica. Por ello, este capítulo sistematiza los fundamentos necesarios para diseñar la plantilla de streaming en tiempo real: (i) la separación conceptual entre plano de medios y plano de control, (ii) el aprovechamiento de aceleración por hardware en etapas de códec y cómputo, (iii) mecanismos eficientes de comunicación inter-proceso para arquitecturas modulares, y (iv) el rol de frameworks multimedia como base para construir pipelines reproducibles y extensibles.
-
-Finalmente, la sección establece criterios que se utilizarán en las secciones posteriores para justificar decisiones del prototipo experimental, especialmente en términos de presupuesto de latencia end-to-end, portabilidad entre plataformas de hardware y capacidad de evolución del sistema.
-
-
-##### 16.5.3.1. Separación de planos: plano de medios y plano de control
-
-En sistemas complejos de análisis de video resulta conceptualmente útil distinguir dos planos de ejecución con responsabilidades diferenciadas. Esta separación, originada en el ámbito de las redes de telecomunicaciones donde se distingue entre el plano de datos (forwarding) y el plano de control (routing decisions), ha sido adoptada progresivamente en arquitecturas de software distribuido y sistemas de procesamiento de streams (Kreutz et al., 2015).
-
-El plano de medios se encarga del flujo continuo de datos audiovisuales. Su función principal consiste en mantener el procesamiento sincronizado con el tiempo real: capturar o recibir el stream, decodificar los frames, aplicar el procesamiento requerido (inferencia, filtrado, anotación) y generar la salida correspondiente. Este plano opera como un pipeline donde los datos fluyen con mínima interacción externa, priorizando el throughput sostenido y la latencia predecible.
-
-El plano de control orquesta eventos discretos y coordina el comportamiento general del sistema. Siguiendo principios de arquitecturas orientadas a eventos (Event-Driven Architecture, EDA), los componentes de este plano emiten y responden a mensajes de control sin necesidad de operar a framerate constante (Cugola & Margara, 2012). En el contexto de videovigilancia, este plano maneja notificaciones de detección, comandos de configuración, generación de alertas y administración de recursos del sistema.
-
-La separación de planos proporciona beneficios arquitectónicos significativos, en la medida en que los sistemas modulares favorecen la mantenibilidad y la escalabilidad al encapsular responsabilidades en subsistemas cohesivos (Bass et al., 2022). En términos prácticos, esta organización permite optimizar el plano de medios para throughput y latencia constante, mientras el plano de control gestiona la lógica de negocio de manera asíncrona. Por ejemplo, ante la detección de una situación de riesgo, el pipeline de medios puede emitir un evento que el plano de control procesa de forma independiente, evitando que el flujo de video se bloquee mientras se confirma el envío de alertas.
-
-Además se incluyen: aislamiento de la complejidad, que facilita la depuración de problemas de latencia en el plano de medios sin interferencia de la lógica de control; flexibilidad tecnológica, que permite evaluar alternativas como GStreamer versus FFmpeg en el plano de medios sin modificar la capa de control; escalabilidad distribuida, que habilita la ejecución del plano de medios en un nodo edge y el de control en la nube, comunicados mediante eventos de red; y trazabilidad, dado que el plano de control puede registrar eventos detallados sin sobrecargar el pipeline de video.
-
-
-##### 16.5.3.2. Decodificación y codificación acelerada por hardware
-
-El procesamiento de video en tiempo real impone una carga computacional elevada, especialmente cuando se requiere ingestar múltiples flujos y mantener resoluciones altas de forma sostenida. En este contexto, las etapas de decodificación (necesaria para acceder a los frames) y codificación (relevante cuando se retransmite, se reempaqueta o se registra video) suelen convertirse en componentes dominantes del costo de cómputo si se ejecutan en software.
-
-Por esta razón, los stacks multimedia modernos priorizan el uso de motores dedicados de códec (en GPU/SoC/ASIC) accesibles mediante APIs de aceleración. Estos motores permiten descargar la carga de encode/decode desde CPU y/o desde el motor de cómputo general (p. ej., evitando competir con la inferencia), incrementando la capacidad de concurrencia y estabilizando el rendimiento del pipeline. En NVIDIA, por ejemplo, la arquitectura de Video Codec SDK describe encoders/decoders de hardware separados del motor CUDA, con el objetivo explícito de liberar recursos para otras operaciones (NVIDIA, s/f-e; NVIDIA Developer, s/f). En Intel, el enfoque equivalente se expone a través de Intel VPL como acceso a hardware especializado para acelerar encode/decode y mejorar FPS respecto a enfoques centrados en CPU (Intel, s/f-b). Asimismo, en Linux, VA-API formaliza el objetivo de habilitar decodificación y codificación aceleradas por hardware como motivación central de la API (Intel, s/f-d).
-
-En términos de latencia, la aceleración por hardware no garantiza por sí sola un tiempo end-to-end bajo; su contribución principal es reducir el costo de las etapas de códec y habilitar arquitecturas donde el flujo se mantiene con buffering controlado y con menor presión sobre CPU/memoria. Por ello, las subsecciones siguientes revisan las alternativas más relevantes (NVDEC/NVENC, Quick Sync/Intel VPL y VA-API) y su impacto en el diseño de pipelines de baja latencia para E-OVRT-VDP.
-
-NVIDIA NVDEC y NVENC. Las GPUs de NVIDIA incorporan un motor dedicado de decodificación (NVDEC) que ejecuta la decodificación independientemente del motor de cómputo/gráficos de la GPU, y expone esta funcionalidad mediante la API NVDECODE (NVIDIA, s/f-d). En consecuencia, la decodificación puede descargarse a hardware fijo mientras el resto del pipeline utiliza la CPU y/o CUDA para tareas de mayor valor (por ejemplo, pre/post-procesamiento e inferencia), reduciendo la contención de recursos en escenarios multi-stream (NVIDIA, s/f-d).
-
-En cuanto a compatibilidad, NVDEC puede decodificar por hardware varios códecs, incluyendo H.264/AVC, HEVC/H.265, VP8, VP9 y AV1; sin embargo, las capacidades exactas dependen de la arquitectura (p. ej., límites de resolución, perfiles y bit-depth), por lo que el diseño debe basarse en una consulta explícita de capacidades en tiempo de ejecución (NVIDIA, s/f-d).
-
-Desde la perspectiva de baja latencia, la API describe un pipeline donde el demultiplexado alimenta un parser que gestiona buffers de decodificación (DPB) y callbacks de entrega. Dos parámetros son particularmente relevantes: (a) el dimensionamiento de superficies de decodificación para garantizar decodificación correcta sin sobre-asignación, y (b) el control de la demora de entrega de frames en orden de presentación mediante ulMaxDisplayDelay, donde 0 indica “sin delay” (NVIDIA, s/f-d). En paralelo, NVIDIA advierte que, en cargas intensivas, la decodificación puede bloquearse si la cola interna de espera del driver asociada a NVDEC se llena, lo que refuerza la necesidad de diseñar el pipeline con control de colas y backpressure para mantener estabilidad temporal (NVIDIA, s/f-d).
-
-Finalmente, cuando el caso de uso requiere codificar (p. ej., para re-streaming, grabación o transcoding), es crítico distinguir la latencia de codificación de la latencia total del sistema. En la guía de integración con FFmpeg, NVIDIA caracteriza un modo de “low latency” en el que se deshabilitan B-frames, se utilizan modos de bitrate constante y se mantienen tamaños de VBV muy bajos, indicando que la latencia “puede ser tan baja como 16 ms” bajo esas restricciones, con el trade-off explícito de menor calidad resultante (NVIDIA, s/f-f).
-
-Intel Quick Sync Video y oneVPL. Los procesadores Intel que incluyen gráficos integrados incorporan capacidades dedicadas de procesamiento de medios comercializadas como Intel Quick Sync Video, orientadas a acelerar tareas de decodificación y codificación de video y, al mismo tiempo, permitir que el procesador ejecute otras cargas (Intel, s/f-a). En consecuencia, Quick Sync constituye una alternativa relevante para sistemas que no disponen de una GPU discreta, siempre que el modelo de CPU efectivamente incluya processor graphics (Intel, s/f-c).
-
-El acceso programático a estas capacidades se realiza mediante Intel oneAPI Video Processing Library (oneVPL). Intel describe a oneVPL como una interfaz para decodificación, codificación y procesamiento de video orientada a construir pipelines portables sobre CPUs, GPUs y otros aceleradores, incorporando además mecanismos de descubrimiento/selección de dispositivo y primitivas de zero-copy buffer sharing (Intel, s/f-b).
-
-Desde la perspectiva de evolución tecnológica, Intel explicita que oneVPL es el sucesor de Intel Media SDK y su continuidad como API 2.x, recomendando oneVPL para desarrollos nuevos y para habilitar características de hardware futuras (Intel, 2021). Respecto del soporte de códecs, resulta incorrecto asumir un conjunto fijo (por ejemplo H.264/HEVC/VP9) para todos los equipos: Intel advierte que las capacidades de códec varían por dispositivo y configuración, y que procesadores sin gráficos integrados no disponen de soporte de medios (Intel, s/f-c). Por ello, un diseño robusto debe basarse en consulta de capacidades (p. ej., tablas y/o mecanismos de enumeración del runtime) y seleccionar dinámicamente el camino de aceleración compatible con el hardware disponible (Intel, 2023; Intel, 2024).
-
-Video Acceleration API (VAAPI). VA-API (Video Acceleration API) es una especificación/API y un ecosistema de implementación en Linux (libva) cuyo objetivo es proporcionar acceso a aceleración por hardware para tareas de decodificación y codificación (y procesamiento asociado) mediante una interfaz común, delegando la ejecución real a backends específicos por proveedor (Intel, 2022). En consecuencia, el valor arquitectónico principal de VA-API es la portabilidad a nivel de interfaz: un mismo componente puede invocar VA-API y utilizar diferentes aceleradores dependiendo del driver/stack disponible, sin reescribir la lógica principal (Intel, 2022).
-
-Sin embargo, esa portabilidad no implica uniformidad funcional: el conjunto de capacidades efectivas (perfiles, bit-depth, resoluciones, códecs y si existe encode/decode completo) depende del backend y del hardware concreto, por lo que un diseño robusto debe tratar a VA-API como una abstracción con variabilidad de features y validar capacidades en el entorno objetivo (Intel, 2022). En términos prácticos, esto se traduce en mayor necesidad de configuración y diagnóstico (selección de driver VA, compatibilidad de formatos/superficies, y verificación de rutas de cero copia dentro del framework), comparado con APIs propietarias donde el vendor controla de punta a punta el stack (Intel, 2022).
-
-En el caso de GPUs AMD en Linux, el soporte suele apoyarse en el stack abierto (Mesa), donde el frontend VA (frontends/va) se integra con rutas de video del driver (radeonsi) asociadas a bloques de decodificación como UVD y VCN, evidenciado por cambios y fixes explícitos en componentes frontends/va y radeonsi/uvd/radeonsi/vcn dentro del release notes de Mesa (Mesa, 2025). En este escenario, VA-API puede ser una opción consistente para despliegues heterogéneos Linux, siempre que el hardware y el driver soporten los códecs/perfiles requeridos y que el pipeline evite conversiones que rompan la ruta acelerada (Mesa, 2025).
-
-Para GPUs NVIDIA, en cambio, VA-API no es el camino primario en el driver propietario en el ecosistema de aplicaciones; por ello aparecen soluciones comunitarias que traducen VA-API hacia NVDEC. En particular, nvidia-vaapi-driver se presenta como una implementación VA-API respaldada por NVDEC, diseñada especialmente para Firefox y con la limitación explícita de decodificación solamente (sin soporte de encoding) (Stephen, 2021/2026). Esta situación es reconocida en discusiones del propio foro de NVIDIA, donde se menciona como “solución” comunitaria con foco en NVDEC y sin NVENC (NVIDIA, 2024).
-
-Impacto en la latencia del sistema. La aceleración por hardware reduce el costo computacional de las etapas de códec, pero la latencia end-to-end del sistema sigue dependiendo del diseño completo del pipeline, incluyendo buffering, conversiones de formato, transferencias de memoria y, especialmente, el tiempo de inferencia (NVIDIA, s/f-f; The FFmpeg developers, s/f-c).
-
-En este marco, suele plantearse como objetivo de diseño minimizar transferencias del host al dispositivo y evitar conversiones que fuercen a “bajar” los frames a memoria del sistema cuando se pretende encadenar decodificación, procesamiento y (si aplica) recodificación. En la práctica, esto se describe como un enfoque “zero-copy” o “hardware pipeline”, pero su factibilidad depende del acelerador disponible (GPU/iGPU/ASIC), de la ruta de procesamiento seleccionada y del framework (por ejemplo, si ciertos filtros o formatos intermedios rompen la continuidad del camino acelerado) (NVIDIA, s/f-f; The FFmpeg developers, s/f-c).
-
-
-##### 16.5.3.3. Mecanismos de comunicación inter-proceso
-
-La arquitectura modular de una plataforma de analítica de vídeo puede requerir separar etapas del pipeline en procesos distintos (ingesta, inferencia, visualización). En estos escenarios, el mecanismo IPC determina la latencia efectiva: si introduce copias adicionales o sincronización ineficiente, degrada el desempeño end-to-end.
-
-Para transferencia de frames de video, existen alternativas estándar y mecanismos específicos de plataforma que explotan características del hardware subyacente. Las subsecciones siguientes analizan opciones relevantes para E-OVRT-VDP.
-
-DMA-BUF para compartir superficies/buffers entre subsistemas. Cuando intervienen rutas aceleradas (captura por V4L2, composición/DRM, decodificación por hardware), es frecuente que los frames existan como superficies que conviene compartir sin copias entre subsistemas. En Linux, dma-buf provee un marco para compartir buffers con acceso DMA exponiéndolos a userspace como descriptores de archivo, lo cual habilita que dichos buffers se transfieran entre procesos y componentes sin materializar copias a RAM en cada salto (The Linux Kernel, s/f).
-
-No obstante, su aplicabilidad efectiva depende del soporte del driver y del camino de datos disponible en la plataforma objetivo: no todos los dispositivos o decodificadores exportan superficies como dma-buf en todos los entornos.
-
-CUDA Inter-Process Communication (CUDA IPC). En sistemas donde los datos permanecen en memoria de GPU, CUDA IPC permite compartir ciertos recursos entre procesos en Linux, incluyendo el uso de handles para eventos, y, en plataformas compatibles, handles para memoria de dispositivo (NVIDIA, n.d.-b). Este tipo de IPC se alinea con objetivos de baja latencia al evitar transferencias a memoria de host cuando el flujo de datos puede mantenerse en GPU, y ha sido utilizado como técnica de optimización en escenarios de alto rendimiento (Potluri et al., 2012).
-
-Sin embargo, esta elección tiene implicancias directas para plataformas edge basadas en Tegra/Jetson: la guía oficial indica que, en L4T y Tegra embebido, las APIs de IPC para event sharing están soportadas (bajo ciertas condiciones), mientras que las APIs de memory sharing no lo están (NVIDIA, s/f-b). Para un diseño orientado a edge, este punto obliga a tratar CUDA IPC (memoria) como una opción dependiente de plataforma y a contemplar alternativas de interoperabilidad (por ejemplo, mecanismos basados en descriptores o rutas específicas de la plataforma) cuando el hardware objetivo sea Jetson.
-
-Mecanismos específicos de plataforma (DeepStream). Además de IPC genérico, algunos SDKs incorporan componentes diseñados para pipelines multi-proceso dentro de su ecosistema. En el caso de NVIDIA DeepStream (sobre GStreamer), el plugin Gst-nvunixfd se orienta a transferir buffers NVMM entre procesos mediante descriptores, lo que puede simplificar ingeniería en despliegues NVIDIA (NVIDIA, 2024). En una etapa de investigación, estos mecanismos deben compararse contra alternativas estándar (POSIX shm, descriptores por Unix sockets, dma-buf) en términos de portabilidad, costo de integración y restricciones operativas.
-
-
-##### 16.5.3.4. Frameworks de procesamiento multimedia
-
-El desarrollo de sistemas de análisis de video se beneficia significativamente del uso de frameworks multimedia que proporcionan abstracciones de alto nivel para construcción de pipelines de procesamiento. Estos frameworks encapsulan la complejidad de manejo de buffers, sincronización temporal y negociación de formatos, permitiendo al desarrollador enfocarse en la lógica de aplicación.
-
-
-###### 16.5.3.4.1. GStreamer
-
-GStreamer es un framework de código abierto para procesamiento multimedia basado en una arquitectura de pipeline donde componentes denominados elementos se conectan formando grafos de flujo de datos (GStreamer, s/f-a). Cada elemento realiza una función específica (fuente, filtro, codificador, sink) y se comunica con otros elementos mediante pads (puertos tipados). Los datos fluyen encapsulados en objetos buffer que contienen el contenido multimedia junto con metadatos temporales, mientras que events y messages proporcionan mecanismos de control y notificación.
-
-La arquitectura de plugins de GStreamer permite extender sus capacidades sin modificar el núcleo del framework. Existen plugins para prácticamente cualquier códec, protocolo o dispositivo, incluyendo soporte para aceleración por hardware mediante componentes específicos para NVDEC, NVENC, VAAPI y Quick Sync. Diversos estudios han analizado su desempeño como framework multimedia en entornos móviles, destacando mejoras en eficiencia, compatibilidad y universalidad frente a otras soluciones (H. Wang et al., 2012).
-
-
-###### 16.5.3.4.2. FFmpeg y Libav
-
-FFmpeg constituye una colección de bibliotecas y herramientas de línea de comandos para procesamiento de audio y video. Sus componentes principales incluyen libavformat para manejo de formatos contenedores y entrada/salida de streams, libavcodec para codificación y decodificación de cientos de códecs, y libavfilter para filtrado de video y audio. La fortaleza de FFmpeg radica en su extensa cobertura de formatos y códecs, junto con optimizaciones de rendimiento desarrolladas durante más de dos décadas (The FFmpeg developers, s/f-a).
-
-A diferencia de GStreamer, FFmpeg proporciona los bloques fundamentales pero no estructura el flujo de procesamiento por sí mismo; esa responsabilidad recae en el desarrollador. El modelo de programación típico consiste en un loop que demultiplexa paquetes, los decodifica, aplica procesamiento y los recodifica. Esta aproximación más procedural puede resultar apropiada para componentes específicos del sistema pero ofrece menor flexibilidad para orquestación de pipelines complejos comparado con GStreamer.
-
-FFmpeg incluye soporte para aceleración por hardware mediante hwaccel, permitiendo utilizar NVDEC, Quick Sync o VAAPI de manera transparente. La herramienta de línea de comandos puede configurarse con flags de baja latencia para minimizar el buffering interno, aunque alcanzar latencias óptimas requiere configuración cuidadosa.
-
-
-###### 16.5.3.4.3. NVIDIA DeepStream SDK
-
-DeepStream es un SDK de NVIDIA orientado a video analytics en tiempo real, construido sobre GStreamer. El SDK integra la pila CUDA-X de NVIDIA (decodificación por hardware, inferencia con TensorRT, tracking) como plugins de GStreamer, facilitando la creación de aplicaciones de análisis de video sin requerir integraciones de bajo nivel (NVIDIA, 2024).
-
-Entre los plugins que DeepStream proporciona destacan: nvstreammux, que multiplexa múltiples streams de entrada en un batch unificado para procesamiento eficiente; nvinfer, que ejecuta inferencia de redes neuronales mediante TensorRT; nvtracker, que implementa algoritmos de seguimiento de objetos como DeepSORT; y nvosd, que renderiza elementos gráficos (bounding boxes, texto) sobre los frames. Adicionalmente, DeepStream incluye integraciones con servicios de mensajería (Kafka, MQTT) para reportar eventos detectados, alineándose con el concepto de plano de control.
-
-Estudios de benchmarking en plataformas Jetson demuestran el rendimiento alcanzable con DeepStream. Se han reportado velocidades de inferencia de hasta 47.56 FPS en tareas de detección de anomalías en video ejecutadas completamente en dispositivos Jetson edge (Pham et al., 2024). Asimismo, modelos optimizados con TensorRT exhiben, en promedio, una mejora del 16.11% en velocidad de inferencia respecto de sus contrapartes no optimizadas en Jetson Nano (Swaminathan et al., 2024).
-
-
-##### 16.5.3.5. Plataformas de hardware para edge computing
-
-La ejecución de analítica de video en el borde (edge computing) se propone como estrategia para reducir la latencia end-to-end y el consumo de ancho de banda, al acercar el cómputo al origen del stream y disminuir la dependencia de la conectividad hacia la nube. Sin embargo, esta decisión no es universalmente superior: su conveniencia depende de condiciones de red, criticidad temporal del caso de uso, costo operativo, y restricciones físicas del despliegue (energía, temperatura, espacio y mantenimiento). En este sentido, la literatura de revisión destaca que la convergencia entre edge computing y deep learning emerge, en gran medida, como respuesta a los costos de transferencia de datos y a la variabilidad de latencia asociados a arquitecturas centradas en nube para cargas sensibles al tiempo (X. Wang et al., 2020a).
-
-En términos de diseño, la “plataforma de hardware” en edge AI no debe entenderse únicamente como capacidad de cómputo (p. ej., TOPS/FLOPS), sino como el conjunto de recursos que determinan el desempeño real del pipeline: decodificación/encodificación por hardware, ancho de banda de memoria, rutas de copia (CPU a GPU), y soporte de runtime y librerías de optimización. También intervienen factores de ingeniería que condicionan resultados en campo (p. ej., thermal throttling, estabilidad del driver, ciclo de vida del producto y disponibilidad de repuestos).
-
-Dentro del espectro de opciones, las plataformas con aceleración integrada para visión (GPU/NPU/DLA) son relevantes cuando el objetivo incluye múltiples flujos concurrentes y presupuesto de latencia acotado. Un ejemplo representativo en esta categoría es la familia NVIDIA Jetson, cuyo stack combina CPU ARM, GPU con soporte CUDA, aceleradores dedicados y motores de códec (NVENC/NVDEC) en módulos orientados a despliegue embebido; su documentación técnica explicita, además, parámetros de arquitectura (p. ej., ancho de banda de memoria) y capacidades de video por hardware que son directamente pertinentes para cargas de video analítico (NVIDIA, 2022).
-
-En paralelo, la evidencia empírica en sistemas Jetson muestra que el rendimiento depende fuertemente de técnicas de optimización y particionamiento del cómputo. Se han reportado mejoras sustanciales de rendimiento y reducciones en el consumo energético respecto de una línea base GPU-only mediante estrategias de pipelining, asignación eficiente de buffers y duplicación de red en un marco basado en TensorRT (Jeong et al., 2022a).
-
-Para evitar sesgos tecnológicos en una etapa de investigación, es recomendable anclar la comparación en suites de benchmarking neutrales y reproducibles. MLCommons mantiene MLPerf Inference, que incluye escenarios para sistemas de edge y publica resultados con metodología estandarizada y reproducible, abarcando distintos perfiles de despliegue (por ejemplo, medidas de latencia en SingleStream y capacidad bajo carga en escenarios de concurrencia) (MLCommons, s/f-a). En ese marco, existen resultados públicos de múltiples organizaciones y stacks (incluyendo proveedores y arquitecturas variadas), lo que permite contextualizar el rendimiento de una plataforma sin asumir equivalencia directa con el desempeño del sistema completo de videovigilancia (MLCommons, 2024). Complementariamente, fabricantes como NVIDIA agregan y referencian sus propias presentaciones de resultados en la categoría Edge de MLPerf, lo cual puede ser útil como insumo técnico siempre que se mantenga la comparación con la fuente neutral (MLCommons) y se expliciten las condiciones de ejecución (software stack, versión de TensorRT/CUDA, modo de potencia, etc.) (NVIDIA, s/f-b).
-
-
-#### 16.5.4. Computación en el borde para video analytics en tiempo real
-
-Los sistemas de análisis de video en tiempo real que emplean modelos de aprendizaje profundo enfrentan una tensión fundamental entre la carga computacional de la inferencia y los requisitos de latencia del pipeline. En arquitecturas centralizadas basadas en la nube, los fotogramas capturados en el punto de origen deben transportarse a centros de datos remotos para su procesamiento, lo que introduce latencias de red variables, dependencia de la conectividad externa y potenciales implicaciones de privacidad al transmitir imágenes fuera del perímetro local (Shi et al., 2016b).
-
-El edge computing —cómputo en o cerca de la fuente de datos— surge como respuesta a estas limitaciones, acercando la capacidad de procesamiento al punto de captura para reducir la latencia de ida y vuelta, aliviar el consumo de ancho de banda y mantener los datos sensibles dentro del entorno local. Esta aproximación resulta especialmente relevante cuando los modelos de inferencia son computacionalmente intensivos, como ocurre con las arquitecturas de detección basadas en visión-lenguaje (open-vocabulary detection), cuyo costo por fotograma es significativamente mayor que el de los detectores tradicionales de vocabulario cerrado. En estos escenarios, la decisión de qué etapas del pipeline ejecutar en el borde y cuáles delegar a infraestructura remota se convierte en un problema de diseño central, condicionado por factores como el presupuesto de latencia, el ancho de banda disponible, la carga de inferencia del modelo y las restricciones energéticas y térmicas del hardware local.
-
-Esta sección examina la taxonomía edge/fog/cloud, los patrones de despliegue reportados para deep learning en el borde y los criterios técnicos que orientan la distribución del cómputo en sistemas de video analytics sensibles a la latencia.
-
-
-##### 16.5.4.1. Fundamentos de Edge Computing
-
-El paradigma de edge computing traslada recursos de cómputo y almacenamiento desde centros de datos centralizados hacia la periferia de la red, ubicándolos en proximidad física y de red a las fuentes de datos. Se caracteriza por ser una forma de ofrecer capacidades tipo cloud con alta capacidad de respuesta mediante infraestructura situada a muy pocos saltos de red de los dispositivos finales, lo que resulta crítico cuando los retardos de ida y vuelta hacia datacenters remotos degradan la viabilidad operativa de aplicaciones sensibles a la latencia (Satyanarayanan, 2017).
-
-Las motivaciones clásicas para su adopción se apoyan en tres tensiones estructurales: (i) la proliferación de dispositivos conectados y el volumen de datos generados, (ii) los requerimientos de baja latencia incompatibles con el procesamiento remoto, y (iii) la necesidad de limitar la exposición de datos sensibles. Estas fuerzas proponen desafíos de investigación como la programabilidad para entornos heterogéneos, la seguridad y privacidad en nodos distribuidos, la gestión de recursos y el equilibrio edge–cloud (Shi et al., 2016b).
-
-En paralelo, la convergencia entre edge computing y aprendizaje profundo dio lugar al concepto de edge intelligence, es decir, el despliegue de servicios de deep learning en el borde para responder con menor latencia y reducir el consumo de ancho de banda, manteniendo datos sensibles cerca de su origen. Sin embargo, esta convergencia también expone un límite técnico, donde los modelos visión‑lenguaje y de vocabulario abierto, si bien habilitan generalización semántica, demandan cómputo y ancho de banda de memoria difíciles de sostener en dispositivos embebidos, generando un “cuello de botella” de percepción incluso sobre hardware edge avanzado. Este concepto será ampliado en secciones posteriores.
-
-
-##### 16.5.4.2. Taxonomía: Edge, Fog y Cloud Computing
-
-La computación distribuida contemporánea suele describirse como un continuum que va desde los dispositivos que generan los datos (p. ej., cámaras y gateways) hasta centros de datos centralizados. Esta taxonomía es útil para razonar sobre video analytics porque permite ubicar, de forma comparativa, dónde se ejecuta el cómputo (y por ende qué latencias, consumos de red y restricciones operativas se heredan). En la literatura, los términos edge y fog no siempre se usan con el mismo alcance: algunos trabajos los tratan como sinónimos o con fronteras difusas, mientras que otros proponen una jerarquía explícita entre "cercano al dispositivo" (edge) y "capa intermedia de agregación" (fog) (Yousefpour et al., 2019).
-
-
-###### 16.5.4.2.1. Cloud Computing
-
-El modelo de cloud computing se caracteriza por concentrar recursos computacionales en centros de datos accesibles mediante red y provistos bajo demanda. La definición de NIST describe la nube como un modelo para habilitar acceso ubicuo y bajo demanda a un pool compartido de recursos configurables que pueden aprovisionarse y liberarse con mínima gestión, junto con cinco características esenciales (autoservicio bajo demanda, acceso amplio por red, pooling de recursos, elasticidad rápida y servicio medido), tres modelos de servicio (SaaS, PaaS, IaaS) y cuatro modelos de despliegue (Mell & Grance, 2011).
-
-Desde una perspectiva aplicada a analítica de video, la nube ofrece ventajas como elasticidad, centralización del almacenamiento y acceso a hardware de alto desempeño. De igual manera, también introduce limitaciones típicas para escenarios de tiempo real la ruta de red hacia un datacenter puede sumar latencias variables y exigir un consumo de ancho de banda elevado si se transmiten flujos de video completos, además de ampliar la superficie de exposición de datos sensibles cuando abandonan el perímetro local. Encuestas sobre edge intelligence y despliegue de deep learning en el borde remarcan que un enfoque cloud-only puede ser inadecuado para aplicaciones con requerimientos estrictos de respuesta, debido a los costos de comunicación, la variabilidad de la red y las restricciones operativas asociadas (X. Wang et al., 2020b; Zhou et al., 2019).
-
-
-###### 16.5.4.2.2. Fog Computing
-
-El concepto de fog computing surge para describir arquitecturas donde el cómputo, el almacenamiento y las funciones de red se distribuyen entre los dispositivos finales y la nube, habilitando procesamiento cercano a la fuente con menor latencia. Puede considerarse como una extensión del paradigma cloud hacia el borde, destacando atributos como baja latencia y conciencia de ubicación, distribución geográfica, soporte para aplicaciones de streaming en tiempo real y heterogeneidad de nodos (Bonomi et al., 2012).
-
-El NIST, por su parte, define fog computing como un paradigma que extiende la nube hacia el extremo de la red, ubicando recursos más cerca de las fuentes de datos y actuadores, y advierte que, en la práctica, la terminología relacionada (incluyendo edge) presenta solapamientos y usos no uniformes, por lo que resulta recomendable explicitar la convención adoptada en cada trabajo (Iorga et al., 2018). En la misma línea, la OpenFog Reference Architecture conceptualiza fog como una arquitectura horizontal que distribuye capacidades de cómputo, almacenamiento, control y networking a lo largo del continuo cloud-to-things, enfatizando principios como seguridad, autonomía, escalabilidad y jerarquía (OpenFog Consortium, 2017).
-
-En términos aplicados a video analytics, fog suele describirse como una capa intermedia capaz de agregar múltiples flujos, filtrar o transformar datos antes de su envío a niveles superiores y coordinar políticas operativas (p. ej., QoS, buffering, priorización), enviando hacia la nube preferentemente resultados, metadatos o eventos en lugar de video crudo cuando el caso de uso lo permite. Este espacio queda sintetizado en una taxonomía de desafíos recurrentes —gestión de recursos, QoS, seguridad/privacidad y soporte a aplicaciones— resaltando el rol del fog en analítica cercana a la fuente para aplicaciones sensibles a latencia (Mahmud et al., 2018).
-
-
-###### 16.5.4.2.3. Edge Computing
-
-A partir de la distinción conceptual entre cloud, fog y edge desarrollada en esta sección, el término edge computing se reserva aquí para el cómputo ubicado en el dispositivo, en el gateway inmediato o en un servidor de borde próximo a la fuente de video. En este marco, se distinguen patrones de despliegue que ayudan a clarificar su uso en escenarios prácticos: (a) inferencia en el dispositivo (on-device), (b) inferencia asistida por un servidor de borde (edge server) cercano y (c) arquitecturas colaborativas o híbridas, donde el cómputo se distribuye o particiona entre dispositivo, edge y/o cloud, con decisiones guiadas por compromisos entre latencia, consumo energético y capacidad disponible (Chen & Ran, 2019). Dada la variabilidad terminológica del área, en este trabajo se adopta la siguiente convención: edge refiere al cómputo en el dispositivo o gateway inmediato; fog, a una capa intermedia de agregación cercana o regional; y cloud, a centros de datos centralizados. Esta distinción resulta necesaria porque la literatura sobre fog computing y paradigmas relacionados —como cloudlets, MEC o mist computing— documenta solapamientos conceptuales y usos no uniformes de estos términos (Yousefpour et al., 2019).
-
-
-##### 16.5.4.3. Edge Computing para Video Analytics
-
-El video analytics en vivo suele considerarse un caso emblemático para el edge computing debido a la combinación de requisitos de baja latencia, altas tasas de datos y alto costo computacional de los pipelines de visión (decodificación, detección, seguimiento y analítica posterior). Para video analytics en tiempo real y a gran escala, resulta necesario un enfoque geo‑distribuido que incorpore recursos de cómputo cerca de las cámaras, además de clusters privados y/o nubes públicas. Esto se apoya en tres cuestiones técnicas: (i) latencia, ya que muchas aplicaciones requieren respuestas por debajo del segundo y algunas llegan a decenas de milisegundos; (ii) ancho de banda, dado que incluso video comprimido en HD suele ubicarse en el orden de varios megabits por segundo por flujo y puede escalar a decenas de megabits en 4K, dependiendo del códec, la tasa de cuadros y la complejidad de la escena, lo que vuelve rápidamente inviable transmitir masivamente flujos crudos a ubicaciones remotas; y (iii) aprovisionamiento, donde filtrar o procesar cerca del origen puede reducir el consumo de recursos aguas abajo (Ananthanarayanan et al., 2017).
-
-Desde la perspectiva de sistemas, la dificultad no es sólo correr modelos, sino administrar recursos en escenarios con múltiples streams y cargas variables. En analítica de video a escala, la gestión eficiente depende de reconocer (a) el trade‑off recurso–calidad (p. ej., variando resolución, FPS y parámetros internos) y (b) la diversidad de objetivos de calidad y tolerancia al lag entre consultas, ya que algunas deben responder con bajo retardo, mientras que otras admiten demoras de segundos o minutos (Zhang et al., 2017). La carga puede fluctuar por picos en la escena (por ejemplo, aumento de objetos a seguir), lo que vuelve relevante el aprovisionamiento dinámico y las políticas de scheduling orientadas a objetivos (calidad/lag), más allá del reparto “justo” de recursos.
-
-En cuanto a dominios de aplicación, se propone el uso de Edge‑AI en video analytics para ciudades inteligentes, casos como seguridad y vigilancia, transporte y gestión del tráfico, salud, educación y entretenimiento (Badidi et al., 2023). En este marco, el edge (y/o fog) habilita que parte del procesamiento ocurra más cerca de donde se generan los datos, lo que típicamente se asocia con menor latencia y ahorro de ancho de banda, y además abre espacio para técnicas de preservación de privacidad al minimizar la exposición de video crudo fuera del perímetro local.
-
-Finalmente, la convergencia entre edge computing y deep learning suele justificarse porque ni el cloud‑only (por latencia/costos de transporte) ni el on‑device‑only (por capacidad limitada) resultan suficientes para muchas aplicaciones de IA en el borde. El edge permite desplazar el procesamiento hacia la cercanía de los datos, reduciendo latencia, mientras que los avances en deep learning habilitan aplicaciones intensivas como multimedia inteligente y vigilancia, a costa de nuevos desafíos de eficiencia y despliegue (X. Wang et al., 2020b).
-
-
-##### 16.5.4.4. Plataformas de Hardware para Inferencia en el Borde
-
-La ejecución de modelos de deep learning en el borde requiere capacidad de cómputo sostenida bajo restricciones de consumo energético, disipación térmica y factor de forma. En cargas de video analytics, además, el desempeño efectivo no depende sólo de la inferencia, sino del pipeline completo (decodificación/transferencias del CPU al acelerador, preprocesamiento, inferencia y posprocesamiento), donde el ancho de banda de memoria, las rutas de copia y el soporte de runtimes/optimizadores influyen materialmente en la latencia y el throughput observados (X. Wang et al., 2020b).
-
-
-###### 16.5.4.4.1. Categorías de aceleradores
-
-La literatura y el mercado de Edge AI describen varias familias de hardware para inferencia (Silvano et al., 2025):
-
-GPUs embebidas (SoC/Modules): integran CPU y GPU en módulos compactos orientados a despliegue embebido/industrial. Su ventaja es la flexibilidad (soportan múltiples frameworks) y el acceso a toolchains maduras de optimización (p. ej., TensorRT).
-
-ASICs/NPU/TPU de borde: aceleradores dedicados a operaciones típicas de redes neuronales, con énfasis en eficiencia energética. Suelen requerir modelos compilados o convertidos a formatos específicos (p. ej., TensorFlow Lite cuantizado en Edge TPU).
-
-Aceleradores especializados (p. ej., NPUs de terceros): chips de inferencia con toolchains propias (compilación, cuantización, kernels soportados), que pueden ofrecer eficiencia elevada, pero condicionan portabilidad y selección de modelos.
-
-FPGAs con DPU (Deep Learning Processor Unit): permiten implementar datapaths dedicados y optimizar latencias de manera controlada; su atractivo está en la personalización y en perfiles donde el determinismo/latencia es relevante. En ecosistemas AMD/Xilinx, el término DPU es un soft IP para inferencia dentro del flujo Vitis AI.
-
-En la práctica, muchas plataformas combinan capacidades heterogéneas (CPU + acelerador) y el rendimiento real depende de cómo el software reparte el cómputo y minimiza copias/movimientos de datos (Shuvo et al., 2023).
-
-
-###### 16.5.4.4.2. Métricas de evaluación y comparabilidad
-
-Para comparar plataformas edge AI de forma técnicamente defendible, la evaluación suele considerar:
-
-Throughput: FPS o “streams simultáneos” sostenibles bajo una configuración dada (resolución, códec, tamaño de lote, precisión numérica).
-
-Latencia: tiempo por fotograma y, especialmente, cola (p95/p99) y jitter, dado que aplicaciones de tiempo real suelen degradarse por picos más que por promedios.
-
-Eficiencia energética: potencia media (W) y/o energía por inferencia (J/frame), útil para contrastar desempeño bajo límites térmicos/energéticos.
-
-Memoria y bandwidth: capacidad y presión de memoria, y costo de transferencias entre CPU y acelerador.
-
-Estabilidad térmica: riesgo de thermal throttling y degradación bajo carga sostenida.
-
-Un punto crítico es que métricas “brutas” como TOPS no siempre son comparables entre fabricantes, porque dependen del tipo de operación (INT8/FP16), sparsity y condiciones de medición. Por ello, se recomienda complementar con suites estandarizadas y reproducibles: MLPerf Inference define reglas y escenarios (p. ej., SingleStream para latencia y Offline para throughput), buscando comparabilidad entre stacks heterogéneos (MLCommons, s/f-b; Reddi et al., 2020).
-
-
-###### 16.5.4.4.3. Evidencia empírica y estudios comparativos
-
-La evidencia experimental en edge AI muestra que el rendimiento resulta de la interacción hardware, optimización y stack:
-
-Una comparación de plataformas de Edge AI para detección de objetos basadas en YOLOv5 muestra diferencias sustanciales de desempeño entre configuraciones destacando que el balance rendimiento/energía depende fuertemente de la plataforma y de las condiciones de operación (consumo de potencia y estabilidad térmica), por lo que la comparación debe reportar explícitamente estas variables junto con los FPS (Minott et al., 2025).
-
-Otro benchmarking de plataformas heterogéneas para detección en el borde (GPU embebida, TPU y DPU/FPGA) muestra que el desempeño observado depende de forma material de la adaptación del modelo al hardware objetivo (p. ej., conversión, compilación y despliegue específico por acelerador), por lo que la comparación debe reportar explícitamente el stack y el pipeline utilizado. Las diferencias de throughput entre arquitecturas resultan marcadas bajo condiciones experimentales comparables, reforzando la necesidad de medir el pipeline completo y no sólo el “hardware nominal” (Magalhães et al., 2023).
-
-Jeong, Kim y Ha (2022) presentan un framework sobre TensorRT para plataformas Jetson con procesamiento heterogéneo (p. ej., combinación de CPU/GPU/NPU) y reportan mejoras sustanciales de desempeño (del orden de 101 %–680 %) junto con reducciones de energía de hasta 55 % respecto de una línea base ejecutada sólo en GPU, mediante estrategias como multithreading, pipelining, asignación de buffers y duplicación de red. Esto refuerza que, en inferencia en el borde, el rendimiento observado depende tanto del hardware como del stack de ejecución y la optimización del pipeline (Jeong et al., 2022b).
-
-En conjunto, estos resultados apoyan una idea recurrente en la literatura de benchmarking donde, para cargas de visión, la comparación más fiel surge de medir el pipeline completo bajo condiciones reproducibles y reportar explícitamente software, versiones, precisión y modos de potencia.
-
-
-###### 16.5.4.4.4. Ejemplos representativos de la industria
-
-A modo ilustrativo, el ecosistema actual ofrece familias de productos representativas de cada categoría:
-
-GPUs embebidas: plataformas tipo NVIDIA Jetson, apoyadas por un stack de software embebido (p. ej., JetPack) y toolchains de despliegue/optimización (p. ej., TensorRT), con soporte documentado para frameworks de deep learning (p. ej., PyTorch) y SDKs orientados a video analytics (p. ej., DeepStream) (NVIDIA, s/f-a, s/f-c, 2025).
-
-TPU/NPU de borde: Google Coral Edge TPU, orientada a inferencia eficiente con modelos compatibles (típicamente TFLite cuantizado).
-
-Aceleradores ASIC especializados: familias como Hailo, que apuntan a alta eficiencia para inferencia en el borde mediante toolchains propios.
-
-FPGA + DPU (Deep Learning Processor Unit): plataformas AMD/Xilinx con flujos Vitis AI, orientadas a integrar inferencia acelerada en diseños embebidos con configuraciones adaptables.
-
-
-#### 16.5.5. Criterios orientadores para la selección de protocolos y stacks de streaming
-
-El análisis del estado del arte realizado en las secciones precedentes permite identificar un conjunto de criterios técnicos que deberán orientar la evaluación de protocolos de transmisión, servidores de medios, frameworks de procesamiento y plataformas de ejecución en etapas posteriores del proyecto. Estos criterios emergen de la intersección entre las características observadas en las familias de protocolos, los compromisos documentados en la literatura sobre arquitecturas de procesamiento de video, y los requisitos generales de una plataforma experimental orientada a detección open-vocabulary en tiempo real.
-
-La formulación de criterios no anticipa decisiones de diseño ni establece preferencia por tecnologías concretas: su propósito es delimitar ejes de evaluación que permitan contrastar alternativas de manera sistemática durante las etapas de análisis metodológico, diseño arquitectónico e implementación, preservando la apertura necesaria para que cada decisión se sustente en evidencia empírica y no en supuestos teóricos aislados.
-
-
-##### 16.5.5.1. Criterios derivados del análisis teórico
-
-Se identifican siete ejes de evaluación relevantes para la selección futura de componentes del plano de medios en el contexto de sistemas de video analytics en tiempo real.
-
-
-###### 16.5.5.1.1. Latencia end-to-end como variable de diseño
-
-El análisis demostró que la latencia en sistemas de video en tiempo real no constituye una propiedad singular, sino una magnitud compuesta determinada por la contribución acumulada de cada etapa del pipeline estándar de streaming.
-
-Como se estableció anteriormente, la literatura sobre interacción humano-computadora sitúa los umbrales de interactividad para escenarios human-in-the-loop en el orden de las centenas de milisegundos (Card et al., 2008; Deber et al., 2015). Este hallazgo acota el rango de referencia, pero la adopción de un presupuesto de latencia específico como requisito operativo del sistema constituye una decisión que deberá formalizarse durante la etapa 2 del proyecto, considerando las restricciones concretas de hardware, conectividad y carga de inferencia del prototipo. En consecuencia, la evaluación de stacks candidatos deberá contemplar la latencia end-to-end como una variable de diseño cuyo umbral queda por definir, y no como un parámetro fijo predeterminado.
-
-Asimismo, la evaluación debería atender a la distribución estadística de las latencias y no únicamente a promedios, dado que colas largas o jitter elevado pueden comprometer la consistencia temporal de las detecciones. En particular, reportar métricas de dispersión o percentiles sobre la latencia end-to-end —y, cuando resulte instrumentalmente viable, del componente de inferencia— permitiría capturar el comportamiento bajo carga de manera más representativa que un promedio aislado.
-
-
-###### 16.5.5.1.2. Compatibilidad con fuentes heterogéneas y soporte multi-protocolo
-
-En entornos reales de videovigilancia en construcción civil, es esperable que el parque de cámaras instalado sea heterogéneo, con predominancia de dispositivos que exponen flujos mediante protocolos establecidos como RTSP que se integran bajo perfiles ONVIF (ONVIF, 2019; Schulzrinne et al., 1998). La capacidad de un stack candidato para ingestar flujos desde estas fuentes sin imponer la sustitución del equipamiento existente constituye un factor relevante de evaluación.
-
-El soporte multi-protocolo no implica necesariamente utilizar todos los protocolos disponibles de manera simultánea, sino habilitar roles diferenciados según el tramo del pipeline (García et al., 2017). La evaluación de alternativas deberá considerar hasta qué punto cada opción permite incorporar fuentes diversas sin comprometer la coherencia interna del plano de medios ni introducir dependencias rígidas con un protocolo específico.
-
-
-###### 16.5.5.1.3. Eficiencia en la gestión de buffers y transferencias de memoria
-
-El análisis puso de manifiesto que la forma en que los frames transitan entre las etapas de decodificación, preprocesamiento e inferencia tiene impacto directo sobre la latencia y el throughput del pipeline. En particular, la capacidad de preservar frames en memoria del acelerador y evitar copias innecesarias hacia la RAM del host aparece en la literatura como un factor determinante del desempeño en plataformas con aceleración por GPU (NVIDIA, s/f-b).
-
-Para la evaluación de alternativas, este eje se traduce en verificar si el stack candidato permite que los frames permanezcan en memoria del acelerador a lo largo de la ruta crítica, o si introduce copias o conversiones de formato entre etapas. La operación en modo zero-copy no debe asumirse como propiedad garantizada de ningún stack, sino considerarse como una característica a confirmar en función de la combinación concreta de framework, códec y acelerador disponibles para el prototipo (NVIDIA, s/f-d; FFmpeg, s/f-b).
-
-
-###### 16.5.5.1.4. Capacidad de abstracción sobre códec y aceleración por hardware
-
-Dado el carácter experimental del proyecto, resulta conveniente que el framework de procesamiento multimedia que se adopte para el plano de medios permita modificar parámetros de códec y aceleración por hardware sin requerir cambios estructurales en la lógica de aplicación ni en el pipeline de detección. Como se discutió en la sección 16.5.3.4, los frameworks difieren en la forma en que exponen estas configuraciones: algunos permiten ajustarlas de forma declarativa, mientras que otros requieren adaptaciones específicas por plataforma (GStreamer, s/f-a; FFmpeg, s/f-b). Este aspecto se considerará como criterio complementario en la evaluación de frameworks candidatos para el plano de medios, priorizando la flexibilidad de configuración sobre la portabilidad multiplataforma, que excede el alcance del prototipo.
-
-
-###### 16.5.5.1.5. Separabilidad entre flujo de datos y lógica de control
-
-La separación entre plano de medios y plano de control constituye un principio arquitectónico recurrente en la literatura de sistemas de video analytics que combinan procesamiento de baja latencia con lógica de negocio event-driven (Bass et al., 2022; Cugola & Margara, 2012). En la evaluación de componentes candidatos para el plano de medios, resulta pertinente considerar si estos exponen mecanismos que faciliten dicha separación —como buses de mensajes, callbacks o interfaces de eventos— o si, por el contrario, acoplan el flujo de datos con la lógica de control en una misma ruta de ejecución.
-
-Este criterio no prescribe un mecanismo de comunicación particular ni una topología concreta, sino que plantea la separabilidad de planos como una dimensión de análisis al contrastar alternativas. El grado de desacoplamiento efectivamente necesario y su implementación corresponden al diseño arquitectónico de la Etapa 3.
-
-
-###### 16.5.5.1.6. Viabilidad de integración con modelos de inferencia open-vocabulary
-
-Un aspecto central para el proyecto es la capacidad del pipeline de medios para articularse con modelos de detección open-vocabulary. Como se analizó en la sección 16.5.3.4, los frameworks de procesamiento multimedia pueden adoptar enfoques diferenciados de integración: incorporar la inferencia como una etapa interna del pipeline o extraer frames hacia un proceso externo que ejecute el modelo de forma desacoplada. Cada enfoque implica compromisos distintos en latencia, complejidad operativa y flexibilidad para sustituir o actualizar modelos.
-
-Dado que los modelos OVD incorporan componentes de fusión visión-lenguaje, la evaluación deberá prestar atención a barreras de integración específicas, en particular la compatibilidad con arquitecturas que combinan un encoder visual con un encoder textual y requieren mecanismos de inyección de prompts en lenguaje natural. La viabilidad y el costo de estas integraciones constituyen variables abiertas cuya resolución dependerá de pruebas empíricas en etapas posteriores.
-
-
-###### 16.5.5.1.7. Afinidad con procesamiento cercano a la fuente
-
-Del análisis se identificó que las condiciones típicas de obras de construcción civil —necesidad de respuesta rápida ante eventos de seguridad, conectividad potencialmente intermitente, consideraciones de privacidad— configuran un escenario donde el procesamiento cercano a la fuente de captura podría resultar ventajoso (Lee & Hsieh, 2026; Kotevska et al., 2022). La evaluación de alternativas deberá considerar hasta qué punto cada stack candidato resulta desplegable en entornos de borde con recursos acotados, y en qué medida permite una partición flexible entre funciones locales y funciones que podrían ubicarse en niveles fog o cloud (Iorga et al., 2018).
-
-Este criterio se formula como dimensión de evaluación y no como decisión de arquitectura: la conveniencia de un enfoque edge-first, la definición del límite entre procesamiento local y remoto, y la selección de la plataforma de hardware asociada constituyen decisiones que deberán sustentarse en la evaluación empírica del prototipo, considerando restricciones de costo, disponibilidad y carga de inferencia.
-
-
-##### 16.5.5.2. Consideraciones complementarias
-
-Además de los criterios formulados en la sección anterior, la evaluación de alternativas se beneficiará de considerar la facilidad de instrumentación que cada framework ofrezca: la posibilidad de obtener métricas operativas básicas —tasa de frames, latencia end-to-end, uso de recursos del acelerador— sin requerir instrumentación manual extensiva, lo cual constituye un factor práctico que puede incidir en la eficiencia del trabajo experimental.
-
-Los criterios enunciados no determinan una selección única de tecnologías, sino que definen un espacio de soluciones factibles dentro del cual deberán evaluarse alternativas concretas durante las etapas de análisis metodológico, diseño arquitectónico e implementación. El análisis teórico realizado en las secciones precedentes sugiere que existen múltiples combinaciones de frameworks, servidores de medios y protocolos capaces de satisfacer subconjuntos de los requisitos identificados, con diferentes compromisos entre flexibilidad, complejidad operativa y costo de integración.
-
+La literatura caracteriza por separado protocolos, códecs, hardware y modelos de inferencia, pero no ofrece un marco universal para presupuestar la latencia extremo a extremo de un pipeline que integra detección open-vocabulary. Los resultados aislados sólo funcionan como referencias externas; la adecuación debe verificarse mediante instrumentación del sistema completo y una definición explícita del tramo medido. Esta brecha se corresponde con la identificada en la sección 15.4.3.1 y fundamenta la necesidad de un protocolo reproducible sin anticipar la selección del stack.
 
 ### 16.6. Marco ético-legal para el análisis automatizado de video en entornos laborales
 
-Un sistema técnicamente correcto puede ser, al mismo tiempo, normativamente inadmisible. El análisis de video en entornos laborales involucra el tratamiento de imágenes de personas que no controlan el sistema, desconocen sus detalles técnicos y pueden verse afectadas por sus errores. Esa asimetría no se resuelve declarando que el propósito es preventivo: exige condiciones sustantivas sobre qué datos se capturan, cómo se almacenan, quién accede a ellos y cómo se comunican los resultados. En Argentina, ese conjunto de condiciones tiene base normativa concreta. Esta sección sistematiza ese marco, identifica las restricciones de diseño que se derivan de él y establece los principios que deben orientar las decisiones de arquitectura y operación del sistema E-OVRT-VDP.
+#### 16.6.1. Encuadre ético-legal y carácter asistivo
 
-El despliegue de sistemas de visión por computadora en contextos de videovigilancia introduce desafíos que exceden lo meramente técnico, en tanto involucra el tratamiento de imágenes que pueden constituir datos personales y afectar derechos fundamentales. En entornos laborales, y particularmente en obras de construcción, la captura y análisis automatizado de video mediante modelos de inteligencia artificial requiere un encuadre normativo y ético que delimite condiciones de licitud, proporcionalidad y seguridad, además de establecer criterios de transparencia, responsabilidad y control sobre el ciclo de vida de los datos. Este marco permite comprender qué obligaciones y principios deben considerarse para evaluar y documentar el uso responsable de analítica visual, especialmente en escenarios donde se procura minimizar el impacto sobre las personas mediante decisiones de diseño como la no identificación individual y el carácter asistivo de las alertas.
-
-
-#### 16.6.1. El problema de la legitimidad en la vigilancia asistida por IA
-
-El despliegue de sistemas de visión por computadora en entornos laborales introduce una asimetría estructural que no existe en otros contextos de aplicación de la IA: el sujeto de análisis —el trabajador— no controla el sistema, raramente conoce sus detalles técnicos, y puede sufrir consecuencias derivadas de errores o interpretaciones automatizadas sobre su comportamiento o condiciones de trabajo. Esta asimetría no se resuelve simplemente declarando que el sistema tiene fines preventivos: la legitimidad del despliegue depende de condiciones sustantivas relacionadas con la finalidad real del tratamiento, la proporcionalidad de los medios respecto del fin, la transparencia hacia los titulares de los datos, y la existencia de mecanismos de supervisión y rendición de cuentas que impidan la expansión funcional del sistema más allá de sus objetivos declarados (Organisation for Economic Co-operation and Development, 2019; United Nations Educational, 2021).
-
-La distinción entre un sistema de monitoreo de seguridad laboral y un sistema de vigilancia generalizada no es técnica sino normativa y ética: ambos pueden compartir la misma arquitectura, los mismos modelos y protocolos, pero se diferencian en las garantías organizacionales y jurídicas que rodean su operación. Esta distinción tiene consecuencias directas para el diseño del sistema E-OVRT-VDP: decisiones aparentemente técnicas —qué datos almacenar, por cuánto tiempo, quién puede acceder a ellos, cómo se generan y comunican las alertas— son en realidad decisiones de gobernanza que determinan si el sistema opera dentro o fuera de los parámetros de legitimidad que la normativa y la ética imponen.
-
+El análisis automatizado de video en el trabajo involucra una asimetría entre quienes controlan el sistema y las personas captadas. El propósito preventivo no basta para legitimar el tratamiento: deben delimitarse finalidad, proporcionalidad, seguridad, transparencia, supervisión humana y responsabilidades sobre el ciclo de vida de los datos (Organisation for Economic Co-operation and Development, 2019; UNESCO, 2021). Esta sección caracteriza el régimen aplicable y las restricciones que impone al diseño, sin convertir observaciones visuales en determinaciones normativas ni habilitar identificación personal.
 
 #### 16.6.2. Delimitación del tratamiento de datos en sistemas de visión por computadora
 
-Los sistemas de visión por computadora aplicados a entornos laborales suelen apoyarse en flujos continuos de imágenes para identificar objetos, personas y condiciones de trabajo. Desde una perspectiva jurídico-técnica, este tipo de información no se agota en su dimensión “visual”: en muchos escenarios, una imagen constituye un dato personal en la medida en que permite identificar, directa o indirectamente, a una persona o hacerla identificable a partir de asociaciones razonables con otros datos disponibles (Agencia de Acceso a la Información Pública, s/f-a; Argentina, 2000). En consecuencia, aun cuando el objetivo operativo del sistema sea la prevención de riesgos, la captación y el análisis de video pueden configurar un tratamiento de datos personales sujeto a obligaciones específicas.
+Los sistemas de visión por computadora aplicados a entornos laborales suelen apoyarse en flujos continuos de imágenes para identificar objetos, personas y condiciones de trabajo. Desde una perspectiva jurídico-técnica, este tipo de información no se agota en su dimensión “visual”: en muchos escenarios, una imagen constituye un dato personal en la medida en que permite identificar, directa o indirectamente, a una persona o hacerla identificable a partir de asociaciones razonables con otros datos disponibles (Agencia de Acceso a la Información Pública, s. f.-a; Argentina, 2000). En consecuencia, aun cuando el objetivo operativo del sistema sea la prevención de riesgos, la captación y el análisis de video pueden configurar un tratamiento de datos personales sujeto a obligaciones específicas.
 
 En un caso de uso típico de obra —videovigilancia con analítica basada en IA— el tratamiento involucra, como mínimo, (i) la recolección (captura por cámaras), (ii) el almacenamiento o transmisión del flujo, (iii) el análisis automatizado (inferencia) y (iv) la generación de salidas (alertas, registros, reportes). Cada una de estas etapas puede incrementar o reducir el impacto sobre la privacidad, según se adopten medidas de minimización, segmentación funcional y control de acceso. Este encuadre es relevante porque la protección de datos personales se estructura en torno a la finalidad y a la proporcionalidad del tratamiento: no basta con que el objetivo sea legítimo, sino que el diseño del sistema debe evitar captaciones y usos innecesarios o excesivos para el fin perseguido (Argentina, 2000; European Data Protection Board, 2020).
 
 En el plano organizacional, el régimen de protección de datos distingue roles con responsabilidades diferenciadas. Quien determina los fines y medios del tratamiento asume el carácter de responsable del banco de datos, mientras que terceros que procesan información por cuenta del responsable actúan como encargados o prestadores de servicios. Esta distinción resulta central en soluciones tecnológicas que integran proveedores de infraestructura, plataformas de análisis o servicios en la nube, ya que exige definir obligaciones contractuales, medidas de seguridad y límites de uso coherentes con la finalidad declarada (Argentina, 2000, 2001).
 
-
 ##### 16.6.2.1. Régimen argentino de protección de datos aplicable a imágenes y videovigilancia
 
 En Argentina, el tratamiento de datos personales se rige por la Ley 25.326 de Protección de los Datos Personales y su reglamentación mediante el Decreto 1558/2001 (Argentina, 2000, 2001). El marco establece que los datos deben ser recolectados para fines determinados, explícitos y legítimos, y que su tratamiento no puede desviarse de esos fines. Los principios de calidad y proporcionalidad imponen que la información sea adecuada, pertinente y no excesiva en relación con la finalidad declarada (Argentina, 2000).
 
-La Ley 25.326 define como dato personal toda información referida a personas determinadas o determinables (Argentina, 2000). Esta definición tiene implicaciones operativas directas: una imagen puede identificar a una persona de manera directa por sus rasgos físicos, o de manera indirecta por la combinación con metadatos como hora, zona de obra, turno de trabajo o secuencia de posiciones. De allí que, aun cuando el sistema excluya explícitamente el reconocimiento facial, el análisis de impacto sobre la privacidad no puede limitarse a las salidas directas del modelo: debe considerar la identificabilidad global que emerge del ecosistema de datos que el sistema genera y almacena (Agencia de Acceso a la Información Pública, s/f-a; Argentina, 2000).
+La Ley 25.326 define como dato personal toda información referida a personas determinadas o determinables (Argentina, 2000). Esta definición tiene implicaciones operativas directas: una imagen puede identificar a una persona de manera directa por sus rasgos físicos, o de manera indirecta por la combinación con metadatos como hora, zona de obra, turno de trabajo o secuencia de posiciones. De allí que, aun cuando el sistema excluya explícitamente el reconocimiento facial, el análisis de impacto sobre la privacidad no puede limitarse a las salidas directas del modelo: debe considerar la identificabilidad global que emerge del ecosistema de datos que el sistema genera y almacena (Agencia de Acceso a la Información Pública, s. f.-a; Argentina, 2000).
 
-El régimen también garantiza derechos de los titulares —como acceso, rectificación, actualización y supresión— y prevé la vía constitucional del habeas data para proteger la intimidad y controlar el uso de la información personal. Estas garantías son relevantes en escenarios de videovigilancia, donde el titular puede desconocer el alcance de la captación, la duración de conservación o los destinatarios de la información. Por ello, la transparencia y la trazabilidad del tratamiento se vuelven condiciones prácticas para que los derechos no queden meramente formales (Agencia de Acceso a la Información Pública, s/f-a; Argentina, 2000).
-
+El régimen también garantiza derechos de los titulares —como acceso, rectificación, actualización y supresión— y prevé la vía constitucional del habeas data para proteger la intimidad y controlar el uso de la información personal. Estas garantías son relevantes en escenarios de videovigilancia, donde el titular puede desconocer el alcance de la captación, la duración de conservación o los destinatarios de la información. Por ello, la transparencia y la trazabilidad del tratamiento se vuelven condiciones prácticas para que los derechos no queden meramente formales (Agencia de Acceso a la Información Pública, s. f.-a; Argentina, 2000).
 
 ##### 16.6.2.2. Disposición 10/2015
 
 La Disposición 10/2015 de la Dirección Nacional de Protección de Datos Personales —hoy bajo la órbita de la Agencia de Acceso a la Información Pública (AAIP)— constituye el principal instrumento reglamentario específico para sistemas de videovigilancia en Argentina. Su función es operacionalizar los principios generales de la Ley 25.326 en el contexto de la captación sistemática de imágenes, traduciendo los principios de licitud, finalidad, proporcionalidad, transparencia y seguridad en criterios prácticos de diseño e implementación (Argentina, 2015).
 
-Las condiciones de licitud más relevantes que establece la Disposición 10/2015 se organizan en tres ejes. El primero es el requisito de información previa al titular del dato, que puede cumplirse mediante cartelería visible que informe la existencia de dispositivos de captación, la finalidad del tratamiento y los datos de contacto del responsable para el ejercicio de derechos (Argentina, 2015). El segundo es la exigencia de contar con un manual o política de tratamiento de datos personales que defina finalidades, responsables, procedimientos de gestión, mecanismos de seguridad, criterios de conservación y pautas de acceso y divulgación (Argentina, 2015); este manual opera como el instrumento que vincula el diseño técnico del sistema con el cumplimiento normativo. El tercero es la obligación de inscribir las bases de datos de videovigilancia ante la AAIP, acompañando la solicitud con el manual de tratamiento (Agencia de Acceso a la Información Pública, s/f-b), requisito aplicable a todo despliegue que involucre personas en el campo visual de las cámaras.
+Las condiciones de licitud más relevantes que establece la Disposición 10/2015 se organizan en tres ejes. El primero es el requisito de información previa al titular del dato, que puede cumplirse mediante cartelería visible que informe la existencia de dispositivos de captación, la finalidad del tratamiento y los datos de contacto del responsable para el ejercicio de derechos (Argentina, 2015). El segundo es la exigencia de contar con un manual o política de tratamiento de datos personales que defina finalidades, responsables, procedimientos de gestión, mecanismos de seguridad, criterios de conservación y pautas de acceso y divulgación (Argentina, 2015); este manual opera como el instrumento que vincula el diseño técnico del sistema con el cumplimiento normativo. El tercero es la obligación de inscribir las bases de datos de videovigilancia ante la AAIP, acompañando la solicitud con el manual de tratamiento (Agencia de Acceso a la Información Pública, s. f.-b).
+
+[[PENDIENTE: definir con el equipo la aplicabilidad de esta inscripción al contexto experimental y documentar el recaudo adoptado en §17.1 y §17.4.]]
 
 Este requerimiento no se reduce a una formalidad administrativa: contribuye a que la videovigilancia sea gestionada como un tratamiento regulado, con trazabilidad, y no como un recurso técnico difuso susceptible de ampliarse por inercia a nuevos fines.
-
 
 #### 16.6.3. Medidas de seguridad y protección de la información
 
@@ -1937,292 +2714,418 @@ En el contexto de un sistema de análisis de video con inferencia por IA, este e
 
 La seguridad también se vincula con la temporalidad del tratamiento. En contextos preventivos, la conservación indefinida de video suele resultar difícil de justificar bajo parámetros de proporcionalidad. Por ello, los criterios de retención, borrado seguro y gestión de copias se integran naturalmente a la estrategia de minimización: conservar lo estrictamente necesario para el fin de seguridad y por el tiempo necesario para cumplirlo, evitando acumulaciones que aumenten el impacto ante incidentes o accesos indebidos (European Data Protection Board, 2020).
 
+#### 16.6.4. Referentes comparados y distinción respecto de la biometría
 
-#### 16.6.4. Referentes comparados
+Los marcos comparados sobre videovigilancia refuerzan los principios de finalidad, minimización, transparencia y retención limitada. Las Directrices 3/2019 del EDPB distinguen la captación de video del tratamiento biométrico: una imagen puede ser dato personal sin que exista reconocimiento facial, y el tratamiento se vuelve biométrico cuando se procesan rasgos con la finalidad de identificar de manera unívoca (European Data Protection Board, 2020). Esta distinción fundamenta separar analítica orientada a condiciones observables de mecanismos de identificación personal.
 
-Aunque el régimen argentino constituye la referencia normativa primaria y vinculante para el proyecto, el análisis de referentes internacionales permite incorporar criterios más desarrollados de proporcionalidad, diseño y gobernanza del dato visual. En particular, los marcos comparados resultan valiosos no como normas directamente aplicables, sino como fuentes interpretativas que orientan prácticas responsables en sistemas complejos de videovigilancia y procesamiento automatizado, aportando estándares conceptuales útiles para anticipar riesgos y fortalecer decisiones de diseño desde una perspectiva preventiva.
+#### 16.6.5. Gobernanza de IA y carácter asistivo
 
-
-##### 16.6.4.1. GDPR y Directrices 3/2019 del EDPB sobre dispositivos de video
-
-En el ámbito europeo, el Reglamento General de Protección de Datos (GDPR) establece un marco integral para el tratamiento de datos personales (European Parliament & Council of the European Union, 2016). El Comité Europeo de Protección de Datos (EDPB) complementa este marco con las Directrices 3/2019 sobre el tratamiento de datos personales mediante dispositivos de video, que desarrollan un test de proporcionalidad estructurado en etapas: evaluación de necesidad, adecuación y balance entre el interés legítimo perseguido y los derechos de las personas captadas (European Data Protection Board, 2020).
-
-El aporte más relevante de las Directrices 3/2019 para el proyecto es la distinción operacional entre la captación de video —que puede implicar datos personales desde el momento en que permite identificar a una persona, aunque sea indirectamente— y el uso de técnicas de identificación biométrica —como el reconocimiento facial— que eleva el nivel de sensibilidad del tratamiento y exige bases legales y salvaguardas reforzadas (European Data Protection Board, 2020). Esta distinción opera como criterio orientador para el diseño de sistemas de videovigilancia: la exclusión de técnicas de identificación biométrica en sistemas orientados a detectar condiciones y no identidades reduce el nivel de intrusión del tratamiento y simplifica el análisis de proporcionalidad, aunque no elimina la aplicación de la normativa de protección de datos, dado que la captación de imágenes de personas sigue constituyendo tratamiento de datos personales bajo el derecho argentino vigente.
-
-Las Directrices 3/2019 también introducen la noción de gobernanza del ciclo de vida del dato visual: no basta con regular el momento de la captación; el marco debe extenderse al almacenamiento, el acceso, la conservación, la transmisión y la eliminación de los datos visuales, con mecanismos que permitan responder a solicitudes de acceso y supresión sin degradar la seguridad del sistema (European Data Protection Board, 2020). Este principio constituye una referencia relevante para las etapas de diseño del proyecto, donde la arquitectura del plano de control deberá contemplar mecanismos que concilien la trazabilidad operativa con los derechos de los titulares de los datos.
-
-
-#### 16.6.5. Ética y gobernanza de IA aplicada a visión por computadora
-
-Los marcos éticos internacionales identifican riesgos que la regulación vigente no ha formalizado aún, pero que son operativamente relevantes para garantizar que el sistema funcione de manera justa, explicable y responsable en el tiempo. El componente de analítica automatizada introduce riesgos que no se agotan en la privacidad clásica: los sistemas de IA pueden amplificar asimetrías, producir errores sistemáticos o inducir decisiones organizacionales basadas en señales incompletas. Por ello, los marcos éticos internacionales incorporan dimensiones como equidad, explicabilidad, rendición de cuentas y supervisión humana, que resultan particularmente relevantes cuando el análisis se aplica a personas en entornos laborales (Organisation for Economic Co-operation and Development, 2019; United Nations Educational, 2021).
-
-La Recomendación sobre la Ética de la Inteligencia Artificial de la UNESCO plantea una orientación basada en derechos, promoviendo el desarrollo y uso de sistemas de IA apoyado en transparencia, responsabilidad, inclusión y evaluación de impactos, con atención explícita a contextos donde pueden existir vulnerabilidades o desigualdades de poder (United Nations Educational, 2021). En escenarios de videovigilancia laboral, estos principios son directamente pertinentes: el trabajador monitorizado raramente ocupa una posición simétrica respecto al empleador que opera el sistema, y los errores del sistema —falsos positivos en particular— pueden tener consecuencias asimétricas sobre el trabajador sin que este tenga mecanismos de impugnación claros. En este sentido, la ética funciona como puente entre la licitud formal y la legitimidad social del despliegue tecnológico.
-
-Los Principios de IA de la OECD establecen que los sistemas de IA deben ser confiables, robustos y seguros, respetuosos de los derechos humanos y con mecanismos de rendición de cuentas a lo largo de todo el ciclo de vida del sistema (Organisation for Economic Co-operation and Development, 2019). Su valor práctico reside en que estos principios son directamente traducibles a requisitos funcionales de ingeniería: documentación suficiente para auditoría del modelo, monitoreo del desempeño, gestión de incidentes con trazabilidad, y asignación clara de responsabilidades organizacionales para cada componente.
-
-En el plano de los estándares de gestión, la norma ISO/IEC 42001:2023 establece requisitos para sistemas de gestión de IA, con énfasis en la identificación de impactos, la gestión de riesgos específicos de la IA, la documentación del ciclo de vida de los modelos y los mecanismos de mejora continua (ISO, 2023). Si bien su adopción no es obligatoria en el contexto argentino, proporciona un marco de referencia para documentar y gestionar el componente de IA del sistema de manera que sea auditable, lo que anticiparía requisitos que probablemente serán exigibles cuando la regulación de IA madure en el contexto nacional.
-
-De esta manera, mientras el marco argentino establece obligaciones de licitud, finalidad y seguridad para el tratamiento del dato personal, los marcos comparados y éticos amplían el horizonte hacia preguntas de gobernanza: qué controles sostienen la proporcionalidad en el tiempo, cómo se auditan los resultados, cómo se corrigen sesgos y qué rol cumple la supervisión humana. Este desplazamiento es especialmente relevante cuando se pretende operar en tiempo real y con decisiones asistidas, donde la rapidez no debe desplazar la responsabilidad.
-
+Los principios de gobernanza de IA agregan obligaciones de supervisión humana, trazabilidad, rendición de cuentas y comunicación comprensible de limitaciones. En un sistema asistivo, la salida algorítmica funciona como señal para revisión humana y no como decisión autónoma sobre una persona. El versionado de modelos y configuraciones, la documentación de errores y la posibilidad de reconstruir el comportamiento del sistema son condiciones de auditabilidad, no garantías de corrección (ISO, 2023; Organisation for Economic Co-operation and Development, 2019; UNESCO, 2021).
 
 #### 16.6.6. Implicaciones para el diseño responsable del sistema
 
-El análisis normativo y ético desarrollado en las secciones anteriores genera un conjunto de restricciones de diseño que actúan como condiciones de contorno sobre las decisiones técnicas de la plataforma experimental. La Tabla 12 organiza las principales restricciones derivadas del marco normativo y ético, con su base legal y su traducción a decisiones específicas de diseño.
+El marco normativo y ético opera como condición de contorno sobre la arquitectura y los procedimientos. La Tabla 12 organiza los principios aplicables y los expresa como restricciones que deben considerarse; no afirma que todos los controles se encuentren implementados en el prototipo.
 
-Tabla 12
+**Tabla 12**
 
-Principios normativos y éticos y su traducción a restricciones de diseño para sistemas de análisis automatizado de video en entornos laborales
+*Principios normativos y éticos y restricciones aplicables al diseño de sistemas de análisis automatizado de video*
 
-
-| Principio normativo / ético | Fuente | Aplicación | Decisión de diseño implicada |
+| **Principio normativo / ético** | **Fuente** | **Aplicación** | **Restricción que impone al diseño** |
 | --- | --- | --- | --- |
-| Licitud y finalidad determinada | Ley 25.326 (Argentina, 2000); Disposición 10/2015 (Argentina, 2015) | El tratamiento de imágenes debe limitarse estrictamente a la detección de condiciones de riesgo laboral; no puede desviarse hacia control de desempeño, disciplina o vigilancia generalizada | El sistema no debe implementar mecanismos orientados a la identificación individual; el propósito de cada módulo debe estar documentado y auditado |
-| Proporcionalidad y minimización | Ley 25.326 (Argentina, 2000); EDPB Guidelines 3/2019 (European Data Protection Board, 2020) | La captación y el procesamiento deben limitarse a lo estrictamente necesario para el fin preventivo; la identificabilidad de las personas debe reducirse al mínimo posible | Exclusión deliberada de reconocimiento facial o biométrico; análisis orientado a condiciones (EPP, posición, zona) y no a identidades individuales |
-| Transparencia e información al titular | Ley 25.326 (Argentina, 2000); Disposición 10/2015 (Argentina, 2015) | Los trabajadores deben ser informados de la existencia, finalidad y responsable del sistema de monitoreo; la información debe ser accesible y comprensible | Señalización visible en obra; documentación del sistema accesible al personal; mecanismo de contacto con el responsable del tratamiento |
-| Seguridad de la información | Disposición 11/2006 (Argentina, 2006); Ley 25.326 (Argentina, 2000) | El sistema debe adoptar controles técnicos proporcionales al riesgo: gestión de accesos, cifrado en tránsito, segregación de entornos, registros de auditoría | Control de acceso basado en roles con principio de mínimo privilegio; cifrado de flujos de video en tránsito; registros de auditoría de acceso a grabaciones y alertas |
-| Supervisión humana y no automatización de decisiones individuales | UNESCO Recomendación IA (United Nations Educational, 2021); OECD Principios de IA (Organisation for Economic Co-operation and Development, 2019) | Las alertas generadas por el sistema son insumos para la supervisión humana, no determinaciones definitivas; el operador humano toma la decisión final de intervención | Las alertas generadas son insumos para la supervisión humana; no ejecuta acciones autónomas; el flujo de decisión preserva siempre un paso de revisión humana antes de la intervención |
-| Rendición de cuentas y trazabilidad del modelo | ISO/IEC 42001:2023 (ISO, 2023); OECD Principios de IA (Organisation for Economic Co-operation and Development, 2019) | El comportamiento del sistema de IA debe ser documentable y auditables: versiones de modelos, configuraciones, umbrales de decisión, historial de alertas y falsos positivos | Registro auditable del comportamiento del sistema; versionado de modelos y configuraciones; métricas de desempeño documentadas y accesibles para revisión |
-| Temporalidad y retención mínima | EDPB Guidelines 3/2019 (European Data Protection Board, 2020); Ley 25.326 (Argentina, 2000) | La conservación de grabaciones debe limitarse al tiempo estrictamente necesario para el fin de seguridad; la retención indefinida no puede justificarse bajo criterios de proporcionalidad | Política explícita de retención y borrado seguro; conservación limitada al tiempo estrictamente necesario para el fin preventivo. |
+| Licitud y finalidad determinada | Ley 25.326 (Argentina, 2000); Disposición 10/2015 (Argentina, 2015) | El tratamiento de imágenes debe limitarse a la detección de condiciones de riesgo laboral y no desviarse hacia control de desempeño, disciplina o vigilancia generalizada | Excluir mecanismos orientados a la identificación individual y documentar la finalidad de cada tratamiento |
+| Proporcionalidad y minimización | Ley 25.326 (Argentina, 2000); Directrices 3/2019 (European Data Protection Board, 2020) | La captación y el procesamiento deben limitarse a lo necesario para el fin preventivo | Reducir datos, metadatos y evidencias visuales; no incorporar reconocimiento facial o biométrico |
+| Transparencia e información al titular | Ley 25.326 (Argentina, 2000); Disposición 10/2015 (Argentina, 2015) | Las personas captadas deben conocer la existencia, finalidad y responsable del tratamiento | Prever información accesible, señalización y un canal para ejercer derechos |
+| Seguridad de la información | Disposición 11/2006 (Argentina, 2006); Ley 25.326 (Argentina, 2000) | Los controles técnicos deben ser proporcionales al riesgo | Aplicar control de acceso, protección en tránsito, segregación de entornos y registro de accesos cuando correspondan |
+| Supervisión humana | UNESCO (2021); OECD (Organisation for Economic Co-operation and Development, 2019) | Las alertas son insumos y no determinaciones definitivas | Mantener revisión humana antes de cualquier intervención y evitar acciones autónomas sobre personas |
+| Rendición de cuentas y trazabilidad | ISO/IEC 42001:2023 (ISO, 2023); OECD (Organisation for Economic Co-operation and Development, 2019) | El comportamiento del sistema debe ser documentable y revisable | Conservar versiones, configuraciones, métricas y registros suficientes para reconstruir decisiones técnicas |
+| Temporalidad y retención mínima | Directrices 3/2019 (European Data Protection Board, 2020); Ley 25.326 (Argentina, 2000) | La conservación debe limitarse al tiempo necesario | Definir retención y borrado seguro conforme a finalidad, proporcionalidad y contexto del tratamiento |
 
-Nota. Las fuentes normativas listadas son obligatorias en el derecho argentino (Ley 25.326, Disposiciones 10/2015 y 11/2006). Los marcos éticos (UNESCO, OECD, ISO/IEC 42001) son referencias de buenas prácticas internacionales. EPP = Equipo de Protección Personal. Fuente: Elaboración propia basada en Argentina (2000, 2006, 2015), EDPB (2020), ISO (2023), OECD (2019) y UNESCO (2021).
-
-Las restricciones sistematizadas en la Tabla 12 operan como condiciones de contorno para las decisiones técnicas de etapas posteriores del proyecto. Su cumplimiento no es verificable en abstracto: depende de cómo se materialicen en la arquitectura, los flujos de datos y los procedimientos operativos del sistema. Sin embargo, el análisis del marco normativo y ético también revela un conjunto de brechas y tensiones que la normativa vigente no resuelve de manera directa y que condicionan el diseño del prototipo. La sección siguiente organiza esas brechas y sus implicaciones para el proyecto.
-
+*Nota.* Las normas argentinas citadas tienen carácter obligatorio; los marcos internacionales aportan buenas prácticas de gobernanza. La tabla expresa restricciones, no un inventario de controles implementados. Fuente: elaboración propia basada en Argentina (2000, 2006, 2015), European Data Protection Board (2020), ISO (2023), Organisation for Economic Co-operation and Development (2019) y UNESCO (2021).
 
 #### 16.6.7. Brechas identificadas y tensiones no resueltas
 
-El análisis del marco ético-legal revela un conjunto de brechas y tensiones que condicionan el diseño del prototipo y que no tienen resolución directa en la normativa vigente. La Tabla 13 organiza estas brechas con su descripción y su implicación específica para las decisiones del proyecto.
+El derecho argentino regula datos personales y videovigilancia, pero no desarrolla de manera específica la analítica visual basada en IA en entornos laborales. Los marcos de gobernanza amplían la discusión hacia supervisión y rendición de cuentas, sin reemplazar las obligaciones legales vigentes (ISO, 2023; Organisation for Economic Co-operation and Development, 2019; UNESCO, 2021).
 
-Tabla 13
+Persisten tres tensiones principales. Primero, una persona puede resultar indirectamente identificable mediante la combinación de imágenes, tiempo, zona y trayectoria aun sin reconocimiento facial (Agencia de Acceso a la Información Pública, s. f.-a; Argentina, 2000). Segundo, la utilidad de conservar evidencias para analizar riesgos entra en tensión con la minimización y la retención limitada (Argentina, 2000; European Data Protection Board, 2020). Tercero, no existen criterios operativos estandarizados para comunicar la incertidumbre de las alertas a operadores no especializados, por lo que la transparencia debe incluir límites y posibilidad de error.
 
-Brechas y tensiones ético-legales identificadas en el despliegue de sistemas de análisis automatizado de video en entornos laborales
+A estas tensiones se agrega la ausencia de pautas sectoriales específicas para sistemas de IA que analizan video en relaciones laborales. La frontera entre asistencia preventiva y vigilancia de las personas no depende sólo de la capacidad técnica, sino de la finalidad declarada, la información brindada, la posibilidad de revisión humana y la prohibición de convertir una alerta probabilística en una determinación automática sobre un trabajador. La gobernanza debe contemplar además mecanismos para impugnar resultados, documentar límites y revisar usos secundarios que puedan emerger durante la operación (Organisation for Economic Co-operation and Development, 2019; UNESCO, 2021).
 
+### 16.7. Convergencias, brecha transversal y preguntas rectoras
 
-| Brecha identificada | Descripción | Implicación para el proyecto |
-| --- | --- | --- |
-| Ausencia de regulación específica sobre IA analítica en entornos laborales en el derecho argentino vigente | La Ley 25.326 y la Disposición 10/2015 regulan el tratamiento de datos personales y la videovigilancia en términos generales, pero no contemplan específicamente el procesamiento automatizado mediante modelos de inteligencia artificial ni la generación de alertas basadas en analítica visual. Los marcos éticos y de gobernanza de IA analizados —como los principios de la OECD y la Recomendación de la UNESCO— amplían la mirada hacia dimensiones de supervisión, rendición de cuentas y control que el derecho argentino vigente no aborda de manera directa (ISO, 2023; Organisation for Economic Co-operation and Development, 2019; United Nations Educational, 2021) | Dado el carácter experimental del prototipo, esta ausencia no constituye un impedimento operativo inmediato, pero representa una condición del contexto regulatorio que las etapas de diseño deberán considerar al definir los criterios de gobernanza del componente de analítica automatizada. |
-| Ambigüedad en la identificabilidad indirecta de las personas captadas | Incluso sin reconocimiento facial, la combinación de imágenes con metadatos de tiempo, zona de obra, turno o posición puede generar identificabilidad indirecta. La Ley 25.326 protege datos de personas 'determinables' (Argentina, 2000), lo que puede incluir trayectorias de personas sin nombre si el contexto permite singularizarlas | El análisis de impacto sobre la privacidad del sistema debe evaluar no solo las salidas directas del modelo (detecciones, alertas) sino también los metadatos asociados (timestamp, zona, duración) que en conjunto pueden constituir datos personales aunque el sistema no persiga identificación nominal |
-| Tensión entre retención de evidencias de seguridad y minimización de datos | La lógica de seguridad laboral puede justificar la conservación de grabaciones vinculadas a incidentes o condiciones de riesgo para su análisis posterior. Esta justificación colisiona con el principio de minimización y proporcionalidad, que exige limitar la retención al mínimo necesario (Argentina, 2000; European Data Protection Board, 2020) | Las etapas de diseño deberán definir una política de retención que concilie la justificación preventiva con el principio de minimización, estableciendo criterios de conservación y borrado seguro proporcionales a la finalidad del tratamiento. Dicha política debe integrarse al manual de tratamiento requerido por la Disposición 10/2015 (Argentina, 2015). |
-| Ausencia de criterios estandarizados para comunicar la incertidumbre de sistemas de IA a operadores finales | Los sistemas de analítica automatizada producen resultados con grados variables de certeza, cuya interpretación por parte de operadores no especializados puede derivar en sobre-confianza o en subestimación de las alertas. Los marcos éticos analizados promueven la transparencia y la explicabilidad como principios generales, pero no proporcionan criterios operativos específicos para comunicar la incertidumbre inherente a los resultados automatizados en entornos laborales (Organisation for Economic Co-operation and Development, 2019; United Nations Educational, 2021). | Las etapas de diseño deberán definir mecanismos que permitan a los operadores interpretar las alertas como señales asistivas con margen de error, evitando tanto la sobre-confianza como la subestimación de los resultados automatizados. |
-| Requisito de inscripción de bases de datos de videovigilancia ante la AAIP | La normativa argentina exige la inscripción de bases de datos de videovigilancia ante la Agencia de Acceso a la Información Pública (AAIP), acompañando el manual de tratamiento conforme la Disposición 10/2015 (Agencia de Acceso a la Información Pública, s/f-b; Argentina, 2015). | Cualquier validación experimental del prototipo que involucre personas en el campo visual de las cámaras requiere evaluar la obligación de inscripción ante la AAIP y la elaboración previa del manual de tratamiento conforme la Disposición 10/2015. Las condiciones específicas del entorno experimental y los procedimientos de información a los participantes deberán definirse en la etapa 2. |
+#### 16.7.1. Interdependencia de los dominios
 
-Nota. Las brechas listadas no invalidan la viabilidad del proyecto, sino que definen restricciones y tareas adicionales que deben abordarse en el diseño experimental (Etapa 2) y en cualquier validación que involucre personas en el campo visual de las cámaras. AAIP = Agencia de Acceso a la Información Pública. Fuente: Elaboración propia basada en Argentina (2000, 2015), Agencia de Acceso a la Información Pública (s/f-b), European Data Protection Board (2020), ISO (2023), Organisation for Economic Co-operation and Development (2019) y United Nations Educational (2021).
+La viabilidad no depende de un detector aislado. La calidad de la percepción condiciona la asociación temporal; la fuente y el transporte delimitan el presupuesto disponible para el cómputo; y el tratamiento de imágenes impone restricciones sobre qué se conserva y cómo se comunica. Por ello, las métricas parciales deben interpretarse dentro de la cadena completa y bajo las condiciones del dominio. Esta interdependencia no determina una arquitectura concreta, pero explica por qué precisión, latencia, persistencia y trazabilidad no pueden evaluarse como problemas independientes (Bass et al., 2022; Cugola & Margara, 2012).
 
-Con el marco ético-legal caracterizado y sus implicaciones de diseño establecidas, quedan delimitados los principales dominios que sustentan teóricamente el proyecto: el problema de seguridad laboral en construcción, la detección open-vocabulary como enfoque de percepción, la persistencia temporal mediante seguimiento multiobjeto, las restricciones del video en tiempo real y las condiciones de uso responsable del sistema. A partir de esta base, la sección siguiente integra los aportes de estos dominios para identificar brechas transversales, criterios orientadores y condiciones de diseño que deberán ser consideradas en el desarrollo posterior del prototipo experimental.
+#### 16.7.2. Restricción ético-normativa como brecha transversal
 
+Las brechas técnicas de datasets, prompts, integración y métricas ya fueron sistematizadas en el estado del arte. La brecha genuinamente transversal que agrega este marco es que la legitimidad del tratamiento condiciona simultáneamente percepción, persistencia, almacenamiento y distribución. Una mejora técnica que incremente la identificabilidad o la retención puede ser incompatible con los principios de finalidad y minimización; del mismo modo, una alerta operativamente útil debe conservar revisión humana y trazabilidad. El marco ético-legal actúa así como restricción arquitectónica y procedimental, no como módulo agregado al final (Argentina, 2000, 2015; European Data Protection Board, 2020).
 
-### 16.7. Convergencias, brechas transversales y criterios orientadores
+#### 16.7.3. Preguntas rectoras para la consolidación metodológica
 
-Mientras que las secciones anteriores del marco teórico caracterizaron de manera individual cada dominio técnico y normativo relevante para el problema de investigación, esta sección opera en el plano horizontal, cruzando los cinco dominios para producir conclusiones que ningún capítulo individual puede generar por sí solo. Su función es identificar qué convergencias emergen de la lectura conjunta del análisis, qué brechas resultan más difíciles de abordar precisamente porque atraviesan múltiples capas del problema, y qué criterios deberían orientar las decisiones metodológicas y tecnológicas de etapas posteriores.
+El marco teórico delimita las siguientes preguntas, que requieren definición metodológica y evidencia experimental. Los códigos se conservan para mantener la trazabilidad con las secciones posteriores.
 
+**P-E1-01. Presupuesto temporal.** ¿Qué presupuesto de latencia es admisible para el subtramo G2A y para la confirmación de una alerta, sin confundir el cómputo por cuadro con la persistencia temporal? La respuesta debe declarar el origen y el final de cada timestamp, el comportamiento por percentiles y el margen asignado a seguimiento y razonamiento.
 
-#### 16.7.1. Convergencia de los dominios analizados
+**P-E1-02. Condiciones nucleares.** ¿Qué conjunto mínimo de condiciones de riesgo permite evaluar la factibilidad de expresar observables en lenguaje natural, estabilizar evidencia y producir alertas trazables, sin pretender cubrir el catálogo normativo completo? La selección debe distinguir complejidad semántica, evidencia disponible y perfil temporal, pero no asumir que una condición multi-entidad sea obligatoria para demostrar factibilidad.
 
-La revisión desarrollada en las secciones precedentes permite identificar que el sistema E-OVRT-VDP no es un problema de detección de objetos en tiempo real al que se le añaden módulos de soporte, más bien es un sistema de cinco componentes fuertemente interdependientes, en el que el desempeño de cada componente condiciona y es condicionado por los otros cuatro. Esta interdependencia tiene consecuencias directas sobre cómo deben plantearse las decisiones de diseño.
+**P-E1-03. Materiales y anotaciones.** ¿Qué datos públicos y propios ofrecen anotaciones suficientes para evaluar percepción, continuidad temporal y episodios, y cuáles son además aptos para adaptación paramétrica? La respuesta debe separar material de entrenamiento, validación y prueba y evitar reutilizaciones que comprometan la independencia del protocolo.
 
-El componente de percepción OVD determina qué condiciones de riesgo pueden detectarse y con qué confianza, pero su desempeño depende de la calidad del video que recibe del pipeline de streaming y de la formulación de los prompts que el diseñador provee. El componente de persistencia temporal MOT estabiliza y enriquece las detecciones del OVD, pero su calidad depende directamente de la estabilidad del detector subyacente: un modelo OVD con alta variabilidad frame-a-frame degrada el tracker independientemente de la sofisticación del algoritmo de asociación. El pipeline de transmisión de medios define el presupuesto de latencia disponible para la inferencia, pero la latencia del modelo OVD es a su vez la variable de mayor rango de variación de todo el pipeline. El marco normativo y ético no es un componente técnico, pero impone restricciones que afectan qué datos pueden almacenarse, cómo deben comunicarse las alertas y qué arquitectura del plano de control es admisible. Y el dominio de aplicación define cuáles de los anteriores importan, no en términos de métricas académicas, sino en términos del tiempo que transcurre entre una condición de riesgo y la posibilidad de intervención humana para neutralizarla.
+**P-E1-04. Restricciones de ejecución.** ¿Qué hardware, fuentes de video, resolución, runtime y presupuesto de procesamiento condicionan las configuraciones comparables? La caracterización debe incluir memoria, ritmo efectivo, latencia sostenida y límites de los entornos de inferencia y entrenamiento, que no necesariamente coinciden.
 
-Esta interdependencia tiene la consecuencia metodológica directa de que las decisiones tecnológicas de las etapas posteriores no pueden tomarse componente por componente. Deben evaluarse en función de su contribución al desempeño del sistema integrado, medido en las métricas operativas del dominio de aplicación. Un modelo OVD que maximiza la precisión en COCO pero introduce 200 ms adicionales de latencia de inferencia puede ser una elección incorrecta si ese overhead hace que el pipeline completo supere el presupuesto de latencia de alerta admisible. Un método MOT con alta precisión en MOTChallenge pero con dependencia de un modelo ReID específico por dominio puede ser inadecuado porque introduce una dependencia de entrenamiento que el proyecto no puede satisfacer en ausencia de datasets etiquetados de construcción civil.
+**P-E1-06. Framework de métricas.** ¿Qué métricas y niveles de análisis permiten separar calidad de detección, estado por entidad y comportamiento de la alerta temporal, y qué umbrales se fijan antes de medir? Las métricas de seguimiento sólo resultan aplicables si existen anotaciones y objetivos MOT explícitos; no deben trasladarse automáticamente a la evaluación de alertas.
 
+**P-E1-08. Adaptación paramétrica.** ¿En qué condiciones un ajuste fino ligero mejora el dominio objetivo sin degradar la capacidad open-vocabulary, y cómo se mide esa retención con categorías no vistas? La respuesta exige una receta reproducible, datos diferenciados y una comparación que mantenga separadas especialización y generalización.
 
-#### 16.7.2. Convergencias del análisis
-
-La lectura conjunta de los cinco dominios produce tres argumentos que emergen de múltiples secciones de manera convergente y que constituyen los pilares del juicio de viabilidad del sistema.
-
-
-##### 16.7.2.1. La modularidad y el desacoplamiento como necesidad técnica
-
-El argumento a favor de la modularidad emerge de al menos cuatro análisis independientes. En el dominio OVD, la reparametrización de embeddings textuales entre cuadros consecutivos —la estrategia más efectiva para aproximar la inferencia OVD a los requisitos de tiempo real— es posible precisamente porque el encoder de lenguaje puede desacoplarse del proceso de inferencia visual. En el dominio MOT, el paradigma tracking-by-detection es preferible a los enfoques end-to-end no porque produzca mayor precisión en benchmarks, sino porque permite sustituir el detector sin reentrenar el tracker, habilitando la integración de modelos OVD con vocabulario dinámico sin modificar el componente de seguimiento. En el dominio de streaming, la separación entre protocolo de ingesta y protocolo de entrega al dashboard permite optimizar cada segmento del pipeline de manera independiente, sin que la elección de protocolo para las cámaras de obra imponga restricciones sobre cómo se presenta el video analizado al supervisor. Y en el dominio ético-legal, la separación entre el plano de medios y el plano de control es lo que habilita el diseño de una política de retención y acceso diferenciada: el video crudo puede borrarse según la política de minimización, mientras que los eventos de alerta se conservan en el repositorio inmutable de event sourcing sujetos a las garantías de acceso y supresión de los titulares. El corolario de esta convergencia es que la modularidad no emerge del análisis como una preferencia estilística de arquitectura, sino como una propiedad que habilita simultáneamente varias funciones que se identifican como relevantes: la evaluación comparativa de alternativas tecnológicas sin rediseño del pipeline completo, la sustitución de componentes sin reentrenamiento de los restantes, la trazabilidad y auditoría del comportamiento de cada módulo de manera independiente, y la gestión diferenciada de datos según las restricciones normativas que apliquen a cada tipo de información (video crudo, trayectorias, eventos de alerta) Un diseño que acople estos componentes en un único proceso o framework comprometería, según el análisis realizado, la posibilidad de satisfacer estas funciones de manera conjunta. La determinación del grado de desacoplamiento necesario y su materialización en una arquitectura concreta corresponden a las etapas de diseño del proyecto.
-
-
-##### 16.7.2.2. Las brechas estructurales del dominio de construcción civil
-
-El argumento sobre las brechas de dominio emerge de manera convergente en las tres secciones técnicas. Los modelos OVD preentrenados en datos web a gran escala presentan desempeño inferior en categorías semánticamente distantes de los conceptos cotidianos bien representados en esos datos: arnés de seguridad, chaleco reflectivo y señalero son conceptos operativamente críticos para la seguridad en construcción pero infrecuentes en MS COCO o en los datasets de preentrenamiento de CLIP. Los benchmarks estándar de MOT —diseñados para peatones en entornos urbanos— no contemplan la densidad de oclusiones por maquinaria y materiales, la heterogeneidad de entidades (personas, equipos, vehículos de obra) ni la perspectiva de cámara fija en planos elevados típica de instalaciones de videovigilancia de obra. Los benchmarks de latencia de modelos OVD reportan tiempos de inferencia en condiciones estáticas sobre hardware estándar, sin caracterizar el comportamiento bajo procesamiento continuo de múltiples flujos durante turnos completos de trabajo.
-
-La consecuencia de esta convergencia no es que el proyecto sea inviable, más bien que la evaluación del prototipo no puede apoyarse en los benchmarks existentes como métricas de referencia directa. La consolidación metodológica posterior debe diseñar un protocolo de evaluación propio, con condiciones representativas del dominio de construcción civil, métricas alineadas con el valor operativo del sistema, y un conjunto de condiciones de riesgo seleccionadas a partir del análisis normativo desarrollado en la sección 16.2. Este protocolo es uno de los productos más críticos ya que sin él no hay base para afirmar que el desempeño del prototipo es adecuado para el dominio.
-
-
-##### 16.7.2.3. La latencia de alerta como restricción operativa central
-
-El argumento sobre la métrica operativa central emerge de la intersección entre el análisis del dominio de aplicación, las restricciones temporales del pipeline y el marco ético-legal. La normativa de seguridad laboral analizada establece obligaciones de supervisión activa que requieren capacidad de intervención ante condiciones de riesgo. Esta capacidad de intervención sólo es operativamente significativa si el sistema detecta la condición de riesgo y la comunica al supervisor con suficiente anticipación para que la intervención sea posible antes de que se produzca el incidente.
-
-La latencia de inferencia del modelo OVD —la métrica que domina las publicaciones académicas sobre modelos en tiempo real— es solo uno de los componentes de la latencia de alerta total. Los otros componentes —latencia de captura y codificación, latencia de transporte de red, latencia de procesamiento MOT y razonamiento temporal, latencia de entrega de la alerta— contribuyen de manera acumulativa y variable a la latencia total. Un modelo OVD que opera a 30 ms de inferencia pero que se integra en un pipeline con 300 ms de latencia de transporte y 200 ms de buffering produce una latencia de alerta de 530 ms o más, que puede ser insuficiente para ciertos tipos de riesgo. Esta observación tiene una implicación directa para las etapas posteriores: la definición del presupuesto de latencia admisible no puede tratarse como un parámetro único e indiferenciado, dado que el análisis normativo de la sección 16.2 evidencia que las condiciones de riesgo presentan perfiles temporales heterogéneos —desde situaciones que escalan en segundos hasta condiciones que persisten durante minutos antes de materializarse en un incidente—. La forma en que esa heterogeneidad se incorpore a los criterios de evaluación del pipeline es una decisión metodológica que excede el alcance del presente análisis teórico.
-
-
-#### 16.7.3. Mapa de brechas transversales
-
-Además de las convergencias identificadas en la sección anterior, el análisis revela un conjunto de brechas que no pertenecen a un único dominio sino que emergen de la intersección entre dos o más de los dominios analizados, las cuales condicionan decisiones que involucran simultáneamente múltiples componentes del problema. La Tabla 14 organiza las seis brechas transversales identificadas, con su descripción integrada y su implicación para las etapas posteriores del proyecto.
-
-Tabla 14
-
-Brechas transversales identificadas en el análisis integrado del sistema E-OVRT-VDP
-
-
-| Brecha transversal | Descripción integrada | Implicación para el diseño |
-| --- | --- | --- |
-| Ausencia de benchmarks específicos para construcción civil | Los benchmarks estándar de OVD (COCO, LVIS), MOT (MOT17, MOT20) y streaming no contemplan las condiciones visuales, de conectividad y de distribución semántica propias de una obra civil. Las métricas reportadas en la literatura no son directamente transferibles al dominio objetivo. | La ausencia de benchmarks específicos impone la necesidad de un protocolo de evaluación propio que contemple condiciones representativas del dominio. |
-| Métricas académicas no alineadas con el valor operativo de seguridad laboral | Las métricas de detección (AP), tracking (HOTA, MOTA) y streaming (throughput, jitter) no capturan el valor operativo central: el tiempo entre la ocurrencia de la condición de riesgo y la disponibilidad de la alerta para el supervisor, ni el impacto diferenciado de falsos positivos versus falsos negativos en contextos de seguridad laboral. | Se requiere definir como variable de diseño primaria la latencia de alerta end-to-end, entendida como el tiempo desde la aparición de la condición de riesgo hasta la entrega de la alerta al supervisor, incluyendo las contribuciones del pipeline de medios, la inferencia OVD, el MOT y el razonamiento temporal. |
-| Integración no caracterizada de componentes heterogéneos en un pipeline unificado | La literatura caracteriza cada componente del sistema —modelos OVD, métodos MOT, protocolos de streaming— de manera independiente. No existen estudios que caractericen el comportamiento del pipeline integrado OVD + MOT + streaming bajo carga sostenida y con condiciones de red variables. | Impone una validación experimental del sistema integrado, midiendo degradación de latencia end-to-end y propagación de errores entre componentes bajo carga sostenida y conectividad variable. |
-| Condiciones de riesgo composicionales que exceden la percepción frame-a-frame | Muchas condiciones de riesgo operativamente relevantes son composicionales: “persona en zona restringida sin señalero visible”, “maquinaria operando cerca de peatones”. Requieren razonamiento sobre relaciones espaciales y temporales entre entidades que exceden la capacidad del detector OVD frame-a-frame. | La arquitectura debe incluir una capa de razonamiento contextual sobre las trayectorias producidas por el módulo MOT, capaz de evaluar condiciones que involucren múltiples entidades y su relación espacial. El diseño de esta capa es una decisión arquitectónica de la instancia de diseño arquitectónico. |
-| Sensibilidad al diseño de prompts como variable de desempeño no trivial | El diseño de los prompts de consulta no es una tarea de configuración trivial: pequeñas variaciones en la formulación producen diferencias significativas en el desempeño. Esta variable no existe en sistemas closed-set y no tiene metodología estandarizada para el dominio de seguridad laboral. | La sensibilidad a la formulación de prompts introduce una variable de desempeño que requiere tanto un protocolo sistemático de diseño y evaluación de prompts como un mecanismo arquitectónico que permita iterar sobre formulaciones sin modificar el modelo. |
-| Marco normativo-ético como restricción de diseño con consecuencias arquitectónicas | El cumplimiento de la Ley 25.326 y la Disposición 10/2015 impone restricciones estructurales sobre qué datos pueden almacenarse, por cuánto tiempo, con qué controles de acceso y bajo qué condiciones de transparencia. Estas restricciones afectan directamente las decisiones de arquitectura del plano de control. | El repositorio de eventos (event sourcing) del plano de control debe diseñarse con conciencia de los derechos de los titulares; el sistema no puede almacenar trayectorias contextualizadas de manera indefinida; la interfaz de alertas debe incluir indicadores de confianza que posicionen las alertas como señales asistivas. |
-
-Nota. Las brechas se denominan transversales porque emergen de la intersección de al menos dos dominios del marco teórico, no de uno solo. Su resolución requiere decisiones de arquitectura que afecten simultáneamente a múltiples componentes del sistema. Fuente: Elaboración propia a partir del análisis integrado de las secciones del marco teórico.
-
-De las seis brechas listadas, la relacionada con las condiciones de riesgo composicionales merece una consideración adicional por su alcance. Como se analizó en las secciones anteriores, la detección OVD opera a nivel de entidades individuales por cuadro, y el MOT aporta persistencia temporal a cada entidad de manera independiente. Sin embargo, ninguno de los dos mecanismos modela relaciones entre entidades: una condición como "persona dentro de zona restringida" requiere detectar la persona, detectar la delimitación del área, evaluar si la posición de la primera se encuentra contenida en la segunda, y determinar si esa permanencia es transitoria o sostenida. Esta brecha no es una limitación de un modelo particular, sino una propiedad estructural del paradigma de detección por fotograma complementado con tracking: el razonamiento relacional y contextual constituye una capacidad que el estado del arte analizado no provee de manera nativa y cuya resolución deberá abordarse como problema de diseño en etapas posteriores.
-
-
-#### 16.7.4. Criterios orientadores para la selección tecnológica
-
-El análisis del estado del arte no selecciona tecnologías: establece los criterios que deben orientar esa selección. La Tabla 15 organiza los siete criterios orientadores derivados del análisis integrado, con su descripción, la dimensión evaluable y el origen en el análisis. Estos criterios deben utilizarse en la instancia de diseño arquitectónico para estructurar las decisiones de diseño arquitectónico y en la validación experimental para diseñar el protocolo de evaluación comparativa entre alternativas.
-
-Tabla 15
-
-Criterios orientadores multidimensionales para las decisiones tecnológicas de las etapas de diseño y validación del sistema E-OVRT-VDP
-
-
-| Criterio orientador | Descripción y fundamento | Dimensión evaluable |
-| --- | --- | --- |
-| Compatibilidad con detección open-vocabulary | Cada componente del sistema (tracker, servidor de medios, framework de procesamiento) debe poder integrarse con un detector OVD cuyo vocabulario varía dinámicamente en tiempo de ejecución, sin requerir reentrenamiento ni modificación de parámetros. | Presencia de API de desacoplamiento; ausencia de dependencias de clases fijas en el componente. |
-| Latencia de alerta E2E compatible con intervención humana oportuna | El sistema completo —desde la aparición de la condición de riesgo hasta la entrega de la alerta al supervisor— debe operar dentro de un presupuesto de latencia que habilite la intervención humana antes de que la condición produzca un incidente. Este presupuesto debe formalizarse en la consolidación metodológica. | Latencia de alerta medida en percentiles (P50, P95, P99) bajo carga sostenida con múltiples flujos. |
-| Independencia de entrenamiento específico por dominio | Los componentes del pipeline deben poder operar de manera efectiva con pesos preentrenados en modalidad zero-shot. Cuando se considere fine-tuning de dominio, la arquitectura del modelo OVD debe permitir adaptación sin degradar la capacidad de responder a consultas semánticas arbitrarias, dado que la preservación de esta capacidad varía significativamente entre familias arquitectónicas. | Desempeño evaluable en condiciones zero-shot; perfil de adaptabilidad documentado (retención de capacidad OVD post-fine-tuning). |
-| Desacoplamiento entre plano de medios y plano de control | El flujo de video (ingesta, inferencia, visualización) y la lógica de negocio (eventos, alertas, trazabilidad) deben operar en planos arquitectónicamente separados, de modo que la modificación de cualquier componente de uno de los planos no requiera modificaciones en el otro. | Posibilidad de sustituir el modelo OVD sin modificar el sistema de alertas; posibilidad de cambiar el protocolo de streaming sin modificar el repositorio de eventos. |
-| Robustez operativa para entornos de obra | El sistema debe mantener un desempeño aceptable ante condiciones adversas: oclusiones frecuentes, variabilidad de iluminación, conectividad de red variable, y operación continua durante turnos de trabajo de 8 a 10 horas. | Tasa de fragmentación de trayectorias MOT; estabilidad de latencia bajo carga térmica sostenida; resiliencia del protocolo ante pérdida de paquetes. |
-| Minimización del impacto sobre la privacidad por diseño | El sistema debe diseñarse desde el inicio con mecanismos que reduzcan la identificabilidad de las personas captadas, de conformidad con la Ley 25.326 y la Disposición 10/2015. Esta restricción condiciona qué datos generar, almacenar y transmitir. | Ausencia de identificadores biométricos; política de retención diferenciada documentada; controles de acceso verificables. |
-| Carácter asistivo y auditabilidad del sistema de alertas | Las alertas deben comunicarse con indicadores de confianza comprensibles para operadores no técnicos; el flujo de decisión debe preservar revisión humana antes de toda intervención; el historial de alertas, configuraciones y versiones debe ser auditable. | Presencia de indicadores de confianza en la interfaz; registro inmutable de eventos con metadatos de versión de modelo; capacidad de responder consultas de auditoría. |
-
-Nota. Los criterios listados no son métricas de selección directa sino dimensiones de evaluación: cada candidato tecnológico debe evaluarse en función de su desempeño en todas las dimensiones relevantes, sin que ninguna dimensión sea suficiente por sí sola para determinar la selección. La ponderación relativa de los criterios depende de las restricciones específicas del escenario de despliegue experimental, que deben formalizarse en la consolidación metodológica.
-
-Los siete criterios presentan tensiones entre sí que deben gestionarse explícitamente durante el diseño. La tensión más relevante es la que existe entre el criterio de latencia de alerta E2E (criterio 2) y el criterio de compatibilidad con OVD (criterio 1): los modelos OVD con mayor expresividad semántica —paradigma DETR/DINO con fusión profunda— suelen introducir mayor latencia de inferencia, mientras que los de menor latencia —paradigma one-stage YOLO con reparametrización— tienen menor capacidad para manejar condiciones composicionales con atributos relacionales complejos. La elección del modelo OVD debe realizarse con plena conciencia de este trade-off y validarse empíricamente en el dominio específico antes de fijar la selección.
-
-Una segunda tensión existe entre el criterio de robustez operativa (criterio 5) y el criterio de minimización del impacto sobre la privacidad (criterio 6): los métodos de tracking con mayor robustez ante oclusiones prolongadas suelen incorporar modelos de apariencia que generan representaciones más ricas de las personas rastreadas, aumentando la identificabilidad indirecta.
-
-
-#### 16.7.5. Lectura arquitectónica integrada
-
-La lectura conjunta del marco teórico produce una imagen conceptual del sistema que es coherente con la arquitectura de dos planos planteada en el anteproyecto del proyecto, y que el análisis de los cinco dominios permite ahora describir con mayor precisión técnica.
-
-El plano de medios realiza el procesamiento en tiempo real del flujo de video. Se estructura en cuatro etapas secuenciales: ingesta —captación de video desde cámaras IP mediante protocolos como RTSP/RTP en entornos LAN controlados o mediante SRT en conectividad WAN variable—, normalización —estandarización de resolución, frame rate y formato de píxel para garantizar compatibilidad con el modelo de inferencia—, inferencia —ejecución del modelo OVD sobre los frames normalizados con la consulta de prompts definida para las condiciones de riesgo activas, conforme al análisis de modelos y paradigmas OVD desarrollado en la sección 15.2.1— y tracking —asociación de las detecciones OVD entre cuadros consecutivos mediante el método MOT seleccionado para producir trayectorias persistentes con identidades estables—. La salida del plano de medios es un flujo de trayectorias etiquetadas semánticamente que se publica como eventos al plano de control. La ruta crítica de latencia del sistema pasa íntegramente por este plano; cualquier cuello de botella de latencia que supere el presupuesto definido en la etapa 2 debe diagnosticarse y resolverse en este plano.
-
-El plano de control realiza el procesamiento orientado a la lógica de negocio y la gobernanza del sistema. Consume los eventos de trayectorias publicados por el plano de medios y los evalúa mediante un módulo de razonamiento contextual que determina si una trayectoria o conjunto de trayectorias satisface las condiciones de riesgo configuradas. Cuando una condición de riesgo se detecta como persistente durante el intervalo temporal mínimo configurado, el sistema genera una alerta asistiva que se entrega al supervisor a través del canal de notificación definido. Todos los eventos —detecciones, trayectorias, alertas generadas, configuraciones de prompts, versiones de modelos— se registran de manera inmutable en el repositorio de event sourcing, que constituye el mecanismo de trazabilidad y auditoría del sistema. El diseño del plano de control debe contemplar explícitamente las restricciones normativas analizadas en la sección 16.6: política de retención diferenciada para eventos con y sin alerta, controles de acceso por rol y mecanismos de respuesta a solicitudes de derechos de los titulares de los datos.
-
-Esta lectura arquitectónica integrada permite identificar dónde se producen las interfaces más críticas entre componentes: la interfaz entre el tracker MOT y el módulo de razonamiento contextual —que recibe trayectorias geométrico-temporales y debe producir evaluaciones semánticas sobre condiciones de riesgo— es el punto de mayor complejidad conceptual del sistema, porque es donde la brecha entre la percepción computacional (entidades rastreadas con bounding boxes) y el razonamiento operativo (condiciones de riesgo del dominio laboral) debe cerrarse.
-
-
-#### 16.7.6. Proyección hacia la consolidación metodológica
-
-El análisis realizado cumple su propósito cuando establece con precisión qué se sabe, qué no se sabe y qué debe definirse antes de avanzar hacia la consolidación metodológica, el diseño y la implementación. Las preguntas que siguen constituyen las cuestiones abiertas que el marco teórico no puede resolver por sí mismo y que la consolidación metodológica —análisis metodológico y estrategia de evaluación— debe abordar como su tarea central. Cada pregunta se identifica con un código (P-E1-XX) para facilitar la referencia cruzada desde los apartados metodológicos posteriores.
-
-P-E1-01. ¿Cuál es el presupuesto de latencia de alerta admisible para el sistema, diferenciado por el perfil temporal de cada categoría de condición de riesgo del dominio? La respuesta requiere analizar la velocidad de escalada desde la condición observable hasta el incidente potencial para los riesgos identificados en la sección 16.2, y traducir ese análisis en umbrales de latencia end-to-end que operen como criterio de referencia para las decisiones de selección tecnológica del pipeline.
-
-P-E1-02. ¿Cuál es el conjunto mínimo de condiciones de riesgo que el prototipo debe ser capaz de detectar para constituir una demostración de viabilidad, y cómo deben formularse esas condiciones como prompts textuales evaluables por modelos OVD? La selección debe incluir, del catálogo de condiciones desarrollado en la sección 16.2, un subconjunto representativo que abarque condiciones simples (entidad única con atributo observable) y condiciones composicionales (relación entre múltiples entidades), de modo que el prototipo ejercite las capacidades del sistema en toda su extensión sin agotar los recursos del proyecto en un catálogo exhaustivo. La formulación como prompts debe considerar las limitaciones lingüísticas documentadas en los modelos candidatos de la sección 16.3.
-
-P-E1-03. ¿Qué datasets públicos con anotaciones de calidad suficiente están disponibles para evaluar la capacidad de detección y de tracking del sistema en el dominio de construcción civil, y cuáles de ellos resultan además aptos como datos de entrenamiento para fine-tuning de modelos preentrenados? La ausencia de benchmarks integrados del dominio, identificada en los análisis de seguimiento multiobjeto y operación en tiempo real, implica que la estrategia de evaluación deberá combinar datasets existentes con materiales recolectados ad hoc, y que la aptitud para fine-tuning deberá evaluarse en función del volumen, formato de anotación y transferibilidad al dominio.
-
-P-E1-04. ¿Cuáles son las restricciones del entorno de ejecución —capacidad computacional del hardware de inferencia, recursos del entorno de entrenamiento, protocolos de transmisión de video y presupuesto de procesamiento— que condicionan las decisiones arquitectónicas del prototipo? El análisis desarrollado en la sección 15.4 documenta las características de los protocolos candidatos, pero la selección concreta depende de la caracterización del hardware disponible y de la asignación del presupuesto computacional entre los componentes del pipeline.
-
-P-E1-05. ¿Bajo qué condiciones experimentales —iluminación, resolución, distancia de cámara, oclusión, densidad de personas en escena— debe evaluarse el prototipo para que los resultados sean representativos del dominio de construcción civil? La definición de estas condiciones implica establecer las variables de control, los niveles de prueba y los criterios de aceptación que determinarán si el prototipo demuestra la hipótesis de viabilidad en un entorno que, aun siendo controlado, preserve la validez ecológica respecto del dominio operativo.
-
-P-E1-06. ¿Qué framework de métricas debe adoptarse para evaluar de manera integral las capacidades del sistema —detección OVD, tracking multiobjeto y razonamiento temporal sobre condiciones persistentes— y cuáles son los umbrales de aceptación para cada componente? El análisis teórico identifica familias de métricas estándar (mAP, HOTA, MOTA) pero no establece los umbrales operacionales ni las métricas derivadas que capturen el comportamiento específico del sistema bajo las condiciones del dominio.
-
-P-E1-07. ¿Qué recaudos ético-legales, proporcionados al carácter académico y controlado de las pruebas experimentales, deben incorporarse al diseño de la estrategia de evaluación? El marco normativo analizado en la sección 16.6 establece los principios de licitud y proporcionalidad, pero la determinación de las medidas concretas —consentimiento informado, minimización de datos, protocolo de anonimización— corresponde a la consolidación metodológica, en función de las condiciones experimentales que se definan en respuesta a P-E1-05.
-
-P-E1-08. ¿Constituye el fine-tuning ligero de modelos OVD preentrenados un experimento comparativo viable dentro de las restricciones de recursos del proyecto, y bajo qué condiciones ese ajuste mejoraría la detección de categorías vistas sin degradar la capacidad open-vocabulary sobre categorías no vistas? La viabilidad depende de la disponibilidad de datos de entrenamiento (P-E1-03), de la capacidad computacional del entorno de entrenamiento —distinta del entorno de inferencia— (P-E1-04), y de la factibilidad de diseñar un protocolo experimental que aísle el efecto del fine-tuning (P-E1-06).
-
-Como puede apreciarse, estas preguntas se condicionan mutuamente. El presupuesto de latencia (P-E1-01) determina qué modelos y protocolos son viables; la selección de condiciones de riesgo (P-E1-02) condiciona los datasets necesarios (P-E1-03); las restricciones del entorno de ejecución (P-E1-04) limitan las opciones arquitectónicas; las condiciones experimentales (P-E1-05) definen el alcance de las métricas (P-E1-06); y los recaudos ético-legales (P-E1-07) imponen restricciones transversales sobre todas las anteriores. Por esta razón, la siguiente etapa debe abordarse de manera iterativa y no secuencial, buscando la coherencia interna de un protocolo que sea, simultáneamente, técnicamente riguroso, representativo del dominio y normativamente admisible.
-
+Las preguntas se condicionan mutuamente: las condiciones evaluables determinan los datos; el hardware limita configuraciones; y las métricas deben distinguir calidad semántica, rendimiento y confirmación temporal. Su resolución corresponde al protocolo experimental y no se anticipa en esta sección.
 
 ### 16.8. Conclusiones parciales de la fundamentación teórica
 
-La fundamentación teórica construye el marco teórico que sustenta las decisiones metodológicas y tecnológicas posteriores del proyecto E-OVRT-VDP, mediante la caracterización de cinco dominios: seguridad laboral en construcción, detección open-vocabulary, seguimiento multiobjeto, transmisión de video en baja latencia y regulación ético-legal.
+El marco teórico sostiene la factibilidad conceptual de una plataforma asistiva que recibe video, interpreta observables expresados mediante lenguaje, mantiene continuidad temporal y produce alertas para revisión humana. Esa factibilidad no implica superioridad de OVD frente a detectores supervisados ni capacidad para fiscalizar cumplimiento. Depende de la formulación de las condiciones, del comportamiento en el dominio, de la latencia acumulada y de las restricciones ético-legales.
 
+La revisión también delimita qué no puede inferirse desde la teoría. Los benchmarks generales no predicen por sí solos el rendimiento en construcción; una detección por cuadro no equivale a una alerta; un identificador de seguimiento no es identidad personal; y una capacidad descrita en la literatura no constituye una función implementada. Estas separaciones permiten que el diseño posterior declare alcance y evidencia sin convertir objetivos en resultados.
 
-#### 16.8.1. Sobre la viabilidad teórica de la hipótesis de trabajo
-
-El análisis del estado del arte y la confección del marco teórico permite concluir que la hipótesis de que la detección open-vocabulary, como habilitador tecnológico, para el monitoreo asistivo de seguridad en construcción es teóricamente sostenible. Existen arquitecturas OVD con latencias de inferencia compatibles con vídeo continuo, métodos MOT integrables con detectores externos sin reentrenamiento, protocolos de streaming con perfiles de latencia documentados, y un marco normativo argentino que no prohíbe el procesamiento propuesto siempre que se cumplan condiciones de licitud y minimización de datos.
-
-Esta viabilidad está condicionada por cuatro factores identificados en el análisis: (a) la selección de un modelo OVD con balance adecuado entre precisión semántica y latencia para el hardware disponible, (b) el diseño de los prompts de consulta para las condiciones de riesgo del dominio, (c) la integración de tracking que compense la variabilidad temporal de las detecciones por fotograma, y (d) el cumplimiento de las restricciones ético-legales como condiciones de diseño no negociables.
-
-
-#### 16.8.2. Sobre la completitud del marco teórico construido
-
-El marco teórico, articulado con los desarrollos temáticos previos, cubre los dominios necesarios para fundamentar el proyecto, junto con la identificación de las brechas transversales que emergen de la intersección entre dominios y la formulación de siete criterios orientadores multidimensionales para las decisiones tecnológicas posteriores. En este sentido, la construcción del marco teórico y su síntesis crítica permitieron alcanzar los objetivos propuestos para esta primera instancia de fundamentación, consolidando una base conceptual suficiente para orientar el desarrollo de la etapa siguiente.
-
-Es crucial mencionar que el marco presenta tres limitaciones que deben reconocerse como inherentes al dominio de aplicación y de las herramientas ponderadas, siendo 1) la evolución acelerada del campo OVD puede modificar el panorama de modelos disponibles antes de la implementación; 2) los datos de rendimiento reportados en la literatura corresponden a condiciones experimentales que difieren de las operativas en construcción civil y 3) el dinamismo regulatorio argentino en materia de inteligencia artificial podría introducir requisitos adicionales durante el ciclo de vida del proyecto.
-
-
-#### 16.8.3. Transición hacia la consolidación metodológica
-
-La consolidación metodológica deberá traducir los criterios teóricos establecidos en esta fundamentación teórica en un protocolo de evaluación experimental concreto: definir los datasets de referencia, las métricas aplicables, las condiciones de prueba y los umbrales de aceptación. El mapa de brechas, los criterios planteados y la taxonomía de riesgos de las distintas secciones de esta fundamentación proveen los insumos directos para esa tarea.
+Se reconocen tres limitaciones del propio marco. El campo OVD evoluciona con rapidez y puede modificar el conjunto de alternativas disponibles; los datos de rendimiento publicados provienen de hardware y condiciones que no representan por sí mismos una obra; y el marco regulatorio de IA y protección de datos puede incorporar nuevas exigencias durante el ciclo de vida del sistema. Estas limitaciones refuerzan la necesidad de decisiones trazables y de validación empírica, sin invalidar la base conceptual desarrollada.
 
 ---
 
-## Fuente: `docs/informe/entregable/96e-informe-v11-cierre-anexos-referencias.md`
+## Fuente: `docs/informe/entregable/90e-etapa1-anexo-a-y-referencias.md`
 
-> SHA-256 del bloque: `181799f6438299eb111302a479f0e1750fae6f5dfeea7200636d55633c6a7018`  
-> Seleccion: Anexo A vigente.
+> SHA-256 del bloque: `e44e3a8b5e8872eb1b24786ca361532ce922e9dbdf85fcf2e7aee338568d7142`  
+> Seleccion: Anexo A y listado de Referencias, ya corregidos en los cuatro pases pero FUERA del entregable de la etapa: el Anexo A pertenece a la seccion 19 y las referencias son globales del informe, y los arma el equipo. Se conserva porque **el cuerpo de la seccion 15 cita la Tabla A.1 y la 15.3.3 cita la Tabla A.2**: si esas tablas no llegan a la seccion 19, quedan dos remisiones colgadas. NO se redacta desde aca.
+
+# 90e — Anexo A y Referencias de la Etapa 1 (material para §19 y para el listado global)
+
+> **Extracción derivada (2026-08-27).** Este material **salió del entregable de la Etapa 1**
+> por decisión del usuario: el `.docx` de la etapa contiene **solo el desarrollo** (§15 y §16).
+> El Anexo A pertenece a §19 y el listado de referencias es global del informe — los arma el
+> equipo, no el redactor de la etapa.
+>
+> **No se descarta, y hay una razón dura:** el cuerpo de §15 **cita la Tabla A.1**
+> («en la Tabla A.1 del Anexo A se incluye una matriz ampliada…», §15.2.3) y §15.3.3 **cita la
+> Tabla A.2**. Si esas tablas no llegan a §19, quedan dos remisiones colgadas en el informe.
+>
+> Lo que este material aporta, ya corregido en los cuatro pases:
+> - **Tabla A.1** pasó de 12 a **20 filas** e incorpora **Grounding DINO Swin-T/Swin-L y
+>   MM-Grounding-DINO**, que faltaban pese a ser los modelos del trabajo (E1-34).
+> - Sus **licencias están corregidas** (E1-33/`AJ-1.09`): DINO-X y Grounding DINO 1.5 figuran
+>   como «API cerrada; Apache-2.0 aplica al SDK, no a los pesos», no como Apache-2.0 a secas.
+> - **Tabla A.2** reescrita en términos del límite de cada métrica frente a la alerta; la
+>   antigua Tabla A.3 (servidores de medios) se eliminó por quedar sin uso (D-E1-9).
+> - **83 entradas de referencia**, sin huérfanas y sin citas sin entrada, con las altas de los
+>   cuatro pases (Kumar 2022, Lee 2023, OASIS 2019, Ultralytics 2026, Yuksekgonul 2023,
+>   Thrush 2022) y `Luxonis` con su letra.
+
+---
+
+## 19. Anexos
 
 ### 19.1. Anexo A - Comparativas técnicas y estado del arte complementario
 
-Tabla A. 1
+El Anexo A reúne comparativas complementarias que respaldan el estado del arte sin sobrecargar el cuerpo principal. La Tabla A.1 amplía el catálogo de alternativas de detección open-vocabulary y modelos relacionados; la Tabla A.2 sintetiza el alcance y las limitaciones de las métricas MOT tratadas en la sección 15.3.3.
 
-Síntesis de modelos OVD orientada a prototipado
+**Tabla A.1**
 
+*Matriz ampliada de alternativas de detección open-vocabulary y modelos relacionados*
 
-| Modelo | Familia | Mecanismo V-L | AP Zero-shot | FPS | Licencia |
+| **Modelo** | **Familia** | **Mecanismo visión-lenguaje** | **AP zero-shot reportado** | **Rendimiento reportado** | **Licencia / disponibilidad** |
 | --- | --- | --- | --- | --- | --- |
-| DINO-X | Transformer | Universal Object Prompt | 59.8 (LVIS) | N/D | Apache-2.0 |
-| G-DINO 1.5 Pro | Transformer | Fusión cross-modal profunda | 55.7 (LVIS) | N/D | Apache-2.0 |
-| G-DINO 1.5 Edge | Transformer | Fusión cross-modal optimizada | 36.2 (LVIS) | 75.2 (TRT) | Apache-2.0 |
-| LLMDet | Transformer+LLM | Co-entrenamiento con LLM | 51.1–52.4 (LVIS) | N/D | Apache-2.0 |
-| OV-DINO | Transformer | LASF + UniDI | 50.6 (COCO) | N/D | Apache-2.0 |
-| DetCLIPv3 | Transformer | Generativo + VLLM | 48.8 (LVIS) | N/D | N/D |
-| OWLv2 L/14 | ViT | Self-training escalable | 44.6 (LVIS rare) | N/D | Apache-2.0 |
-| YOLOE-v8-L | One-stage | RepRTA + SAVPE + LRPC | 35.9 (LVIS) | 102.5 (TRT) | AGPL-3.0 |
-| YOLO-World-L | One-stage | RepVL-PAN contrastivo | 35.4 (LVIS) | 52.0 (V100) | GPLv3 |
-| OmDet-Turbo | Transformer RT | EFH + caching texto | 34.0 (LVIS) | 100.2 (TRT) | Apache-2.0 |
-| YOLOE-v8-S | One-stage | RepRTA reparametrizable | 27.9 (LVIS) | 305.8 (TRT) | AGPL-3.0 |
-| Florence-2-L | Seq2Seq | Generación condicionada | 37.5 (COCO) | Variable | MIT |
+| DINO-X | Transformer | Universal Object Prompt | 59,8 (LVIS-minival) | N/D | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| G-DINO 1.5 Pro | Transformer | Fusión cross-modal profunda | 55,7 (LVIS-minival) | N/D | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| G-DINO 1.5 Edge | Transformer | Fusión cross-modal optimizada | 36,2 (LVIS-minival) | 75,2 FPS (A100, TensorRT) | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| Grounding DINO Swin-L | Transformer | Feature Enhancer, selección de consultas guiada y decoder cross-modal | 52,5 (COCO); 26,1 mean AP (ODinW-35) | N/D | Apache-2.0 |
+| Grounding DINO Swin-T | Transformer | Feature Enhancer, selección de consultas guiada y decoder cross-modal | 48,4 (COCO) | N/D | Apache-2.0 |
+| MM-Grounding-DINO Tiny | Transformer | Pipeline unificado de grounding y detección | 50,4–50,6 (COCO); 35,7–41,4 (LVIS-minival) | N/D | Apache-2.0 |
+| GLIP | Dynamic Head + Swin | Alineamiento región-palabra con fusión profunda | 49,8 (COCO); 26,9 (LVIS) | N/D | MIT |
+| OV-DINO | Transformer | LASF + UniDI | 50,6 (COCO) | N/D | Apache-2.0 |
+| OV-DETR | Deformable DETR | Matching condicional binario con prompts textuales o visuales | 17,4 novel (OV-LVIS); 29,4 AP50 novel (OV-COCO) | N/D | CC BY-NC-SA 4.0 |
+| APE-L (D) | Transformer | Alineamiento por producto punto y encoder cross-modal | 59,6 caja (LVIS); 58,3 caja (COCO) | N/D | Apache-2.0 |
+| LLMDet | Transformer + LLM | Coentrenamiento con LLM; LLM descartado en inferencia | 51,1 (LVIS-minival) | N/D | Apache-2.0 |
+| DetCLIPv3 | Transformer | Formulación generativa con VLLM | 48,8 (LVIS-minival) | N/D | N/D |
+| OWLv2 L/14 | ViT dual-encoder | Autoentrenamiento escalable | 44,6 (LVIS rare) | N/D | Apache-2.0 |
+| Detic | Two-stage | Embeddings CLIP como pesos del clasificador de regiones | 17,8 rare (OV-LVIS); 27,8 novel AP50 (OV-COCO) | N/D | Apache-2.0 |
+| T-Rex2 Swin-L | Transformer multimodal | Prompts textuales y visuales con fusión tardía | 46,7 texto / 46,8 visual (LVIS-minival) | N/D | IDEA License 1.0; uso no comercial |
+| YOLOE-v8-L | One-stage | RepRTA + SAVPE + LRPC | 35,9 (LVIS-minival) | 102,5 FPS (T4, TensorRT) | AGPL-3.0 |
+| YOLO-World-L | One-stage | RepVL-PAN contrastivo | 35,4 (LVIS-minival) | 52,0 FPS (V100, PyTorch) | GPL-3.0 |
+| OmDet-Turbo-Base | Transformer para tiempo real | EFH + caché textual | 34,7 (LVIS-minival) | 100,2 FPS (A100, TensorRT + caché textual) | Apache-2.0 |
+| YOLOE-v8-S | One-stage | RepRTA reparametrizable | 27,9 (LVIS-minival) | 305,8 FPS (T4, TensorRT) | AGPL-3.0 |
+| Florence-2-L | Seq2Seq | Generación condicionada por instrucciones | 37,5 (COCO) | Variable | MIT |
 
-Nota: Las velocidades citadas indican condiciones específicas (hardware GPU: V100, T4 o A100; uso de TensorRT; batch size 1; FP16 y/o caching de texto). Las licencias GPL/AGPL requieren derivar código abierto, limitando la adopción industrial. N/D indica no reportado o no optimizado para tiempo real. Fuente: elaboración propia basada en Ren et al. (2024a, 2024b), Fu et al. (2025), Wang et al. (2024, 2025), Yao et al. (2024), Minderer et al. (2023), Cheng et al. (2024), Zhao et al. (2024) y Xiao et al. (2023).
+Nota. Las cifras conservan el protocolo, el conjunto de evaluación y el hardware informados por cada fuente; por ello, no constituyen un benchmark homogéneo. N/D indica información no reportada o no comparable. En DINO-X y Grounding DINO 1.5, la licencia Apache-2.0 corresponde al SDK de acceso y no a pesos abiertos. Fuente: elaboración propia basada en Cheng et al. (2024), Fu et al. (2025), Jiang et al. (2024), L. H. Li et al. (2021), Liu et al. (2024), Minderer et al. (2023), Ren, Chen, et al. (2024), Ren, Jiang, et al. (2024), Shen et al. (2023), A. Wang et al. (2025), H. Wang et al. (2024), Xiao et al. (2024), Yao et al. (2024), Zang et al. (2022), T. Zhao et al. (2024), X. Zhao et al. (2024) y X. Zhou et al. (2022).
 
-Tabla A. 2
+**Tabla A.2**
 
-Métricas de evaluación estándar en seguimiento multi-objeto: características y limitaciones
+*Comparación conceptual de métricas MOT y sus límites para evaluar alertas temporales*
 
-
-| Métrica | Qué mide | Fortaleza principal | Limitación principal |
+| **Métrica** | **Qué caracteriza** | **Sesgo principal** | **Límite respecto de las alertas** |
 | --- | --- | --- | --- |
-| MOTA | Precisión global: penaliza FP, FN e ID switches ponderados sobre el total de ground truth (Bernardin & Stiefelhagen, 2008) | Métrica clásica, simple y ampliamente adoptada para medir el desempeño de detección | Sesgada hacia errores de detección; subestima errores de asociación |
-| IDF1 | Consistencia de identidad: F1-score sobre detecciones que mantienen el identificador correcto a lo largo del tiempo (Ristani et al., 2016) | Captura la estabilidad de las identidades asignadas | Ignora mejoras en detección (Ristani et al., 2016); no considera localización espacial (Luiten et al., 2021) |
-| HOTA | Balance explícito entre precisión de detección (DetA) y precisión de asociación (AssA), con componente de localización (Luiten et al., 2021) | Métrica integral adoptada por MOTChallenge como estándar de referencia | Mayor complejidad conceptual respecto a MOTA/IDF1, al requerir la interpretación conjunta de sus componentes DetA, AssA y LocA para el diagnóstico de fallos (Luiten et al., 2021) |
+| MOTA | Errores acumulados de detección y cambios de identidad | Está fuertemente condicionada por falsos positivos y falsos negativos del detector | No mide persistencia, oportunidad ni resolución de episodios de alerta |
+| IDF1 | Consistencia de identidad a lo largo de una secuencia | Privilegia la correspondencia de identidad y exige anotaciones de trayectorias | No mide la condición semántica ni el comportamiento temporal de la alerta |
+| HOTA | Calidad combinada de detección, asociación y localización | Resume componentes del tracker y requiere referencia MOT explícita | No sustituye la evaluación por persona ni la evaluación por episodio temporal |
 
-Nota. MOTA = Multiple Object Tracking Accuracy. IDF1 = Identification F1-Score. HOTA = Higher Order Tracking Accuracy. DetA = Detection Accuracy. AssA = Association Accuracy. FP = Falsos Positivos. FN = Falsos Negativos. IDSW = ID Switches. GT = Ground Truth. Fuente: Elaboración propia basada en las fuentes citadas (Bernardin & Stiefelhagen, 2008; Luiten et al., 2021; Ristani et al., 2016).
+Nota. MOTA resume errores de detección y cambios de identidad; IDF1 enfatiza la continuidad de identidad; HOTA separa y combina detección, asociación y localización. Las tres caracterizan el seguimiento, pero no miden por sí mismas el estado semántico ni el episodio de alerta. Fuente: elaboración propia basada en Bernardin y Stiefelhagen (2008), Ristani et al. (2016) y Luiten et al. (2021).
 
-Tabla A. 3
+## Referencias
 
-Comparativa de servidores de medios de código abierto
+Adžemović, M. (2025). Deep Learning-Based Multi-Object Tracking: A Comprehensive Survey from Foundations to State-of-the-Art (arXiv:2506.13457). arXiv. https://doi.org/10.48550/arXiv.2506.13457
 
+Agencia de Acceso a la Información Pública. (s. f.-a). Conocé tus derechos respecto a tus datos personales. Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/aaip/datospersonales/derechos
 
-| Servidor | Lenguaje | Rol principal | Protocolos | Transcode | Fortaleza |
-| --- | --- | --- | --- | --- | --- |
-| Janus | C | SFU/Gateway | WebRTC, SIP | Plugins | Modularidad, documentación académica |
-| Kurento | C++ | MCU/ Procesamiento | WebRTC, RTSP, RTP | Sí (integrado) | Integración OpenCV, pipelines |
-| MediaMTX | Go | Router/Proxy | RTSP, RTMP, WebRTC, SRT, HLS | No | Ligereza, multi-protocolo |
-| OvenMediaEngine | C++ | Origin-Edge | WebRTC, LL-HLS, RTMP | Sí (GPU) | Escalabilidad, baja latencia |
-| SRS | C++ | Streaming | RTMP, WebRTC, SRT, HLS | Limitado | Eficiencia, cloud-native |
+Agencia de Acceso a la Información Pública. (s. f.-b). Videovigilancia: ¿Por qué hay que registrar bases de datos de videovigilancia y presentar el manual de tratamiento? Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/aaip/datospersonales/responsables/videovigilancia
 
-Nota. Elaboración propia basada en las fuentes tratadas en la sección (Ahmad et al., 2005; AirenSoft, s/f-a, s/f-b; Amirante et al., 2014, 2015; bluenviron, s/f; Garcia et al., 2017; Li et al., 2019; López et al., 2016; Meetecho, s/f; OSSRS, s/f; Žádník et al., 2022).
+Aharon, N., Orfaig, R., & Bobrovsky, B.-Z. (2022). BoT-SORT: Robust Associations Multi-Pedestrian Tracking (arXiv:2206.14651). arXiv. https://doi.org/10.48550/arXiv.2206.14651
+
+Ahmad, H. M., y Rahimi, A. (2025). SH17: A dataset for human safety and personal protective equipment detection in manufacturing industry. Journal of Safety Science and Resilience, 6(2), 175–185. https://doi.org/10.1016/j.jnlssr.2024.09.002
+
+Ahmad, I., Xiaohui Wei, Yu Sun, & Ya-Qin Zhang. (2005). Video transcoding: An overview of various techniques and research issues. IEEE Transactions on Multimedia, 7(5), 793–804. https://doi.org/10.1109/TMM.2005.854472
+
+AILab-CVC. (2024, January 30). YOLO-World. GitHub. Retrieved January 21, 2026, from https://github.com/AILab-CVC/YOLO-World
+
+Amirante, A., Castaldi, T., Miniero, L., & Romano, S. P. (2014). Janus: A general purpose WebRTC gateway. Proceedings of the Conference on Principles, Systems and Applications of IP Telecommunications, 1–8. https://doi.org/10.1145/2670386.2670389
+
+Amirante, A., Castaldi, T., Miniero, L., & Romano, S. P. (2015). Performance analysis of the Janus WebRTC gateway. Proceedings of the 1st Workshop on All-Web Real-Time Systems, 1–7. https://doi.org/10.1145/2749215.2749223
+
+Ananthanarayanan, G., Bahl, P., Bodik, P., Chintalapudi, K., Philipose, M., Ravindranath, L., & Sinha, S. (2017). Real-Time Video Analytics: The Killer App for Edge Computing. Computer, 50(10), 58–67. https://doi.org/10.1109/MC.2017.3641638
+
+Argentina. (2000). Ley N.º 25.326: Ley de Protección de los Datos Personales. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm
+
+Argentina. (2001, noviembre 29). Decreto 1558/2001: Ley 25.326—Reglamentación. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368
+
+Argentina. (2006, septiembre 19). Disposición 11/2006: Medidas de seguridad para el tratamiento y conservación de los datos personales. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-11-2006-120120
+
+Argentina. (2015, febrero 24). Disposición 10/2015: Condiciones de licitud para las actividades de recolección y posterior tratamiento de imágenes digitales de personas con fines de seguridad. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-10-2015-243335
+
+Axis Communications AB. (2015). Latency in live network video surveillance (63380/EN/R1/1504) [White paper]. https://www.axis.com/dam/public/9d/e4/5d/latency-in-live-network-video-surveillance-en-US-190945.pdf
+
+Bachhuber, C., Steinbach, E., Freundl, M., & Reisslein, M. (2018). On the Minimization of Glass-to-Glass and Glass-to-Algorithm Delay in Video Communication. IEEE Transactions on Multimedia, 20(1), 238–252. https://doi.org/10.1109/TMM.2017.2726189
+
+Bass, L., Clements, P., & Kazman, R. (2022). Software architecture in practice (Fourth edition). Addison-Wesley.
+
+Bernardin, K., & Stiefelhagen, R. (2008). Evaluating multiple object tracking performance: The CLEAR MOT metrics. EURASIP Journal on Image and Video Processing, 2008(1), 1-10. https://doi.org/10.1155/2008/246309
+
+Bewley, A., Ge, Z., Ott, L., Ramos, F., y Upcroft, B. (2016). Simple online and realtime tracking. En 2016 IEEE International Conference on Image Processing (ICIP) (pp. 3464-3468). IEEE. https://doi.org/10.1109/ICIP.2016.7533003
+
+Cao, J., Pang, J., Weng, X., Khirodkar, R., & Kitani, K. (2023). Observation-Centric SORT: Rethinking SORT for Robust Multi-Object Tracking. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 9686–9696. https://doi.org/10.1109/CVPR52729.2023.00934
+
+Card, S. K., Moran, T. P., & Newell, A. (2008). The psychology of human-computer interaction (Repr). Erlbaum.
+
+Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A., & Zagoruyko, S. (2020). End-to-End Object Detection with Transformers (arXiv:2005.12872). arXiv. https://doi.org/10.48550/arXiv.2005.12872
+
+Chen, J., & Ran, X. (2019). Deep Learning With Edge Computing: A Review. Proceedings of the IEEE, 107(8), 1655–1674. https://doi.org/10.1109/JPROC.2019.2921977
+
+Chen, X., & Zou, Z. (2025). Are large pre-trained vision language models effective construction safety inspectors? (arXiv:2508.11011). arXiv. https://doi.org/10.48550/arXiv.2508.11011
+
+Cheng, T., Song, L., Ge, Y., Liu, W., Wang, X., & Shan, Y. (2024). YOLO-World: Real-time open-vocabulary object detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 16901–16911). https://doi.org/10.1109/CVPR52733.2024.01599
+
+Choi, L., & Greer, R. (2024). Evaluating cascaded methods of vision-language models for zero-shot detection and association of hardhats for increased construction safety (arXiv:2410.12225). arXiv. https://doi.org/10.48550/arXiv.2410.12225
+
+Cugola, G., & Margara, A. (2012). Processing flows of information: From data stream to complex event processing. ACM Computing Surveys, 44(3), 1–62. https://doi.org/10.1145/2187671.2187677
+
+DASH Industry Forum. (2020, marzo 27). Low-latency Modes for DASH. CR-Low-Latency-Live-r8. https://dashif.org/docs/CR-Low-Latency-Live-r8.pdf
+
+Deber, J., Jota, R., Forlines, C., & Wigdor, D. (2015). How Much Faster is Fast Enough?: User Perception of Latency & Latency Improvements in Direct and Indirect Touch. Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems, 1827–1836. https://doi.org/10.1145/2702123.2702300
+
+Decreto 351/79 de 1979. Reglamentación de la Ley 19.587 de Higiene y Seguridad en el Trabajo. (1979, febrero 5). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/30000-34999/32030/dto351-1979-anexo1.htm
+
+Decreto 911/96 de 1996. Reglamento de Higiene y Seguridad para la Industria de la Construcción. (1996, 5 de agosto). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/35000-39999/38568/texact.htm
+
+Dendorfer, P., Rezatofighi, H., Milan, A., Shi, J., Cremers, D., Reid, I., Roth, S., Schindler, K., & Leal-Taixé, L. (2020). MOT20: A benchmark for multi object tracking in crowded scenes (arXiv:2003.09003). arXiv. https://doi.org/10.48550/arXiv.2003.09003
+
+Du, C., Lin, C., Jin, R., Chai, B., Yao, Y., & Su, S. (2024). Exploring the State-of-the-Art in Multi-Object Tracking: A Comprehensive Survey, Evaluation, Challenges, and Future Directions. Multimedia Tools and Applications, 83(29), 73151–73189. https://doi.org/10.1007/s11042-023-17983-2
+
+Du, Y., Wei, F., Zhang, Z., Shi, M., Gao, Y., & Li, G. (2022). Learning to prompt for open-vocabulary object detection with vision-language model. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 14084-14093). https://doi.org/10.1109/CVPR52688.2022.01369
+
+European Data Protection Board. (2020, enero 30). Guidelines 3/2019 on processing of personal data through video devices (Version 2.0). EDPB. https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en
+
+Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–338. https://doi.org/10.1007/s11263-009-0275-4
+
+Fu, S., Yang, Q., Mo, Q., Yan, J., Wei, X., Meng, J., Xie, X., & Zheng, W.-S. (2025, January 31). [2501.18954] LLMDet: Learning Strong Open-Vocabulary Object Detectors under the Supervision of Large Language Models. arXiv. Retrieved January 21, 2026, from https://arxiv.org/abs/2501.18954
+
+Gettys, J., & Nichols, K. (2012). Bufferbloat: Dark buffers in the internet. Communications of the ACM, 55(1), 57–65. https://doi.org/10.1145/2063176.2063196
+
+Google. (2022, May). owlvit-large-patch14. Hugging Face. https://huggingface.co/google/owlvit-large-patch14
+
+Google. (2023, June). owlv2-base-patch16-ensemble. Hugging Face. https://huggingface.co/google/owlv2-base-patch16-ensemble
+
+Gupta, A., Dollár, P., & Girshick, R. (2019). LVIS: A Dataset for Large Vocabulary Instance Segmentation (arXiv:1908.03195). arXiv. https://doi.org/10.48550/arXiv.1908.03195
+
+IDEA-Research. (2024a, noviembre 20). DINO-X-API: A unified vision model for open-world object detection and understanding [Repositorio de código]. GitHub. https://github.com/IDEA-Research/DINO-X-API
+
+IDEA-Research. (2024c, mayo 18). GroundingDINO: Official implementation of “Grounding DINO: Marrying DINO with grounded pre-training for open-set object detection” [Repositorio de código]. GitHub. https://github.com/IDEA-Research/GroundingDINO
+
+Iorga, M., Feldman, L., Barton, R., Martin, M. J., Goren, N., & Mahmoudi, C. (2018). Fog computing conceptual model (NIST SP 500-325; p. NIST SP 500-325). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.500-325
+
+ISO. (2018). ISO 45001:2018 Occupational health and safety management systems—Requirements with guidance for use. ISO. https://www.iso.org/standard/63787.html
+
+ISO. (2023). ISO/IEC 42001:2023—Artificial intelligence management system. ISO. https://www.iso.org/standard/42001
+
+ISO/IEC. (2022). Information technology—Dynamic adaptive streaming over HTTP (DASH)—Part 1: Media presentation description and segment formats. ISO/IEC 23009-1:2022. https://www.iso.org/standard/83314.html
+
+Jiang, Q., Li, F., Zeng, Z., Ren, T., Liu, S., & Zhang, L. (2024). T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy (arXiv:2403.14610). arXiv. https://doi.org/10.48550/arXiv.2403.14610
+
+Keranen, A., Holmberg, C., & Rosenberg, J. (2018). Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal (No. RFC8445; p. RFC8445). RFC Editor. https://doi.org/10.17487/RFC8445
+
+Khattak, M. U., Rasheed, H., Maaz, M., Khan, S., & Khan, F. S. (2023). MaPLe: Multi-modal Prompt Learning (arXiv:2210.03117). arXiv. https://doi.org/10.48550/arXiv.2210.03117
+
+Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A. A., Milan, K., Quan, J., Ramalho, T., Grabska-Barwinska, A., Hassabis, D., Clopath, C., Kumaran, D., & Hadsell, R. (2017). Overcoming catastrophic forgetting in neural networks. Proceedings of the National Academy of Sciences, 114(13), 3521-3526. https://doi.org/10.1073/pnas.1611835114
+
+Kreutz, D., Ramos, F. M. V., Esteves Verissimo, P., Esteve Rothenberg, C., Azodolmolky, S., & Uhlig, S. (2015). Software-Defined Networking: A Comprehensive Survey. Proceedings of the IEEE, 103(1), 14–76. https://doi.org/10.1109/JPROC.2014.2371999
+
+Kumar, A., Raghunathan, A., Jones, R. M., Ma, T., & Liang, P. (2022). Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations. https://arxiv.org/abs/2202.10054
+
+Kurose, J. F., & Ross, K. W. (2021). Computer networking: A top-down approach (Eighth edition). Pearson.
+
+Lee, Y., Chen, A. S., Tajwar, F., Kumar, A., Yao, H., Liang, P., & Finn, C. (2023). Surgical fine-tuning improves adaptation to distribution shifts. International Conference on Learning Representations. https://arxiv.org/abs/2210.11466
+
+Ley 19.587 de 1972. Ley de Higiene y Seguridad en el Trabajo. (1972). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/17612/norma.htm
+
+Li, L. H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan, L., Zhang, L., Hwang, J.-N., Chang, K.-W., & Gao, J. (2021). Grounded language-image pre-training (arXiv:2112.03857). arXiv. https://doi.org/10.48550/arXiv.2112.03857
+
+Li, S., Fischer, T., Ke, L., Ding, H., Danelljan, M., & Yu, F. (2023). OVTrack: Open-Vocabulary Multiple Object Tracking. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 5567–5577. https://doi.org/10.1109/CVPR52729.2023.00539
+
+Li, S., Ren, H., Xie, X., & Cao, Y. (2025). A Review of Multi‐Object Tracking in Recent Times. IET Computer Vision, 19(1), e70010. https://doi.org/10.1049/cvi2.70010
+
+Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollar, P. y Zitnick, C. L. (2014). Microsoft COCO: Common objects in context. En D. Fleet, T. Pajdla, B. Schiele y T. Tuytelaars (Eds.), Computer Vision - ECCV 2014 (Vol. 8693, pp. 740-755). Springer. https://doi.org/10.1007/978-3-319-10602-1_48
+
+Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Jiang, Q., Li, C., Yang, J., Su, H., Zhu, J., & Zhang, L. (2024). Grounding DINO: Marrying DINO with grounded pre-training for open-set object detection. In Computer Vision - ECCV 2024 (pp. 38-55). Springer. https://doi.org/10.1007/978-3-031-72970-6_3
+
+Luiten, J., Os̆ep, A., Dendorfer, P., Torr, P., Geiger, A., Leal-Taixé, L., & Leibe, B. (2021). HOTA: A Higher Order Metric for Evaluating Multi-object Tracking. International Journal of Computer Vision, 129(2), 548–578. https://doi.org/10.1007/s11263-020-01375-2
+
+Luo, W., Xing, J., Milan, A., Zhang, X., Liu, W., & Kim, T.-K. (2021). Multiple object tracking: A literature review. Artificial Intelligence, 293, 103448. https://doi.org/10.1016/j.artint.2020.103448
+
+Luxonis. (s. f.-b). OAK-D Pro PoE [Documentación de hardware]. Luxonis Docs. https://docs.luxonis.com/hardware/products/OAK-D%20Pro%20PoE
+
+May, W. (2017). HTTP Live Streaming (R. Pantos, Ed.; No. RFC8216; p. RFC8216). RFC Editor. https://doi.org/10.17487/RFC8216
+
+Microsoft. (2024, June). Florence-2-large. Hugging Face. https://huggingface.co/microsoft/Florence-2-large
+
+Milan, A., Leal-Taixe, L., Reid, I., Roth, S., & Schindler, K. (2016). MOT16: A Benchmark for Multi-Object Tracking (arXiv:1603.00831). arXiv. https://doi.org/10.48550/arXiv.1603.00831
+
+Minderer, M., Gritsenko, A., & Houlsby, N. (2023). Scaling open-vocabulary object detection (arXiv:2306.09683). arXiv. https://doi.org/10.48550/arXiv.2306.09683
+
+Minderer, M., Gritsenko, A., Stone, A., Neumann, M., Weissenborn, D., Dosovitskiy, A., Mahendran, A., Arnab, A., Dehghani, M., Shen, Z., Wang, X., Zhai, X., Kipf, T., & Houlsby, N. (2022). Simple open-vocabulary object detection with vision transformers. In Computer Vision – ECCV 2022 (pp. 728–755). Springer. https://doi.org/10.1007/978-3-031-20080-9_42
+
+Nakagawa, K., Tsukada, M., Shima, K., & Esaki, H. (2021). WebRTC-based measurement tool for peer-to-peer applications and preliminary findings with real users. Asian Internet Engineering Conference, 1–8. https://doi.org/10.1145/3497777.3498544
+
+NVIDIA. (2024). DeepStream SDK 8.0 for NVIDIA dGPU/X86 and Jetson—DeepStream documentation. https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_Release_notes.html
+
+NVIDIA. (s. f.-g). Grounding DINO. NVIDIA TAO Toolkit Documentation. Recuperado el 27 de agosto de 2026, de https://docs.nvidia.com/tao/tao-toolkit/latest/text/cv_finetuning/pytorch/object_detection/grounding_dino.html
+
+NVIDIA. (s. f.-h). NVIDIA Triton Inference Server. Recuperado el 27 de agosto de 2026, de https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html
+
+OASIS. (2019). MQTT Version 5.0. OASIS Standard. https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html
+
+ONVIF. (2019). ONVIF Profile S Specification (ONVIF Profile S). ONVIF. https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_-S_Specification_v1-3.pdf
+
+Organisation for Economic Co-operation and Development. (2019, mayo 1). OECD AI Principles overview. OECD. https://oecd.ai/en/ai-principles
+
+Otgonbold, M.-E., Gochoo, M., Alnajjar, F. S., Ali, L., Tan, T.-H., Hsieh, J.-W., y Chen, P.-Y. (2022). SHEL5K: An extended dataset and benchmarking for safety helmet detection. Sensors, 22(6), 2315. https://doi.org/10.3390/s22062315
+
+Pantos, R. (2025). HTTP Live Streaming 2nd Edition (Internet-Draft). Internet Engineering Task Force. https://datatracker.ietf.org/doc/draft-pantos-hls-rfc8216bis/18/
+
+Parmar, H., & Thornburgh, M. (2012). Adobe’s Real Time Messaging Protocol. Adobe. https://ptacts.uspto.gov/ptacts/public-informations/petitions/1557060/download-documents?artifactId=CX29dwexemvGTAgu1npsGb4QtKzyjACHSNYXLhjJp5m1SpQS4AAf-3A
+
+Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., Krueger, G., & Sutskever, I. (2021). Learning Transferable Visual Models From Natural Language Supervision (arXiv:2103.00020). arXiv. https://doi.org/10.48550/arXiv.2103.00020
+
+Rasaee, H., Koleilat, T., & Rivaz, H. (2025). Grounding DINO-US-SAM: Text-Prompted Multi-Organ Segmentation in Ultrasound with LoRA-Tuned Vision-Language Models. IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, 72(10), 1414-1425. https://doi.org/10.1109/TUFFC.2025.3605285
+
+Ren, T., Chen, Y., Jiang, Q., Zeng, Z., Xiong, Y., Liu, W., Ma, Z., Shen, J., Gao, Y., Jiang, X., Chen, X., Song, Z., Zhang, Y., Huang, H., Gao, H., Liu, S., Zhang, H., Li, F., Yu, K., & Zhang, L. (2024). DINO-X: A unified vision model for open-world object detection and understanding (arXiv:2411.14347). arXiv. https://doi.org/10.48550/arXiv.2411.14347
+
+Ren, T., Jiang, Q., Liu, S., Zeng, Z., Liu, W., Gao, H., Huang, H., Ma, Z., Jiang, X., Chen, Y., Xiong, Y., Zhang, H., Li, F., Tang, P., Yu, K., & Zhang, L. (2024). Grounding DINO 1.5: Advance the “Edge” of Open-Set Object Detection (Versión 2). arXiv. https://doi.org/10.48550/ARXIV.2405.10300
+
+Ren, T., Liu, S., Zeng, A., Lin, J., Li, K., Cao, H., Chen, J., Huang, X., Chen, Y., Yan, F., Zeng, Z., Zhang, H., Li, F., Yang, J., Li, H., Jiang, Q., & Zhang, L. (2024). Grounded SAM: Assembling Open-World Models for Diverse Visual Tasks (arXiv:2401.14159). arXiv. https://doi.org/10.48550/arXiv.2401.14159
+
+Ristani, E., Solera, F., Zou, R., Cucchiara, R., & Tomasi, C. (2016). Performance Measures and a Data Set for Multi-target, Multi-camera Tracking. En G. Hua & H. Jégou (Eds.), Computer Vision – ECCV 2016 Workshops (Vol. 9914, pp. 17–35). Springer International Publishing. https://doi.org/10.1007/978-3-319-48881-3_2
+
+Roy (Whalen), S. (2024, julio 18). RTMP vs. RTSP: Which Protocol Should You Choose? (Update). Wowza Media Systems. Wowza Blog. https://www.wowza.com/blog/rtmp-vs-rtsp-which-protocol-should-you-choose
+
+Satyanarayanan, M. (2017). The Emergence of Edge Computing. Computer, 50(1), 30–39. https://doi.org/10.1109/MC.2017.9
+
+Schulzrinne, H., Casner, S., Frederick, R., & Jacobson, V. (2003). RTP: A Transport Protocol for Real-Time Applications (No. RFC3550; p. RFC3550). RFC Editor. https://doi.org/10.17487/rfc3550
+
+Schulzrinne, H., Rao, A., & Lanphier, R. (1998). Real Time Streaming Protocol (RTSP) (No. RFC2326; p. RFC2326). RFC Editor. https://doi.org/10.17487/rfc2326
+
+Schulzrinne, H., Rao, A., Lanphier, R., & Westerlund, M. (2016). Real-Time Streaming Protocol Version 2.0 (M. Stiemerling, Ed.; No. RFC7826; p. RFC7826). RFC Editor. https://doi.org/10.17487/RFC7826
+
+Sharabayko, M. P., Sharabayko, M. A., Dube, J., Kim, J., & Kim, J. (2024). The SRT Protocol (Internet-Draft (working copy)). Internet Engineering Task Force. https://haivision.github.io/srt-rfc/draft-sharabayko-srt.html
+
+Shen, Y., Fu, C., Chen, P., Zhang, M., Li, K., Sun, X., Wu, Y., Lin, S., & Ji, R. (2023, December 4). Aligning and Prompting Everything All at Once for Universal Visual Perception. arXiv. https://arxiv.org/abs/2312.02153
+
+Shi, W., Cao, J., Zhang, Q., Li, Y., & Xu, L. (2016). Edge Computing: Vision and Challenges. IEEE Internet of Things Journal, 3(5), 637–646. https://doi.org/10.1109/JIOT.2016.2579198
+
+Sonono, T. (2019). Interoperable Retransmission Protocols with Low Latency and Constrained Delay: A Performance Evaluation of RIST and SRT [Master’s thesis, KTH Royal Institute of Technology]. https://www.diva-portal.org/smash/get/diva2:1335907/FULLTEXT01.pdf
+
+SRT. (1997, julio 7). Resolución SRT 51/97 de 1997. Mecanismo Preventivo de Control en Obras de Construcción. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/40000-44999/44588/norma.htm
+
+SRT. (1998, marzo 31). Resolución SRT 35/98 de 1998. Coordinación de Programas de Seguridad en Obras de Construcción. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/50000-54999/50188/norma.htm
+
+SRT. (s. f.). Programa de Construcción. Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/srt/prevencion/programas/construccion
+
+THU-MIG. (2025). THU-MIG / yoloe: YOLOE: Real-Time Seeing Anything. GitHub. https://github.com/THU-MIG/yoloe
+
+Thrush, T., Jiang, R., Bartolo, M., Singh, A., Williams, A., Kiela, D., & Ross, C. (2022). Winoground: Probing vision and language models for visio-linguistic compositionality (arXiv:2204.03162). arXiv. https://doi.org/10.48550/arXiv.2204.03162
+
+Ucar, A., Ro, S., Satwika, S., Gayathri, P. Y., & Balsha, M. G. (2025). Fine-Tuning Florence2 for Enhanced Object Detection in Un-constructed Environments: Vision-Language Model Approach (arXiv:2503.04918). arXiv. https://doi.org/10.48550/arXiv.2503.04918
+
+Ultralytics. (2026). Ultralytics YOLO26. https://docs.ultralytics.com/models/yolo26/
+
+UNESCO. (2021). Recommendation on the ethics of artificial intelligence. https://unesdoc.unesco.org/ark:/48223/pf0000380455
+
+Video Services Forum. (2020). Reliable Internet Stream Transport (RIST) protocol specification – Simple profile. Video Services Forum. https://static.vsf.tv/download/technical_recommendations/VSF_TR-06-1_2020_06_25.pdf
+
+Video Services Forum. (2024). Reliable Internet Stream Transport (RIST) Protocol Specification – Main Profile. Video Services Forum. https://static.vsf.tv/download/technical_recommendations/VSF_TR-06-2_2024_06_12.pdf
+
+Wang, A., Liu, L., Chen, H., Lin, Z., Han, J., & Ding, G. (2025). YOLOE: Real-Time Seeing Anything (arXiv:2503.07465). arXiv. https://doi.org/10.48550/arXiv.2503.07465
+
+Wang, H., Ren, P., Jie, Z., Dong, X., Feng, C., Qian, Y., Ma, L., Jiang, D., Wang, Y., Lan, X., & Liang, X. (2024). OV-DINO: Unified open-vocabulary detection with language-aware selective fusion (arXiv:2407.07844). arXiv. https://doi.org/10.48550/arXiv.2407.07844
+
+Wang, H., Zhang, X., Chen, H., Xu, Y., & Ma, Z. (2022). Inferring End-to-End Latency in Live Videos. IEEE Transactions on Broadcasting, 68(2), 517–529. https://doi.org/10.1109/TBC.2021.3071060
+
+Wang, Z., Wu, Y., Yang, L., Thirunavukarasu, A., Evison, C., y Zhao, Y. (2021). Fast personal protective equipment detection for real construction sites using deep learning approaches. Sensors, 21(10), 3478. https://doi.org/10.3390/s21103478
+
+Wojke, N., Bewley, A., & Paulus, D. (2017). Simple online and realtime tracking with a deep association metric. 2017 IEEE International Conference on Image Processing (ICIP), 3645–3649. https://doi.org/10.1109/ICIP.2017.8296962
+
+World Wide Web Consortium. (2025). WebRTC: Real-Time Communication in Browsers (W3C Recommendation). World Wide Web Consortium. https://www.w3.org/TR/webrtc/
+
+Xiao, B., Wu, H., Xu, W., Dai, X., Hu, H., Lu, Y., Zeng, M., Liu, C., & Yuan, L. (2024). Florence-2: Advancing a unified representation for a variety of vision tasks. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 4818–4829). https://doi.org/10.1109/CVPR52733.2024.00461
+
+Yao, L., Pi, R., Han, J., Liang, X., Xu, H., Zhang, W., Li, Z., & Xu, D. (2024). DetCLIPv3: Towards versatile generative open-vocabulary object detection (arXiv:2404.09216). arXiv. https://doi.org/10.48550/arXiv.2404.09216
+
+Yousefpour, A., Fung, C., Nguyen, T., Kadiyala, K., Jalali, F., Niakanlahiji, A., Kong, J., & Jue, J. P. (2019). All one needs to know about fog computing and related edge computing paradigms: A complete survey. Journal of Systems Architecture, 98, 289–330. https://doi.org/10.1016/j.sysarc.2019.02.009
+
+Yuksekgonul, M., Bianchi, F., Kalluri, P., Jurafsky, D., & Zou, J. (2023). When and why vision-language models behave like bags-of-words, and what to do about it? International Conference on Learning Representations. https://arxiv.org/abs/2210.01936
+
+Zang, Y., Li, W., Zhou, K., Huang, C., & Loy, C. C. (2022, March 22). [2203.11876] Open-Vocabulary DETR with Conditional Matching. arXiv. https://arxiv.org/abs/2203.11876
+
+Zareian, A., Rosa, K. D., Hu, D. H., & Chang, S.-F. (2021). Open-Vocabulary Object Detection Using Captions (arXiv:2011.10678). arXiv. https://doi.org/10.48550/arXiv.2011.10678
+
+Zhang, H., Zhang, P., Hu, X., Chen, Y.-C., Li, L. H., Dai, X., Wang, L., Yuan, L., Hwang, J.-N., & Gao, J. (2022). GLIPv2: Unifying Localization and Vision-Language Understanding (arXiv:2206.05836). arXiv. https://doi.org/10.48550/arXiv.2206.05836
+
+Zhang, Y., Sun, P., Jiang, Y., Yu, D., Weng, F., Yuan, Z., Luo, P., Liu, W., & Wang, X. (2022). ByteTrack: Multi-object Tracking by Associating Every Detection Box. En S. Avidan, G. Brostow, M. Cissé, G. M. Farinella, & T. Hassner (Eds.), Computer Vision – ECCV 2022 (Vol. 13682, pp. 1–21). Springer Nature Switzerland. https://doi.org/10.1007/978-3-031-20047-2_1
+
+Zhao, T., Liu, P., He, X., Zhang, L., & Lee, K. (2024). Real-time Transformer-based Open-Vocabulary Detection with Efficient Fusion Head (arXiv:2403.06892). arXiv. https://doi.org/10.48550/arXiv.2403.06892
+
+Zhao, X., Chen, Y., Xu, S., Li, X., Wang, X., Li, Y., & Huang, H. (2024). An Open and Comprehensive Pipeline for Unified Object Grounding and Detection (arXiv:2401.02361). arXiv. https://doi.org/10.48550/arXiv.2401.02361
+
+Zhou, K., Yang, J., Loy, C. C., & Liu, Z. (2022b). Learning to Prompt for Vision-Language Models. International Journal of Computer Vision, 130(9), 2337–2348. https://doi.org/10.1007/s11263-022-01653-1
+
+Zhou, X., Girdhar, R., Joulin, A., Krähenbühl, P., & Misra, I. (2022). Detecting twenty-thousand classes using image-level supervision (arXiv:2201.02605). arXiv. https://doi.org/10.48550/arXiv.2201.02605
 
 ---
 
 ## Fuente: `docs/informe/ajustes/01-etapa-1-fundamentacion-teorica.md`
 
-> SHA-256 del bloque: `2fdeb4186e7a62d65205f4d5bf58fc1b4510a60ef071308f848065d08fcfe576`  
-> Seleccion: documento completo.
+> SHA-256 del bloque: `844a02caad39f12c623f26e930747ec99ee741304e6c37c992a3dee0345191cd`  
+> Seleccion: tablero ORIGINAL AJ-1.01 a AJ-1.16 (2026-08-10), con el relevamiento que dio origen a la etapa y las cifras de vara con su marca de confianza. **Los 16 estan RESUELTOS** -AJ-1.04 y AJ-1.05 por eliminacion de las fichas, AJ-1.09 en el Anexo A, AJ-1.16 por el pase 3-. Se conserva como historia y como fuente de las cifras: NO es una lista de tareas.
 
 # Etapa 1 — ajustes a la fundamentación teórica (§15 Estado del Arte, §16 Marco Teórico)
 
+> ✅ **Estado (✎ 2026-08-28): Etapa 1 CERRADA** — §15+§16 **v1.0** en `entregable/desarrollando/`,
+> con **cinco pases** E1 aplicados y verificados (`verificar_entregable.py`), los 16 `AJ-1.xx`
+> resueltos y las podas 01–11 aplicadas; el Anexo A salió a `90e` (decisión del usuario, 08-27).
+> Única decisión de fondo abierta: `D-E1-11` (AAIP, `[[PENDIENTE]]`). Constancia:
+> `informe/entregable/00-el-informe-hoy.md`. **Lo que sigue abajo es registro histórico** del
+> relevamiento del 08-10, conservado como criterio de lectura — no es una lista de tareas.
+>
 > **Estado (2026-08-10):** relevado, **sin pase de correcciones aplicado**. El
 > relevamiento salió de contrastar el §15 del informe contra fuentes primarias
 > fetcheadas y contra nuestra propia evidencia medida (`sintesis/resultados-y-conclusiones.md`
@@ -2483,7 +3386,7 @@ del 2026-08-06, con el listado completo de arXiv/DOI consultados) ·
 ## Fuente: `docs/informe/entregable/borradores/vara-15.md`
 
 > SHA-256 del bloque: `d82aac011a58729e9bf7aeae19bf8147734f7704b635b7140ec18d7c4ba0d496`  
-> Seleccion: borrador listo para integrar: la vara del 15 (AJ-1.01/1.02/1.13).
+> Seleccion: borrador historico (2026-08-16) de la vara del 15: YA INTEGRADO al texto base (AJ-1.01/1.02/1.13 estan aplicados). Material de consulta para las cifras y sus marcas de confianza, NO redactar desde aca.
 
 # Borrador — la vara del §15 (AJ-1.01 · AJ-1.02 · AJ-1.13)
 
@@ -2622,10 +3525,114 @@ Verificadas 2026-08-06 (listado de `sintesis/resultados-y-conclusiones.md` §7.4
 
 ## Fuente: `docs/informe/ajustes/07-critica-extension-y-poda.md`
 
-> SHA-256 del bloque: `f0bc2cab64b1686d1abb153948f5386d72eaa38183b8ec0465f820c8f88602b8`  
-> Seleccion: podas 01 a 11 aplicables a las secciones 15 y 16.
+> SHA-256 del bloque: `9c0b3b926be0d2b4353c0cbde4b308b556a269914460edb2c61f3eb1c046c3c6`  
+> Seleccion: encuadre de la crítica de extension: la regla de gobierno (no hay limite de extension y no se poda por cuota, se poda por APORTE) y los cinco criterios C1 a C5 que cada PODA cita por su sigla. Sin esto, las fichas de poda no se pueden leer.
+
+# Crítica de extensión — qué podar del informe, sección por sección
+
+- **Fecha:** 2026-08-11
+- **Qué es esto:** la crítica de **extensión** del informe v1.1, medida y sección por
+  sección: qué eliminar porque **ya no se alinea con la plataforma que se construyó**, y
+  qué comprimir porque **no suma** al argumento. No existía: el `93` audita *corrección*
+  (26 redlines), `nucleo/historicos/02` auditó *contenido* de Etapa 3, y el "orden de
+  sacrificio" del `95` era de redlines contra tiempo. Ninguno mide longitud.
+- **Método:** conteo de palabras por sección sobre el texto extraído (`entregable/90`,
+  `96a`–`96e`), contrastado contra lo que la plataforma **es** (E-IND · GDINO-560 ·
+  dos planos servicios HTTP · bus ZeroMQ · bench_v3 · clip bench · sin fine-tuning ·
+  sin métricas MOT · sin inferencia en borde · distribución como trabajo comprometido).
+- **Serie de IDs: `PODA-nn`** (prefijo verificado libre). Ortogonal a `AJ-`/`R-`: un
+  mismo pase por sección aplica los dos. Cada ítem lleva casilla de decisión, como el 93.
+- **La decisión final es tuya**: esto propone; ninguna poda se aplica desde acá.
+
+> **✅ Regla de gobierno fijada por el usuario (2026-08-11): no hay límite institucional
+> de extensión, y no se poda por cuota — se poda por aporte.** *"Todo lo que tenemos que
+> desarrollar tiene que sumar."* Consecuencias operativas:
+> 1. **El filtro único es el aporte**: una sección se queda si sostiene un resultado,
+>    una decisión de diseño o un argumento de defensa. Si no sostiene nada, no va — sin
+>    importar cuánto costó escribirla.
+> 2. **No existe "segunda vuelta" sobre §17.1.5/§17.1.7**: bajo este criterio no se
+>    comprime prosa del protocolo ejercido para llegar a un número. Las 18 podas de este
+>    documento se justifican todas por desalineación o no-aporte, ninguna por cuota.
+> 3. **La misma vara gobierna lo que falta escribir**: §17.4, §17.5 y §17.6 se redactan
+>    al largo que su contenido exige y ni una palabra más — los insumos ya están
+>    inventariados (T-68…T-84, FIG-A…F), y relleno alrededor de una tabla verificable
+>    es dilución, no desarrollo.
+
+---
+
+## 1. El diagnóstico en números
+
+**El informe ya tiene ~127.000 palabras** (≈280+ páginas de cuerpo) **y las tres
+secciones más importantes todavía no existen** (§17.4, §17.5, §17.6, que van a sumar
+15–20k más). El problema no es solo estético: un tribunal que atraviesa 60 páginas de
+surveys de tecnologías no usadas llega cansado a los resultados.
+
+| Bloque | Palabras | % | Estado de alineación |
+|---|---:|---:|---|
+| §2–§14 frontmatter (`96a`) | 4.530 | 3,6% | OK — se corrige (AJ-0.x), no se poda |
+| §15 Estado del Arte (`96c`) | 21.575 | 17,0% | **8.000 de streaming/servidores** para una decisión que colapsó |
+| §16 Marco Teórico (`96d`) | 31.732 | 25,0% | **13.285 en §16.5** (transmisión/aceleración/arquitecturas/borde) |
+| §17.1 Consolidación (`96b`) | 32.222 | 25,4% | protocolo ejercido (se queda) + **5.054 de catálogo de datasets** viejo |
+| §17.3 Diseño (`90`) | 24.389 | 19,2% | lo opera el `93`; acá solo 2 ítems de longitud |
+| §18–§19 + Referencias (`96e`) | 12.339 | 9,7% | anexos se completan; Anexo A pierde función |
+| **Total escrito** | **≈126.800** | 100% | |
+
+**El titular, y es uno solo:** los dos temas **más desalineados** con la plataforma
+final están cubiertos **dos veces** — una en el estado del arte y otra en el marco
+teórico:
+
+- **MOT / seguimiento multiobjeto:** §15.3 (2.484) + §16.4 (2.769) = **5.253 palabras**
+  — para un proyecto que **excluyó las métricas MOT** (E-10, con fundamento medido:
+  F-89.1, las detecciones son bit a bit las mismas) y cuya ganancia por sujeto se mide
+  en la métrica de la plataforma, no en MOTA/IDF1.
+- **Streaming / arquitecturas de video / borde:** §15.4 (7.998) + §16.5.3–16.5.5
+  (8.009) = **16.007 palabras** — para una plataforma cuyo espacio de decisión colapsó a
+  *"RTSP de entrada, bus ZeroMQ adentro, archivo como verdad"*, que usa mediamtx solo
+  como herramienta de desarrollo, y que **excluyó la inferencia en borde** (EN-3; lo
+  ejercido es el prefilter EN-2).
+
+Juntos: **~21.200 palabras — el 17% del informe — dedicadas a los dos temas que menos
+sostienen el trabajo.** Mientras tanto, el §15 no tiene ni una cifra de la vara
+supervisada de EPP (`AJ-1.01`, el hueco que sí importa).
+
+---
+
+## 2. Los cinco criterios de poda
+
+| # | Criterio | Acción |
+|---|---|---|
+| C1 | **Desalineado**: describe una capacidad/tecnología que la plataforma final no usa, excluyó o refutó | ELIMINAR o comprimir a decisión declarada |
+| C2 | **Espacio de decisión colapsado**: survey amplio de opciones cuando la decisión final fue una y está justificada en una página | COMPRIMIR al camino tomado + por qué |
+| C3 | **Doble cobertura**: el mismo tema desarrollado en §15 y §16 (o §16 y §17.1) | FUSIONAR — una sola casa por tema |
+| C4 | **Meta-texto**: secciones que resumen, anticipan o "proyectan" otras secciones del mismo documento | ELIMINAR — el índice ya hace ese trabajo |
+| C5 | **Catálogo sin uso posterior**: listas/tablas de ítems que ninguna sección vuelve a citar | COMPRIMIR a los ítems con rol en el trabajo |
+
+**Regla de honestidad (no negociable, `gobierno/97` §3):** lo **pre-registrado y no
+ejercido no se borra en silencio** — se comprime a decisión declarada con su causa y su
+costo (caso testigo histórico: el fine-tuning E-04 mientras estuvo no ejercido, con su
+costo T1 por extrapolación medida: ≈16 min centrales (prudente 30–45 min; walltime
+2 h) — `operacion/100` adenda; la cifra histórica “≈1 GPU-h” quedó superada. ✎
+2026-08-11: E-04 es hoy **jornada comprometida** — ADR-017 — y el
+ejemplo vigente de la regla pasa a ser kappa/doble anotación, L2). Podar no es ocultar.
+
+---
+
+---
+
+## Fuente: `docs/informe/ajustes/07-critica-extension-y-poda.md`
+
+> SHA-256 del bloque: `dff0978660e1e7ef4cda6d3a620d38c9774e9a4a2d396f06e270df2fff846c59`  
+> Seleccion: podas 01 a 11 aplicables a las secciones 15 y 16: YA APLICADAS Y VERIFICADAS (etapa 1 CERRADA 2026-08-28) - se conservan solo como criterio de lectura, NO reaplicar. Dos enmiendas del pase de alineacion: la poda 04 se aplica CON la excepcion E1-10 (el parrafo de RTSP/RTP y la seccion 15.4.3 completa se conservan) y la poda 03 CON el matiz E1-08 (las metricas MOT se comprimen, no se eliminan).
 
 ## 3. §15 Estado del Arte (21.575 palabras)
+
+> ✎ **2026-08-28 — estado del tablero de podas (`00-el-informe-hoy` 08-28; `operacion/130` §5 /
+> `docs-set.md` #30):** **PODA-01…11 APLICADAS el 2026-08-27** en §15/§16 **v1.0** (22.266 →
+> 10.870 palabras, con las enmiendas E1-10/E1-08) — marcadas abajo. **PODA-12…14** (§17.1)
+> esperan el pase de la **Etapa 2**, que arranca (PODA-14 acotada por D-E2-8: sólo recorta
+> §17.1.4 y verifica que lo recortado esté en B.1–B.7). **PODA-15/16** (§17.3) pendientes
+> con causa. **PODA-17/18**: el Anexo A y las referencias salieron del entregable a `90e`
+> (decisión del usuario 08-27), donde se resuelven para el equipo.
 
 ### PODA-01 · §15.2.1 Paradigmas y modelos (4.530) · C5 · 🟠
 El catálogo trae **~25 modelos con cifras COCO/LVIS**; el trabajo evaluó **tres familias**
@@ -2634,18 +3641,18 @@ paradigmas en un párrafo cada uno + ficha solo de los modelos con rol en el tra
 (GDINO/MM-GDINO/YOLO-World/YOLOE/OWLv2 · GDINO 1.5/DINO-X como techo de API cerrada) +
 la Tabla 3 reducida a esas filas. Beneficio doble: **menos superficie de erratas** — las
 AJ-1.04…08 viven justo en las filas que se van (OmDet-Turbo, LLMDet, el caching de 40 ms).
-**Ahorro: ~2.000** · DECISIÓN → [ ] acepto [ ] modifico [ ] rechazo
+**Ahorro: ~2.000** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ] acepto [ ] modifico [ ] rechazo
 
 ### PODA-02 · §15.2.4 Ventajas/limitaciones/trade-offs (2.764) · C3/C4 · 🟠
 Solapa con §15.2.3 (síntesis comparativa, 1.153) y con §16.7. Fusionar 15.2.3+15.2.4 en
-una sola síntesis de ~1.200 con tabla. **Ahorro: ~1.500** · DECISIÓN → [ ]
+una sola síntesis de ~1.200 con tabla. **Ahorro: ~1.500** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-03 · §15.3 MOT completo (2.484) · C1 · 🟠
 La plataforma **no evalúa MOT**: E-10 excluye MOTA/IDF1 con causa medida, y el tracker
 que existe se mide por alertas. Mantener ~800: tracking-by-detection en un párrafo (es lo
 que fundamenta G1) + la brecha. **Eliminar §15.3.3 entero** (métricas MOT, 385 — no se
 usa ni una) y podar el catálogo de métodos (§15.3.1–15.3.2) a los dos que expliquen el
-approach del tracker propio. **Ahorro: ~1.600** · DECISIÓN → [ ]
+approach del tracker propio. **Ahorro: ~1.600** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-04 · §15.4 Streaming y servidores de medios (7.998) · C1/C2 · 🔴 la mayor
 **La sección más desalineada del informe.** 4.041 palabras de protocolos (WebRTC, HLS,
@@ -2657,7 +3664,7 @@ Comprimir a ~1.200: panorama mínimo de protocolos de **ingesta** + la brecha
 streaming×OVD (§15.4.3, que sí vale). La *justificación de la decisión tomada*
 (RTSP en la entrada, bus de eventos adentro) no va acá: es material de §17.1/§17.3
 (regla de no-anacronismo — el §15 no relata elecciones del proyecto).
-**Ahorro: ~6.800** · DECISIÓN → [ ]
+**Ahorro: ~6.800** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 **Lo que el §15 GANA mientras pierde esto:** la vara supervisada (AJ-1.01), el cruce con
 la evidencia propia (AJ-1.02) y la Vara 3 OVD×EPP (AJ-1.13). La poda no deja al §15 más
@@ -2682,36 +3689,36 @@ Segunda casa del MOT. Mantener §16.4.1 (la limitación del fotograma — motiva
 histéresis) y §16.4.3 (integración OVD+tracking — motiva G1); comprimir §16.4.2
 (fundamentos MOT, 1.600 → ~700) y **eliminar §16.4.4** (criterios de selección de
 métodos MOT, 487 — no hubo selección de método de catálogo). **Ahorro: ~1.400** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-06 · §16.5.2 Descomposición del pipeline (4.874) · C3 · 🔴
 Mantener lo que **define G2A y sus componentes** (t_capture/t_transport/t_preprocess/
 t_inference — es vocabulario que §17.1.7 y los resultados usan): ~1.400. El resto
 duplica lo que §17.1.7 ya formaliza como framework de métricas. **Ahorro: ~3.400** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-07 · §16.5.3 Arquitecturas de procesamiento de video (3.594) · C1/C2 · 🔴
 Survey de frameworks/arquitecturas de video analytics — y la plataforma es **un pipeline
 Python propio de dos servicios config-driven**. Comprimir a ~600: el patrón
 productor/consumidor como fundamento conceptual; la elección concreta (pipeline propio,
 no framework) se justifica en §17.3, no en el marco teórico. **Ahorro: ~3.000** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-08 · §16.5.4 Computación en el borde (2.729) · C1 · 🔴
 **EN-3 (inferencia en borde) está excluida.** Lo ejercido es el prefilter EN-2 on-device
 (87% de descarte medido) y la OAK-D como fuente. Comprimir a ~700: el fundamento
 **conceptual** del prefiltrado en el borde; la decisión de dónde vive la inferencia (y su
-resultado medido) pertenecen a §17.3 y §17.5. **Ahorro: ~2.000** · DECISIÓN → [ ]
+resultado medido) pertenecen a §17.3 y §17.5. **Ahorro: ~2.000** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-09 · §16.5.5 Criterios para protocolos y stacks de streaming (1.686) · C2 · 🔴
 Criterios de selección para una selección que ya ocurrió y colapsó (ver PODA-04). Un
-párrafo puente a la decisión tomada. **Ahorro: ~1.400** · DECISIÓN → [ ]
+párrafo puente a la decisión tomada. **Ahorro: ~1.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-10 · §16.6 Marco ético-legal (4.364) · C5 parcial · 🟠
 Tiene núcleo vivo: §16.6.2 (delimitación del tratamiento de datos — **implementada** en
 §17.3.12, minimización de evidencia visual) y §16.6.6 (implicaciones de diseño). Podar lo
 genérico: §16.6.4 referentes comparados (422), §16.6.5 gobernanza de IA (499), y
-comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [ ]
+comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-11 · §16.7 Convergencias y brechas transversales (4.429) · C4 · 🔴
 **Meta-texto puro**: seis subsecciones que re-resumen el propio §16 y anticipan §17.1
@@ -2719,15 +3726,102 @@ comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [ ]
 consolidación"). El lector ya leyó el §16 y va a leer el §17.1; este puente de 4.400
 palabras no aporta contenido nuevo. Fusionar con §16.8 en un cierre único de ~1.000
 (el mapa de brechas de §16.7.3 es lo único que se rescata, comprimido). **Ahorro:
-~3.400** · DECISIÓN → [ ]
+~3.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ---
+
+---
+
+## Fuente: `docs/informe/ajustes/07-critica-extension-y-poda.md`
+
+> SHA-256 del bloque: `44cc87962e89066323feb695800b7b2c3c61a1fa07ff69bb42b3e58abafc900a`  
+> Seleccion: de este bloque, a la etapa 1 le tocan la poda 17 (Anexo A, que es su tercera pieza: decision D-E1-4) y la poda 18 (Referencias, que se poda sola al caer secciones y con el pase de AJ-1.10); las demas son de otras etapas. Incluye ademas el tablero completo y, sobre todo, los GUARDRAILS: su punto 1 protege 16.2 y 16.3 —el corazon conceptual de la tesis— de las podas 05 a 11, y su punto 6 fija que las adiciones de vara mandan sobre las podas (la poda les hace lugar, no compite con ellas).
+
+## 7. §18, §19 y Referencias (12.339 palabras)
+
+### PODA-17 · §19.1 Anexo A — comparativas técnicas (749) · C3 · 🟡
+Con la vara supervisada dentro del §15 (AJ-1.01/1.13), el anexo de "estado del arte
+complementario" pierde su función. Rescatar lo vivo (la Tabla A.1 con las licencias
+**corregidas** — AJ-1.09) hacia §15 o Anexo B, y eliminar el resto. **Ahorro: ~500** ·
+DECISIÓN → [ ]
+
+### PODA-18 · Referencias (5.886) · consecuencia · 🟡
+Se poda sola al caer las secciones (los ~25 modelos, los protocolos, los servidores de
+medios arrastran decenas de entradas), y el pase de AJ-1.10 unifica duplicados
+(Liu 2023/2024, Lin 2014/2015, Ren a/b/c). **Ahorro estimado: ~800** · DECISIÓN → [ ]
+
+**Anexos B/C/D: no se podan** — son el destino natural de lo que sale del cuerpo
+(PODA-14) y del anexo de reproducibilidad (`AJ-6.02`).
+
+---
+
+## 8. Tablero de poda
+
+| ID | Sección | Hoy | Acción | Ahorro | Pri |
+|---|---|---:|---|---:|---|
+| PODA-01 | §15.2.1 catálogo de modelos | 4.530 | comprimir a modelos con rol | ~2.000 | 🟠 |
+| PODA-02 | §15.2.3+.4 síntesis duplicada | 3.917 | fusionar en una | ~1.500 | 🟠 |
+| PODA-03 | §15.3 MOT | 2.484 | comprimir; eliminar métricas MOT | ~1.600 | 🟠 |
+| PODA-04 | §15.4 streaming/servidores | 7.998 | **comprimir a decisión tomada** | **~6.800** | 🔴 |
+| PODA-05 | §16.4 MOT teórico | 2.769 | mantener lo que motiva G1/histéresis | ~1.400 | 🟠 |
+| PODA-06 | §16.5.2 pipeline | 4.874 | mantener solo definición de G2A | ~3.400 | 🔴 |
+| PODA-07 | §16.5.3 arquitecturas de video | 3.594 | comprimir a patrón usado | ~3.000 | 🔴 |
+| PODA-08 | §16.5.4 borde | 2.729 | comprimir a EN-2 + exclusión EN-3 | ~2.000 | 🔴 |
+| PODA-09 | §16.5.5 criterios streaming | 1.686 | párrafo puente | ~1.400 | 🔴 |
+| PODA-10 | §16.6 ético-legal | 4.364 | podar genérico, mantener lo implementado | ~1.400 | 🟠 |
+| PODA-11 | §16.7 convergencias | 4.429 | **fusionar con 16.8, es meta-texto** | ~3.400 | 🔴 |
+| PODA-12 | §17.1.6.2 catálogo datasets | 5.054 | comprimir a usados + descartes (con R-24) | ~3.000 | 🔴 |
+| PODA-13 | §17.1.10 proyección | 637 | párrafo puente | ~450 | 🟡 |
+| PODA-14 | §17.1.4 infra | 3.252 | detalle al Anexo B | ~1.000 | 🟡 |
+| PODA-15 | §17.3.15 roles | 1.319 | con R-17: tabla, no prosa | ~700 | 🟡 |
+| PODA-16 | §17.3.17 backlog | 1.101 | con R-21: estado final | ~500 | 🟡 |
+| PODA-17 | §19.1 Anexo A | 749 | eliminar tras AJ-1.01/1.09 | ~500 | 🟡 |
+| PODA-18 | Referencias | 5.886 | consecuencia + AJ-1.10 | ~800 | 🟡 |
+| **Total** | | | | **~34.900 (~27%)** | |
+
+**Resultado esperado (consecuencia, no meta):** de ~127k a **~92k escritas**; con
+§17.4/§17.5/§17.6 sumadas (15–20k), el informe final queda en ~110k en lugar de ~145k.
+✎ 2026-08-11 — **no hay objetivo numérico** (regla de gobierno del encabezado): estas
+cifras miden el efecto de podar lo que no aporta, no un tope a alcanzar. No hay segunda
+vuelta sobre §17.1.5/§17.1.7.
+
+**Orden recomendado:** los ocho 🔴 primero (son el 65% del ahorro y tienen el riesgo
+argumental más bajo: nada de lo que eliminan sostiene un resultado ni un argumento de
+defensa). Los 🟠 en el pase de cada sección junto a sus AJ-. Los 🟡 al final.
+
+---
+
+## 9. Guardrails — lo que esta crítica NO autoriza a tocar
+
+1. **§16.3** (visión-lenguaje) y **§16.2** (normativa→condiciones): el corazón
+   conceptual y el ancla de CR-01/CR-02.
+2. **§17.1.5 y §17.1.7**: el protocolo ejercido y el framework de métricas — son la
+   columna vertebral metodológica que §17.5 va a citar.
+3. **La latencia como restricción** (§16.5.1) y la definición de G2A: el eje de tiempo
+   real es un resultado central, no un survey.
+4. **Nada pre-registrado se borra en silencio**: fine-tuning, kappa, TN — se comprimen a
+   decisión declarada con causa (regla `97` §3; los textos de declaración ya existen:
+   `94` §8, AJ-2.06, AJ-2.11). (✎ 2026-08-11: el fine-tuning dejó de ser caso
+   "no ejercido" — ADR-017 lo compromete como jornada; `94` §8 y AJ-2.11 ya están
+   reescritos con ese encuadre.)
+5. **Ningún texto que un redline necesita como ancla**: antes de eliminar un párrafo de
+   §17.3, verificar que ningún R-xx lo cita como "DICE HOY".
+6. **Las adiciones mandan sobre las podas**: AJ-1.01/1.02/1.13 (la vara y el cruce)
+   *agregan* al §15 — la poda les hace lugar, no compite con ellas.
+
+## 10. Fuentes
+
+Conteos: medidos el 2026-08-11 sobre `entregable/90` y `96a`–`96e` (por encabezado,
+`wc -w` por sección). Alineación: `nucleo/10` (exclusiones E-01…E-13) · ADR-002/003/015/016 ·
+`nucleo/14`–`19` (los relevamientos vigentes) · `operacion/97` (la plataforma verificada) ·
+`sintesis/resultados-y-conclusiones.md` §7 (lo que el §15 debe ganar) ·
+`material-etapa-3/93` (los redlines con los que esta poda se coordina).
 
 ---
 
 ## Fuente: `docs/sintesis/fundamentos-teoricos.md`
 
-> SHA-256 del bloque: `59f89d6fbeff40e2ea805a21ee051a3429aacdfef6feeb9715658516207980eb`  
+> SHA-256 del bloque: `14949759c934e0d736a80726984d1dbb9790d7df6ffaa0531a4e66aea999e085`  
 > Seleccion: documento completo.
 
 # Fundamentos teóricos — entender la plataforma y sus resultados de punta a punta
@@ -3345,7 +4439,18 @@ D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032
 la misma jornada** con la baseline YOLOE-26s one-shot ejecutada (doc 120) — el NO-GO quedó
 en su último eslabón: `full-authorization.json` + `RUN` manual. La
 baseline zero-shot era el prerequisito y ES la pregunta central; los resultados y
-limitaciones de la jornada se documentan con su estado a la entrega. *"¿un YOLO
+limitaciones de la jornada se documentan con su estado a la entrega.
+✎ **2026-08-28 — este bloque quedó en el 08-15; la jornada E-04 está COMPLETA y CERRADA**
+(acta `operacion/128` §1; `operacion/130` §5 / `docs-set.md` #1): **T1 NO-GO** el 08-17
+(`operacion/123`: `bare_head` AP50 0,0000→0,0455, recall CR-01 0,0002→0,2089, falla el gain
+gate por 0,0045 y la retención por `person` −11,62 %); **T2 NO-GO** el 08-21 (`operacion/127`:
+colapso en entrenamiento, ganancia PASA en `bare_head` 0→0,0909 pero retención in-domain
+FALLA ×4 —`person` −49,7 %— y OV FALLA —COCO −71,3 %—); **T3 cerrado con causa técnica**
+(sin baseline MM-GDINO sana, `operacion/117` §2). La respuesta hostil se arma con la **curva
+de 3 puntos** (baseline / T1 / T2) y **F-127.1**: el fallo no era capacidad sino
+**estructural** (2.946 imágenes vs 10,35 M parámetros); T1 gana por recall CR-01 y T2 por
+AP — no es una métrica única. Ningún checkpoint adoptado; no hay más brazos contra `bench_v3`.
+Nunca "falta de tiempo" (ADR-017). *"¿un YOLO
 entrenado no haría esto mejor?"* → en su clase sí; la tesis mide otra cosa:
 condiciones en lenguaje, extensibilidad y el aporte de la capa temporal/identidad,
 que es agnóstica al detector. *"¿cuál es el FAR/hora?"* → se mide y se reporta, pero

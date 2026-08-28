@@ -23,13 +23,24 @@ El knowledge del Project usa **cuatro archivos**:
    Subí solo el de la etapa que estás trabajando.
 3. `informe/entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`: el informe base —
    autoridad de formato, estilos y estructura; su §17.3 está vaciada a propósito.
-4. El `.docx` **vigente** de la sección en trabajo (✎ 2026-08-22 — hoy viven en
-   `informe/entregable/desarrollando/`): para la etapa 3,
-   `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx`; para la etapa 4,
-   `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx` — ambos con el pase 1 ya aplicado.
-   Para las demás etapas este cuarto archivo no aplica (salvo que la etapa tenga sección
-   propia cerrada). El histórico `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx`
-   (16-08, PREVIO al pase 1) quedó superado y **no se sube**; tampoco se sube nunca el
+4. El `.docx` **vigente** de la sección en trabajo, que vive en
+   `informe/entregable/desarrollando/` (✎ 2026-08-28 — tabla al día; la versión anterior de
+   este README nombraba `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx` y
+   `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx`, que **ya no existen en disco**;
+   `operacion/130` §5 / `docs-set.md` #3):
+
+   | Etapa | `.docx` vigente en `desarrollando/` | Estado |
+   |---:|---|---|
+   | 1 | `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx` | **v1.0 CERRADA** (2026-08-28) |
+   | 2 | `E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.0.docx` | v1.0 = texto de v1.1 sin correcciones; **en preparación** (la etapa arranca) |
+   | 3 | `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.4.docx` | v1.4, tres pases aplicados |
+   | 4 | `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.6.docx` | v1.6, tres pases aplicados |
+   | 5 | `E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.3.docx` | v1.3, redactada bajo D-P3-6 |
+   | 0 · 6 | — | sin documento de trabajo todavía; el cuarto archivo no aplica |
+
+   Las versiones anteriores están en `desarrollando/archivado/` y **no se suben**. El
+   histórico `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (16-08, PREVIO al pase 1)
+   quedó superado y **no se sube**; tampoco se sube nunca el
    `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` completo (su §17.3 embebida está
    desactualizada).
 
@@ -39,16 +50,18 @@ el generador y sus pruebas tampoco se suben.
 
 ## Primera carga
 
-**Estado que define el orden (✎ 2026-08-23):**
+**Estado que define el orden (✎ 2026-08-28; antes 2026-08-23 — fuente `informe/entregable/00-el-informe-hoy.md`):**
 
 | Sección | Estado | Trabajo que queda |
 |---|---|---|
-| §17.3 | **v1.4** — tres pases aplicados y verificados | revisión del autor · figuras · integrar al maestro |
-| §17.4 | **v1.5** — tres pases aplicados y verificados | revisión del autor · URLs del lote · integrar al maestro |
+| §15 · §16 | **v1.0 CERRADA (2026-08-28)** — cinco pases E1, 16 `AJ-1` resueltos, podas 01–11 aplicadas; Anexo A a `90e` | sólo `D-E1-11` (AAIP, `[[PENDIENTE]]`) · integrar al maestro |
+| §17.1 | **Etapa 2 EN CURSO** — `.docx` v1.0 en `desarrollando/`; relevamiento previo `operacion/130` y decisiones D-E2-1…8 firmadas el 08-28 | el pase de la etapa 2 (`correcciones-etapa-2.md`, en preparación) |
+| §17.3 | **v1.4** — tres pases aplicados y verificados | revisión del autor · figuras · D-E2-2 (glosa de §17.3.6.4 → remisión, v1.5) · integrar al maestro |
+| §17.4 | **v1.6** — tres pases aplicados y verificados | revisión del autor · URLs del lote (C1) · integrar al maestro |
 | §17.5 | **v1.3** — redactada bajo D-P3-6 y verificada | revisión del autor · figuras · integrar al maestro |
 | §17.6 · §19 | vacías | redactar desde cero |
 | §18 | vacía | redactar **después** de cerrar §17.5: interpreta lo que ella reporta |
-| §15 · §16 · §17.1 · §11–§14 | escritas | correcciones de prosa y poda — **al final**, por decisión del usuario |
+| §11–§14 | escritas | correcciones de prosa (Etapa 0) — **al final**, por decisión del usuario |
 
 **Cada sección se trabaja en su propio documento** (decisión del usuario, 2026-08-23): los
 `.docx` de `entregable/desarrollando/` son la versión de trabajo de §17.3, §17.4 y §17.5, y
@@ -62,11 +75,13 @@ criterio de lectura (sus decisiones D1–D4, D-P2-1…6 y D-P3-1…6 siguen rigi
 lista de tareas. Re-aplicarlos sobre texto ya corregido es exactamente la falla de
 integración que costó una pasada completa el 2026-08-23.
 
-**Orden recomendado de lo que queda: 6 → 1 → 2 → 0**, con §17.6 y §19 antes que §18.
+**Orden de trabajo vigente (✎ 2026-08-28): Etapa 2 AHORA** (§17.1; la Etapa 1 cerró el 08-28),
+después **6 → 0**, con §17.6 y §19 antes que §18. *(Decía "6 → 1 → 2 → 0": el usuario
+cambió el orden el 08-27/28 — primero cerrar la fundamentación y el protocolo, después el cierre.)*
 
 ```bash
-python3 herramientas/generar_project_kit.py --etapa 6
-python3 herramientas/generar_project_kit.py --etapa 6 --check
+python3 herramientas/generar_project_kit.py --etapa 2
+python3 herramientas/generar_project_kit.py --etapa 2 --check
 ```
 
 Después:

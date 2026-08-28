@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 4
 
-> Generado el 2026-08-23. Etapa 4: seccion 17.4, implementacion del prototipo.
+> Generado el 2026-08-28. Etapa 4: seccion 17.4, implementacion del prototipo.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -32,6 +32,11 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **Trampa de cita: T1 gana por recall CR-01, T2 por AP — no hay "mejor tuned" de
    metrica unica.** Va en tabla propia, por estrato, nunca mezclada con el nucleo
    zero-shot.
+6. **Plataforma relevada de punta a punta el 2026-08-28** (`operacion/130`, seis repos, solo
+   lectura): lo estructural coincide con los docs; las 26 cifras de los cuatro indices verifican
+   (EXIT 0); `bench_v3` reproduce byte a byte. Lo que 130 corrigio manda sobre cualquier foto
+   anterior (en particular sobre `operacion/97`).
+7. **Etapa 1 del informe CERRADA** (2026-08-28): §15 + §16 en su documento v1.0, verificador OK.
 
 **ABIERTO — no se afirma; se marca:**
 
@@ -43,13 +48,19 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    juzgabilidad, mas la FIG-D preexistente), pero **pegarlas en el documento sigue
    pendiente**: en el texto se referencian con `[[FIGURA: cual]]` y no se describe una
    figura como presente mientras la seccion no la tenga insertada.
-3. **La integracion al documento maestro.** ✎ 2026-08-23: §17.3, §17.4 y §17.5 se
-   trabajan **cada una en su propio documento**, y los tres pases de correccion ya
-   estan APLICADOS Y VERIFICADOS ahi (17.3 v1.4 · 17.4 v1.5 · 17.5 v1.3, en
-   `entregable/desarrollando/`). Lo que sigue abierto es **integrarlas al maestro**, que
-   todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. El texto base vigente
-   de cada etapa es su extraccion (90 / 90b / 90c), nunca el placeholder del maestro ni
-   los borradores.
+3. **La integracion al documento maestro.** ✎ 2026-08-28: cada seccion se trabaja **en su
+   propio documento** en `entregable/desarrollando/`; lo que queda al final es
+   **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
+   **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
+   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
+   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
+   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
+   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
+   `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
+4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
+   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -63,6 +74,44 @@ Reglas: nunca completar un marcador con una estimacion, un valor probable ni una
 redaccion evasiva; nunca borrarlo para que el texto "fluya"; el marcador viaja hasta el
 entregable y recien lo remueve quien aporta el dato. Un capitulo con marcadores visibles
 es honesto; un capitulo que rellena huecos es indefendible.
+
+## Como se trabaja y como se entrega (obligatorio, ✎ 2026-08-27)
+
+**No se trabaja sobre una unidad de Drive conectada, ni editando el documento en su nube.**
+Se trabaja **dentro del Project**, con estos archivos de knowledge como unica fuente: el
+paquete de la etapa activa **ya contiene el texto vigente completo** de la seccion que se
+esta corrigiendo (la extraccion `90`/`90b`/`90c`/`90d`/`90f` segun la etapa). No hace falta ir a
+buscar el documento a ningun lado, y hacerlo empeora el resultado.
+
+*Por que la regla existe.* En la entrega del 2026-08-27 el contenido salio bien pero
+**cinco encabezados numerados contiguos perdieron su estilo de titulo** (`16.5.3`, `16.5.4`,
+`16.5.5`, `16.6`, `16.6.1`): se ven como titulos y no lo son, asi que desaparecen del indice
+automatico y de la numeracion de campos. El defecto aparecio al editar via Drive y no se ve
+leyendo el texto. Ese ida y vuelta tambien pierde los cambios controlados.
+
+**Forma de la entrega**, por seccion y no del documento completo:
+
+1. Un `.docx` armado **sobre una COPIA del DOCX base** de formato, nunca sobrescribiendolo.
+2. **Cada titulo con su estilo de encabezado real** (`Heading 2/3/4/5`), jamas texto en
+   negrita imitando un titulo. Si se elimina una subseccion, **renumerar sus hermanas**: un
+   salto (por ejemplo `16.7.1`, `16.7.2`, `16.7.6`) se ve en el indice.
+3. **Con cambios controlados activados**, o en su defecto con el bloque de trazabilidad por
+   unidad que piden las instrucciones del Project (diagnostico · texto propuesto ·
+   trazabilidad · pendientes).
+4. Sin markdown crudo pegado (`###`, `|---|`, cercos de codigo) y sin identificadores
+   internos: `AJ-`, `R-`, `PODA-`, `E1-`/`E3-`/`E4-`, lineas `SHA-256`, cabeceras
+   `> Seleccion:`. **Excepcion**: los codigos `P-E1-xx` de las preguntas rectoras SI son
+   parte del informe.
+5. Los marcadores `[[PENDIENTE: …]]` / `[[CIFRA: …]]` / `[[FIGURA: …]]` **viajan**: no se
+   completan con estimaciones ni se borran.
+6. **Delta de referencias explicito**: altas completas en APA 7 con DOI/URL, y bajas de lo
+   que dejo de citarse. Si una obra queda citada solo desde la nota de una tabla, decirlo.
+
+**Verificacion mecanica antes de dar una entrega por buena** (la corre el equipo, es parte
+del circuito y no un extra): `python3 herramientas/verificar_entregable.py <entrega.docx>
+--seccion <N>` (p. ej. `--seccion 15 --seccion 16`, o `--seccion 17.1`). Falla con titulos sin estilo, huecos de numeracion, fugas de
+andamiaje, markdown crudo y citas sin entrada en referencias; e informa las referencias
+huerfanas, la misma autoria con años distintos y si faltan los cambios controlados.
 
 ## Estado vigente que manda sobre el resto
 
@@ -116,23 +165,73 @@ es honesto; un capitulo que rellena huecos es indefendible.
   propio al distribuidor sin cambiar el conteo — seguian siendo tres. **ADR-020**,
   el mismo dia, derogo a ADR-018 e invirtio el default: HTTP paso a ser el acople
   normal, el subproceso bajo a fallback, y volvieron a ser DOS.)*
+- **Orden de arranque de una corrida live CON distribucion (✎ 2026-08-28, `operacion/130`
+  R-01 — corrige a FIG-A, al CLAUDE.md raiz y a la nota de 128 §4, que decian lo contrario):**
+  el runner lanza **control → distribucion → medios**: primero `POST :8081/api/runs`
+  (`mode: live`, con `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), despues
+  `POST :8082/api/runs` (necesita el `control_run_id`) y por ultimo `POST :8080/api/runs`. La
+  no-perdida en el bus de alertas la garantiza el **handshake XPUB del publicador** (el control
+  espera la suscripcion del distribuidor hasta 10 s), no el orden literal. **NO escribir
+  "distribucion primero" ni "orden inverso al flujo de datos".** §17.4 v1.6 todavia lo dice
+  (pendiente de la etapa 4).
+- **Campeon y sus umbrales (✎ 2026-08-28, `operacion/130` R-04/R-11):** citar siempre el par
+  completo `gdino-tiny-560` = 560 px · `box_threshold` **0,30** · `text_threshold` 0,25 · NMS
+  IoU 0,50 · fp16. **`gdino-tiny` (800 px) corrio a 0,35**: la comparacion "560 no degrada mAP
+  respecto de 800" esta confundida con el umbral en el par tiny (el par base si esta a 0,30 en
+  ambos: 0,453 vs 0,401); el −24 % de latencia no depende del umbral. El **n=5.313** del recall
+  CR-01 (S1/S2) es el del GT del 2026-07-23; con el GT vigente (29-jul) el denominador es 5.308
+  y la medicion no se repitio: citarlo fechado. `effective_config.yaml` imprime tambien los
+  campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35`
+  en YOLOE): **GDINO usa `box`+`text`+`iou`; YOLOE usa `confidence`+`iou`**. El campo
+  `run.scenario` **no clasifica** DBE/EBE (siempre dice `DBE`): se distingue por `source_type` +
+  `bus.enabled`.
+- **Motor de patrones (✎ 2026-08-28, `operacion/130` R-07):** **cinco** estados
+  `inactive → candidate → confirmed → sustained → resolved`, alerta solo al entrar a
+  `confirmed`, reapertura `resolved → candidate`; `cr01_cr02_v2` = CR-01 `high` 4.000/2.000 ms,
+  CR-02 `medium` 7.000/3.000 ms, **sin cooldown** (la capacidad existe en el codigo, desactivada);
+  la persistencia se implementa como **duracion desde la primera evidencia con tolerancia a
+  huecos**, no como proporcion de frames positivos. Hitos persistidos 4 de 5 (la notificacion es
+  del distribuidor). Causa two-node = `clock_skew` (no `cross_node_monotonic_clock`).
+- **Fine-tuning y datos (✎ 2026-08-28, `operacion/130` R-02/R-03):** el entrenamiento efectivo
+  (`finetuning_v1`, T1/T2) uso `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+  train / 483 val** y **EXCLUYO `chv`** por anti-leakage (el 100 % de `chv` es estrato del banco);
+  "css + chv + ppe_siabar" es el rol TRAIN **historico** (`train_v2`, archivado 08-15) y NO se
+  escribe como lo entrenado. El protocolo (Tabla 28 de §17.1) acotaba el split a 500–2.000
+  imagenes: **2.946 es una desviacion que se declara** (100 % de linajes elegibles tras dedup y
+  exclusion del banco; F-127.1 muestra que aun asi es insuficiente). Los checkpoints ajustados
+  **solo se evaluaron en DBE-imagenes**, nunca en clips ni EBE (ΔSDR/Δt_alert/ΔTTFD no existen).
+  De los 9 datasets de la Tabla 26 de §17.1 solo SHEL5K y CHV se usaron (como fuentes del banco);
+  css y ppe_siabar, los que se entrenaron, no figuran en esa tabla.
+- **G2A y la cadena temporal (✎ 2026-08-28, `operacion/130` R-17):** el G2A medido va del
+  **dequeue** (el proceso ya leyo el frame) al **fin de la inferencia**; el tramo sensor→dequeue
+  (`capture_to_host`, 202–217 ms) existe **solo para OAK-D** — para RTSP ese tramo **no se midio**
+  (no "se suma", falta). NVDEC no se uso (decodificacion por software). El SO real es Linux/WSL2,
+  no Windows 11 como decia el protocolo.
 - **La containerizacion SI se puede mencionar en el informe** (✎ 2026-08-18, precision del
-  usuario — antes esto se leia como "no mencionarla"). Esta **diferida con causa**
-  (ADR-019 §4): se va a hacer **despues** de cerrar la redaccion, su razon de ser es la
-  **reproducibilidad** de la plataforma —que un tercero pueda levantarla en otra maquina—
-  y **no** cerrar el informe, y su **documentacion operativa vive en los repositorios**
-  (`infra/`, READMEs), no en la tesis. **Como escribirla:** como **trabajo comprometido
-  con su causa**, en el cierre (§17.6/§18) y en el camino de reproducibilidad (§19).
-  **Como NO escribirla:** en presente, como capacidad existente, o con instrucciones de
-  despliegue — el informe no es un manual. La frase que gobierna: *describir el compromiso
-  y su fundamento es correcto; describir un despliegue que no corrio es falso.*
+  usuario). ✎ 2026-08-28 (`operacion/130` R-09): **esta DEFINIDA y validada por configuracion**
+  desde el 2026-08-19/20 — Dockerfiles en los tres repos de servicio y `infra/platform/` con el
+  compose de 13 servicios y paridad de rutas; lo que sigue **pendiente y diferido a post-entrega
+  es el build y el smoke integral** (nunca se corrieron). Su razon de ser es la
+  **reproducibilidad** (que un tercero levante la plataforma en otra maquina), y su documentacion
+  operativa vive en los repositorios, no en la tesis. **Como escribirla:** "definida y validada
+  por configuracion; despliegue no verificado", como trabajo comprometido con su causa, en el
+  cierre (§17.6/§18) y en el camino de reproducibilidad (§19). **Como NO escribirla:** ni
+  "diferida" (ya esta escrita), ni en presente como capacidad desplegada, ni con instrucciones
+  de despliegue — el informe no es un manual. *Describir el compromiso y su fundamento es correcto; describir un despliegue
+  que no corrio es falso.*
 - **Metricas de `report.json`**: `t_alert-system` es **citable** (esta en el diccionario de
   la spec 40 §5.1 y siempre debio figurar; dejo de estar clavada en `not_applicable`).
   `precision_alertas` / `recall_alertas` / `F1_alertas` **existen pero NO son citables**:
   duplican cifras que ya se reportan via `evaluate-alerts` con denominadores por estrato.
   **La citabilidad esta materializada**: `t_alert-system` ES la columna `t_alert` del
   clip bench (campo `t_alert_system_ms` de cada `metrics.json`) — citable por campana y
-  por condicion, nunca promediada entre campanas. NO confundir con `t_alert-notification`
+  por condicion, nunca promediada entre campanas. ✎ 2026-08-28 (`operacion/130` R-05): esa
+  cifra es un **PROMEDIO por campana** — `evaluate-alerts` no produce percentiles ni persiste
+  latencias por episodio; los **P50/P95/P99** existen solo para el tramo de plataforma
+  (`summary.json` de medios y control: G2A, `processing_ms`, `ttfa_internal`) y para
+  `t_alert-notification` (`metrics.json` de la campana 118). Decirlo cuando se cite. Y
+  `t_alert-system` cierra en el **reloj de fuente del frame que confirmo** (`alert.timestamp_ms`),
+  no en el registro interno monotónico. NO confundir con `t_alert-notification`
   (bus→PUBACK, la campana de distribucion): son tramos con relojes distintos y **los
   percentiles no se suman entre tramos** — la cadena temporal completa se cita POR TRAMOS
   segun la tabla de `results/index.md`.
@@ -154,7 +253,7 @@ es honesto; un capitulo que rellena huecos es indefendible.
 ## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md`
 
 > SHA-256 del bloque: `51874c00197c596a36df9bf27427a83a27bdb09ac860a614a9c8efd6fb1b7011`  
-> Seleccion: pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO.
+> Seleccion: pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplica ahora en §17.1.5.4.2 y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I).
 
 # Correcciones para cerrar §17.3 (Diseño Arquitectónico) y §17.4 (Implementación)
 
@@ -840,7 +939,7 @@ figuras por número, así que solo cambian los rótulos.
 
 ---
 
-## Fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-3-4-pase-2.md`
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-pase-2.md`
 
 > SHA-256 del bloque: `425ac974e295664e517b0ada5df5732a72fbcf3105f70e548774feb910ad551d`  
 > Seleccion: pase de cierre 2 (2026-08-20): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; sus decisiones D-P2-1..6 siguen rigiendo como criterio de lectura.
@@ -2089,7 +2188,7 @@ que sí presenta §17.3 —duplicación entre tablas vecinas y columnas que no d
 
 ---
 
-## Fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md`
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md`
 
 > SHA-256 del bloque: `fb6ecd18525c80a73bb110e7c86f40a17ef888baeb2fc5dd883a3ac5eb75acb6`  
 > Seleccion: pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo.
@@ -3035,13 +3134,13 @@ unidad futura toca uno de estos temas, tiene que actualizar la fila.
 
 ## Fuente: `docs/informe/ajustes/04-etapa-4-implementacion.md`
 
-> SHA-256 del bloque: `5f91dd9e5224825e90f975c25564f87ca6ced80666e8bf92007671182805c195`  
+> SHA-256 del bloque: `2e14a84aa8aa60447b25f27514e0a69f70a21bc277b4e70b1604c7296b7cca96`  
 > Seleccion: documento completo.
 
 # Etapa 4 — §17.4 Implementación del prototipo experimental
 
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
-> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` en
+> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` (✎ 2026-08-28: vigente **v1.6**, `00-el-informe-hoy`) en
 > `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
 > Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
 > unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
@@ -3325,12 +3424,18 @@ Insumo: `92` §4.2 y su recuadro · `94` §2 · `operacion/89` · `operacion/90`
    (esa era ADR-015 §2c, derogada) ni "capacidad existente".
    ✎ **2026-08-18 — este ítem quedó INVERTIDO: ahora SÍ hay implementación verificada, y
    la prohibición cambió de signo.** El módulo funciona y está medido (docs
-   `operacion/114`/`118`), el runner lo orquesta (ADR-018) y expone servicio HTTP propio
+   `operacion/114`/`118`), el runner lo orquesta (ADR-018) (✎ 2026-08-28: **por HTTP, ADR-020** —
+   ADR-018 quedó derogada ese mismo 08-18, ver L119 de esta ficha; el subproceso es fallback y no
+   se describe) y expone servicio HTTP propio
    (ADR-019, doc 124). **Se escribe en presente y como capacidad existente**, con su
    estatuto: trabajo comprometido por ADR-016, entregado y verificado. Lo que sigue
    estando prohibido: citar cifras de la verificación funcional del servicio HTTP (n=2,
    doc 124 — no citables) en lugar de las de la campaña (doc 118), y presentar la
-   containerización como hecha (diferida con causa, ADR-019 §4).
+   containerización como hecha (diferida con causa, ADR-019 §4). (✎ 2026-08-28, `operacion/130`
+   R-09: la containerización está **definida** —imagen y compose de 13 servicios escritos y
+   validados por configuración el 08-19/20, Dockerfiles en los tres repos— y lo diferido es
+   **build + smoke integral**, post-entrega. Se escribe "definida, despliegue no verificado";
+   nunca "hecha/desplegada" ni "diferida".)
 2. **Cifras de resultados.** El §17.4 describe **qué se construyó y cómo**; el desempeño
    es el §17.5. Mezclarlos es lo que hace que un capítulo de implementación se lea como
    una defensa apresurada.
@@ -3348,13 +3453,13 @@ la alerta) · `operacion/97` · `operacion/37`, `38`, `80`, `109` · `decisiones
 
 ## Fuente: `docs/informe/entregable/90b-etapa4-texto-extraido.md`
 
-> SHA-256 del bloque: `7f8ee16c9aa4779c61447591b588f78647acfdf678046bf74ad64bde484c2cf1`  
-> Seleccion: TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.5 (2026-08-23), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando.
+> SHA-256 del bloque: `eb527c3a4d6bf7615d0852e23304e0ce5f9d3a4f12634c49451d644daf6b80da`  
+> Seleccion: TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.6 (re-extraido 2026-08-28), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando. Pendiente detectado por operacion/130 R-01: su parrafo sobre el orden de disparo con distribucion debe decir control -> distribucion -> medios.
 
-# 90b — Texto extraído del documento de trabajo: §17.4 Implementación (v1.5)
+# 90b — Texto extraído del documento de trabajo: §17.4 Implementación (v1.6)
 
-> **Extracción derivada (2026-08-23)** del `.docx`
-> `informe/entregable/E-OVRT-VDP_Seccion_17.4_Implementacion_v1.5.docx`, **solo para búsqueda y cita**
+> **Extracción derivada (2026-08-28)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.4_Implementacion_v1.6.docx`, **solo para búsqueda y cita**
 > (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
 > este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
 > extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
@@ -3401,7 +3506,7 @@ Los contratos preliminares definidos durante el diseño se materializaron como m
 | SourceDefinition | Sección de fuente de la configuración y registro de adaptadores de ingesta | Esquema de configuración; congelado por el manifiesto | Plano de medios |
 | ModelProfile | Catálogo de perfiles de modelo, con un archivo por variante | Catálogo versionado; un archivo por variante | Plano de medios |
 | PromptDefinition | Conjunto de prompts versionado e identificado en cada corrida | prompt_set_id registrado en cada corrida | Soporte experimental |
-| FrameMetadata | Unidad visual interna y bloque de fuente del evento publicado | Contrato interno; viaja dentro del evento publicado | Plano de medios |
+| FrameMetadata | Unidad visual y unidad preparada internas, y bloque de fuente del evento publicado | Contrato interno; viaja dentro del evento publicado | Plano de medios |
 | PerceptionEvent | Evento de percepción normalizado | media.detection.v1 | Plano de medios |
 | PatternDefinition | Definición declarativa dentro del conjunto de patrones | Conjunto de patrones versionado (pattern set) | Plano de control |
 | PatternStateChanged | Evento de transición del patrón | control.pattern_state.v1 | Plano de control |
@@ -3421,13 +3526,25 @@ La correspondencia permite verificar que la implementación no sustituyó silenc
 
 #### 17.4.3. Contratos de datos materializados
 
-Cinco contratos concentran los hechos principales de la ejecución: el evento de percepción, el envoltorio del bus, el contrato de ciclo de vida, el evento de transición de patrón y la alerta interna. Los cinco están declarados con su identificador en la tabla anterior; lo que sigue precisa qué lleva cada uno y qué propiedad técnica habilita.
+Cinco contratos concentran los hechos principales de la ejecución: el evento de percepción, el envoltorio del bus, el contrato de ciclo de vida, el evento de transición de patrón y la alerta interna. Los cinco están declarados con su identificador en la tabla anterior; lo que sigue precisa cómo se materializan, qué lleva cada uno y qué propiedad técnica habilita.
 
-El evento de percepción normaliza la salida del detector. Identifica la corrida y la unidad visual; describe la fuente, el perfil de modelo y el conjunto de prompts efectivos; y transporta las detecciones con sus coordenadas en píxeles y normalizadas, sus puntajes y los tiempos medidos por unidad. Esa composición es la que permite que una detección se atribuya después a una variable concreta de la corrida y no a una combinación desconocida.
+La materialización no es una denominación conceptual. Cada contrato es una clase de modelo declarada en el módulo de contratos de su componente, con tipos y campos obligatorios explícitos, validada en la frontera de entrada, persistida como un objeto JSON por línea en los artefactos de sólo adición —omitiendo los campos sin valor— y transportada por el bus dentro de un envoltorio serializado en formato binario compacto. Dentro del plano de medios la evidencia atraviesa además una cadena interna de contratos antes de publicarse: la unidad visual normaliza la lectura de la fuente, la unidad preparada transporta los píxeles junto con la transformación espacial que permite volver del espacio del modelo al de la imagen original, la detección cruda recoge la salida del adaptador y la detección normalizada es la que finalmente se persiste. Esa cadena es la que hace que la reproyección de coordenadas sea una operación declarada y no un ajuste disperso en el código.
 
-El envoltorio del bus encapsula ese mismo contenido para transmitirlo y le agrega un número de secuencia monótono; el contrato de ciclo de vida delimita el inicio y el cierre de la corrida. Juntos habilitan dos propiedades que la persistencia sola no da: cualquier pérdida en el transporte se vuelve detectable como un hueco de secuencia en lugar de pasar por ausencia de evidencia, y el final lógico de la corrida se distingue de una interrupción, de modo que los consumidores puedan cerrarse y los artefactos consolidarse.
+El evento de percepción, DetectionEvent, normaliza la salida del detector. Identifica la corrida y la unidad visual, y agrupa en bloques estructurados la fuente, el perfil de modelo, el conjunto de prompts efectivo, las detecciones y los tiempos medidos por unidad. Cada detección lleva su etiqueta, el identificador del prompt que la originó, el puntaje, la caja en píxeles y su equivalente normalizado. Esa composición es la que permite que una detección se atribuya después a una variable concreta de la corrida y no a una combinación desconocida. La forma efectiva del evento, tal como se persiste, es la siguiente:
 
-El evento de transición registra los cambios entre los estados del patrón —los mismos que fija la máquina de estados del diseño— junto con la evidencia y los hitos temporales que los motivaron; la alerta interna registra la confirmación del episodio con un identificador determinista, de modo que reprocesar la misma corrida produzca la misma identidad de alerta y la deduplicación no requiera estado compartido entre componentes. La alerta conserva además evidencia auditable: sujeto observado, detecciones de soporte, clase de protección ausente, región evaluada, puntaje y justificación legible. Por eso la ausencia no se presenta como una afirmación opaca del detector, sino como una inferencia del plano de control reconstruible sobre evidencia positiva.
+{   "schema_version": "media.detection.v1",   "event_type": "detection_event",   "run_id": "run_20260805_033712_dbe_grounding_dino_53cb6f",   "unit_id": "frame_000000",   "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",                "frame_index": 0, "timestamp_ms": 0.0,                "width": 1920, "height": 1080 },   "model":   { "name": "grounding_dino",                "model_id": "IDEA-Research/grounding-dino-tiny",                "device": "cuda" },   "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },   "detections": [     { "detection_id": "det_000001", "label": "person", "prompt_id": "person",       "confidence": 0.8784,       "bbox_xyxy": [1027.3, 105.5, 1340.8, 1083.9],       "bbox_norm_xyxy": [0.5351, 0.0977, 0.6983, 1.0],       "area_px": 306732.1, "model_name": "grounding_dino" },     { "detection_id": "det_000002", "label": "helmet", "prompt_id": "helmet",       "confidence": 0.8387,       "bbox_xyxy": [1098.1, 106.5, 1255.8, 217.3],       "bbox_norm_xyxy": [0.5719, 0.0986, 0.6541, 0.2012],       "area_px": 17475.1, "model_name": "grounding_dino" }   ],   "timing": { "normalize_ms": 11.53, "inference_ms": 445.76,               "postprocess_ms": 0.11, "write_ms": 0.0, "total_ms": 445.88 } }
+
+El envoltorio del bus no reempaqueta ese contenido: transporta como carga la misma cadena que se escribió en el artefacto —la persistencia ocurre primero y la publicación después— y le agrega cuatro campos propios del transporte: el tópico, la clave de particionado, un número de secuencia monótono por publicador y el instante de publicación en reloj de pared, que es el que el módulo de distribución conserva luego como marca de confirmación. El número de secuencia se consume incluso cuando el envío se descarta por saturación del canal, de modo que la pérdida se vuelva observable como un hueco del lado del consumidor en lugar de pasar por ausencia de evidencia. El contrato de ciclo de vida, por su parte, no delimita el inicio de la corrida —eso lo establece la respuesta afirmativa de la operación de creación en el servicio— sino su cierre: publica un único evento de finalización con el identificador de corrida y su estado, de modo que el final lógico se distinga de una interrupción y los consumidores puedan cerrarse y consolidar sus artefactos. Ambos contratos se emplean sin variantes en los dos buses de la plataforma, el de detecciones y el de alertas: el publicador de alertas del plano de control es un espejo deliberado del publicador de medios, con el mismo envoltorio y las mismas garantías.
+
+El evento de transición, PatternStateChanged, registra los cambios entre los estados del patrón —los mismos que fija la máquina de estados del diseño— junto con la evidencia y los hitos temporales que los motivaron, e incorpora el instante y la unidad de la primera evidencia positiva del episodio, que es el punto de partida de la medición de latencia. Un contrato hermano registra el progreso parcial mientras la condición está en curso y no ha sido confirmada todavía.
+
+La alerta interna, AlertEvent, registra la confirmación del episodio. Su identificador no es un valor aleatorio: se deriva como un identificador único universal de versión 5 —un resumen determinista— sobre la cadena que concatena el identificador de corrida de control, el de corrida de medios, la unidad, el patrón y la clave de sujeto, donde esa clave adopta la forma CR-01:a_p1_c08 cuando el patrón opera con granularidad de escena y CR-01:a_p1_c08:subject_001 cuando opera con identidad de sujeto. La identidad de la alerta es entonces una función pura de esa quíntupla, con tres consecuencias verificables. Primero, reprocesar la misma evidencia bajo el mismo identificador de corrida de control reproduce exactamente los mismos identificadores de alerta. Segundo, la deduplicación no requiere estado compartido entre componentes: el módulo de distribución construye su clave de idempotencia como un resumen criptográfico del identificador de alerta y la asienta en un registro de sólo agregado, sin consultar al plano de control. Tercero, la identidad se asigna por confirmación y no por episodio, de modo que una confirmación posterior sobre el mismo sujeto recibe identidad propia; esto es coherente con la decisión de no suprimir dentro del motor (DA-13) y evita que el mecanismo de idempotencia oculte reincidencias reales. La alerta conserva además evidencia auditable: sujeto observado, detecciones de soporte, clase de protección ausente, región evaluada, puntaje y justificación legible. Por eso la ausencia no se presenta como una afirmación opaca del detector, sino como una inferencia del plano de control reconstruible sobre evidencia positiva.
+
+Los contratos se diseñaron para admitir información que la implementación actual no produce, y esa capacidad fue ejercida antes de declararse. La detección normalizada incluye hoy un campo de identidad de sujeto entre fotogramas que ningún productor emite:
+
+class Detection(BaseModel):          # media.detection.v1     detection_id:   str | None = None     track_id:       str | None = None   # identidad entre fotogramas; hoy sin productor     label:          str     prompt_id:      str | None = None     confidence:     float     bbox_xyxy:      list[float]         # píxeles [x1, y1, x2, y2]     bbox_norm_xyxy: list[float]         # normalizado [0, 1]     area_px:        float | None = None     model_name:     str | None = None
+
+El campo se declara como opcional con valor por defecto, se omite al serializar cuando no tiene valor —de modo que su presencia en el contrato no altera un solo byte de los artefactos existentes— y, sin embargo, el plano de control ya lo consume como clave de estado cuando opera con granularidad por sujeto. El contrato conservó su versión: la extensión no exigió un cambio incompatible ni la coordinación de un despliegue conjunto. Tres decisiones de implementación sostienen esa propiedad. Los campos nuevos se agregan como opcionales con valor por defecto; los consumidores validan contra su propia declaración del contrato y descartan sin error los campos que no conocen, en lugar de rechazar el mensaje; y la frontera de la distribución declara explícitamente que admite campos adicionales. El plano de control mantiene por eso su propia declaración espejo del evento de percepción, no una biblioteca compartida con el plano de medios: la frontera entre planos es el esquema serializado y no una dependencia de código, lo que permite versionarlos y desplegarlos por separado. Éste es el mecanismo por el cual velocidad, dirección, pose, segmentación o detecciones asociadas podrían incorporarse a la evidencia perceptiva; su costo se detalla en la sección 17.4.11, donde también se declara que hoy no están implementadas.
 
 #### 17.4.4. Interfaces de servicio y gobierno por configuración
 
@@ -3615,7 +3732,7 @@ En conjunto, la Etapa 4 materializó la cadena video-evento de percepción-patr�
 ## Fuente: `docs/informe/entregable/borradores/17-4.md`
 
 > SHA-256 del bloque: `db563af1cd76d10538ab45680bd3c3dc0f939bbef729b74051577d6913562e96`  
-> Seleccion: borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.5: material de consulta, NO redactar desde aca.
+> Seleccion: borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.6: material de consulta, NO redactar desde aca.
 
 # Borrador — §17.4 Implementación del prototipo experimental
 
@@ -4124,7 +4241,7 @@ banco.
 
 ## Fuente: `docs/informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md`
 
-> SHA-256 del bloque: `df87a788130cd72ded970abd01c277781716bdeb765a1241deff146ffa994f32`  
+> SHA-256 del bloque: `01be478d08ee54ad68e58ec58caef393156622059cd29194e18436333950c7db`  
 > Seleccion: documento completo.
 
 # Anexo de concreción técnica — material listo para inyectar en el capítulo
@@ -4325,7 +4442,7 @@ LIFECYCLE_TOPIC_PREFIX   = "run.lifecycle.v1."
 
 ## 3. Las APIs: el sistema es ejecutable por HTTP
 
-El capítulo no tiene una sola interfaz. El sistema tiene dos servicios HTTP config-driven. Esta es la
+El capítulo no tiene una sola interfaz. El sistema tiene dos servicios HTTP config-driven (✎ 2026-08-28: **tres** desde ADR-019 — `:8080/:8081/:8082`; `operacion/130` §2). Esta es la
 tabla mínima que responde al "una API: `POST /events/detection`" del tutor.
 
 ✎ **2026-08-18 (ADR-019 + ADR-020): son TRES servicios HTTP config-driven** — el módulo
@@ -4821,7 +4938,7 @@ configurable".
 
 - [ ] §17.3.11 — reemplazar el hedge por la tabla de correspondencia (§1) y los tres contratos concretos (§2, §5).
 - [ ] §17.3.11.4 — regla de evolución aditiva + evento con superficie de crecimiento (§4). **Es el pedido T3 del tutor.**
-- [ ] §17.3.5 — figura nueva: vista de procesos (dos servicios HTTP + bus + orquestador + webconsole).
+- [ ] §17.3.5 — figura nueva: vista de procesos (dos servicios HTTP + bus + orquestador + webconsole). (✎ 2026-08-28: **FIG-A tiene destino único §17.4.1** desde el 08-19 (`08-manual` §6), son **tres** servicios HTTP, y el orden de arranque dibujado es **control → distribución → medios** (`operacion/130` R-01); producida el 08-21 y regenerada el 08-28 en `informe/figuras/`.)
 - [ ] §17.3.8.1 y §17.3.8.4 / §17.3.12 — bus concreto (§2.3) y layout del repositorio (§8).
 - [ ] §17.3.6 / Tabla 44 — configuración con **valores efectivos** (§6), y el matiz correcto del `cooldown`.
 - [ ] §17.3.13 — diccionario de métricas con t0/t1 (§7), criterio de relojes y estados de aplicabilidad.
@@ -5270,12 +5387,288 @@ precisamente lo que la frontera del §1 protege.
 
 ---
 
+## Fuente: `docs/operacion/130-relevamiento-plataforma-pre-etapa-2.md`
+
+> SHA-256 del bloque: `350389b72f505617d701c5826ea1e9edbed93c8e40b971cb8a44aa32039cd560`  
+> Seleccion: FOTO VIGENTE de la plataforma (2026-08-28): estado de los seis repos, hechos citables por modulo con ruta:linea en datos/130-…, divergencias doc<->codigo y la tabla protocolo 17.1 vs construido. Manda sobre operacion/97 en todo lo que difieran.
+
+# 130 — Relevamiento exhaustivo de la plataforma antes de la Etapa 2 (2026-08-28)
+
+> **Qué es.** El relevamiento que pidió el usuario antes de tocar §17.1: los **cinco repos de
+> código** leídos contra lo que el set documental afirma de ellos y contra lo que el protocolo
+> del informe (§17.1) prescribe, más una auditoría **documento contra documento** del propio
+> set. Objetivo: que la alineación de punta a punta, el kit regenerado desde cero y el pase de
+> §17.1 partan de una base verificada hoy, no de fotos del 08-05/08-15.
+>
+> **Cómo se hizo.** Seis agentes de solo lectura en paralelo (uno por repo + uno para `docs/`),
+> cada uno con la lista de afirmaciones a verificar y el texto extraído de §17.1. Ningún
+> servicio se levantó, ningún test pesado se corrió (WSL con 7,4 GiB); los conteos de tests son
+> por `--collect-only` o por `grep "def test_"` según el repo. Los **cinco informes completos**
+> (con tabla afirmación → veredicto → `ruta:línea`) están en
+> `datos/130-relevamiento-pre-etapa-2/` (fuente: `docs/operacion/datos/130-relevamiento-pre-etapa-2`) y son la
+> evidencia; este documento consolida y decide.
+>
+> **Qué manda.** Sobre cualquier cifra o afirmación de estado anterior al 2026-08-28, manda
+> este documento; donde este documento diga "declarar", el informe declara y no maquilla.
+> Reemplaza como foto de plataforma a `operacion/97` (2026-08-05) en todo lo que difieren.
+
+---
+
+## 0. Veredicto en cinco líneas
+
+1. **La plataforma está donde los docs dicen que está, en lo estructural.** Los seis repos
+   tienen el árbol limpio (salvo `docs`, con el trabajo 08-25→08-28 sin commitear); los tres
+   servicios HTTP + el bus, el pattern set `cr01_cr02_v2` (4.000/7.000 ms, `high`/`medium`,
+   histéresis 2.000/3.000), el campeón `gdino-tiny-560` a `box_threshold 0,30`, `bench_v3`
+   congelado (sha256 idéntico, `--verify` PASS byte a byte) y **las 26 cifras de los cuatro
+   índices verifican contra sus `metrics.json`** (`96-verificar-indices.py` EXIT 0).
+2. **Hay una afirmación ancla confundida**: la comparación `gdino-tiny` 800 px vs 560 px **no
+   está a umbral igual** (0,35 vs 0,30). El campeón sigue siendo el campeón (0,551 es el dato
+   de la combinación 560·0,30, y el par `base`/`base-560` sí está a 0,30 en ambos), pero "560 no
+   degrada mAP respecto de 800" no puede afirmarse para tiny sin ese caveat.
+3. **Tres desvíos de doc que llegarían al informe si no se corrigen**: el orden de arranque live
+   real es **control → distribución → medios** (no "distribución primero"); el fine-tuning
+   **excluyó `chv`** (2.203 css + 743 ppe_siabar = 2.946) y varias fichas dicen que entrenó con
+   él; y el rango 500–2.000 imágenes de la Tabla 28 de §17.1 **se desvió a 2.946 sin
+   justificación escrita**.
+4. **Lo que §17.1 prescribió y no se ejerció está identificado, ítem por ítem** (§4): variantes
+   template, vocabulario aislado-vs-completo cruzado, español, doble anotación/kappa, MOT17/OVT-B,
+   NVDEC, Precision/Recall por severidad en el evaluador, percentiles de `t_alert-system` en
+   `evaluate-alerts`, hardware/entorno en el manifiesto de corrida, warm-up de unidades. Nada de
+   eso se "corrige" en §17.1: se **declara** donde corresponde (§17.4/§17.5) y §17.1 se ajusta
+   sólo en lo que es decisión de protocolo.
+5. **Conteos vencidos por todos lados** (tests 643/646/641/668, "39 tests", "16 campañas",
+   "19 cifras", "4 estados", "11 endpoints"): ninguno llega al informe, pero todos viven en
+   docs que el kit reparte. Se corrigen en este pase (§7).
+
+---
+
+## 1. Estado de los seis repos al 2026-08-28
+
+| Repo | Rama | HEAD | Árbol | Tests medidos hoy | Nota |
+|---|---|---|---|---|---|
+| `e-ovrt_media-plane` | `feature/inference-service` | `f439db2` (08-22) | limpio | **643** `def test_` (grep; docs decían 646 y 641+5) | venv 3.12.13; Dockerfile CUDA 12.4 con ruedas cu13 pineadas — build nunca ejecutado |
+| `e-ovrt_control-plane` | `feature/control-service` | `64cc976` (08-19) | limpio | **312** (collect-only, sin `tests/labs`) + 22 labs | venv 3.14.4 (`requires-python >=3.11`); 12 endpoints en `:8081` |
+| `e-ovrt_alert-distribution` | `main` | `f9447a1` (08-19) | limpio | **133** + 1 integración MQTT deseleccionada por default | venv 3.11.15; Dockerfile 3.11-slim |
+| `e-ovrt_experimental-setup` | `feature/webconsole-consola-tesis` | `2bfb268` (08-22) | limpio | `tests/` **88** · `finetuning/tests` **46** · BFF **668** (docs decían 643) | compose 13 servicios válido por lectura; `results/finetuning/` no existe (cifras FT en `finetuning/manifests/`) |
+| `e-ovrt_datasets` | `feature/datasets-v2-setup` | `6524e21e` (08-20) | limpio | **431 passed** (1,6 s) | `build_bench_strata.py --verify` **PASS ×2**; sha256 `bench_v3.json` = manifiesto |
+| `docs` | `main` | `8a0b74a` (08-23) | **57 cambios sin commitear** (08-25→08-28) | `herramientas/tests` 62 + 51 subtests | deuda git del usuario, anotada |
+
+---
+
+## 2. Lo que se confirmó — hechos citables por módulo
+
+*(cada uno con `ruta:línea` en el informe del agente correspondiente)*
+
+**Plano de medios.** Campeón `IDEA-Research/grounding-dino-tiny` a **560×560, `box_threshold`
+0,30, `text_threshold` 0,25, NMS IoU 0,50, fp16**, warm-up de modelo al cargar + `prepare_run`
+por corrida. G2A se mide **desde el dequeue** (el proceso ya leyó el frame) **hasta el fin de la
+inferencia**; presupuesto 50–250 ms evaluado sobre P95; `capture_to_host` (sensor → dequeue)
+existe **sólo para OAK-D** — en RTSP ese tramo no se midió. Bus XPUB `:5557`, msgpack
+`bus.envelope.v1`, `seq` monótono aunque se descarte, payload byte-idéntico al JSONL, cierre
+`run.lifecycle.v1/run_finished`. Un modelo por proceso (`EOVRT_MODEL_REF`), un run activo (409;
+**una preview también bloquea**). Fuentes: `image_folder` (no recursivo), `video_file`, `rtsp`,
+`oak_d`; preselección EN-2 default off, fail-open, sólo `oak_d`. Artefactos por run:
+`effective_config.yaml`, `run_manifest.json`, `detections.jsonl`, `metrics.jsonl`,
+`summary.json` (`media.summary.v2`), `run_provenance.json`, `dropped_units.jsonl` — **no existen
+`report.json` ni `metrics.json` en este plano** (son del control-plane / experimental-setup).
+El campo `run.scenario` **no clasifica nada** (los 472 runs locales dicen `DBE`, incluidos 73
+`oak_d` y 21 `rtsp` live): DBE/EBE se distingue por `source_type` + `bus.enabled`.
+
+**Plano de control.** Máquina de **cinco** estados `inactive → candidate → confirmed →
+sustained → resolved`; alerta sólo al entrar a `confirmed`; reapertura `resolved → candidate`,
+nunca a `inactive`. `cr01_cr02_v2`: CR-01 `high` 4.000/2.000 ms, CR-02 `medium` 7.000/3.000 ms,
+escena, **sin cooldown ni memoria** (la capacidad existe en el código, desactivada y no
+configurada). Umbrales en ms rigen cuando hay `timestamp_ms`; frames sólo fallback declarado
+inerte sobre imágenes (ADR-013). ADR-011 cableado: el motor emite en cada confirmación; el
+evaluador cuenta `re_alerts` fuera del denominador de precisión; FP = evento de alerta fuera de
+toda ventana de episodio y sub-umbral; ventanas CR-01 [t0+4 s, t0+10 s], CR-02 [t0+7 s, t0+20 s].
+Persistencia implementada como **duración desde la primera evidencia con tolerancia a huecos**
+(< `resolve_after_ms`), no como proporción de frames positivos. Hitos persistidos **4 de 5**:
+`first_evidence_ms` y `alert_registered_ms` monotónicos; candidato/confirmado en
+`pattern_events.jsonl` con tiempo de fuente; notificación fuera del repo. `t_alert-system` cierra
+en `alert.timestamp_ms` (reloj de fuente del frame que confirmó), no en el registro interno. G1
+= `input.track_persons` decora la fuente con un tracker IoU por `source_id`; sin `track_id`
+degrada a escena con causa `no_track_id`; verificado en live.
+
+**Distribución.** `t_alert-notification = puback_wall_ms − ts_publish_ms` (**bus de alertas →
+PUBACK QoS 1**, dos relojes de pared del mismo host, no monotónico, declarado): p95 **64,534 ms
+n=460**; sostenido (2.ª+) **102,025 ms n=104**; 1.ª entrega 49,869 n=356. **No arranca en la
+confirmación del patrón** sino en la publicación en el bus. Idempotencia por
+**(`notification_id`, `channel`)**, `notification_id = sha1(alert_id)[:16]`; **cinco outcomes**
+`delivered / failed / skipped_duplicate / dead_letter / suppressed_cooldown`; `dead_letter` tras 3
+intentos con 500 ms fijos. **QoS 1 es el único valor admitido**; topic `eovrt/alerts/<severity>`.
+El **cooldown es política de re-notificación del distribuidor** (clave `(condition_id,
+source_id)`, 30 s, en memoria; en la campaña 118: 376/836 suprimidas = 44,98 %). Broker de la
+**medición** = `amqtt 0.11.3`; Mosquitto es el broker del **despliegue** (compose, sin build).
+Runner: HTTP por default; subproceso sólo con `EOVRT_CONSOLE_DISTRIBUTION_TRANSPORT=subprocess`, y
+ese fallback no funciona en el compose.
+
+**Orden de arranque live REAL** (runner `runner.py:1095-1149`): **control** (con
+`alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`) → **distribución** (necesita
+`control_run_id`) → **medios**. La no-pérdida en `:5558` la garantiza el handshake XPUB del
+publicador, **no el orden**. El orden "medios ← control ← distribución" que dicen el `CLAUDE.md`
+raíz, el README de FIG-A y la nota de `128` §4 **es falso**.
+
+**Datos.** `bench_v3.json`: 6.477 imágenes / 55.165 anotaciones; `stratum` con **cuatro**
+valores (`shel5k` 5.000 · `chv` 1.330 · `bench_obra_val` 85 · `bench_obra_test` 62 — el
+informe habla de tres estratos fusionando los dos de obra); anotaciones `person` 24.172 ·
+`helmet` 22.949 · `bare_head` 6.181 · `vest` 1.863. GT persona CR-01: bench_obra 60 + shel5k
+5.248 = **5.308 con el GT vigente**; el **n=5.313** que citan CLAUDE.md, contexto base, los
+índices y los docs 64/66 es el del GT del 23-jul (65 en bench_obra, antes del fix del 29-jul):
+es el n de aquella medición y se cita así, fechado. CR-02: **142** violadores, sólo en
+`bench_obra`. Fine-tuning efectivo (`finetuning_v1`): **`construction_site_safety` 2.203 +
+`ppe_siabar` 743 = 2.946 train / 483 val; `chv` excluido** (100 % de sus 1.330 imágenes es
+estrato del banco). De los 9 datasets de la Tabla 26 de §17.1, **2 se usaron** (SHEL5K y CHV,
+ambos sólo como fuentes del banco), 1 tuvo uso lateral (MOCS, en copia Roboflow de 1.471
+imágenes, no el original de 41.668), 6 se descartaron; **los dos datasets que se entrenaron y
+la fuente de `bench_obra` no figuran en la Tabla 26** (investigación Roboflow del 06-17).
+
+**Índices de resultados.** `96-verificar-indices.py`: ✅ 1.452 enlaces / 0 rotos · 26 cifras
+sobre 17 campañas · 3 deltas bootstrap · 35 docs de procedencia. Todas las cifras del "Estado
+vigente" del kit y de los "cuatro números" coinciden con los `metrics.json` (47/32/15/37,
+manifiesto `3f14f50a…`; 0,789 / 0,930 / 0,146; T1 y T2 con todas sus cifras). Única no
+verificable mecánicamente: mAP50 0,551 (sin `metrics.json` en el repo; remite al doc 64).
+
+---
+
+## 3. Divergencias doc ↔ código, consolidadas
+
+Severidad: 🔴 llegaría al informe como afirmación falsa · 🟠 contradicción entre documentos o
+cifra vencida que el kit reparte · 🟡 higiene. "Dueño" = dónde se corrige. Estado al cierre de
+este pase en §7.
+
+| ID | Sev. | Hallazgo | Dueño / dónde corregir |
+|---|---|---|---|
+| **R-01** | 🔴 | **Orden de arranque live**: docs dicen distribución → control → medios; el runner hace **control → distribución → medios** y la garantía es el handshake XPUB (≥10 s), no el orden. | `CLAUDE.md` raíz ("Acople entre planos" y párrafo de alert-distribution) · `figuras/README.md` FIG-A (nota + revisar el SVG/PNG) · `128` §4 nota de figuras · `experimental-setup/infra/platform/README.md:69-70` y `docs/experiments.md:93-96` (repo del usuario) · glosario `13:109` ("distribución posterior" → concurrente) |
+| **R-02** | 🔴 | **Fine-tuning con `chv`**: AJ-2.07 ✎08-18 (b), R-24 (b), glosario §5, doc 99 §2 y `datasets_metadata.yaml` dicen que se entrenó con css+chv+ppe_siabar; el FT real excluyó `chv` (anti-leakage). Copiarlo al informe violaría la propia Tabla 28. | `ajustes/02` AJ-2.07 · `93` R-24 · glosario `13` §5 · `99` §2 · registry (repo datasets, del usuario) |
+| **R-03** | 🔴 | **Tabla 28 de §17.1: rango 500–2.000 imgs** vs 2.946 train, sin justificación en ADR-017 / doc 100 / README de finetuning. | Declarar en §17.4/§17.5 (fila FT) con causa (100 % de linajes elegibles tras dedup y exclusión del banco; F-127.1 muestra que aun así es insuficiente). Anotar en `ajustes/02` AJ-2.11 y `ajustes/05` AJ-5.13. |
+| **R-04** | 🔴 | **`gdino-tiny` 800 px corrió a `box_threshold` 0,35 y `gdino-tiny-560` a 0,30** en todas las corridas (07-23 incluidas); doc 64 no lo registra. "560 = igual o mejor mAP que 800" está confundido en el par tiny (el par base sí está a 0,30 en ambos: 0,453 vs 0,401). | `64` ✎ (declarar el umbral por brazo; reescribir como "560 @0,30 ≥ 800 @0,35") · `CLAUDE.md` raíz (párrafo del campeón) · `results/bench_imagenes/index.md` (repo del usuario) · kit: citar siempre el par (resolución, umbral) |
+| **R-05** | 🟠 | **`evaluate-alerts` sólo produce promedios** de `t_alert`/TTFD/SDR y no persiste latencias por episodio ⇒ los P50/P95/P99 de §17.1.7.8.1 no salen del evaluador; el kit declara `t_alert-system` citable sin decir que es un promedio por campaña. | kit "Estado vigente" (precisar "promedio por campaña; percentiles sólo del tramo de plataforma en `summary.json`") · §17.4 declara PARCIAL |
+| **R-06** | 🟠 | **Precision/Recall por severidad (§17.1.7.5.5) no existe en el evaluador**; sólo el desglose por condición aguas abajo (1:1 con severidad). | §17.4/§17.5: citar P/R por condición y decir que equivale a severidad porque cada CR tiene una sola |
+| **R-07** | 🟠 | Glosario `13` §3 y contexto base (`:729`) dicen **4 estados** del motor; son **5** (`sustained`), como el propio kit dice más abajo y FIG-E. | glosario `13` §3 · generador del kit |
+| **R-08** | 🟠 | Causa two-node: docs dicen `cross_node_monotonic_clock`; el código emite **`clock_skew`** (control-plane y experimental-setup). ADR-0006 local atribuye `not_applicable:no_ground_truth` al control-plane; lo emite `report.py` del experimental-setup. "11 endpoints" → 12. | glosario `13` · `estado-de-implementacion-adrs.md` (ADR-0006/0008 de la serie de 4 dígitos) · ADRs locales (repo control-plane, del usuario) |
+| **R-09** | 🟠 | **Containerización "diferida / fuera de alcance"** en ADR-019 §4, spec 45 §9.8, 124, 125, kit y GUIA — pero Dockerfiles ×3 + compose de 13 servicios existen desde 08-19/20. Lo diferido es **build + smoke**. | ADR-019 ✎ · spec 45 ✎ · `124`/`125` ✎ · generador del kit · GUIA |
+| **R-10** | 🟠 | **Broker de la medición 118 = `amqtt`**, no Mosquitto (nucleo/19 §5, spec 45 §5). Además `t_alert-notification` **arranca en `ts_publish_ms` del bus**, no en `confirmed_at_ms` como aún discuten spec 45 §3 y nucleo/19 §6.1. | nucleo/19 ✎ · spec 45 ✎ · kit |
+| **R-11** | 🟠 | **`n=5.313`** (CLAUDE.md, contexto base ×4, índices, docs 64/66) es el GT del 23-jul; el vigente da 5.308. | Citar fechado: "n=5.313 (GT del 23-jul; 5.308 con el GT vigente)". `CLAUDE.md` raíz · generador del kit · índice (repo del usuario) |
+| **R-12** | 🟠 | **Conteos de tests vencidos**: BFF 643→668; media-plane 646/641→643 (grep); distribución "39"/"37"→133+1; "2.203 tests" (op97) es foto del 08-05. | `CLAUDE.md` raíz · generador del kit · `114` · README/requirements del experimental-setup (usuario) |
+| **R-13** | 🟠 | **Tabla 26 de §17.1** vs registry: GDUT-HWD "Apache-2.0" / SHWD "MIT" → "verificar" (nunca descargados); CHV "CC BY 4.0" es del **paper**, el dataset no tiene licencia (L7); MOCS descrito como original (41.668, NC) → lo usado es copia Roboflow 1.471. **Omite** css y ppe_siabar. | Es material del pase de §17.1 (AJ-2.07 / PODA-12): la Tabla 26 se comprime a "utilizados + descartados con causa" y las licencias se escriben como están en el registry |
+| **R-14** | 🟠 | **Auditoría humana del GT (Task 4.3)**: `bench_gt_audit.md` §4–6 vacíos y docs 75/78 "sin ejecutar", pero `estado_avance.md` y el README de documentation la dan por ejecutada (sólo se generó el kit). | repo datasets (usuario); en el informe **no afirmar** que hubo auditoría humana del GT de imágenes |
+| **R-15** | 🟠 | `CLAUDE.md` raíz: bloque "emits… `train_v2`/`bench_v2`/`demo_v2`" vencido (archivadas 08-15, el propio archivo lo dice más abajo); no lista `download_shel5k.sh`; "las fuentes exponen `request_stop()`" (es `RunControl.request_stop()` en medios; `BusSource.request_stop()` en control). | `CLAUDE.md` raíz |
+| **R-16** | 🟠 | `report.json`/`metrics.json` citados como artefactos del media-plane (AJ-2.09) — no existen ahí (`summary.json` + `metrics.jsonl`). `effective_config.yaml` imprime campos inertes de la otra familia (`confidence_threshold 0,25` en GDINO; `box_threshold 0,35` en YOLOE): trampa de cita. | `ajustes/02` AJ-2.09 · glosario `13` §4 (regla de lectura: GDINO = `box`+`text`+`iou`; YOLOE = `confidence`+`iou`) |
+| **R-17** | 🟠 | G2A del código **no incluye sensor ni red** (dequeue → fin de inferencia); declarado como F-101.8 para OAK-D, pero para **RTSP el tramo faltante no se midió** (no sólo "sumar 202–217 ms"). | kit / GUIA trampa · §17.4/§17.5 |
+| **R-18** | 🟠 | `finetuning/README.md` cierra en T1 (08-17), sin T2 NO-GO; manifiestos de `experiments/` que ya no resuelven (`mock_chv`, `video_annotated*`, 4 `mmgdino`); README raíz con estados de prompt sets vencidos. | repo experimental-setup (usuario) |
+| **R-19** | 🟡 | Glosario `13` §6 omite `e-ovrt_alert-distribution` en "Repos de código" (y lista `:8082`); §4.2 "16 campañas" → 17; GUIA §7 "19 cifras / 16 campañas" → 26 / 17. | glosario `13` · GUIA |
+| **R-20** | 🟡 | `114` §4 brechas cerradas sin ✎ (ledger por generaciones, venv 3.11, Dockerfile, runner orquesta, layout `runs/exp_<id>/distribution/`); `114`/`118` puertos sin `:8082`; nucleo/19 §4.6 omite `latency_mode`/`experiment_id`; "el ledger es obligatorio porque QoS 1 duplica" mezcla dedup del publicador con re-entregas broker→suscriptor. | `114` · `118` · nucleo/19 |
+| **R-21** | 🟡 | Percentiles del media-plane con método mixto (p50 mediana interpolada; p95/p99 por índice), `capture_to_host` sin p99; `run_manifest.json` sin hardware/SO/versiones (§17.1.7.8.1 lo exige); `warmup_units` = 0 en los 472 runs (warm-up de **modelo** sí; de **unidades** no). | §17.4 declara; kit trampa |
+| **R-22** | 🟡 | Datasets: "3 estratos" vs `manifest.strata` = 4; shel5k "416×416 uniforme" (real 416×415/416×416/415×416/415×415); `bench_v3.md` no cita `person_gt_bench_obra_v2.json` (CR-02, 142); `ppe_siabar` con dos `source_url`; `construction_ppe_skcet` fuera de `datasets_metadata.yaml`; `bench_v3.py` no chequea duplicados **entre** estratos (verificado ad hoc: 0 basenames repetidos). | repo datasets (usuario) · glosario §4.4 ya explica la fusión |
+| **R-23** | 🟡 | Manifiesto del clip bench con `annotator: null` en los 34 clips del Bloque A (los 13 del B: `simon`). No contradice "GT humano"; procedencia por clip incompleta. | repo experimental-setup (usuario) |
+
+---
+
+## 4. Protocolo §17.1 vs lo construido — la tabla que alimenta el pase de la Etapa 2
+
+Leyenda: **✅ CUMPLIDA** · **◐ PARCIAL** · **⊘ NO EJERCIDA** · **↯ DESVIADA** (se hizo distinto,
+con causa). Regla de uso: lo ✅ y lo ↯ que sea *decisión* puede reflejarse en §17.1 como protocolo
+ajustado; lo ⊘ y lo ◐ que sea *resultado de ejecución* **se declara en §17.4/§17.5**, nunca se
+borra de §17.1 (guardrail `07` §9; mapa regla 5).
+
+### 4.1 Entorno (§17.1.4)
+
+| Prescripción | Estado | Evidencia / qué declarar |
+|---|---|---|
+| CPN: HP Victus, RTX 4060 Laptop 8 GB, **Windows 11** | ↯ | Corre en **Linux (WSL2)** y Docker Ubuntu; el repo no registra el SO en los artefactos. §17.1.4.2.1 puede seguir describiendo el hardware; el SO se corrige como decisión. |
+| NVDEC para decodificar en GPU (§17.1.4.2.2) | ⊘ | `cv2.VideoCapture` software; 0 referencias a nvdec/cudacodec. Declarar en §17.4. |
+| EN = OAK-D Pro PoE; inferencia en borde sólo como variante condicionada | ✅ | `oak_d_source.py` (DepthAI v2); EN-2 default off, medida aparte (87 % drop). |
+| Contingencia: cámara IP por RTSP (§17.1.4.2.4) | ✅ (y **se ejerció primero**) | `rtsp_source.py`; 21 runs `rtsp`. → AJ-2.10. |
+| Stack oficial GDINO/YOLOE, GPU NVIDIA | ✅ | Transformers + Ultralytics; torch 2.12.1. |
+| Exportación PyTorch / TensorRT / ONNX (§17.1.4.3.3) | ◐ | Sólo PyTorch nativo. |
+| Escenarios A (DBE) y B (EBE) | ✅ | Por fuente + `bus.enabled`; **no por el campo `scenario`**. |
+| Parámetros de referencia ≈640 px (Tabla B.6) | ↯ | YOLOE 640; GDINO **560** (campeón) y 800; el propio §17.1.7.7.5 exige recalibrar si difiere de 640 → se cumplió por selección S1/S2 (con el caveat R-04). |
+| Restricción VRAM 8 GB | ✅ | `gpu_memory_peak_mb`, fp16 default. |
+
+### 4.2 Condiciones, patrones y prompts (§17.1.5)
+
+| Prescripción | Estado | Evidencia / qué declarar |
+|---|---|---|
+| Tres niveles de severidad | ◐ | `high`/`medium` ejercidos; `critical` no (PR-03…06 excluidos, E-01/E-02). |
+| Persistencia en segundos (3–5 / 5–10) | ✅ | 4.000 / 7.000 ms dentro del rango. → AJ-2.01 como **decisión dentro del rango**. |
+| "Sostenida o con proporción mínima de positivos" | ↯ (variante declarada) | Duración desde primera evidencia con tolerancia a huecos < `resolve_after_ms`. Declarar en §17.3/§17.4. |
+| Histéresis activación ≠ desactivación | ✅ | 4.000/2.000 y 7.000/3.000. Ya pedida por §17.1.5.3.3 — no es agregado. |
+| Calibración empírica FP vs ventana | ⊘ | Umbrales fijados por Tabla 24/D.4; sin barrido. Declarar en §17.5. |
+| Estados inactivo/candidato/confirmado/resuelto | ✅ (+`sustained`) | Cinco estados; FIG-E. |
+| "Evita alertas repetidas sobre una misma situación" | ↯ deliberada (ADR-011) | El motor re-alerta tras resolver (`re_alerts`); la supresión es del distribuidor. → AJ-2.02 se resuelve como **regla de conteo** (D-E2-3), no como "el §17.1 arrastra el cooldown" (no lo menciona). |
+| Estrategias directa vs indirecta comparadas | ✅ | D1 Nivel A (2 estratos) + Nivel B con veto pre-registrado. → **D-E2-2: bautismo E-DIR/E-IND/E-HYB en §17.1.5.4.2**. |
+| Eje "contexto de vocabulario": cada prompt **aislado y en vocabulario completo** | ↯ | Régimen asimétrico declarado (E-DIR aislada, E-IND conjunta); ningún prompt en ambos; sustituido por un control único (B1 vs T2: +1 palabra = −0,082 F1). → AJ-2.04.1 se escribe como **decisión de protocolo** y §17.5 reporta el control. |
+| Variantes con template ("a photo of a [CLASS]") | ⊘ (definidas, no medidas) | `cr01_template`/`cr02_template` con `enabled_by_default: false`, excluidas de D1. → AJ-2.04.2: §17.1 las mantiene como eje; §17.5 declara no ejercidas. |
+| Hiperparámetros congelados entre variantes | ✅ (con matiz) | `box 0,30 / text 0,25` idénticos en todos los brazos; umbrales operativos calibrados por brazo con grid idéntico y reportados como variable (permitido). |
+| Especificidad / estructura sintáctica | ◐ | Sólo dentro de E-DIR (`cr01_spec`); E-IND siempre `person`. |
+| Idioma inglés; español complementario | ✅ / ⊘ | Todos los sets `language: en`; español = E-09 excluida. |
+| Catálogo de candidatos (Tabla C.1) | ✅ | `prompts/_archive/*candidates.yaml` → finalistas `edir_v1` (8 formulaciones, acta doc 76). → AJ-2.07. |
+| Piso ~200 positivos por condición o n + IC | ◐ | CR-01 shel5k 2.487 ✅; CR-01 bench_obra 28 y CR-02 82 ✗ → IC95 bootstrap (vía prevista) → **L8**. → AJ-2.05 (la vía se declara en §17.1; el n en §17.5). |
+| Doble anotación ≥20 % + kappa + IoU | ⊘ (declarada **L2**) | `double_annotation_ratio 0.0`; en imágenes se reutilizó GT existente; la auditoría humana Task 4.3 **no se ejecutó** (R-14). → AJ-2.06. |
+| Matriz (modelo × condición × prompt × contexto) | ◐ | `tiny-560` + réplica `base-560`; CR-01/CR-02; 6 variantes E-DIR + E-IND; **un régimen por brazo**. |
+| Confianza media de los TP por formulación | ⊘ | No figura en `metrics.json`. → AJ-2.07 la pide: queda como criterio en §17.1, no ejercido en §17.5. |
+| Métricas por entidad componente (indirecta) | ✅ | AP por clase/estrato + Nivel A por persona. |
+
+### 4.3 Datos (§17.1.6)
+
+| Prescripción | Estado | Evidencia / qué declarar |
+|---|---|---|
+| Inventario Tabla 26 (SH17, SHEL5K, CHV, Pictor-PPE, Construction-PPE, GDUT-HWD, SHWD, SODA, MOCS) | ↯ | Usados: SHEL5K y CHV (sólo banco); lateral: MOCS (copia Roboflow, piloto A1); descartados: 6. **Entrenaron css + ppe_siabar, ausentes de la tabla.** → PODA-12 + AJ-2.07: comprimir a utilizados + descartados con causa; licencias como en el registry (R-13). |
+| Tabla 28: disyunción · test compartido · semilla · splits oficiales · congelamiento previo | ✅ | `finetuning_v1.summary.json` (overlap 0, seed 42, `bench_v3_sha256`); bench congelado 07-23, FT 08-15+. |
+| Tabla 28: **rango 500–2.000** | ↯ **sin justificar** | 2.946 train. → R-03: declarar en §17.4/§17.5. |
+| Tabla 28: no solapamiento cruzado | ✅ train / ◐ bench | Dedup perceptual en train; sin chequeo inter-estrato en bench (ad hoc: 0 repetidos). |
+| MOT17 / OVT-B (Tabla 30) | ⊘ (E-10, ADR-015) | 0 menciones en el repo. → **D-E2-6: intacto con ⊘ explícito**. |
+| Contraste con métricas de la literatura sobre el mismo dataset (§17.1.4.4.1) | ⊘ | Ningún índice compara con cifras publicadas de SHEL5K/CHV; `bench_v3` es composición propia. |
+| Consideraciones éticas / AAIP | — | `[[PENDIENTE]]` de D-E1-11 viaja en espejo a §17.1.11 (D-E2-7). |
+
+### 4.4 Métricas e instrumentación (§17.1.7)
+
+| Prescripción | Estado | Evidencia / qué declarar |
+|---|---|---|
+| G2A = t_capture + t_transport + t_preprocess + t_inference | ↯ (declarada) | Código: dequeue → fin de inferencia; sensor→dequeue sólo OAK-D (`capture_to_host` 202–217 ms); **RTSP sin ese tramo**. §17.1.7.7 conserva la descomposición (§16.5 la cita); §17.4 declara qué tramo se midió. |
+| Presupuesto 50–250 ms sobre P95 | ✅ instrumentado | `p95_within_budget`; live GDINO fuera de presupuesto (630–890 ms). |
+| `t_alert-system` = inicio anotado → alerta registrada | ✅ (reloj de fuente) | Cierra en `alert.timestamp_ms`, no en `alert_registered_ms`. Declarar. |
+| `t_alert-notification` complementaria, sólo con trayecto instrumentado | ✅ | Tramo bus→PUBACK; **no arranca en la confirmación**; no llega a interfaz/cliente (◐ Tabla 33). |
+| TTFD y SDR | ✅ | En tiempo (ms); criterio declarado; no aplicable declarado. |
+| Métricas temporales sólo sobre secuencias | ✅ | ADR-013; `not_applicable:non_temporal_source`. |
+| **P/R por severidad** | ◐ | No en el evaluador; por condición aguas abajo (1:1). → R-06. |
+| Cinco hitos por alerta | ◐ 4/5 | Notificación fuera del control-plane; candidato/confirmado con reloj de fuente. → AJ-2.09: §17.1 no cambia; §17.4 lo dice. |
+| **P50/P95/P99 + promedio** | ◐ | Media: `summary.json` ✅ (método por índice, p50 interpolada). Control: `summary.json` ✅ / `evaluate-alerts` **sólo promedios**. Distribución: `metrics.json` ✅ / summary por corrida sólo min/mean/p95. → R-05. |
+| Warm-up previo declarado | ◐ | Modelo sí (carga + `prepare_run`); `warmup_units` = 0 en todos los runs; control sin warm-up (0,2 ms/unidad, irrelevante); distribución no declarado (1.ª entrega más rápida, no infla). |
+| Timestamps monotónicos con fuente declarada | ✅ / ↯ distribución | Medios y control monotónicos + `source_clock`; distribución con dos wall-clocks del mismo host (declarado). |
+| Declarar hardware y entorno por corrida | ◐ | `effective_config` + `run_provenance` ✅; **GPU/torch/driver/SO/hostname no se registran**. |
+| Unidad de conteo del FP declarada e invariante | ✅ | Evento de alerta fuera de ventanas; `re_alerts` fuera del denominador. → D-E2-3 escribe la regla en §17.1.7.8.3. |
+| GT inexistente ⇒ no aproximar | ✅ | `not_applicable:*`, censura, clip negativo no evaluable. → AJ-2.12. |
+| Métricas MOT (HOTA, IDF1…) | ⊘ (E-10) | Sin GT de identidades. → D-E2-6. |
+| Protocolo comparativo preentrenada vs ajustada (§17.1.7.6): ΔAP, ΔRecall ✅ · ΔPrecision, ΔSDR, Δt_alert, ΔTTFD ⊘ · retención OV ✅ T2 / no medible T1 · latencia ⊘ · horas-persona ⊘ | ◐ | Los checkpoints ajustados **sólo se evaluaron en DBE-imágenes**, nunca en clips ni EBE. §17.1 conserva el protocolo; §17.5 fila FT lo declara. |
+| Fases de la Tabla 36 | ✅ (orden ↯ declarable) | Orden real: Preparación → Baseline DBE imágenes (07-23) → **EBE rodaje (07-25)** → GT video → Nivel B base → sensibilidad de prompts (08-03/04) → tracking/densidad → EBE blindado → Reporte → estrato B → distribución → **fine-tuning último (08-15→21)**. La formulación primaria se congeló **antes** del estudio de sensibilidad. → AJ-2.08: nombres de fase sí; el orden se declara en §17.4. |
+| Adaptación: máx. 2 candidatos GDINO y YOLOE (§17.1.9.2) | ◐ | Sólo YOLOE-26s ajustado (T1 lineal, T2 completo); GDINO no (T3 diferido con causa técnica). → AJ-2.11: regla y criterio en §17.1; la jornada en §17.4/§17.5. |
+
+---
+
+---
+
 ## Fuente: `docs/operacion/97-relevamiento-plataforma-2026-08-05.md`
 
-> SHA-256 del bloque: `13e72b30b70e9a9bc7a640bf2d65fd34286cdfed4de6ab2c84711fbb23623513`  
-> Seleccion: documento completo.
+> SHA-256 del bloque: `8ebd3688ab3ed92a5a6e79e20155c2f7fba3e164359eb09e7eb4699e8bde2ee7`  
+> Seleccion: FOTO HISTORICA del 2026-08-05, SUPERADA por operacion/130: decia 4 repos, dos servicios HTTP y distribucion no implementada. Solo para trazabilidad; no citar su estado.
 
 # 97 — Relevamiento integral de la plataforma (2026-08-05)
+
+> ⚠️ ✎ **2026-08-28 — SUPERADO por `operacion/130` (fuente: `docs/operacion/130-relevamiento-plataforma-pre-etapa-2.md`)
+> en todo lo que difieran.** Este documento es la **foto al 2026-08-05**, válida como **memoria
+> de implementación** (los bloques nuevos, las trampas operativas y el "cómo quedó" de cada
+> módulo siguen siendo lectura útil). Lo que ya no describe el estado: hoy son **5 repos de
+> código** (se sumó `e-ovrt_alert-distribution`), **tres servicios HTTP config-driven**
+> (`:8080/:8081/:8082`, ADR-019; **dos** patrones de acople con ADR-020, que derogó ADR-018), la
+> **distribución de alertas por MQTT está implementada, verificada y medida** (docs 114/118/124/125;
+> `t_alert-notification` p95 64,534 ms n=460 — la tabla de §0 que dice "no implementada" y el §4
+> "especificada, no construida" quedaron falsos), el deploy integral de 13 servicios está definido
+> (doc 126; build+smoke post-entrega) y **los conteos de tests son los de `130` §1** (media 643 ·
+> control 312+22 · distribución 133+1 · exp-setup 88/46/668 · datasets 431), no los 2.203 de acá.
+> El kit de redacción reparte este documento a la Etapa 4 con esa advertencia.
 
 - **Fecha:** 2026-08-05.
 - **Tipo:** relevamiento consolidado / memoria de implementación.
@@ -5675,7 +6068,7 @@ reemplazados) · `03-spec-plataforma-dos-caminos.md` · `05-integracion-media-co
 
 ## Fuente: `docs/nucleo/19-cierre-arquitectura-ciclo-de-vida-alerta.md`
 
-> SHA-256 del bloque: `6fcff2323b871885bb8a176d4dd8a0b67e2599b7f01f04b9590c70a5aafed403`  
+> SHA-256 del bloque: `4468e07e8c397994edcb9de2e0da7a499f029769ed856c7c5e50fe1e376be158`  
 > Seleccion: documento completo.
 
 # 19 — Cierre de la arquitectura: el ciclo de vida de la alerta y su distribución
@@ -5691,6 +6084,14 @@ reemplazados) · `03-spec-plataforma-dos-caminos.md` · `05-integracion-media-co
 > operativo, así que los patrones de acople de la plataforma son **dos**, no tres. **El cierre conceptual de este documento
 > sigue siendo válido** — el ciclo de vida y los contratos que describe son los que el
 > código implementa; lo que cambió es que ya no son promesa sino código verificado.
+>
+> ✎ **2026-08-28 — cinco precisiones verificadas contra el código (`operacion/130` R-10 y R-20;
+> informe `datos/130-relevamiento-pre-etapa-2/alert-distribution.md`), anotadas en sitio:**
+> §4.6 (`DeliveryRecord` trae además `latency_mode` y `experiment_id`) · §5 (el broker de la
+> **medición** del doc 118 fue **`amqtt 0.11.3`**; Mosquitto es el del **despliegue**; y el ledger
+> deduplica del lado **publicador**, no las re-entregas broker→suscriptor) · §6 ("ninguna cifra
+> sale de este módulo" está superado por el 118: p95 64,534 ms n=460) · §6.1 (el desfase está
+> **resuelto**: el inicio de `t_alert-notification` es `ts_publish_ms` del envelope del bus).
 
 - **Fecha de relevamiento:** 2026-08-10
 - **Qué cierra:** la cadena de la plataforma termina en una alerta confirmada. Este
@@ -5814,7 +6215,8 @@ cola persistente, y es deliberado.
 **6. `DeliveryRecord` (`control.delivery.v1`)** — separa **alerta confirmada**, **intento**
 y **resultado**, sin tocar la semántica del evento interno. Lleva `channel`, `mode`
 (`dry_run`|`live`), `attempt`, `outcome`, `error`, `talert_notification_ms`, `attempted_at`
-y `delivered_at`.
+y `delivered_at` (✎ 2026-08-28: también **`latency_mode`** y **`experiment_id`** — `operacion/130` R-20;
+y los outcomes son **cinco**: `delivered / failed / skipped_duplicate / dead_letter / suppressed_cooldown`).
 
 **Salidas por corrida:** `notifications.jsonl`, `dead_letter.jsonl` y
 `distribution_summary.json` (conteos por outcome + agregados de `t_alert-notification`).
@@ -5824,7 +6226,10 @@ y `delivered_at`.
 MQTT es el canal **elegido para demostrar el mecanismo**, no una integración con un sistema
 real de obra. El fundamento (doc 07 D5):
 
-- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional.
+- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional. (✎ 2026-08-28:
+  Mosquitto es el broker del **despliegue** (`infra/platform/`, sin build ejecutado); el broker
+  con el que se **midió** la campaña del doc 118 fue **`amqtt 0.11.3`** — al citar la cifra,
+  citar ese broker. `operacion/130` R-10.)
 - **Estándar de integración IoT** — es la respuesta defendible a "¿cómo se conecta esto con
   el mundo?".
 - **Medición limpia** — `t_alert-notification` sin la variabilidad de una API externa. Un
@@ -5833,6 +6238,13 @@ real de obra. El fundamento (doc 07 D5):
 **Y una consecuencia que no es opcional:** MQTT QoS 1 puede **duplicar entregas**. Por eso
 el ledger no es un lujo de diseño — es requisito del canal elegido. Lo mismo valdría para
 cualquier broker at-least-once.
+
+> ✎ **2026-08-28 — precisión (`operacion/130` R-20):** el párrafo mezcla dos deduplicaciones.
+> El **ledger deduplica del lado publicador** — la misma alerta procesada dos veces por el
+> distribuidor (re-ejecución, replay) produce `skipped_duplicate`, con clave
+> (`notification_id`, `channel`), `notification_id = sha1(alert_id)[:16]`. Las **re-entregas
+> broker→suscriptor** propias de QoS 1 las deduplica **el consumidor** por `notification_id`
+> del payload; el ledger no las ve. QoS 1 es el único valor admitido; topic `eovrt/alerts/<severity>`.
 
 **Qué queda explícitamente afuera (E-06):** canales adicionales y dashboard dedicado. La
 vista de alertas va en la **webconsole existente**. ADR-016 ratifica esta exclusión.
@@ -5856,6 +6268,11 @@ el 2026-07-18 y al 2026-08-10 está así:
 ADR-005. Entre el 2026-08-05 y esa fecha estuvo declarado como exclusión cerrada por
 ADR-015 §2c, cláusula hoy derogada. **Ninguna cifra del informe sale de este módulo**, y su
 implementación **no bloquea la redacción**: si no llega a tiempo, se declara como estaba.
+(✎ 2026-08-28: **superado** — el módulo está implementado, verificado (133 tests + 1 de
+integración MQTT) y **medido**: `t_alert-notification` p95 **64,534 ms n=460** (doc 118), tramo
+**bus de alertas → PUBACK QoS 1**, dos relojes de pared del mismo host; sostenido (2.ª+) 102,025
+ms n=104; 1.ª entrega 49,869 ms n=356; cooldown del distribuidor 30 s, 376/836 suprimidas =
+44,98 %. Sí sale una cifra del informe de este módulo. `operacion/130` §2.)
 
 ### 6.1 Un desfase que quien implemente va a chocar
 
@@ -5866,6 +6283,14 @@ sí tiene es `timestamp_ms` (del evento que confirmó), `alert_registered_ms` y
 instante de confirmación —y esa decisión afecta directamente a `t_alert-notification`, que
 es la métrica del tramo. Queda anotado acá para que se resuelva con criterio y no por
 descarte.
+
+> ✎ **2026-08-28 — RESUELTO (`operacion/130` §2 y R-10):** el instante inicial de
+> `t_alert-notification` es **`ts_publish_ms` del envelope del bus de alertas** —el momento en
+> que el control-plane publica la alerta confirmada—, y el final es `puback_wall_ms`:
+> `t_alert-notification = puback_wall_ms − ts_publish_ms`. Por eso el tramo medido es
+> **bus → PUBACK**, no "confirmación → PUBACK": **no arranca en la confirmación del patrón**
+> ni usa `timestamp_ms`/`alert_registered_ms`/`first_evidence_ms`. Dos relojes de pared del
+> mismo host, no monotónico, declarado. No se suma con otros tramos.
 
 ## 7. Qué leer después
 
