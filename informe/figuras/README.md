@@ -75,12 +75,23 @@ impreso es la línea de procedencia, que es la que las hace verificables por un 
 texto debe acompañar:** (a) el módulo de distribución va en **línea continua** —desde
 ADR-019/020 es un servicio HTTP más, disparado por el orquestador igual que los otros
 dos—, no punteada como "capacidad especificada y no implementada"; la nota al pie vieja
-de `94` §4 quedó **falsa** y está reemplazada allí mismo. (b) El **orden de arranque es
-el inverso del flujo de datos** (①distribución → ②control → ③medios): cada consumidor
-queda suscripto antes de que su productor emita, porque en PUB/SUB lo publicado antes de
-la suscripción se pierde. La especificación numeraba "1º control, 2º medios" porque es
-anterior a que la distribución fuera servicio; el dibujo sigue el orden operativo
-vigente. **Confirmalo antes de cerrar la sección.**
+de `94` §4 quedó **falsa** y está reemplazada allí mismo. (b) ~~El **orden de arranque es
+el inverso del flujo de datos** (①distribución → ②control → ③medios)~~ — ver ✎ abajo.
+
+> ⚠️ ✎ **2026-08-28 — la nota (b) se confirmó FALSA contra el código (`operacion/130` §2
+> "Orden de arranque live REAL" y R-01; informe `datos/130-relevamiento-pre-etapa-2/experimental-setup.md`).**
+> El runner (`webconsole/backend/src/eovrt_webconsole/experiment/runner.py:1095-1149`) levanta
+> **① control → ② distribución → ③ medios**: el control arranca primero con `alert_bus.enabled`
+> y `wait_for_subscriber_ms ≥ 10 s`; la distribución necesita el `control_run_id` y por eso va
+> segunda; los medios, últimos. **La no-pérdida en `:5558` la garantiza el handshake XPUB del
+> publicador** (el control espera al suscriptor hasta 10 s antes de emitir), **no el orden de
+> arranque**. Lo que sí sigue valiendo: el consumidor del bus de detecciones (`:5557`) está
+> suscripto antes de que el media emita (control antes que medios), y los tres módulos corren
+> como servicios independientes. El script `scripts/fig_a_vista_de_procesos.py` y los
+> `fig-a-vista-de-procesos.{png,svg}` se corrigieron y regeneraron con este orden el 2026-08-28
+> (rótulos ①②③ y nota al pie; la leyenda "arranque de servicio" se conserva). El texto de
+> §17.4.1 que acompañe la figura debe decir "control → distribución → medios; garantía =
+> handshake XPUB", nunca "inverso del flujo de datos".
 
 **FIG-B — Calidad contra densidad de evidencia.**
 > Campañas t1/g1 (stride 1) y r1–r6 (strides 7/15/26) sobre el banco de 34 clips del

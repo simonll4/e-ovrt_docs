@@ -1,5 +1,13 @@
 # Etapa 3 — ajustes al diseño arquitectónico (§17.3)
 
+> ✅ **Estado (✎ 2026-08-28): §17.3 está en v1.4 con sus tres pases E3 aplicados y verificados**
+> (`correcciones-etapa-3-4*.md`, E3-01…E3-42; `00-el-informe-hoy` 08-28). La decisión por
+> redline **se resolvió dentro de esos pases**; las 53 casillas del `93` **no se marcaron una a
+> una** — el ✎ 08-28 en la cabecera del `93` vale como constancia, y el mapeo redline→E3-xx
+> queda como deuda de trazabilidad. Pendiente: D-E2-2 recorta la glosa de §17.3.6.4 a una
+> remisión (v1.4 → v1.5) cuando la Etapa 2 bautice E-DIR/E-IND/E-HYB en §17.1.5.4.2
+> (`operacion/130` §6). **Lo que sigue es registro histórico.**
+>
 > **Estado (2026-08-10):** es el **único frente con hoja de trabajo formal y casillas de
 > decisión**. Las 26 redlines viven en `material-etapa-3/93-redlines-etapa3.md` (v2,
 > 2026-07-12) y **ninguna está aplicada al `.docx`**: las casillas `[ ]` del tablero

@@ -1,5 +1,12 @@
 # Etapa 1 — ajustes a la fundamentación teórica (§15 Estado del Arte, §16 Marco Teórico)
 
+> ✅ **Estado (✎ 2026-08-28): Etapa 1 CERRADA** — §15+§16 **v1.0** en `entregable/desarrollando/`,
+> con **cinco pases** E1 aplicados y verificados (`verificar_entregable.py`), los 16 `AJ-1.xx`
+> resueltos y las podas 01–11 aplicadas; el Anexo A salió a `90e` (decisión del usuario, 08-27).
+> Única decisión de fondo abierta: `D-E1-11` (AAIP, `[[PENDIENTE]]`). Constancia:
+> `informe/entregable/00-el-informe-hoy.md`. **Lo que sigue abajo es registro histórico** del
+> relevamiento del 08-10, conservado como criterio de lectura — no es una lista de tareas.
+>
 > **Estado (2026-08-10):** relevado, **sin pase de correcciones aplicado**. El
 > relevamiento salió de contrastar el §15 del informe contra fuentes primarias
 > fetcheadas y contra nuestra propia evidencia medida (`sintesis/resultados-y-conclusiones.md`

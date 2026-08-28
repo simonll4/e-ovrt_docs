@@ -1,5 +1,18 @@
 # 97 — Relevamiento integral de la plataforma (2026-08-05)
 
+> ⚠️ ✎ **2026-08-28 — SUPERADO por [`operacion/130`](130-relevamiento-plataforma-pre-etapa-2.md)
+> en todo lo que difieran.** Este documento es la **foto al 2026-08-05**, válida como **memoria
+> de implementación** (los bloques nuevos, las trampas operativas y el "cómo quedó" de cada
+> módulo siguen siendo lectura útil). Lo que ya no describe el estado: hoy son **5 repos de
+> código** (se sumó `e-ovrt_alert-distribution`), **tres servicios HTTP config-driven**
+> (`:8080/:8081/:8082`, ADR-019; **dos** patrones de acople con ADR-020, que derogó ADR-018), la
+> **distribución de alertas por MQTT está implementada, verificada y medida** (docs 114/118/124/125;
+> `t_alert-notification` p95 64,534 ms n=460 — la tabla de §0 que dice "no implementada" y el §4
+> "especificada, no construida" quedaron falsos), el deploy integral de 13 servicios está definido
+> (doc 126; build+smoke post-entrega) y **los conteos de tests son los de `130` §1** (media 643 ·
+> control 312+22 · distribución 133+1 · exp-setup 88/46/668 · datasets 431), no los 2.203 de acá.
+> El kit de redacción reparte este documento a la Etapa 4 con esa advertencia.
+
 - **Fecha:** 2026-08-05.
 - **Tipo:** relevamiento consolidado / memoria de implementación.
 - **Reemplaza como punto de entrada a:** **doc 56** (foto del 2026-07-18), que pasa a

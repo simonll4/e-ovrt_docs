@@ -94,6 +94,13 @@ de distribución va en línea **continua** (la nota al pie de `94` §4 quedó fa
 **orden de arranque es el inverso del flujo de datos**, y la máquina de estados tiene
 **cinco** estados con la reapertura hacia `candidate`.
 
+> ⚠️ ✎ **2026-08-28 — la segunda advertencia era FALSA** (`operacion/130` §2 "Orden de
+> arranque live REAL" y R-01, verificada contra `runner.py:1095-1149`): el orquestador levanta
+> **control → distribución → medios**, no "distribución primero". La garantía de no-pérdida en
+> el bus de alertas `:5558` es el **handshake XPUB** del publicador (`wait_for_subscriber_ms ≥
+> 10 s`), no el orden. FIG-A (script, PNG y SVG) se regeneró el 2026-08-28 con los rótulos
+> corregidos; las otras dos advertencias (línea continua, cinco estados) siguen vigentes.
+
 ## 5. Regla de salida
 
 Desde esta acta, **cualquier experimento nuevo requiere reapertura explícita** con nueva

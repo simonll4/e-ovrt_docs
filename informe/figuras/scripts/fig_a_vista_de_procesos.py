@@ -8,11 +8,14 @@ caja por caja y flecha por flecha está en `informe/ajustes/material-etapa-3/94`
 
 Dos cosas que la figura enseña y que no son decoración:
 
-  · **El orden de arranque es el inverso del flujo de datos.** Los datos van
-    medios → control → distribución, pero el orquestador levanta primero la
-    distribución, después el control y por último los medios: en PUB/SUB el
-    consumidor que no está suscripto pierde lo publicado antes de suscribirse. Es
-    una regla de corrección, no un detalle de implementación.
+  · **El orden de arranque es control → distribución → medios** (✎ 2026-08-28,
+    `operacion/130` R-01: la versión anterior de este script decía "distribución →
+    control → medios", y era falsa). El runner levanta primero el control (con
+    `alert_bus.enabled` y `wait_for_subscriber_ms ≥ 10 s`), después la distribución
+    (necesita el `control_run_id`) y por último los medios. La no-pérdida de alertas
+    en el bus `:5558` la garantiza el handshake XPUB del publicador, no el orden; lo
+    que el orden sí garantiza es que el control esté suscripto a las detecciones
+    antes de que los medios emitan.
   · **No hay flecha del bus a la interfaz de inspección.** Esa ausencia comunica una
     frontera de diseño: la consola es cliente de las interfaces de servicio, nunca
     consumidora del bus. Verificado en el código: el cliente HTTP del módulo de
@@ -168,13 +171,13 @@ def main() -> int:
     flecha(ax, (55.0, FILA_SERVICIOS_Y), (52.0, 13.0), TINTA, ancho=1.3)
     rotulo(ax, 58.5, 19.5, "persiste", TINTA, 5.9)
 
-    # --- Arranque: el orden es el INVERSO del flujo de datos ---
+    # --- Arranque: ① control → ② distribución → ③ medios (✎ 2026-08-28, operacion/130 R-01) ---
     flecha(ax, (13.0, 55.0), (15.0, FILA_SERVICIOS_Y + ALTO_SERVICIO), AZUL)
     rotulo(ax, 11.0, 48.0, "③", AZUL, 8.5, peso="bold")
     flecha(ax, (28.0, 55.0), (50.0, FILA_SERVICIOS_Y + ALTO_SERVICIO), AZUL, rad=-0.10)
-    rotulo(ax, 36.0, 47.0, "②", AZUL, 8.5, peso="bold")
+    rotulo(ax, 36.0, 47.0, "①", AZUL, 8.5, peso="bold")
     flecha(ax, (41.0, 55.0), (84.0, FILA_SERVICIOS_Y + ALTO_SERVICIO), AZUL, rad=-0.14)
-    rotulo(ax, 61.0, 45.4, "①", AZUL, 8.5, peso="bold")
+    rotulo(ax, 61.0, 45.4, "②", AZUL, 8.5, peso="bold")
 
     # --- Inspección: lectura por las interfaces de servicio, nunca por el bus ---
     flecha(ax, (64.0, 55.0), (25.0, FILA_SERVICIOS_Y + ALTO_SERVICIO), TINTA_3, ancho=0.9, rad=0.13)
@@ -206,9 +209,9 @@ def main() -> int:
         [
             "Por el bus viaja el evento de percepción y el ciclo de vida de la corrida; por el canal de alertas, "
             "las alertas ya confirmadas por el motor de patrones.",
-            "①②③ marcan el orden de arranque, que es el INVERSO del flujo de datos: cada consumidor queda suscripto "
-            "antes de que su productor empiece a emitir, porque en PUB/SUB lo publicado antes de la suscripción se "
-            "pierde. Es una regla de corrección, no un detalle de implementación.",
+            "①②③ marcan el orden de arranque del orquestador: primero el control, después la distribución y por "
+            "último los medios. El control queda suscripto a las detecciones antes de que los medios emitan; la "
+            "no-pérdida de alertas la garantiza el publicador, que espera al suscriptor antes de emitir.",
             "Los tres módulos se ejecutan como servicios independientes gobernados por configuración y pueden "
             "disponerse en un mismo host o en hosts distintos sin modificar su lógica. No existe flecha del bus a la "
             "interfaz de inspección: esa ausencia es una frontera de diseño, no una omisión del dibujo.",

@@ -89,6 +89,14 @@ ejemplo vigente de la regla pasa a ser kappa/doble anotación, L2). Podar no es 
 
 ## 3. §15 Estado del Arte (21.575 palabras)
 
+> ✎ **2026-08-28 — estado del tablero de podas (`00-el-informe-hoy` 08-28; `operacion/130` §5 /
+> `docs-set.md` #30):** **PODA-01…11 APLICADAS el 2026-08-27** en §15/§16 **v1.0** (22.266 →
+> 10.870 palabras, con las enmiendas E1-10/E1-08) — marcadas abajo. **PODA-12…14** (§17.1)
+> esperan el pase de la **Etapa 2**, que arranca (PODA-14 acotada por D-E2-8: sólo recorta
+> §17.1.4 y verifica que lo recortado esté en B.1–B.7). **PODA-15/16** (§17.3) pendientes
+> con causa. **PODA-17/18**: el Anexo A y las referencias salieron del entregable a `90e`
+> (decisión del usuario 08-27), donde se resuelven para el equipo.
+
 ### PODA-01 · §15.2.1 Paradigmas y modelos (4.530) · C5 · 🟠
 El catálogo trae **~25 modelos con cifras COCO/LVIS**; el trabajo evaluó **tres familias**
 (GDINO, MM-GDINO, YOLOE) y tiene **un** comparable externo (OWLv2). Comprimir a: los 4
@@ -96,18 +104,18 @@ paradigmas en un párrafo cada uno + ficha solo de los modelos con rol en el tra
 (GDINO/MM-GDINO/YOLO-World/YOLOE/OWLv2 · GDINO 1.5/DINO-X como techo de API cerrada) +
 la Tabla 3 reducida a esas filas. Beneficio doble: **menos superficie de erratas** — las
 AJ-1.04…08 viven justo en las filas que se van (OmDet-Turbo, LLMDet, el caching de 40 ms).
-**Ahorro: ~2.000** · DECISIÓN → [ ] acepto [ ] modifico [ ] rechazo
+**Ahorro: ~2.000** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ] acepto [ ] modifico [ ] rechazo
 
 ### PODA-02 · §15.2.4 Ventajas/limitaciones/trade-offs (2.764) · C3/C4 · 🟠
 Solapa con §15.2.3 (síntesis comparativa, 1.153) y con §16.7. Fusionar 15.2.3+15.2.4 en
-una sola síntesis de ~1.200 con tabla. **Ahorro: ~1.500** · DECISIÓN → [ ]
+una sola síntesis de ~1.200 con tabla. **Ahorro: ~1.500** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-03 · §15.3 MOT completo (2.484) · C1 · 🟠
 La plataforma **no evalúa MOT**: E-10 excluye MOTA/IDF1 con causa medida, y el tracker
 que existe se mide por alertas. Mantener ~800: tracking-by-detection en un párrafo (es lo
 que fundamenta G1) + la brecha. **Eliminar §15.3.3 entero** (métricas MOT, 385 — no se
 usa ni una) y podar el catálogo de métodos (§15.3.1–15.3.2) a los dos que expliquen el
-approach del tracker propio. **Ahorro: ~1.600** · DECISIÓN → [ ]
+approach del tracker propio. **Ahorro: ~1.600** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-04 · §15.4 Streaming y servidores de medios (7.998) · C1/C2 · 🔴 la mayor
 **La sección más desalineada del informe.** 4.041 palabras de protocolos (WebRTC, HLS,
@@ -119,7 +127,7 @@ Comprimir a ~1.200: panorama mínimo de protocolos de **ingesta** + la brecha
 streaming×OVD (§15.4.3, que sí vale). La *justificación de la decisión tomada*
 (RTSP en la entrada, bus de eventos adentro) no va acá: es material de §17.1/§17.3
 (regla de no-anacronismo — el §15 no relata elecciones del proyecto).
-**Ahorro: ~6.800** · DECISIÓN → [ ]
+**Ahorro: ~6.800** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 **Lo que el §15 GANA mientras pierde esto:** la vara supervisada (AJ-1.01), el cruce con
 la evidencia propia (AJ-1.02) y la Vara 3 OVD×EPP (AJ-1.13). La poda no deja al §15 más
@@ -144,36 +152,36 @@ Segunda casa del MOT. Mantener §16.4.1 (la limitación del fotograma — motiva
 histéresis) y §16.4.3 (integración OVD+tracking — motiva G1); comprimir §16.4.2
 (fundamentos MOT, 1.600 → ~700) y **eliminar §16.4.4** (criterios de selección de
 métodos MOT, 487 — no hubo selección de método de catálogo). **Ahorro: ~1.400** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-06 · §16.5.2 Descomposición del pipeline (4.874) · C3 · 🔴
 Mantener lo que **define G2A y sus componentes** (t_capture/t_transport/t_preprocess/
 t_inference — es vocabulario que §17.1.7 y los resultados usan): ~1.400. El resto
 duplica lo que §17.1.7 ya formaliza como framework de métricas. **Ahorro: ~3.400** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-07 · §16.5.3 Arquitecturas de procesamiento de video (3.594) · C1/C2 · 🔴
 Survey de frameworks/arquitecturas de video analytics — y la plataforma es **un pipeline
 Python propio de dos servicios config-driven**. Comprimir a ~600: el patrón
 productor/consumidor como fundamento conceptual; la elección concreta (pipeline propio,
 no framework) se justifica en §17.3, no en el marco teórico. **Ahorro: ~3.000** ·
-DECISIÓN → [ ]
+DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-08 · §16.5.4 Computación en el borde (2.729) · C1 · 🔴
 **EN-3 (inferencia en borde) está excluida.** Lo ejercido es el prefilter EN-2 on-device
 (87% de descarte medido) y la OAK-D como fuente. Comprimir a ~700: el fundamento
 **conceptual** del prefiltrado en el borde; la decisión de dónde vive la inferencia (y su
-resultado medido) pertenecen a §17.3 y §17.5. **Ahorro: ~2.000** · DECISIÓN → [ ]
+resultado medido) pertenecen a §17.3 y §17.5. **Ahorro: ~2.000** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-09 · §16.5.5 Criterios para protocolos y stacks de streaming (1.686) · C2 · 🔴
 Criterios de selección para una selección que ya ocurrió y colapsó (ver PODA-04). Un
-párrafo puente a la decisión tomada. **Ahorro: ~1.400** · DECISIÓN → [ ]
+párrafo puente a la decisión tomada. **Ahorro: ~1.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-10 · §16.6 Marco ético-legal (4.364) · C5 parcial · 🟠
 Tiene núcleo vivo: §16.6.2 (delimitación del tratamiento de datos — **implementada** en
 §17.3.12, minimización de evidencia visual) y §16.6.6 (implicaciones de diseño). Podar lo
 genérico: §16.6.4 referentes comparados (422), §16.6.5 gobernanza de IA (499), y
-comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [ ]
+comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ### PODA-11 · §16.7 Convergencias y brechas transversales (4.429) · C4 · 🔴
 **Meta-texto puro**: seis subsecciones que re-resumen el propio §16 y anticipan §17.1
@@ -181,7 +189,7 @@ comprimir §16.6.7 (955 → ~400). **Ahorro: ~1.400** · DECISIÓN → [ ]
 consolidación"). El lector ya leyó el §16 y va a leer el §17.1; este puente de 4.400
 palabras no aporta contenido nuevo. Fusionar con §16.8 en un cierre único de ~1.000
 (el mapa de brechas de §16.7.3 es lo único que se rescata, comprimido). **Ahorro:
-~3.400** · DECISIÓN → [ ]
+~3.400** · DECISIÓN → [x] ✎ 2026-08-28: APLICADA el 2026-08-27 en §15/§16 v1.0 (`00-el-informe-hoy`) · [ ]
 
 ---
 

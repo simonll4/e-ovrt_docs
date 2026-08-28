@@ -231,7 +231,7 @@ Solo estas fuentes aparecen en los números del capítulo. El resto del
 | **SHEL5K** (Mendeley) | estrato `shel5k`, **5.000 imgs (77% del agregado)** | **CC BY 4.0**, DOI `10.17632/9rcv8mm682.4` | atribución + DOI |
 | `ppe_siabar` (Roboflow) | split TRAIN | CC BY 4.0 | atribución (✎ 2026-08-22: la jornada de fine-tuning **ya se ejecutó completa** — T1/T2 NO-GO, T3 causa técnica — así que no hay "estado a declarar a la entrega": se declara el cierre, con la curva de tres puntos, nunca "quedó fuera") |
 | **MOCS** (copia Roboflow `mocs-bowib`) | piloto A1 (evidencia cualitativa + ancla `person`↔`Worker`) | CC BY 4.0 **declarada por el uploader de la copia**; el original de `anlab340` nunca se descargó ni se verificó | **citar el paper original de MOCS** + declarar que se usó una copia de terceros, sin redistribución |
-| **Rodaje propio 2026-07-25** | **el banco de 34 clips = el resultado principal** | material propio | consentimientos de los participantes (ver §3.3) |
+| **Rodaje propio 2026-07-25** | **el banco de 34 clips = el resultado principal** (✎ 2026-08-28: regla del set — el banco es **47 = 32 positivos + 15 negativos, 37 episodios**; los **34 clips del rodaje son el Bloque A** (35 episodios, 34 evaluables), sobre el que se reporta el resultado principal. GUIA §4 trampa 1) | material propio | consentimientos de los participantes (ver §3.3) |
 | **Lote de internet (14 clips — ✎ 08-10: 13 con GT humano, `v08_c01` excluido con causa firmada)** | estrato B del banco de clips (Bloque B); **precisa L4, no la levanta** (D-113.1) | ✎ **2026-08-05: origen registrado** — canal de YouTube **`@HospitalConstruction`** (https://www.youtube.com/@HospitalConstruction). **Es *Standard YouTube License*, no Creative Commons** ⇒ base de uso: **académico/evaluativo con cita y sin redistribución** (postura `chv`), **nunca presentado como licencia de libre uso** | **citar el canal como fuente de las escenas** + los caveats de §3.3 (no es cámara-nativo · caras difuminadas en figuras · velocidad real verificada) |
 
 ### 3.2 Licencias de los modelos: hueco abierto
@@ -317,7 +317,7 @@ lo puede hacer quien sepa de dónde salieron los videos.
 
 **Dos casos, severidades distintas — no confundirlos:**
 
-- **Rodaje (34 clips, el resultado principal): ✅ resuelto por declaración (2026-08-05).**
+- **Rodaje (34 clips, el resultado principal) (✎ 2026-08-28: = **Bloque A** del banco de **47** clips; ver §1): ✅ resuelto por declaración (2026-08-05).**
   Las personas que aparecen son **los propios integrantes del proyecto**, actuando según el
   guion del doc 69, **sin terceros en cuadro**: son a la vez los sujetos y los responsables
   del material, y las situaciones son actuadas — no documentan conducta laboral real de

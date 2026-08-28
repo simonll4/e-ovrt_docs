@@ -20,7 +20,7 @@
 > | **12 campañas** | **16 campañas** con artefacto (14 en `clip_bench` + 2 en `bench_nivel_a`) |
 > | *"los 14 clips del lote de internet están cortados pero **sin GT**"* (§3, §5.7) | **13 de 14 tienen GT humano** desde el 08-09 (`v08_c01` excluido con causa firmada). §5.7 ya no describe un futuro: **ya pasó** |
 > | *"FAR/hora **NO es una métrica de este trabajo**"* (§5.6) | **Se computa y se reporta** (29,2 escena / 1.850,8 sujeto), pero **no sostiene una cota**. Fórmula de cita obligatoria: **"3 y 190 FP en 6:09,6 del único clip soak"**, con la tasa horaria como derivada (limitación **L1 precisada**, no derogada) |
-> | *"D1/H1/T2/B1 son las únicas que el verificador NO chequea"* (cabecera) | Desde el 08-09 el verificador cubre **19 cifras sobre las 16 campañas**, con un guard que falla si aparece una campaña sin verificar |
+> | *"D1/H1/T2/B1 son las únicas que el verificador NO chequea"* (cabecera) | Desde el 08-09 el verificador cubre **19 cifras sobre las 16 campañas**, con un guard que falla si aparece una campaña sin verificar (✎ 2026-08-28: hoy **26 cifras sobre 17 campañas** —con `t_alert_notification`—, 35 docs de procedencia; EXIT 0 el 2026-08-28, `operacion/130` §2) |
 > | §4: *"la redacción NO arranca todavía"* | ✎ **LEVANTADO el 2026-08-10**: la redacción **está habilitada** y es el carril principal |
 >
 > **Lo que este brief SÍ conserva vigente y hay que respetar:** §1 (registro y estilo),

@@ -38,7 +38,7 @@ ningún resultado. **Registrados y nunca descargados:** `gdut_hwd`, `shwd`, `sod
 | Dataset | Qué resultado sostiene | Declaración de licencia para el informe |
 |---|---|---|
 | `construction_site_safety` | TRAIN + origen de `bench_obra` (147 curadas) + **GT de `machinery`/`vehicle` del piloto A1** + negativos explícitos del GT CR-02 Nivel A | CC BY 4.0, atribución a Roboflow Universe Projects |
-| `chv` | 2º estrato de bench_v3 (1.330) + TRAIN + mejor vest AP (0,55–0,58) | Grant informal "open for free use"; **cita obligatoria `wang2021ppe`**; imágenes NO redistribuibles (cumplido por construcción: raw gitignorado) |
+| `chv` | 2º estrato de bench_v3 (1.330) + TRAIN + mejor vest AP (0,55–0,58) (✎ 2026-08-28: "TRAIN" es el **rol histórico** de `train_v2` —css+chv+ppe_siabar, archivado en `legacy/` el 08-15—; el **entrenamiento efectivo** (`finetuning_v1`, T1/T2) fue css 2.203 + ppe_siabar 743 = **2.946**, **`chv` EXCLUIDO** por anti-leakage: el 100 % de chv es estrato del banco. `operacion/130` R-02) | Grant informal "open for free use"; **cita obligatoria `wang2021ppe`**; imágenes NO redistribuibles (cumplido por construcción: raw gitignorado) |
 | `shel5k` | 3er estrato de bench_v3 (5.000) — único con `bare_head` nativo; el n grande que separó al especialista (doc 64 §B5) | CC BY 4.0, Mendeley DOI 10.17632/9rcv8mm682.4 |
 | `ppe_siabar` | TRAIN (1.120 imgs de train) | CC BY 4.0 |
 | `MOCS` (copia Roboflow) | Piloto A1: amplitud de vocabulario (cualitativa) + ancla person↔Worker (AP 0,610, n=507) | CC BY 4.0 **declarada por el uploader de la copia**; original (anlab340) sin verificar → uso evaluativo, sin redistribución, **citar el paper original de MOCS** |

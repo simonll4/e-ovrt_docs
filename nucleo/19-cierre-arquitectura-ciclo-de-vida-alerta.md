@@ -11,6 +11,14 @@
 > operativo, así que los patrones de acople de la plataforma son **dos**, no tres. **El cierre conceptual de este documento
 > sigue siendo válido** — el ciclo de vida y los contratos que describe son los que el
 > código implementa; lo que cambió es que ya no son promesa sino código verificado.
+>
+> ✎ **2026-08-28 — cinco precisiones verificadas contra el código (`operacion/130` R-10 y R-20;
+> informe `datos/130-relevamiento-pre-etapa-2/alert-distribution.md`), anotadas en sitio:**
+> §4.6 (`DeliveryRecord` trae además `latency_mode` y `experiment_id`) · §5 (el broker de la
+> **medición** del doc 118 fue **`amqtt 0.11.3`**; Mosquitto es el del **despliegue**; y el ledger
+> deduplica del lado **publicador**, no las re-entregas broker→suscriptor) · §6 ("ninguna cifra
+> sale de este módulo" está superado por el 118: p95 64,534 ms n=460) · §6.1 (el desfase está
+> **resuelto**: el inicio de `t_alert-notification` es `ts_publish_ms` del envelope del bus).
 
 - **Fecha de relevamiento:** 2026-08-10
 - **Qué cierra:** la cadena de la plataforma termina en una alerta confirmada. Este
@@ -134,7 +142,8 @@ cola persistente, y es deliberado.
 **6. `DeliveryRecord` (`control.delivery.v1`)** — separa **alerta confirmada**, **intento**
 y **resultado**, sin tocar la semántica del evento interno. Lleva `channel`, `mode`
 (`dry_run`|`live`), `attempt`, `outcome`, `error`, `talert_notification_ms`, `attempted_at`
-y `delivered_at`.
+y `delivered_at` (✎ 2026-08-28: también **`latency_mode`** y **`experiment_id`** — `operacion/130` R-20;
+y los outcomes son **cinco**: `delivered / failed / skipped_duplicate / dead_letter / suppressed_cooldown`).
 
 **Salidas por corrida:** `notifications.jsonl`, `dead_letter.jsonl` y
 `distribution_summary.json` (conteos por outcome + agregados de `t_alert-notification`).
@@ -144,7 +153,10 @@ y `delivered_at`.
 MQTT es el canal **elegido para demostrar el mecanismo**, no una integración con un sistema
 real de obra. El fundamento (doc 07 D5):
 
-- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional.
+- **Peso mínimo** — un Mosquitto en el compose, sin infraestructura adicional. (✎ 2026-08-28:
+  Mosquitto es el broker del **despliegue** (`infra/platform/`, sin build ejecutado); el broker
+  con el que se **midió** la campaña del doc 118 fue **`amqtt 0.11.3`** — al citar la cifra,
+  citar ese broker. `operacion/130` R-10.)
 - **Estándar de integración IoT** — es la respuesta defendible a "¿cómo se conecta esto con
   el mundo?".
 - **Medición limpia** — `t_alert-notification` sin la variabilidad de una API externa. Un
@@ -153,6 +165,13 @@ real de obra. El fundamento (doc 07 D5):
 **Y una consecuencia que no es opcional:** MQTT QoS 1 puede **duplicar entregas**. Por eso
 el ledger no es un lujo de diseño — es requisito del canal elegido. Lo mismo valdría para
 cualquier broker at-least-once.
+
+> ✎ **2026-08-28 — precisión (`operacion/130` R-20):** el párrafo mezcla dos deduplicaciones.
+> El **ledger deduplica del lado publicador** — la misma alerta procesada dos veces por el
+> distribuidor (re-ejecución, replay) produce `skipped_duplicate`, con clave
+> (`notification_id`, `channel`), `notification_id = sha1(alert_id)[:16]`. Las **re-entregas
+> broker→suscriptor** propias de QoS 1 las deduplica **el consumidor** por `notification_id`
+> del payload; el ledger no las ve. QoS 1 es el único valor admitido; topic `eovrt/alerts/<severity>`.
 
 **Qué queda explícitamente afuera (E-06):** canales adicionales y dashboard dedicado. La
 vista de alertas va en la **webconsole existente**. ADR-016 ratifica esta exclusión.
@@ -176,6 +195,11 @@ el 2026-07-18 y al 2026-08-10 está así:
 ADR-005. Entre el 2026-08-05 y esa fecha estuvo declarado como exclusión cerrada por
 ADR-015 §2c, cláusula hoy derogada. **Ninguna cifra del informe sale de este módulo**, y su
 implementación **no bloquea la redacción**: si no llega a tiempo, se declara como estaba.
+(✎ 2026-08-28: **superado** — el módulo está implementado, verificado (133 tests + 1 de
+integración MQTT) y **medido**: `t_alert-notification` p95 **64,534 ms n=460** (doc 118), tramo
+**bus de alertas → PUBACK QoS 1**, dos relojes de pared del mismo host; sostenido (2.ª+) 102,025
+ms n=104; 1.ª entrega 49,869 ms n=356; cooldown del distribuidor 30 s, 376/836 suprimidas =
+44,98 %. Sí sale una cifra del informe de este módulo. `operacion/130` §2.)
 
 ### 6.1 Un desfase que quien implemente va a chocar
 
@@ -186,6 +210,14 @@ sí tiene es `timestamp_ms` (del evento que confirmó), `alert_registered_ms` y
 instante de confirmación —y esa decisión afecta directamente a `t_alert-notification`, que
 es la métrica del tramo. Queda anotado acá para que se resuelva con criterio y no por
 descarte.
+
+> ✎ **2026-08-28 — RESUELTO (`operacion/130` §2 y R-10):** el instante inicial de
+> `t_alert-notification` es **`ts_publish_ms` del envelope del bus de alertas** —el momento en
+> que el control-plane publica la alerta confirmada—, y el final es `puback_wall_ms`:
+> `t_alert-notification = puback_wall_ms − ts_publish_ms`. Por eso el tramo medido es
+> **bus → PUBACK**, no "confirmación → PUBACK": **no arranca en la confirmación del patrón**
+> ni usa `timestamp_ms`/`alert_registered_ms`/`first_evidence_ms`. Dos relojes de pared del
+> mismo host, no monotónico, declarado. No se suma con otros tramos.
 
 ## 7. Qué leer después
 

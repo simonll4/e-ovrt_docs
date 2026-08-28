@@ -1,6 +1,6 @@
 # ADRs — Estado de implementación (cierre de trazabilidad)
 
-- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-18
+- **Fecha:** 2026-07-18 · **última actualización:** 2026-08-28 (✎ 2026-08-28: nombres verificados contra código en `operacion/130` R-08 — causa two-node `clock_skew`, 12 endpoints; antes decía 2026-08-18 aunque las filas 016/017 ya tenían ✎ del 08-21/08-22)
 - **Propósito:** cerrar el loop **decisión → implementación** para cada ADR. Los ADRs
   se escribieron *antes* de implementar y expresan su impacto como trabajo futuro;
   este documento registra, con rutas reales, endpoints y evidencia medida, **cómo
@@ -24,7 +24,7 @@
 | 005 | La distribución de alertas se recorta a **un canal MQTT en repo propio** | **Funcionalmente implementado** (✎ 2026-08-12): seis criterios de spec 45 verificados, incluidos DBE/EBE, MQTT QoS 1 contra broker real y `report.json`. ✎ 2026-08-14: los pendientes del 08-12 (vista de outcomes en la **webconsole**, **orquestación** integral y versionar el repo) se cerraron el 2026-08-13 — `13c801e`, `42529e2`, y repo con `c9903cc`/`1e6d8fa` |
 | 006 | El reporte consolidado junta ambos planos por `experiment_id` y **cada métrica declara su aplicabilidad** con causa | **Implementado** (report.json/md + estados en todos los evaluadores) |
 | 007 | En vivo, la corrida del control-plane es **1:1** con el run del media-plane y cierra por `run_finished` | **Implementado y verificado E2E** |
-| 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) |
+| 008 | El control-plane se expone como **servicio HTTP mínimo** (:8081) | **Implementado y superado** (11 endpoints vs los 3 decididos) (✎ 2026-08-28: son **12 rutas** en `:8081` según el código — `operacion/130` §1 y R-08) |
 | 009 | La config experimental se **centraliza** en experimental-setup y la **webconsole es la superficie de gestión primaria** | **Implementación incompleta** [Enmienda 2026-08-14]: la UI está rediseñada, pero el historial durable y la promoción `runs/`→`results/` quedaron diferidos (doc 115 §2.2, frentes C/D, D-115.2). La calificación histórica “superado” describía la UI, no el ciclo de evidencia. |
 | 010 | Se ejecuta **la plataforma primero**, la evaluación después; el clip bench se dispara al cierre del spec 44 | **Cumplida** (orden 40→41→42→44 ejecutado; tooling del 43 completo) |
 | 011 | El motor **emite en cada confirmación**; cooldown y supresión son política de notificación (módulo de distribución) | **Implementado en ambos lados de la frontera**: el motor emite todo; el distribuidor aplica cooldown por `(condition_id, source_id)` y lo registra |
@@ -177,6 +177,10 @@
   quedó resuelta con la **opción declarativa**: `g2a_ms = null` y bloque
   `not_interpretable / cross_node_monotonic_clock` (doc 39) — no se implementó
   sincronización NTP/chrony.
+  (✎ 2026-08-28: el nombre que **emite el código** es `not_interpretable / clock_skew`
+  —control-plane y experimental-setup—, no `cross_node_monotonic_clock`; y
+  `not_applicable:no_ground_truth` lo emite `report.py` del experimental-setup, no el
+  control-plane. `operacion/130` R-08, informe `datos/130-relevamiento-pre-etapa-2/control-plane.md`.)
 
 ### ADR-007 — Corrida 1:1 en vivo
 
@@ -200,7 +204,7 @@
   corrida, estado, config), un run activo por vez; la webconsole es cliente de ambos
   planos.
 - **Cómo quedó:** **implementado el 2026-07-10** (doc 38) y **superado después**:
-  `eovrt-control serve` en :8081; hoy **11 endpoints** (`/healthz`, `/readyz`,
+  `eovrt-control serve` en :8081; hoy **11 endpoints** (✎ 2026-08-28: **12 rutas** contadas en el código, `operacion/130` §1) (`/healthz`, `/readyz`,
   `GET /api/config`, `POST/GET /api/runs`, `/runs/current`, `/runs/{id}`,
   `DELETE /runs/{id}`, `/runs/{id}/alerts`, `/runs/{id}/pattern-progress`,
   `/runs/{id}/received-units`) — doc 56 §3.3. Un run activo (409). La "cáscara
@@ -340,7 +344,7 @@ Para saber **qué rige hoy** cuando varios ADRs tocan lo mismo:
 | ADR | Condicional que dejaba abierto | Resolución |
 |---|---|---|
 | 001 | "el cierre definitivo lo da el experimento D1" | ✎ **RESUELTO (corregido 2026-08-05; esta fila decía "sigue abierto")**: el acta se firmó el 2026-07-29 (doc 76 — `edir_v1` `a1278d0c…` y `eind_v1` `7a0126f4…` congelados con sha256) y **D1 corrió en los dos niveles**: Nivel A pasó el gate parcialmente (doc 83) y **Nivel B descartó E-DIR por veto de precisión** (0,146 < 0,5 — doc 85). El encuadre E-IND queda confirmado con número, no por defecto |
-| 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) |
+| 006 | dos opciones para relojes two-node | Resuelto: **declarativa** (`not_interpretable/cross_node_monotonic_clock`, doc 39) (✎ 2026-08-28: la causa que emite el código es **`clock_skew`**, `operacion/130` R-08) |
 | 007 | ventanas de evaluación propias "trabajo futuro" | No hicieron falta: la evaluación temporal v2 (doc 52) cubre el caso |
 | 005 | "¿MQTT sí o no?" (canal de distribución, spec 45) | ✎ **RESUELTO: SÍ e implementado** (ADR-016; verificación 2026-08-11, doc 114). E-06 sigue excluida. Quedan la vista de webconsole, la orquestación y versionar el repo; no bloquea la redacción |
 | 012 | "sujeta a falsación por test" | **Falsación superada** (doc 34); la reversión no se activó |

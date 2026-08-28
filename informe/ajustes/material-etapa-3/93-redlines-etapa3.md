@@ -1,6 +1,19 @@
 # Redlines de Etapa 3 — hoja de trabajo para revisión
 
 - **Fecha:** 2026-07-12
+
+> ✎ **2026-08-28 — estado de esta hoja (`operacion/130` §5 / `datos/130-relevamiento-pre-etapa-2/docs-set.md` #10 y #32).**
+> **(1) Método:** "resolverlo directo en el Google Docs" quedó **superado por el régimen 08-23/27**:
+> cada sección se trabaja en su `.docx` de `informe/entregable/desarrollando/`, no en Drive; el
+> circuito vigente es el de `00-contexto-base` §Cómo se trabaja. Este 93 es la **hoja de
+> decisiones**, no el circuito de edición. **(2) Estado de las 26 redlines:** la decisión por
+> redline **se resolvió dentro de los pases E3-01…E3-42** ya aplicados y verificados en §17.3
+> **v1.4** (`correcciones-etapa-3-4*.md`, `00-el-informe-hoy` 08-28); las 53 casillas
+> `[ ]` de abajo **no se marcaron una a una** — **este ✎ vale como constancia** de que el
+> tablero está superado por los pases y queda como registro histórico. El mapeo
+> redline→E3-xx queda como **deuda de trazabilidad** (no bloquea nada).
+> **(3) Correcciones de contenido del 08-28:** R-24 (b) — el fine-tuning excluyó `chv` (ver ✎ en el ítem).
+
 - **Qué es esto:** la lista **completa y accionable** de ajustes al capítulo 17.3, uno por uno, en orden
   del documento. **No se toca el `.docx` desde acá.** Cada ítem está redactado para que vos lo analices,
   lo critiques y lo resuelvas directo en el Google Docs.
@@ -819,6 +832,11 @@ retuvieron y por qué** — no dejar la lista larga como si todos se hubieran us
 >
 > **(b) Catálogo de datasets utilizados para ENTRENAMIENTO/adaptación** (rol TRAIN):
 > `construction_site_safety`, `chv`, `ppe_siabar`.
+> (✎ 2026-08-28 — **corregido contra código, `operacion/130` R-02:** ése es el rol TRAIN
+> **histórico** (`train_v2`, archivado en `legacy/` el 08-15). El entrenamiento **efectivo**
+> (`finetuning_v1`, T1/T2) fue `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946
+> train / 483 val**, con **`chv` EXCLUIDO** por anti-leakage: el 100 % de sus 1.330 imágenes es
+> estrato del banco. El informe declara (b) como css + ppe_siabar, nunca con chv.)
 >
 > **(c) Catálogo de FUENTES del banco de evaluación de imágenes (`bench_v3`)**, que **no
 > es el mismo conjunto**: `construction_site_safety` (CC BY 4.0), `chv` y `shel5k`

@@ -117,6 +117,12 @@ que corregir del texto que ya existe y qué hay que escribir desde cero. **Tres 
 informe están vacías —§17.4 Implementación, §17.5 Evaluación y §17.6 Cierre—**, y ese mapa
 es el que dice qué va en cada una y de dónde sale.
 
+> ✎ **2026-08-28 — vencido:** "vacías" vale sólo para el **maestro** `.docx`. **§17.4 (v1.6) y
+> §17.5 (v1.3) ya tienen documento de trabajo** con sus tres pases E3/E4 aplicados y verificados
+> en `informe/entregable/desarrollando/`; §15+§16 cerraron en v1.0 el 08-28 (Etapa 1 CERRADA) y
+> §17.3 está en v1.4. **Lo que sigue vacío es §17.6, §18 y §19.** Estado vigente:
+> `informe/entregable/00-el-informe-hoy.md`; relevamiento de plataforma: `operacion/130`.
+
 > **Las etapas son seis, y son la guía de desarrollo del proyecto** (Gantt del §14.3 =
 > §14.2): 1 investigación bibliográfica · 2 análisis metodológico · 3 diseño arquitectónico ·
 > 4 implementación MVP · 5 evaluación y validación · 6 documentación y defensa. **El informe
@@ -139,8 +145,8 @@ de `docs/operacion/NN` que la síntesis te indique.
 |---|---|
 | `docs/GUIA-CIERRE.md` y `docs/operacion/113` | Son el checklist operativo **del equipo experimental**, no material de redacción |
 | `docs/informe/92` y `docs/operacion/56` y `92` | **Derogados como fuente de cifras** |
-| `docs/operacion/32`, `36`, `50` | Estado de plataforma superado por `operacion/97` |
-| `../informe-project-kit/` | Kit aplanado externo **eliminado**. Para ChatGPT usar `docs/informe/project-kit/README.md`: cuatro archivos de knowledge — dos `.md` generados por etapa + dos DOCX del entregable (✎ 2026-08-16) |
+| `docs/operacion/32`, `36`, `50` | Estado de plataforma superado por `operacion/97` (✎ 2026-08-28: y `97` a su vez **superado por `operacion/130`** en todo lo que difieran — 5 repos, tres servicios HTTP, distribución medida) |
+| `../informe-project-kit/` | Kit aplanado externo **eliminado**. Para ChatGPT usar `docs/informe/project-kit/README.md`: cuatro archivos de knowledge — dos `.md` generados por etapa + dos DOCX del entregable (✎ 2026-08-16) (✎ 2026-08-28 — definición vigente de los cuatro: `00-contexto-base.md` + `01-etapa-N-activa.md` + el **DOCX base de formato** `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo** (`desarrollando/`); el "Etapa 3 vigente" ya no se sube — `INSTRUCCIONES-PROJECT.md`) |
 | Cualquier doc de `operacion/` con banner ⚠️ | Los banners dicen qué quedó superado. **Leé el banner antes que el cuerpo, siempre** |
 
 **Regla general del set:** un documento con banner de corrección **manda por el banner, no
@@ -344,6 +350,13 @@ sólo dos acoples: están viejos.
 > el anexo de reproducibilidad (§19). **Nunca en presente, nunca como capacidad existente,
 > nunca como instructivo de despliegue.** Regla corta: *describir el compromiso es
 > correcto; describir un despliegue que no corrió es falso.*
+>
+> ✎ **2026-08-28 — estado real (`operacion/130` R-09; doc 126):** "diferida" ya no describe el
+> estado. **Imagen y compose de 13 servicios están escritos y validados por configuración**
+> desde el 2026-08-19/20 (Dockerfiles en los tres repos, `infra/platform/` con paridad de
+> rutas); lo diferido a post-entrega es **build + smoke integral**. Fórmula para el informe:
+> **"definida, despliegue no verificado"** — nunca "diferida", nunca "desplegada". El resto de
+> la regla (no en presente como capacidad verificada, no instructivo) sigue.
 
 > ⏳ **✎ 2026-08-12 — y la jornada ARRANCÓ.** Corre en paralelo a la redacción y **no la
 > bloquea** (ADR-017 §2f). Para vos significa tres cosas concretas: **(1)** el §17.5 tiene
@@ -385,16 +398,16 @@ medición tumbó. Eso se cuenta como fortaleza metodológica, no se disimula.
 | La narrativa completa con contexto | `docs/sintesis/resultados-y-conclusiones.md` |
 | Teoría, definiciones, por qué el diseño es así | `docs/sintesis/fundamentos-teoricos.md` |
 | Qué calcula cada métrica | `docs/sintesis/inventario-de-metricas.md` |
-| Cómo está implementada la plataforma (concreción técnica) | `docs/operacion/97-relevamiento-plataforma-2026-08-05.md` — la foto verificada contra código (2.203 tests verdes) |
+| Cómo está implementada la plataforma (concreción técnica) | ✎ 2026-08-28: **`docs/operacion/130-relevamiento-plataforma-pre-etapa-2.md`** — los cinco repos verificados contra los docs y contra §17.1 (tests 643/312/133/668/431; informes por repo en `operacion/datos/130-relevamiento-pre-etapa-2/`). `operacion/97` (08-05, "2.203 tests") queda como memoria de implementación, superado en todo lo que difieran |
 | El módulo de **distribución de alertas** (§17.3.10) | `docs/informe/ajustes/material-etapa-3/92b-concrecion-distribucion-alertas.md` — diseño y contratos · **`operacion/114`** — implementación verificada, pruebas y brechas · **`nucleo/19`** — ciclo de vida y fronteras · **`operacion/124`** — servicio HTTP (ADR-019) · **`operacion/125`** — HTTP como acople (ADR-020). Estado: funcional e integrado — ~~pendientes webconsole, orquestación y commits~~ ✎ cerrados el 2026-08-13. Desde el 2026-08-18 expone servicio HTTP propio en `:8082`; **HTTP constituye el acople predeterminado**. ADR-018 quedó derogada por ADR-020 |
-| El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) |
+| El kit para trabajar en **ChatGPT Web** | `docs/informe/project-kit/README.md` — instrucciones + cuatro archivos de knowledge: contexto base, etapa activa y los dos DOCX del entregable (informe sin §17.3 + Etapa 3 vigente; ✎ 2026-08-16) (✎ 2026-08-28: los dos DOCX son el **base de formato** `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo** — §15+§16 v1.0 · §17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3 · §17.1 en preparación; el "Etapa 3 vigente" no se sube) |
 | Siglas, códigos, colisiones de símbolos | `docs/13-glosario-y-convenciones-de-lectura.md` §3 y §4 |
 | Reglas de estilo y honestidad al redactar | `docs/informe/97` §1–§3 (⚠️ **su §5 está superada**) |
 | Qué figura/tabla va en cada sección | `docs/informe/ajustes/gobierno/99-materiales-de-cierre.md` §1 (✎ al día al 2026-08-10 — incluye el tramo de video, T-82…T-84/FIG-F) |
 | **Qué hay que cambiarle al informe, etapa por etapa** | ✎ **`docs/informe/ajustes/00-mapa-de-ajustes.md`** — el mapa de Etapa 1 a Etapa 6, con un documento por etapa (`01`…`06`). **Empezá por acá y no por el 93**: el 93 cubre solo la Etapa 3 |
 | **Cómo se aplica todo eso: dónde escribís, en qué orden, qué te toca** | ✎ **`docs/informe/ajustes/08-manual-de-aplicacion.md`** — **es el documento del día 1.** Trae el reparto de trabajo, el orden con su dependencia dura (la vara del §15 antes que el §17.5), el loop repetible por sección, las cuatro puertas de cierre y el tablero de las 109 unidades. **Leelo después de esta guía y antes de tocar nada** |
 | Qué hay que corregir del **§17.3** (Etapa 3) | `docs/informe/93` — los **26 redlines** (R-01…R-26). Enrutados desde `informe/ajustes/03-etapa-3-diseno-arquitectonico.md` |
-| Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe. Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
+| Las secciones que hay que **escribir desde cero** | **§17.4, §17.5 y §17.6 están vacías** en el informe (✎ 2026-08-28: **en el maestro**; §17.4 v1.6 y §17.5 v1.3 **ya están redactadas** en `entregable/desarrollando/` — sólo §17.6, §18 y §19 se escriben desde cero). Qué tiene que decir cada una: `informe/ajustes/04-etapa-4-implementacion.md`, `05-etapa-5-evaluacion-y-validacion.md` y `06-etapa-6-documentacion-y-cierre.md` |
 | Qué **recortar** del informe (está muy extenso) | ✎ `docs/informe/ajustes/07-critica-extension-y-poda.md` — 18 podas medidas (`PODA-nn`, ~27% del texto), con guardrails de qué NO tocar. Se aplica junto con los `AJ-`/`R-` de cada sección |
 | Texto ya redactado para adaptar | `docs/informe/94` (§1–§9: cubre 9 de los 26 redlines, y es el modelo de estilo) |
 | Por qué se decidió algo | Los **ADR** (`docs/decisiones/`) + `docs/nucleo/10` (alcance y exclusiones) |
@@ -418,4 +431,6 @@ que haya que resolver escribiendo con ambigüedad.
 
 **Verificación mecánica disponible:** `python3 docs/operacion/datos/96-verificar-indices.py`
 comprueba que las cifras citadas en los índices coincidan con los artefactos en disco (19
-cifras sobre las 16 campañas). Si dudás de un número, corrélo.
+cifras sobre las 16 campañas) (✎ 2026-08-28: hoy son **26 cifras sobre 17 campañas, 3 deltas
+bootstrap, 35 docs de procedencia, 1.452 enlaces / 0 rotos — EXIT 0 el 2026-08-28**,
+`operacion/130` §2; el 19/16 era el conteo del 08-09). Si dudás de un número, corrélo.

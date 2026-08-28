@@ -90,7 +90,7 @@ que **el repo no tiene ni un commit**.
 |---|---|
 | Tareas del plan (11) | 1–10 completas; 11 completa salvo el criterio de MQTT real |
 | Código | 9 módulos, ~530 líneas en `src/` — la estructura exacta de spec 45 §2 |
-| Tests | **37 pasan** + 1 de integración (`-m integration`), que hoy también pasó |
+| Tests | **37 pasan** + 1 de integración (`-m integration`), que hoy también pasó (✎ 2026-08-28: hoy son **133 tests + 1 de integración MQTT** deseleccionada por default — `operacion/130` §1 y R-12; los 37/39 son la foto del 08-12/13) |
 | Lint | `ruff check src tests` limpio |
 | Contratos | `control.notification.v1` y `control.delivery.v1` idénticos a 92b §3.2/§3.3, campo por campo |
 | **Commits** | **cero** — todo el árbol está untracked |
@@ -171,6 +171,16 @@ exactamente la política de ADR-011 haciendo su trabajo sobre una corrida densa.
 ---
 
 ## 4. Brechas
+
+> ✎ **2026-08-28 — brechas CERRADAS después de este relevamiento (`operacion/130` R-20; informe
+> `datos/130-relevamiento-pre-etapa-2/alert-distribution.md`):** **C2** → ledger por
+> generaciones · **C4** → venv **3.11** (pin `requires-python >=3.11,<3.12`) · **B1** →
+> `Dockerfile` (3.11-slim) en el repo y servicio en el compose de 13 (08-19/20, doc 126) ·
+> **B4** → el runner orquesta al distribuidor **por HTTP** (`:8082`, ADR-019/020; orden real
+> control → distribución → medios, R-01) · **B5** → layout `runs/exp_<id>/distribution/`.
+> Además A1/A2/A3 y C1/C3 cerrados el 08-13 (doc 119). La tabla de abajo es la foto del 08-12.
+> **Puertos:** en este doc la plataforma aparece sin `:8082` porque el servicio HTTP del
+> distribuidor nació el 08-17 (ADR-019); hoy son `:8080/:8081/:8082` + bus `:5557/:5558` + MQTT `:1883`.
 
 ### A. Acople — lo que falta para cerrar el recorte comprometido por ADR-016
 

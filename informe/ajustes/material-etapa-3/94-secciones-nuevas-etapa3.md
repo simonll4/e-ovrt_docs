@@ -421,6 +421,12 @@ específica de mensajería"); el resto reemplaza **§17.3.8.4**.
 
 - Orquestador **→** Servicio de control (corrida en vivo) — **1º**; su respuesta afirmativa implica suscripción activa.
 - Orquestador **→** Servicio de medios (con bus habilitado) — **2º**. *Etiquetar el orden: es una regla de corrección, no un detalle de implementación.*
+  (✎ 2026-08-28 — con la distribución como servicio, el orden **real** del runner es
+  **① control → ② distribución → ③ medios** (`operacion/130` R-01, `runner.py:1095-1149`): la
+  distribución va segunda porque necesita el `control_run_id`; los medios, últimos. La
+  no-pérdida en el bus de alertas `:5558` la garantiza el **handshake XPUB** del control
+  (`wait_for_subscriber_ms ≥ 10 s`), **no el orden**. Nunca "distribución primero" ni
+  "inverso del flujo de datos". FIG-A regenerada con este orden el 2026-08-28.)
 - Servicio de medios **→ bus →** Servicio de control. Etiqueta: evento de percepción + ciclo de vida de corrida.
 - Servicio de medios **→** Repositorio, con la flecha **numerada antes** que la del bus (persiste primero, publica después).
 - Servicio de control **→** Repositorio.

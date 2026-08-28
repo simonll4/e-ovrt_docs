@@ -14,6 +14,16 @@
 trabajo. Cero aplicadas.** Los insumos están completos y verificados; lo que falta es el
 pase.
 
+> ✎ **2026-08-28 — estado real (fuente: `informe/entregable/00-el-informe-hoy.md` 08-28;
+> `operacion/130` §5 / `docs-set.md` #6):** "Cero aplicadas" es la foto del 08-10.
+> **Etapa 1 CERRADA el 2026-08-28** — §15+§16 **v1.0** con los **16 `AJ-1.xx`** resueltos y
+> las **podas 01–11** aplicadas (cinco pases E1; el Anexo A salió a `90e`). **§17.3 v1.4,
+> §17.4 v1.6 y §17.5 v1.3** tienen sus tres pases E3/E4 **aplicados y verificados**
+> (`correcciones-etapa-3-4*.md`) — las fichas `AJ-4.x`/`AJ-5.x` y las 26 redlines quedaron
+> absorbidas por esos pases. **Etapa 2 (§17.1) arrancando** tras el relevamiento `operacion/130`.
+> Pendiente de redacción: §17.6, §18, §19 (Etapa 6) e integración al maestro. El tablero del
+> §5 se marcó según esto.
+
 ---
 
 ## 1. El problema que hay que resolver antes de escribir la primera línea
@@ -26,6 +36,9 @@ Cuatro hechos que, juntos, son un conflicto de edición esperando:
 2. **`entregable/*.md` es una foto, no un espejo.** Se extrajo una vez y **no se regenera**:
    si alguien edita el Word, esos `.md` quedan viejos en silencio. **No existe script de
    extracción** — se verificó: no hay ninguna herramienta en el repo que lo haga.
+   (✎ 2026-08-28: **superado** — existen `herramientas/extraer_informe.py` (extractor
+   `.docx`→md, operativo desde el 08-16) y `herramientas/verificar_entregable.py` (verificador
+   del entregable, 08-27); los `90b`–`90e` se re-extraen desde el `.docx` vigente.)
 3. **Ahora hay cuatro manos** (los dos colegas que redactan, el usuario y Claude), donde
    antes había una.
 4. **Tres secciones no son corrección, son capítulos nuevos** (§17.4, §17.5, §17.6).
@@ -127,7 +140,9 @@ ella el orden queda cerrado.
 §17.5 escribe cada conclusión en **tres tiempos** —*qué dice la literatura* → *qué medimos*
 → *qué aporte queda*—, y la vara de la literatura la construyen `AJ-1.01`, `AJ-1.02` y
 `AJ-1.13` en el §15. **Hoy esa vara no existe**, así que el §17.5 no tiene contra qué
-contrastar.
+contrastar. (✎ 2026-08-28: **la vara ya existe** — `AJ-1.01`/`1.02`/`1.13` están escritas e
+integradas en §15 **v1.0** (Etapa 1 CERRADA 08-28, `00-el-informe-hoy`); §17.5 v1.3 ya
+contrasta contra ella.)
 
 ⇒ **No se empieza por el §17.5. Se empieza por esos tres ajustes del §15**, que son 3 de 16
 y desbloquean el camino crítico.
@@ -194,13 +209,22 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 [ ] AJ-0.07
 ```
 
-**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: colegas** *(la vara ★: borrador de Claude, ✎ 2026-08-16)*
+**Etapa 1 · §15 · §16 · Anexo A — 16 · responsable: colegas** *(la vara ★: borrador de Claude, ✎ 2026-08-16)* — ✅ **CERRADA 2026-08-28 (v1.0)**
 ```
-[ ] AJ-1.01 ★  [ ] AJ-1.02 ★  [ ] AJ-1.03   [ ] AJ-1.04   [ ] AJ-1.05   [ ] AJ-1.06
-[ ] AJ-1.07    [ ] AJ-1.08    [ ] AJ-1.09   [ ] AJ-1.10   [ ] AJ-1.11   [ ] AJ-1.12
-[ ] AJ-1.13 ★  [ ] AJ-1.14    [ ] AJ-1.15   [ ] AJ-1.16
+[x] AJ-1.01 ★  [x] AJ-1.02 ★  [x] AJ-1.03   [x] AJ-1.04   [x] AJ-1.05   [x] AJ-1.06
+[x] AJ-1.07    [x] AJ-1.08    [x] AJ-1.09   [x] AJ-1.10   [x] AJ-1.11   [x] AJ-1.12
+[x] AJ-1.13 ★  [x] AJ-1.14    [x] AJ-1.15   [x] AJ-1.16
 ```
 ★ = **la vara**. Son el tramo 0 del §3: se hacen primero y solos.
+(✎ 2026-08-28: los 16 marcados como **resueltos** — constancia en `00-el-informe-hoy` 08-28;
+`AJ-1.04` y `AJ-1.05` se cerraron como ⊘ "no se aplica" según esa constancia. El Anexo A salió
+del entregable a `90e` por decisión del usuario del 08-27.)
+
+> ✎ **2026-08-28 — sobre las casillas granulares de las etapas 3, 4 y 5 de abajo:** quedaron
+> **superadas por los pases** `correcciones-etapa-3-4*.md` (E3-01…E3-42 / E4-01…E4-30 / D-P3-x),
+> aplicados y verificados en §17.3 v1.4, §17.4 v1.6 y §17.5 v1.3 (`00-el-informe-hoy` 08-28). No
+> se marcan una a una acá: **se marcan al integrar cada sección al maestro**. El mapeo R-xx /
+> AJ-4.x / AJ-5.x → E3-/E4- queda como deuda de trazabilidad (`93` ✎ 08-28).
 
 **Etapa 2 · §17.1 · Anexos C y D — 12 · responsable: colegas**
 ```
@@ -226,7 +250,7 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 ```
 [ ] AJ-5.01   [ ] AJ-5.02   [ ] AJ-5.03   [ ] AJ-5.04   [ ] AJ-5.05   [ ] AJ-5.06
 [ ] AJ-5.07   [ ] AJ-5.08   [ ] AJ-5.09   [ ] AJ-5.10   [ ] AJ-5.11   [ ] AJ-5.12
-[ ] AJ-5.13 ✅ DESBLOQUEADO 2026-08-17 — la jornada CERRÓ: veredicto NO-GO (`operacion/123`)
+[ ] AJ-5.13 ✅ DESBLOQUEADO 2026-08-17 — la jornada CERRÓ: veredicto NO-GO (`operacion/123`) (✎ 2026-08-28: + **T2 NO-GO 08-21**, `operacion/127`, F-127.1; T3 causa técnica; jornada COMPLETA, acta `128`)
 ```
 
 **Etapa 6 · §17.6 · §18 · §19 *(redacción)* — 5 · responsable: usuario + Claude**
@@ -236,10 +260,13 @@ Marcá `[x]` al cerrar. `⊘` = resuelto como "no se aplica", con la causa anota
 
 **Poda · transversal — 18 · se aplica con el pase de su sección**
 ```
-[ ] PODA-01  [ ] PODA-02  [ ] PODA-03  [ ] PODA-04  [ ] PODA-05  [ ] PODA-06
-[ ] PODA-07  [ ] PODA-08  [ ] PODA-09  [ ] PODA-10  [ ] PODA-11  [ ] PODA-12
+[x] PODA-01  [x] PODA-02  [x] PODA-03  [x] PODA-04  [x] PODA-05  [x] PODA-06
+[x] PODA-07  [x] PODA-08  [x] PODA-09  [x] PODA-10  [x] PODA-11  [ ] PODA-12
 [ ] PODA-13  [ ] PODA-14  [ ] PODA-15  [ ] PODA-16  [ ] PODA-17  [ ] PODA-18
 ```
+(✎ 2026-08-28: PODA-01…11 **aplicadas el 08-27** en §15/§16 v1.0 —22.266 → 10.870 palabras,
+con las enmiendas E1-10/E1-08—; 12–14 esperan la Etapa 2 (§17.1); 15–16 (§17.3) y 17–18
+según `90e`. Constancia: `00-el-informe-hoy` 08-28.)
 
 ---
 
@@ -272,7 +299,7 @@ capítulo escrito sin sus figuras se reescribe.
 tutor técnico, ya está especificada caja por caja, y la piden dos secciones distintas.
 
 > ✎ **2026-08-19 — enmienda del pase de cierre de §17.3/§17.4**
-> (`entregable/desarrollando/correcciones-etapa-3-4.md`, decisiones firmadas por el usuario):
+> (`entregable/desarrollando/archivado/correcciones-etapa-3-4.md` —✎ 2026-08-28: ruta con `archivado/`, donde vive desde el 08-20—, decisiones firmadas por el usuario):
 > la doctrina de reparto dejó a §17.3 **sin puertos ni vista de procesos** — FIG-A pasa a
 > destino **único §17.4.1** (en §17.3.5 la necesidad de R-09 la cubren la Figura 4.1
 > conceptual y la justificación de tecnologías, así que ya **no la piden dos secciones**);

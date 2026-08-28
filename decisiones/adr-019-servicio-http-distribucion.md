@@ -129,6 +129,14 @@ ejecuta.
 > La distinción operativa, para quien redacte: *describir el compromiso y su fundamento* es
 > correcto; *describir un despliegue que no corrió* es falso.
 
+> ✎ **2026-08-28 — estado real de la containerización (`operacion/130` R-09; `operacion/126`):**
+> **imagen y compose de 13 servicios escritos y validados por configuración** el 2026-08-19/20
+> (Dockerfiles en los tres repos —media-plane, control-plane, alert-distribution— y
+> `infra/platform/docker-compose.yml` con paridad de rutas; `docker compose config` válido). Lo
+> **diferido a post-entrega** es sólo **build + smoke integral** (el daemon Docker no se levantó).
+> Para el informe: la containerización está **"definida, despliegue no verificado"** — nunca
+> "diferida" ni "fuera de alcance", y tampoco "desplegada".
+
 ## 5. Alternativas consideradas
 
 - **Containerizar tal cual, sin servicio.** Meter `eovrt-distribute` en la imagen de la

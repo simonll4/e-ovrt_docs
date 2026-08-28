@@ -90,6 +90,13 @@ proceso**, nada más.
 Sigue **diferida con causa** y se hará **después** de cerrar la redacción del informe.
 Tres precisiones que corrigen una lectura posible de "no es un resultado del informe":
 
+> ✎ **2026-08-28 — estado real (`operacion/130` R-09; doc 126):** al día siguiente de esta
+> nota, el 2026-08-19/20, **se escribieron y validaron por configuración la imagen y el compose
+> de 13 servicios** (Dockerfiles en media-plane, control-plane y alert-distribution;
+> `infra/platform/docker-compose.yml` con paridad de rutas). Lo que sigue diferido a
+> post-entrega es **build + smoke integral**. Para el informe: "definida, despliegue no
+> verificado" — nunca "diferida". Las tres precisiones de abajo siguen valiendo como encuadre.
+
 1. **No es opcional:** es trabajo comprometido, no una posibilidad.
 2. **Su razón de ser es la reproducibilidad** —que un tercero pueda levantar la
    plataforma en otra máquina—, no cerrar el capítulo. Por eso no lo bloquea.

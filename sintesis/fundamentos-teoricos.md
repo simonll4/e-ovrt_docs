@@ -613,7 +613,18 @@ D-FT-08/T-FT-005, D-FT-12 y D-FT-13 firmadas por el usuario, y T-FT-031/T-FT-032
 la misma jornada** con la baseline YOLOE-26s one-shot ejecutada (doc 120) — el NO-GO quedó
 en su último eslabón: `full-authorization.json` + `RUN` manual. La
 baseline zero-shot era el prerequisito y ES la pregunta central; los resultados y
-limitaciones de la jornada se documentan con su estado a la entrega. *"¿un YOLO
+limitaciones de la jornada se documentan con su estado a la entrega.
+✎ **2026-08-28 — este bloque quedó en el 08-15; la jornada E-04 está COMPLETA y CERRADA**
+(acta `operacion/128` §1; `operacion/130` §5 / `docs-set.md` #1): **T1 NO-GO** el 08-17
+(`operacion/123`: `bare_head` AP50 0,0000→0,0455, recall CR-01 0,0002→0,2089, falla el gain
+gate por 0,0045 y la retención por `person` −11,62 %); **T2 NO-GO** el 08-21 (`operacion/127`:
+colapso en entrenamiento, ganancia PASA en `bare_head` 0→0,0909 pero retención in-domain
+FALLA ×4 —`person` −49,7 %— y OV FALLA —COCO −71,3 %—); **T3 cerrado con causa técnica**
+(sin baseline MM-GDINO sana, `operacion/117` §2). La respuesta hostil se arma con la **curva
+de 3 puntos** (baseline / T1 / T2) y **F-127.1**: el fallo no era capacidad sino
+**estructural** (2.946 imágenes vs 10,35 M parámetros); T1 gana por recall CR-01 y T2 por
+AP — no es una métrica única. Ningún checkpoint adoptado; no hay más brazos contra `bench_v3`.
+Nunca "falta de tiempo" (ADR-017). *"¿un YOLO
 entrenado no haría esto mejor?"* → en su clase sí; la tesis mide otra cosa:
 condiciones en lenguaje, extensibilidad y el aporte de la capa temporal/identidad,
 que es agnóstica al detector. *"¿cuál es el FAR/hora?"* → se mide y se reporta, pero

@@ -4,6 +4,10 @@
   [spec 45 §9](../specs/45-distribucion-alertas.md) · **Plan:**
   `superpowers/plans/2026-08-17-servicio-http-distribucion.md`
 - **Estado: cerrado y verificado**, incluida una corrida **en vivo con la OAK-D real**.
+- (✎ 2026-08-28, `operacion/130` R-09: la containerización **ya no está diferida como definición** —
+  imagen y compose de **13 servicios escritos y validados por configuración** el 2026-08-19/20
+  (Dockerfiles en los tres repos, `infra/platform/`, doc 126); lo diferido a post-entrega es
+  **build + smoke integral**. El informe dice "definida, despliegue no verificado", nunca "diferida".)
 - **Alcance diferido con causa:** containerización (Dockerfile, `docker-compose.yml`, y el
   control-plane que tampoco corre en contenedor). **El despliegue no es un resultado del
   informe**: es evidencia de lo implementado y de portabilidad, y se reporta con su estado
@@ -102,7 +106,9 @@ media-plane (`gdino-tiny-560`) → bus `:5557` → control-plane → bus de aler
 
 ## 5. Qué queda abierto
 
-- Containerización (§1), diferida con causa.
+- Containerización (§1), diferida con causa. (✎ 2026-08-28: **definida el 08-19/20** — Dockerfile
+  del distribuidor y del control-plane, compose de 13 servicios validado por `docker compose
+  config`; abierto sólo **build + smoke integral**, post-entrega. `operacion/130` R-09, doc 126.)
 - Menores registrados y triados en la revisión final: warning `httpx`→`httpx2`, cobertura
   de la rama `isfinite`, contrato no documentado de `get()`/`cancel()` sobre el GIL,
   `response.json()` del poll sin protección. Ninguno bloquea.

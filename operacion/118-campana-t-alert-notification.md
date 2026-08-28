@@ -43,6 +43,9 @@ Si un gate falla, no se publica cifra agregada. Se registra causa y se repite la
 
 1. `cd e-ovrt_experimental-setup && python3 tools/evidence_runs.py --check --archive-only`.
 2. Verificar disponibilidad/estado de puertos: `5557`, `5558`, `8080`, `8081` y `1883`.
+   (✎ 2026-08-28 — histórico: la lista es anterior al servicio HTTP del distribuidor (ADR-019,
+   08-17); hoy se agrega **`8082`**. El broker de **esta** medición fue `amqtt 0.11.3` (paso 3),
+   no Mosquitto — `operacion/130` R-10/R-20.)
 3. Iniciar broker real de laboratorio:
    - `cd e-ovrt_experimental-setup/infra/platform && amqtt -c mosquitto/amqtt.yaml`
 4. Levantar un suscriptor testigo en `eovrt/alerts/#` y confirmar recepción.

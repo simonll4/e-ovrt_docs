@@ -1,7 +1,7 @@
 # Etapa 4 — §17.4 Implementación del prototipo experimental
 
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
-> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` en
+> están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` (✎ 2026-08-28: vigente **v1.6**, `00-el-informe-hoy`) en
 > `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
 > Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
 > unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
@@ -285,12 +285,18 @@ Insumo: `92` §4.2 y su recuadro · `94` §2 · `operacion/89` · `operacion/90`
    (esa era ADR-015 §2c, derogada) ni "capacidad existente".
    ✎ **2026-08-18 — este ítem quedó INVERTIDO: ahora SÍ hay implementación verificada, y
    la prohibición cambió de signo.** El módulo funciona y está medido (docs
-   `operacion/114`/`118`), el runner lo orquesta (ADR-018) y expone servicio HTTP propio
+   `operacion/114`/`118`), el runner lo orquesta (ADR-018) (✎ 2026-08-28: **por HTTP, ADR-020** —
+   ADR-018 quedó derogada ese mismo 08-18, ver L119 de esta ficha; el subproceso es fallback y no
+   se describe) y expone servicio HTTP propio
    (ADR-019, doc 124). **Se escribe en presente y como capacidad existente**, con su
    estatuto: trabajo comprometido por ADR-016, entregado y verificado. Lo que sigue
    estando prohibido: citar cifras de la verificación funcional del servicio HTTP (n=2,
    doc 124 — no citables) en lugar de las de la campaña (doc 118), y presentar la
-   containerización como hecha (diferida con causa, ADR-019 §4).
+   containerización como hecha (diferida con causa, ADR-019 §4). (✎ 2026-08-28, `operacion/130`
+   R-09: la containerización está **definida** —imagen y compose de 13 servicios escritos y
+   validados por configuración el 08-19/20, Dockerfiles en los tres repos— y lo diferido es
+   **build + smoke integral**, post-entrega. Se escribe "definida, despliegue no verificado";
+   nunca "hecha/desplegada" ni "diferida".)
 2. **Cifras de resultados.** El §17.4 describe **qué se construyó y cómo**; el desempeño
    es el §17.5. Mezclarlos es lo que hace que un capítulo de implementación se lea como
    una defensa apresurada.

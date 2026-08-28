@@ -10,7 +10,16 @@
 | **leer el informe tal como está hoy** (o el capítulo de Etapa 3) | [`entregable/`](entregable/00-el-informe-hoy.md) |
 | **saber qué hay que cambiarle, etapa por etapa** | [`ajustes/00-mapa-de-ajustes.md`](ajustes/00-mapa-de-ajustes.md) ← **el punto de entrada** |
 | **ponerte a aplicarlo** (dónde escribís, en qué orden, qué te toca, qué falta producir) | ✎ [`ajustes/08-manual-de-aplicacion.md`](ajustes/08-manual-de-aplicacion.md) ← **el documento del día 1** |
-| **trabajarlo en un Project de ChatGPT** | [`informe/project-kit/README.md`](project-kit/README.md) ← **cuatro archivos de knowledge: dos generados por etapa + los dos DOCX del entregable** (✎ 2026-08-16) |
+| **trabajarlo en un Project de ChatGPT** | [`informe/project-kit/README.md`](project-kit/README.md) ← **cuatro archivos de knowledge: dos generados por etapa + los dos DOCX del entregable** (✎ 2026-08-16) (✎ 2026-08-28: = el **base de formato** `…sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo**, en `entregable/desarrollando/`) |
+
+> ✎ **2026-08-28 — estado del informe (fuente `entregable/00-el-informe-hoy.md`):** **Etapa 1
+> CERRADA** (§15+§16 **v1.0**, 08-28) · **Etapa 2 (§17.1) en curso** tras `operacion/130` ·
+> §17.3 **v1.4** · §17.4 **v1.6** · §17.5 **v1.3** redactadas con sus pases aplicados y
+> verificadas, todas en `entregable/desarrollando/` · vacías: **§17.6, §18, §19**. El árbol de
+> abajo es el del 08-10: hoy `entregable/` tiene además `desarrollando/` (los `.docx` de trabajo
+> + `archivado/`), `borradores/`, los textos extraídos `90b`–`90f` y `resumen-cambios-etapa-1.md`;
+> `ajustes/` tiene además `09-pase-de-tablas-y-lectura-de-cierre.md`; `herramientas/` tiene
+> `extraer_informe.py` y `verificar_entregable.py`.
 
 ---
 
@@ -32,8 +41,8 @@ informe/
     ├── 01-etapa-1-fundamentacion-teorica.md      inv. bibliográfica → §15 · §16 · Anexo A
     ├── 02-etapa-2-consolidacion-metodologica.md  análisis metodológico → §17.1 · Anexos C/D
     ├── 03-etapa-3-diseno-arquitectonico.md       diseño → §17.3 (enruta las 26 redlines)
-    ├── 04-etapa-4-implementacion.md              implementación MVP → §17.4 (vacía)
-    ├── 05-etapa-5-evaluacion-y-validacion.md     evaluación → §17.5 (vacía)
+    ├── 04-etapa-4-implementacion.md              implementación MVP → §17.4 (vacía → ✎ 08-28: v1.6 redactada)
+    ├── 05-etapa-5-evaluacion-y-validacion.md     evaluación → §17.5 (vacía → ✎ 08-28: v1.3 redactada)
     ├── 06-etapa-6-documentacion-y-cierre.md      cierre → §17.6 (vacía) · §18 · §19
     ├── 07-critica-extension-y-poda.md            transversal: qué ELIMINAR (18 PODA-nn, ~27%)
     ├── 08-manual-de-aplicacion.md                ← CÓMO se aplica todo: orden, reparto, tablero
@@ -80,7 +89,9 @@ ajustes del informe por etapa; antes estaban repartidos entre `93` (solo Etapa 3
    numera 1–6**: misma secuencia, corrida en uno. La tabla completa está en
    [`ajustes/00-mapa-de-ajustes.md`](ajustes/00-mapa-de-ajustes.md) §0.
 2. **§17.4 y §17.5 están vacías.** Etapas 1–3 son corrección de texto existente; etapas
-   4 y 5 son redacción desde cero, y son el camino crítico.
+   4 y 5 son redacción desde cero, y son el camino crítico. (✎ 2026-08-28: **vencido** — §17.4
+   v1.6 y §17.5 v1.3 están redactadas en `entregable/desarrollando/`; vacías quedan §17.6, §18 y
+   §19. El camino crítico hoy es la Etapa 2 (§17.1) y después el cierre.)
 3. **Las cifras salen solo de los cuatro índices de
    `e-ovrt_experimental-setup/results/`.** Varias tablas-atajo que parecen citables
    quedaron derogadas (`informe/92` §10, `gobierno/97` §5, `operacion/92`, `operacion/56`).

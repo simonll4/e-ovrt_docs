@@ -1,4 +1,11 @@
-# Mapa de ajustes
+# Mapa de ajustes del informe — de la Etapa 1 a la Etapa 6
+
+> ✎ **2026-08-28 — estado del tablero (fuente `informe/entregable/00-el-informe-hoy.md` 08-28;
+> `operacion/130` §5):** el tablero global del §5 es la foto del 08-10. Hoy: **Etapa 1 CERRADA**
+> (§15+§16 v1.0, 16 `AJ-1` resueltos, podas 01–11 aplicadas); **§17.3 v1.4, §17.4 v1.6 y §17.5
+> v1.3 redactadas con sus tres pases aplicados y verificados** (ya no están "vacías"); **E-04
+> CERRADA** el 08-21 (T1/T2 NO-GO, `AJ-5.13` resuelto); **Etapa 2 (§17.1) en curso**. Siguen
+> vacías §17.6, §18 y §19. El estado vivo se lee en `00-el-informe-hoy`, no en este mapa.
 
 > ✎ **2026-08-21 — se agregó [`09-pase-de-tablas-y-lectura-de-cierre.md`](09-pase-de-tablas-y-lectura-de-cierre.md)**,
 > una revisión de punta a punta pedida por el usuario. Trae tres cosas que este mapa no
@@ -8,7 +15,8 @@
 > obligado de la tabla principal de 13 a 8 columnas; y (c) **tres piezas de material
 > "listo para pegar" que hoy meterían contenido falso o vencido en el informe**. Corrige
 > además una recomendación anterior: la ventana para tratar las duplicaciones de tablas
-> **sigue abierta**, porque el pase que la daba por cerrada todavía no se aplicó. del informe — de la Etapa 1 a la Etapa 6
+> **sigue abierta**, porque el pase que la daba por cerrada todavía no se aplicó.
+> *(✎ 2026-08-28: este banner se había insertado partiendo el título; se restituyó el título completo arriba.)*
 
 > **Qué es esto (2026-08-10).** El punto de entrada único a **todo lo que hay que
 > cambiar, precisar o escribir en el informe** como consecuencia de lo que se
@@ -169,6 +177,11 @@ Van acá porque no pertenecen a ninguna etapa: son el encuadre del documento.
 
 **Ninguno de los ajustes está aplicado al `.docx`.** Lo que existe es el relevamiento y, en
 9 casos de Etapa 3, el texto listo para pegar.
+
+> ✎ **2026-08-28 — vencido; ver el banner de cabecera.** Etapa 1: CERRADA (v1.0). Etapa 3:
+> §17.3 v1.4 con E3-01…42 aplicados. Etapa 4: §17.4 **v1.6 redactada**. Etapa 5: §17.5 **v1.3
+> redactada**, `AJ-5.13` cerrado (E-04 completa: T1/T2 NO-GO, acta `128`). Etapa 2: en curso.
+> Etapa 6 y Etapa 0: pendientes. Los conteos de la tabla (91/11/44/36) siguen siendo el inventario.
 
 ---
 

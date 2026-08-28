@@ -9,12 +9,48 @@
   síntesis**: puede contener afirmaciones que una jornada posterior corrigió (la
   corrección aparece en la jornada más nueva). Para el estado VIGENTE, entrar por
   `GUIA-CIERRE.md` (qué falta), `sintesis/resultados-y-conclusiones.md` (resultados) y
-  `operacion/97` (plataforma).
+  `operacion/97` (plataforma) (✎ 2026-08-28: plataforma → `operacion/130`; informe →
+  `informe/entregable/00-el-informe-hoy.md`).
 - **Jornadas anteriores al 2026-08-04:** no estaban en el changelog del índice; su
   registro son los propios docs de `operacion/` — ver el **mapa por tramos** en
   `00-indice.md` §`operacion/`.
 
 ---
+
+## 2026-08-28 — Etapa 1 CERRADA en v1.0, revisión previa a la Etapa 2 y relevamiento exhaustivo de la plataforma (doc 130)
+
+**La Etapa 1 cerró:** `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx`
+en `entregable/desarrollando/`, verificada con `verificar_entregable.py`; los 16 `AJ-1.xx`
+resueltos, las podas 01–11 aplicadas, el Anexo A y las referencias afuera del entregable
+(`90e`, para el equipo); única decisión de fondo abierta `D-E1-11` (AAIP, `[[PENDIENTE]]`).
+**Revisión previa a la Etapa 2** (`desarrollando/archivado/revision-previa-etapa-2.md`): 12
+desvíos D2-01…D2-12 y las decisiones D-E2-1…D-E2-8 para el pase de §17.1 (bautismo
+E-DIR/E-IND/E-HYB en §17.1.5.4.2, MOT17/OVT-B intactos con ⊘, AJ-2.02 como regla de conteo).
+**Relevamiento exhaustivo de la plataforma** ([`operacion/130`](operacion/130-relevamiento-plataforma-pre-etapa-2.md)):
+seis agentes de sólo lectura verificaron los cinco repos de código contra el set y contra §17.1.
+Cuatro correcciones al set: el orden de arranque live real es **control → distribución →
+medios** (R-01; FIG-A regenerada), el fine-tuning **excluyó `chv`** (2.946 imgs, R-02), `gdino-tiny`
+800 vs 560 **no a umbral igual** (0,35 vs 0,30, R-04), y conteos vencidos (tests, 17 campañas,
+26 cifras, 5 estados, 12 endpoints). El pase de correcciones del set (~40 archivos con ✎ 08-28)
+se aplicó la misma jornada; `operacion/97` queda superado por `130` como foto de plataforma.
+
+## 2026-08-27 — Etapa 1: cinco pases de corrección sobre §15/§16 y régimen sin Drive
+
+Los pases E1 1–5 se aplicaron sobre el `.docx` de la Etapa 1 (poda 01–11: 22.266 → 10.870
+palabras, con las enmiendas E1-10/E1-08; la vara `AJ-1.01`/`1.02`/`1.13` integrada; el pase 5
+sólo de formato). Nació `herramientas/verificar_entregable.py` (verificador del entregable) y
+quedó fijado el régimen de trabajo: **cada sección en su `.docx` de `entregable/desarrollando/`,
+sin Drive**; el Anexo A salió del entregable a `90e` por decisión del usuario. Las versiones
+intermedias del día quedaron en `desarrollando/archivado/`.
+
+## 2026-08-25 — Repositorio público `e-ovrt-vdp` publicado
+
+Se publicó el **repo público de documentación** `e-ovrt-vdp` (https://github.com/simonll4/e-ovrt-vdp,
+`main`), la vitrina de la tesis y **la única referencia externa que cita el informe**: Markdown
+puro, con guardián propio (`herramientas/verificar.py`, cero violaciones) y `CONTRIBUTING.md`;
+`docs/` no se publica ni se referencia desde ahí (diseño en
+`superpowers/specs/2026-08-25-repo-e-ovrt-vdp-design.md`). Pendientes anotados: hacer públicos
+los cinco repos de código, C1, PDF, tags y Release.
 
 ## 2026-08-23 — ChatGPT desarrolla §17.3/§17.4/§17.5, el primer intento falla, y los tres quedan verificados
 
@@ -52,7 +88,7 @@ re-transcripto sobre clip vigente (doc `129`).
 
 ## 2026-08-22 — el pase 3 sobre §17.3/§17.4, el kit limpio para la redacción, y el ejemplo canónico re-transcripto (doc 129)
 
-**El pase 3 de correcciones** (`entregable/desarrollando/correcciones-etapa-3-4-5-pase-3.md`):
+**El pase 3 de correcciones** (`entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md`):
 sobre los 40 comentarios que el usuario y Gabriel dejaron en los dos `.docx`, unidades
 E3-32…E3-42 y E4-27…E4-30, decisiones D-P3-1…D-P3-6, y dos enmiendas que mandan sobre el
 pase 2 (E3-22: sus viñetas ya existían como prosa; E4-22: la preselección SÍ se ejerció —

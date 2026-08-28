@@ -5,7 +5,9 @@
 > se usa el kit mínimo versionado en
 > [`informe/project-kit/README.md`](../../project-kit/README.md): hoy **cuatro archivos
 > de knowledge** (contexto base + etapa reemplazable + los dos DOCX del entregable,
-> ✎ 2026-08-16), instrucciones separadas y generación verificable.
+> ✎ 2026-08-16; ✎ 2026-08-28: los dos DOCX son el **base de formato**
+> `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` + el **`.docx` vigente de la sección en trabajo**
+> en `entregable/desarrollando/` — definición de `INSTRUCCIONES-PROJECT.md`), instrucciones separadas y generación verificable.
 > No regenerar `~/projects/informe-project-kit/` desde el cuerpo de este documento.
 
 - **Fecha:** 2026-07-18

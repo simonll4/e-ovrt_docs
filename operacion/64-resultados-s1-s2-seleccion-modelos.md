@@ -7,6 +7,20 @@ mAP50 primario, desempate recall CR-01, agregado test+val ponderado). Crudos:
 
 ## Matriz completa (BENCH v2, 196 imgs)
 
+> ⚠️ ✎ **2026-08-28 — umbral por brazo, que este doc no registraba (`operacion/130` §0.2 y
+> R-04; informe `datos/130-relevamiento-pre-etapa-2/media-plane.md`).** Los dos brazos `tiny`
+> **no corrieron al mismo `box_threshold`**: `gdino-tiny` (800 px) corrió a **0,35** y
+> `gdino-tiny-560` a **0,30** — es la configuración de cada catálogo
+> (`configs/models/grounding-dino/gdino-tiny*.yaml`) y la de **todas** las corridas del 07-23,
+> incluidas las de esta matriz y las de B5. El par `gdino-base` / `gdino-base-560` **sí** está a
+> 0,30 en ambos. Consecuencias de lectura: (i) el campeón sigue siendo el campeón — 0,460 aquí y
+> 0,551 en `bench_v3` son **el dato de la combinación (560 px, 0,30)** y se citan siempre como
+> par (resolución, umbral); (ii) el hallazgo 2 "560 mejora a AMBOS GDINO" se reescribe como
+> **"560 @0,30 ≥ 800 @0,35" para tiny** (0,460 vs 0,442; comparación **no a umbral igual**) y
+> **"560 @0,30 ≥ 800 @0,30" para base** (0,453 vs 0,401; ésa sí es limpia); (iii) el **−24 % de
+> latencia** (doc 61) es del tamaño de entrada y **no depende del umbral**. La regla de lectura
+> de `effective_config.yaml` (campos inertes de la otra familia) está en el glosario `13` §4.
+
 | Configuración | mAP50 | recall CR-01 | vest AP | bare_head AP | inf p50 (ms) |
 |---|---|---|---|---|---|
 | **gdino-tiny-560** | **0.460** | 0.448 | 0.30 | 0.02–0.09 | **129** |
@@ -45,6 +59,9 @@ default.)*
 2. **La resolución 560 mejora a AMBOS GDINO** (tiny 0.442→0.460, base 0.401→0.453; y en obra
    idem). Tercer dato consistente tras doc 61 (BENCH test) y el live. Con objetos chicos
    (helmet mediana 0,4% del área) el letterbox 560 no pierde y el modelo gana.
+   (✎ 2026-08-28: leer como **"560 @0,30 ≥ 800 @0,35" en tiny** —umbrales distintos, ver el ✎
+   sobre la matriz— y **"560 @0,30 ≥ 800 @0,30" en base**, que es la única comparación a
+   umbral igual; `operacion/130` R-04.)
 3. **La contaminación S0 inflaba el recall CR-01 moderadamente** (tiny-560: 0.448 completo →
    0.369 obra, −18%; el 41% de los violadores del `person_gt` —46 de 111— estaba en imágenes
    contaminadas, pero los modelos los detectaban en proporción similar). Y deprimía vest
@@ -91,7 +108,9 @@ default.)*
 - **Ninguna variante 800 px se lleva al banco temporal (video).** ✎ **Declarado
   explícitamente el 2026-08-10** — hasta hoy era inferencia del lector. La causa es
   **dominancia medida, no omisión**: 560 iguala o mejora el mAP con **−24% de latencia**
-  (D-61.4 y hallazgo 2 de este doc), así que llevar 800 a los clips habría gastado GPU para
+  (D-61.4 y hallazgo 2 de este doc) (✎ 2026-08-28: para tiny la dominancia en mAP es
+  "560 @0,30 ≥ 800 @0,35", no a umbral igual; la de latencia no depende del umbral —
+  `operacion/130` R-04), así que llevar 800 a los clips habría gastado GPU para
   medir una configuración dominada, y habría roto la variable única de las campañas
   (todas comparten modelo/resolución contra T1). **Trabajo futuro con causa:** doc 103 §7.4
   lista "800 px" entre las mitigaciones **no medidas** para el colapso de `vest` a

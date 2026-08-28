@@ -196,7 +196,7 @@ LIFECYCLE_TOPIC_PREFIX   = "run.lifecycle.v1."
 
 ## 3. Las APIs: el sistema es ejecutable por HTTP
 
-El capítulo no tiene una sola interfaz. El sistema tiene dos servicios HTTP config-driven. Esta es la
+El capítulo no tiene una sola interfaz. El sistema tiene dos servicios HTTP config-driven (✎ 2026-08-28: **tres** desde ADR-019 — `:8080/:8081/:8082`; `operacion/130` §2). Esta es la
 tabla mínima que responde al "una API: `POST /events/detection`" del tutor.
 
 ✎ **2026-08-18 (ADR-019 + ADR-020): son TRES servicios HTTP config-driven** — el módulo
@@ -692,7 +692,7 @@ configurable".
 
 - [ ] §17.3.11 — reemplazar el hedge por la tabla de correspondencia (§1) y los tres contratos concretos (§2, §5).
 - [ ] §17.3.11.4 — regla de evolución aditiva + evento con superficie de crecimiento (§4). **Es el pedido T3 del tutor.**
-- [ ] §17.3.5 — figura nueva: vista de procesos (dos servicios HTTP + bus + orquestador + webconsole).
+- [ ] §17.3.5 — figura nueva: vista de procesos (dos servicios HTTP + bus + orquestador + webconsole). (✎ 2026-08-28: **FIG-A tiene destino único §17.4.1** desde el 08-19 (`08-manual` §6), son **tres** servicios HTTP, y el orden de arranque dibujado es **control → distribución → medios** (`operacion/130` R-01); producida el 08-21 y regenerada el 08-28 en `informe/figuras/`.)
 - [ ] §17.3.8.1 y §17.3.8.4 / §17.3.12 — bus concreto (§2.3) y layout del repositorio (§8).
 - [ ] §17.3.6 / Tabla 44 — configuración con **valores efectivos** (§6), y el matiz correcto del `cooldown`.
 - [ ] §17.3.13 — diccionario de métricas con t0/t1 (§7), criterio de relojes y estados de aplicabilidad.

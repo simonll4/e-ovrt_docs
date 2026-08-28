@@ -51,6 +51,10 @@ e-ovrt_alert-distribution/
   `"mqtt"` en esta iteración; `talert_notification_ms` medido desde
   `confirmed_at_ms` hasta el PUBACK — en modo replay-DBE se etiqueta
   `wall_clock_dbe` (política del spec 40 §5, fila t_alert-notification).
+  (✎ 2026-08-28 — **instante inicial RESUELTO en el código**, `operacion/130` R-10: no es
+  `confirmed_at_ms` (campo que `control.alert.v1` no tiene) sino **`ts_publish_ms` del envelope
+  del bus de alertas**: `t_alert-notification = puback_wall_ms − ts_publish_ms`, tramo **bus →
+  PUBACK**, dos relojes de pared del mismo host, declarado. No arranca en la confirmación del patrón.)
 
 ## 4. Fuentes y modos
 
@@ -67,9 +71,14 @@ eso el backfill).
 
 - `paho-mqtt` (extra opcional; sin él, solo `dry_run`). Publica el
   `NotificationEnvelope` (JSON) a topic `eovrt/alerts/<severity>`; QoS 1 —
-  **el ledger es obligatorio** porque QoS 1 puede duplicar (doc 07 D5.2).
+  **el ledger es obligatorio** porque QoS 1 puede duplicar (doc 07 D5.2). (✎ 2026-08-28,
+  `operacion/130` R-20: el ledger deduplica del lado **publicador** —misma alerta procesada dos
+  veces ⇒ `skipped_duplicate`, clave (`notification_id`, `channel`)—; las re-entregas
+  broker→suscriptor de QoS 1 las deduplica **el consumidor** por `notification_id`.)
 - `dry_run` (default): construye payload y lo registra sin I/O — CI cubierta.
-  `live`: broker Mosquitto (compose de la plataforma en experimental-setup).
+  `live`: broker Mosquitto (compose de la plataforma en experimental-setup). (✎ 2026-08-28:
+  Mosquitto es el broker del **despliegue**; la campaña **medida** del doc 118 —p95 64,534 ms
+  n=460— corrió contra **`amqtt 0.11.3`**. `operacion/130` R-10.)
 - Credenciales/host por env/config; jamás en artefactos.
 - Demo de defensa: `mosquitto_sub` en vivo + vista de la webconsole (doc 07 D5.3).
 
@@ -282,3 +291,11 @@ servicio.)*
 Dockerfile del distribuidor, su servicio en `infra/platform/docker-compose.yml` y la
 containerización del control-plane. **El despliegue no es un resultado del informe**: es
 evidencia de lo implementado y de portabilidad, y se reporta con su estado a la entrega.
+
+> ✎ **2026-08-28 — estado real de la containerización (`operacion/130` R-09; `operacion/126`):**
+> **imagen y compose de 13 servicios escritos y validados por configuración** el 2026-08-19/20
+> (Dockerfiles en los tres repos —media-plane, control-plane, alert-distribution— y
+> `infra/platform/docker-compose.yml` con paridad de rutas; `docker compose config` válido). Lo
+> **diferido a post-entrega** es sólo **build + smoke integral** (el daemon Docker no se levantó).
+> Para el informe: la containerización está **"definida, despliegue no verificado"** — nunca
+> "diferida" ni "fuera de alcance", y tampoco "desplegada".

@@ -62,6 +62,12 @@ dos bloques se confunden fácil.
    y sin aplicar**.
 2. **§17.4, §17.5, §17.6 y §18 están vacías.** Es el 100 % del tramo experimental y el
    cierre. Es la mayor parte del trabajo de redacción que queda.
+
+> ✎ **2026-08-28 — los puntos 1 y 2 son la foto del 08-21/22 y están VENCIDOS** (fuente
+> `00-el-informe-hoy` 08-28; `operacion/130` §5): el 08-23 se aplicaron los **tres pases** a
+> §17.3 (**v1.4**), §17.4 (**v1.6**) y §17.5 (**v1.3**, redactada bajo D-P3-6); el 08-28 cerró
+> la **Etapa 1** (§15+§16 v1.0, 16 `AJ-1` + podas 01–11). Siguen vacías **sólo §17.6, §18 y
+> §19**; la Etapa 2 (§17.1) arranca. El resto de este §1 (insumos listos) sigue vigente.
 3. **Hay material "listo para pegar" con contenido vencido** (§3). Si se pega tal cual,
    entra al informe una afirmación falsa.
 4. **Un redline no está saldado** por la tabla que debía saldarlo (§3).
@@ -75,6 +81,16 @@ propuestas, 7 quedan como tabla en el cuerpo, 6 pasan a prosa, 3 van al Anexo D 
 elimina.**
 
 ### 2.1 Quedan como tabla — son el capítulo
+
+> ✎ **2026-08-28 — cómo quedó en §17.5 v1.3 (constancia, `docs-set.md` #29):** la sección
+> tiene **6 tablas (62–67)**, organizadas **por pregunta de medición** (D-P3-6), no 1:1 con las
+> 7 de esta lista: **62** selección de modelos sobre `bench_v3` (≈T-72) · **63** resultados de
+> estado por persona (≈T-74) · **64** alerta por episodio en el Bloque A (≈T-68, ya a 8
+> columnas) · **65** falsos positivos en el estrato B · **66** camino en vivo por densidad,
+> integridad y tramo temporal (≈T-75, con T-85 absorbida) · **67** curva de capacidad del
+> ajuste fino. **T-73** (AP por clase y estrato), **T-78** y **T-79** (composiciones) **no
+> aparecen como tablas separadas** en v1.3 — sus cifras van en prosa o en la hoja de datos.
+> Se deja constancia; no reabre el pase.
 
 | Tabla | Por qué se queda | Ajuste que necesita |
 |---|---|---|
@@ -139,7 +155,7 @@ Queda: **campaña · variante · granularidad · R · P · F1 · `t_alert` · FP
 columnas, publicable, y el contraste entre filas sigue intacto.
 
 ```
-DECISIÓN §2 → [ ] acepto  [ ] modifico  [ ] rechazo
+DECISIÓN §2 → [x] acepto — ✎ 2026-08-28: EJECUTADA en §17.5 v1.3 (pase 3, 2026-08-23; ver ✎ en §2.1)  [ ] modifico  [ ] rechazo
 ```
 
 ---
@@ -233,6 +249,8 @@ manual advierte: corregir algo que después se elimina.
 
 ```
 DECISIÓN §4 → [ ] acepto  [ ] modifico  [ ] rechazo
+✎ 2026-08-28: la duplicación **Tabla 35 ↔ Anexo D** (y el criterio de tablas de §15/§16/§17.1/§17.3)
+pasa al **pase de la Etapa 2** (`correcciones-etapa-2.md`, en preparación); §15/§16 ya se podaron en v1.0.
 ```
 
 ---

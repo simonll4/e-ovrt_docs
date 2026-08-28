@@ -182,6 +182,11 @@ cierra.** Corridas `run_20260723_020952` (800) vs `run_20260723_021021` (560), c
 | AP50 vest | 0.2351 | **0.2395** |
 | AP50 bare_head | 0.0303 | **0.0909** |
 
+> ⚠️ ✎ **2026-08-28 — los dos brazos no están a umbral igual** (`operacion/130` R-04): `gdino-tiny`
+> (800) corrió a `box_threshold` **0,35** y `gdino-tiny-560` a **0,30** (config de cada catálogo,
+> vigente en todas las corridas del 07-23). La tabla se lee como **"560 @0,30 vs 800 @0,35"**;
+> el −24 % de latencia es del tamaño de entrada y no depende del umbral. Detalle en `operacion/64` ✎.
+
 560 iguala o mejora en todo salvo helmet (−0.02): **sin pérdida EPP y −24% de latencia**. Es
 apta como referencia del carril live sin restricción a person-only. Nota: emite más
 detecciones (n_det person 172 vs 138, bare_head 65 vs 39) — el AP ya descuenta la precisión,

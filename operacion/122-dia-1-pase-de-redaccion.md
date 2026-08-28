@@ -1,5 +1,15 @@
 # 122 — Día 1 del pase de redacción: decisiones firmadas, extractor y primeros borradores (2026-08-16)
 
+> ✎ **2026-08-28 — banner de vigencia.** Este documento es el **registro de la jornada del
+> 08-16** y se conserva tal cual (las tres decisiones D-A/B/C del manual siguen rigiendo, y su
+> §6-ter es la fuente histórica del contrato de cuatro archivos del kit). **Lo que describe como
+> estado quedó superado:** T1 full ya no está encolado (T1 NO-GO 08-17 `123`, T2 NO-GO 08-21
+> `127`, jornada E-04 completa, acta `128`); la etapa activa ya no es la 4 (Etapa 1 **cerrada**
+> 08-28, **Etapa 2 en curso**); las cinco figuras se produjeron el 08-21 (`informe/figuras/`);
+> el borrador `17-4.md` fue superado por §17.4 **v1.6** (texto base `90b`); el verificador cubre
+> 26 cifras / 17 campañas. Estado vigente: `operacion/128`, `operacion/130` y
+> `informe/entregable/00-el-informe-hoy.md`.
+
 - **Contexto:** T1 full quedó encolado en Mendieta la noche anterior (job `1167640`,
   constancia ✎ en [`120`](120-cierre-t031-t032-baseline-26s.md) §5). Orden del usuario de
   hoy: **cerrar documentación y resultados, y arrancar el desarrollo del informe** mientras
