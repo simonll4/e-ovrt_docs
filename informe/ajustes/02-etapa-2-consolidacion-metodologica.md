@@ -17,6 +17,24 @@
 > **no entran resultados medidos** ni estados de implementación, que se reportan en
 > §17.4/§17.5. Los ajustes AJ-2.05, AJ-2.09 y AJ-2.11 se reescribieron para respetar
 > esa frontera.
+>
+> ✎ **2026-08-28 — LA ETAPA 2 ARRANCA. Este documento queda como tablero histórico; el pase que
+> se aplica es [`entregable/desarrollando/archivado/correcciones-etapa-2.md`](../entregable/desarrollando/archivado/correcciones-etapa-2.md)
+> (E2-01…E2-26, decisiones D-E2-1…9), que integra estas 12 fichas, agrega **AJ-2.13** y las
+> podas 12–14, y MANDA donde difiera.** Texto base vigente: `entregable/90f` (el §17.1 del v1.1 sin
+> correcciones, en su propio `.docx`); el `96b` queda como foto histórica. Fuente de los hechos:
+> `operacion/130` (relevamiento de los cinco repos, 2026-08-28) y `revision-previa-etapa-2.md`.
+> Cambios de estado de las fichas: **AJ-2.02 → ⊘** (premisa falsa: §17.1 no menciona cooldown ni
+> re-alertas; la regla de conteo entra por AJ-2.12) · **AJ-2.04 → ⊘ para §17.1** (los tres ejes ya
+> están en el protocolo; la ficha apuntaba a nuestro diseño de campañas) · **AJ-2.11 con el ✎
+> vencido corregido** · **AJ-2.07 corregido** (el fine-tuning NO usó `chv`) · **AJ-2.09** (nombres de
+> artefactos). Decisiones firmadas por el usuario: D-E2-1 (sólo §17.1 en el `.docx`), D-E2-2
+> (bautismo E-DIR/E-IND/E-HYB en §17.1.5.4.2), D-E2-5 (AJ-2.13), D-E2-6 (MOT intacto con ⊘).
+>
+> ✅ **2026-08-28 (noche) — PASE APLICADO Y VERIFICADO: §17.1 v1.3** (`desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx`,
+> 28.534 palabras, verificador OK). Las 12 fichas + AJ-2.13 + podas 12–14 quedaron resueltas (⊘ para
+> AJ-2.02 y AJ-2.04). Constancia y residuales: `desarrollando/archivado/correcciones-etapa-2-pase-2.md`.
+> **No reaplicar nada de este tablero.**
 
 | Dónde | Qué |
 |---|---|
@@ -41,7 +59,8 @@
 | **AJ-2.09** | §17.1.7.8 | CONCRETA | 🟠 | Instrumentación: los **cinco hitos por alerta**, **P50/P95/P99**, warm-up declarado por corrida, bitácora mínima. |
 | **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. |
 | **AJ-2.11** | §17.1 / Tabla 37 | PRECISA | 🟡 | Reencuadrar el **fine-tuning (I1)** conforme **ADR-017**: rama experimental condicionada (Tabla 37) que **se ejerce como jornada completa**; condiciones de datos y protocolo, no de cómputo — la causa "presupuesto de tiempo" queda **prohibida**. |
-| **AJ-2.12** | §17.1.7 | PRECISA | 🟠 | Declarar los **estados de aplicabilidad** (`not_applicable:<causa>`, ADR-006/013) y las **reglas de lectura** que ninguna métrica puede violar. |
+| **AJ-2.12** | §17.1.7 | PRECISA | 🟠 | Declarar los **estados de aplicabilidad** (`not_applicable:<causa>`, ADR-006/013) y las **reglas de lectura** que ninguna métrica puede violar. ✎ 08-28: + la regla de conteo `re-alerta ≠ FP` (D-E2-3, E2-22). |
+| **AJ-2.13** | §17.1.7.3.1 | CONCRETA | 🟠 | ✎ **2026-08-28 (D-E2-5, nueva):** declarar el **nivel intermedio de análisis "estado observable por persona"** entre la percepción por imagen y la alerta temporal por episodio — §17.5 lo usa como eje y §17.1 no lo pre-registraba (0 apariciones). Texto guía en E2-18. Sin cifras. |
 
 ---
 
@@ -66,6 +85,12 @@ activación≠desactivación (`resolve_after_*`). El set con `confirm=1 frame` q
 y que caen dentro de los rangos declarados. Cruza con **R-14** en Etapa 3 (§17.3.8.2 y
 Tabla 46), que es la ficha canónica de esos valores.
 
+> ✎ **2026-08-28 (D-E2-4, E2-07):** en §17.1 los 4.000/7.000 ms (y 2.000/3.000 de desactivación)
+> entran como **decisión de protocolo dentro del rango de la Tabla 24**, sin tocar la tabla y **sin
+> la palabra "efectivos"**: por la doctrina de reparto (08-19) los valores efectivos viven sólo en
+> §17.4 (`90b` los tiene; §17.3 v1.4 ya no). El puntero "Tabla 46" es de la numeración vieja de
+> §17.3 (v1.4 renumeró a 39–55).
+
 ---
 
 ### AJ-2.02 · §17.1 · CONTRADICE · 🔴 — el cooldown no vive en el motor
@@ -77,6 +102,12 @@ como FP degrada artificialmente toda la precisión reportada.
 
 Su ficha canónica es **R-02** (Tabla 44) en Etapa 3; acá se registra porque el §17.1
 también describe la política de alerta y arrastra el mismo error.
+
+> ⊘ **2026-08-28 — PREMISA FALSA (E2-26):** §17.1 **no menciona** cooldown, supresión, re-alertas ni
+> re-notificación (0 apariciones en `90f`; el pase 2 de la Etapa 3 ya lo había verificado: *"cero
+> apariciones en todo el capítulo de Etapa 2"*). Lo único cercano es la frase de la histéresis
+> (§17.1.5.3.3, *"evita alertas repetidas"*), que E2-08 precisa. El corolario `re_alerts ≠ FP` entra
+> como **regla de conteo** en §17.1.7.8.3 vía AJ-2.12/E2-22 (D-E2-3). Esta ficha se cierra como ⊘.
 
 ---
 
@@ -106,6 +137,14 @@ antes de que existiera el clip bench (ADR-010).
 
 **El texto para esto ya está escrito**: `material-etapa-3/94` §5 (redline R-10).
 
+> ✎ **2026-08-28 (E2-19, D-P3-4):** el reparto vigente es **§17.1 = nombres, definiciones y criterios**
+> (ya están: G2A, Glass-to-Alert, `t_alert-system`, `t_alert-notification`, TTFD, SDR, ΔFP_tracker,
+> Tablas 34/35) · **§17.3.13 (v1.4) = materialización** (relojes, señales, estados de aplicabilidad) ·
+> **§17.4 = valores**. En §17.1 sólo se verifica consistencia terminológica. Las dos métricas
+> derivadas (`t_capture→alert`, `t_compute-budget`) **NO se declaran**: ninguna sección del informe
+> las usa (0 apariciones en `90`/`90b`/`90c`) — regla del aporte (D-E2-6 bis). El texto de `94` §5
+> se escribió para §17.3.13, no para acá.
+
 ---
 
 ### AJ-2.04 · §17.1.5.4.2/.5 · PRECISA · 🟠 — los ejes del protocolo de prompts
@@ -120,6 +159,20 @@ contemplaba:
    sintáctica: sumar 1–2 variantes template al prompt set.
 3. **Hiperparámetros congelados** (confianza y NMS constantes entre variantes de
    prompt): explicitarlo en la configuración de las corridas.
+
+> ⊘ **2026-08-28 para §17.1 (E2-10):** verificado sobre `90f`, **los tres ejes ya están en el
+> protocolo** (§17.1.5.4.2 "en aislamiento y en contexto completo", "a photo of a [CLASS]";
+> §17.1.5.4.5 Fase 2 "hiperparámetros constantes"). La ficha apuntaba a lo que le faltaba a nuestro
+> diseño de campañas (`nucleo/08` §2.3), no al informe. §17.1 no se edita; **§17.5 declara** lo
+> ejercido: vocabulario en régimen asimétrico (E-DIR aislada, E-IND conjunta) sustituido por un
+> control único (B1 vs T2); templates definidas (`cr01_template`/`cr02_template`) y **no medidas**;
+> hiperparámetros `box 0,30 / text 0,25` idénticos en todos los brazos, umbrales operativos
+> calibrados por brazo con grid idéntico (`operacion/130` §4.2).
+>
+> ✎ **2026-08-28 (D-E2-2, E2-09) — el bautismo E-DIR/E-IND/E-HYB SÍ va en §17.1.5.4.2**, en el
+> párrafo "Estrategia de detección", con el texto guía de C-1 del pase 1 de la Etapa 3. **Dependencia
+> inversa** (E3-42, pase 3 §I): §17.3.6.4 v1.4 debe recortar su glosa a una remisión; si no, el
+> informe define los códigos dos veces.
 
 ---
 
@@ -144,6 +197,13 @@ declaraciones de episodio eran errores de anotación (~71%)** — evidencia dire
 medida en el propio trabajo, de por qué el protocolo pedía doble anotación. Eso vive en
 Etapa 5 como `AJ-5.07` y como tabla **T-84**.
 
+> ✎ **2026-08-28 (E2-12):** en §17.1 el requisito **se conserva** y gana su **criterio de
+> aplicabilidad** (cuando la referencia se reutiliza de anotaciones de fuente sin re-anotación, la
+> doble anotación no aplica y la ausencia de acuerdo se declara como limitación del material);
+> "no se hizo" es de §17.5. Dato nuevo del relevamiento: la **auditoría humana del GT de imágenes
+> (Task 4.3) tampoco se ejecutó** — sólo su kit; `bench_gt_audit.md` §4–6 vacíos (`operacion/130`
+> R-14). El informe **no debe afirmar** que hubo auditoría humana del GT de imágenes.
+
 ---
 
 ### AJ-2.07 · §17.1.5.4 y Anexo C · PRECISA · 🟡
@@ -161,6 +221,15 @@ Etapa 5 como `AJ-5.07` y como tabla **T-84**.
 > de utilizados distinguir los de **entrenamiento** (`construction_site_safety`, `chv`,
 > `ppe_siabar`) de las **fuentes del banco de imágenes** (`construction_site_safety`,
 > `chv`, `shel5k`) — comparten dos nombres de tres, y confundirlos es el error fácil.
+>
+> ⚠ ✎ **2026-08-28 — CORRECCIÓN (`operacion/130` R-02):** la lista de "entrenamiento" de arriba es
+> el rol TRAIN **histórico** (`train_v2`, archivado el 08-15). El **entrenamiento efectivo**
+> (`finetuning_v1`, T1 y T2) usó `construction_site_safety` 2.203 + `ppe_siabar` 743 = **2.946 / 483**
+> y **EXCLUYÓ `chv`** por anti-leakage: el 100 % de sus 1.330 imágenes es estrato de `bench_v3`.
+> Copiar la lista vieja al informe violaría su propia Tabla 28 (disyunción estricta). También:
+> las licencias de la Tabla 26 se escriben **como están en el registro** (GDUT-HWD/SHWD "verificar";
+> CHV sin licencia del dataset — L7; MOCS = copia pública de 1.471 imgs), y css/ppe_siabar entran al
+> inventario como candidatos incorporados después del protocolo (E2-13/E2-14; anexos en `90g`).
 > **(2)** `bench_obra` **no es un dataset**: es el estrato curado internamente a partir de
 > `construction_site_safety`. Guía completa con la cadena de procedencia y una frase lista
 > para el informe: **redline R-24** (`material-etapa-3/93`) y glosario `13` §4.4.
@@ -190,7 +259,13 @@ patrón candidato · confirmado · alerta registrada · notificación**. Estado 
 - **Percentiles P50/P95/P99** en las métricas del control-plane (hoy solo promedio).
 - **Warm-up declarado por corrida** (verificar en media-plane; N/A en replay).
 - **Bitácora mínima por corrida** ≈ `report.json` consolidado + `effective_config`, ya
-  cubierta.
+  cubierta. ✎ 2026-08-28: en el plano de medios los artefactos son `summary.json` +
+  `metrics.jsonl` + `run_manifest.json` + `run_provenance.json` (**no** `report.json`/`metrics.json`,
+  que son del consolidado del experimento). Estado real verificado (`operacion/130` §4.4): hitos
+  **4 de 5** en el control (notificación en el distribuidor); percentiles P50/P95/P99 en
+  `summary.json` de medios y control **pero `evaluate-alerts` sólo produce promedios**; hardware,
+  SO y versiones **no se registran** por corrida; `warmup_units = 0` en todas las corridas
+  (warm-up de modelo sí). Todo eso se declara en §17.4 (E2-21); §17.1.7.8 no cambia.
 
 **Dónde aterriza cada cosa (no-anacronismo):** el §17.1.7.8 **ya exige** los cinco
 hitos — como protocolo casi no se edita. Los bullets de "estado real" de arriba son el
@@ -240,6 +315,15 @@ la entrega), la sección comparativa de resultados (si la jornada produjo datos 
 entrega) y §18 (`AJ-6.05`: lo que quede más allá de la escalera) — regla de
 no-anacronismo.
 
+> ✎ **2026-08-28 — los ✎ del 08-13/08-15 de arriba están VENCIDOS** ("resta sólo
+> `full-authorization.json` + RUN"): la jornada está **COMPLETA y CERRADA** — T1 NO-GO (08-17,
+> `operacion/123`), T2 NO-GO (08-21, `127`), T3 cerrado con causa técnica; acta `128`. En §17.1 va
+> **la regla y su criterio** (E2-23): la rama se ejerce como jornada completa con criterios
+> pre-registrados, condicionada por datos y protocolo, nunca por cómputo ni plazo. Dos hechos
+> nuevos para §17.4/§17.5 (no para §17.1): el split de entrenamiento fue de **2.946** imágenes contra
+> el rango 500–2.000 de la Tabla 28 (**desviación sin justificar en ninguna bitácora**, E2-15), y los
+> checkpoints ajustados **sólo se evaluaron en imágenes**, nunca en clips ni en EBE.
+
 ---
 
 ### AJ-2.12 · §17.1.7 · PRECISA · 🟠 — aplicabilidad y reglas de lectura
@@ -267,6 +351,10 @@ Dos cosas que el §17.1 no declara y que gobiernan todo el §17.5:
    concreción, no un problema de fondo.
 3. **La histéresis activación≠desactivación** ya estaba pedida por §17.1.5.3.3 y ya está
    soportada. No es un agregado nuestro: es cumplimiento.
+4. ✎ 2026-08-28 — **§17.1.6.3 (MOT17/OVT-B) y §17.1.7.4.2 (métricas MOT)**: pre-registradas y no
+   ejercidas; quedan **intactas con ⊘ explícito** (D-E2-6, E2-16). Lo no ejercido lo reporta §17.5.
+5. ✎ 2026-08-28 — **CPN/EN/TN, TTFD/SDR/`t_alert-system` y §17.1.4.4**: nacen acá y §17.3/§17.4 los
+   usan por nombre o por número. No renombrar, no renumerar (`correcciones-etapa-2.md` §D).
 
 ## 4. Fuentes
 
