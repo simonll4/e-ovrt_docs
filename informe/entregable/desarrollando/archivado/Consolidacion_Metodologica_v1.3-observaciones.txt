@@ -1,0 +1,3 @@
+- siento como que esta muy por fuera del acanze que implementamos, es como que abarca demasiado.
+- a nivel general veo varias cosas que son redundantes, si en una seccion ya se desarrolla todo el tema detallado no hace falta en otra seccion volver a desarrollar lo mismo.
+- si implementamos CR-01 y CR-02, que tanto vale la pena desarrollar sobre las demas? osea lo que mas vale de la tesis no es la implementacion si no lo que estamos planteando, como analizamos cada situacion y como se podria encarar eso. esto te lo digo para que no asumas que si no se implemento fallamos, todo lo contrario.

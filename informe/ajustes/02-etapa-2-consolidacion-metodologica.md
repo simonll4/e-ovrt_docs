@@ -34,6 +34,121 @@
 > ✅ **2026-08-28 (noche) — PASE APLICADO Y VERIFICADO: §17.1 v1.3** (`desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx`,
 > 28.534 palabras, verificador OK). Las 12 fichas + AJ-2.13 + podas 12–14 quedaron resueltas (⊘ para
 > AJ-2.02 y AJ-2.04). Constancia y residuales: `desarrollando/archivado/correcciones-etapa-2-pase-2.md`.
+>
+> ✎ **2026-08-30 — dos cambios posteriores al pase 2 sobre §17.1** (la línea de arriba "no hay
+> trabajo de redacción pendiente sobre §17.1" ya no es exacta):
+>
+> 1. **§17.1.4.2.4 ELIMINADA** (título + cuerpo). Era la mitad "RTSP sintética" de AJ-2.10,
+>    vestigial: el criterio de prioridad ya vive completo en §17.1.4.2.3. `.2.5` pasa a `.2.4`.
+>    Motivos y guard de "no re-agregar": nota dentro de la ficha **AJ-2.10**.
+> 2. **§17.1.10.2 — quinto supuesto de interpretación agregado**: la disyunción train↔bench
+>    sólo es verificable sobre el ajuste propio, porque los modelos preentrenados vienen de
+>    corpus de terceros no inspeccionables. Declarado como **supuesto**, no como limitación
+>    nueva — el set `L1–L8` está cerrado (D-113.1).
+>
+> ✅ **2026-08-31 (cierre definitivo) — PASE 5 APLICADO Y VERIFICADO: §17.1 v1.6 VIGENTE Y
+> DEFINITIVA. LA ETAPA 2 CIERRA CON CINCO PASES.** 26.632 palabras · 106 títulos · 20 tablas
+> 16–35 + 6 de anexo · 76 ecuaciones · cero bajas de referencias · pre-registro intacto ·
+> 27 comentarios resueltos. Acumulado v1.1→v1.6: −18,5 % con los anexos adentro (desarrollo:
+> −24 %). Acta: banner de
+> [`archivado/correcciones-etapa-2-pase-5.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-5.md);
+> extensión final justificada en
+> [`justificacion-extension-17-1.md`](../entregable/desarrollando/justificacion-extension-17-1.md).
+> Del usuario: sólo git.
+>
+> ✅ **2026-09-01 — PASE 6 APLICADO Y VERIFICADO: §17.1 v1.7 VIGENTE. LA ETAPA 2 QUEDA CON SEIS
+> PASES (desacople normativo).** Origen: el criterio editorial firmado sobre las nuevas
+> §16.2/§16.6 de la Etapa 1 v1.1 — la normativa fundamenta relevancia preventiva, NUNCA
+> severidades, taxonomías ni ventanas. 35 reemplazos (E2-68…E2-88 + E2-75c), doble auditoría
+> Claude+GPT verificada; severidad reformulada como categoría metodológica de prioridad
+> temporal; Tabla 21 sin artículos; C2 → "Cobertura del catálogo experimental"; única cita
+> legal directa en 17.1.10.1 (D-P6-1); marcador AAIP intacto. 26.440 palabras · 106 títulos ·
+> tablas 16–35 · 76 ecuaciones · 27 comentarios resueltos · 0 marcas. Baja bibliográfica para
+> la integración: Res. SRT 299/2011 (D-P6-3). Acta: banner de
+> [`archivado/correcciones-etapa-2-pase-6.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-6.md);
+> compuerta reproducible: `herramientas/verificar_anclas_pase6.py --post`.
+> Del usuario: sólo git.
+>
+> ✎ **2026-08-31 (noche) — PASE 5 ESCRITO (NO aplicado):
+> [`desarrollando/correcciones-etapa-2-pase-5.md`](../entregable/desarrollando/correcciones-etapa-2-pase-5.md)
+> (E2-56…E2-67, D-P5-1…4; base v1.5 → salida v1.6).** El usuario firmó la poda por aporte
+> ("podemos como limpieza pero **sin perder defensa de plataforma**") sobre el diagnóstico de
+> `analisis-poda-17-1.md`: **PODA-A** (auto-presentación de 17.1.1/17.1.3, nota de 261 w del
+> catálogo, no-aplicación duplicada del framework, solape ético) + **PODA-B** (la argumentación
+> bibliográfica OVD se comprime a decisión+citas — su fuente es §15/§16) · **PODA-C DESCARTADA**
+> (D-P5-3: D-E2-6 no se reabre, MOT intacto). Reglas duras: cero pérdida de defensa · **cero
+> bajas de referencias** (Kim/Jiang/Mazor/Minderer/Xiao/Sharma/Changpinyo conservan su mención
+> única) · anclas exactas (52/52 verificadas). Cae la **Tabla 16** → renumeración 16–35. Targets
+> v1.6: ~26,6–27,0k palabras · 106 títulos · 20+6 tablas · **76 ecuaciones** (−2 declaradas).
+> **La justificación de por qué NO se poda más allá quedó en
+> [`justificacion-extension-17-1.md`](../entregable/desarrollando/justificacion-extension-17-1.md)**
+> (el piso honesto ~140 pág; lo descartado y su costo en defensa, ~3.100 w).
+>
+> ✅ **2026-08-31 (cierre de jornada) — PASE 4 APLICADO Y VERIFICADO: §17.1 v1.5 VIGENTE, aceptada
+> y limpia. LA ETAPA 2 QUEDA CERRADA con los cuatro pases.** Metadiscurso 33→11 · párrafos gordos
+> 14→2 · cero pérdida verificada (citas, deberá, todavía, greps — todo idéntico) · 27 comentarios
+> resueltos intactos. Acta completa: banner de
+> [`archivado/correcciones-etapa-2-pase-4.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-4.md).
+> Del usuario: sólo git.
+>
+> ✎ **2026-08-31 (después del cierre del pase 3) — PASE 4 ESCRITO (NO aplicado):
+> [`desarrollando/correcciones-etapa-2-pase-4.md`](../entregable/desarrollando/correcciones-etapa-2-pase-4.md)
+> (E2-51…E2-55, D-P4-1/2; salida = v1.5).** El usuario confirmó que la sección "pierde al lector";
+> el diagnóstico medido ubicó la causa en **34 oraciones de metadiscurso** (vs 2 en §17.4 y 1 en
+> §17.5) y **14 párrafos >150 palabras** — no en la extensión del contenido. El pase corrige **voz
+> y ritmo con cero pérdida de información** (D-P4-1: "no reducir por reducir"): re-sujeta o pliega
+> el andamiaje (las cuatro "Introducción y alcance" son el grueso), parte los párrafos gordos, y
+> deja intactos P-E1-xx, fronteras anti-anacronismo, citas, tablas, ecuaciones y los 27
+> comentarios resueltos. Las 39 anclas verificadas contra la v1.4. Vara de voz: §17.5. Handoff:
+> §17.3 tiene 11 metadiscursos y 2 párrafos gordos para su v1.5; §15/§16 a medir (colega).
+>
+> ✅ **2026-08-31 (misma jornada) — PASE 3 APLICADO Y VERIFICADO: §17.1 v1.4 VIGENTE, con los
+> Anexos C y D al final del documento.** Verificación de §G completa (109 títulos · 21 tablas
+> 16–36 · 78 ecuaciones · 17 greps en cero · diff íntegro atribuido); un defecto (E2-50.12)
+> reparado sobre el XML. Acta: banner de
+> [`archivado/correcciones-etapa-2-pase-3.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md).
+> Quedan del usuario: aceptar cambios controlados y resolver los 27 comentarios (mapa §F del pase).
+>
+> ✎ **2026-08-31 — PASE 3 ESCRITO (NO aplicado): [`entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md)**
+> (E2-30…E2-50, decisiones D-P3-1…9 — serie propia de la etapa 2; no confundir con las D-P3-1…6
+> del pase 3 de §17.3), disparado por la revisión crítica del usuario (27
+> comentarios en el `.docx`) y una auditoría verificada. Lo que cambia el marco de esta etapa:
+>
+> 1. **El guardrail 2 (`07` §9: "§17.1.5 y §17.1.7 no se comprimen") queda ENMENDADO por D-P3-1**
+>    (firmada por el usuario): se consolidan explicaciones repetidas; definiciones, umbrales,
+>    reglas y contenido de tablas siguen intocables. Fuera de las unidades del pase 3, los dos
+>    apartados siguen bajo guardrail.
+> 2. **Renumeración interna verificada segura**: §17.3/§17.4/§17.5 no citan ninguna tabla de
+>    §17.1 por número (cero apariciones; la única remisión numérica externa es `17.1.4.4`).
+>    Las Tablas 17 y 22 caen (duplicadas al 100 %) y el desarrollo queda con 21 tablas (16–36).
+>    El "sin renumerar" del pase 2 queda superado por este hecho verificado.
+> 3. **D-E2-1 EJECUTADA Y SUPERADA EN SU MITAD "fuera del `.docx`"**: los Anexos C y D finales
+>    están en [`entregable/90g-etapa2-anexos-c-y-d.md`](../entregable/90g-etapa2-anexos-c-y-d.md)
+>    (C: 5→3 tablas · D: 6→3; integra las notas ✎ de AJ-2.07 y H-8 de `09` §4, y **refina
+>    D-E2-1**: la ex-D.4 se elimina —no se "reduce"— porque nada de lo que agrega falta en el
+>    desarrollo). Hallazgo que lo urgía: la ex-C.3 **contradecía** a la Tabla 31 del desarrollo.
+>    **D-P3-8 (usuario, 2026-08-31, misma jornada): los anexos viajan AL FINAL del documento de
+>    la etapa** — los anexa ChatGPT (unidad E2-49, encabezados sin número, nombres de métrica en
+>    texto); al integrar, el equipo los muda a §19.3/§19.4.
+> 4. Defectos verificados en el XML que el pase repara: 6 sitios de gramática de sustitución
+>    ("la el análisis"…), la cifra huérfana **50–250 ms** de la Tabla 21 (no suma con el propio
+>    framework; va a 35–250), y una meta-referencia a "la versión anterior" en §17.1.5.5.
+> 5. **D-P3-9 — VOZ DEL DOCUMENTO (criterio de casa, traído por el equipo desde la Etapa 1):**
+>    lo que remite a una sección que **existe** deja de enmarcarse como obligación futura
+>    ("la instancia … **deberá** materializar" → "materializa"): 12 sitios, unidad **E2-50**.
+>    ⚠ **La regla NO se aplica en bloque**: de los 41 `deberá` de §17.1, ~25 son **prescripción
+>    normativa del protocolo** ("toda corrida deberá declarar…") y no se tocan; y lo
+>    **pre-registrado y no ejercido** (MOT17/OVT-B, español, kappa, CR-03/CR-04) **no** puede
+>    decir "se define más adelante" —sería falso—: sigue como protocolo y lo reporta §17.5.
+>    Medido en todo el informe: **§15+§16 = 7 sitios** (pase del colega) · **§17.3 = 3** ·
+>    **§17.4 y §17.5 = 0** (ya están en la voz correcta; por eso el desfase se nota).
+> 6. Targets de la v1.4: ~28,4–29,0k palabras (desarrollo ~26,0–26,5k + anexos ~2,4k) ·
+>    109 títulos numerados · 21 tablas 16–36 + 6 de anexo · **78 ecuaciones**
+>    (85 − 7 declaradas por unidad — el conteo de ecuaciones deja de ser "85 intactas").
+>
+> Efecto en el verificador: **títulos 118 → 117**, `[[PENDIENTE]]`×1 sin cambios, palabras
+> ~28.560. Derivados a regenerar después de guardar el `.docx`: `entregable/90f` (extracción) y
+> `project-kit/01-etapa-2-activa.md` (kit).
 > **No reaplicar nada de este tablero.**
 
 | Dónde | Qué |
@@ -57,7 +172,7 @@
 | **AJ-2.07** | §17.1.5.4 / Anexo C | PRECISA | 🟡 | El prompt set debe declararse construido desde el **Anexo C (Tabla C.1)**; sumar **confianza media de los TP** y **métricas por entidad componente**. |
 | **AJ-2.08** | §17.1.6 / Tabla 36 | PRECISA | 🟡 | Usar los **nombres de fase de la Tabla 36** y declarar la correspondencia 1:1 con lo ejecutado (con la nota ADR-010). |
 | **AJ-2.09** | §17.1.7.8 | CONCRETA | 🟠 | Instrumentación: los **cinco hitos por alerta**, **P50/P95/P99**, warm-up declarado por corrida, bitácora mínima. |
-| **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. |
+| **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. ✎ 08-30: **§17.1.4.2.4 ELIMINADA** — la ficha queda cumplida por §17.1.4.2.3; no re-agregar (ver nota en la ficha). |
 | **AJ-2.11** | §17.1 / Tabla 37 | PRECISA | 🟡 | Reencuadrar el **fine-tuning (I1)** conforme **ADR-017**: rama experimental condicionada (Tabla 37) que **se ejerce como jornada completa**; condiciones de datos y protocolo, no de cómputo — la causa "presupuesto de tiempo" queda **prohibida**. |
 | **AJ-2.12** | §17.1.7 | PRECISA | 🟠 | Declarar los **estados de aplicabilidad** (`not_applicable:<causa>`, ADR-006/013) y las **reglas de lectura** que ninguna métrica puede violar. ✎ 08-28: + la regla de conteo `re-alerta ≠ FP` (D-E2-3, E2-22). |
 | **AJ-2.13** | §17.1.7.3.1 | CONCRETA | 🟠 | ✎ **2026-08-28 (D-E2-5, nueva):** declarar el **nivel intermedio de análisis "estado observable por persona"** entre la percepción por imagen y la alerta temporal por episodio — §17.5 lo usa como eje y §17.1 no lo pre-registraba (0 apariciones). Texto guía en E2-18. Sin cifras. |
@@ -284,6 +399,31 @@ convencional**. En la práctica **la contingencia se ejerció primero**. Actuali
 prioridad declarada: contingencia oficial primero, y el **RTSP sintético
 (mediamtx+ffmpeg) como herramienta de desarrollo y vía de reproducibilidad DBE↔EBE con
 fuente idéntica** — no como fuente experimental.
+
+> ✎ **2026-08-30 — la mitad "RTSP sintética" se ELIMINÓ de §17.1; la ficha queda cumplida
+> por la otra mitad. NO volver a agregarla.**
+>
+> El pase 2 resolvió AJ-2.10 partiendo el contenido en dos: la **prioridad declarada** entró
+> en **§17.1.4.2.3** (*"La vía RTSP se prioriza inicialmente por disponibilidad e
+> interoperabilidad; la OAK-D se incorpora como fuente posterior"*) y el **RTSP sintético**
+> quedó solo en **§17.1.4.2.4**, que heredó el slot del viejo *"Plan de contingencia para el
+> EN"* de v1.1. Decisión del usuario: **borrar §17.1.4.2.4 entera** (título + los dos
+> renglones). Causas:
+>
+> 1. Su título prometía un "criterio de prioridad" que su cuerpo no daba — ya estaba completo
+>    en §17.1.4.2.3. Era un título vestigial.
+> 2. **Cero referencias cruzadas**: §17.3/§17.4/§17.5 no mencionan la fuente sintética ni una
+>    vez, y ninguna sección remite a §17.1.4.2.4 ni a §17.1.4.2.5 — la renumeración de
+>    `.2.5 → .2.4` (Stack de software) es segura.
+> 3. El párrafo se autodestruía: presentaba una herramienta sólo para aclarar que no contaba.
+>    Sin el párrafo, el lector nunca se hace la pregunta que el párrafo respondía.
+> 4. §17.1 es el protocolo, no el inventario de herramientas de desarrollo. Ninguna cifra
+>    reportada salió de la fuente sintética: el `rtsp` de los resultados (doc 61) es la cámara
+>    IP EZVIZ real.
+>
+> **La herramienta existió** (mediamtx + ffmpeg republicando material pregrabado por
+> `RtspSource`; nunca estuvo en el compose de 13 servicios). Si alguna vez hace falta citarla,
+> el lugar es §17.4, no §17.1.
 
 ---
 

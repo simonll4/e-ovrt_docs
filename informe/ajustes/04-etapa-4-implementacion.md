@@ -3,7 +3,8 @@
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
 > están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` (✎ 2026-08-28: vigente **v1.6**, `00-el-informe-hoy`) en
 > `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
-> Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
+> Lo que queda: **el handoff recibido de la Etapa 2 (§0, abajo)**, la revisión del autor, las
+> URLs del lote (C1) y la integración al maestro. Las
 > unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
 >
 > *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
@@ -27,6 +28,60 @@
 | Relevamientos vigentes por servicio (✎ 2026-08-10) | **`nucleo/14`** (mapa de la cadena) · `15` setup · `16` datasets · `17` media · `18` control · **`19` el ciclo de vida de la alerta** — relevados contra git y código, sin cifras |
 | Estado real de la plataforma | `operacion/97-relevamiento-plataforma-2026-08-05.md` + `operacion/114-relevamiento-distribucion-alertas.md` |
 | Decisiones a citar | `decisiones/` — ADR-001…018 (+ la serie propia del control-plane, 4 dígitos) |
+
+---
+
+## 0. Handoff recibido de la Etapa 2 — pendiente de escribir en §17.4
+
+> ✎ **2026-08-30.** Estas dos unidades **no** son `AJ-4.x`: llegaron desde el cierre de la
+> Etapa 2 y **todavía no están en `§17.4 v1.6`**. Origen:
+> `entregable/desarrollando/archivado/correcciones-etapa-2-pase-2.md` §5, fila
+> "§17.4 v1.6 · handoff Etapa 4".
+
+| ID | Qué falta decir en §17.4 | Estado en v1.6 |
+|---|---|---|
+| **H2-01** | **Orden de disparo real de la corrida live: control → distribución → medios.** No es el orden del flujo de datos, es el inverso; la no-pérdida en el bus de alertas la garantiza el handshake del publicador, no el orden. Fuente: `operacion/130` R-01 · CLAUDE.md "Acople entre planos". | ausente |
+| **H2-02** | **Desviación del rango de entrenamiento: 500–2.000 → 2.946, con causa.** Ver ficha abajo. | ausente (sólo aparece el cierre de T3 por fuentes compartidas) |
+
+### H2-02 · la desviación del rango, y por qué NO es un incumplimiento
+
+**El problema si no se escribe.** §17.1 fija un rango orientativo de **500 a 2.000 imágenes**
+para el split de entrenamiento y exige explícitamente *"justificarse si se apartan de ese
+rango"* (§17.1.6.2.4 y Tabla 28). El fine-tuning usó **2.946 train / 483 val**, un 47 % sobre
+el techo. §17.5 ya reporta las 2.946 pero **no dice que exceden el rango ni por qué**: leído
+así, parece que el protocolo se violó. No se violó — la desviación es **consecuencia directa
+de cumplir la regla anti-leakage** de §17.1.6.5.
+
+**Qué tiene que decir §17.4** (la causa es implementación; §17.5 no se toca):
+
+> La causa de la desviación es el cumplimiento de la regla anti-leakage de §17.1.6.5, no su
+> incumplimiento: se tomó el 100 % de los linajes elegibles tras excluir íntegramente la
+> fuente compartida con el banco (1.330 imágenes) y deduplicar perceptualmente contra él
+> (81 imágenes más), sin submuestrear al techo del rango. Declarar también los controles en
+> cero — solapamiento con el banco, y componentes compartidos entre entrenamiento y
+> validación — y la semilla registrada: son la evidencia de las reglas 3 y 4 de §17.1.6.5.
+
+**Evidencia verificable** (`e-ovrt_experimental-setup/finetuning/manifests/`):
+
+| Dato | Valor | Archivo |
+|---|---|---|
+| Gates de disyunción | `bench_overlap_selected: 0` · `bench_rows_in_manifest: 0` · `shared_components_train_val: 0` | `finetuning_v1.summary.json` |
+| Semilla | `seed: 42` | ídem |
+| Banco congelado al auditar | sha256 `4557024e…` · `unchanged: true` · 6.477 imgs | `finetuning_v1.audit.json` |
+| Excluidas por solapamiento | 81 imágenes (56 por componente perceptual · 25 por linaje de fuente), 34 linajes | ídem |
+| Cadena de selección | 4.210 candidatas → 4.129 tras el guard → 3.429 seleccionadas (2.946 + 483) | ídem |
+| Regla perceptual | `ahash`+`dhash` 64 bits, Hamming ≤ 2, **y** MAE gris ≤ 2,0 sobre thumbnail 16×16 — las tres deben pasar | `finetuning_v1.audit.json` §parameters |
+
+Constancia de la desviación: `operacion/130` R-03 (no estaba justificada por escrito en
+ADR-017 / doc 100 / D-FT-11 hasta esa nota).
+
+⚠️ **Forma de nombrar las fuentes:** §17.5 las describe **sin identificador** ("obra con mayor
+cobertura de chaleco, n = 1.330"), mientras §17.1 sí las nombra. Usar la forma que ya emplee
+§17.4 en su entorno; no mezclar las dos en el mismo párrafo.
+
+🚫 **Lo que NO se hace acá:** no se toca §17.5 (ya reporta las 2.946; la causa vive en §17.4),
+no se reabre la Etapa 2 (§17.1 previó la desviación y sus cinco reglas se cumplieron), y no
+se crea una limitación nueva — el set `L1–L8` está cerrado (D-113.1).
 
 ---
 

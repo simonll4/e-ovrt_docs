@@ -1,5 +1,9 @@
 # El informe tal como está hoy
 
+> 📋 **Lo que FALTA está en [`00-lo-que-resta.md`](00-lo-que-resta.md)** (✎ 2026-09-01): la
+> lista única de pendientes con dueño y bloqueo. Este archivo narra la historia por jornada;
+> ese otro es el índice de lo que queda por hacer.
+>
 > **Esta carpeta es el entregable, no una fuente.** Es el TFG en sí (`.docx`) más su texto
 > extraído para poder leerlo, buscarlo y citarlo desde el resto del set documental.
 > **Ningún ajuste se aplica desde acá** — para eso está
@@ -352,6 +356,194 @@
 > 📄 Resumen legible de qué cambió respecto del inicial:
 > [`resumen-cambios-etapa-2.md`](resumen-cambios-etapa-2.md) (hermano del de la Etapa 1). **Queda de la etapa (fuera del `.docx`):** `90g` (Anexos C y D) y los handoffs a
 > §17.3 (recorte de §17.3.6.4), §17.4 (orden de disparo, desviación 500–2.000) y §17.5.
+>
+> 🔎 **2026-08-31 — LA ETAPA 2 SE REABRE CON UN PASE 3 (escrito, NO aplicado).** El usuario leyó la
+> v1.3 de punta a punta y dejó **27 comentarios** en el `.docx`
+> (`desarrollando/…v1.3- a revisar.docx` = v1.3 + las 2 ediciones del 08-30: §17.1.4.2.4 RTSP
+> sintética eliminada y quinto supuesto en §17.1.10.2); la revisión crítica + auditoría verificada
+> produjo [`desarrollando/correcciones-etapa-2-pase-3.md`](desarrollando/correcciones-etapa-2-pase-3.md)
+> (**E2-30…E2-50**, decisiones **D-P3-1…9** de la etapa 2 — serie propia, no confundir con las
+> D-P3 del pase 3 de §17.3; salida esperada: **v1.4**) y
+> [`90g-etapa2-anexos-c-y-d.md`](90g-etapa2-anexos-c-y-d.md) (**D-E2-1 ejecutada**: Anexo C 5→3
+> tablas, Anexo D 6→3; la ex-C.3 **contradecía** a la Tabla 31 del desarrollo). Lo estructural del
+> pase: desduplicación (la peor: §17.1.4.7 contaba el CPN por cuarta vez; el cierre §17.1.11.2 lo
+> contaba por tercera) con el **guardrail 2 enmendado por D-P3-1**; **Tablas 17 y 22 fuera** y
+> renumeración interna 16–36 — habilitada porque se verificó que **§17.3/§17.4/§17.5 no citan
+> ninguna tabla de §17.1 por número**; FT en EBE **condicionado** a §17.1.9 (no restringido — misma
+> doctrina que la Tabla 28); 6 defectos de gramática y el 50–250 ms huérfano de la Tabla 21
+> verificados **en el XML**. Targets v1.4: ~26,0–26,5k palabras · 109 títulos · 21 tablas ·
+> **78 ecuaciones** (85−7 declaradas por unidad). `90f` **re-extraído el 08-31** del documento
+> vigente (los derivados estaban 2 ediciones atrás — clase D2-01). ✎ **mismo día, D-P3-8
+> (usuario): los Anexos C y D viajan AL FINAL del documento de la etapa** — el `90g` quedó
+> reescrito como contenido completo listo para pegar (las 6 tablas finales; nombres de métrica en
+> texto plano, unificación con ecuaciones → integración) y el pase ganó la unidad **E2-49**
+> (anexado, último paso; encabezados sin número). ✎ **también 08-31 — D-P3-9, VOZ DEL DOCUMENTO
+> (criterio traído por el equipo desde la Etapa 1)**: lo que remite a una sección que **existe**
+> deja de sonar "a definir" y pasa a presente (unidad **E2-50**, 12 sitios). ⚠ Validado antes de
+> adoptarlo: **la regla NO se aplica en bloque** — de los 41 `deberá` de §17.1, ~25 son
+> prescripción normativa del protocolo y no se tocan, y lo **pre-registrado y no ejercido** no
+> puede decir "se define más adelante" porque sería falso (lo reporta §17.5). Medido en el
+> informe: **§15+§16 = 7 sitios** (pase del colega) · **§17.3 = 3** · **§17.4 y §17.5 = 0**, que
+> es justo por qué el capítulo suena desparejo. Targets ajustados: ~28,4–29,0k palabras
+> (desarrollo ~26,0–26,5k + anexos ~2,4k) · 109 títulos numerados · 21 tablas 16–36 + 6 de anexo
+> · 78 ecuaciones · `deberá` de 41 a ~33 (nunca menos de 30). **Lo que sigue: ChatGPT aplica el pase 3 completo sobre el `.docx`** (los
+> comentarios NO se tocan: los resuelve el usuario con el mapa §F del pase); al integrar, el
+> equipo sólo muda los anexos a §19.3/§19.4; a la vuelta, verificación con los targets de §G y
+> los greps en cero.
+>
+> ✅ **2026-08-31 (misma jornada) — §17.1 CERRADA EN CONTENIDO: v1.4, CON ANEXOS.** ChatGPT aplicó
+> el pase 3 completo y la entrega pasó la verificación de §G **entera**: 28.730 palabras · **109
+> títulos exacto** · **21 tablas 16–36 contiguas** · Anexos C (3 tablas) y D (3) al final con
+> encabezados sin número en el estilo del título 17.1 · **78 ecuaciones exacto** · los 17 greps en
+> cero · `todavía` = 7 · verificador OK. Diff párrafo a párrafo contra `90f`: 27 eliminados + 66
+> modificados + 1 nuevo, **todos atribuidos a unidades del pase, cero cambios de afuera**; anexos
+> fieles al `90g`. La entrega **trajo cambios controlados** (521 ins / 343 del, sin aceptar) y
+> **conservó los 27 comentarios**. **Un solo defecto: E2-50 sitio 12** ("deberá realizarse sobre
+> los datos del proyecto" en la justificación de OVT-B) — reparado determinísticamente sobre el
+> XML (respaldo en `archivado/…(entrega GPT, antes de E2-50.12).docx`). Dos notas de auditoría en
+> el banner del pase: E2-50.3 quedó absorbido por E2-38 (solapamiento de autoría, resultado
+> correcto) y la guarda "deberá <30" estaba mal calibrada (valor final correcto: 28 en el
+> desarrollo, las 12 desapariciones auditadas una por una — ninguna prescripción normativa
+> tocada). **Derivados al día**: `90f` re-extraído de la v1.4 (la extracción corta en los anexos:
+> viven en el `.docx` y en `90g`) · pase 3 → `archivado/` con acta en el banner · v1.3 y
+> "a revisar" → `archivado/` · generador volteado a APLICADO · `INSTRUCCIONES-PROJECT` a v1.4 ·
+> kit OK, 62 tests. **Handoffs vivos**: §17.3 v1.5 (recorte §17.3.6.4 +
+> D-P3-9 ×3) · integración (anexos a §19.3/§19.4, hueco global de tablas 37–38, métricas del
+> anexo a objetos de ecuación) · D-E1-11 AAIP.
+>
+> ✅ **2026-08-31 (cierre) — CAMBIOS ACEPTADOS Y 27 COMENTARIOS RESUELTOS: la v1.4 quedó limpia.**
+> A pedido del usuario, ambas cosas se hicieron **sobre el XML** (abrir en LibreOffice reescribe
+> el documento entero y arriesga las 78 ecuaciones; es la misma técnica de E1-52/53 y E1-56/58).
+> Resultado: **0 marcas de revisión** (521 `w:ins` desenvueltas · 343 `w:del` fuera · 11 filas y
+> las 2 tablas borradas retiradas · 95 párrafos vacíos desaparecidos · 21 `*Change`), **78
+> ecuaciones**, 27 tablas, **109 títulos**, 28.628 palabras, todas las partes XML validadas,
+> verificador OK; los 27 comentarios **se conservan con sus anclas y quedan marcados `done`**
+> (`w15:done="1"` en `commentsExtended.xml`) — se borran en la integración final, no antes.
+> ⚠ **Al aceptar apareció un defecto que la verificación por extracción no había detectado:
+> E2-31 estaba aplicada DOS VECES** — GPT dejó una inserción huérfana con la numeración vieja
+> ("…se presenta en la **Tabla 23**") dentro del párrafo borrado y con marca de párrafo borrada,
+> que al aceptar habría duplicado la frase y remitido a la tabla equivocada. Se rechazó esa
+> inserción antes de aceptar; verificado: la frase queda **una sola vez**, al final del párrafo,
+> con "Tabla 21". **Lección (en el acta del pase):** cuando una unidad agrega texto y otra
+> renumera, verificar que no sobreviva una copia con el número viejo; y correr siempre el chequeo
+> "marca de párrafo borrada + texto vivo" (acá dio 1 de 95, y era exactamente el defecto).
+> Respaldo: `archivado/…v1.4 (con cambios controlados y comentarios sin resolver).docx`.
+> `90f` re-extraído del documento limpio; kit regenerado. **Queda del usuario: sólo git.**
+>
+> 🔎 **2026-08-31 (tarde) — PASE 4 DE LEGIBILIDAD ESCRITO (NO aplicado): la crítica del usuario,
+> validada con datos.** Su impresión ("mucho desarrollo que pierde al lector, se puede desarrollar
+> más simple sin perder robustez") se midió antes de actuar: la causa NO es la extensión del
+> contenido sino **34 oraciones de metadiscurso** —el documento hablando de sí mismo— contra 11 en
+> §17.3, **2 en §17.4 y 1 en §17.5**, más **14 párrafos de >150 palabras**; la oración media de
+> §17.1 (24,1 palabras) es incluso más corta que la de §17.4 (26,0). El instrumento:
+> [`desarrollando/correcciones-etapa-2-pase-4.md`](desarrollando/correcciones-etapa-2-pase-4.md)
+> (**E2-51…E2-55**, D-P4-1/2; base v1.4 limpia → **salida v1.5**): reescribe en voz de sistema las
+> cuatro "Introducción y alcance" y las aperturas de sección (conservando P-E1-xx con sus glosas,
+> fronteras anti-anacronismo y TODAS las citas), y parte 12 párrafos gordos con 14 cortes
+> especificados (la nota de la Tabla 21 no se parte; §17.1.5.4 se parte en su propia unidad). De
+> paso repara la concordancia "de la cual toma" en §17.1.5.4. **Regla suprema D-P4-1: cero pérdida
+> de información — "no reducir por reducir"** (pedido explícito del usuario). Targets v1.5:
+> ~28.250–28.500 palabras · 109 títulos · tablas/ecuaciones/comentarios idénticos · metadiscurso
+> ≤12 · párrafos gordos ≤2 · citas idénticas · chequeo anti-duplicación (lección del pase 3).
+> **39/39 anclas verificadas** contra `90f`. Vara de voz del informe: **§17.5**. Handoffs: §17.3
+> lleva 11 metadiscursos + 2 párrafos gordos a su v1.5; §15/§16 a medir (pase del colega).
+>
+> ✅ **2026-08-31 (cierre) — PASE 4 APLICADO: §17.1 v1.5 VIGENTE, aceptada y limpia.** ChatGPT
+> entregó la v1.5 y pasó la verificación de §D **entera**: **metadiscurso 33 → 11** · **párrafos
+> >150 palabras 14 → 2** · 28.418 palabras (en target) · 109 títulos · 21 tablas 16–36 + 6 de
+> anexo · **78 ecuaciones** · **cero pérdida verificada** ("et al." 59→59, años citados idénticos
+> —el −1 aparente era la fecha del banner de extracción—, `deberá` 28 y `todavía` 7 intactos,
+> greps del pase 3 en cero) · **41/41 anclas** · **15/15 cortes de párrafo** · anti-duplicación
+> limpio. Cambios controlados (37/22) **aceptados sobre el XML** (0 fusiones con texto — sin el
+> patrón del defecto del pase 3); los 27 comentarios siguen resueltos e intactos. Respaldo:
+> `archivado/…v1.5 (entrega GPT, cambios sin aceptar).docx`; v1.4 y el pase 4 → `archivado/` (acta
+> en su banner). `90f` re-extraído de la v1.5 · generador y `INSTRUCCIONES-PROJECT` a v1.5 · kit
+> OK, 62 tests. **LA ETAPA 2 QUEDA CERRADA: v1.5 con los cuatro pases** (contenido+formato ·
+> verificación · desduplicación+anexos · legibilidad). Del usuario: **sólo git**. Handoffs vivos:
+> §17.3 v1.5 (E3-42 + 3 sitios de voz D-P3-9 + 11 metadiscursos + 2 párrafos gordos) · Etapa 1:
+> 7 sitios D-P3-9 (colega) · integración (anexos→§19.3/19.4, hueco tablas 37–38, métricas del
+> anexo a ecuación) · D-E1-11 AAIP.
+>
+> 🔎 **2026-08-31 — ANÁLISIS DE EXTENSIÓN de la v1.5 (151 páginas): cuánto más se puede podar y a
+> qué costo.** A pedido del usuario ("¿por qué no recortar más?"):
+> [`desarrollando/analisis-poda-17-1.md`](desarrollando/analisis-poda-17-1.md) — peso medido por
+> sección (17.1.5 = 35 % · 17.1.7 = 26 % · 17.1.6 = 16 %), veredicto 🟢/🟡/🔴 por bloque y menú de
+> poda en tres niveles: **PODA-A segura ~1.200 w** (auto-presentación 17.1.1/17.1.3, nota de 261 w
+> de la Tabla 21, no-aplicación duplicada del framework) · **PODA-B a criterio ~1.300 w**
+> (re-argumentación bibliográfica de 17.1.5.4 que YA vive en §15/§16 — Du 5×, Bianchi 8× dentro
+> del capítulo) · **PODA-C ~330 w** (exige reabrir D-E2-6/MOT — recomendado NO). **Total máximo
+> responsable: ~2.700 w + 2–3 tablas = 151 → ~136 páginas (−10 %)**; el resto de las páginas es
+> estructural (APA doble espacio + 27 tablas + protocolo completo; §15+§16 pesa 100 pág con
+> 22,9k w). Acumulado ya podado: 32.669 → 26.376 (−19 %). Decisiones para abrir el pase 5:
+> D-P5-1…4 al final del análisis. **Sin firmar, no se aplica nada.**
+>
+> ✎ **2026-08-31 (noche) — D-P5 FIRMADAS Y PASE 5 ESCRITO (NO aplicado).** El usuario autorizó
+> "limpieza **sin perder defensa de plataforma**" → **PODA-A + PODA-B, PODA-C descartada** (MOT
+> intacto, D-E2-6 no se reabre). Instrumento:
+> [`desarrollando/correcciones-etapa-2-pase-5.md`](desarrollando/correcciones-etapa-2-pase-5.md)
+> (**E2-56…E2-67**, base v1.5 → **v1.6**; 52/52 anclas verificadas; reglas duras: cero pérdida de
+> defensa, **cero bajas de referencias**, comentarios intactos; cae la Tabla 16 con renumeración
+> 16–35; targets: ~26,6–27,0k w · 106 títulos · 20+6 tablas · 76 ecuaciones). Y el registro de
+> **por qué no se poda más**:
+> [`desarrollando/justificacion-extension-17-1.md`](desarrollando/justificacion-extension-17-1.md)
+> — historia de los 5 pases (−24 % acumulado), el piso honesto (~140 pág = APA doble espacio + 26
+> tablas + protocolo completo/pre-registro), y la tabla de recortes descartados con su costo
+> (~3.100 w que se pagan en defensa). Al Project: re-subir `00-contexto-base.md` +
+> `01-etapa-2-activa.md`; al chat: el `.docx` v1.5 + el pase 5.
+>
+> ✅ **2026-08-31 (cierre definitivo) — PASE 5 APLICADO: §17.1 v1.6 VIGENTE Y DEFINITIVA, aceptada
+> y limpia. LA ETAPA 2 CIERRA CON CINCO PASES.** Verificación de §D entera: **26.632 palabras**
+> (target 26,6–27,0k) · **106 títulos** · **20 tablas 16–35 contiguas** + 6 de anexo, sin refs
+> huérfanas · **76 ecuaciones** (las 2 muertes declaradas) · **cero bajas de referencias** (cotejo
+> por apellido 32→32; el cotejo automático inicial marcó 3 falsas bajas por citas dentro de listas
+> con punto y coma — trampa de regex anotada) · pre-registro intacto (MOT17, OVT-B, kappa,
+> bootstrap, templates, español) · 37/37 anclas · anti-duplicación limpio · sin copias con
+> numeración vieja · `deberá` 26, `todavía` 7. Cambios (44/114) aceptados sobre el XML (la Tabla
+> 16 salió entera: 5 filas + cascarón; 0 fusiones con texto); 27 comentarios resueltos intactos.
+> Respaldo: `archivado/…v1.6 (entrega GPT, cambios sin aceptar).docx`; v1.5 y pase 5 →
+> `archivado/` (acta en el banner). `90f` re-extraído · generador/`INSTRUCCIONES` a v1.6 · kit OK,
+> 62 tests. **Acumulado de la jornada: 32.669 (v1.1) → 26.632 (v1.6) = −18,5 % con los anexos
+> ADENTRO del documento; el desarrollo solo: −24 % · −13 títulos · −8 tablas.** La extensión final
+> (~140 pág) queda justificada por escrito en
+> [`desarrollando/justificacion-extension-17-1.md`](desarrollando/justificacion-extension-17-1.md).
+> **Del usuario: sólo git.** Handoffs vivos (sin cambios): §17.3 v1.5 · Etapa 1 (colega) ·
+> integración (anexos→§19.3/19.4 · hueco global de tablas ahora **36–38** · métricas del anexo a
+> ecuación) · D-E1-11 AAIP.
+
+> 🔎 **2026-09-01 — LA ETAPA 2 SE REABRE CON UN PASE 6 (escrito, NO aplicado): desacople
+> normativo de §17.1.** Origen: el colega entregó la **Etapa 1 v1.1** (§15/§16 con poda fuerte
+> de 16.2/16.6 y 10 comentarios C0–C9) y el equipo **firmó el criterio editorial** — la normativa
+> es marco conceptual, nunca especificación: prohibido derivar taxonomías, severidades o ventanas
+> de artículos legales. La doble auditoría (Claude + GPT, cruzada y verificada sitio por sitio)
+> encontró que **§17.1 v1.6 es la única sección en falta**: severidades fundadas en artículos del
+> Decreto 911/96 (17.1.5.3.2), citas de artículos en las 6 filas de la Tabla 21, dos referencias
+> colgantes a la "taxonomía normativa" que ya no existe en §16.2, criterio C2 "Cobertura
+> normativa", y recaudos de las Tablas 18/19 con desarrollo jurídico (§17.3/§17.4/§17.5 limpias).
+> El pase: [`desarrollando/correcciones-etapa-2-pase-6.md`](desarrollando/correcciones-etapa-2-pase-6.md)
+> — **E2-68…E2-88** (15 obligatorios + 4 opcionales) y **D-P6-1…3** (una sola cita legal directa,
+> en 17.1.10.1 · severidad = categoría metodológica de prioridad temporal · baja de la Res.
+> SRT 299/2011 del informe). **32/32 anclas verificadas** con ocurrencia única; compuerta
+> automatizada `docs/herramientas/verificar_anclas_pase6.py` (`--pre` verde sobre la v1.6;
+> `--post` valida la futura v1.7: anclas en cero + 76 ecuaciones + 27 comentarios + marcador
+> AAIP intacto + única cita a Disposición 10/2015). No toca cifras, ecuaciones, pre-registro ni
+> los catálogos CR/PR. ⚠ El estado "Etapa 1 CERRADA con v1.0" de la tabla de abajo quedó
+> **superado por la v1.1 en revisión** (crítica entregada, comentarios pendientes de decisión
+> del usuario); la tabla se actualiza cuando cierre ese ciclo.
+
+> ✅ **2026-09-01 (misma jornada) — PASE 6 APLICADO: §17.1 v1.7 VIGENTE, limpia. LA ETAPA 2
+> QUEDA CON SEIS PASES.** Los **35 reemplazos** (19 ítems E2-68…E2-88 con opcionales, más
+> E2-75c agregado en aplicación: el residuo de "categoría normativa" en 17.1.2.2 que detectó
+> la compuerta — la fila 17.1.2.2 del veredicto de GPT era correcta, existían ambos sitios) se
+> aplicaron sobre el XML con `docs/herramientas/aplicar_pase6.py` (edición byte a byte solo de
+> los `<w:t>` que solapan cada ancla, conteos con aborto). Compuerta `--post` **verde**:
+> greps prohibidos en 0 · guardrails presentes · **76 ecuaciones · 27 comentarios resueltos ·
+> 0 marcas · 1 sola cita a Disposición 10/2015 (17.1.10.1) · marcador AAIP intacto · tablas
+> 16–35**. Diff íntegro atribuido: 22 hunks = exactamente los 35 reemplazos, cero colateral;
+> **26.632 → 26.440 palabras** (mismo instrumento). `90f` re-extraído de la v1.7 ·
+> generador/`INSTRUCCIONES` a v1.7 · kit regenerado, `--check` OK, 62 tests + 51 subtests ·
+> v1.6 y el pase 6 (acta en su banner) → `archivado/` · ✎ al acta del pase 5 ("v1.6
+> definitiva" quedó superada). Baja bibliográfica pendiente de la integración: Res. SRT
+> 299/2011 (D-P6-3). **Del usuario: sólo git.**
 
 ## El texto extraído
 
@@ -361,7 +553,7 @@
 | **`90d-etapa1-texto-extraido.md`** | **§15 + §16 (Etapa 1, CERRADA 2026-08-28)** — texto base FINAL, extraído de `desarrollando/E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados | **1** ✅ |
 | `96c-informe-v11-estado-del-arte.md` | §15 del informe v1.1 — **SUPERADO por `90d`**, foto histórica | — |
 | `96d-informe-v11-marco-teorico.md` | §16 del informe v1.1 — **SUPERADO por `90d`** (✎ 2026-08-28; antes decía "texto base vigente sin pase"), foto histórica | — |
-| **`90f-etapa2-texto-extraido.md`** | **§17.1 Consolidación Metodológica (Etapa 2)** — texto base VIGENTE, extraído de `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx` con el pase `correcciones-etapa-2.md` y el de formato **APLICADOS Y VERIFICADOS** (✎ 2026-08-28 noche) | **2** ✅ |
+| **`90f-etapa2-texto-extraido.md`** | **§17.1 Consolidación Metodológica (Etapa 2)** — texto base VIGENTE, re-extraído **2026-09-01** de `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.7.docx` (26.440 palabras, 106 títulos, tablas 16–35, 76 ecuaciones, limpia). **SEIS pases aplicados y verificados** (el 6: desacople normativo, 2026-09-01); los Anexos C/D viven al final del `.docx` y en `90g` | **2** ✅ |
 | `96b-informe-v11-17-1-consolidacion-metodologica.md` | §17.1 + §17.2 del informe v1.1 — **SUPERADO por `90f`** (mismo contenido; foto histórica) | — |
 | `90-etapa3-texto-extraido.md` | **§17.3 Diseño arquitectónico** (v1.4), §17.3.1 a §17.3.18 | **3** |
 | `90b-etapa4-texto-extraido.md` | **§17.4 Implementación** — extraído de **v1.6** (re-extraído 2026-08-28; antes v1.5) | **4** |
