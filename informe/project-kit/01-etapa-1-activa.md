@@ -3118,7 +3118,7 @@ Zhou, X., Girdhar, R., Joulin, A., Krähenbühl, P., & Misra, I. (2022). Detecti
 
 ## Fuente: `docs/informe/ajustes/01-etapa-1-fundamentacion-teorica.md`
 
-> SHA-256 del bloque: `844a02caad39f12c623f26e930747ec99ee741304e6c37c992a3dee0345191cd`  
+> SHA-256 del bloque: `20fa7e69c9b8bdd34faf0849c7ff6d132e50cc67407402c840897ed7f0229c61`  
 > Seleccion: tablero ORIGINAL AJ-1.01 a AJ-1.16 (2026-08-10), con el relevamiento que dio origen a la etapa y las cifras de vara con su marca de confianza. **Los 16 estan RESUELTOS** -AJ-1.04 y AJ-1.05 por eliminacion de las fichas, AJ-1.09 en el Anexo A, AJ-1.16 por el pase 3-. Se conserva como historia y como fuente de las cifras: NO es una lista de tareas.
 
 # Etapa 1 — ajustes a la fundamentación teórica (§15 Estado del Arte, §16 Marco Teórico)
@@ -3290,6 +3290,16 @@ de la misma familia. Publicadas: **tiny 50,4–50,6 COCO zero-shot / 35,7–41,4
 [P/S]. **Al §15 va solo la cifra publicada** (es literatura); el descarte empírico del
 proyecto (bboxes roto en MM-GDINO-tiny) es un resultado y se relata en §17.5 — pero sin
 la cifra en el §15, ese relato posterior queda sin contexto.
+
+> ✎ **2026-09-01 — el relato de §17.5 todavía NO está escrito** (§17.5 v1.3 no menciona
+> MM-GDINO) **y cuando se escriba debe salir de `operacion/131` (fuente: `docs/operacion/131-verificacion-descarte-mmgdino.md`) §5, no de los docs
+> viejos.** La verificación experimental de ese día corrigió la causa: las cajas rotas son
+> **del checkpoint publicado** (reproducidas con `transformers` puro, sin código del
+> proyecto, hash verificado contra el hub), **no** de un adaptador propio; `mm-gdino-large`
+> falla **distinto** (mislocaliza con geometría normal) y `mm-gdino-base` es sano. La frase
+> de arriba ("bboxes roto en MM-GDINO-tiny") sigue siendo correcta; lo que no se puede
+> escribir es "bug de nuestro adaptador", "la familia comparte el bug" ni "large reproduce
+> el bug de tiny".
 
 ---
 

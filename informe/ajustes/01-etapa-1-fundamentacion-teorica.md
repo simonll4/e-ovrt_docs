@@ -168,6 +168,16 @@ de la misma familia. Publicadas: **tiny 50,4–50,6 COCO zero-shot / 35,7–41,4
 proyecto (bboxes roto en MM-GDINO-tiny) es un resultado y se relata en §17.5 — pero sin
 la cifra en el §15, ese relato posterior queda sin contexto.
 
+> ✎ **2026-09-01 — el relato de §17.5 todavía NO está escrito** (§17.5 v1.3 no menciona
+> MM-GDINO) **y cuando se escriba debe salir de [`operacion/131`](../../operacion/131-verificacion-descarte-mmgdino.md) §5, no de los docs
+> viejos.** La verificación experimental de ese día corrigió la causa: las cajas rotas son
+> **del checkpoint publicado** (reproducidas con `transformers` puro, sin código del
+> proyecto, hash verificado contra el hub), **no** de un adaptador propio; `mm-gdino-large`
+> falla **distinto** (mislocaliza con geometría normal) y `mm-gdino-base` es sano. La frase
+> de arriba ("bboxes roto en MM-GDINO-tiny") sigue siendo correcta; lo que no se puede
+> escribir es "bug de nuestro adaptador", "la familia comparte el bug" ni "large reproduce
+> el bug de tiny".
+
 ---
 
 ### AJ-1.12 · §15 · PRECISA · 🟠 — la advertencia de métrica (la trampa del jurado)
