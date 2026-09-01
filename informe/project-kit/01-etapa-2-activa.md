@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 2
 
-> Generado el 2026-08-28. Etapa 2: seccion 17.1 (los Anexos C y D se corrigen aparte, D-E2-1).
+> Generado el 2026-09-01. Etapa 2: seccion 17.1 (los Anexos C y D se corrigen aparte, D-E2-1).
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -53,10 +53,14 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
    verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
-   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
-   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
-   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
+   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
+   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
+   severidad metodologica, sin articulos legales; extension justificada en
+   justificacion-extension-17-1.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
+   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
 4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
@@ -248,16 +252,1659 @@ huerfanas, la misma autoria con años distintos y si faltan los cambios controla
 - No se trasladan resultados propios hacia secciones cronologicamente anteriores.
 - Nombre propio de esta etapa (01-etapa-2-activa.md): regenerarla no pisa el paquete de ninguna otra etapa.
 - **Restriccion propia de esta etapa: §17.1 se corrige COMO PROTOCOLO** (regla de no-anacronismo, mapa regla 5). Entran decisiones, definiciones, criterios y valores de configuracion elegidos dentro de rangos declarados; **NO entran resultados medidos ni estados de implementacion**: eso se declara en §17.4/§17.5. Lo que el protocolo prescribio y no se ejercio (templates de prompt, vocabulario aislado-vs-completo cruzado, espanol, doble anotacion/kappa, MOT17/OVT-B y metricas MOT, NVDEC) **NO se borra ni se 'corrige' en §17.1**: queda como protocolo y §17.5 lo reporta como no ejercido.
-- **Texto base = `90f` = §17.1 v1.3 (28.534 palabras, 118 titulos, Tablas 16–38), con el pase `correcciones-etapa-2.md` (E2-01..E2-26: las 12 fichas AJ-2.xx, la AJ-2.13, las podas 12–14 y los handoffs de las etapas 1 y 3) y el pase de formato F1–F6 YA APLICADOS Y VERIFICADOS el 2026-08-28. **La seccion esta CERRADA en contenido; no reaplicar nada.** Lo que queda de la etapa es externo al .docx: `90g` (Anexos C y D) y los handoffs hacia 17.3/17.4/17.5. **Guardrails:** §17.1.5 y §17.1.7 no se comprimen (no hay 'segunda vuelta'); los nombres de metrica que se ven vacios o como ⟦ECUACIÓN⟧ son objetos de ecuacion de Word, NO erratas; CPN/EN/TN y las siglas t_alert-system/TTFD/SDR nacen aca y §17.3/§17.4 las usan — no renombrar.
-- **Decisiones firmadas (2026-08-28):** D-E2-1 el .docx es SOLO §17.1 (Anexos C y D aparte, en 90g) · D-E2-2 los codigos E-DIR/E-IND/E-HYB se bautizan en §17.1.5.4.2 y §17.3.6.4 recorta su glosa a una remision · D-E2-5 el nivel intermedio 'estado observable por persona' se declara en §17.1.7.3.1 (AJ-2.13) · D-E2-6 MOT17/OVT-B y metricas MOT intactos con ⊘ explicito · D-E2-3 la regla 're-alerta ≠ FP' va en §17.1.7.8.3 · D-E2-4 los 4.000/7.000 ms entran como decision dentro del rango de la Tabla 24, sin la palabra 'efectivos' · D-E2-7 marcador espejo de la AAIP en §17.1.11 · D-E2-8 PODA-14 solo recorta §17.1.4.
+- **Texto base = `90f` = §17.1 v1.7 FINAL (extraido 2026-09-01: 106 titulos, 20 tablas 16–35, 76 ecuaciones, verificador OK), con los SEIS pases YA APLICADOS Y VERIFICADOS** (pases 1–2 el 08-28; pases 3, 4 y 5 el 08-31; pase 6 el 09-01, actas en sus banners). **La seccion esta CERRADA: v1.7 vigente con SEIS pases aplicados y verificados (el 5: poda por aporte A+B sin C — cero bajas de referencias, pre-registro intacto; el 6: desacople normativo — la normativa fundamenta relevancia preventiva en 16.2/16.6, NUNCA severidades, taxonomias ni ventanas; severidad = categoria metodologica de prioridad temporal). La extension final esta JUSTIFICADA en justificacion-extension-17-1.md. No reaplicar ningun pase.** Los Anexos C y D viajan AL FINAL del propio .docx (D-P3-8; la extraccion 90f no los incluye — estan en el .docx y en 90g). Cambios aceptados y 27 comentarios resueltos desde la v1.6: el documento esta limpio. **Guardrails:** los nombres de metrica que se ven vacios o como ⟦ECUACIÓN⟧ son objetos de ecuacion de Word, NO erratas (76 vigentes); en las tablas de los anexos van como TEXTO plano (unificacion en la integracion); CPN/EN/TN y las siglas t_alert-system/TTFD/SDR nacen aca y §17.3/§17.4 las usan — no renombrar.
+- **Decisiones firmadas (2026-08-28):** D-E2-1 el .docx es SOLO §17.1 (Anexos C y D aparte, en 90g) · D-E2-2 los codigos E-DIR/E-IND/E-HYB se bautizan en §17.1.5.4.2 y §17.3.6.4 recorta su glosa a una remision · D-E2-5 el nivel intermedio 'estado observable por persona' se declara en §17.1.7.3.1 (AJ-2.13) · D-E2-6 MOT17/OVT-B y metricas MOT intactos con ⊘ explicito · D-E2-3 la regla 're-alerta ≠ FP' va en §17.1.7.8.3 · D-E2-4 los 4.000/7.000 ms entran como decision dentro del rango de la Tabla 24, sin la palabra 'efectivos' · D-E2-7 marcador espejo de la AAIP en §17.1.11 · D-E2-8 PODA-14 solo recorta §17.1.4. **Decisiones del pase 3 (2026-08-31):** D-P3-1 enmienda del guardrail 2 · D-P3-2 Tablas 17 y 22 fuera, renumeracion 16–36 (verificado: cero refs numericas aguas abajo) · D-P3-3 el fine-tuning en EBE se CONDICIONA a la adopcion conforme a §17.1.9, no se restringe a DBE (doctrina de la Tabla 28) · D-P3-4 la Tabla C.1 se queda en el Anexo C · D-P3-5 composicion final de anexos C 5→3 / D 6→3 · D-P3-6 la estimacion de latencia se mantiene (solo se parte el parrafo; la Tabla 21 corrige 50–250 → 35–250 por coherencia interna) · D-P3-7 el catalogo CR-01..CR-06 no se poda · D-P3-8 los Anexos C y D viajan AL FINAL del documento de la etapa (E2-49; supersede la mitad 'fuera del .docx' de D-E2-1) · **D-P3-9 VOZ DEL DOCUMENTO (criterio de casa, traido por el equipo desde la Etapa 1): lo que remite a una seccion que EXISTE deja de sonar 'a definir' y pasa a presente (E2-50, 12 sitios). EXCEPCIONES que NO se tocan: la prescripcion normativa del protocolo ('toda corrida debera declarar...', ~25 de los 41 'debera'), los 'podra' de permiso, los 'todavia' que dicen que ESTA instancia no decide, y sobre todo lo PRE-REGISTRADO Y NO EJERCIDO (MOT17/OVT-B, prompts en espanol, kappa, datos de CR-03/CR-04): decir que 'se define mas adelante' seria FALSO - lo reporta 17.5.** Medido: 15+16 tienen 7 sitios (pase del colega), 17.3 tiene 3, 17.4 y 17.5 CERO.**
 - **Formato:** el documento hereda del maestro un defecto que el pase corrige: §17.1.1 esta en estilo Heading 2 (el nivel de §17.1) con tabulador tras el numero — debe ser Heading 3 con espacio, como sus hermanas §17.1.2…§17.1.12. La remision a 'la seccion 16.7.6' es hoy §16.7.3. Verificacion: `verificar_entregable.py <entrega.docx> --seccion 17.1`.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-6.md`
+
+> SHA-256 del bloque: `072606139c2389c23cee9c99da7b62ba78ead5f699b67dcbab7c77607aa4413b`  
+> Seleccion: EL PASE 6 DE LA ETAPA 2 (DESACOPLE NORMATIVO, 2026-09-01): E2-68..E2-88, D-P6-1..3. **YA APLICADO Y VERIFICADO en la v1.7 (misma jornada) - NO volver a aplicarlo** (acta en su banner; compuerta herramientas/verificar_anclas_pase6.py --pre/--post en verde). Origen: el criterio editorial FIRMADO el 09-01 sobre las nuevas 16.2/16.6 de la Etapa 1 v1.1 — la normativa es marco conceptual, NUNCA especificacion: prohibido derivar taxonomias, severidades o ventanas de articulos legales. La severidad queda como categoria metodologica de prioridad temporal (D-P6-2); unica cita legal directa en 17.1.10.1 (D-P6-1); baja de la Res. SRT 299/2011 del informe (D-P6-3). NO toca cifras, ecuaciones, pre-registro ni los catalogos CR/PR; el marcador AAIP sigue [[PENDIENTE]] (D-E1-11). Este criterio RIGE para cualquier redaccion futura de la etapa 2.
+
+# Correcciones a la Etapa 2 — pase 6: desacople normativo de §17.1
+
+> ✅ **ACTA DE APLICACIÓN (2026-09-01, misma jornada): APLICADO Y VERIFICADO — NO volver a
+> aplicarlo.** Los **35 reemplazos** (los 19 ítems E2-68…E2-88, opcionales incluidos, más
+> **E2-75c** agregado durante la aplicación: el residuo de "categoría normativa" en p0015 /
+> 17.1.2.2 que la compuerta `--post` detectó — la fila "17.1.2.2" del veredicto de GPT era
+> correcta, existían AMBOS sitios) se aplicaron sobre el XML de la v1.6 canónica con
+> `herramientas/aplicar_pase6.py` (edición byte a byte solo de los `<w:t>` que solapan cada
+> ancla; conteos esperados con aborto ante desvío). **Resultado: `…_v1.7.docx`.**
+> Verificación: compuerta `herramientas/verificar_anclas_pase6.py` `--pre` verde sobre la
+> v1.6 (33/33 anclas) y `--post` verde sobre la v1.7 — greps prohibidos en 0, guardrails
+> presentes, invariantes exactos (**76 ecuaciones OMML · 27 comentarios resueltos · 0 marcas
+> · 1 sola cita a Disposición 10/2015, en 17.1.10.1 · marcador AAIP intacto · tablas 16–35**).
+> Diff íntegro v1.6→v1.7 atribuido: **22 hunks = exactamente las líneas de los 35
+> reemplazos, cero daño colateral**; −192 palabras (26.632 → **26.440**, mismo instrumento).
+> `90f` re-extraído de la v1.7; la v1.6 quedó en `archivado/`.
+
+- **Fecha:** 2026-09-01 · **Sobre:** `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.6.docx`
+  (canónica: 0 cambios controlados, 27 comentarios resueltos, 76 ecuaciones OMML, tablas 16–35).
+  El resultado de aplicar este pase es la **v1.7**.
+- **Origen:** el criterio editorial firmado el 2026-09-01 para las nuevas §16.2/§16.6 de la
+  Etapa 1 v1.1 (normativa = marco conceptual, nunca especificación; prohibido derivar
+  taxonomías, severidades o ventanas de artículos legales) y su cláusula de consecuencia:
+  *"cualquier sección posterior —especialmente §17.1— que todavía hable de una taxonomía
+  normativa, de condiciones derivadas directamente de artículos legales, de cobertura
+  normativa, o que utilice artículos del Decreto 911/96 para asignar severidades o ventanas
+  temporales, debe revisarse"*.
+- **Insumo:** doble auditoría independiente (Claude + GPT) sobre la v1.6; la tabla de GPT
+  (17 filas) fue verificada sitio por sitio contra el texto real — ninguna fila fabricada.
+  Este documento consolida ambas en un único mapa de reemplazos con anclas exactas.
+- **IDs:** continúan la serie — comentarios **E2-68…E2-88**, decisiones **D-P6-1…D-P6-3**.
+- **Qué NO hace este pase:** no reabre ninguna decisión de la v1.6 (PODA-C/MOT intacta), no
+  toca cifras, ecuaciones, pre-registro, catálogos CR/PR ni la estructura de tablas 16–35.
+  Es un desacople de fundamentación: lo normativo deja de fundar lo metodológico.
+
+---
+
+## 0. Decisiones
+
+**D-P6-1 — Citas legales directas dentro de §17.1: una sola, en 17.1.10.1.** La cita
+`(Argentina, 2000; Disposición 10/2015, 2015)` de la política de minimización (p0405) se
+conserva como ancla operacional del régimen; **todos los demás sitios** de §17.1 que hoy
+citan Ley 25.326 / Disposición 10/2015 (Tabla 18, Tabla 19 y su nota) pasan a remitir a la
+sección 16.6 o a la Sección 17.1.10.1. *(Adoptada el 2026-09-01 con la recomendación de
+Claude; reversible a "full-remisión" antes de aplicar — en ese caso E2-87 también
+reemplaza la cita de p0405 por una remisión a §16.6.)*
+
+**D-P6-2 — La severidad es una categoría metodológica de prioridad temporal.** Ningún
+nivel de severidad ni ventana de persistencia se fundamenta en artículos legales. La
+lógica pasa de `severidad → legislación → artículos → obligación → ventana` a
+`severidad metodológica → perfil temporal de la condición → prioridad de respuesta →
+ventana de evidencia`. La relevancia preventiva de las condiciones vive en §16.2 y se
+remite, no se reconstruye. *(Deriva directa del criterio firmado; se registra para
+trazabilidad.)*
+
+**D-P6-3 — Resolución SRT 299/2011: baja del informe.** Su única aparición está en
+17.1.5.3.2 (E2-79). Tras el pase desaparece de §17.1 y no queda citada en ninguna otra
+sección (verificado en §15/16 v1.1, §17.3 v1.4, §17.4 v1.6, §17.5 v1.3) → **se da de baja
+del listado global de referencias** en la integración. Ley 19.587, Decreto 911/96,
+Ley 25.326 y Disposición 10/2015 permanecen en el listado: las dos primeras quedan
+sostenidas por §16.2, las dos últimas por §16.6 y por p0405 (D-P6-1).
+
+---
+
+## 1. Advertencias al aplicador (leer antes de tocar el XML)
+
+1. **Aplicar sobre el archivo canónico** de `desarrollando/` (0 marcas). Si se trabajó
+   sobre una copia con cambios controlados, descartarla: las anclas de este documento
+   están verificadas contra la canónica.
+2. **Ecuaciones OMML inline:** §17.1 tiene 76 `m:oMath`, varias **inline dentro de
+   párrafos y celdas** (p. ej. `t_alert-system` como ecuación). En una extracción de texto
+   plano aparecen como huecos (": , Tiempo…", "ni  sobre imágenes"). **No son defectos**:
+   no "repararlos", no tocar ningún run adyacente a un `m:oMath`. Invariante: 76 antes,
+   76 después.
+3. **Rangos de comentario:** E2-73 edita texto **dentro del rango del comentario C12**
+   (resuelto). Editar los runs interiores preservando `commentRangeStart/End` id=12 y la
+   `commentReference`. Invariante: 27 comentarios antes y después, todos resueltos.
+4. **El marcador `[[PENDIENTE: …inscripción…]]` (p0406) no se toca** — ni el texto ni su
+   posición. E2-87 edita únicamente la oración final del párrafo anterior.
+5. Nunca abrir/guardar con LibreOffice (rompe las ecuaciones). Edición por XML o Word.
+
+---
+
+## 2. Mapa de reemplazos — obligatorios
+
+Las anclas son texto vigente verbatim de la v1.6 (**verificadas 32/32 el 2026-09-01 con
+`verify_anchors_p6.py`, cada una con ocurrencia única en el texto extraído**). `→`
+introduce el texto nuevo.
+
+### E2-68 · 17.1.2.1 (p0011) — CR-01/02 "derivadas del marco" con cita legal
+
+- **Ancla:** `derivadas del marco de seguridad laboral y construcción (Decreto N.º 911/1996, 1996; Ley N.º 19.587, 1972).`
+- → `cuya relevancia preventiva, observabilidad y evaluabilidad están fundamentadas en la sección 16.2.`
+
+### E2-69 · Tabla 18, fila Participantes — "infracción deliberada"
+
+- **Ancla:** `configuración de escenas con y sin infracción deliberada.`
+- → `configuración de escenas con y sin las condiciones observables objetivo.`
+- *Motivo: una imagen no demuestra una infracción (§16.2.3); el rodaje simula condiciones
+  observables, no ilícitos.*
+
+### E2-70 · Tabla 18, fila Limitación principal — recaudo con desarrollo jurídico
+
+- **Ancla:** `requiere gestión de consentimiento libre, expreso e informado e información previa a los participantes, conforme al régimen de protección de datos personales y videovigilancia aplicable (Argentina, 2000; Disposición 10/2015, 2015).`
+- → `requiere gestión de consentimiento informado e información previa a los participantes, conforme a las salvaguardas de la Sección 17.1.10.1.`
+- *El consentimiento queda como recaudo experimental adoptado, no como conclusión
+  jurídica (D-P6-1).*
+
+### E2-71 · Tabla 19, fila "Recaudos ético-legales en el Escenario B"
+
+- **Ancla (celda origen):** `Ley N.º 25.326 y Disposición 10/2015`
+- → `Criterios ético-legales de la sección 16.6`
+- **Ancla (celda implicación):** `Las pruebas con personas en el campo visual requieren consentimiento informado e información previa. El carácter académico y controlado del prototipo atenúa el perfil de riesgo, pero no elimina las obligaciones de resguardo y minimización.`
+- → `Las pruebas con personas en el campo visual requieren consentimiento informado e información previa, finalidad explícita, minimización, acceso restringido y retención acotada, conforme a la Sección 17.1.10.1.`
+- *La frase "atenúa el perfil de riesgo" contradice la nueva §16.6, donde la finalidad no
+  elimina exigencias. Se elimina entera.*
+
+### E2-72 · Nota de la Tabla 19 (p0073)
+
+- **Ancla:** `y el marco normativo argentino aplicable a protección de datos personales y videovigilancia.`
+- → `y los criterios ético-legales establecidos en la sección 16.6 y operacionalizados en la Sección 17.1.10.1.`
+
+### E2-73 · 17.1.5.1 (p0076) — "identificación normativa" ⚠ dentro del rango C12
+
+- **Ancla:** `la brecha entre la identificación normativa de condiciones de riesgo y su traducción en consultas textuales`
+- → `la brecha entre la identificación de condiciones de riesgo preventivamente relevantes y su traducción en consultas textuales`
+
+### E2-74 · 17.1.5.2.1 (p0081) — reconstruye el catálogo normativo eliminado de §16.2
+
+- **Ancla (oración completa):** `El universo de condiciones de riesgo identificado en el análisis normativo de la fundamentación teórica abarca categorías como uso de EPP (casco, chaleco, calzado), protección contra caídas en altura, delimitación de áreas de riesgo, control de circulación con maquinaria, orden y limpieza e instalaciones eléctricas provisorias.`
+- → `La fundamentación teórica delimita las condiciones de riesgo observables por su relevancia preventiva, su evidencia visual anotable y su formulación evaluable (sección 16.2), y señala como posibles extensiones situaciones como el trabajo en altura, las zonas restringidas o la interacción con maquinaria.`
+- *Doble efecto: elimina la enumeración del catálogo que ya no existe y repara la
+  referencia colgante "análisis normativo de la fundamentación teórica". El resto del
+  párrafo ("El prototipo experimental no pretende cubrir la totalidad de ese espacio…")
+  se conserva, reemplazando "la totalidad de ese espacio" por "ese espacio de manera
+  exhaustiva" si se prefiere fluidez; opcional.*
+
+### E2-75 · 17.1.2.2 + 17.1.5.2.3 (p0092) + Tabla 20 — "categoría normativa" / "Cat. normativa"
+
+- **Ancla (prosa, p0092):** `la categoría normativa de origen` → `el tipo de condición`
+- **Ancla (encabezado de tabla):** `Cat. normativa` → `Tipo de condición`
+- **Ancla (prosa, p0015 / 17.1.2.2):** `con su categoría normativa, componente evaluador` → `con su tipo de condición, componente evaluador`
+  *(✎ agregada durante la aplicación: la compuerta `--post` detectó el residuo; la fila
+  "17.1.2.2" del veredicto de GPT era correcta — existen AMBOS sitios, p0015 y p0092.)*
+- *Los valores de las celdas (EPP — casco, Protección contra caídas, etc.) ya son
+  familias preventivas descriptivas, no citas legales: **no se tocan**.*
+
+### E2-76 · 17.1.5.3.2 (p0109–p0110) — cabecera de severidad
+
+- **Ancla (p0109):** `que refleja el perfil temporal del riesgo, entendido como` → `que refleja el perfil temporal de la condición, entendido como`
+- **Ancla (p0110, oración completa):** `La fundamentación de cada nivel se apoya en la normativa argentina aplicable y en el perfil temporal de consecuencias asociado a cada tipo de exposición.`
+- → `Cada nivel se define como una categoría metodológica de prioridad temporal, fundamentada en el perfil temporal de consecuencias asociado a cada tipo de exposición; la relevancia preventiva de las condiciones subyacentes está establecida en la sección 16.2. La severidad ordena prioridades temporales del protocolo y no constituye una calificación normativa de la situación observada.`
+
+### E2-77 · 17.1.5.3.2 (p0111) — nivel crítico fundado en arts. 52–57 y 246–249
+
+- **Ancla (oración completa):** `El Decreto 911/96 establece las medidas de prevención frente al riesgo de caída de personas y los trabajos con riesgo de caída a distinto nivel (arts. 52 a 57), y regula la operación de vehículos y maquinaria automotriz junto con la protección frente a la circulación vehicular —señalización, vallado, equipos de alta visibilidad, vigías— (arts. 246 a 249). En ambos casos, la exposición observada`
+- → `Es el caso de la exposición en altura sin protección visible y de la interacción próxima entre peatones y maquinaria en operación: en ambos, la exposición observada`
+- *El resto de la oración ("puede transformarse con rapidez en un incidente severo, lo que
+  justifica…") se conserva tal cual.*
+
+### E2-78 · 17.1.5.3.2 (p0112) — nivel alto fundado en arts. 98–106 y 107
+
+- **Ancla (oración completa):** `El Decreto 911/96 regula la provisión, uso, condiciones y vida útil de los equipos de protección personal y la vestimenta de trabajo (arts. 98 a 106), y la provisión de casco de seguridad para tareas con riesgos específicos (art. 107). La ausencia de casco`
+- → `La ausencia de casco`
+- *La justificación por eliminación de barrera preventiva ("no produce por sí misma el
+  incidente, pero elimina una barrera de protección…") ya está en el párrafo y es
+  autosuficiente.*
+
+### E2-79 · 17.1.5.3.2 (p0113) — nivel medio fundado en arts. 63/70 y SRT 299/2011
+
+- **Ancla (oración completa):** `La obligación de emplear elementos reflectivos o de alta visibilidad se vincula con los trabajos nocturnos y con la construcción de carreteras en uso (Decreto 911/96, arts. 63 y 70), y puede complementarse con la Resolución SRT 299/2011 sobre registración y constancia de entrega de ropa de trabajo y EPP. La ausencia de chaleco`
+- → `La ausencia de chaleco`
+- *Ejecuta D-P6-3 (única aparición de SRT 299/2011 en el informe).*
+
+### E2-80 · Tabla 21 (p0131 + encabezado + 6 filas) — citas de artículos por fila
+
+- **Ancla (p0131):** `el perfil temporal del riesgo que fundamenta la asignación de severidad` → `el perfil temporal de la condición que fundamenta la asignación de severidad`
+- **Ancla (encabezado):** `Perfil temporal del riesgo` → `Perfil temporal de la condición`
+- **Eliminar de las celdas, verbatim (la prosa de perfil de riesgo se conserva):**
+  - PR-01: ` (Decreto 911/96, arts. 50, 98–102 y 107)`
+  - PR-02: ` (Decreto 911/96, arts. 47, 63 y 70)`
+  - PR-03: ` (Decreto 911/96, arts. 52, 54–56 y 112)`
+  - PR-04: ` (Decreto 911/96, arts. 52 y 54–56)`
+  - PR-05: ` (Decreto 911/96, arts. 47, 61, 70, 71 y 246–249; Ley 19.587, arts. 8 y 9)`
+  - PR-06: ` (Decreto 911/96, arts. 66–69, 95(a), 139, 140(e)–(f), 156 y 176)`
+
+### E2-81 · Nota de la Tabla 21 (p0134) — la nota declara que los artículos fundamentan la severidad
+
+- **Ancla (tramo completo):** `Los artículos normativos referenciados en la columna “Perfil temporal del riesgo” fundamentan la severidad asignada a cada patrón a partir del tipo de exposición, la barrera preventiva omitida y la potencialidad de daño; no definen por sí mismos los umbrales computacionales de activación, distancia, persistencia o latencia del sistema. Fuente: Elaboración propia basada en el análisis normativo del Decreto 911/96 y la Ley 19.587.`
+- → `La severidad es una clasificación interna del protocolo, fundamentada en el perfil temporal de la condición; no constituye una calificación normativa de la situación observada ni define por sí misma los umbrales computacionales de activación, distancia, persistencia o latencia del sistema. La relevancia preventiva de las condiciones se fundamenta en la sección 16.2. Fuente: elaboración propia.`
+
+### E2-82 · 17.1.6.1.2 (p0200) — referencia colgante a la "taxonomía normativa"
+
+- **Ancla:** `aunque presentes en la taxonomía normativa de la fundamentación teórica, no integran`
+- → `aunque preventivamente relevantes, no integran`
+- *La taxonomía referida se eliminó de §16.2 en la v1.1; además, calzado/guantes/gafas no
+  figuran ni siquiera como extensiones en la nueva §16.2 — no se puede afirmar presencia.*
+
+### E2-83 · 17.1.6.1.3 (p0202) + Tabla 22 — criterio C2 "Cobertura normativa"
+
+- **Ancla (p0202):** `y la cobertura normativa (C2)` → `y la cobertura del catálogo experimental (C2)`
+- **Ancla (fila C2, celda nombre):** `Cobertura normativa` → `Cobertura del catálogo experimental`
+- **Ancla (fila C2, celda definición):** `Proporción de categorías anotadas que se corresponden con alguna condición de riesgo de la taxonomía operacionalizada en la taxonomía de condiciones de riesgo, patrones y prompts, derivada del marco normativo argentino.`
+- → `Proporción de categorías anotadas que se corresponden con alguna condición de riesgo del catálogo experimental (CR-01 a CR-06) definido en la Sección 17.1.5.2.`
+- *De paso repara la redacción circular "taxonomía operacionalizada en la taxonomía". El
+  identificador C2 se conserva: los puntajes de los datasets no se recalculan.*
+
+### E2-87 · 17.1.10.1 (p0405) — oración previa al marcador AAIP
+
+- **Ancla:** `Ese régimen prevé, además, la inscripción de las bases de datos con datos personales ante la autoridad de aplicación (AAIP); su aplicabilidad al material experimental del proyecto y el recaudo adoptado se documentan a continuación.`
+- → `Ese régimen contempla, además, requisitos administrativos asociados a las bases de datos con datos personales ante la autoridad de aplicación (AAIP), cuya aplicabilidad al contexto experimental debe determinarse; la decisión y el recaudo adoptado se documentan a continuación.`
+- *Alinea el estatuto con la nueva §16.6 ("no corresponde asumirla ni descartarla"). La
+  cita legal del mismo párrafo se conserva (D-P6-1). El marcador p0406 queda intacto.*
+
+---
+
+## 3. Mapa de reemplazos — opcionales (consolidación, aplicar si el pase ya está abierto)
+
+### E2-84 · 17.1.6.2.6 (p0225)
+
+- **Ancla:** `producción de material controlado en el EBE bajo consentimiento y minimización.`
+- → `producción de material controlado en el EBE bajo las salvaguardas de la Sección 17.1.10.1.`
+
+### E2-85 · 17.1.6.4.1 (p0250)
+
+- **Ancla:** `rigen las salvaguardas de minimización, consentimiento y ausencia de tratamiento biométrico de la Sección 17.1.10.1.`
+- → `rigen las salvaguardas de la Sección 17.1.10.1.`
+
+### E2-86 · 17.1.7.7.5 (p0347) — redacción circular *(recomendado)*
+
+- **Ancla:** `La taxonomía de severidad definida en la taxonomía de condiciones de riesgo, patrones y prompts exige`
+- → `La clasificación de severidad definida en la Sección 17.1.5.3.2 exige`
+
+### E2-88 · Tabla 35, fila de privacidad
+
+- **Ancla (celda mitigación):** `Aplicar minimización, acceso restringido y registro explícito de finalidad y condiciones de captura.`
+- → `Aplicar las salvaguardas de la Sección 17.1.10.1, con registro explícito de finalidad y condiciones de captura.`
+
+---
+
+## 4. Qué se conserva a propósito (guardrails — no caen por arrastre)
+
+- **CR-01…CR-06 y PR-01…PR-06 completos**, con sus severidades, ventanas y criterios de
+  activación: cambia la fundamentación, no el esquema metodológico.
+- **Ventanas de persistencia (p0118):** ya están fundadas en el análisis cualitativo de
+  velocidad de escalada — no se tocan.
+- **Valores de la columna renombrada de la Tabla 20** (EPP — casco, etc.): descriptivos.
+- **Licencias de datasets (p0251–p0252) y de software/modelos:** reproducibilidad, no
+  ornamento normativo.
+- **p0249:** la remisión genérica al "principio de minimización desarrollado en el marco
+  ético-legal de la fundamentación teórica" es exactamente el patrón correcto.
+- **p0405:** la única cita legal directa de §17.1 (D-P6-1) y toda la política de
+  minimización y uso asistivo.
+- **p0406:** el marcador `[[PENDIENTE]]` de la inscripción AAIP — decisión abierta del
+  equipo, espejo en §17.4.
+- **p0408 (17.1.10.2):** *"una alerta no equivale a una sanción ni a una determinación
+  automática de incumplimiento normativo"* — frase-escudo, alineada con las nuevas
+  §16.2/§16.6. Ídem §17.3 ("la incertidumbre no fabrica una infracción") y §17.4 ("no
+  determina incumplimientos normativos"), que este pase no toca.
+
+---
+
+## 5. Verificación post-aplicación (extraer texto de la v1.7 y correr en cero)
+
+**Compuerta automatizada** (cubre anclas, greps prohibidos, guardrails e invariantes;
+sale 0 sólo si todo pasa):
+
+```bash
+python3 docs/herramientas/verificar_anclas_pase6.py --pre  <v1.6.docx>   # antes: 32/32 anclas ✅ (verificado 2026-09-01)
+python3 docs/herramientas/verificar_anclas_pase6.py --post <v1.7.docx>   # después: todo en cero + invariantes
+```
+
+Greps que deben dar **0** sobre el texto extraído de §17.1:
+
+```
+911/96 · 19.587 · SRT 299 · "arts." · "art. " (citas a nivel de artículo)
+normativa argentina aplicable · taxonomía normativa · análisis normativo
+[Cc]obertura normativa · Cat. normativa · categoría normativa · infracción deliberada
+atenúa el perfil · identificación normativa · Perfil temporal del riesgo
+```
+
+Invariantes que deben conservarse exactos:
+
+| Invariante | Valor v1.6 | Valor esperado v1.7 |
+|---|---|---|
+| Ecuaciones `m:oMath` | 76 | 76 |
+| Comentarios (todos resueltos) | 27 | 27 |
+| `Disposición 10/2015` | 3 | **1** (solo p0405) |
+| `Argentina, 2000` | (en p0405) | 1 (solo p0405) |
+| `[[PENDIENTE` | 1 | 1 (intacto, p0406) |
+| Tablas numeradas | 16–35 (20) | 16–35 (20) |
+| `incumplimiento normativo` (escudo p0408) | 1 | 1 |
+| Cambios controlados | 0 | 0 |
+
+Además: diff íntegro atribuible a E2-68…E2-88; ningún run adyacente a `m:oMath`
+modificado; rango del comentario C12 conservado.
+
+---
+
+## 6. Consecuencias fuera de §17.1 (bookkeeping, no son parte del pase)
+
+- **Listado global de referencias (90e / §19):** baja de Resolución SRT 299/2011
+  (D-P6-3). Las bajas de la Etapa 1 v1.1 (Decreto 351/79, Res. SRT 51/97 y 35/98,
+  ISO 45001/ISO 2018, Decreto 1558/2001) corren por cuenta de esa etapa, no de este pase.
+- **Kit del proyecto:** regenerar tras aplicar (el texto base 90f quedará desactualizado
+  en las zonas E2-76…E2-81).
+- **§17.4:** el espejo del marcador AAIP se resuelve cuando el equipo firme D-E1-11; este
+  pase no lo toca.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-5.md`
+
+> SHA-256 del bloque: `8db3421b4a0587e3d2f3160c4d7d0e37c04ad134db6465fbd29f65aa1a59164b`  
+> Seleccion: EL PASE 5 DE LA ETAPA 2 (PODA POR APORTE, 2026-08-31): E2-56..E2-67, D-P5-1..4. **YA APLICADO Y VERIFICADO en la v1.6 (misma jornada) - NO volver a aplicarlo** (acta en su banner: targets exactos, cero bajas de referencias, pre-registro intacto). PODA-A (auto-presentacion, nota del catalogo, no-aplicacion duplicada) + PODA-B (re-argumentacion bibliografica que ya vive en 15/16); PODA-C DESCARTADA (D-P5-3: MOT intacto, 'sin perder defensa'). Tres reglas duras: cero perdida de defensa · CERO BAJAS DE REFERENCIAS (toda obra citada sigue citada >=1 vez) · anclas exactas. Cae la Tabla 16 (renumeracion 16-35, E2-67 al final). Los 27 comentarios resueltos no se tocan.
+
+# Correcciones de la Etapa 2 — §17.1 (pase 5: poda por aporte, sin perder defensa — 2026-08-31)
+
+> ✅ **APLICADO Y VERIFICADO — 2026-08-31 (misma jornada): la entrega es la v1.6, aceptada y
+> limpia** (`desarrollando/…v1.6.docx`). Verificación de §D completa:
+> - **Targets exactos**: 26.632 palabras (target 26,6–27,0k) · **106 títulos** · **20 tablas
+>   16–35 contiguas** + 6 de anexo, sin referencias huérfanas · **76 ecuaciones** (las 2 muertes
+>   declaradas en E2-59) · 1 `[[PENDIENTE]]` · verificador OK.
+> - **Cero pérdida de defensa verificada**: pre-registro presente (MOT17, OVT-B, kappa,
+>   bootstrap, templates, español, doble anotación) · **cero bajas de referencias** (cotejo por
+>   apellido: 32 → 32 obras; Kim/Jiang/Mazor/Minderer/Xiao/Sharma/Changpinyo conservan su
+>   mención — el primer cotejo automático marcó 3 falsas bajas por un artefacto del regex con
+>   citas en listas de punto y coma) · `deberá` 26 · `todavía` 7 · greps de los pases 3–4 en cero.
+> - **37/37 anclas** (viejas en 0, nuevas presentes) · anti-duplicación limpio · **ninguna copia
+>   con numeración vieja de tabla** (la lección del pase 3, verificada).
+> - Cambios controlados (44/114) **aceptados sobre el XML**: 0 fusiones con texto, la Tabla 16
+>   salió entera (5 filas marcadas + cascarón), 26 párrafos vacíos fuera; 27 comentarios siguen
+>   resueltos con sus anclas. Respaldo: `archivado/…v1.6 (entrega GPT, cambios sin aceptar).docx`.
+> **La v1.6 es la vigente y definitiva de la Etapa 2: CINCO pases** (contenido+formato ·
+> verificación · desduplicación+anexos · legibilidad · poda por aporte). ✎ **2026-09-01:
+> superada por la v1.7** — el criterio normativo firmado sobre las nuevas §16.2/§16.6 de la
+> Etapa 1 v1.1 obligó un **pase 6 de desacople normativo** (E2-68…E2-88; acta en
+> `correcciones-etapa-2-pase-6.md`); la vigente es la v1.7 con SEIS pases. Acumulado desde el
+> v1.1: **32.669 → 26.632 palabras (−18,5 % con anexos adentro; el desarrollo solo: −24 %)**
+> (✎ tras el pase 6: **26.440**).
+> La justificación de la extensión final vive en `justificacion-extension-17-1.md`.
+>
+> ~~**Estado: NO aplicado — es el trabajo a entregar a ChatGPT.**~~ Base:
+> `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.5.docx` (la vigente:
+> 4 pases aplicados, limpia; 28.418 palabras totales / 26.376 de desarrollo · 109 títulos ·
+> 21 tablas 16–36 + 6 de anexo · 78 ecuaciones · 27 comentarios resueltos). **Salida: v1.6.**
+>
+> **Qué es.** La poda por aporte que autorizó el usuario ("podemos como limpieza pero **sin
+> perder defensa de plataforma**") sobre el diagnóstico de
+> `analisis-poda-17-1.md` (fuente: `docs/informe/entregable/desarrollando/archivado/analisis-poda-17-1.md`): niveles **PODA-A** (redundancia residual y
+> auto-presentación) y **PODA-B** (re-argumentación bibliográfica que ya vive en §15/§16).
+> El nivel **PODA-C queda descartado** (D-P5-3): no se reabre D-E2-6 — MOT17/OVT-B intactos.
+>
+> **Las tres reglas duras del pase:**
+> 1. **Cero pérdida de defensa**: ninguna decisión, criterio, umbral, regla de lectura, supuesto
+>    ni elemento de pre-registro desaparece. Lo que se poda es paráfrasis, auto-presentación y
+>    re-argumentación cuya fuente canónica está en §15/§16 o en otra parte de §17.1.
+> 2. **Cero bajas de referencias**: toda obra citada en la v1.5 sigue citada al menos una vez en
+>    la v1.6 (los reemplazos de abajo ya lo garantizan — Kim, Jiang, Mazor, Minderer, Xiao,
+>    Sharma y Changpinyo conservan su única mención). Si al aplicar una unidad una cita fuera a
+>    quedar en cero, se reporta en lugar de aplicar.
+> 3. Reemplazos EXACTOS; lo que no aparece tal cual se reporta, no se improvisa. Cambios
+>    controlados activados. **Los 27 comentarios resueltos no se tocan**; si una eliminación
+>    arrastra el ancla de un comentario, el ancla se mueve al párrafo vecino — nunca se borra.
+
+---
+
+## A. Decisiones que gobiernan el pase
+
+⚠ *Serie de IDs propia de la etapa 2 (pase 5).*
+
+| ID | Decisión | Firma |
+|---|---|---|
+| **D-P5-1** | **PODA-A ejecutada** (E2-56…E2-61): auto-presentación del capítulo, doble representación prosa↔tabla, nota sobredimensionada del catálogo, no-aplicación duplicada del framework, solape ético. | usuario · 2026-08-31 |
+| **D-P5-2** | **PODA-B ejecutada** (E2-62…E2-66): la argumentación bibliográfica OVD se comprime a decisión + citas; la fundamentación extensa queda donde ya vive (el análisis de modelos OVD, §15/§16). | usuario · 2026-08-31 |
+| **D-P5-3** | **PODA-C DESCARTADA**: D-E2-6 no se reabre — §17.1.6.3 (MOT17/OVT-B) y §17.1.7.4.2 quedan intactos, junto con todo el pre-registro no ejercido. | usuario · 2026-08-31 ("sin perder defensa") |
+| **D-P5-4** | **Cae la Tabla 16** (articulación de dimensiones — su contenido queda repartido entre la prosa comprimida de §17.1.1 y las conclusiones §17.1.11); **la Tabla 18 queda** como mapa canónico de decisiones estructurales. Renumeración 16–35 (E2-67). | recomendación adoptada |
+
+## B. NO TOCAR
+
+Todo lo de los pases 3–4 sigue vigente (tablas de contenido, 500–2.000, `[[PENDIENTE]]` AAIP,
+CPN/EN/TN, 4.000/7.000 ms, P-E1-xx, anexos C/D). Además, explícitamente **intocables en este
+pase**: §17.1.6.3 y §17.1.7.4.2 (D-P5-3) · §17.1.7.7.4 estimación de latencia · §17.1.7.8.1/.8.3
+(reglas de instrumentación y lectura — la vara de §17.5) · §17.1.9 y §17.1.10 · el protocolo de
+5 fases salvo la Fase 3 (E2-66) · la Tabla 26 de partición · el catálogo CR-01…CR-06 y las
+Tablas 21/22 (salvo la nota de la 21, E2-58).
+
+**Orden de aplicación: E2-56 … E2-66 primero (citan la numeración VIEJA); E2-67 (renumeración)
+al final.**
+
+---
+
+## C. Unidades — PODA-A
+
+### E2-56 · §17.1.1 — el capítulo deja de presentarse dos veces · −2 títulos · −1 tabla
+
+**Reemplazar TODO el contenido de §17.1.1** — es decir: el título *"17.1.1.1. Función
+metodológica dentro del trabajo"* con sus cuatro párrafos, el título *"17.1.1.2. Articulación
+entre los desarrollos metodológicos"* con sus dos párrafos, y la **Tabla 16** con su nota — por
+este cuerpo único bajo el título "17.1.1. Función y alcance de la consolidación metodológica"
+(sin subtítulos):
+
+> *"El criterio rector prioriza la validez experimental, la trazabilidad y la correspondencia
+> entre alcance, datos disponibles e instrumentación efectiva. El núcleo obligatorio del
+> prototipo se ubica en las condiciones de Nivel 1 —CR-01 y CR-02—, donde convergen
+> observabilidad visual, cobertura de datos, estrategias de evaluación defendibles y métricas
+> aplicables con el hardware disponible; las condiciones de Niveles 2 y 3 se conservan como
+> extensiones condicionadas, debido a brechas de datos, visibilidad y razonamiento contextual."*
+>
+> *"A partir de ese criterio se fija una secuencia experimental integrada —comparación primaria
+> en Dataset-Based Evaluation (DBE), validación complementaria en Environment-Based Evaluation
+> (EBE), reglas de partición sin leakage, política de formulación y congelamiento de prompts,
+> jerarquía de métricas orientada al valor operativo de alerta y criterios para habilitar una
+> rama comparativa de fine-tuning—, organizada sobre cuatro dimensiones temáticas: el entorno
+> experimental, las condiciones de riesgo y su protocolo de prompts, la estrategia de datos y el
+> framework de métricas."*
+
+(El criterio rector y la secuencia quedan casi verbatim; caen la narración de la transición, la
+paráfrasis de la Tabla 16 y la tabla misma — su columna "Decisión consolidada" ya vive en las
+conclusiones §17.1.11.1.)
+
+### E2-57 · §17.1.3 — la prosa deja de parafrasear a la Tabla 18
+
+1. **Eliminar el tercer párrafo de §17.1.3.2**: *"De manera sintética, el flujo operativo se
+   organiza como detección OVD, publicación de evento de detección, evaluación por el motor de
+   patrones, confirmación del patrón, registro de alerta, disponibilidad de la alerta para
+   consulta o notificación, e interpretación por parte del supervisor humano. Esta secuencia
+   permite vincular la medición experimental con una lógica de ejecución trazable, sin atribuir
+   al sistema una capacidad autónoma de decisión sobre el cumplimiento normativo o la gestión
+   efectiva de la obra."* (La cadena está fila por fila en la Tabla 18 — "Cadena operativa
+   mínima" y "Carácter asistivo de la alerta".)
+2. **Reemplazar el primer párrafo de §17.1.3.3**: *"Sobre esa base, la evaluación se organiza en
+   dos escenarios complementarios. El Escenario A, o Dataset-Based Evaluation (DBE), funciona
+   como ámbito primario de comparación controlada, repetible y cuantificable. El Escenario B, o
+   Environment-Based Evaluation (EBE), añade una validación de plausibilidad operativa sobre
+   captura continua en entorno simulado o controlado. La relación entre ambos no es de
+   reemplazo: el DBE aporta comparabilidad metodológica, mientras que el EBE permite observar el
+   comportamiento integrado del pipeline en condiciones más próximas al uso previsto."* por:
+   *"Sobre esa base, la evaluación se organiza en dos escenarios complementarios —el Escenario A
+   o Dataset-Based Evaluation (DBE), ámbito primario de comparación controlada y repetible, y el
+   Escenario B o Environment-Based Evaluation (EBE), validación de plausibilidad operativa sobre
+   captura continua—, cuya relación no es de reemplazo; su caracterización completa se desarrolla
+   en la Sección 17.1.4.4."* (El segundo párrafo de §17.1.3.3 —la secuencia progresiva de
+   pruebas— queda intacto: no está en la tabla.)
+
+### E2-58 · Nota de la Tabla 21 (catálogo) — de 261 palabras a ~125, una sola casa para Mazor
+
+**Reemplazar la nota completa de la Tabla 21** (desde *"La columna “Componente evaluador”
+indica"* hasta *"…no bloquean la aceptación del núcleo."*) por:
+
+> *"La columna “Componente evaluador” indica qué módulos participan en la evaluación: “OVD
+> cuadro a cuadro” (una o más consultas al detector por cuadro), “OVD + contexto espacial
+> intracuadro” (relaciones geométricas entre detecciones del mismo cuadro) y “OVD + MOT +
+> razonamiento contextual” (persistencia temporal de trayectorias y lógica relacional, cuyo
+> diseño corresponde a la instancia de análisis y diseño arquitectónico). La columna “Dificultad
+> OVD estimada” es una valoración cualitativa basada en la degradación documentada de los modelos
+> OVD ante atributos de granularidad fina, en la discrepancia de distribución y vocabulario en
+> dominios especializados y en el menor desempeño frente a detectores ajustados en entornos de
+> construcción (Bianchi et al., 2024; Jiang et al., 2024; Abdalwhab et al., 2025); no pondera la
+> dificultad del razonamiento contextual. CR-01 y CR-02 constituyen el núcleo obligatorio del
+> prototipo experimental; las restantes condiciones operan como extensiones condicionadas que no
+> bloquean la aceptación del núcleo."*
+
+(Cae la re-explicación con ejemplos de cada valor de columna y la analogía de Mazor et al. —
+que conserva su casa única en §17.1.5.2.4. Las tres citas de dificultad quedan.)
+
+### E2-59 · No-aplicación de métricas: una sola casa (§17.1.7.8.2) · −1 título · ⚠ −2 ecuaciones
+
+1. **Eliminar el tercer párrafo de §17.1.7.5.1**: *"En pruebas puramente cuadro a cuadro, donde
+   sólo se evalúa la salida del detector OVD sin evaluación de patrón ni alerta registrada, no
+   corresponde reportar ⟦…⟧. En esos casos, el análisis debe limitarse a métricas de detección,
+   rendimiento del pipeline o latencia Glass-to-Algorithm (G2A), declarando explícitamente la no
+   aplicación de métricas de alerta."* (⚠ contiene **1 ecuación**, muere con él; el caso está
+   íntegro en §17.1.7.8.2.)
+2. §17.1.7.5.2, último párrafo: **conservar sólo la primera oración** (*"Esta métrica resulta
+   especialmente informativa en eventos de severidad crítica o alta, donde interesa conocer
+   cuánto tarda el sistema en producir la primera señal visual relevante."*) y eliminar las dos
+   restantes (*"Sin embargo, su aplicación requiere… debe declararse como no aplicable."*).
+3. **Eliminar el tercer párrafo de §17.1.7.5.3**: *"SDR sólo corresponde cuando existe una
+   secuencia temporal con inicio y duración anotados de la condición evaluada. En datasets
+   estáticos de imágenes, o en evaluaciones sin ventana temporal identificable, la métrica no
+   resulta aplicable y debe declararse como tal."*
+4. **Eliminar la subsección §17.1.7.5.4 completa** (*"Condición de aplicación de métricas
+   temporales"*, título + dos párrafos — ⚠ el primero contiene **1 ecuación**). Su contenido está
+   en §17.1.7.8.2 (cuarto párrafo) y en las cláusulas que quedan en .5.1–.5.3. **Renumerar:
+   §17.1.7.5.5 → §17.1.7.5.4.**
+5. §17.1.7.8.2 **queda intacta**: es la casa canónica de todos los casos de no-aplicación.
+
+### E2-60 · §17.1.5.3.7 — los insumos se enumeran, no se re-desarrollan
+
+**Reemplazar el primer párrafo** (*"Quedan tres insumos directos para la instancia de análisis y
+diseño arquitectónico: el catálogo…"* hasta *"…activaciones o desactivaciones espurias ante
+detecciones intermitentes."*) por:
+
+> *"Quedan tres insumos directos para la instancia de análisis y diseño arquitectónico: el
+> catálogo de condiciones de riesgo clasificado por niveles de complejidad (Tabla 21), el
+> catálogo de patrones con severidad y persistencia temporal orientativa (Tabla 22), y los
+> criterios conceptuales de activación combinada para PR-05 y PR-06 —con el supuesto de cámara
+> fija, las métricas de proximidad y contención espacial por definir, y la histéresis como
+> criterio de diseño."*
+
+### E2-61 · §17.1.6.4.1 — las salvaguardas de datos propios tienen una sola casa (§17.1.10.1)
+
+**Reemplazar el segundo párrafo** (*"Para cualquier dato generado ad hoc conforme a las
+alternativas de la Sección 17.1.6.2.6, se aplicará un protocolo específico de consentimiento
+informado, anonimización de rostros y minimización de datos personales, sin retención de
+identificadores biométricos. Este criterio se adopta en consonancia con la normativa argentina
+vigente de protección de datos personales, en particular la Ley 25.326."*) por:
+
+> *"Para cualquier dato generado ad hoc conforme a las alternativas de la Sección 17.1.6.2.6
+> rigen las salvaguardas de minimización, consentimiento y ausencia de tratamiento biométrico de
+> la Sección 17.1.10.1."*
+
+## C-bis. Unidades — PODA-B (la argumentación vive en §15/§16; acá queda la decisión + cita)
+
+### E2-62 · §17.1.5.4.1 — la sensibilidad al prompt: de 448 palabras a ~200
+
+**Reemplazar los cuatro párrafos de la subsección** (desde *"El análisis de modelos OVD
+documentó que los modelos de detección open-vocabulary presentan sensibilidad"* hasta
+*"…para el dominio específico de detección de condiciones de riesgo en construcción civil."*)
+por estos dos:
+
+> *"El análisis de modelos OVD documentó que los detectores open-vocabulary presentan
+> sensibilidad a variaciones en la formulación de las consultas textuales: cambios leves de
+> redacción pueden alterar significativamente el desempeño de los modelos visión-lenguaje (Zhou
+> et al., 2022); el embedding textual de clase se genera a partir de los prompts ingresados al
+> encoder y su alineación con las representaciones visuales requiere ajuste específico para la
+> tarea de detección (Gu et al., 2021; Du et al., 2022); y la evaluación se vuelve especialmente
+> exigente ante atributos de granularidad fina, vocabularios dinámicos y clases negativas
+> semánticamente cercanas (Bianchi et al., 2024; Yao et al., 2024). De manera complementaria, la
+> incorporación de negativos semánticamente relacionados durante el entrenamiento mejora la
+> discriminación del detector, lo que refuerza —aunque esa técnica exceda el alcance del
+> proyecto— que la composición semántica del vocabulario influye sobre el desempeño (Kim et al.,
+> 2024)."*
+>
+> *"En conjunto, estas evidencias justifican tratar el diseño de prompts como una variable de
+> ingeniería del sistema, gestionada con un rigor comparable al de las decisiones de
+> arquitectura, selección de modelos o definición de métricas. El protocolo siguiente ordena ese
+> proceso para el dominio de detección de condiciones de riesgo en construcción civil."*
+
+(Las seis obras siguen citadas; cae la re-narración de cada hallazgo, cuya fuente extensa es el
+análisis de modelos OVD del marco teórico.)
+
+### E2-63 · §17.1.5.4.2 — los ejes conservan su definición; caen las colas que re-argumentan
+
+1. **Eliminar el párrafo** que empieza *"Los encoders textuales utilizados por modelos
+   visión-lenguaje y detectores OVD pueden producir representaciones distintas"* y termina
+   *"…requiere ajuste específico para la tarea de detección (Du et al., 2022)."* (re-argumenta lo
+   recién dicho en §17.1.5.4.1; Zhou y Du siguen citados allí).
+2. **Eliminar el párrafo** que empieza *"Esta expectativa se fundamenta en que, en los modelos
+   OVD, las categorías consultadas dependen"* y termina *"…deben evaluarse empíricamente (Du et
+   al., 2022)."* (ídem; Gu y Du siguen citados en §17.1.5.4.1).
+3. **Reemplazar los CUATRO párrafos del bloque de implicancias** — desde *"**Implicancias del
+   tamaño del vocabulario activo.** El número total de prompts"* hasta *"…la resolución de
+   entrada y el hardware de inferencia disponible."* (incluye los párrafos que empiezan *"Esto no
+   implica necesariamente"*, *"Por otro lado, Grounding DINO"* y *"Estas diferencias
+   arquitectónicas"*) — por este único párrafo:
+   > *"**Implicancias del tamaño del vocabulario activo.** El número de prompts simultáneamente
+   > activos puede afectar tanto la latencia de inferencia como la precisión, y su impacto no es
+   > uniforme entre arquitecturas: las familias YOLO orientadas a open-vocabulary precomputan o
+   > reparametrizan los embeddings textuales fuera del ciclo de inferencia —el paradigma
+   > prompt-then-detect de YOLO-World y la alineación reparametrizable RepRTA de YOLOE (Cheng et
+   > al., 2024; Wang et al., 2025)—, mientras que Grounding DINO procesa el par imagen-texto en
+   > cada consulta, de modo que un vocabulario mayor incrementa la longitud de la entrada textual
+   > y el costo de fusión cross-modal (Liu et al., 2024). El detalle arquitectónico se desarrolla
+   > en el análisis de modelos OVD; la consecuencia de diseño es que la cantidad de prompts
+   > sostenibles dentro del presupuesto de latencia depende del modelo elegido, la sintaxis
+   > concreta de los prompts, la resolución de entrada y el hardware de inferencia disponible."*
+
+### E2-64 · §17.1.5.4.3 — idioma: la decisión con sus citas, sin la reseña de corpus
+
+1. **Reemplazar el primer párrafo** (*"Los modelos OVD candidatos analizados en el análisis de
+   modelos OVD —Grounding DINO, YOLO-World, YOLOE, Florence-2 y OWL-ViT— se apoyan"* hasta
+   *"…(Liu et al., 2024; Cheng et al., 2024; Wang et al., 2025; Minderer et al., 2022; Xiao et
+   al., 2024)."*) por:
+   > *"Los modelos OVD candidatos —Grounding DINO, YOLO-World, YOLOE, OWL-ViT y Florence-2— se
+   > apoyan en arquitecturas visión-lenguaje donde la entrada textual cumple un rol central, con
+   > encoders derivados de BERT, CLIP o MobileCLIP según la familia (Liu et al., 2024; Cheng et
+   > al., 2024; Wang et al., 2025; Minderer et al., 2022; Xiao et al., 2024)."*
+2. En el segundo párrafo, **reemplazar** *"CLIP fue entrenado sobre pares imagen-texto
+   recolectados de la web y se utiliza ampliamente mediante prompts textuales en inglés;
+   Conceptual Captions se construyó a partir de páginas web en inglés y filtros lingüísticos
+   basados en vocabulario de Wikipedia en inglés; y CC12M amplía la escala de esa línea de
+   recolección para preentrenamiento visión-lenguaje (Radford et al., 2021; Sharma et al., 2018;
+   Changpinyo et al., 2021)."* por *"CLIP, Conceptual Captions y CC12M —los corpus de la línea
+   de preentrenamiento de base— se construyeron sobre material predominantemente en inglés
+   (Radford et al., 2021; Sharma et al., 2018; Changpinyo et al., 2021)."* (Las tres citas
+   quedan; el resto del párrafo y el tercero no se tocan.)
+
+### E2-65 · §17.1.5.2 — taxonomía: caen dos colas redundantes
+
+1. **Eliminar el párrafo de §17.1.5.2.1** que empieza *"La pertinencia de este criterio se ve
+   reforzada por evidencia empírica reciente"* y termina *"…detectores ajustados al dominio
+   (Abdalwhab et al., 2025)."* (Bianchi y Abdalwhab siguen citados en §17.1.2.1 y en la nota de
+   la Tabla 21.)
+2. En §17.1.5.2.2, **eliminar la última oración del bloque de Nivel 2**: *"En consecuencia, las
+   condiciones de Nivel 2 representan un escalón intermedio de complejidad, en el que la
+   evaluabilidad depende tanto de la calidad de la detección de entidades como de la solidez de
+   las reglas espaciales definidas para interpretar su relación contextual."* (resume lo que el
+   propio bloque acaba de decir).
+
+### E2-66 · §17.1.5.4.5 — Fase 3, compacta
+
+**Reemplazar el párrafo de la Fase 3** (*"**Fase 3 - Ejecución sistemática.** Para cada
+combinación de la matriz, se ejecuta"* hasta *"…la reproducción de los experimentos."*) por:
+
+> *"**Fase 3 - Ejecución sistemática.** Para cada combinación de la matriz se ejecuta la
+> inferencia sobre el dataset correspondiente en condiciones controladas —hardware, resolución de
+> entrada y preprocesamiento constantes—, registrando por imagen las detecciones con sus
+> coordenadas, puntaje de confianza y etiqueta, en formato estructurado que permita el cálculo
+> posterior de métricas y la reproducción de los experimentos."*
+
+## C-ter. Renumeración
+
+### E2-67 · Tablas 16–35 contiguas (cae la Tabla 16) · SE APLICA AL FINAL
+
+Renumerar rótulos y referencias: **cada Tabla N con N ≥ 17 pasa a N−1** (17→16, 18→17, …,
+36→35). Referencias textuales a actualizar (todas las demás menciones son rótulos):
+
+- *"Las restricciones detalladas en la Tabla 20"* (§17.1.4.6) → Tabla 19.
+- *"La Tabla 21 presenta las seis condiciones"* (§17.1.5.2.3) → Tabla 20.
+- *"del catálogo (Tabla 21)"* (§17.1.5.4.2) → (Tabla 20).
+- *"…se presenta en la Tabla 21 (Sección 17.1.5.2.3)"* (§17.1.2.2) → Tabla 20.
+- Las dos menciones del párrafo nuevo de E2-60 — *"(Tabla 21)"* y *"(Tabla 22)"* → (Tabla 20) y
+  (Tabla 21).
+- *"La Tabla 22 presenta el catálogo de patrones"* (§17.1.5.3.5) → Tabla 21.
+- *"conforme al análisis de suficiencia"* — la fila "Rango de entrenamiento" de la tabla de
+  partición cita *"la sección 17.1.6.2.4"*, sin número de tabla: no se toca.
+- *"resumidos en la Tabla 25"* (§17.1.6.4.1) → Tabla 24.
+- *"La partición de datos se rige por las condiciones metodológicas obligatorias de la Tabla 26"*
+  (§17.1.6.5) → Tabla 25.
+- *"La Tabla 27 sintetiza"* (§17.1.6.2.8) → Tabla 26.
+- *"Los umbrales orientativos consolidados se presentan en la Tabla 33 (Sección 17.1.7.9)"*
+  (§17.1.7.7.5) → Tabla 32.
+
+Verificación: rótulos contiguos "Tabla 16" … "Tabla 35"; "Tabla 36" = 0; ninguna referencia a un
+número sin rótulo.
+
+---
+
+## D. Verificación de cierre (targets de la v1.6)
+
+| Métrica | v1.5 | Target | Cómo |
+|---|---|---|---|
+| Palabras (documento entero) | 28.418 | **~26.600–27.000** (−1.500–1.800; sin cuota) | verificador |
+| Títulos numerados | 109 | **106** (−17.1.1.1, −17.1.1.2, −17.1.7.5.4) | verificador |
+| Tablas | 21 (16–36) + 6 anexo | **20 (16–35) + 6 anexo** | grep de rótulos |
+| Ecuaciones OMML | 78 | **76** (−2, declaradas en E2-59) | XML |
+| Comentarios | 27 resueltos | **27 resueltos, intactos** (anclas movidas al vecino si su párrafo cae, nunca borradas) | XML |
+| **Referencias** | — | **cero bajas**: toda obra citada en v1.5 sigue citada ≥1 vez (en particular Kim, Jiang, Mazor, Minderer, Xiao, Sharma, Changpinyo, que quedan con mención única) | script de cotejo de autores |
+| Voz | `deberá` 28 · `todavía` 7 · metadiscurso ≤11 | **sin retrocesos** | grep |
+| Greps de los pases 3–4 | en cero | **siguen en cero** | extracción |
+| Pre-registro | — | MOT17/OVT-B, templates, español, kappa/bootstrap, datos complementarios: **presentes e intactos** | grep |
+| Diff | — | contra `90f` v1.5: cada bloque atribuido a E2-56…E2-67; anti-duplicación (ninguna oración ≥12 palabras repetida); **ninguna copia con numeración vieja de tabla** | script |
+
+## E. Handoffs
+
+1. La justificación de la extensión final queda en
+   `justificacion-extension-17-1.md` (fuente: `docs/informe/entregable/desarrollando/archivado/justificacion-extension-17-1.md`) (por qué no se podó más).
+2. Tras aplicar: rutina de derivados de siempre (re-extraer `90f`, actas, kit, archivado).
+3. El hueco global de tablas del informe pasa de 37–38 a **36–38** (tres números) hasta la
+   renumeración de la integración — ya registrado.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/justificacion-extension-17-1.md`
+
+> SHA-256 del bloque: `1be596b37902c185186706ebf62d00b3e343ff60b9133b84a30b0a9a328f620c`  
+> Seleccion: POR QUE NO SE PODO MAS: la justificacion de la extension final de 17.1 (~140 pag tras el pase 5) — el piso honesto: formato APA + 26 tablas, protocolo completo = pre-registro, lo no ejercido NO se borra, cero bajas de referencias; y la tabla de lo DESCARTADO con su costo (~3.100 w mas solo pagando defensa). Companero: analisis-poda-17-1.md (diagnostico).
+
+# Justificación de la extensión de §17.1 — por qué no se podó más
+
+> **Qué es.** El registro de por qué la Consolidación Metodológica conserva su extensión final
+> tras cinco pases de corrección, para quien pregunte —el equipo, un colega redactor o la
+> preparación de la defensa— "¿por qué este capítulo mide lo que mide?". Complementa a
+> `analisis-poda-17-1.md` (fuente: `docs/informe/entregable/desarrollando/analisis-poda-17-1.md`) (el diagnóstico que originó la última poda) y
+> al pase que la ejecuta (`correcciones-etapa-2-pase-5.md` (fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-2-pase-5.md`)).
+> Cifras: v1.5 = 26.376 palabras de desarrollo (151 páginas con anexos y 27 tablas en APA doble
+> espacio); tras el pase 5 ≈ **24.600–25.000 palabras ≈ ~140 páginas**.
+
+---
+
+## 1. Lo que ya se podó — el capítulo no está sin trabajar
+
+| Pase | Mandato | Efecto |
+|---|---|---|
+| 1–2 (08-28) | 26 unidades + poda PODA-12/13/14 | **32.669 → 28.534 w** (−12,7 %): catálogo de datasets −72 %, proyección eliminada, infraestructura al Anexo B |
+| 3 (08-31) | desduplicación + anexos | **→ 26.586 w**: −2 tablas del desarrollo, anexos 11→6 tablas, −8 títulos |
+| 4 (08-31) | legibilidad | metadiscurso 33→11, 14 párrafos gordos partidos, cero pérdida |
+| 5 (08-31) | poda por aporte A+B | **→ ~24.700 w**: auto-presentación, re-argumentación bibliográfica, no-aplicación duplicada; −1 tabla, −3 títulos |
+
+**Acumulado: −24 % de palabras, −3 tablas del desarrollo, −5 de anexos, −13 títulos.** Cada pase
+tuvo mandato firmado y verificación con targets; nada se recortó por cuota (guardrail de
+`ajustes/07`: *"no se recorta por recortar"* — D-E1-13).
+
+## 2. Por qué ~140 páginas es el piso honesto de este capítulo
+
+### 2.1 El formato pesa más que la prosa
+
+APA con doble espacio rinde ~190 palabras por página, y el capítulo lleva **26 tablas** (20 del
+desarrollo + 6 de anexo), cada una de media a una página y media. Para calibrar con el propio
+informe: §15+§16 pesa **~100 páginas con 22.900 palabras** después de una poda del 51 %. La
+relación palabras→páginas de §17.1 es la misma; no hay grasa de formato propia.
+
+### 2.2 §17.1 es el protocolo completo de la tesis — su función es ser exhaustivo
+
+La Consolidación Metodológica es la **pre-registración** del trabajo experimental: qué se mide,
+con qué reglas, bajo qué criterios de aceptación y con qué límites de interpretación. Cada
+sección restante responde una pregunta que el jurado puede hacer:
+
+| Sección | La pregunta del jurado que responde |
+|---|---|
+| Catálogo CR-01…CR-06 + niveles | "¿Por qué estas condiciones y no otras? ¿Por qué sólo dos se validan a fondo?" — la distinción núcleo/extensiones es la respuesta, y es la tesis misma (el aporte es el planteo, no la implementación) |
+| Patrones, severidad, persistencia | "¿Por qué una alerta a los 4 s y no inmediata? ¿Por qué tres niveles?" — fundamentación normativa (Decreto 911/96) + trade-off FP pre-registrado |
+| Protocolo de prompts (5 fases, ejes, idioma) | "¿Cómo sé que el prompt elegido no fue arbitrario?" — variación sistemática, congelamiento con acta, piso muestral con bootstrap |
+| Estrategia de datos + Tabla de partición | "¿Cómo sé que no hay leakage?" — las 7 condiciones obligatorias que después permitieron excluir `chv` del fine-tuning |
+| Framework de métricas + reglas de lectura | Cada regla de §17.1.7.8 es **la vara contra la que §17.5 declara resultados** — cortarlas deja cifras sin criterio pre-registrado |
+| Regla de adaptación (§17.1.9) | "¿Por qué no adoptaron el modelo fine-tuned?" — la regla de decisión que produjo el NO-GO estaba escrita antes de entrenar |
+| Supuestos (§17.1.10) | Cinco objeciones respondidas por anticipado (asistivo ≠ sancionatorio, límites del zero-shot con corpus de terceros, etc.) |
+
+### 2.3 El pre-registro no ejercido NO se puede borrar
+
+MOT17/OVT-B, los templates de prompt, el español, la doble anotación con kappa, los datos
+complementarios para CR-03/04: nada de eso se ejecutó, y **por eso mismo debe quedar escrito**.
+La doctrina del informe (regla de no-anacronismo) es que §17.5 reporta "prescripto y no
+ejercido" **contra** el protocolo; si el protocolo se poda, esa declaración pierde su referente y
+el trabajo pierde la honestidad metodológica que lo defiende. Está además protegido por decisión
+firmada (D-E2-6, ratificada como D-P5-3: *"sin perder defensa de plataforma"*).
+
+### 2.4 Cero bajas de referencias
+
+La poda B comprime la re-argumentación bibliográfica remitiendo al marco teórico, pero **ninguna
+obra citada desaparece del capítulo** (regla 2 del pase 5): cada cita es un punto de apoyo en la
+defensa y una entrada del listado global de Referencias que otras secciones pueden no cubrir.
+
+## 3. Qué habría que sacrificar para bajar de ~140 páginas — y por qué se decidió no hacerlo
+
+| Recorte posible | Ahorro | Costo (por eso se descartó) |
+|---|---|---|
+| Comprimir MOT17/OVT-B y las métricas MOT | ~250 w | Reabre D-E2-6; adelgaza el pre-registro justo donde §17.5 declara la exclusión E-10/E-03 |
+| Podar las justificaciones normativas de severidad | ~300 w | La severidad quedaría asignada "porque sí" — es la conexión tesis↔Decreto 911/96 |
+| Reducir el protocolo de 5 fases a un párrafo | ~600 w | Es la evidencia de que la selección de prompts fue sistemática y no post-hoc |
+| Fusionar las condiciones de partición en prosa | ~200 w | La Tabla de partición es la defensa anti-leakage — la cita §17.4 al justificar la exclusión de `chv` |
+| Cortar los supuestos de interpretación | ~250 w | Son respuestas pre-escritas a objeciones del jurado; se usan en la defensa oral |
+| Podar el catálogo a CR-01/CR-02 | ~1.500 w | Contradice la decisión de fondo del usuario: el valor de la tesis es el planteo del espacio completo, no la implementación |
+
+**Suma de lo descartado: ~3.100 palabras ≈ 16 páginas.** Ese es el precio de las páginas que
+faltan para "un capítulo corto", y se paga en capacidad de defensa. La decisión (2026-08-31) fue
+no pagarlo.
+
+## 4. Síntesis para citar
+
+> §17.1 pasó por cinco pases con mandato y verificación: perdió el 24 % de sus palabras, 8 tablas
+> entre desarrollo y anexos y 13 títulos, eliminó toda duplicación medible (metadiscurso 33→11,
+> cero oraciones repetidas, una sola casa por concepto) y comprimió la argumentación cuya fuente
+> vive en §15/§16. Lo que queda —~24.700 palabras, ~140 páginas en APA doble espacio con 26
+> tablas— es el protocolo experimental completo de la tesis: catálogo y priorización de
+> condiciones, patrones con fundamento normativo, protocolo sistemático de prompts, estrategia de
+> datos anti-leakage, framework de métricas con reglas de lectura pre-registradas, regla de
+> decisión del fine-tuning y supuestos de interpretación. Cada recorte adicional identificado
+> (~3.100 palabras ≈ 16 páginas) sacrifica un elemento que responde una pregunta del jurado, y
+> por eso se decidió no ejecutarlo.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-4.md`
+
+> SHA-256 del bloque: `7bbd0da90491bed0feda4c7f3bf90245c6bbae0c9e9932e0962a237bf806ff5e`  
+> Seleccion: EL PASE 4 DE LA ETAPA 2 (LEGIBILIDAD, 2026-08-31): E2-51..E2-55, D-P4-1..2. **YA APLICADO Y VERIFICADO en la v1.5 (misma jornada) - NO volver a aplicarlo** (acta en su banner: metadiscurso 33->11, parrafos gordos 14->2, cero perdida verificada). Diagnostico medido: 34 oraciones de metadiscurso (vs 2 en 17.4 y 1 en 17.5) y 14 parrafos >150 palabras. Corrige VOZ y RITMO, no contenido: cero perdida de informacion, ninguna decision/numero/criterio/tabla/ecuacion/cita cambia; los P-E1-xx sobreviven siempre; los 27 comentarios RESUELTOS no se tocan. La vara de voz es 17.5.
+
+# Correcciones de la Etapa 2 — §17.1 (pase 4: legibilidad sin pérdida — 2026-08-31)
+
+> ✅ **APLICADO Y VERIFICADO — 2026-08-31 (misma jornada): la entrega de ChatGPT es la v1.5,
+> aceptada y limpia** (`desarrollando/…v1.5.docx`). Verificación completa de §D:
+> - **Metadiscurso 33 → 11** (target ≤12) · **párrafos >150 palabras 14 → 2** (target ≤2) ·
+>   28.418 palabras (target 28.250–28.500) · 109 títulos · 21 tablas 16–36 + 6 de anexo ·
+>   **78 ecuaciones** · verificador OK.
+> - **Cero pérdida verificada**: "et al." 59 → 59 · años citados idénticos (el −1 aparente era la
+>   fecha del banner de extracción, no una cita) · `deberá` 28 y `todavía` 7 intactos · los greps
+>   del pase 3 siguen en cero · **41/41 anclas** (viejas en 0, nuevas en 1) · **15/15 cortes de
+>   párrafo** aplicados · anti-duplicación limpio (ninguna oración ≥12 palabras repetida).
+> - Cambios controlados de la entrega (37 ins / 22 del) **aceptados sobre el XML** (0 fusiones con
+>   texto — sin el patrón del defecto del pase 3); los **27 comentarios siguen resueltos e
+>   intactos**. Respaldo: `archivado/…v1.5 (entrega GPT, cambios sin aceptar).docx`.
+> **La v1.5 es la vigente de la Etapa 2.** Handoff que sigue vivo: §17.3 lleva 11 metadiscursos y
+> 2 párrafos gordos a su v1.5; §15/§16 a medir (pase del colega). Vara de voz del informe: §17.5.
+>
+> ~~**Estado: NO aplicado — es el trabajo a entregar a ChatGPT.**~~ Base:
+> `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.4.docx` (**v1.4 final y
+> limpia**: tres pases aplicados, cambios controlados aceptados, 27 comentarios resueltos;
+> 28.628 palabras · 109 títulos · 21 tablas 16–36 + 6 de anexo · 78 ecuaciones · verificador OK).
+> **Salida esperada: v1.5.**
+>
+> **Qué es este pase y qué NO es.** El usuario detectó que la sección "pierde al lector". El
+> diagnóstico medido (2026-08-31) ubicó la causa: **34 oraciones de metadiscurso** —el texto
+> hablando del documento en vez de hablar del sistema: "la presente sección documenta…", "el
+> propósito operativo de esta sección es cuádruple"— contra 11 en §17.3, 2 en §17.4 y 1 en §17.5;
+> más **14 párrafos de más de 150 palabras**. Este pase corrige **la voz y el ritmo, no el
+> contenido**: ninguna decisión, número, criterio, tabla, ecuación ni **cita bibliográfica**
+> cambia. **Regla suprema (D-P4-1): cero pérdida de información** — donde una oración de
+> metadiscurso lleva contenido, se re-sujeta o se pliega; sólo se elimina el anuncio puro cuyo
+> contenido ya está en los títulos o en la oración vecina.
+>
+> **Lección del pase 3 que rige acá:** los reemplazos son EXACTOS (buscar→reemplazar); si un
+> texto no aparece tal cual, se reporta en la entrega en lugar de improvisar. No dejar copias
+> viejas al reescribir. Entregar con cambios controlados. **Los 27 comentarios del documento
+> están RESUELTOS: no tocarlos, no reabrirlos, no eliminarlos.**
+
+---
+
+## A. Decisiones que gobiernan el pase
+
+⚠ *Serie de IDs propia de la etapa 2 (pase 4); no confundir con otras series D-P*.*
+
+| ID | Decisión | Firma |
+|---|---|---|
+| **D-P4-1** | **Pase de legibilidad autorizado, con cero pérdida de información**: se comprime el andamiaje metadiscursivo y se parte el párrafo largo; no se recorta contenido ("no reducir por reducir"). La vara de voz es §17.5. | usuario · 2026-08-31 |
+| **D-P4-2** | **Intocables**: las invocaciones a las preguntas rectoras `P-E1-xx` (trazabilidad hacia §16.7.3 — pueden re-sujetarse pero el ID y su glosa sobreviven); las fronteras anti-anacronismo ("no implementa…", "corresponde a la instancia de análisis y diseño arquitectónico…"); todas las citas bibliográficas (ninguna se agrega ni se elimina); los señalizadores baratos que orientan ("Se organiza en cinco fases.", "La jerarquía del framework se organiza en tres niveles."). | recomendación adoptada |
+
+## B. NO TOCAR
+
+Todo lo del pase 3 sigue vigente: contenido de tablas · rango 500–2.000 · MOT intactos · el
+`[[PENDIENTE]]` AAIP · las **78 ecuaciones** · definiciones CPN/EN/TN · los 4.000/7.000 ms.
+Además: **los 27 comentarios resueltos** (ni tocarlos ni reabrirlos) · las oraciones que hablan
+del **sistema o del proyecto** aunque suenen parecidas al metadiscurso (p. ej. *"la evaluación se
+organiza en dos escenarios complementarios"*, *"esta técnica excede el alcance del presente
+proyecto"*, *"La presente sección concentra su validación primaria en el tramo Glass-to-Alert"* —
+esa habla de qué tramo valida el framework, se queda) · los Anexos C y D completos.
+
+---
+
+## C. Unidades
+
+### E2-51 · §17.1.4.1 — la introducción del entorno, en voz de sistema
+
+**Reemplazar el párrafo completo** que empieza *"La presente sección documenta el entorno
+experimental sobre el cual se desarrolla y evalúa la plataforma E-OVRT-VDP."* y termina
+*"…delimita el referente experimental de la presente sección."* por:
+
+> *"El entorno experimental comprende la infraestructura de cómputo disponible para inferencia y
+> entrenamiento, el stack de software asociado, los escenarios de evaluación definidos para el
+> proyecto y las condiciones operativas propias de cada escenario. Su caracterización responde a
+> la pregunta rectora P-E1-04 de la fundamentación teórica: las restricciones del entorno de
+> ejecución —capacidad computacional, protocolos de transmisión y presupuesto de procesamiento—
+> que condicionan las decisiones arquitectónicas del prototipo. Los escenarios de evaluación
+> establecen, además, las condiciones concretas bajo las cuales se ejercita el prototipo."*
+
+(Conserva P-E1-04 con su glosa completa y las tres restricciones; sólo cae el envoltorio.)
+
+### E2-52 · §17.1.5 — aperturas en voz de sistema (7 retoques)
+
+1. **§17.1.5.1, primer párrafo** — reemplazar desde *"La presente sección responde a la pregunta
+   rectora P-E1-02 definida en la fundamentación teórica, que dejó abierta la brecha"* hasta
+   *"…los criterios de aplicación del framework evaluativo."* por:
+   > *"La taxonomía de condiciones de riesgo, los patrones asociados y el protocolo de prompts
+   > responden a la pregunta rectora P-E1-02, que dejó abierta la brecha entre la identificación
+   > normativa de condiciones de riesgo y su traducción en consultas textuales evaluables por
+   > modelos de detección open-vocabulary, y señaló que la formulación del prompt no es un
+   > detalle accesorio sino una variable capaz de alterar significativamente el desempeño del
+   > detector en dominios especializados. En articulación con el framework de métricas, se
+   > delimita además cómo estas definiciones deben leerse respecto de la latencia de alerta, las
+   > métricas operativas y los criterios de aplicación del framework evaluativo."*
+   (Cae sólo la oración-anuncio del medio: su contenido son los títulos de 17.1.5.2/.3/.4.)
+2. §17.1.5.1: *"El alcance de la sección es metodológico. Establece qué condiciones"* →
+   *"El alcance es metodológico: establece qué condiciones"*.
+3. §17.1.5.3, primera oración: *"Esta sección define conceptualmente los patrones de riesgo que
+   constituyen la unidad operativa de análisis del sistema E-OVRT-VDP. Para ello articula tres
+   componentes:"* → *"Los patrones de riesgo constituyen la unidad operativa de análisis del
+   sistema E-OVRT-VDP. Su definición conceptual articula tres componentes:"*.
+4. §17.1.5.3.3: *"La presente sección define estos criterios en términos de duración temporal"*
+   → *"Estos criterios se definen en términos de duración temporal"*.
+5. §17.1.5.3.7: *"El desarrollo de esta sección deja tres insumos directos para la instancia"*
+   → *"Quedan tres insumos directos para la instancia"*.
+6. **§17.1.5.4, párrafo de apertura** (además es uno de los 14 gordos):
+   - *"Esta sección establece el marco metodológico para el diseño, la variación sistemática y la
+     evaluación empírica de los prompts textuales que operan como interfaz de consulta del modelo
+     OVD."* → *"El protocolo de prompts establece el marco para el diseño, la variación
+     sistemática y la evaluación empírica de las consultas textuales que operan como interfaz del
+     modelo OVD."*
+   - *"El protocolo se articula con el framework definido en el framework de métricas, de la cual
+     toma las métricas"* → *"El protocolo se articula con el framework de métricas, del cual toma
+     las métricas"* (repara además la concordancia rota).
+   - **Partir el párrafo** insertando salto antes de *"Asimismo, toma como referencia protocolos
+     de evaluación recientes"*.
+7. §17.1.5.5: *"Para evitar ambigüedades terminológicas, esta sección adopta dos definiciones
+   operativas."* → *"Para evitar ambigüedades terminológicas se adoptan dos definiciones
+   operativas."*
+
+### E2-53 · §17.1.6 — la estrategia de datos deja de presentarse a sí misma (6 retoques)
+
+1. **§17.1.6.1.1, primer párrafo**: *"La presente sección responde a las preguntas rectoras
+   P-E1-03 y P-E1-08 formuladas en la sección 16.7.3 de la fundamentación teórica. En relación
+   con P-E1-03, construye"* → *"La estrategia de datos responde a las preguntas rectoras P-E1-03
+   y P-E1-08 formuladas en la sección 16.7.3 de la fundamentación teórica. En relación con
+   P-E1-03, construye"* (el resto del párrafo queda tal cual).
+2. **§17.1.6.1.1, segundo párrafo** ("El propósito operativo de esta sección es cuádruple.
+   Primero, … Cuarto, …") — **reemplazar el párrafo completo** por:
+   > *"Ese propósito se completa con un mapeo explícito entre cada dataset candidato y las
+   > condiciones de riesgo CR-01 a CR-06 de la taxonomía, y con las condiciones metodológicas
+   > mínimas que cualquier estrategia de partición deberá satisfacer para sostener una comparación
+   > válida entre baseline zero-shot y variante fine-tuned, cuando esa comparación aplique."*
+   (Los puntos "Primero" y "Tercero" ya están, palabra por palabra, en el párrafo anterior — el
+   inventario con atributos y la aptitud para fine-tuning; sólo "Segundo" y "Cuarto" agregan
+   información y ésa se conserva entera.)
+3. §17.1.6.1.1: *"El alcance de la sección es metodológico. Elabora un inventario"* →
+   *"El alcance es metodológico: elabora un inventario"*.
+4. §17.1.6.1.2: *"El inventario de esta sección se organiza en dos categorías"* →
+   *"El inventario se organiza en dos categorías"*; y *"Quedan fuera del alcance de la presente
+   sección las colecciones generalistas"* → *"Quedan fuera del inventario las colecciones
+   generalistas"*.
+5. §17.1.6.2.7: *"La presente sección documenta sólo las condiciones metodológicas que cualquier
+   esquema de partición deberá satisfacer."* → *"El protocolo fija sólo las condiciones
+   metodológicas que cualquier esquema de partición deberá satisfacer."*
+6. **§17.1.6.4, apertura** — reemplazar *"Las secciones precedentes analizaron los datasets desde
+   una perspectiva técnica y metodológica. La presente sección documenta dos dimensiones que
+   atraviesan el inventario completo"* por *"Dos dimensiones atraviesan el inventario completo"*
+   (el resto del párrafo queda tal cual, incluida la frase final de insumos para la instancia de
+   análisis y diseño arquitectónico).
+
+### E2-54 · §17.1.7 — el framework habla de métricas, no de sí mismo (6 retoques)
+
+1. **§17.1.7.1.1, segundo párrafo**: *"En ese marco, la presente sección responde a dos de las
+   preguntas rectoras formuladas en la fundamentación teórica. En relación con P-E1-06, define el
+   framework de métricas para evaluar"* → *"En ese marco, el framework responde a dos preguntas
+   rectoras de la fundamentación teórica. En relación con P-E1-06, define las métricas para
+   evaluar"* (el resto del párrafo, incluida la glosa de P-E1-01, queda tal cual).
+2. §17.1.7.1.1: *"El alcance de la sección es metodológico. Define métricas"* →
+   *"El alcance es metodológico: define métricas"*.
+3. §17.1.7.3.2: *"No todas las métricas definidas en esta sección asumen el mismo nivel de
+   compromiso."* → *"No todas las métricas del framework asumen el mismo nivel de compromiso."*
+4. §17.1.7.4: *"Las secciones siguientes presentan las familias de métricas seleccionadas para
+   los tres planos del sistema evaluable: detección OVD, seguimiento multiobjeto (MOT) y
+   rendimiento del pipeline."* → *"Las métricas adoptadas cubren los tres planos del sistema
+   evaluable: detección OVD, seguimiento multiobjeto (MOT) y rendimiento del pipeline."*
+5. §17.1.7.5: *"Por ello, esta sección incorpora métricas operativas específicas del dominio:"*
+   → *"Por ello, el framework incorpora métricas operativas específicas del dominio:"*
+6. §17.1.7.8: *"Para que el framework sea ejecutable y no meramente declarativo, la presente
+   sección traduce las métricas anteriores a requisitos mínimos de instrumentación, preparación y
+   registro. Su propósito no es redefinir las métricas, sino fijar las condiciones bajo las
+   cuales su medición resulta metodológicamente defendible."* → *"Para que el framework sea
+   ejecutable y no meramente declarativo, las métricas anteriores se traducen a requisitos
+   mínimos de instrumentación, preparación y registro. No se redefinen las métricas: se fijan las
+   condiciones bajo las cuales su medición resulta metodológicamente defendible."*
+
+### E2-55 · Partir los párrafos de más de 150 palabras · ⚠ SOLO saltos de párrafo, ni una palabra cambia
+
+Insertar un salto de párrafo **antes de** cada una de estas oraciones (la oración citada abre el
+párrafo nuevo). La nota de la Tabla 21 (§17.1.5.2.3) **NO se parte** — las notas de tabla van en
+un solo párrafo. El párrafo de apertura de §17.1.5.4 ya se parte en E2-52.6.
+
+| # | § | El párrafo nuevo empieza en… |
+|---|---|---|
+| 1 | 17.1.5.2.1 | "La pertinencia de este criterio se ve reforzada por evidencia empírica reciente" |
+| 2 | 17.1.5.2.2 | "Este análisis puede implementarse mediante lógica de post-detección" |
+| 3 | 17.1.5.2.4 | "La segunda particularidad es geométrica:" |
+| 4 | 17.1.5.4.1 | "En este marco, la formulación del prompt no constituye un detalle accesorio:" |
+| 5 | 17.1.5.4.1 | "De manera complementaria, trabajos recientes muestran que la incorporación" |
+| 6 | 17.1.5.4.2 | "Los encoders textuales utilizados por modelos visión-lenguaje" |
+| 7 | 17.1.5.4.2 | "Esta expectativa se fundamenta en que, en los modelos OVD," |
+| 8 | 17.1.5.4.2 | "Esto no implica necesariamente que el costo total de inferencia" |
+| 9 | 17.1.5.4.2 | "Por otro lado, Grounding DINO recibe como entrada" |
+| 10 | 17.1.5.4.3 | "Esta decisión tiene una implicación práctica relevante:" |
+| 11 | 17.1.7.6 | "La separación estricta entre datos de entrenamiento y evaluación" |
+| 12 | 17.1.7.6 | "Cuando exista una variante ajustada y soporte de datos suficiente" ⚠ el tramo lleva ecuaciones: no tocarlas |
+| 13 | 17.1.7.7.4 | "En este punto, la mención de YOLO-World debe leerse" ⚠ ídem |
+| 14 | 17.1.10.2 | "Quinto, la disyunción entre datos de entrenamiento" |
+
+---
+
+## D. Verificación de cierre (targets de la v1.5)
+
+| Métrica | v1.4 | Target | Cómo |
+|---|---|---|---|
+| Palabras | 28.628 | **~28.250–28.500** (baja sólo el andamiaje; sin cuota) | verificador |
+| Títulos numerados | 109 | **109** (ninguno cambia) | verificador |
+| Tablas | 21 (16–36) + 6 anexo | **idéntico** | grep de rótulos |
+| Ecuaciones OMML | 78 | **78** (ninguna unidad las toca) | XML |
+| Comentarios | 27 resueltos | **27 resueltos, intactos** | XML |
+| Metadiscurso (patrón: "la presente sección\|esta sección\|el presente\|se organiza en\|el alcance de la sección\|las secciones siguientes\|las secciones precedentes\|de esta sección") | 34 oraciones | **≤ 12** (los que quedan hablan del sistema o son señalizadores de D-P4-2) | grep |
+| Párrafos >150 palabras | 14 | **≤ 2** (la nota de la Tabla 21; cualquier otro, declarado) | script |
+| Citas bibliográficas | — | conteo de "et al." y de años entre paréntesis **idéntico** a la v1.4 | grep |
+| Voz | `deberá` 28 · `todavía` 7 | **idéntico** | grep |
+| Greps del pase 3 | todos en cero | **siguen en cero** | extracción |
+| Diff | — | párrafo a párrafo contra `90f` v1.4: cada bloque atribuido a E2-51…E2-55; **chequeo anti-duplicación**: ninguna oración ≥12 palabras repetida | script |
+
+## E. Handoff
+
+La misma medición que originó este pase da para el resto del informe: **§17.3 = 11 oraciones de
+metadiscurso y 2 párrafos gordos** (para su v1.5, junto con E3-42 y los 3 sitios de voz D-P3-9) ·
+**§15+§16 = a medir** (pase del colega) · §17.4 (2) y §17.5 (1) no lo necesitan. La vara de voz
+del informe queda fijada: **§17.5**.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md`
+
+> SHA-256 del bloque: `19ceb1029b06d8ba29660976e0666e38ef8f8ed7903ee3c5b790de545e81b9df`  
+> Seleccion: EL PASE 3 DE LA ETAPA 2 (2026-08-31): unidades E2-30..E2-50 y decisiones D-P3-1..9. **YA APLICADO Y VERIFICADO en la v1.4 (misma jornada) - NO volver a aplicarlo.** Su banner lleva el acta de verificacion (targets todos dentro; 1 defecto E2-50.12 reparado sobre el XML; diff completo atribuido). Sigue rigiendo como criterio: guardrail 2 enmendado (D-P3-1), renumeracion 16-36, anexos al final del documento (D-P3-8), voz del documento (D-P3-9: presente para lo que existe; la prescripcion normativa y lo no ejercido NO se tocan). El mapa comentario->unidad de su seccion F es la guia del usuario para resolver los 27 comentarios en Docs.
+
+# Correcciones de la Etapa 2 — §17.1 (pase 3: desduplicación, anexos y defectos — 2026-08-31)
+
+> ✅ **APLICADO Y VERIFICADO — 2026-08-31 (misma jornada): la entrega de ChatGPT es la v1.4**
+> (`desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.4.docx`). Resultado de la
+> verificación completa de §G:
+> - **Targets, todos dentro**: 28.730 palabras (documento entero; desarrollo ~26,4k) · **109
+>   títulos numerados exacto** · **21 tablas 16–36 contiguas** · anexos C (3 tablas) y D (3)
+>   anexados al final con encabezados sin número en `Heading2` (el estilo exacto del título 17.1)
+>   · **78 ecuaciones exacto** (las 7 muertes declaradas) · 1 `[[PENDIENTE]]` (AAIP) ·
+>   **los 17 greps en cero** · `todavía` = 7 intacto · verificador OK sin problemas duros.
+> - **Diff párrafo a párrafo contra `90f` v1.3**: 27 eliminados + 66 modificados + 1 nuevo — cada
+>   bloque atribuido a su unidad, **cero cambios fuera del pase**. Fidelidad de anexos contra
+>   `90g`: fila "Alerta" única, "por cuadro" en Tracking, C.3 con las 4 retenidas, sin descartados.
+> - La entrega **trajo cambios controlados** (521 ins / 343 del, sin aceptar — se aceptan en
+>   Word/Docs) y **conservó los 27 comentarios** (se resuelven con el mapa §F).
+> - **Un (1) defecto: E2-50 sitio 12 no aplicado** — reparado de forma determinista sobre el XML
+>   (reemplazo de run único validado con `ET.fromstring`; respaldo en
+>   `archivado/…v1.4 (entrega GPT, antes de E2-50.12).docx`).
+> - **Dos notas de auditoría**: (a) el sitio 3 de E2-50 quedó absorbido por E2-38, que eliminaba
+>   el párrafo entero que aquel reescribía — solapamiento de autoría del pase, resultado correcto;
+>   (b) **la guarda "deberá nunca <30" estaba mal calibrada**: no contaba los `deberá` dentro de
+>   párrafos que E2-36/E2-37 eliminaban legítimamente (2+1). El valor final correcto es **28 en el
+>   desarrollo** (30 en el documento con los 2 de las notas del Anexo D) y las 12 desapariciones
+>   fueron auditadas una por una: **ninguna prescripción normativa tocada**.
+> - `90f` re-extraído de la v1.4 (la extracción corta en los anexos por ser encabezados sin
+>   número: contiene solo el desarrollo — los anexos viven en el `.docx` y en `90g`).
+> ✅ **CIERRE (misma jornada, a pedido del usuario): cambios ACEPTADOS y 27 comentarios RESUELTOS
+> sobre el XML.** El `.docx` v1.4 quedó limpio: **0 marcas de revisión** (521 `w:ins` desenvueltas,
+> 343 `w:del` eliminadas, 11 filas y 2 tablas borradas retiradas, 95 párrafos vacíos desaparecidos,
+> 21 `*Change` quitados) · **78 ecuaciones intactas** · 27 tablas (21 numeradas 16–36 + 6 de anexo)
+> · **109 títulos** · los 27 comentarios **conservados y marcados `done`** (con sus anclas: 27
+> `commentRangeStart` + 27 `commentReference`) · todas las partes XML validadas · verificador OK.
+> Respaldo previo: `archivado/…v1.4 (con cambios controlados y comentarios sin resolver).docx`.
+>
+> ⚠ **DEFECTO ENCONTRADO AL ACEPTAR (y corregido): E2-31 se aplicó DOS VECES.** GPT reescribió el
+> párrafo de §17.1.2.2 (borró el original e insertó la versión correcta con la frase al final y
+> "Tabla 21"), pero **dejó una inserción huérfana con la numeración vieja** —" …se presenta en la
+> **Tabla 23** (Sección 17.1.5.2.3)"— dentro del párrafo borrado y con la marca de párrafo borrada,
+> de modo que al aceptar se habría fusionado hacia adelante y el informe habría quedado con **la
+> frase duplicada y una remisión a la tabla equivocada**. Se rechazó esa única inserción antes de
+> aceptar. Verificado: la frase aparece **una sola vez**, al final del párrafo, con "Tabla 21";
+> `"Tabla 23 (Sección"` = 0.
+> **Lección para el próximo pase:** cuando una unidad **agrega texto** y otra **renumera**, verificar
+> también que **no sobreviva una copia con el número viejo** — el chequeo `count==1` de la variante
+> nueva no lo detecta, y el filtro de atribución del diff tampoco si la oración figura entre las
+> "conocidas". Este era el **único** párrafo del documento con el patrón "marca de párrafo borrada +
+> texto vivo": ese chequeo (1 caso en 95) es el que lo destapó y conviene repetirlo siempre.
+>
+> **Queda para el usuario**: git (nada más — cambios y comentarios ya cerrados). **Queda para la
+> integración**: mudar anexos a §19.3/§19.4 · hueco global de tablas 37–38 · unificación de nombres
+> de métrica del anexo con objetos de ecuación.
+>
+> ~~**Estado: NO aplicado — es el trabajo a entregar a ChatGPT.**~~ Texto base:
+> `90f-etapa2-texto-extraido.md` (extracción 2026-08-31 del documento de trabajo
+> `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3- a revisar.docx`, que es
+> la **v1.3 + las 2 ediciones del 2026-08-30**: §17.1.4.2.4 "fuente RTSP sintética" eliminada con
+> renumeración, y el quinto supuesto agregado a §17.1.10.2). Cifras de partida verificadas:
+> **28.564 palabras · 117 títulos numerados · 23 tablas (16–38) · 85 ecuaciones OMML · verificador
+> OK, sin problemas duros · 1 marcador `[[PENDIENTE]]` (AAIP)**. La salida esperada es la **v1.4**.
+>
+> **Origen del pase:** la revisión crítica del usuario (27 comentarios en el `.docx`, mapeados en
+> §F) más la auditoría del 2026-08-31, que verificó cada propuesta contra los extractos de
+> §16/§17.3/§17.4/§17.5, el XML del `.docx` y los Anexos B/C/D reales. Tres hechos verificados
+> habilitan este pase:
+> 1. **§17.3, §17.4 y §17.5 no citan ninguna tabla de §17.1 por número** (cero apariciones;
+>    referencian "la consolidación metodológica" por nombre). La única remisión numérica externa
+>    hacia §17.1 en todo el informe es `17.1.4.4` (una vez, y este pase no la renumera).
+>    → renumerar tablas y títulos dentro de §17.1 sólo obliga a actualizar referencias internas.
+> 2. **El Anexo C contradice al desarrollo v1.3** (su Tabla C.3 cuenta 7 fuentes para CR-01
+>    incluyendo descartadas y su nota cita una tabla que hoy es otra) y **el Anexo D duplica** las
+>    Tablas 34/35 y la prosa de §17.1.7.4/§17.1.7.8 → se resuelve en `90g` (D-E2-1, ahora ejecutada).
+> 3. Los defectos de gramática y la cifra 50–250 ms de la Tabla 21 están **en el XML del `.docx`**,
+>    no son artefactos de extracción.
+>
+> **Reglas que siguen rigiendo, sin cambios:** no-anacronismo (mapa regla 5) — nada se corrige
+> "contra lo implementado"; lo prescripto y no ejercido no se borra, lo reporta §17.5.
+> Autocontención — ningún código `E2-`/`D-P3-`/`AJ-`/ruta aparece en el texto del informe.
+> Las ecuaciones de Word (`⟦ECUACIÓN⟧` en la extracción) **no son erratas** (mapa `00` §7).
+>
+> **⚠ ENMIENDA AL GUARDRAIL 2 (`ajustes/07` §9), firmada por el usuario (D-P3-1):** el guardrail
+> "§17.1.5 y §17.1.7 no se comprimen; no existe segunda vuelta" queda enmendado para este pase:
+> **se consolidan explicaciones repetidas de lo mismo; ninguna definición, umbral, regla ni
+> contenido de tabla cambia**. La enmienda la disparó la propia revisión del usuario (sus
+> comentarios piden comprimir §17.1.5.1 y §17.1.5.3.3). Fuera de las unidades listadas acá, los
+> dos apartados siguen intocables.
+
+---
+
+## A. Decisiones que gobiernan el pase
+
+⚠ *Serie de IDs: estas D-P3-x son de la **etapa 2** (este pase). No confundir con las D-P3-1…6 del
+pase 3 de §17.3/§17.4/§17.5 (`archivado/correcciones-etapa-3-4-5-pase-3.md`) — al citar, nombrar
+el pase.*
+
+| ID | Decisión | Firma |
+|---|---|---|
+| **D-P3-1** | **Enmienda del guardrail 2**: en §17.1.5 y §17.1.7 se consolidan repeticiones (unidades E2-33/34/35/37/38/39/40); prohibido tocar definiciones, umbrales, reglas o contenido de tablas. | usuario · 2026-08-31 |
+| **D-P3-2** | **Las Tablas 17 y 22 se eliminan** (contenido 100 % duplicado) y las tablas de §17.1 se **renumeran contiguas 16–36** (E2-48). Verificado: cero referencias numéricas aguas abajo. La renumeración **global** del informe (el hueco 37–38 antes de las tablas 39–55 de §17.3) queda como handoff al pase de integración (§H). | usuario · 2026-08-31 |
+| **D-P3-3** | El comentario del usuario sobre fine-tuning en EBE se resuelve **condicionando, no restringiendo** (E2-46): la promesa pre-registrada no se reescribe para que encaje con el resultado (misma doctrina que preservó el rango 500–2.000 de la Tabla 28); la no-ejecución la declara §17.5. | usuario · 2026-08-31 |
+| D-P3-4 | **La Tabla C.1 se queda en el Anexo C** (ancla del prompt set, AJ-2.07); no sube al desarrollo — subirla insertaría una tabla y renumeraría sin necesidad. | recomendación adoptada |
+| D-P3-5 | **Composición final de los anexos** (ejecuta y refina D-E2-1): Anexo C 5→3 tablas · Anexo D 6→3 tablas · Anexo B intacto. El contenido vive en `90g-etapa2-anexos-c-y-d.md`; las remisiones del cuerpo las actualiza E2-47. El refinamiento sobre D-E2-1: la ex-D.4 se **elimina** (no se "reduce a lo que agrega") porque lo que agrega ya está en la Tabla 24 y en la prosa de §17.1.7.7.6. | recomendación adoptada |
+| D-P3-6 | La estimación orientativa de latencia (§17.1.7.7.5) **se mantiene como está** (protocolo ex-ante correcto); sólo se parte el párrafo (E2-45) y se corrige la cifra huérfana de la Tabla 21 (E2-43) por **coherencia interna** — nunca contra lo medido. | recomendación adoptada |
+| D-P3-7 | El catálogo CR-01…CR-06 **no se poda**: núcleo/extensión es el aporte metodológico de la tesis. Sólo cae el detalle de materialización que invade la casa de §17.3 (E2-39). | recomendación adoptada |
+| **D-P3-8** | **Los Anexos C y D viajan AL FINAL del documento de la etapa** (E2-49): ChatGPT los anexa en su composición final (contenido completo en `90g`), y al integrar al maestro el equipo los muda a §19.3/§19.4. Supersede la mitad "quedan fuera del `.docx`" de D-E2-1; la constancia de corrección sigue siendo `90g`. | usuario · 2026-08-31 |
+| **D-P3-9** | **Voz del documento (E2-50):** lo que remite a una sección que **existe** deja de enmarcarse como obligación futura y pasa a presente ("…deberá materializar" → "…materializa"). **Sólo eso**: la prescripción normativa del protocolo ("toda corrida deberá declarar…") NO se toca, y lo pre-registrado y **no ejercido** NO se convierte en "se define más adelante" (sería falso; lo reporta §17.5). Criterio traído por el equipo desde la Etapa 1 y adoptado para todo el informe. | usuario · 2026-08-31 |
+
+## B. NO TOCAR (lista cerrada)
+
+1. **Tablas 24, 28, 36 y 37: contenido intacto** (sólo cambia su número por E2-48). En particular
+   el rango **500–2.000** de la Tabla 28 y los rangos de persistencia de la Tabla 24.
+2. **§17.1.6.3 (MOT17/OVT-B) y §17.1.7.4.2 (métricas MOT): intactos** (D-E2-6 sigue firmada).
+   E2-47 sólo elimina una frase de remisión al anexo en §17.1.7.4.2 — el resto del apartado no se toca.
+3. **El `[[PENDIENTE]]` de la AAIP en §17.1.10.1**: viaja tal cual.
+4. **Las ecuaciones OMML**: quedan **78** tras el pase (85 − 7 declaradas en §G). Jamás convertir
+   una ecuación a texto plano ni "reconstruir" una que se vea vacía.
+5. **§17.1.7.7.1 (descomposición de latencia)**: intacta — §16.5.2 usa su notación
+   (`t_capture + t_transport + t_preprocess + t_inference`).
+6. **Las definiciones de CPN/EN/TN** (§17.1.4.2 y §17.1.4.3): la prosa se conserva **verbatim**
+   cuando E2-41 la reubica — §17.3 depende de que nazcan acá.
+7. **Los 4.000/7.000 ms de §17.1.5.3.3** (decisión de protocolo, pase 2) y la palabra "efectivos"
+   sigue prohibida en §17.1.
+8. **Los 27 comentarios del `.docx`**: no se eliminan, no se responden, no se resuelven — los
+   resuelve el usuario en Google Docs con el mapa de §F.
+9. **La Tabla 23 no se toca salvo su nota** (E2-31 le agrega una frase).
+10. Los residuales ya fichados para el pase de integración **quedan como están**: "Versión
+    registrada" ×2 en la Tabla 26 · `t_alert-system` como texto plano en §17.1.7.2 · el rótulo
+    global de "Nota.".
+
+**Orden de aplicación: E2-30 … E2-47 y E2-50 primero (todas citan la numeración VIEJA de tablas y
+títulos); después E2-48 (renumeración) sobre el texto ya podado; y E2-49 (anexado de los Anexos C
+y D) como último paso.**
+
+---
+
+## C. Unidades del pase
+
+### E2-30 · §17.1.4.7 — eliminar la sección entera (la peor redundancia del documento)
+
+Las specs y la lectura del CPN/EN/TN aparecen cuatro veces en §17.1.4 (§17.1.4.2.1, Tabla 21,
+prosa de §17.1.4.7 y Tabla 22). Comentario C11 del usuario.
+
+- **Eliminar** el título *"17.1.4.7. Lectura metodológica de la infraestructura operativa y sus
+  restricciones"* y todo su contenido: los dos párrafos ("La infraestructura del proyecto se
+  organiza…" y "La consecuencia metodológica es que las conclusiones…"), la **Tabla 22** completa
+  con su nota, y el párrafo final ("El entorno impone restricciones explícitas…").
+- **Rescatar una sola idea** (la única no cubierta por la Tabla 21): agregar al final del segundo
+  párrafo de §17.1.4.2 ("Bajo este criterio, el Central Processing Node (CPN) concentra…") la
+  frase: *"Las conclusiones sobre viabilidad operativa —tiempo real, latencia y uso de recursos—
+  se anclan en el CPN."*
+- Sin ecuaciones en la zona. §17.1.4.7 es el último hijo de §17.1.4: **no hay renumeración de
+  títulos** por esta unidad. La Tabla 22 muere → su renumeración la absorbe E2-48.
+- Verificación: `17.1.4.7` = 0 apariciones; "Lectura metodológica de la infraestructura" = 0.
+
+### E2-31 · §17.1.2.2 — eliminar la Tabla 17 (catálogo duplicado con la Tabla 23)
+
+Las Tablas 17 y 23 llevan las mismas seis filas con columnas complementarias; la prosa de
+§17.1.2.1/.2.2 ya dice todo lo que la Tabla 17 agrega.
+
+- **Eliminar** el rótulo "Tabla 17", el título *"Catálogo consolidado de condiciones de riesgo y
+  rol experimental"*, la tabla completa y su nota.
+- Agregar al final del segundo párrafo de §17.1.2.2 ("El catálogo completo conserva valor
+  directivo…"): *"El catálogo completo, con su categoría normativa, componente evaluador y
+  dificultad estimada, se presenta en la Tabla 23 (Sección 17.1.5.2.3)."*
+- Agregar al **final de la nota de la Tabla 23**: *"CR-01 y CR-02 constituyen el núcleo
+  obligatorio del prototipo experimental; las restantes condiciones operan como extensiones
+  condicionadas que no bloquean la aceptación del núcleo."*
+- Sin ecuaciones. Verificación: una sola tabla-catálogo de seis condiciones en todo §17.1.
+
+### E2-32 · §17.1.7.7.3 — eliminar la subsección (re-explica lo que §17.1.7.7.1 y la Tabla 33 ya dicen) · ⚠ 5 ecuaciones mueren
+
+- **Eliminar** el título *"17.1.7.7.3. Consideración sobre el razonamiento temporal"* y su único
+  párrafo ("El componente ⟦…⟧ debe distinguirse explícitamente de ⟦…⟧…"). El párrafo contiene
+  **5 objetos de ecuación** que mueren con él (contabilizados en §G).
+- **Renumerar títulos**: 17.1.7.7.4 → **17.1.7.7.3** · 17.1.7.7.5 → **17.1.7.7.4** ·
+  17.1.7.7.6 → **17.1.7.7.5**.
+- **Actualizar la única referencia interna**: en el primer párrafo de la estimación orientativa,
+  *"interpretar los umbrales de la Sección 17.1.7.7.6"* → *"…de la Sección 17.1.7.7.5"*.
+- Verificación: "razonamiento temporal" no aparece como título; "17.1.7.7.6" = 0 apariciones.
+
+### E2-33 · Distinción G2A / alerta / persistencia — dejar UNA casa canónica (§17.1.7.2) · ⚠ 1 ecuación muere
+
+La distinción está explicada en §17.1.7.2, §17.1.7.7.1, la nota de la Tabla 33, §17.1.7.7.3
+(muere por E2-32) y §17.1.7.7.4. Quedan: §17.1.7.2 (definición) + §17.1.7.7.1 (descomposición,
+intocable) + §17.1.7.7.4 (cierre operativo con símbolos).
+
+- **Eliminar el quinto párrafo de §17.1.7.2** completo: *"Bajo esta convención, G2A se entiende
+  como el subtramo instrumental… de la interpretación humana."* (párrafo de texto plano, sin
+  ecuaciones — el cierre operativo de §17.1.7.7.4 hace ese trabajo en el lugar correcto).
+- **Eliminar la última oración de la nota de la Tabla 33**: *"La inclusión explícita de ⟦…⟧
+  responde a que la latencia de alerta confirmada no se reduce al costo computacional del
+  pipeline, sino que incorpora además la ventana funcional necesaria para acumular evidencia
+  suficiente antes de registrar una alerta interna."* (⚠ contiene **1 ecuación**, muere con ella;
+  la idea ya está en la fila de la propia tabla y en §17.1.7.7.1).
+- El resto de §17.1.7.2 (párrafos 1–4) **no se toca**.
+
+### E2-34 · §17.1.3.2 — el motor de patrones se cuenta una vez
+
+El segundo párrafo de §17.1.3.2 describe entradas y funciones del motor casi igual que
+§17.1.5.3.4 (su casa de desarrollo).
+
+- **Reemplazar** el segundo párrafo de §17.1.3.2 ("En términos operativos, esta evaluación
+  corresponde al motor de patrones… puede registrarse una alerta interna dentro del sistema.")
+  por: *"En términos operativos, esta evaluación corresponde al motor de patrones, entendido como
+  una abstracción lógica del plano de control que aplica criterios de persistencia, severidad,
+  histéresis y lógica espacial o contextual sobre los eventos de detección. Sólo cuando un patrón
+  alcanza el estado confirmado puede registrarse una alerta interna dentro del sistema; su
+  operacionalización se desarrolla en la Sección 17.1.5.3.4."*
+- Los párrafos primero y tercero de §17.1.3.2 y la Tabla 18 **no se tocan**.
+
+### E2-35 · §17.1.5.3.2 — comprimir las enumeraciones normativas (los artículos ya viven en la Tabla 24) · ⚠ conservar la frase final del párrafo crítico
+
+Los tres párrafos de nivel repiten en prosa los artículos del Decreto 911/96 que la columna
+"Perfil temporal del riesgo" de la Tabla 24 ya lleva por patrón. **Las definiciones de cada nivel
+(primera oración) y las frases de cierre quedan verbatim; sólo se comprime la narración de
+artículos.**
+
+- Párrafo del **nivel crítico**: conservar la primera oración y la última (*"En ambos casos, la
+  exposición observada… dentro del framework evaluativo."* — ⚠ esta última contiene **un objeto de
+  ecuación** entre "TTFD y" y "dentro": se conserva tal cual). Reemplazar el tramo intermedio por:
+  *"El Decreto 911/96 establece las medidas de prevención frente al riesgo de caída de personas y
+  los trabajos con riesgo de caída a distinto nivel (arts. 52 a 57), y regula la operación de
+  vehículos y maquinaria automotriz junto con la protección frente a la circulación vehicular
+  —señalización, vallado, equipos de alta visibilidad, vigías— (arts. 246 a 249)."*
+- Párrafo del **nivel alto**: conservar primera oración y las dos últimas ("La ausencia de casco…"
+  y "En esa misma lógica…"). Reemplazar el tramo intermedio por: *"El Decreto 911/96 regula la
+  provisión, uso, condiciones y vida útil de los equipos de protección personal y la vestimenta de
+  trabajo (arts. 98 a 106), y la provisión de casco de seguridad para tareas con riesgos
+  específicos (art. 107)."*
+- Párrafo del **nivel medio**: conservar primera y última oración. Reemplazar el tramo intermedio
+  por: *"La obligación de emplear elementos reflectivos o de alta visibilidad se vincula con los
+  trabajos nocturnos y con la construcción de carreteras en uso (Decreto 911/96, arts. 63 y 70), y
+  puede complementarse con la Resolución SRT 299/2011 sobre registración y constancia de entrega
+  de ropa de trabajo y EPP."*
+- El párrafo introductorio, el segundo párrafo y el párrafo final de la subsección no se tocan.
+
+### E2-36 · §17.1.11.2 — eliminar los seis párrafos en negrita (la articulación está contada tres veces)
+
+Tabla 16, §17.1.11.1 y §17.1.11.2 narran lo mismo. Quedan: el primer párrafo de §17.1.11.2 y el
+párrafo puente ("Esta consolidación distribuye sus salidas…" — ⚠ contiene 2 ecuaciones, **no se
+toca**).
+
+- **Eliminar** los seis párrafos que arrancan en negrita: **Alcance experimental consolidado** ·
+  **Escenarios e infraestructura** · **Estrategia de datos y partición** · **Framework de métricas
+  y registro** · **Regla de adaptación al dominio** · **Supuestos y riesgos de validez** (desde
+  *"**Alcance experimental consolidado**. Establece la frontera inicial…"* hasta *"…sin reemplazar
+  la supervisión humana ni asumir decisiones operativas automáticas."*).
+- **Rescatar el cierre** agregando como párrafo final de §17.1.11.2: *"Estas definiciones
+  preservan el carácter experimental del trabajo y mantienen la orientación central del proyecto:
+  evaluar si la detección open-vocabulary puede integrarse como herramienta asistiva útil para el
+  monitoreo de condiciones de riesgo en construcción civil, sin reemplazar la supervisión humana
+  ni asumir decisiones operativas automáticas."*
+- Sin ecuaciones en lo eliminado.
+
+### E2-37 · Síntesis parciales — que sinteticen, no que re-desarrollen · ⚠ 1 ecuación muere
+
+**En §17.1.6.5** (comentario C20):
+- Reemplazar el párrafo *"La partición de datos se rige por cinco reglas obligatorias…"* por la
+  frase: *"La partición de datos se rige por las condiciones metodológicas obligatorias de la
+  Tabla 28."*
+- **Eliminar** el párrafo *"Para las condiciones brechadas, la política de datos complementarios
+  sigue un orden de preferencia conservador…"* (duplica §17.1.6.2.6 completo).
+- El primer párrafo, la Tabla 31 con su nota y los párrafos de benchmarks y de sobre-declaración
+  **quedan**.
+
+**En §17.1.7.9**:
+- Reemplazar el segundo párrafo (*"La jerarquía de métricas no implica…"*) por: *"La jerarquía no
+  implica ejecución universal: cada métrica queda subordinada a los criterios de ejecutabilidad de
+  la Sección 17.1.7.3.3, por lo que el protocolo distingue entre métricas definidas, métricas
+  efectivamente medibles y métricas no aplicables."*
+- Del párrafo posterior a la Tabla 34 (*"La latencia operativa principal es ⟦…⟧, definida como el
+  intervalo…"*): **conservar sólo la primera oración** (hasta *"…registrada dentro del sistema."*)
+  y eliminar el resto (⚠ el resto contiene **1 ecuación**, muere; su contenido está en
+  §17.1.7.5.1).
+- **Eliminar** el párrafo siguiente completo (*"TTFD mide el tiempo hasta la primera detección
+  positiva válida… sin continuidad temporal."* — re-define lo que §17.1.7.5.2/.5.3 ya definieron).
+- **Eliminar** el último párrafo de la subsección (*"Además del framework de métricas, cada
+  ejecución deberá conservar una bitácora mínima…"* — duplica §17.1.7.8.4). El párrafo anterior
+  ("Finalmente, todo reporte experimental deberá conservar trazabilidad mínima…") **queda**.
+- El primer párrafo (con las citas Everingham/Lin/Bernardin/Ristani/Luiten/Yao) **queda intacto**:
+  tras la baja de las ex-tablas D.1/D.2 es la casa de esas citas.
+
+### E2-38 · Disclaimers repetidos — dos recortes quirúrgicos
+
+- §17.1.5.3.3, cuarto párrafo (*"Conviene precisar que estos rangos tienen carácter analítico y
+  orientativo…"*): reemplazar el párrafo completo por la frase *"Estos rangos tienen carácter
+  analítico; los valores definitivos se calibran empíricamente durante la validación experimental,
+  una vez conocido el throughput efectivo."*
+- §17.1.5.3.4, última oración del último párrafo (*"Con esta delimitación, se busca cerrar la
+  brecha entre patrón conceptual y evaluación en runtime, hasta que queden completamente definidas
+  en el diseño arquitectónico."* — además de repetida, es agramatical): reemplazar por *"Con esta
+  delimitación se cierra la brecha entre el patrón conceptual y su evaluación en runtime."*
+- La declaración general de §17.1.5.3 (intro) y la de la apertura de §17.1 **quedan**: son las
+  casas del disclaimer.
+
+### E2-39 · §17.1.5.3.6 — PR-05/PR-06 a criterios conceptuales (el detalle de materialización es de la instancia de diseño, como declara §17.1.5.3.7)
+
+- **Reemplazar** el párrafo de PR-05 (*"PR-05 — maquinaria en proximidad a peatones. La activación
+  requiere…"*) por: *"PR-05 — maquinaria en proximidad a peatones. La activación requiere la
+  detección simultánea de al menos una entidad clasificable como maquinaria de obra —por ejemplo,
+  excavadora, retroexcavadora, camión volquete o grúa— y al menos una persona, cuyas detecciones
+  presenten una relación de proximidad inferior a un umbral configurable. Toda métrica de
+  proximidad calculada en coordenadas de imagen debe interpretarse como una medida geométrica 2D
+  aproximada y no como una distancia física real, dado que la perspectiva de cámara altera las
+  distancias aparentes. La evaluación debe sostenerse durante el intervalo de persistencia
+  definido para el patrón, lo que exige trayectorias suficientemente estables de las entidades
+  involucradas. La selección de puntos representativos de las detecciones y de la métrica
+  geométrica concreta corresponde a la instancia de análisis y diseño arquitectónico."*
+- **Reemplazar** el párrafo de PR-06 (*"PR-06 — persona en zona restringida. La activación
+  requiere…"*) por: *"PR-06 — persona en zona restringida. La activación requiere la detección de
+  al menos una persona cuya posición representativa se encuentre contenida dentro de un polígono
+  predefinido que representa la zona restringida. El polígono forma parte de la parametrización
+  del sistema —configurable por el operador, externo al prompt OVD— y presupone una cámara fija,
+  supuesto adoptado para el alcance del prototipo experimental. La permanencia debe sostenerse
+  durante el intervalo de persistencia, lo que implica seguimiento temporal cuando la persistencia
+  se compute por entidad individual. El mecanismo de definición de polígonos y la lógica de
+  contención corresponden a la instancia de análisis y diseño arquitectónico."*
+- El párrafo introductorio y el párrafo final (dependencia del MOT, ID switches) **quedan**.
+
+### E2-40 · §17.1.5.1 — introducción sin re-desarrollo (comentario C12)
+
+- **Reemplazar los dos primeros párrafos** por uno solo: *"La presente sección responde a la
+  pregunta rectora P-E1-02 definida en la fundamentación teórica, que dejó abierta la brecha entre
+  la identificación normativa de condiciones de riesgo y su traducción en consultas textuales
+  evaluables por modelos de detección open-vocabulary, y señaló que la formulación del prompt no
+  es un detalle accesorio sino una variable capaz de alterar significativamente el desempeño del
+  detector en dominios especializados. Sobre esa base, la sección define la taxonomía de
+  condiciones de riesgo del prototipo experimental, establece los patrones de riesgo asociados con
+  severidad y persistencia orientativa, y fija un protocolo sistemático para el diseño y la
+  evaluación de prompts OVD. En articulación con el framework de métricas, delimita además cómo
+  esas definiciones deben leerse respecto de la latencia de alerta, las métricas operativas y los
+  criterios de aplicación del framework evaluativo."*
+- El tercer párrafo ("El alcance de la sección es metodológico…") **queda intacto**.
+
+### E2-41 · §17.1.4 — fusionar los seis títulos-muñón (comentarios C0–C4, C6–C9) · ⚠ prosa verbatim
+
+Seis subsecciones de 1–2 líneas cuyo único cuerpo es la remisión al Anexo B. **La prosa se mueve
+sin cambiar una palabra; sólo desaparecen los títulos.** Las remisiones a las Tablas B.1–B.7
+quedan inline (el Anexo B no se toca).
+
+- Título *"17.1.4.2.4. Stack de software de inferencia (CPN)"*: mover su párrafo al final de
+  §17.1.4.2.1 (tras la remisión a B.1/B.3) y eliminar el título.
+- Títulos *"17.1.4.3.1. Training Node (TN)"*, *"17.1.4.3.2. Stack de software de entrenamiento
+  (TN)"* y *"17.1.4.3.3. Flujo de transferencia y evaluación"*: mover sus tres párrafos, en ese
+  orden, como párrafos 3–5 del cuerpo de §17.1.4.3 y eliminar los tres títulos.
+- Títulos *"17.1.4.5.1. Parámetros de referencia del pipeline"* y *"17.1.4.5.2. Transporte de
+  video en el escenario B"*: mover sus dos párrafos como párrafos 2–3 del cuerpo de §17.1.4.5 y
+  eliminar ambos títulos.
+- **Ningún otro número de sección cambia** (`17.1.4.4` y `17.1.4.6` conservan su número).
+- Verificación: −6 títulos; "17.1.4.2.4" = 0 · "17.1.4.3.1" = 0 · "17.1.4.5.1" = 0; las 7
+  remisiones a B.1–B.7 siguen presentes.
+
+### E2-42 · Gramática — seis reparaciones exactas (verificadas en el XML)
+
+| # | Dónde | Buscar | Reemplazar por |
+|---|---|---|---|
+| 1 | §17.1.5.3.3 | "una vez conocido el tasa de cuadros real" | "una vez conocida la tasa de cuadros real" |
+| 2 | Nota de la Tabla 24 | "basada en el análisis normativo de la el Decreto 911/96 y la Ley 19.587" | "basada en el análisis normativo del Decreto 911/96 y la Ley 19.587" |
+| 3 | §17.1.6.1.2 | "corresponde al análisis de el análisis de modelos OVD" | "corresponde al análisis de modelos OVD" |
+| 4 | §17.1.7.4.2 | "desarrolladas en la el análisis de seguimiento multiobjeto" | "desarrolladas en el análisis de seguimiento multiobjeto" |
+| 5 | §17.1.7.7.5 | "Por un lado, la el análisis de operación en tiempo real identifica" | "Por un lado, el análisis de operación en tiempo real identifica" |
+| 6 | §17.1.7.7.5 | "por otro, la el análisis de modelos OVD documenta" | "por otro, el análisis de modelos OVD documenta" |
+
+Verificación: `" la el "` = 0 · `"de el análisis"` = 0 · `"el tasa"` = 0.
+
+### E2-43 · Tabla 21 — la cifra 50–250 ms no sale de ninguna suma del propio documento
+
+La fila atribuye "50–250 ms" al framework de métricas, pero el framework deriva 30–220 ms para
+G2A estricto y 35–250 ms para el tramo captura→evidencia utilizable (§17.1.7.7.5). El 50–250 no
+existe en ningún otro lugar del informe (verificado). Se alinea a la banda que el framework sí
+deriva:
+
+- Fila de la Tabla 21: celda 1 *"Presupuesto de latencia G2A de 50–250 ms"* → *"Presupuesto de
+  latencia por cuadro, desde la captura hasta la evidencia utilizable para alerta, del orden de
+  35–250 ms"*; celda 2 *"el framework de métricas"* → *"El framework de métricas (Sección
+  17.1.7.7)"*. La celda de implicación no cambia.
+- Verificación: "50–250" = 0 apariciones.
+
+### E2-44 · §17.1.5.5 — quitar la meta-referencia al versionado del propio documento
+
+- *"Esta aclaración reemplaza formulaciones más difusas de la versión anterior y deja explícito
+  qué variable se está midiendo cuando se habla del “tamaño” o de la “composición” del
+  vocabulario."* → *"Esta aclaración deja explícito qué variable se mide cuando se habla del
+  “tamaño” o de la “composición” del vocabulario."*
+- Verificación: "versión anterior" = 0.
+
+### E2-45 · §17.1.7.7.5 (renumerada .4 por E2-32) — partir el párrafo de ~450 palabras · ⚠ SOLO saltos de párrafo
+
+Insertar tres saltos de párrafo, **sin cambiar ni una palabra ni tocar ecuaciones**, antes de:
+1. *"Para ⟦…⟧, un rango de 5 a 20 ms constituye una estimación de ingeniería **razonable** para
+   operaciones de redimensionado…"* (el tramo de preprocesamiento).
+2. *"Para ⟦…⟧, conviene tratar el rango de 15 a 150 ms como una banda orientativa…"* (el tramo de
+   inferencia).
+3. *"Para ⟦…⟧, un rango de 5 a 20 ms constituye una estimación **conservadora y plausible** para
+   trackers ligeros…"* (el tramo de seguimiento — ojo: hay dos oraciones que empiezan con "un
+   rango de 5 a 20 ms"; se distinguen por "razonable" vs. "conservadora").
+
+### E2-46 · Fine-tuning en los escenarios — condicionar, no restringir (D-P3-3; comentario C5)
+
+- §17.1.4.4, última oración del párrafo introductorio: *"En ambos escenarios, la evaluación
+  contempla la ejecución tanto de modelos preentrenados (baseline) como de modelos ajustados
+  mediante fine-tuning en el TN (Sección 17.1.9), permitiendo una comparación directa del impacto
+  de la adaptación al dominio."* → *"En ambos escenarios, la evaluación contempla la ejecución de
+  los modelos preentrenados (baseline) y, cuando una variante ajustada haya sido adoptada conforme
+  a las condiciones de la Sección 17.1.9, de los modelos ajustados mediante fine-tuning en el TN,
+  permitiendo una comparación directa del impacto de la adaptación al dominio."*
+- §17.1.4.4.2, última oración del párrafo: *"Al igual que en el Escenario A, se ejecutan las
+  variantes preentrenada y fine-tuned de cada modelo candidato seleccionado tras la evaluación del
+  Escenario A."* → *"Al igual que en el Escenario A, se ejecuta la variante preentrenada y, cuando
+  haya sido adoptada conforme a la Sección 17.1.9, la variante fine-tuned del modelo candidato
+  seleccionado tras la evaluación del Escenario A."*
+- Tabla 20, fila "Modelos evaluados": *"Variante preentrenada (baseline) y variante fine-tuned,
+  sobre el modelo o combinación seleccionada tras el Escenario A."* → *"Variante preentrenada
+  (baseline) y, cuando corresponda conforme a la Sección 17.1.9, variante fine-tuned, sobre el
+  modelo o combinación seleccionada tras el Escenario A."*
+- La fila equivalente de la Tabla 19 ya dice "cuando aplique": **no se toca**.
+
+### E2-47 · Remisiones a los Anexos C y D — actualizar a la composición final (D-P3-5; el contenido está en `90g`)
+
+Numeración final de anexos: **Anexo C = C.1 (prompts) · C.2 (variables EBE) · C.3 (logística,
+ex-C.5 reescrita)** · **Anexo D = D.1 (ex-D.3, pipeline) · D.2 (ex-D.5, insumos) · D.3 (ex-D.6,
+bitácora)**.
+
+| Dónde | Acción |
+|---|---|
+| §17.1.7.4.1 | **Eliminar** la oración *"Pueden verse estas métricas en la Tabla D.1 del Anexo D."* (la ex-D.1 se elimina; su único aporte —las citas— vive en el primer párrafo de §17.1.7.9). |
+| §17.1.7.4.2 | **Eliminar** la oración *"El análisis de las métricas de seguimiento multiobjeto puede verse en la Tabla D.2 del Anexo D."* (ídem; el resto del apartado NO se toca). |
+| §17.1.7.4.3 | *"…queda desarrollado en la Tabla D.3 del Anexo D."* → *"…queda desarrollado en la Tabla D.1 del Anexo D."* |
+| §17.1.7.7.6 (→.5) | *"Una lista de los umbrales orientativos por severidad puede verse en la Tabla D.4 del Anexo D."* → *"Los umbrales orientativos consolidados se presentan en la Tabla 35 (Sección 17.1.7.9)."* (E2-48 renumera "Tabla 35" junto con todo lo demás). |
+| §17.1.7.8.1 | *"Esto se desarrolla de manera más sintética en la Tabla D.5 del Anexo D."* → *"Los insumos mínimos por familia de métricas se consolidan en la Tabla D.2 del Anexo D."* |
+| §17.1.7.8.4 | Agregar al final del primer párrafo: *"El detalle de campos recomendados se consolida en la Tabla D.3 del Anexo D."* (la ex-D.6 estaba huérfana). |
+| §17.1.6.4.2 | *"Esto puede verse en detalle en la Tabla C.5 del Anexo C."* → *"La logística de conversión y acceso por fuente se detalla en la Tabla C.3 del Anexo C."* |
+| §17.1.4.4.2 | Agregar al final del párrafo (tras la oración condicionada por E2-46): *"Las variables de sensibilidad candidatas para este escenario se catalogan en la Tabla C.2 del Anexo C."* (la C.2 estaba huérfana). |
+| §17.1.5.4.4 | La remisión al *"Anexo C (Tabla C.1)"* **queda tal cual**. |
+
+Verificación: "Tabla D.4" = 0 · "Tabla D.5" = 0 · "Tabla D.6" = 0 · "Tabla C.5" = 0 · "Tabla C.4"
+= 0; "Tabla C.1" … "Tabla D.3" = 1 remisión cada una en el cuerpo (tras E2-49 cada nombre queda
+2 veces en el documento: la remisión + su rótulo en el anexo).
+
+### E2-48 · Renumeración final de tablas — 16–36 contiguas (D-P3-2) · SE APLICA AL FINAL
+
+Con las Tablas 17 y 22 eliminadas, renumerar **rótulos y referencias textuales**:
+
+| Vieja | Nueva | · | Vieja | Nueva | · | Vieja | Nueva |
+|---|---|---|---|---|---|---|---|
+| 16 | 16 | | 25 | 23 | | 32 | 30 |
+| 18 | 17 | | 26 | 24 | | 33 | 31 |
+| 19 | 18 | | 27 | 25 | | 34 | 32 |
+| 20 | 19 | | 28 | 26 | | 35 | 33 |
+| 21 | 20 | | 29 | 27 | | 36 | 34 |
+| 23 | 21 | | 30 | 28 | | 37 | 35 |
+| 24 | 22 | | 31 | 29 | | 38 | 36 |
+
+Referencias textuales a actualizar (además de los 21 rótulos):
+- *"Las restricciones detalladas en la Tabla 21"* (§17.1.4.6) → Tabla 20.
+- *"La Tabla 23 presenta las seis condiciones…"* (§17.1.5.2.3) → Tabla 21.
+- *"del catálogo (Tabla 23)"* (§17.1.5.4.2) → (Tabla 21).
+- *"el catálogo de condiciones de riesgo clasificado por niveles de complejidad (Tabla 23)"* y
+  *"el catálogo de patrones con severidad y persistencia temporal orientativa (Tabla 24)"*
+  (§17.1.5.3.7) → (Tabla 21) y (Tabla 22).
+- *"La Tabla 24 presenta el catálogo de patrones…"* (§17.1.5.3.5) → Tabla 22.
+- *"conserva el estatuto y la causa resumidos en la Tabla 27"* (§17.1.6.4.1) → Tabla 25.
+- *"La Tabla 29 sintetiza la aptitud metodológica…"* (§17.1.6.2.8) → Tabla 27.
+- Las frases **nuevas** de E2-31 ("…Tabla 23 (Sección 17.1.5.2.3)"), E2-37 ("…Tabla 28") y E2-47
+  ("…Tabla 35 (Sección 17.1.7.9)") se renumeran igual que todo lo demás → Tabla 21, Tabla 26 y
+  Tabla 33 respectivamente.
+
+Verificación: rótulos contiguos "Tabla 16" … "Tabla 36" sin huecos; "Tabla 37" = 0 y "Tabla 38" =
+0; ninguna referencia textual apunta a un número sin rótulo.
+
+### E2-50 · Voz del documento: lo que remite a una sección que existe deja de sonar "a definir" (D-P3-9) · SE APLICA ANTES DE E2-48
+
+**El problema, medido.** §17.1 se escribió cuando §17.3/§17.4/§17.5 no existían, y arrastra 15
+pasajes que enmarcan como *obligación futura* algo que hoy vive en una sección escrita del mismo
+informe ("la instancia de análisis y diseño arquitectónico **deberá** materializar…"). Leído junto
+con §17.4/§17.5 —que tienen **cero** de estas formulaciones (verificado)— el capítulo suena a
+trabajo sin terminar. El propio documento ya usa la forma correcta **6 veces**
+("*corresponde a* la instancia de análisis y diseño arquitectónico"), así que esto es **unificar
+una voz que ya convive**, no inventar una nueva.
+
+**⚠ La regla NO es "sacar todo lo que remita a etapas posteriores".** Hay tres tipos de futuro en
+§17.1 y **sólo uno se toca**:
+
+| Tipo | Ejemplo | Qué se hace |
+|---|---|---|
+| **A. Remisión a algo que sí se desarrolla después** | "la instancia … **deberá** traducir esta definición en componentes" | ✅ **Presente**: "…traduce esta definición en componentes". Se cambia el **tiempo verbal y el encuadre**, nunca se agrega el contenido de la definición (eso sería anacronismo). |
+| **B. Prescripción normativa del protocolo** | "Toda corrida **deberá** declarar modelo, versión, checkpoint…" · "toda métrica no ejecutada **deberá** declararse con su causa" | ⛔ **NO SE TOCA.** Son ~25 de los 41 `deberá`: es la voz de un protocolo, no una promesa pendiente. Tocarlas destruye §17.1.7.8. |
+| **C. Diferido a algo que nunca ocurrió** | "Su análisis de cobertura queda **diferido a etapas posteriores**" (calzado, guantes, gafas) | ⚠ **No** convertir en "se ve más adelante" —sería **falso**—: se convierte en **delimitación de alcance**. |
+
+**Reemplazos exactos (12 sitios):**
+
+| # | § | Ahora | Queda |
+|---|---|---|---|
+| 1 | 17.1.1.1 | "la transición entre la fundamentación teórica y las instancias posteriores de diseño, implementación y validación" | "la transición entre la fundamentación teórica y las instancias de diseño, implementación y validación" |
+| 2 | 17.1.4.6 | "condicionan las decisiones de diseño de etapas posteriores y deben tenerse presentes" | "condicionan las decisiones del diseño arquitectónico y de la implementación, y deben tenerse presentes" |
+| 3 | 17.1.5.3.3 | "La instancia de análisis y diseño arquitectónico tomará estos rangos como referencia para diseñar los mecanismos computacionales de evaluación de persistencia." | "Estos rangos son la referencia con la que la instancia de análisis y diseño arquitectónico define los mecanismos computacionales de evaluación de persistencia." |
+| 4 | 17.1.5.3.3 | "Un aspecto adicional que la instancia de análisis y diseño arquitectónico deberá considerar es el comportamiento de histéresis" | "Un aspecto adicional, que se retoma en la instancia de análisis y diseño arquitectónico, es el comportamiento de histéresis" |
+| 5 | 17.1.5.3.4 | "La instancia de análisis y diseño arquitectónico deberá traducir esta definición en componentes, contratos, eventos y configuraciones concretas; la implementación del prototipo deberá materializarla; y la validación experimental deberá calibrar empíricamente sus umbrales, ventanas e histéresis." | "La instancia de análisis y diseño arquitectónico traduce esta definición en componentes, contratos, eventos y configuraciones concretas; la implementación del prototipo la materializa; y la validación experimental calibra empíricamente sus umbrales, ventanas e histéresis." |
+| 6 | 17.1.5.3.7 | "Sobre esa base, la instancia de análisis y diseño arquitectónico deberá materializar el esquema declarativo de patrones" | "Sobre esa base, la instancia de análisis y diseño arquitectónico materializa el esquema declarativo de patrones" |
+| 7 | 17.1.5.3.7 | "En particular, deberá definir cómo se traducen los criterios conceptuales en reglas operativas configurables" | "En particular, allí se define cómo se traducen los criterios conceptuales en reglas operativas configurables" |
+| 8 | 17.1.5.4.2 | "La instancia de análisis y diseño arquitectónico deberá materializar la lógica de asociación espacial requerida por la estrategia indirecta y determinar si su costo" | "La instancia de análisis y diseño arquitectónico materializa la lógica de asociación espacial requerida por la estrategia indirecta y determina si su costo" |
+| 9 | 17.1.5.5 | "Por ello, la instancia de análisis y diseño arquitectónico deberá contrastar familias de prompts antes de congelar la configuración comparativa final." | "Por ello, el contraste entre familias de prompts precede al congelamiento de la configuración comparativa final en la instancia de análisis y diseño arquitectónico." |
+| 10 | 17.1.6.1.2 | "Su análisis de cobertura queda diferido a etapas posteriores, en caso de que se decida ampliar el conjunto de condiciones evaluadas." | "Su análisis de cobertura queda fuera del alcance de esta instancia y sólo correspondería si se ampliara el conjunto de condiciones evaluadas." |
+| 11 | 17.1.6.4.1 | "En consecuencia, la instancia de análisis y diseño arquitectónico deberá verificar manualmente los términos efectivos de cada fuente" | "En consecuencia, la instancia de análisis y diseño arquitectónico verifica manualmente los términos efectivos de cada fuente" |
+| 12 | 17.1.6.3.2 | "la validación del dominio específico se mantiene separada y deberá realizarse sobre los datos del proyecto" | "la validación del dominio específico se mantiene separada y se realiza sobre los datos del proyecto" |
+
+⚠ **Coordinación con otras unidades**: el sitio 5 está en el mismo párrafo que E2-38 (que reescribe
+su **última** oración) — son oraciones distintas, se aplican las dos. Los sitios 2 y 10 citan
+"Tabla 21" y texto que E2-48 renumera: **por eso E2-50 se aplica ANTES de E2-48**. El párrafo de
+PR-06 que contenía "debe diseñar tanto el mecanismo de definición de polígonos" ya lo reescribe
+**E2-39** con la forma neutra ("corresponden a"): **no se toca dos veces**.
+
+**Deliberadamente NO se tocan** (son correctos y su cambio introduciría falsedad o rompería la voz
+del protocolo): los ~25 `deberá`/`deberán` cuyo sujeto es una corrida, un reporte, una métrica, la
+instrumentación o la bitácora · los `podrá` que expresan **permiso** del protocolo ("podrá
+apartarse de ese esquema si justifica la decisión", "podrá establecer valores iniciales
+configurables") · los `todavía` que expresan correctamente que **esta** instancia no decide algo
+("la retención no asigna **todavía** un rol definitivo", "sin asignar **todavía** un rol efectivo",
+"No define **todavía** la combinación definitiva de datasets") · el condicional de lo
+**pre-registrado y no ejercido** (MOT17/OVT-B, prompts en español, doble anotación y kappa, datos
+complementarios para CR-03/CR-04): **no puede decirse que "se define más adelante", porque no
+ocurrió** — se mantiene como protocolo y §17.5 lo reporta como no ejercido (D-E2-6) · el
+`[[PENDIENTE]]` de la AAIP, que **sí** es una decisión abierta del equipo (D-E2-7).
+
+**Verificación:** "etapas posteriores" = 0 · "instancias posteriores" = 0 · "queda diferido" = 0 ·
+las apariciones de `deberá` (que incluyen `deberán`) bajan de **41 a ~33**: caen sólo las de
+remisión — **si baja de 30, se tocó prescripción normativa y hay que revisar** · "corresponde/n a
+la instancia de análisis" ≥ 6 · los `todavía` siguen siendo **7**.
+
+### E2-49 · Anexar los Anexos C y D al final del documento (D-P3-8) · ÚLTIMO PASO
+
+El contenido completo y final está en **`90g-etapa2-anexos-c-y-d.md`** (adjunto junto con este
+pase), secciones *"Contenido final del Anexo C (pegar tal cual)"* y *"Contenido final del Anexo D
+(pegar tal cual)"*.
+
+- **Dónde**: después del último párrafo de §17.1.11.2 (tras el párrafo de cierre agregado por
+  E2-36).
+- **Encabezados**: *"Anexo C — Prompts, datos, datasets, benchmarks y logística"* y *"Anexo D —
+  Métricas, instrumentación y bitácora experimental"*, **sin número** y con el **mismo estilo de
+  encabezado que el título "17.1. Consolidación metodológica del protocolo experimental"** (la
+  numeración 19.3/19.4 es del maestro y se asigna al integrar).
+- **Contenido**: 3 tablas en C (C.1 · C.2 · C.3) y 3 en D (D.1 · D.2 · D.3), exactamente como
+  vienen en `90g` — rótulo `**Tabla C.1**` en negrita, título de tabla en itálica, `*Nota.*` en
+  itálica. Los nombres de métrica dentro de las tablas del anexo van como **texto plano**
+  (t_alert-system, latencia G2A…), igual que TTFD y SDR — la unificación con los objetos de
+  ecuación del cuerpo es del pase de integración.
+- ⚠ **No inventar ni completar nada**: si algo del `90g` no puede reproducirse tal cual, se
+  reporta en la entrega en lugar de improvisar.
+- Verificación: el documento cierra con los dos anexos; 3 rótulos `Tabla C.x` + 3 `Tabla D.x`;
+  cada tabla de anexo queda con exactamente 2 apariciones de su nombre en el documento (la
+  remisión de E2-47 en el cuerpo + su rótulo en el anexo); cero `Tabla C.4`/`C.5`/`D.4`/`D.5`/
+  `D.6`; `bench_obra` = 0.
+
+---
+
+## D. Lo que este pase deliberadamente NO hace
+
+- **No** poda el catálogo CR-01…CR-06 ni ninguna condición (D-P3-7).
+- **No** corrige el protocolo contra lo implementado: el rango 500–2.000, MOT17/OVT-B, la
+  estimación de latencia y las promesas no ejercidas quedan como protocolo; §17.5 las reporta.
+- **No** fusiona las Tablas 23 y 24 ni toca su contenido.
+- **No** edita el Anexo B (sano: 7/7 tablas referenciadas, verificado pieza a pieza en PODA-14).
+- **No** resuelve el `[[PENDIENTE]]` de la AAIP (decisión del equipo, D-E1-11).
+- **No** toca los comentarios del `.docx` (los resuelve el usuario con el mapa §F).
+
+## E. Anexos C y D
+
+El contenido final completo, con las tablas reescritas y las razones de cada baja, está en
+**`90g-etapa2-anexos-c-y-d.md`** (D-E2-1 ejecutada y refinada; D-P3-5). Por **D-P3-8**, los
+anexos **se anexan al final del documento de la etapa** (unidad E2-49, con el `90g` adjunto);
+al integrar al maestro, el equipo los muda a §19.3/§19.4. A ChatGPT le corresponden E2-47
+(remisiones del cuerpo) y E2-49 (anexado).
+
+## F. Mapa de los 27 comentarios del usuario en el `.docx` → resolución
+
+| Comentario (ancla) | Resolución |
+|---|---|
+| C0, C1 (Tablas B.1/B.2/B.3, §17.1.4.2.1/.2.3) | Anexo B queda como está; remisiones inline tras E2-41. |
+| C2, C3, C4, C6, C7 (Tablas B.3–B.7, muñones) | **E2-41** — los títulos-muñón se fusionan; las remisiones quedan. |
+| C5 (limitar FT a datasets) | **E2-46** (D-P3-3): se condiciona a la adopción conforme a §17.1.9; no se restringe a DBE (no-anacronismo). |
+| C8, C9 (subsecciones chicas / qué vuelve del anexo) | **E2-41** + veredicto D-P3-5/D-P3-8: del Anexo B no vuelve nada; los Anexos C y D se reducen y viajan al final del documento (90g + E2-49). |
+| C10 (presupuesto G2A vs implementado) | **E2-43**: se corrige la incoherencia **interna** (50–250 no suma con el propio framework). La confrontación con lo medido es de §17.5. |
+| C11 (§17.1.4.7 repetitivo) | **E2-30** — la sección se elimina entera. |
+| C12 (§17.1.5.1 más breve) | **E2-40**. |
+| C13 (§17.1.5.3.3 más breve) | **E2-38** (y E2-33 quita una repetición vecina). |
+| C14, C15 (Tabla C.1 / Anexo C) | **90g + E2-49** + D-P3-4: C.1 queda como ancla del Anexo C reducido, que ahora viaja al final del documento; §17.1.5.4.4 la sigue citando. |
+| C16, C17, C18 (anacronismos en §17.1.6) | Verificado: sin anacronismos duros; el pase 2 ya blindó la rama. Residual "Versión registrada" queda fichado para la integración. **Sin unidad.** |
+| C19 (Tabla C.5) | **90g** (C.5 → C.3, reescrita para las 4 retenidas) + **E2-47/E2-49**. |
+| C20 (síntesis §17.1.6.5) | **E2-37** — la Tabla 31 queda; la prosa duplicada cae. |
+| C21, C22 (Tablas D.1/D.2) | **90g** (se eliminan) + **E2-47**. |
+| C23 (Tabla D.3) | **90g** (se conserva como D.1) + **E2-47/E2-49**. |
+| C24 (¿estimación válida?) | **D-P3-6**: se mantiene — es protocolo ex-ante con sus disclaimers correctos; sólo se parte el párrafo (**E2-45**). |
+| C25 (Tabla D.4) | **90g** (se elimina: ≡ Tabla 35) + **E2-47**. |
+| C26 (Tabla D.5) | **90g** (fila "Alerta" duplicada fusionada; queda como D.2) + **E2-47/E2-49**. |
+
+## G. Verificación de cierre (targets de la v1.4)
+
+| Métrica | Partida | Target | Cómo |
+|---|---|---|---|
+| Palabras | 28.564 | **~28.400–29.000** = ~26,0–26,5k del desarrollo (sin cuota: si una unidad no cierra limpia, se deja constancia y no se fuerza) + ~2,4k de los anexos (E2-49) | verificador |
+| Títulos numerados | 117 | **109** (−8: §17.1.4.7, §17.1.7.7.3 y los 6 muñones; los 2 encabezados de anexo van SIN número y no cuentan) | verificador |
+| Tablas | 23 (16–38) | **21 numeradas (16–36 contiguas) + 6 de anexo (C.1–C.3, D.1–D.3)** | grep de rótulos |
+| Ecuaciones OMML | 85 | **78** (−7: 5 en E2-32, 1 en E2-33, 1 en E2-37 — ninguna otra unidad puede matar una ecuación; los anexos usan nombres en texto, no agregan objetos) | conteo `m:oMath` en el XML |
+| Marcadores | 1 (`[[PENDIENTE]]` AAIP) | 1 | grep |
+| Greps en cero | — | `" la el "` · `"de el análisis"` · `"el tasa"` · `"50–250"` · `"versión anterior"` · `"17.1.7.7.6"` · `"Tabla 37"` · `"Tabla 38"` · `"Tabla C.4"` · `"Tabla C.5"` · `"Tabla D.4"` · `"Tabla D.5"` · `"Tabla D.6"` · **`"etapas posteriores"` · `"instancias posteriores"` · `"queda diferido"`** | extracción |
+| Voz (E2-50) | `deberá` 41 · `todavía` 7 | **`deberá` ~33** (no menos de 30: por debajo se tocó prescripción normativa) · **`todavía` 7 intacto** | grep |
+| Verificador | OK | OK, sin problemas duros | `verificar_entregable.py --seccion 17.1` |
+| Diff | — | párrafo a párrafo contra `90f` (2026-08-31): cada bloque cambiado se atribuye a una unidad E2-30…E2-50 | como en el pase 2 |
+
+## H. Handoffs que este pase deja registrados
+
+1. **Pase de integración final**: renumeración **global** de tablas del informe — §17.1 entrega
+   16–36, así que las tablas de §17.3 en adelante (hoy 39–55) corren −2 al integrar. Nada que
+   hacer ahora; queda anotado.
+2. **§17.3 v1.4 → v1.5**: sigue pendiente el recorte de la glosa de §17.3.6.4 (E3-42, ya
+   registrado). Este pase **no agrega** ningún handoff numérico hacia §17.3/§17.4/§17.5
+   (verificado: cero acoplamiento por número de tabla).
+2-bis. **D-P3-9 aplicada al resto del informe** (medido el 2026-08-31, es un criterio de casa, no
+   sólo de §17.1): **§15+§16 = 7 sitios** — "deberán abordarse durante el diseño", "deberá
+   abordarse como parte del diseño experimental en la etapa 2", "se abordarán en etapas
+   posteriores", "etapas posteriores del proyecto en las que se definirán los patrones de
+   consulta"; el colega que trabaja la Etapa 1 ya lo detectó y es su pase. **§17.3 = 3 sitios**
+   (`deberá`), a resolver cuando se abra la v1.5. **§17.4 y §17.5 = 0** (verificado): ya están
+   escritas en la voz correcta, y por eso el desfase se nota al leer el capítulo completo.
+   La excepción de la regla vale igual en todas: no convertir en "se define más adelante" lo que
+   nunca se ejerció.
+3. **Equipo**: al integrar al maestro, **mudar los Anexos C y D del final del documento a
+   §19.3/§19.4** (el contenido ya queda final por E2-49; sólo cambia de lugar y recibe la
+   numeración del maestro). D-E1-11/AAIP sigue abierta.
+4. **Usuario**: resolver los 27 comentarios en Google Docs con el mapa §F, una vez aplicado el
+   pase; nombrar la salida **v1.4** y archivar la v1.3.
+5. **Derivados, tras aplicar** (misma rutina que el cierre del pase 2): re-extraer `90f` de la
+   v1.4 · regenerar el kit y actualizar en el generador (a) los conteos del texto base y (b) las
+   menciones del estado vigente a la **numeración vieja de tablas** ("Tabla 28 de §17.1" → 26;
+   "Tabla 26 de §17.1" → 24) · actualizar la lista de `.docx` vigentes en
+   `INSTRUCCIONES-PROJECT.md` (hoy dice "§17.1 v1.3") · escribir el resumen del pase en
+   `resumen-cambios-etapa-2.md` o su hermano.
 
 ---
 
 ## Fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2.md`
 
 > SHA-256 del bloque: `482bb8e3839a11f4e2627e892256c90b44c4497ae8916b7662e19a527eb9be46`  
-> Seleccion: EL PASE DE LA ETAPA 2 (2026-08-28): comentarios E2-01..E2-26 y decisiones D-E2-1..9. **YA APLICADO Y VERIFICADO** en el documento de trabajo v1.3 (misma jornada; constancia en `correcciones-etapa-2-pase-2.md`) - **NO volver a aplicarlo**. Sigue rigiendo como criterio de lectura y manda sobre las fichas AJ-2.xx donde las precisa o corrige.
+> Seleccion: EL PASE 1 DE LA ETAPA 2 (2026-08-28): comentarios E2-01..E2-26 y decisiones D-E2-1..9. **YA APLICADO Y VERIFICADO** en el documento de trabajo v1.3 (misma jornada; constancia en `correcciones-etapa-2-pase-2.md`) - **NO volver a aplicarlo**. Sigue rigiendo como criterio de lectura y manda sobre las fichas AJ-2.xx donde las precisa o corrige.
 
 # Correcciones de la Etapa 2 — §17.1 Consolidación Metodológica (pase 1, 2026-08-28)
 
@@ -768,13 +2415,13 @@ grep -cE 'E-DIR|16\.7\.3|4\.000|estado observable por persona|bootstrap|re-alert
 
 ## Fuente: `docs/informe/entregable/90f-etapa2-texto-extraido.md`
 
-> SHA-256 del bloque: `9ee4291e50bf6eb74d688bdb0764a35ac082502db0734dc539386f75f06b12b6`  
-> Seleccion: TEXTO BASE VIGENTE de la seccion 17.1: extraido del documento de trabajo `E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx` (2026-08-28), con el pase E2-01..E2-26 y el pase de formato F1-F6 **YA APLICADOS Y VERIFICADOS** (28.534 palabras, 118 titulos, verificador OK). No cambiar una palabra de fondo sin un pase nuevo explicito. El 96b (v1.1 sin correcciones) queda como foto historica fuera del paquete. Las ecuaciones de Word aparecen como ⟦ECUACIÓN⟧: no son erratas.
+> SHA-256 del bloque: `d2e39c2cab97a4697b9f32e6a9823e599e492778af3ec4c5db3523d4f372f1dc`  
+> Seleccion: TEXTO BASE VIGENTE de la seccion 17.1: extraido el 2026-09-01 de la **v1.7 FINAL Y LIMPIA** (26.440 palabras, 106 titulos, 20 tablas 16-35, 76 ecuaciones, CERO marcas de revision y los 27 comentarios marcados como resueltos), con los SEIS pases **APLICADOS Y VERIFICADOS** (el 6: desacople normativo, 2026-09-01). ⚠ la extraccion corta en los anexos (encabezados sin numero): los Anexos C y D viven AL FINAL del .docx vigente y su contenido esta en 90g. No cambiar una palabra de fondo sin un pase nuevo explicito. El 96b (v1.1) queda como foto historica fuera del paquete. Las ecuaciones de Word aparecen como ⟦ECUACIÓN⟧: no son erratas.
 
-# 90f — Texto extraído del documento de trabajo: §17.1 Consolidación Metodológica (v1.3)
+# 90f — Texto extraído del documento de trabajo: §17.1 Consolidación Metodológica (v1.7, pase 6 de desacople normativo aplicado)
 
-> **Extracción derivada (2026-08-28)** del `.docx`
-> `informe/entregable/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx`, **solo para búsqueda y cita**
+> **Extracción derivada (2026-09-01)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.7.docx`, **solo para búsqueda y cita**
 > (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
 > este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
 > extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
@@ -782,8 +2429,6 @@ grep -cE 'E-DIR|16\.7\.3|4\.000|estado observable por persona|bootstrap|re-alert
 > `herramientas/extraer_informe.py` (regla D-C del manual de aplicación).
 
 ---
-
-## 17. Desarrollo del producto
 
 ### 17.1. Consolidación metodológica del protocolo experimental
 
@@ -795,40 +2440,15 @@ Esta instancia no implementa el pipeline ni reporta resultados empíricos. Estab
 
 #### 17.1.1. Función y alcance de la consolidación metodológica
 
-##### 17.1.1.1. Función metodológica dentro del trabajo
+El criterio rector prioriza la validez experimental, la trazabilidad y la correspondencia entre alcance, datos disponibles e instrumentación efectiva. El núcleo obligatorio del prototipo se ubica en las condiciones de Nivel 1 —CR-01 y CR-02—, donde convergen observabilidad visual, cobertura de datos, estrategias de evaluación defendibles y métricas aplicables con el hardware disponible; las condiciones de Niveles 2 y 3 se conservan como extensiones condicionadas, debido a brechas de datos, visibilidad y razonamiento contextual.
 
-La función principal de esta parte del trabajo es ordenar la transición entre la fundamentación teórica y las instancias posteriores de diseño, implementación y validación. Para ello, la consolidación metodológica no se limita a enumerar componentes técnicos, sino que define el modo en que esos componentes serán evaluados, comparados e interpretados dentro del alcance experimental declarado.
-
-El criterio rector prioriza la validez experimental, la trazabilidad y la correspondencia entre alcance, datos disponibles e instrumentación efectiva. El núcleo obligatorio del prototipo se ubica en las condiciones de Nivel 1 —CR-01 y CR-02—, donde convergen observabilidad visual, cobertura de datos, estrategias de evaluación defendibles y métricas aplicables con el hardware disponible. Las condiciones de Niveles 2 y 3 se conservan como extensiones condicionadas, debido a brechas de datos, visibilidad y razonamiento contextual.
-
-A partir de ese criterio, se fija una secuencia experimental integrada: comparación primaria en Dataset-Based Evaluation (DBE), validación complementaria en Environment-Based Evaluation (EBE), reglas de partición sin leakage, política de formulación y congelamiento de prompts, jerarquía de métricas orientada al valor operativo de alerta y criterios para habilitar una rama comparativa de fine-tuning.
-
-El resultado es un marco de trabajo que ordena el diseño, la implementación y la validación del prototipo, y que permite comparar variantes, medir desempeño e interpretar la evidencia bajo criterios consistentes.
-
-##### 17.1.1.2. Articulación entre los desarrollos metodológicos
-
-La consolidación metodológica se apoya en cuatro dimensiones temáticas. La primera caracteriza la infraestructura, los escenarios y las restricciones de ejecución; la segunda define el catálogo de condiciones, sus niveles de complejidad y la política de prompts; la tercera establece cobertura, brechas y reglas de partición de datos; y la cuarta organiza la evidencia mínima que el prototipo deberá producir.
-
-La integración de estas dimensiones permite ordenar una cadena de decisión: primero se delimita qué debe construir el prototipo y bajo qué restricciones; luego se establece cómo será medido; finalmente se fijan los criterios de interpretación de la evidencia. Esta lógica evita tratar los componentes por separado y concentra las definiciones metodológicas que estructuran la continuidad del proyecto.
-
-**Tabla 16**
-
-*Articulación entre las dimensiones metodológicas de la consolidación experimental*
-
-| **Dimensión metodológica** | **Aporte principal** | **Decisión consolidada** |
-| --- | --- | --- |
-| Entorno experimental | Define CPN, EN, TN, escenarios DBE y EBE, y restricciones de hardware y software. | Ubica la viabilidad operativa en el CPN, separa entrenamiento de inferencia y formaliza el rol metodológico de cada escenario. |
-| Condiciones de riesgo y prompts | Organiza las condiciones de riesgo por niveles de complejidad y fija el protocolo de prompts. | Delimita el núcleo obligatorio del prototipo en condiciones de detección directa de Nivel 1 y ordena el resto del catálogo como extensión condicionada. |
-| Datasets y benchmarks | Elabora un inventario de datasets, benchmarks, cobertura por condición y reglas de partición. | Determina qué condiciones tienen soporte suficiente para evaluación directa, qué módulos requieren benchmarks externos y qué brechas exigen prudencia metodológica. |
-| Framework de métricas | Jerarquiza métricas, define latencia de alerta, fija niveles de compromiso y establece criterios de ejecutabilidad experimental. | Establece la evidencia mínima del prototipo y separa métricas obligatorias, deseables y conceptuales según el alcance implementado. |
-
-*Nota.* La tabla resume cómo cada dimensión metodológica aporta una parte del protocolo experimental integrado y qué decisión transversal queda consolidada para la continuidad del proyecto.
+A partir de ese criterio se fija una secuencia experimental integrada —comparación primaria en Dataset-Based Evaluation (DBE), validación complementaria en Environment-Based Evaluation (EBE), reglas de partición sin leakage, política de formulación y congelamiento de prompts, jerarquía de métricas orientada al valor operativo de alerta y criterios para habilitar una rama comparativa de fine-tuning—, organizada sobre cuatro dimensiones temáticas: el entorno experimental, las condiciones de riesgo y su protocolo de prompts, la estrategia de datos y el framework de métricas.
 
 #### 17.1.2. Alcance experimental consolidado del prototipo
 
 ##### 17.1.2.1. Delimitación del catálogo de condiciones de riesgo
 
-El catálogo retenido comprende seis condiciones de riesgo organizadas en tres niveles de complejidad. La decisión principal es distinguir entre el catálogo metodológico completo y el núcleo obligatorio de validación: CR-01 y CR-02 constituyen el plano mínimo del prototipo, porque son condiciones de detección directa de Nivel 1 derivadas del marco de seguridad laboral y construcción (Decreto N.º 911/1996, 1996; Ley N.º 19.587, 1972).
+El catálogo retenido comprende seis condiciones de riesgo organizadas en tres niveles de complejidad. La decisión principal es distinguir entre el catálogo metodológico completo y el núcleo obligatorio de validación: CR-01 y CR-02 constituyen el plano mínimo del prototipo, porque son condiciones de detección directa de Nivel 1 cuya relevancia preventiva, observabilidad y evaluabilidad están fundamentadas en la sección 16.2.
 
 Esa priorización se justifica porque ambas reúnen observabilidad visual relativa, estrategias de detección directa o indirecta ya definidas, cobertura de datos suficiente y métricas aplicables sin depender de módulos todavía no implementados. CR-03 y CR-04 conservan relevancia, pero dependen de visibilidad fina, ausencia visual y datos complementarios; CR-05 y CR-06 orientan la arquitectura relacional, aunque su evaluación completa requiere persistencia temporal, regiones externas o razonamiento contextual. Esta cautela es consistente con la evidencia sobre dificultades de los modelos OVD ante atributos finos y dominios especializados de construcción (Bianchi et al., 2024; Abdalwhab et al., 2025).
 
@@ -836,22 +2456,7 @@ Esa priorización se justifica porque ambas reúnen observabilidad visual relati
 
 La distinción entre núcleo obligatorio y extensión condicionada no elimina condiciones del catálogo. Explicita el nivel de compromiso que esta instancia puede sostener con los datos, la instrumentación y la complejidad disponible. En consecuencia, la aceptación mínima del prototipo no depende de un desempeño uniforme sobre las seis condiciones, sino de demostrar funcionamiento defendible sobre el núcleo obligatorio y de producir evidencia parcial o exploratoria sobre las extensiones condicionadas cuando la arquitectura y los datos lo permitan.
 
-El catálogo completo conserva valor directivo, pero la validación se concentra en aquello que puede medirse con rigor. Esta decisión permite preservar la coherencia entre objetivo experimental, cobertura de datos, complejidad técnica y capacidad real de instrumentación.
-
-**Tabla 17**
-
-*Catálogo consolidado de condiciones de riesgo y rol experimental*
-
-| **Código y condición** | **Nivel** | **Evidencia visual dominante** | **Módulos requeridos** | **Rol metodológico** |
-| --- | --- | --- | --- | --- |
-| CR-01 - Persona sin casco | 1 | Presencia o ausencia de casco en región cefálica. | OVD cuadro a cuadro; estrategia directa o indirecta. | Núcleo obligatorio del prototipo experimental; condición prioritaria para comparación y aceptación. |
-| CR-02 - Persona sin chaleco reflectivo | 1 | Presencia o ausencia de prenda de alta visibilidad en torso. | OVD cuadro a cuadro; estrategia directa o indirecta. | Núcleo obligatorio del prototipo experimental; condición prioritaria para comparación y aceptación. |
-| CR-03 - Persona en posición elevada sin sistema anticaídas visible | 2 | Persona sobre estructura elevada y ausencia visible de arnés o línea de vida. | OVD + reglas espaciales intracuadro. | Condición exploratoria y condicionada a datos complementarios y visibilidad suficiente. |
-| CR-04 - Borde elevado desprotegido con personas próximas | 2 | Borde sin protección colectiva y proximidad humana. | OVD + reglas espaciales intracuadro. | Condición exploratoria y condicionada; no bloquea la aceptación del núcleo del prototipo. |
-| CR-05 - Maquinaria en operación cerca de peatones | 3 | Co-ocurrencia de maquinaria y personas bajo distancia de seguridad. | OVD + MOT + razonamiento contextual. | Extensión condicionada a módulo relacional y datos contextuales adecuados. |
-| CR-06 - Persona dentro de zona restringida | 3 | Persona dentro de un área previamente parametrizada como restringida. | OVD + MOT + región de interés fija. | Extensión condicionada; requiere cámara fija o parametrización espacial externa al prompt. |
-
-*Nota.* La distinción entre núcleo obligatorio y extensión condicionada no elimina condiciones del catálogo. Explicita el nivel de compromiso que esta instancia puede sostener con los datos, la instrumentación y la complejidad disponible.
+El catálogo completo conserva valor directivo, pero la validación se concentra en aquello que puede medirse con rigor. Esta decisión permite preservar la coherencia entre objetivo experimental, cobertura de datos, complejidad técnica y capacidad real de instrumentación. El catálogo completo, con su tipo de condición, componente evaluador y dificultad estimada, se presenta en la Tabla 20 (Sección 17.1.5.2.3).
 
 #### 17.1.3. Diseño metodológico general y lógica de escenarios
 
@@ -863,19 +2468,17 @@ El protocolo adopta como unidad de análisis el patrón de riesgo confirmado y n
 
 A partir de esa unidad de análisis, el protocolo asume una cadena operativa mínima entre percepción, evaluación y respuesta asistiva. En dicha cadena, las detecciones producidas por el modelo OVD funcionan como evidencia primaria, pero no constituyen por sí mismas una alerta. Para que una alerta sea considerada válida dentro del sistema, la evidencia debe ser agrupada, evaluada y confirmada como patrón de riesgo según los criterios definidos para cada condición.
 
-En términos operativos, esta evaluación corresponde al motor de patrones, entendido en esta instancia como una abstracción lógica del plano de control. Este componente recibe eventos de detección normalizados, información de seguimiento cuando exista, configuración de prompts y reglas de patrón; aplica criterios de persistencia, severidad, histéresis y lógica espacial o contextual; y emite cambios de estado del patrón. Sólo cuando un patrón alcanza el estado confirmado puede registrarse una alerta interna dentro del sistema.
-
-De manera sintética, el flujo operativo se organiza como detección OVD, publicación de evento de detección, evaluación por el motor de patrones, confirmación del patrón, registro de alerta, disponibilidad de la alerta para consulta o notificación, e interpretación por parte del supervisor humano. Esta secuencia permite vincular la medición experimental con una lógica de ejecución trazable, sin atribuir al sistema una capacidad autónoma de decisión sobre el cumplimiento normativo o la gestión efectiva de la obra.
+En términos operativos, esta evaluación corresponde al motor de patrones, entendido como una abstracción lógica del plano de control que aplica criterios de persistencia, severidad, histéresis y lógica espacial o contextual sobre los eventos de detección. Sólo cuando un patrón alcanza el estado confirmado puede registrarse una alerta interna dentro del sistema; su operacionalización se desarrolla en la Sección 17.1.5.3.4.
 
 ##### 17.1.3.3. Escenarios de evaluación
 
-Sobre esa base, la evaluación se organiza en dos escenarios complementarios. El Escenario A, o Dataset-Based Evaluation (DBE), funciona como ámbito primario de comparación controlada, repetible y cuantificable. El Escenario B, o Environment-Based Evaluation (EBE), añade una validación de plausibilidad operativa sobre captura continua en entorno simulado o controlado. La relación entre ambos no es de reemplazo: el DBE aporta comparabilidad metodológica, mientras que el EBE permite observar el comportamiento integrado del pipeline en condiciones más próximas al uso previsto.
+Sobre esa base, la evaluación se organiza en dos escenarios complementarios —el Escenario A o Dataset-Based Evaluation (DBE), ámbito primario de comparación controlada y repetible, y el Escenario B o Environment-Based Evaluation (EBE), validación de plausibilidad operativa sobre captura continua—, cuya relación no es de reemplazo; su caracterización completa se desarrolla en la Sección 17.1.4.4.
 
 La secuencia de pruebas se estructura de manera progresiva. Parte de una condición base controlada, continúa con barridos univariados o de baja combinación sobre la configuración retenida y culmina con una prueba de mayor exigencia aplicada a la mejor configuración disponible. Este esquema permite acotar la complejidad experimental, evitar un diseño factorial inmanejable y, al mismo tiempo, conservar capacidad analítica para observar la sensibilidad del sistema frente a variables relevantes.
 
 ##### 17.1.3.4. Decisiones estructurales del diseño metodológico
 
-**Tabla 18**
+**Tabla 16**
 
 *Decisiones estructurales del diseño metodológico*
 
@@ -896,13 +2499,13 @@ La secuencia de pruebas se estructura de manera progresiva. Parte de una condici
 
 ##### 17.1.4.1. Introducción y alcance
 
-La presente sección documenta el entorno experimental sobre el cual se desarrolla y evalúa la plataforma E-OVRT-VDP. Su función es caracterizar de manera integrada la infraestructura de cómputo disponible para inferencia y entrenamiento, el stack probable de software asociado, los escenarios de evaluación definidos para el proyecto y las condiciones operativas propias de cada escenario. La información aquí formalizada responde a la pregunta rectora P-E1-04 definida en la fundamentación teórica, que indaga por las restricciones del entorno de ejecución —capacidad computacional, protocolos de transmisión y presupuesto de procesamiento— que condicionan las decisiones arquitectónicas del prototipo. Asimismo, la definición de los escenarios de evaluación establece las condiciones concretas bajo las cuales se ejercitará el prototipo y delimita el referente experimental de la presente sección.
+El entorno experimental comprende la infraestructura de cómputo disponible para inferencia y entrenamiento, el stack de software asociado, los escenarios de evaluación definidos para el proyecto y las condiciones operativas propias de cada escenario. Su caracterización responde a la pregunta rectora P-E1-04 de la fundamentación teórica: las restricciones del entorno de ejecución —capacidad computacional, protocolos de transmisión y presupuesto de procesamiento— que condicionan las decisiones arquitectónicas del prototipo. Los escenarios de evaluación establecen, además, las condiciones concretas bajo las cuales se ejercita el prototipo.
 
 ##### 17.1.4.2. Infraestructura de evaluación
 
 La infraestructura de evaluación se organiza a partir de nodos funcionales. En este trabajo, un nodo representa un rol dentro del entorno experimental: procesamiento central, captura en borde o entrenamiento/adaptación de modelos. Cada rol puede materializarse mediante uno o más dispositivos concretos según la disponibilidad, el escenario de evaluación y la configuración efectiva de la corrida.
 
-Bajo este criterio, el Central Processing Node (CPN) concentra la ejecución del pipeline principal, la inferencia, la evaluación de patrones, la medición de latencia y la consolidación de resultados experimentales. El Edge Node (EN) se ubica próximo a la fuente visual y se orienta a captura, transmisión de video y eventual preprocesamiento liviano. El Training Node (TN), cuando corresponda, se reserva para tareas de ajuste o preparación de variantes de modelo, sin sustituir la evaluación operativa sobre el CPN.
+Bajo este criterio, el Central Processing Node (CPN) concentra la ejecución del pipeline principal, la inferencia, la evaluación de patrones, la medición de latencia y la consolidación de resultados experimentales. El Edge Node (EN) se ubica próximo a la fuente visual y se orienta a captura, transmisión de video y eventual preprocesamiento liviano. El Training Node (TN), cuando corresponda, se reserva para tareas de ajuste o preparación de variantes de modelo, sin sustituir la evaluación operativa sobre el CPN. Las conclusiones sobre viabilidad operativa —tiempo real, latencia y uso de recursos— se anclan en el CPN.
 
 ###### 17.1.4.2.1. Central Processing Node (CPN)
 
@@ -911,6 +2514,8 @@ El CPN concentra la lectura o recepción de cuadros, la inferencia open-vocabula
 Este rol se materializa sobre una laptop HP Victus 15 Gaming 15-FB2024LA con GPU NVIDIA GeForce RTX 4060 Laptop y 8 GB de VRAM, recurso que delimita el tamaño de modelo, la resolución de inferencia, la precisión numérica y el presupuesto de latencia. El entorno de ejecución adoptado es Linux mediante WSL2 sobre el equipo descrito y contenedores Linux, por compatibilidad con el stack de inferencia y el bus de datos (HP Inc., s. f.).
 
 Las especificaciones completas del CPN y del entorno de software se presentan en las Tablas B.1 y B.3 del Anexo B.
+
+El stack del CPN debe ser compatible con los frameworks oficiales de Grounding DINO y YOLOE, con aceleración sobre GPU NVIDIA y con rutas reproducibles de inferencia. Las librerías, versiones y runtimes candidatos se documentan en la Tabla B.3 del Anexo B (Liu et al., 2023; Wang et al., 2025).
 
 ###### 17.1.4.2.2. Implicancias del NVDEC para el pipeline de medios
 
@@ -926,41 +2531,27 @@ Ambas fuentes deben producir unidades visuales comparables para el CPN y registr
 
 Las especificaciones del dispositivo de captura y su conectividad se detallan en la Tabla B.2 del Anexo B.
 
-###### 17.1.4.2.4. Criterio de prioridad y fuente RTSP sintética
-
-La fuente RTSP sintética, generada a partir de material pregrabado mediante un servidor de medios, se reserva para desarrollo, pruebas de integración y reproducción controlada de una misma entrada por las rutas DBE y EBE. No constituye una fuente experimental independiente ni sustituye la captura del entorno físico.
-
-###### 17.1.4.2.5. Stack de software de inferencia (CPN)
-
-El stack del CPN debe ser compatible con los frameworks oficiales de Grounding DINO y YOLOE, con aceleración sobre GPU NVIDIA y con rutas reproducibles de inferencia. Las librerías, versiones y runtimes candidatos se documentan en la Tabla B.3 del Anexo B (Liu et al., 2023; Wang et al., 2025).
-
 ##### 17.1.4.3. Adaptación de modelos al dominio
 
 Los modelos OVD candidatos se evalúan tanto en su variante preentrenada (baseline zero-shot) como en una variante ajustada mediante fine-tuning supervisado sobre datos del dominio de construcción o similar. El fine-tuning es un proceso preparatorio previo a la ejecución de los escenarios de evaluación; los pesos resultantes se transfieren al CPN para su evaluación bajo las mismas condiciones de hardware, garantizando una comparación justa.
 
 La incorporación del fine-tuning como experimento comparativo responde a la pregunta rectora P-E1-08. El alcance del prototipo experimental excluye el entrenamiento desde cero; el fine-tuning supervisado sobre un subconjunto acotado de datos del dominio es una forma de adaptación compatible con esta restricción.
 
-###### 17.1.4.3.1. Training Node (TN)
-
 El TN se materializa mediante el clúster institucional Mendieta del CCAD-UNC, reservado para preparación y ajuste de variantes. Su capacidad no sustituye la evaluación operativa sobre el CPN; las especificaciones del recurso se presentan en la Tabla B.4 del Anexo B (Centro de Computación de Alto Desempeño, 2026).
 
-###### 17.1.4.3.2. Stack de software de entrenamiento (TN)
-
 El entorno del TN debe permitir preparación de datos, entrenamiento reproducible, conservación de checkpoints y exportación hacia el runtime del CPN. La configuración candidata se resume en la Tabla B.5 del Anexo B.
-
-###### 17.1.4.3.3. Flujo de transferencia y evaluación
 
 El TN queda fuera del camino de inferencia evaluado. Prepara variantes sobre particiones previamente definidas, exporta los checkpoints en un formato compatible y entrega esos artefactos al CPN, donde deben compararse con la baseline bajo el mismo material y la misma configuración experimental, salvo la variable aislada.
 
 ##### 17.1.4.4. Escenarios de evaluación
 
-Se definen dos escenarios de evaluación complementarios. El primero permite la evaluación controlada y reproducible del pipeline mediante datasets de referencia públicos; el segundo expone el sistema a condiciones visuales representativas del dominio real mediante video en tiempo real captado en un entorno físico. Ambos escenarios son necesarios dado que el primero habilita la comparación cuantitativa entre variantes de modelo y, cuando el dataset y el protocolo lo permitan, el contraste con métricas reportadas en la literatura, mientras que el segundo valida la viabilidad operativa bajo condiciones que ningún dataset puede replicar completamente. En ambos escenarios, la evaluación contempla la ejecución tanto de modelos preentrenados (baseline) como de modelos ajustados mediante fine-tuning en el TN (Sección 17.1.9), permitiendo una comparación directa del impacto de la adaptación al dominio.
+Se definen dos escenarios de evaluación complementarios. El primero permite la evaluación controlada y reproducible del pipeline mediante datasets de referencia públicos; el segundo expone el sistema a condiciones visuales representativas del dominio real mediante video en tiempo real captado en un entorno físico. Ambos escenarios son necesarios dado que el primero habilita la comparación cuantitativa entre variantes de modelo y, cuando el dataset y el protocolo lo permitan, el contraste con métricas reportadas en la literatura, mientras que el segundo valida la viabilidad operativa bajo condiciones que ningún dataset puede replicar completamente. En ambos escenarios, la evaluación contempla la ejecución de los modelos preentrenados (baseline) y, cuando una variante ajustada haya sido adoptada conforme a las condiciones de la Sección 17.1.9, de los modelos ajustados mediante fine-tuning en el TN, permitiendo una comparación directa del impacto de la adaptación al dominio.
 
 ###### 17.1.4.4.1. Escenario A - Dataset-Based Evaluation (DBE)
 
 En este escenario el pipeline procesa material de imagen o video proveniente de datasets públicos de referencia. La ausencia de condiciones en tiempo real permite reproducibilidad exacta, aislamiento de variables y, cuando el dataset y el protocolo de evaluación coincidan con los de la fuente de referencia, contraste con métricas reportadas en la literatura. Constituye el escenario primario para la evaluación cuantitativa de los componentes OVD y MOT del pipeline, tanto en su variante preentrenada como en la variante ajustada por fine-tuning. Los datasets candidatos se documentan en la estrategia de datos, benchmarks y partición.
 
-**Tabla 19**
+**Tabla 17**
 
 *Características del Escenario A - Dataset-Based Evaluation (DBE)*
 
@@ -976,9 +2567,9 @@ En este escenario el pipeline procesa material de imagen o video proveniente de 
 
 ###### 17.1.4.4.2. Escenario B - Environment-Based Evaluation (EBE)
 
-En este escenario el pipeline opera sobre video en tiempo real captado en un espacio de obra simulado. Este escenario valida la viabilidad operativa del sistema bajo condiciones visuales y de conectividad representativas del dominio real, incluyendo variaciones de iluminación, oclusiones y densidad de personas en escena. A diferencia del Escenario A, el pipeline se ejercita de extremo a extremo, incluyendo las etapas de captura y transporte de video, y permite evaluar el comportamiento del motor de razonamiento temporal bajo condiciones de operación continua. Al igual que en el Escenario A, se ejecutan las variantes preentrenada y fine-tuned de cada modelo candidato seleccionado tras la evaluación del Escenario A.
+En este escenario el pipeline opera sobre video en tiempo real captado en un espacio de obra simulado. Este escenario valida la viabilidad operativa del sistema bajo condiciones visuales y de conectividad representativas del dominio real, incluyendo variaciones de iluminación, oclusiones y densidad de personas en escena. A diferencia del Escenario A, el pipeline se ejercita de extremo a extremo, incluyendo las etapas de captura y transporte de video, y permite evaluar el comportamiento del motor de razonamiento temporal bajo condiciones de operación continua. Al igual que en el Escenario A, se ejecuta la variante preentrenada y, cuando haya sido adoptada conforme a la Sección 17.1.9, la variante fine-tuned del modelo candidato seleccionado tras la evaluación del Escenario A. Las variables de sensibilidad candidatas para este escenario se catalogan en la Tabla C.2 del Anexo C.
 
-**Tabla 20**
+**Tabla 18**
 
 *Características del Escenario B - Environment-Based Evaluation (EBE)*
 
@@ -986,31 +2577,27 @@ En este escenario el pipeline opera sobre video en tiempo real captado en un esp
 | --- | --- |
 | Tipo de entrada | Video en vivo desde el EN mediante cámara IP por RTSP o captura directa con OAK-D Pro PoE. La fuente RTSP sintética se reserva para desarrollo y reproducibilidad. |
 | Espacio físico | Espacio de obra simulado. |
-| Participantes | Personas reales portando EPP (casco, chaleco reflectante, entre otros); configuración de escenas con y sin infracción deliberada. |
+| Participantes | Personas reales portando EPP (casco, chaleco reflectante, entre otros); configuración de escenas con y sin las condiciones observables objetivo. |
 | Condiciones visuales | Variables según la configuración de prueba prevista para la validación experimental, definidas en función del diseño experimental del escenario y de las condiciones operativas que se establezcan para su evaluación. |
 | Nodo de ejecución | CPN para inferencia central; EN para captura y, sólo como variante condicionada, preprocesamiento liviano. |
-| Modelos evaluados | Variante preentrenada (baseline) y variante fine-tuned, sobre el modelo o combinación seleccionada tras el Escenario A. |
+| Modelos evaluados | Variante preentrenada (baseline) y, cuando corresponda conforme a la Sección 17.1.9, variante fine-tuned, sobre el modelo o combinación seleccionada tras el Escenario A. |
 | Conectividad | Red LAN. |
 | Ventaja principal | Validación operativa bajo condiciones del dominio; ejercita el pipeline completo de extremo a extremo incluyendo transporte de video y motor de razonamiento temporal. |
-| Limitación principal | Menor reproducibilidad que el Escenario A; requiere gestión de consentimiento libre, expreso e informado e información previa a los participantes, conforme al régimen de protección de datos personales y videovigilancia aplicable (Argentina, 2000; Disposición 10/2015, 2015). |
+| Limitación principal | Menor reproducibilidad que el Escenario A; requiere gestión de consentimiento informado e información previa a los participantes, conforme a las salvaguardas de la Sección 17.1.10.1. |
 
 ##### 17.1.4.5. Parámetros operativos de referencia
 
 Los parámetros operativos de referencia establecen una base inicial para orientar la evaluación del pipeline experimental. No constituyen valores definitivos de configuración, sino condiciones de partida que permiten delimitar resolución, tasa de cuadros, modalidad de transporte, procesamiento esperado y restricciones generales de ejecución. Su función es ofrecer un marco común para comparar pruebas posteriores y evitar que cada experimento se defina de manera aislada.
 
-###### 17.1.4.5.1. Parámetros de referencia del pipeline
-
 Los parámetros operativos se documentan por perfil. En particular, la resolución de inferencia es un parámetro del perfil de modelo y debe fijarse junto con los umbrales recalibrados para ese perfil; no se adopta una resolución única para todas las familias. Los restantes valores orientativos se presentan en la Tabla B.6 del Anexo B.
-
-###### 17.1.4.5.2. Transporte de video en el escenario B
 
 En el EBE, la captura y el procesamiento pueden ubicarse en nodos distintos. El protocolo exige declarar fuente, transporte, buffering y anclas temporales para distinguir la latencia de adquisición de la latencia algorítmica. La topología de referencia se presenta en la Tabla B.7 del Anexo B.
 
 ##### 17.1.4.6. Restricciones y condicionantes del entorno experimental
 
-Las restricciones detalladas en la Tabla 21 condicionan las decisiones de diseño de etapas posteriores y deben tenerse presentes al interpretar los resultados experimentales.
+Las restricciones detalladas en la Tabla 19 condicionan las decisiones del diseño arquitectónico y de la implementación, y deben tenerse presentes al interpretar los resultados experimentales.
 
-**Tabla 21**
+**Tabla 19**
 
 *Restricciones y condicionantes del entorno experimental*
 
@@ -1020,42 +2607,20 @@ Las restricciones detalladas en la Tabla 21 condicionan las decisiones de diseñ
 | Capacidad de inferencia del EN limitada a 1.4 TOPS para AI | Hardware — OAK-D Pro PoE / RVC2 | Restringe la complejidad de los modelos que pueden ejecutarse localmente; el uso del EN debe considerarse, en principio, para captura inteligente, preprocesamiento o inferencia ligera en borde. |
 | Linux mediante WSL2 y contenedores Linux en el CPN | Entorno de ejecución — CPN | Las versiones de CUDA, bibliotecas, runtimes y bus deben ser compatibles con el entorno Linux adoptado y quedar congeladas por corrida. |
 | Cobertura limitada del dominio para evaluación de seguimiento | Datasets públicos analizados en la estrategia de datos, benchmarks y partición | La evaluación MOT requiere benchmarks generales complementarios y la formalización de un protocolo de transferencia al dominio, dado que la cobertura específica del dominio para seguimiento anotado es insuficiente. |
-| Presupuesto de latencia G2A de 50–250 ms | el framework de métricas | Condiciona la selección de modelos, la resolución de entrada y la configuración de runtimes. |
+| Presupuesto de latencia por cuadro, desde la captura hasta la evidencia utilizable para alerta, del orden de 35–250 ms | El framework de métricas (Sección 17.1.7.7) | Condiciona la selección de modelos, la resolución de entrada y la configuración de runtimes. |
 | Acceso al clúster sujeto a disponibilidad institucional del recurso | Infraestructura institucional — CCAD-UNC | La planificación del ajuste debe contemplar la cola institucional, sin convertir la disponibilidad de cómputo en criterio metodológico de aceptación o descarte. |
 | Necesidad de split train/eval disjunto | Principio metodológico | Los datos utilizados para fine-tuning no pueden formar parte del conjunto de evaluación. La partición debe documentarse explícitamente. |
-| Recaudos ético-legales en el Escenario B | Ley N.º 25.326 y Disposición 10/2015 | Las pruebas con personas en el campo visual requieren consentimiento informado e información previa. El carácter académico y controlado del prototipo atenúa el perfil de riesgo, pero no elimina las obligaciones de resguardo y minimización. |
+| Recaudos ético-legales en el Escenario B | Criterios ético-legales de la sección 16.6 | Las pruebas con personas en el campo visual requieren consentimiento informado e información previa, finalidad explícita, minimización, acceso restringido y retención acotada, conforme a la Sección 17.1.10.1. |
 
-*Nota.* Elaboración propia basada en las especificaciones del hardware disponible, la caracterización del TN y del EN en la presente sección, los criterios metodológicos fijados en la estrategia de datos, benchmarks y partición y el marco normativo argentino aplicable a protección de datos personales y videovigilancia.
-
-##### 17.1.4.7. Lectura metodológica de la infraestructura operativa y sus restricciones
-
-La infraestructura del proyecto se organiza en tres nodos con roles diferenciados. El Central Processing Node (CPN) es la plataforma donde debe probarse la viabilidad operativa. El Training Node (TN), correspondiente al clúster institucional Mendieta, cumple una función acotada de entrenamiento o exportación de variantes ajustadas. El Edge Node (EN) aporta captura continua para el EBE y, sólo si la arquitectura lo justifica, preprocesamiento o inferencia ligera.
-
-La consecuencia metodológica es que las conclusiones sobre tiempo real, latencia, uso de recursos y sostenibilidad del pipeline deben anclarse en el CPN: una HP Victus 15 con RTX 4060 Laptop de 8 GB de VRAM y entorno Linux mediante WSL2 y contenedores Linux. Esta restricción orienta la selección de modelos, la resolución, la composición del vocabulario y el runtime de inferencia.
-
-**Tabla 22**
-
-*Infraestructura experimental y función metodológica de cada nodo*
-
-| **Nodo** | **Configuración relevante** | **Función metodológica** | **Lectura correcta dentro del protocolo** |
-| --- | --- | --- | --- |
-| CPN | HP Victus 15; RTX 4060 Laptop de 8 GB; 32 GB de RAM; Linux mediante WSL2 y contenedores Linux. | Inferencia, evaluación del pipeline y medición de recursos y latencia. | Es el punto donde debe defenderse la viabilidad operativa del prototipo experimental. |
-| TN | Clúster Mendieta; nodos con 2 × NVIDIA A30; Linux institucional. | Entrenamiento supervisado o exportación de variantes ajustadas, si aplica. | No sustituye la prueba operativa sobre el CPN ni redefine el presupuesto real del sistema. |
-| EN | Fuentes integrables para el EBE: cámara IP por RTSP y OAK-D Pro PoE. | Suministro de video continuo y eventual preprocesamiento o inferencia ligera. | Su función base es captura y transmisión; la inferencia liviana en borde requiere una evaluación independiente. |
-
-*Nota.* La separación entre CPN, TN y EN no es organizativa sino metodológica: define dónde se entrena, dónde se ejecuta y dónde debe interpretarse la capacidad real del prototipo.
-
-El entorno impone restricciones explícitas. La VRAM de 8 GB limita el tamaño de los modelos y el margen para lotes o vocabularios extensos; la capacidad del EN no permite suponer inferencia OVD principal sin simplificaciones; y la combinación de Linux mediante WSL2, CUDA, contenedores y runtimes acelerados introduce dependencias que deben quedar registradas en la bitácora experimental.
+*Nota.* Elaboración propia basada en las especificaciones del hardware disponible, la caracterización del TN y del EN en la presente sección, los criterios metodológicos fijados en la estrategia de datos, benchmarks y partición y los criterios ético-legales establecidos en la sección 16.6 y operacionalizados en la Sección 17.1.10.1.
 
 #### 17.1.5. Condiciones de riesgo, patrones y protocolo de prompts
 
 ##### 17.1.5.1. Introducción y alcance
 
-La fundamentación teórica del proyecto E-OVRT-VDP dejó abierta una brecha metodológica entre la identificación normativa de condiciones de riesgo relevantes para seguridad laboral y su traducción en consultas textuales evaluables por modelos de detección open-vocabulary. Junto con esa brecha, el análisis previo señaló que la formulación del prompt no constituye un detalle accesorio, sino una variable que puede alterar de manera significativa el desempeño del detector en dominios especializados.
+La taxonomía de condiciones de riesgo, los patrones asociados y el protocolo de prompts responden a la pregunta rectora P-E1-02, que dejó abierta la brecha entre la identificación de condiciones de riesgo preventivamente relevantes y su traducción en consultas textuales evaluables por modelos de detección open-vocabulary, y señaló que la formulación del prompt no es un detalle accesorio sino una variable capaz de alterar significativamente el desempeño del detector en dominios especializados. En articulación con el framework de métricas, se delimita además cómo estas definiciones deben leerse respecto de la latencia de alerta, las métricas operativas y los criterios de aplicación del framework evaluativo.
 
-En ese marco, la presente sección responde a la pregunta rectora P-E1-02 definida en la fundamentación teórica. Define la taxonomía de condiciones de riesgo que integran el alcance del prototipo experimental, establece los patrones de riesgo asociados con severidad y persistencia orientativa, y fija un protocolo sistemático para el diseño y la evaluación de prompts OVD. En articulación con el framework de métricas, la sección delimita además cómo esas definiciones conceptuales deben leerse respecto de la latencia de alerta, las métricas operativas y los criterios de aplicación del framework evaluativo.
-
-El alcance de la sección es metodológico. Establece qué condiciones deben detectarse, cómo se agrupan en patrones de riesgo, con qué severidad conceptual y criterios analíticos de persistencia se interpretan, y con qué formulaciones textuales se evaluarán. Además, incorpora una operacionalización preliminar del motor de patrones como componente lógico responsable de transformar detecciones y trayectorias en patrones candidatos, confirmados o resueltos. Esta definición no constituye todavía una implementación de software ni fija contratos técnicos finales, pero sí delimita la estructura mínima de ejecución que deberá materializarse en la instancia de análisis y diseño arquitectónico. Los umbrales cuantitativos finales de aceptación y la calibración empírica de ventanas, reglas e histéresis corresponden al framework de métricas y a la validación experimental.
+El alcance es metodológico: establece qué condiciones deben detectarse, cómo se agrupan en patrones de riesgo, con qué severidad conceptual y criterios analíticos de persistencia se interpretan, y con qué formulaciones textuales se evaluarán. Además, incorpora una operacionalización preliminar del motor de patrones como componente lógico responsable de transformar detecciones y trayectorias en patrones candidatos, confirmados o resueltos. Esta definición no constituye todavía una implementación de software ni fija contratos técnicos finales, pero sí delimita la estructura mínima de ejecución que deberá materializarse en la instancia de análisis y diseño arquitectónico. Los umbrales cuantitativos finales de aceptación y la calibración empírica de ventanas, reglas e histéresis corresponden al framework de métricas y a la validación experimental.
 
 ##### 17.1.5.2. Taxonomía de condiciones de riesgo para el prototipo
 
@@ -1063,11 +2628,11 @@ El primer paso consiste en delimitar el subconjunto de condiciones de riesgo que
 
 ###### 17.1.5.2.1. Criterios de selección del subconjunto del prototipo experimental
 
-El universo de condiciones de riesgo identificado en el análisis normativo de la fundamentación teórica abarca categorías como uso de EPP (casco, chaleco, calzado), protección contra caídas en altura, delimitación de áreas de riesgo, control de circulación con maquinaria, orden y limpieza e instalaciones eléctricas provisorias. El prototipo experimental no pretende cubrir la totalidad de ese espacio, sino seleccionar un subconjunto acotado que permita demostrar la viabilidad técnica del concepto. Con ese fin se aplican tres criterios de selección, calibrados a las restricciones reales de recursos y al contexto académico del proyecto.
+La fundamentación teórica delimita las condiciones de riesgo observables por su relevancia preventiva, su evidencia visual anotable y su formulación evaluable (sección 16.2), y señala como posibles extensiones situaciones como el trabajo en altura, las zonas restringidas o la interacción con maquinaria. El prototipo experimental no pretende cubrir ese espacio de manera exhaustiva, sino seleccionar un subconjunto acotado que permita demostrar la viabilidad técnica del concepto. Con ese fin se aplican tres criterios de selección, calibrados a las restricciones reales de recursos y al contexto académico del proyecto.
 
 **Representatividad de niveles de complejidad**. El subconjunto debe incluir al menos una condición de cada nivel de complejidad definido en la clasificación de la sección 17.1.5.2.2, de modo que la evaluación ejercite las capacidades del pipeline en sus distintas configuraciones. Este criterio es viable porque los niveles corresponden a capacidades del sistema que deben evaluarse independientemente de la cantidad de condiciones seleccionadas.
 
-**Factibilidad de detección visual**. Las condiciones seleccionadas deben tener correlatos visuales suficientemente diferenciados como para ser evaluables mediante análisis de imagen en las resoluciones y ángulos de cámara típicos de un entorno de laboratorio o simulado. Esto excluye condiciones cuya manifestación visual depende de detalles de difícil resolución (por ejemplo, la distinción entre calzado de seguridad y calzado común), así como condiciones sin correlato visual directo (por ejemplo, “capacitación insuficiente” o “plan de seguridad no elaborado”). La exclusión deliberada de condiciones de baja observabilidad evita comprometer la validez de los resultados experimentales del prototipo con limitaciones ajenas al sistema. La pertinencia de este criterio se ve reforzada por evidencia empírica reciente que muestra, por un lado, que los modelos OVD preentrenados pueden presentar limitaciones importantes para discriminar detalles finos y atributos visuales sutiles (Bianchi et al., 2024) y, por otro, que en tareas de dominio especializado en construcción su desempeño puede caer marcadamente frente a detectores ajustados al dominio (Abdalwhab et al., 2025).
+**Factibilidad de detección visual**. Las condiciones seleccionadas deben tener correlatos visuales suficientemente diferenciados como para ser evaluables mediante análisis de imagen en las resoluciones y ángulos de cámara típicos de un entorno de laboratorio o simulado. Esto excluye condiciones cuya manifestación visual depende de detalles de difícil resolución (por ejemplo, la distinción entre calzado de seguridad y calzado común), así como condiciones sin correlato visual directo (por ejemplo, “capacitación insuficiente” o “plan de seguridad no elaborado”). La exclusión deliberada de condiciones de baja observabilidad evita comprometer la validez de los resultados experimentales del prototipo con limitaciones ajenas al sistema.
 
 **Viabilidad de evaluación con recursos disponibles**. Las condiciones seleccionadas deben poder evaluarse con alguna combinación de datasets públicos existentes, subconjuntos anotados de los mismos o datos generados en entorno controlado, sin exigir campañas extensivas de recolección o anotación incompatibles con un proyecto académico. Este criterio no presupone cobertura perfecta desde el inicio, pero sí exige que la brecha entre lo disponible y lo necesario sea acotada y metodológicamente manejable.
 
@@ -1077,19 +2642,21 @@ La clasificación de las condiciones de riesgo en tres niveles de complejidad re
 
 **Condiciones de Nivel 1: Entidad simple.** Involucran la detección de un único objeto o atributo sobre una entidad. Su evaluación es resoluble, en principio, mediante una única consulta OVD sobre un cuadro individual, sin requerir información temporal ni relacional. Un ejemplo representativo es la detección de casco de seguridad sobre una persona, donde el modelo OVD recibe un prompt como “person with hard hat” o “hard hat” y debe localizar las instancias correspondientes en la imagen. La evaluación de la condición de riesgo asociada (presencia o ausencia del EPP) admite dos estrategias diferenciadas que se analizan en la Sección 17.1.5.4.
 
-**Condiciones de Nivel 2: Entidad con atributo contextual.** Estas involucran entidades sobre las cuales debe verificarse un atributo que depende de información espacial dentro del mismo cuadro. A diferencia del Nivel 1, la condición no se reduce a la detección aislada de un objeto, sino que requiere evaluar la relación espacial entre la entidad y su contexto visual inmediato. Un ejemplo es la presencia de una persona sobre una estructura elevada (andamio, plataforma), donde el modelo OVD puede detectar individualmente a la persona y a la estructura, pero la determinación de que la persona se encuentra sobre la estructura requiere un análisis de las relaciones geométricas entre las detecciones, como la superposición vertical de bounding boxes. Este análisis puede implementarse mediante lógica de post-detección que opere sobre las salidas del modelo en el mismo cuadro, por ejemplo a través de reglas geométricas de solapamiento, proximidad o posicionamiento relativo entre regiones detectadas. A diferencia del Nivel 3, este tipo de condición no exige aún persistencia temporal ni mantenimiento de identidad entre cuadros, pero sí introduce una capa adicional de razonamiento espacial intracuadro. En consecuencia, las condiciones de Nivel 2 representan un escalón intermedio de complejidad, en el que la evaluabilidad depende tanto de la calidad de la detección de entidades como de la solidez de las reglas espaciales definidas para interpretar su relación contextual.
+**Condiciones de Nivel 2: Entidad con atributo contextual.** Estas involucran entidades sobre las cuales debe verificarse un atributo que depende de información espacial dentro del mismo cuadro. A diferencia del Nivel 1, la condición no se reduce a la detección aislada de un objeto, sino que requiere evaluar la relación espacial entre la entidad y su contexto visual inmediato. Un ejemplo es la presencia de una persona sobre una estructura elevada (andamio, plataforma), donde el modelo OVD puede detectar individualmente a la persona y a la estructura, pero la determinación de que la persona se encuentra sobre la estructura requiere un análisis de las relaciones geométricas entre las detecciones, como la superposición vertical de bounding boxes.
+
+Este análisis puede implementarse mediante lógica de post-detección que opere sobre las salidas del modelo en el mismo cuadro, por ejemplo a través de reglas geométricas de solapamiento, proximidad o posicionamiento relativo entre regiones detectadas. A diferencia del Nivel 3, este tipo de condición no exige aún persistencia temporal ni mantenimiento de identidad entre cuadros, pero sí introduce una capa adicional de razonamiento espacial intracuadro.
 
 **Condiciones de Nivel 3: Relación entre entidades.** Por último, estas condiciones involucran dos o más entidades independientes cuya co-ocurrencia espacial o temporal constituye la condición de riesgo. Estas condiciones exceden la capacidad del detector OVD operando cuadro a cuadro, ya que requieren tanto la detección individual de cada entidad como un módulo de razonamiento que evalúe relaciones geométricas entre ellas (distancia, contención) y las estabilice temporalmente. El tracker MOT interviene en este nivel para preservar la identidad de cada objeto rastreado a lo largo de los cuadros consecutivos que abarca el intervalo de evaluación. Un ejemplo es la co-ocurrencia de maquinaria pesada y peatones por debajo de una distancia de seguridad, donde ambas entidades son detectables individualmente por el OVD, pero la evaluación de proximidad peligrosa requiere calcular distancias entre detecciones y sostener esa evaluación durante un intervalo temporal.
 
 ###### 17.1.5.2.3. Catálogo de condiciones de riesgo seleccionadas
 
-La Tabla 23 presenta las seis condiciones de riesgo seleccionadas para el prototipo experimental, organizadas por nivel de complejidad. Para cada condición se indica su código identificador, la categoría normativa de origen, la descripción operativa, el componente del sistema responsable de su evaluación y una estimación cualitativa de la dificultad de detección OVD.
+La Tabla 20 presenta las seis condiciones de riesgo seleccionadas para el prototipo experimental, organizadas por nivel de complejidad. Para cada condición se indica su código identificador, el tipo de condición, la descripción operativa, el componente del sistema responsable de su evaluación y una estimación cualitativa de la dificultad de detección OVD.
 
-**Tabla 23**
+**Tabla 20**
 
 *Catálogo de condiciones de riesgo seleccionadas para el prototipo experimental*
 
-| **Código** | **Nivel** | **Cat. normativa** | **Condición de riesgo** | **Evidencia visual** | **Componente evaluador** | **Dificultad OVD estimada** |
+| **Código** | **Nivel** | **Tipo de condición** | **Condición de riesgo** | **Evidencia visual** | **Componente evaluador** | **Dificultad OVD estimada** |
 | --- | --- | --- | --- | --- | --- | --- |
 | CR-01 | 1 | EPP — casco | Persona sin casco de seguridad en zona de obra | Presencia o ausencia de casco en región cefálica de la persona | OVD cuadro a cuadro | Media |
 | CR-02 | 1 | EPP — chaleco | Persona sin chaleco reflectivo en zona de tráfico o maquinaria | Presencia o ausencia de prenda de alta visibilidad en torso | OVD cuadro a cuadro | Media-Baja |
@@ -1098,13 +2665,15 @@ La Tabla 23 presenta las seis condiciones de riesgo seleccionadas para el protot
 | CR-05 | 3 | Coexistencia peatón-maquinaria | Maquinaria en operación en proximidad a peatones sin separación | Co-ocurrencia de maquinaria pesada y personas por debajo de distancia de seguridad | OVD + MOT + razonamiento contextual | Media |
 | CR-06 | 3 | Delimitación de áreas | Persona dentro de zona restringida o delimitada | Presencia de persona en área demarcada como prohibida o restringida | OVD + MOT + razonamiento contextual | Media |
 
-*Nota.* La columna “Componente evaluador” indica qué módulos del sistema participan en la evaluación de cada condición. “OVD cuadro a cuadro” significa que la condición es resoluble con una o más consultas al detector por cuadro. “OVD + contexto espacial intracuadro” indica que se requiere evaluar relaciones geométricas entre detecciones dentro del mismo cuadro (por ejemplo, superposición vertical de bounding boxes entre persona y andamio en CR-03, o proximidad entre persona y borde desprotegido en CR-04). “OVD + MOT + razonamiento contextual” indica que la evaluación requiere persistencia temporal de trayectorias y lógica de evaluación relacional cuyo diseño corresponde a la instancia de análisis y diseño arquitectónico. La columna “Dificultad OVD estimada” refleja una valoración cualitativa basada en la degradación documentada de modelos OVD ante atributos de granularidad fina (Bianchi et al., 2024), en las dificultades asociadas a la discrepancia de distribución y vocabulario cuando detectores de gran vocabulario se trasladan a dominios downstream o especializados (Jiang et al., 2024), y en evidencia reciente sobre el menor desempeño de modelos vision-language/open-vocabulary preentrenados frente a detectores ajustados al dominio en entornos de construcción (Abdalwhab et al., 2025). De manera únicamente conceptual, se considera además la asimetría entre juicios de presencia y ausencia observada en la percepción visual humana, invocada aquí como analogía metodológica y no como propiedad demostrada de los detectores OVD (Mazor et al., 2021). No se pondera en esta columna la dificultad propia del razonamiento contextual.
+*Nota.* La columna “Componente evaluador” indica qué módulos participan en la evaluación: “OVD cuadro a cuadro” (una o más consultas al detector por cuadro), “OVD + contexto espacial intracuadro” (relaciones geométricas entre detecciones del mismo cuadro) y “OVD + MOT + razonamiento contextual” (persistencia temporal de trayectorias y lógica relacional, cuyo diseño corresponde a la instancia de análisis y diseño arquitectónico). La columna “Dificultad OVD estimada” es una valoración cualitativa basada en la degradación documentada de los modelos OVD ante atributos de granularidad fina, en la discrepancia de distribución y vocabulario en dominios especializados y en el menor desempeño frente a detectores ajustados en entornos de construcción (Bianchi et al., 2024; Jiang et al., 2024; Abdalwhab et al., 2025); no pondera la dificultad del razonamiento contextual. CR-01 y CR-02 constituyen el núcleo obligatorio del prototipo experimental; las restantes condiciones operan como extensiones condicionadas que no bloquean la aceptación del núcleo.
 
 ###### 17.1.5.2.4. Consideraciones sobre evaluabilidad y limitaciones
 
 La selección prioriza condiciones con alta observabilidad visual y disponibilidad plausible de datos de evaluación. Aun así, presenta particularidades que conviene explicitar.
 
-La condición CR-04 —borde desprotegido— presenta dos particularidades relevantes. La primera concierne a la naturaleza negativa de la evidencia visual de la condición de riesgo. Dado que esta condición se define por la ausencia de un elemento de protección —baranda o red perimetral—, su evaluación resulta conceptualmente más exigente que en condiciones basadas en la presencia explícita de objetos. En este sentido, la literatura sobre percepción visual humana sugiere asimetrías entre juicios de presencia y ausencia, con respuestas más lentas y menor confianza ante ciertos juicios de ausencia; sin embargo, esta evidencia proviene de tareas perceptuales humanas y no de evaluación automática en visión por computadora, por lo que se invoca aquí únicamente como analogía metodológica (Mazor et al., 2021). La segunda particularidad es geométrica: la determinación de si un borde es efectivamente elevado depende de información tridimensional que la proyección bidimensional de la cámara no preserva completamente. Por ello, la ambigüedad asociada a altura, profundidad, perspectiva y oclusión debe asumirse desde el diseño experimental.
+La condición CR-04 —borde desprotegido— presenta dos particularidades relevantes. La primera concierne a la naturaleza negativa de la evidencia visual de la condición de riesgo. Dado que esta condición se define por la ausencia de un elemento de protección —baranda o red perimetral—, su evaluación resulta conceptualmente más exigente que en condiciones basadas en la presencia explícita de objetos. En este sentido, la literatura sobre percepción visual humana sugiere asimetrías entre juicios de presencia y ausencia, con respuestas más lentas y menor confianza ante ciertos juicios de ausencia; sin embargo, esta evidencia proviene de tareas perceptuales humanas y no de evaluación automática en visión por computadora, por lo que se invoca aquí únicamente como analogía metodológica (Mazor et al., 2021).
+
+La segunda particularidad es geométrica: la determinación de si un borde es efectivamente elevado depende de información tridimensional que la proyección bidimensional de la cámara no preserva completamente. Por ello, la ambigüedad asociada a altura, profundidad, perspectiva y oclusión debe asumirse desde el diseño experimental.
 
 La condición CR-03 también exige cautela. La evidencia visual relevante no es solo la presencia de una persona en altura, sino la ausencia visible de un sistema anticaídas, lo que depende fuertemente de la escala del objeto en imagen, el ángulo de cámara, la oclusión y la resolución disponible. En consecuencia, su dificultad no proviene únicamente del razonamiento espacial intracuadro, sino también de la visibilidad efectiva del EPP que debería observarse.
 
@@ -1114,7 +2683,7 @@ En un escenario real, múltiples condiciones pueden co-ocurrir sobre la misma pe
 
 ##### 17.1.5.3. Definición conceptual de patrones de riesgo
 
-Esta sección define conceptualmente los patrones de riesgo que constituyen la unidad operativa de análisis del sistema E-OVRT-VDP. Para ello articula tres componentes: la definición del patrón como abstracción que integra condiciones detectadas con criterios de persistencia y severidad; la delimitación de los niveles de severidad que ordenan la urgencia de respuesta; y los criterios de activación. Todas las definiciones tienen carácter conceptual y analítico; los valores numéricos propuestos son orientativos y quedan sujetos a calibración empírica durante las etapas de implementación y validación.
+Los patrones de riesgo constituyen la unidad operativa de análisis del sistema E-OVRT-VDP. Su definición conceptual articula tres componentes: la definición del patrón como abstracción que integra condiciones detectadas con criterios de persistencia y severidad; la delimitación de los niveles de severidad que ordenan la urgencia de respuesta; y los criterios de activación. Todas las definiciones tienen carácter conceptual y analítico; los valores numéricos propuestos son orientativos y quedan sujetos a calibración empírica durante las etapas de implementación y validación.
 
 ###### 17.1.5.3.1. El patrón de riesgo como unidad de análisis
 
@@ -1124,15 +2693,15 @@ La distinción entre condición de riesgo y patrón de riesgo es funcional y tie
 
 ###### 17.1.5.3.2. Niveles de severidad
 
-Cada patrón de riesgo se asocia a un nivel de severidad que refleja el perfil temporal del riesgo, entendido como la velocidad con la que la condición observable puede escalar hacia un incidente y la gravedad potencial de sus consecuencias. En articulación con el framework de métricas, la severidad orienta la urgencia operativa del patrón, las ventanas funcionales de persistencia y los objetivos de TTFD y talert-system; no fija por sí sola el costo computacional del pipeline, que debe distinguirse del tramo Glass-to-Algorithm (G2A).
+Cada patrón de riesgo se asocia a un nivel de severidad que refleja el perfil temporal de la condición, entendido como la velocidad con la que la condición observable puede escalar hacia un incidente y la gravedad potencial de sus consecuencias. En articulación con el framework de métricas, la severidad orienta la urgencia operativa del patrón, las ventanas funcionales de persistencia y los objetivos de TTFD y talert-system; no fija por sí sola el costo computacional del pipeline, que debe distinguirse del tramo Glass-to-Algorithm (G2A).
 
-Se distinguen tres niveles de severidad, cuya granularidad se considera suficiente para el alcance del prototipo experimental. La fundamentación de cada nivel se apoya en la normativa argentina aplicable y en el perfil temporal de consecuencias asociado a cada tipo de exposición.
+Se distinguen tres niveles de severidad, cuya granularidad se considera suficiente para el alcance del prototipo experimental. Cada nivel se define como una categoría metodológica de prioridad temporal, fundamentada en el perfil temporal de consecuencias asociado a cada tipo de exposición; la relevancia preventiva de las condiciones subyacentes está establecida en la sección 16.2. La severidad ordena prioridades temporales del protocolo y no constituye una calificación normativa de la situación observada.
 
-El **nivel crítico** corresponde a condiciones con potencial de escalada rápida hacia daño grave o fatal. Los artículos 52 a 57 del Decreto 911/96 establecen medidas de prevención frente al riesgo de caída de personas y trabajos con riesgo de caída a distinto nivel, incluyendo protecciones colectivas, provisión de EPP acorde al riesgo y medidas mínimas para tareas de corta duración. Asimismo, para riesgos asociados a la interacción entre personas, vehículos y maquinaria, el Decreto 911/96 regula la operación de vehículos y maquinaria automotriz en los artículos 246 a 249, y prevé medidas de protección frente a la circulación vehicular en contextos específicos, como la señalización, vallado o cercado de áreas de trabajo en vía pública, la provisión de equipos de alta visibilidad y la protección mediante vallados, señales, luces, vigías u otras medidas eficaces. En ambos casos, la exposición observada puede transformarse con rapidez en un incidente severo, lo que justifica asociar estos patrones con ventanas de persistencia más cortas y objetivos más exigentes de TTFD y dentro del framework evaluativo.
+El nivel crítico corresponde a condiciones con potencial de escalada rápida hacia daño grave o fatal. Es el caso de la exposición en altura sin protección visible y de la interacción próxima entre peatones y maquinaria en operación: en ambos, la exposición observada puede transformarse con rapidez en un incidente severo, lo que justifica asociar estos patrones con ventanas de persistencia más cortas y objetivos más exigentes de TTFD y dentro del framework evaluativo.
 
-El **nivel alto** corresponde a condiciones cuya exposición sostenida incrementa de forma significativa el riesgo, aunque con mayor margen de intervención que en el nivel crítico. El Decreto 911/96 regula en los artículos 98 a 102 la provisión, uso, condiciones y vida útil de los equipos y elementos de protección personal; en los artículos 103 a 106, las características generales de la vestimenta de trabajo; y en el artículo 107, la provisión de casco de seguridad para trabajadores que desarrollen tareas en obras de construcción o dependencias con riesgos específicos de accidentes. La ausencia de casco en zona activa de obra no produce por sí misma el incidente, pero elimina una barrera de protección frente a eventos plausibles durante la operación. En esa misma lógica, la permanencia en una zona restringida implica una exposición acumulativa a peligros específicos del sector delimitado.
+El nivel alto corresponde a condiciones cuya exposición sostenida incrementa de forma significativa el riesgo, aunque con mayor margen de intervención que en el nivel crítico. La ausencia de casco en zona activa de obra no produce por sí misma el incidente, pero elimina una barrera de protección frente a eventos plausibles durante la operación. En esa misma lógica, la permanencia en una zona restringida implica una exposición acumulativa a peligros específicos del sector delimitado.
 
-El **nivel medio** corresponde a condiciones con riesgo latente o de escalada relativamente más lenta, donde puede exigirse mayor evidencia antes de confirmar la alerta. La obligación de emplear elementos reflectivos o de alta visibilidad en contextos de circulación vehicular se vincula en el Decreto 911/96 con los artículos 63 y 70, referidos respectivamente a trabajos nocturnos y a trabajadores ocupados en la construcción de carreteras en uso. Esta obligación puede complementarse con la Resolución SRT 299/2011, que establece criterios de registración y constancia de entrega de ropa de trabajo y elementos de protección personal. La ausencia de chaleco reflectivo o indumentaria de alta visibilidad reduce la visibilidad del trabajador ante operadores de vehículos o maquinaria, pero la escalada hacia un incidente depende del movimiento efectivo de esos equipos en la zona, lo que justifica ventanas funcionales más largas que en los niveles precedentes.
+El nivel medio corresponde a condiciones con riesgo latente o de escalada relativamente más lenta, donde puede exigirse mayor evidencia antes de confirmar la alerta. La ausencia de chaleco reflectivo o indumentaria de alta visibilidad reduce la visibilidad del trabajador ante operadores de vehículos o maquinaria, pero la escalada hacia un incidente depende del movimiento efectivo de esos equipos en la zona, lo que justifica ventanas funcionales más largas que en los niveles precedentes.
 
 Si durante la evaluación experimental se identificara la necesidad de niveles adicionales de granularidad, la taxonomía podría extenderse; sin embargo, para el alcance del prototipo experimental, tres niveles proporcionan un balance adecuado entre expresividad y manejabilidad.
 
@@ -1140,13 +2709,13 @@ Si durante la evaluación experimental se identificara la necesidad de niveles a
 
 La persistencia temporal es el mecanismo analítico que define en qué condiciones una detección instantánea se considera un evento confirmado. Su propósito es reducir la tasa de falsas alarmas derivada de la variabilidad inherente a la detección cuadro a cuadro. Como se documentó en el análisis de modelos OVD, el componente OVD introduce variabilidad en los puntajes de confianza y puede producir apariciones espurias entre cuadros consecutivos, por lo que la confirmación temporal constituye una necesidad operativa.
 
-El criterio de persistencia se conceptualiza como una ventana temporal mínima durante la cual la condición debe observarse de manera sostenida —o con una proporción mínima de detecciones positivas dentro de la ventana— antes de que el patrón se considere activo. La presente sección define estos criterios en términos de duración temporal (segundos) y no de número de cuadros, dado que la conversión depende del throughput efectivo del pipeline, que a su vez está condicionado por el hardware de inferencia. Esta parametrización en unidades temporales permite que la instancia de análisis y diseño arquitectónico realice la conversión una vez conocido el tasa de cuadros real del sistema. En congruencia con el framework de métricas, esta ventana expresa y no debe confundirse ni con —subtramo computacional por cuadro— ni con, que integra además la confirmación operativa del patrón.
+El criterio de persistencia se conceptualiza como una ventana temporal mínima durante la cual la condición debe observarse de manera sostenida —o con una proporción mínima de detecciones positivas dentro de la ventana— antes de que el patrón se considere activo. Estos criterios se definen en términos de duración temporal (segundos) y no de número de cuadros, dado que la conversión depende del throughput efectivo del pipeline, que a su vez está condicionado por el hardware de inferencia. Esta parametrización en unidades temporales permite que la instancia de análisis y diseño arquitectónico realice la conversión una vez conocida la tasa de cuadros real del sistema. En congruencia con el framework de métricas, esta ventana expresa y no debe confundirse ni con —subtramo computacional por cuadro— ni con, que integra además la confirmación operativa del patrón.
 
 Los rangos de persistencia propuestos se derivan del análisis cualitativo de la velocidad de escalada de cada tipo de riesgo y se fijan de modo compatible con los umbrales orientativos del framework de métricas. Para las condiciones de severidad crítica, se proponen ventanas de 2 a 4 segundos, buscando confirmar la exposición con mínima acumulación de evidencia sin sacrificar la capacidad de alerta temprana. Para condiciones de severidad alta, se proponen ventanas de 3 a 5 segundos, que ofrecen mayor evidencia acumulada para reducir falsos positivos sin perder capacidad de respuesta ante una exposición sostenida. Para condiciones de severidad media, se proponen ventanas de 5 a 10 segundos, admitiendo mayor acumulación de evidencia para controlar falsas alarmas en una condición cuya urgencia operativa es relativamente menor.
 
-Conviene precisar que estos rangos tienen carácter analítico y orientativo. Los valores definitivos se calibrarán empíricamente durante la validación experimental, una vez que el pipeline completo esté operativo y se conozca el throughput efectivo. La instancia de análisis y diseño arquitectónico tomará estos rangos como referencia para diseñar los mecanismos computacionales de evaluación de persistencia.
+Estos rangos tienen carácter analítico; los valores definitivos se calibran empíricamente durante la validación experimental, una vez conocido el throughput efectivo.
 
-Un aspecto adicional que la instancia de análisis y diseño arquitectónico deberá considerar es el comportamiento de histéresis en la activación y desactivación de patrones. En sistemas de alarmas industriales es habitual que el umbral de activación de una alerta difiera del umbral de desactivación, de modo que una interrupción momentánea de la detección —por oclusión parcial, variabilidad del puntaje de confianza o pérdida temporal del track— no desactive prematuramente un patrón recién confirmado. Esta definición queda planteada como criterio de diseño para la etapa arquitectónica.
+Un aspecto adicional, que se retoma en la instancia de análisis y diseño arquitectónico, es el comportamiento de histéresis en la activación y desactivación de patrones. En sistemas de alarmas industriales es habitual que el umbral de activación de una alerta difiera del umbral de desactivación, de modo que una interrupción momentánea de la detección —por oclusión parcial, variabilidad del puntaje de confianza o pérdida temporal del track— no desactive prematuramente un patrón recién confirmado. Esta definición queda planteada como criterio de diseño para la etapa arquitectónica.
 
 Existe una tensión inherente entre la severidad del patrón y la confiabilidad de su activación. Algunos patrones críticos requieren ventanas de persistencia más cortas para responder con la urgencia que su perfil de riesgo demanda. Sin embargo, ventanas más cortas implican menos evidencia acumulada, lo que incrementa la probabilidad de falsos positivos. Este trade-off no tiene resolución analítica a priori y constituye uno de los ejes centrales de calibración empírica de la validación experimental, donde deberá evaluarse la curva de tasa de falsos positivos en función de la duración de la ventana de persistencia para cada patrón.
 
@@ -1164,66 +2733,66 @@ Para los patrones de Nivel 1, como PR-01 y PR-02, la evaluación puede apoyarse 
 
 La histéresis forma parte del comportamiento esperado del motor. Un patrón no debería activarse por una detección espuria ni cerrarse por una pérdida momentánea del detector, una oclusión breve o una caída puntual de confianza. Por ello, los criterios de activación y desactivación pueden utilizar ventanas diferentes: la activación exige evidencia suficiente para confirmar el patrón, mientras que la desactivación puede requerir ausencia sostenida de evidencia durante un intervalo mínimo. Esta separación reduce oscilaciones y alertas repetidas dentro de un mismo episodio; la reaparición de la condición después de su resolución constituye un episodio nuevo, y la eventual supresión de notificaciones repetidas se define fuera del motor de patrones.
 
-En esta etapa, el motor de patrones queda definido como una estructura lógica preliminar y no como una implementación cerrada. La instancia de análisis y diseño arquitectónico deberá traducir esta definición en componentes, contratos, eventos y configuraciones concretas; la implementación del prototipo deberá materializarla; y la validación experimental deberá calibrar empíricamente sus umbrales, ventanas e histéresis. Con esta delimitación, se busca cerrar la brecha entre patrón conceptual y evaluación en runtime, hasta que queden completamente definidas en el diseño arquitectónico.
+En esta etapa, el motor de patrones queda definido como una estructura lógica preliminar y no como una implementación cerrada. La instancia de análisis y diseño arquitectónico traduce esta definición en componentes, contratos, eventos y configuraciones concretas; la implementación del prototipo la materializa; y la validación experimental calibra empíricamente sus umbrales, ventanas e histéresis. Con esta delimitación se cierra la brecha entre el patrón conceptual y su evaluación en runtime.
 
 ###### 17.1.5.3.5. Catálogo de patrones de riesgo
 
-La Tabla 24 presenta el catálogo de patrones de riesgo asociados a las condiciones seleccionadas. Para cada patrón se especifica la condición o condiciones de activación, el nivel de severidad, el rango de persistencia temporal orientativo, el perfil temporal del riesgo que fundamenta la asignación de severidad y el trade-off de falsos positivos asociado.
+La Tabla 21 presenta el catálogo de patrones de riesgo asociados a las condiciones seleccionadas. Para cada patrón se especifica la condición o condiciones de activación, el nivel de severidad, el rango de persistencia temporal orientativo, el perfil temporal de la condición que fundamenta la asignación de severidad y el trade-off de falsos positivos asociado.
 
-**Tabla 24**
+**Tabla 21**
 
 *Catálogo de patrones de riesgo del prototipo E-OVRT-VDP*
 
-| **Patrón** | **Cond.** | **Severidad** | **Persistencia** | **Criterio de activación** | **Perfil temporal del riesgo** | **Trade-off FP** |
+| **Patrón** | **Cond.** | **Severidad** | **Persistencia** | **Criterio de activación** | **Perfil temporal de la condición** | **Trade-off FP** |
 | --- | --- | --- | --- | --- | --- | --- |
-| PR-01 | CR-01 | Alto | 3–5 s | Persona detectada sin casco durante el intervalo mínimo | Exposición sostenida a caída de objetos o impactos en zona activa de obra; incidente posible ante evento desencadenante (Decreto 911/96, arts. 50, 98–102 y 107). | Moderado |
-| PR-02 | CR-02 | Medio | 5–10 s | Persona detectada sin chaleco o indumentaria de alta visibilidad en zona de circulación durante el intervalo | Riesgo de atropello o interferencia operacional por baja visibilidad; escalada dependiente del movimiento efectivo de vehículos o maquinaria (Decreto 911/96, arts. 47, 63 y 70). | Bajo |
-| PR-03 | CR-03 | Crítico | 2–4 s | Persona en posición elevada sin sistema anticaídas durante el intervalo | Caída a distinto nivel con consecuencia potencialmente fatal; requiere respuesta temprana ante exposición en altura sin protección suficiente (Decreto 911/96, arts. 52, 54–56 y 112). | Elevado |
-| PR-04 | CR-04 | Crítico | 2–4 s | Persona próxima a borde desprotegido durante el intervalo | Caída a distinto nivel desde abertura, borde o plataforma sin protección colectiva eficaz (Decreto 911/96, arts. 52 y 54–56). | Elevado |
-| PR-05 | CR-05 | Crítico | 2–4 s | Maquinaria y peatón co-detectados por debajo del umbral de distancia mínima durante el intervalo | Atropello, aplastamiento o contacto peligroso por interacción próxima entre peatones, vehículos y maquinaria de obra (Decreto 911/96, arts. 47, 61, 70, 71 y 246–249; Ley 19.587, arts. 8 y 9). | Elevado |
-| PR-06 | CR-06 | Alto | 3–5 s | Persona detectada dentro del polígono de zona restringida durante el intervalo | Exposición sostenida a riesgos propios de una zona señalizada, delimitada, de exclusión, de seguridad o de acceso restringido (Decreto 911/96, arts. 66–69, 95(a), 139, 140(e)–(f), 156 y 176). | Moderado |
+| PR-01 | CR-01 | Alto | 3–5 s | Persona detectada sin casco durante el intervalo mínimo | Exposición sostenida a caída de objetos o impactos en zona activa de obra; incidente posible ante evento desencadenante. | Moderado |
+| PR-02 | CR-02 | Medio | 5–10 s | Persona detectada sin chaleco o indumentaria de alta visibilidad en zona de circulación durante el intervalo | Riesgo de atropello o interferencia operacional por baja visibilidad; escalada dependiente del movimiento efectivo de vehículos o maquinaria. | Bajo |
+| PR-03 | CR-03 | Crítico | 2–4 s | Persona en posición elevada sin sistema anticaídas durante el intervalo | Caída a distinto nivel con consecuencia potencialmente fatal; requiere respuesta temprana ante exposición en altura sin protección suficiente. | Elevado |
+| PR-04 | CR-04 | Crítico | 2–4 s | Persona próxima a borde desprotegido durante el intervalo | Caída a distinto nivel desde abertura, borde o plataforma sin protección colectiva eficaz. | Elevado |
+| PR-05 | CR-05 | Crítico | 2–4 s | Maquinaria y peatón co-detectados por debajo del umbral de distancia mínima durante el intervalo | Atropello, aplastamiento o contacto peligroso por interacción próxima entre peatones, vehículos y maquinaria de obra. | Elevado |
+| PR-06 | CR-06 | Alto | 3–5 s | Persona detectada dentro del polígono de zona restringida durante el intervalo | Exposición sostenida a riesgos propios de una zona señalizada, delimitada, de exclusión, de seguridad o de acceso restringido. | Moderado |
 
-*Nota.* Los rangos de persistencia temporal son orientativos y quedan sujetos a calibración empírica durante la validación experimental, una vez conocido el throughput efectivo del pipeline. La columna “Trade-off FP” indica cualitativamente el riesgo de falsos positivos asociado a la brevedad de la ventana de persistencia. Los artículos normativos referenciados en la columna “Perfil temporal del riesgo” fundamentan la severidad asignada a cada patrón a partir del tipo de exposición, la barrera preventiva omitida y la potencialidad de daño; no definen por sí mismos los umbrales computacionales de activación, distancia, persistencia o latencia del sistema. Fuente: Elaboración propia basada en el análisis normativo de la el Decreto 911/96 y la Ley 19.587.
+*Nota.* Los rangos de persistencia temporal son orientativos y quedan sujetos a calibración empírica durante la validación experimental, una vez conocido el throughput efectivo del pipeline. La columna “Trade-off FP” indica cualitativamente el riesgo de falsos positivos asociado a la brevedad de la ventana de persistencia. La severidad es una clasificación interna del protocolo, fundamentada en el perfil temporal de la condición; no constituye una calificación normativa de la situación observada ni define por sí misma los umbrales computacionales de activación, distancia, persistencia o latencia del sistema. La relevancia preventiva de las condiciones se fundamenta en la sección 16.2. Fuente: elaboración propia.
 
 ###### 17.1.5.3.6. Criterios de activación combinada para condiciones de nivel 3
 
 Los patrones PR-05 y PR-06, asociados a condiciones composicionales de Nivel 3, requieren criterios de activación que evalúen relaciones espaciales o de contención entre entidades detectadas independientemente. Los criterios se definen a continuación a nivel conceptual; su materialización en reglas computacionales evaluables corresponde a la instancia de análisis y diseño arquitectónico.
 
-PR-05 — maquinaria en proximidad a peatones. La activación requiere la detección simultánea de al menos una entidad clasificable como maquinaria de obra —por ejemplo, excavadora, retroexcavadora, camión volquete, grúa u otra maquinaria pesada— y al menos una persona, cuyas detecciones presenten una relación de proximidad inferior a un umbral configurable. Como aproximación inicial para el prototipo, puede evaluarse la distancia euclidiana entre puntos representativos de las detecciones en coordenadas de imagen, tales como centroides de bounding boxes o puntos medios inferiores. Sin embargo, esta métrica debe interpretarse como una medida geométrica 2D aproximada y no como una distancia física real, dado que la perspectiva de cámara altera las distancias aparentes en la imagen. Durante la implementación podrán evaluarse métricas alternativas, como la distancia mínima entre bordes de bounding boxes, la distancia entre puntos de apoyo proyectados al plano de suelo o, cuando la cámara lo permita, una distancia corregida mediante calibración u homografía. La evaluación debe sostenerse durante el intervalo de persistencia definido para el patrón, lo que implica que el módulo MOT mantenga trayectorias suficientemente estables de las entidades involucradas a lo largo de los cuadros consecutivos.
+PR-05 — maquinaria en proximidad a peatones. La activación requiere la detección simultánea de al menos una entidad clasificable como maquinaria de obra —por ejemplo, excavadora, retroexcavadora, camión volquete o grúa— y al menos una persona, cuyas detecciones presenten una relación de proximidad inferior a un umbral configurable. Toda métrica de proximidad calculada en coordenadas de imagen debe interpretarse como una medida geométrica 2D aproximada y no como una distancia física real, dado que la perspectiva de cámara altera las distancias aparentes. La evaluación debe sostenerse durante el intervalo de persistencia definido para el patrón, lo que exige trayectorias suficientemente estables de las entidades involucradas. La selección de puntos representativos de las detecciones y de la métrica geométrica concreta corresponde a la instancia de análisis y diseño arquitectónico.
 
-PR-06 — persona en zona restringida. La activación requiere la detección de al menos una persona cuya posición representativa se encuentre contenida dentro de un polígono predefinido que represente la zona restringida. Para zonas definidas sobre el plano del suelo, resulta preferible utilizar el punto medio inferior del bounding box como aproximación del punto de apoyo de la persona, en lugar del centroide de la caja, aunque ambas alternativas podrán compararse durante la implementación. El polígono debe ser configurable por el operador como parte de la parametrización del sistema, no como parte del prompt OVD. La definición de zonas restringidas mediante polígonos en coordenadas de imagen presupone una cámara fija o, en su defecto, algún mecanismo de recalibración o compensación de movimiento de cámara. Para el alcance del prototipo experimental, se asume el uso de cámaras fijas. La condición requiere que la permanencia dentro del polígono se sostenga durante el intervalo de persistencia, lo cual implica seguimiento temporal mediante el módulo MOT cuando la persistencia se compute por entidad individual. La instancia de análisis y diseño arquitectónico debe diseñar tanto el mecanismo de definición de polígonos como la lógica de evaluación de contención punto-en-polígono.
+PR-06 — persona en zona restringida. La activación requiere la detección de al menos una persona cuya posición representativa se encuentre contenida dentro de un polígono predefinido que representa la zona restringida. El polígono forma parte de la parametrización del sistema —configurable por el operador, externo al prompt OVD— y presupone una cámara fija, supuesto adoptado para el alcance del prototipo experimental. La permanencia debe sostenerse durante el intervalo de persistencia, lo que implica seguimiento temporal cuando la persistencia se compute por entidad individual. El mecanismo de definición de polígonos y la lógica de contención corresponden a la instancia de análisis y diseño arquitectónico.
 
 Ambos patrones dependen del módulo MOT en la medida en que la evaluación de relaciones sostenidas en el tiempo requiere trayectorias estables de los objetos rastreados durante el intervalo de persistencia. Los ID switches, pérdidas temporales de trayectoria y reasociaciones erróneas pueden generar interrupciones espurias en la evaluación del patrón o reinicios indebidos de la ventana de persistencia. Por ello, estos errores deben contemplarse en el diseño del módulo de razonamiento contextual durante la instancia de análisis y diseño arquitectónico y cuantificarse en la evaluación experimental de la validación experimental.
 
 ###### 17.1.5.3.7. Frontera explícita con la instancia de análisis y diseño arquitectónico
 
-El desarrollo de esta sección deja tres insumos directos para la instancia de análisis y diseño arquitectónico: el catálogo de condiciones de riesgo clasificado por niveles de complejidad (Tabla 23), el catálogo de patrones con severidad y persistencia temporal orientativa (Tabla 24), y los criterios conceptuales de activación combinada para PR-05 y PR-06. Estos últimos incluyen el supuesto de cámara fija para la evaluación de zonas restringidas, la necesidad de definir métricas de proximidad y contención espacial, y la conveniencia de incorporar mecanismos de histéresis para evitar activaciones o desactivaciones espurias ante detecciones intermitentes.
+Quedan tres insumos directos para la instancia de análisis y diseño arquitectónico: el catálogo de condiciones de riesgo clasificado por niveles de complejidad (Tabla 20), el catálogo de patrones con severidad y persistencia temporal orientativa (Tabla 21), y los criterios conceptuales de activación combinada para PR-05 y PR-06 —con el supuesto de cámara fija, las métricas de proximidad y contención espacial por definir, y la histéresis como criterio de diseño.
 
-Sobre esa base, la instancia de análisis y diseño arquitectónico deberá materializar el esquema declarativo de patrones, el motor de evaluación, la parametrización de zonas restringidas, la lógica de proximidad entre entidades, la lógica de contención punto-en-polígono, los mecanismos computacionales de persistencia temporal y el tratamiento de errores asociados al seguimiento, como pérdidas temporales de trayectoria o cambios de identidad. En particular, deberá definir cómo se traducen los criterios conceptuales en reglas operativas configurables, incluyendo la selección de puntos representativos de las detecciones, las métricas geométricas aplicables en coordenadas de imagen y, si correspondiera, mecanismos de calibración o compensación de perspectiva.
+Sobre esa base, la instancia de análisis y diseño arquitectónico materializa el esquema declarativo de patrones, el motor de evaluación, la parametrización de zonas restringidas, la lógica de proximidad entre entidades, la lógica de contención punto-en-polígono, los mecanismos computacionales de persistencia temporal y el tratamiento de errores asociados al seguimiento, como pérdidas temporales de trayectoria o cambios de identidad. En particular, allí se define cómo se traducen los criterios conceptuales en reglas operativas configurables, incluyendo la selección de puntos representativos de las detecciones, las métricas geométricas aplicables en coordenadas de imagen y, si correspondiera, mecanismos de calibración o compensación de perspectiva.
 
 La instancia de análisis y diseño arquitectónico podrá establecer valores iniciales configurables para umbrales espaciales, ventanas temporales y criterios de activación/desactivación, con el fin de implementar y ensayar el sistema. Sin embargo, la calibración empírica final de esos umbrales y ventanas corresponde a la validación experimental, bajo el framework cuantitativo definido en el framework de métricas.
 
 ##### 17.1.5.4. Protocolo de diseño y evaluación de prompts OVD
 
-Esta sección establece el marco metodológico para el diseño, la variación sistemática y la evaluación empírica de los prompts textuales que operan como interfaz de consulta del modelo OVD. Se apoya en la evidencia sobre sensibilidad a la formulación del prompt documentada en el análisis de modelos OVD y en antecedentes de la literatura que muestran que el desempeño de modelos visión-lenguaje y detectores open-vocabulary puede verse afectado por la redacción de la consulta textual y por la forma en que esta se transforma en representaciones textuales para la detección (Du et al., 2022; Zhou et al., 2022). Asimismo, toma como referencia protocolos de evaluación recientes orientados a examinar limitaciones de los detectores OVD ante atributos de granularidad fina, vocabularios dinámicos, negativos difíciles, comprensión posicional y relaciones entre objetos (Bianchi et al., 2024; Yao et al., 2024). Su objetivo es sistematizar el proceso de selección de prompts, reducir la arbitrariedad y dejar documentadas las decisiones de formulación con evidencia empírica. El protocolo se articula con el framework definido en el framework de métricas, de la cual toma las métricas de evaluación y los criterios operativos aplicables al componente OVD.
+El protocolo de prompts establece el marco para el diseño, la variación sistemática y la evaluación empírica de las consultas textuales que operan como interfaz del modelo OVD. Se apoya en la evidencia sobre sensibilidad a la formulación del prompt documentada en el análisis de modelos OVD y en antecedentes de la literatura que muestran que el desempeño de modelos visión-lenguaje y detectores open-vocabulary puede verse afectado por la redacción de la consulta textual y por la forma en que esta se transforma en representaciones textuales para la detección (Du et al., 2022; Zhou et al., 2022).
+
+Asimismo, toma como referencia protocolos de evaluación recientes orientados a examinar limitaciones de los detectores OVD ante atributos de granularidad fina, vocabularios dinámicos, negativos difíciles, comprensión posicional y relaciones entre objetos (Bianchi et al., 2024; Yao et al., 2024). Su objetivo es sistematizar el proceso de selección de prompts, reducir la arbitrariedad y dejar documentadas las decisiones de formulación con evidencia empírica. El protocolo se articula con el framework de métricas, del cual toma las métricas de evaluación y los criterios operativos aplicables al componente OVD.
 
 ###### 17.1.5.4.1. Sensibilidad a la formulación del prompt como variable del sistema
 
-El análisis de modelos OVD documentó que los modelos de detección open-vocabulary presentan sensibilidad a variaciones en la formulación de las consultas textuales. Esta observación es consistente con antecedentes de la literatura sobre modelos visión-lenguaje, que muestran que cambios leves en la redacción del prompt pueden producir variaciones importantes en el desempeño, especialmente en modelos que operan mediante alineación entre representaciones visuales y textuales (Zhou et al., 2022). En OVD, esta sensibilidad se vincula con el hecho de que las categorías pueden consultarse mediante embeddings textuales generados por el encoder de un modelo visión-lenguaje preentrenado, que luego se alinean o comparan con representaciones visuales de regiones o propuestas de objetos (Gu et al., 2021). En este marco, la formulación del prompt no constituye un detalle accesorio: se ha mostrado que el class text embedding puede generarse a partir de prompts ingresados al encoder textual, que el diseño del prompt requiere ajuste cuidadoso, y que estrategias de prompt learning desarrolladas para clasificación de imágenes pueden resultar subóptimas cuando se trasladan directamente a la detección de objetos, por lo que la optimización de prompts requiere evaluación específica para la tarea de detección (Du et al., 2022).
+El análisis de modelos OVD documentó que los detectores open-vocabulary presentan sensibilidad a variaciones en la formulación de las consultas textuales: cambios leves de redacción pueden alterar significativamente el desempeño de los modelos visión-lenguaje (Zhou et al., 2022); el embedding textual de clase se genera a partir de los prompts ingresados al encoder y su alineación con las representaciones visuales requiere ajuste específico para la tarea de detección (Gu et al., 2021; Du et al., 2022); y la evaluación se vuelve especialmente exigente ante atributos de granularidad fina, vocabularios dinámicos y clases negativas semánticamente cercanas (Bianchi et al., 2024; Yao et al., 2024). De manera complementaria, la incorporación de negativos semánticamente relacionados durante el entrenamiento mejora la discriminación del detector, lo que refuerza —aunque esa técnica exceda el alcance del proyecto— que la composición semántica del vocabulario influye sobre el desempeño (Kim et al., 2024).
 
-Investigaciones recientes muestran además que la evaluación de detectores OVD se vuelve especialmente exigente cuando intervienen atributos de granularidad fina, vocabularios dinámicos y clases negativas semánticamente cercanas. El benchmark FG-OVD evalúa la capacidad de los detectores para detectar, distinguir y asignar descripciones finas a objetos en presencia de hard-negative classes, considerando propiedades como color, patrón y material, y evidencia que muchos modelos OVD presentan dificultades para capturar y diferenciar detalles finos (Bianchi et al., 2024). Por su parte, OVDEval documenta limitaciones en comprensión de atributos, posición y relaciones entre objetos, y propone NMS-AP como métrica complementaria para evitar resultados engañosos del AP tradicional en evaluaciones con etiquetas de granularidad fina (Yao et al., 2024). De manera complementaria, trabajos recientes muestran que la incorporación de clases negativas semánticamente relacionadas durante el entrenamiento puede mejorar la discriminación del detector; aunque esta técnica excede el alcance del presente proyecto —que trabaja con modelos preentrenados y sin reentrenamiento específico—, su hallazgo refuerza indirectamente la hipótesis de que la composición semántica del vocabulario considerado por el modelo puede influir sobre su desempeño (Kim et al., 2024).
-
-En conjunto, estas evidencias justifican tratar el diseño de prompts como una variable de ingeniería del sistema, que debe gestionarse con un rigor comparable al de las decisiones de arquitectura, selección de modelos o definición de métricas. El protocolo que se presenta a continuación busca ordenar ese proceso para el dominio específico de detección de condiciones de riesgo en construcción civil.
+En conjunto, estas evidencias justifican tratar el diseño de prompts como una variable de ingeniería del sistema, gestionada con un rigor comparable al de las decisiones de arquitectura, selección de modelos o definición de métricas. El protocolo siguiente ordena ese proceso para el dominio de detección de condiciones de riesgo en construcción civil.
 
 ###### 17.1.5.4.2. Estrategia de variación sistemática
 
-Para cada condición de riesgo del catálogo (Tabla 23) se diseñan múltiples variaciones de prompt que difieren a lo largo de ejes controlados. La variación sistemática permite identificar qué formulaciones logran la mejor alineación semántica con las características visuales del dominio y documenta las decisiones de selección con evidencia reproducible. Se definen cuatro ejes principales.
+Para cada condición de riesgo del catálogo (Tabla 20) se diseñan múltiples variaciones de prompt que difieren a lo largo de ejes controlados. La variación sistemática permite identificar qué formulaciones logran la mejor alineación semántica con las características visuales del dominio y documenta las decisiones de selección con evidencia reproducible. Se definen cuatro ejes principales.
 
-**Estructura sintáctica.** El primer eje comprende variaciones en la organización de los elementos de la consulta, incluyendo frases nominales simples, oraciones descriptivas con contexto y variaciones en el uso de artículos, preposiciones o modificadores. Por ejemplo, para la detección de casco, las formulaciones “hard hat”, “person wearing hard hat” y “safety helmet on worker” difieren en estructura gramatical, aunque refieren a conceptos visualmente relacionados. Los encoders textuales utilizados por modelos visión-lenguaje y detectores OVD pueden producir representaciones distintas ante formulaciones diferentes, incluso cuando estas remiten a una misma categoría o atributo visual. Esta sensibilidad ha sido documentada en modelos visión-lenguaje, donde cambios leves en la redacción del prompt pueden impactar significativamente el desempeño (Zhou et al., 2022), y también en el contexto de OVD, donde el embedding textual de clase depende de los prompts ingresados al encoder textual y requiere ajuste específico para la tarea de detección (Du et al., 2022).
+**Estructura sintáctica.** El primer eje comprende variaciones en la organización de los elementos de la consulta, incluyendo frases nominales simples, oraciones descriptivas con contexto y variaciones en el uso de artículos, preposiciones o modificadores. Por ejemplo, para la detección de casco, las formulaciones “hard hat”, “person wearing hard hat” y “safety helmet on worker” difieren en estructura gramatical, aunque refieren a conceptos visualmente relacionados.
 
 Se incluyen además variaciones con template, como “a photo of a [CLASS]”. Esta decisión se fundamenta en el uso habitual de templates en modelos tipo CLIP, donde transformar una etiqueta aislada en una descripción textual breve puede reducir la brecha entre nombres de clase y textos naturales observados durante el preentrenamiento, y mejorar el desempeño frente al uso de la etiqueta sin contexto (Radford et al., 2021). En consecuencia, el protocolo compara prompts con y sin template, sin presuponer a priori cuál formulación resultará superior para el dominio específico de seguridad en construcción.
 
-**Nivel de especificidad del vocabulario.** El segundo eje comprende variaciones en la granularidad de los términos utilizados, desde vocabulario genérico hasta terminología específica del dominio de construcción. Por ejemplo, “person”, “worker” y “construction worker” representan distintos niveles de especificidad semántica para referirse a entidades humanas observables en una escena de obra. La hipótesis metodológica es que términos más específicos pueden mejorar la precisión en el dominio al reducir la ambigüedad de la consulta y aproximarla al contexto visual de obra. Sin embargo, también pueden reducir el recall si la formulación elegida resulta demasiado restrictiva o menos compatible con las representaciones textuales aprendidas por el modelo durante el preentrenamiento. Por ello, la selección entre vocabulario genérico y vocabulario específico no se asume como una decisión evidente, sino como una variable experimental del diseño de prompts. Esta expectativa se fundamenta en que, en los modelos OVD, las categorías consultadas dependen de representaciones textuales generadas a partir del prompt y alineadas con representaciones visuales del detector (Gu et al., 2021). Asimismo, la literatura sobre prompt learning para OVD muestra que la formulación textual de las clases requiere ajuste específico para la tarea de detección, por lo que variaciones léxicas aparentemente menores pueden afectar el desempeño y deben evaluarse empíricamente (Du et al., 2022).
+**Nivel de especificidad del vocabulario.** El segundo eje comprende variaciones en la granularidad de los términos utilizados, desde vocabulario genérico hasta terminología específica del dominio de construcción. Por ejemplo, “person”, “worker” y “construction worker” representan distintos niveles de especificidad semántica para referirse a entidades humanas observables en una escena de obra. La hipótesis metodológica es que términos más específicos pueden mejorar la precisión en el dominio al reducir la ambigüedad de la consulta y aproximarla al contexto visual de obra. Sin embargo, también pueden reducir el recall si la formulación elegida resulta demasiado restrictiva o menos compatible con las representaciones textuales aprendidas por el modelo durante el preentrenamiento. Por ello, la selección entre vocabulario genérico y vocabulario específico no se asume como una decisión evidente, sino como una variable experimental del diseño de prompts.
 
 **Estrategia de detección.** El tercer eje distingue entre formulaciones directas y formulaciones indirectas o descompuestas. En las formulaciones directas, el prompt intenta describir la condición de riesgo completa, incluyendo presencia o ausencia del elemento relevante; en las indirectas, el detector identifica entidades visibles por separado y la evaluación de la condición se reconstruye mediante lógica externa al modelo OVD. Esta distinción no es meramente terminológica: define dos modos de consulta con implicancias diferentes sobre precisión, costo computacional y complejidad de integración en el pipeline. La distinción resulta pertinente porque los modelos OVD permiten consultar categorías o descripciones mediante entradas textuales, pero no necesariamente resuelven de forma robusta todos los atributos, posiciones y relaciones espaciales implicados en una condición compuesta (Gu et al., 2021; Yao et al., 2024).
 
@@ -1231,21 +2800,21 @@ En este trabajo estas familias se identifican con un código: estrategia directa
 
 La elección entre ambas estrategias está condicionada por la dificultad práctica de evaluar condiciones formuladas en términos de ausencia visible. Mientras la estrategia directa intenta describir de manera íntegra la condición de riesgo, la indirecta opera con prompts de presencia pura —por ejemplo, “person” y “hard hat” como consultas separadas— y traslada al sistema la responsabilidad de asociar detecciones y verificar relaciones geométricas. El beneficio potencial en robustez semántica se compensa, sin embargo, con mayor complejidad de razonamiento y una posible carga adicional de inferencia por cuadro, cuya magnitud deberá verificarse frente al presupuesto de latencia definido en el framework de métricas. La estrategia indirecta resulta especialmente pertinente para condiciones cuya evidencia visual es la ausencia de un EPP —CR-01, CR-02, CR-03— y para condiciones que requieren evaluación de relaciones espaciales intracuadro —CR-03, CR-04—.
 
-El protocolo de evaluación de la Sección 17.1.5.4.5 compara empíricamente ambas estrategias para todas las condiciones en que sean aplicables, sin presuponer la superioridad de ninguna. La instancia de análisis y diseño arquitectónico deberá materializar la lógica de asociación espacial requerida por la estrategia indirecta y determinar si su costo computacional adicional es compatible con las restricciones operativas del sistema.
+El protocolo de evaluación de la Sección 17.1.5.4.5 compara empíricamente ambas estrategias para todas las condiciones en que sean aplicables, sin presuponer la superioridad de ninguna. La instancia de análisis y diseño arquitectónico materializa la lógica de asociación espacial requerida por la estrategia indirecta y determina si su costo computacional adicional es compatible con las restricciones operativas del sistema.
 
 **Composición del vocabulario activo.** El cuarto eje evalúa cómo el conjunto de prompts simultáneamente activos en el vocabulario del detector afecta el desempeño de cada prompt individual. El benchmark FG-OVD muestra que la evaluación de detectores open-vocabulary se vuelve especialmente exigente cuando el vocabulario incluye clases negativas de granularidad fina, es decir, descripciones semánticamente cercanas al prompt objetivo pero referidas a categorías o atributos distintos. En ese escenario, varios modelos OVD presentan dificultades para detectar, distinguir y asignar correctamente descripciones finas en presencia de hard-negative classes (Bianchi et al., 2024).
 
 En el contexto de E-OVRT-VDP, donde el sistema busca simultáneamente múltiples condiciones y entidades —por ejemplo, “hard hat”, “person”, “reflective vest” y “scaffolding”—, se plantea la hipótesis de que prompts semánticamente próximos pueden competir entre sí y generar confusiones de clasificación. Por ello, este eje propone evaluar el desempeño de cada prompt tanto en aislamiento como dentro del vocabulario completo del sistema.
 
-**Implicancias del tamaño del vocabulario activo.** El número total de prompts simultáneamente activos en el vocabulario del detector puede tener consecuencias tanto sobre la latencia de inferencia como sobre la precisión de la detección. Desde la perspectiva computacional, los modelos difieren en la forma en que procesan el vocabulario textual, por lo que el impacto del tamaño del vocabulario no debe asumirse uniforme entre arquitecturas. Esto puede observarse con dos ejemplos: por un lado, los modelos de la familia YOLO orientados a detección open-vocabulary adoptan estrategias de precomputación o reparametrización de embeddings textuales para favorecer una inferencia eficiente. YOLO-World utiliza un paradigma prompt-then-detect, en el que los prompts definidos por el usuario pueden codificarse previamente como un vocabulario offline y luego reparametrizarse como pesos del modelo para el despliegue (Cheng et al., 2024). En una línea similar, YOLOE propone una estrategia de alineación región-texto reparametrizable —RepRTA— que refina embeddings textuales preentrenados mediante una red auxiliar liviana y permite reparametrizar esa información en la cabeza de clasificación durante la inferencia, reduciendo el costo asociado al procesamiento textual en tiempo de ejecución (Wang et al., 2025). Esto no implica necesariamente que el costo total de inferencia sea completamente independiente del tamaño del vocabulario, ya que pueden existir efectos residuales asociados a la cabeza de predicción, el número de categorías activas, el postprocesamiento o la implementación concreta. Sin embargo, estas arquitecturas desplazan una parte relevante del costo textual fuera del ciclo de inferencia por imagen o cuadro, lo que resulta particularmente pertinente para un sistema orientado a tiempo real. Por otro lado, Grounding DINO recibe como entrada un par imagen-texto y, para tareas de detección de objetos, concatena los nombres de categorías como texto de entrada. Su arquitectura incluye un backbone textual —por ejemplo, BERT—, módulos de fusión imagen-texto, selección de consultas guiada por lenguaje y decodificación cross-modal. En consecuencia, cuando el vocabulario activo crece, aumenta también la longitud/tokenización de la entrada textual y el costo asociado al procesamiento y fusión de esas representaciones, salvo que se implementen mecanismos específicos de precomputación o caché de embeddings (Liu et al., 2024).
-
-Estas diferencias arquitectónicas tienen consecuencias directas sobre cuántos prompts pueden mantenerse activos simultáneamente dentro del presupuesto de latencia del sistema. Por ello, la selección del vocabulario activo deberá evaluarse junto con el modelo OVD elegido, la sintaxis concreta de los prompts, la resolución de entrada y el hardware de inferencia disponible.
+**Implicancias del tamaño del vocabulario activo.** El número de prompts simultáneamente activos puede afectar tanto la latencia de inferencia como la precisión, y su impacto no es uniforme entre arquitecturas: las familias YOLO orientadas a open-vocabulary precomputan o reparametrizan los embeddings textuales fuera del ciclo de inferencia —el paradigma prompt-then-detect de YOLO-World y la alineación reparametrizable RepRTA de YOLOE (Cheng et al., 2024; Wang et al., 2025)—, mientras que Grounding DINO procesa el par imagen-texto en cada consulta, de modo que un vocabulario mayor incrementa la longitud de la entrada textual y el costo de fusión cross-modal (Liu et al., 2024). El detalle arquitectónico se desarrolla en el análisis de modelos OVD; la consecuencia de diseño es que la cantidad de prompts sostenibles dentro del presupuesto de latencia depende del modelo elegido, la sintaxis concreta de los prompts, la resolución de entrada y el hardware de inferencia disponible.
 
 ###### 17.1.5.4.3. Consideraciones sobre el idioma de los prompts
 
-Los modelos OVD candidatos analizados en el análisis de modelos OVD —Grounding DINO, YOLO-World, YOLOE, Florence-2 y OWL-ViT— se apoyan en arquitecturas visión-lenguaje donde la entrada textual cumple un rol central. Grounding DINO procesa pares imagen-texto y utiliza un backbone textual basado en BERT; YOLO-World emplea un encoder textual tipo CLIP; YOLOE utiliza MobileCLIP-B(LT) para codificar prompts textuales; OWL-ViT transfiere modelos imagen-texto preentrenados a detección open-vocabulary; y Florence-2 opera mediante una representación unificada basada en prompts para múltiples tareas de visión y visión-lenguaje (Liu et al., 2024; Cheng et al., 2024; Wang et al., 2025; Minderer et al., 2022; Xiao et al., 2024).
+Los modelos OVD candidatos —Grounding DINO, YOLO-World, YOLOE, OWL-ViT y Florence-2— se apoyan en arquitecturas visión-lenguaje donde la entrada textual cumple un rol central, con encoders derivados de BERT, CLIP o MobileCLIP según la familia (Liu et al., 2024; Cheng et al., 2024; Wang et al., 2025; Minderer et al., 2022; Xiao et al., 2024).
 
-La decisión de formular los prompts primarios en inglés se fundamenta en la centralidad de ese idioma en varios de los modelos y corpus visión-lenguaje utilizados como base. CLIP fue entrenado sobre pares imagen-texto recolectados de la web y se utiliza ampliamente mediante prompts textuales en inglés; Conceptual Captions se construyó a partir de páginas web en inglés y filtros lingüísticos basados en vocabulario de Wikipedia en inglés; y CC12M amplía la escala de esa línea de recolección para preentrenamiento visión-lenguaje (Radford et al., 2021; Sharma et al., 2018; Changpinyo et al., 2021). Aunque no todos los modelos candidatos publican una caracterización lingüística equivalente de sus datos de entrenamiento, la evidencia disponible justifica utilizar el inglés como idioma primario de consulta para favorecer la compatibilidad con los patrones lingüísticos dominantes del preentrenamiento. Esta decisión tiene una implicación práctica relevante: la plataforma se desarrolla en un contexto académico argentino y constituye un prototipo experimental, no un sistema productivo. En consecuencia, el idioma natural de trabajo de operadores e investigadores es el español, mientras que la capa de consulta del detector se formulará primariamente en inglés para favorecer la alineación con los modelos candidatos. En el prototipo experimental, la traducción de las descripciones de condiciones de riesgo al inglés se realiza manualmente durante la fase de diseño de prompts.
+La decisión de formular los prompts primarios en inglés se fundamenta en la centralidad de ese idioma en varios de los modelos y corpus visión-lenguaje utilizados como base. CLIP, Conceptual Captions y CC12M —los corpus de la línea de preentrenamiento de base— se construyeron sobre material predominantemente en inglés (Radford et al., 2021; Sharma et al., 2018; Changpinyo et al., 2021). Aunque no todos los modelos candidatos publican una caracterización lingüística equivalente de sus datos de entrenamiento, la evidencia disponible justifica utilizar el inglés como idioma primario de consulta para favorecer la compatibilidad con los patrones lingüísticos dominantes del preentrenamiento.
+
+Esta decisión tiene una implicación práctica relevante: la plataforma se desarrolla en un contexto académico argentino y constituye un prototipo experimental, no un sistema productivo. En consecuencia, el idioma natural de trabajo de operadores e investigadores es el español, mientras que la capa de consulta del detector se formulará primariamente en inglés para favorecer la alineación con los modelos candidatos. En el prototipo experimental, la traducción de las descripciones de condiciones de riesgo al inglés se realiza manualmente durante la fase de diseño de prompts.
 
 Como línea complementaria de evaluación, podrá explorarse la ejecución de prompts formulados directamente en español o mediados por traducción automatizada, con el fin de cuantificar la eventual degradación asociada a la brecha lingüística y documentar si alguno de los modelos candidatos ofrece soporte multilingüe funcional para el dominio. De realizarse, estas pruebas corresponderán a la validación experimental y constituirán una contribución adicional al análisis de viabilidad del sistema.
 
@@ -1271,7 +2840,7 @@ Como objetivo operativo se procurará contar con al menos 200 instancias positiv
 
 Los hiperparámetros del modelo —umbral de confianza, umbral de NMS— se fijan a valores constantes durante toda la evaluación para garantizar comparabilidad entre variaciones de prompt. Si se evalúan múltiples umbrales, estos se documentan como variable adicional de la matriz.
 
-**Fase 3 - Ejecución sistemática.** Para cada combinación de la matriz, se ejecuta la inferencia sobre el dataset de evaluación correspondiente, registrando para cada imagen las detecciones producidas con sus coordenadas de bounding box, puntaje de confianza y etiqueta asignada por el modelo. La ejecución se realiza en condiciones controladas, manteniendo constantes el hardware, la resolución de entrada y la configuración de preprocesamiento. Los resultados se almacenan en formato estructurado que permita el cálculo posterior de métricas y la reproducción de los experimentos.
+**Fase 3 - Ejecución sistemática.** Para cada combinación de la matriz se ejecuta la inferencia sobre el dataset correspondiente en condiciones controladas —hardware, resolución de entrada y preprocesamiento constantes—, registrando por imagen las detecciones con sus coordenadas, puntaje de confianza y etiqueta, en formato estructurado que permita el cálculo posterior de métricas y la reproducción de los experimentos.
 
 **Fase 4 - Cálculo de métricas.** Para cada tupla (modelo, condición, prompt, contexto de vocabulario), se calculan las métricas definidas en el framework de métricas para el componente OVD. Se registra también el puntaje de confianza medio de las detecciones verdaderas positivas como indicador complementario de la estabilidad de la respuesta del modelo ante cada formulación de prompt.
 
@@ -1283,9 +2852,9 @@ El protocolo produce como salida un registro estructurado de métricas por combi
 
 ##### 17.1.5.5. Síntesis parcial de condiciones, prompts y variantes de prueba
 
-La formulación del prompt se asume como variable experimental del sistema. En OVD, cambios de sintaxis, especificidad o selección léxica pueden modificar el comportamiento del detector, especialmente cuando la condición se formula por ausencia de un elemento, por atributos finos o por composición contextual (Du et al., 2022; Bianchi et al., 2024). Por ello, la instancia de análisis y diseño arquitectónico deberá contrastar familias de prompts antes de congelar la configuración comparativa final.
+La formulación del prompt se asume como variable experimental del sistema. En OVD, cambios de sintaxis, especificidad o selección léxica pueden modificar el comportamiento del detector, especialmente cuando la condición se formula por ausencia de un elemento, por atributos finos o por composición contextual (Du et al., 2022; Bianchi et al., 2024). Por ello, el contraste entre familias de prompts precede al congelamiento de la configuración comparativa final en la instancia de análisis y diseño arquitectónico.
 
-Para evitar ambigüedades terminológicas, esta sección adopta dos definiciones operativas. La primera es matriz de prompts, entendida como el conjunto acotado de formulaciones alternativas que se ensayan para una misma condición. La segunda es la composición del vocabulario activo, entendida como el conjunto de descripciones, etiquetas o consultas que el modelo evalúa en simultáneo dentro de una corrida determinada. Esta aclaración reemplaza formulaciones más difusas de la versión anterior y deja explícito qué variable se está midiendo cuando se habla del “tamaño” o de la “composición” del vocabulario.
+Para evitar ambigüedades terminológicas se adoptan dos definiciones operativas. La primera es matriz de prompts, entendida como el conjunto acotado de formulaciones alternativas que se ensayan para una misma condición. La segunda es la composición del vocabulario activo, entendida como el conjunto de descripciones, etiquetas o consultas que el modelo evalúa en simultáneo dentro de una corrida determinada. Esta aclaración deja explícito qué variable se mide cuando se habla del “tamaño” o de la “composición” del vocabulario.
 
 El desarrollo completo de las matrices de prompts, sus variantes y los criterios de prueba se presenta en el Anexo C.
 
@@ -1295,40 +2864,40 @@ El desarrollo completo de las matrices de prompts, sus variantes y los criterios
 
 ###### 17.1.6.1.1. Propósito y preguntas rectoras
 
-La presente sección responde a las preguntas rectoras P-E1-03 y P-E1-08 formuladas en la sección 16.7.3 de la fundamentación teórica. En relación con P-E1-03, construye un inventario crítico de datasets públicos potencialmente utilizables para evaluar el prototipo experimental sobre las condiciones de riesgo definidas en la taxonomía de condiciones de riesgo, patrones y prompts, documentando cobertura, formato, acceso, licencia y restricciones operativas. En relación con P-E1-08, analiza qué colecciones pueden funcionar como insumo de un experimento comparativo acotado de fine-tuning, bajo las condiciones metodológicas fijadas por el framework de métricas para preservar la validez de la comparación entre baseline zero-shot y variante ajustada al dominio.
+La estrategia de datos responde a las preguntas rectoras P-E1-03 y P-E1-08 formuladas en la sección 16.7.3 de la fundamentación teórica. En relación con P-E1-03, construye un inventario crítico de datasets públicos potencialmente utilizables para evaluar el prototipo experimental sobre las condiciones de riesgo definidas en la taxonomía de condiciones de riesgo, patrones y prompts, documentando cobertura, formato, acceso, licencia y restricciones operativas. En relación con P-E1-08, analiza qué colecciones pueden funcionar como insumo de un experimento comparativo acotado de fine-tuning, bajo las condiciones metodológicas fijadas por el framework de métricas para preservar la validez de la comparación entre baseline zero-shot y variante ajustada al dominio.
 
-El propósito operativo de esta sección es cuádruple. Primero, construir un inventario sistematizado de datasets públicos relevantes para detección open-vocabulary en entornos de construcción civil, documentando para cada uno los atributos técnicos, de acceso y de licencia que condicionan su viabilidad. Segundo, establecer un mapeo explícito entre cada dataset candidato y las condiciones de riesgo CR-01 a CR-06 definidas en la taxonomía de condiciones de riesgo, patrones y prompts. Tercero, evaluar la aptitud de cada colección para su eventual uso en experimentos comparativos de ajuste de dominio, si ello resulta metodológicamente viable. Cuarto, fijar las condiciones metodológicas mínimas que cualquier estrategia de partición deberá satisfacer para sostener una comparación válida entre baseline zero-shot y variante fine-tuned, cuando esa comparación aplique.
+Ese propósito se completa con un mapeo explícito entre cada dataset candidato y las condiciones de riesgo CR-01 a CR-06 de la taxonomía, y con las condiciones metodológicas mínimas que cualquier estrategia de partición deberá satisfacer para sostener una comparación válida entre baseline zero-shot y variante fine-tuned, cuando esa comparación aplique.
 
 El análisis parte del reconocimiento, establecido en la fundamentación teórica, de que los modelos OVD preentrenados en colecciones generalistas presentan una brecha de dominio respecto de la construcción civil. Esa brecha no se resuelve únicamente con mayor volumen: también exige distinguir entre condiciones con evidencia visual directa —como CR-01 y CR-02—, condiciones espaciales o de ausencia visual fina —como CR-03 y CR-04— y condiciones relacionales o dependientes de parametrización externa —como CR-05 y CR-06—. En consecuencia, la aptitud de un dataset no se agota en la presencia de una clase aislada, sino que debe leerse en articulación con la taxonomía y el protocolo de evaluación definidos por la taxonomía de condiciones de riesgo, patrones y prompts y el framework de métricas.
 
-El alcance de la sección es metodológico. Elabora un inventario de datasets, explicita criterios de inclusión y exclusión, mapea cobertura contra CR-01–CR-06, analiza compatibilidad con los pipelines de ajuste priorizados y fija condiciones mínimas para su eventual partición y uso experimental. No define todavía la combinación definitiva de datasets, no ejecuta particiones ni campañas de curación o anotación complementaria y no implementa mediciones; esas decisiones corresponden a la instancia de análisis y diseño arquitectónico y su validación empírica a la validación experimental.
+El alcance es metodológico: elabora un inventario de datasets, explicita criterios de inclusión y exclusión, mapea cobertura contra CR-01–CR-06, analiza compatibilidad con los pipelines de ajuste priorizados y fija condiciones mínimas para su eventual partición y uso experimental. No define todavía la combinación definitiva de datasets, no ejecuta particiones ni campañas de curación o anotación complementaria y no implementa mediciones; esas decisiones corresponden a la instancia de análisis y diseño arquitectónico y su validación empírica a la validación experimental.
 
 ###### 17.1.6.1.2. Criterios de categorización y exclusión
 
-El inventario de esta sección se organiza en dos categorías con criterio de pertenencia explícito. La primera agrupa los datasets sobre los cuales se ejecutan operaciones directas (descarga, procesamiento, partición y uso experimental). La segunda comprende benchmarks establecidos cuyas particiones de test se emplean para medir el rendimiento de módulos específicos del sistema en condiciones comparables con la literatura. Toda colección que no satisfaga al menos uno de estos dos criterios queda fuera del alcance de la sección.
+El inventario se organiza en dos categorías con criterio de pertenencia explícito. La primera agrupa los datasets sobre los cuales se ejecutan operaciones directas (descarga, procesamiento, partición y uso experimental). La segunda comprende benchmarks establecidos cuyas particiones de test se emplean para medir el rendimiento de módulos específicos del sistema en condiciones comparables con la literatura. Toda colección que no satisfaga al menos uno de estos dos criterios queda fuera del alcance de la sección.
 
 **Categoría 1 — Datasets de gestión directa.** Un dataset pertenece a esta categoría si se descarga, procesa y utiliza directamente para evaluación del pipeline OVD en el dominio de construcción civil y/o como insumo del experimento comparativo de fine-tuning. La pertenencia a esta categoría no implica decisión de uso; la confirmación de qué datasets se gestionan efectivamente corresponde a la instancia de análisis y diseño arquitectónico. Los datasets listados en la Sección 17.1.6.2 constituyen el conjunto de candidatos analizados en esta sección.
 
 **Categoría 2 — Benchmarks de evaluación de referencia.** Un dataset pertenece a esta categoría si es un benchmark establecido cuyas particiones de test se emplearán para medir el rendimiento de módulos específicos del sistema bajo condiciones comparables con la literatura. Cada benchmark incluido debe tener una función explícita dentro del protocolo de evaluación, indicando qué módulo se evalúa con él, en qué etapa se utiliza y qué métricas se obtienen.
 
-**Alcance y exclusiones explícitas.** Quedan fuera del alcance de la presente sección las colecciones generalistas de gran escala sobre las cuales los modelos OVD fueron preentrenados por sus autores, tales como Visual Genome, LVIS v1.0, Objects365 v2, Open Images V7, entre otras. Estas colecciones no constituyen datos gestionados por el proyecto: no se descargan, procesan ni particionan, sino que se aprovechan indirectamente a través de los pesos públicos de los modelos candidatos. Su documentación corresponde al análisis de el análisis de modelos OVD, donde se describe la procedencia de las capacidades open-vocabulary de cada modelo y las restricciones de licencia asociadas.
+**Alcance y exclusiones explícitas.** Quedan fuera del inventario las colecciones generalistas de gran escala sobre las cuales los modelos OVD fueron preentrenados por sus autores, tales como Visual Genome, LVIS v1.0, Objects365 v2, Open Images V7, entre otras. Estas colecciones no constituyen datos gestionados por el proyecto: no se descargan, procesan ni particionan, sino que se aprovechan indirectamente a través de los pesos públicos de los modelos candidatos. Su documentación corresponde al análisis de modelos OVD, donde se describe la procedencia de las capacidades open-vocabulary de cada modelo y las restricciones de licencia asociadas.
 
 También quedan fuera del inventario las colecciones que no satisfacen los criterios mínimos de selección definidos en la Sección 17.1.6.1.3, en particular aquellas sin disponibilidad pública verificable, sin condiciones de uso suficientemente documentadas, con baja pertinencia respecto del dominio de construcción civil, con cobertura insuficiente de las condiciones de riesgo CR-01 a CR-06, o con anotaciones incompletas que impidan su conversión o evaluación bajo el protocolo del proyecto. De igual modo, se excluyen como fuente principal de evaluación los datasets compuestos exclusivamente por imágenes sintéticas sin validación manual o sin contraste documentado con escenas reales, dado que no permiten caracterizar adecuadamente el sesgo de dominio respecto de entornos reales de construcción y podrían comprometer la validez ecológica del protocolo experimental.
 
-Las condiciones de calzado inadecuado, ausencia de guantes o gafas de protección, y obstrucción de pasillos o materiales inestables, aunque presentes en la taxonomía normativa de la fundamentación teórica, no integran el alcance experimental definido en la taxonomía de condiciones de riesgo, patrones y prompts para la Etapa 2. Su análisis de cobertura queda diferido a etapas posteriores, en caso de que se decida ampliar el conjunto de condiciones evaluadas.
+Las condiciones de calzado inadecuado, ausencia de guantes o gafas de protección, y obstrucción de pasillos o materiales inestables, aunque preventivamente relevantes, no integran el alcance experimental definido en la taxonomía de condiciones de riesgo, patrones y prompts para la Etapa 2. Su análisis de cobertura queda fuera del alcance de esta instancia y sólo correspondería si se ampliara el conjunto de condiciones evaluadas.
 
 ###### 17.1.6.1.3. Criterios metodológicos de selección y evaluación
 
-La evaluación de cada dataset candidato se realiza sobre siete dimensiones que derivan del análisis teórico de la fundamentación teórica y de las necesidades operativas del proyecto. Estas dimensiones no tienen pesos fijos a priori; su ponderación relativa depende de la función que la instancia de análisis y diseño arquitectónico asigne al dataset dentro de la estrategia combinatoria. Un dataset orientado a ajuste de dominio priorizaría la pertinencia al dominio (C1) y la cobertura normativa (C2), mientras que uno orientado a preservar capacidades open-vocabulary priorizaría la compatibilidad semántica (C3) y la posibilidad de conversión o integración en los pipelines efectivamente seleccionados.
+La evaluación de cada dataset candidato se realiza sobre siete dimensiones que derivan del análisis teórico de la fundamentación teórica y de las necesidades operativas del proyecto. Estas dimensiones no tienen pesos fijos a priori; su ponderación relativa depende de la función que la instancia de análisis y diseño arquitectónico asigne al dataset dentro de la estrategia combinatoria. Un dataset orientado a ajuste de dominio priorizaría la pertinencia al dominio (C1) y la cobertura del catálogo experimental (C2), mientras que uno orientado a preservar capacidades open-vocabulary priorizaría la compatibilidad semántica (C3) y la posibilidad de conversión o integración en los pipelines efectivamente seleccionados.
 
-**Tabla 25**
+**Tabla 22**
 
 *Criterios de evaluación para la selección de datasets candidatos*
 
 | **#** | **Dimensión** | **Descripción operativa** |
 | --- | --- | --- |
 | C1 | Pertinencia al dominio | Presencia de escenas de construcción, industria o trabajadores con EPP. Se valoran entornos realistas con variaciones de iluminación, ángulo de cámara y condiciones climáticas. |
-| C2 | Cobertura normativa | Proporción de categorías anotadas que se corresponden con alguna condición de riesgo de la taxonomía operacionalizada en la taxonomía de condiciones de riesgo, patrones y prompts, derivada del marco normativo argentino. |
+| C2 | Cobertura del catálogo experimental | Proporción de categorías anotadas que se corresponden con alguna condición de riesgo del catálogo experimental (CR-01 a CR-06) definido en la Sección 17.1.5.2. |
 | C3 | Compatibilidad OV | Amplitud del vocabulario, presencia de anotaciones en lenguaje natural o descripciones que permitan consultas semánticas. |
 | C4 | Soporte temporal | Existencia de secuencias con entidades persistentes (IDs de trayectoria) o anotaciones cuadro a cuadro, necesarias para la integración con módulos de seguimiento multi-objeto (MOT). |
 | C5 | Calidad de anotación | Exhaustividad y consistencia de las anotaciones (cajas delimitadoras, máscaras, relaciones). Se prefieren anotaciones manuales con protocolos de control de calidad documentados. |
@@ -1343,7 +2912,7 @@ La selección se concentra en cuatro colecciones retenidas como candidatas de ge
 
 ###### 17.1.6.2.1. Datasets retenidos como candidatos
 
-**Tabla 26**
+**Tabla 23**
 
 *Datasets retenidos como candidatos de gestión directa*
 
@@ -1360,7 +2929,7 @@ La selección se concentra en cuatro colecciones retenidas como candidatas de ge
 
 Las colecciones restantes se descartan del núcleo de gestión directa cuando su licencia, acceso, dominio o cobertura no permiten sostener un uso principal dentro del protocolo. El descarte no niega su valor académico; delimita por qué no integran la combinación retenida.
 
-**Tabla 27**
+**Tabla 24**
 
 *Datasets descartados y causa metodológica*
 
@@ -1391,13 +2960,13 @@ La transferibilidad se interpreta de forma cualitativa según proximidad visual 
 
 ###### 17.1.6.2.6. Datos complementarios para condiciones brechadas
 
-Cuando una condición brechada permanezca dentro del alcance exploratorio, el orden de preferencia es: curación de fuentes públicas con licencia compatible; anotación complementaria acotada con control de calidad; y producción de material controlado en el EBE bajo consentimiento y minimización. La ampliación sólo se justifica si aporta evidencia interpretable sin desplazar la evaluación del núcleo.
+Cuando una condición brechada permanezca dentro del alcance exploratorio, el orden de preferencia es: curación de fuentes públicas con licencia compatible; anotación complementaria acotada con control de calidad; y producción de material controlado en el EBE bajo las salvaguardas de la Sección 17.1.10.1. La ampliación sólo se justifica si aporta evidencia interpretable sin desplazar la evaluación del núcleo.
 
 ###### 17.1.6.2.7. Condiciones para la partición de datos
 
-La evaluación comparativa zero-shot vs. fine-tuned requiere que los conjuntos de entrenamiento y evaluación sean estrictamente disjuntos, tal como exige el framework de métricas para sostener la validez de la comparación. El diseño concreto de la partición —qué proporciones se asignan a entrenamiento, validación y evaluación, qué datasets alimentan el subset de entrenamiento y qué colecciones se reservan para test— corresponde a la instancia de análisis y diseño arquitectónico, una vez definidos los modelos seleccionados y la estrategia de adaptación de dominio. La presente sección documenta sólo las condiciones metodológicas que cualquier esquema de partición deberá satisfacer. Una misma fuente no puede utilizarse simultáneamente como material de entrenamiento y como estrato del banco de evaluación; cualquier excepción invalidaría la independencia de la comparación.
+La evaluación comparativa zero-shot vs. fine-tuned requiere que los conjuntos de entrenamiento y evaluación sean estrictamente disjuntos, tal como exige el framework de métricas para sostener la validez de la comparación. El diseño concreto de la partición —qué proporciones se asignan a entrenamiento, validación y evaluación, qué datasets alimentan el subset de entrenamiento y qué colecciones se reservan para test— corresponde a la instancia de análisis y diseño arquitectónico, una vez definidos los modelos seleccionados y la estrategia de adaptación de dominio. El protocolo fija sólo las condiciones metodológicas que cualquier esquema de partición deberá satisfacer. Una misma fuente no puede utilizarse simultáneamente como material de entrenamiento y como estrato del banco de evaluación; cualquier excepción invalidaría la independencia de la comparación.
 
-**Tabla 28**
+**Tabla 25**
 
 *Condiciones metodológicas para la partición de datos*
 
@@ -1415,11 +2984,11 @@ La evaluación comparativa zero-shot vs. fine-tuned requiere que los conjuntos d
 
 ###### 17.1.6.2.8. Evaluación de aptitud por propósito
 
-La Tabla 29 sintetiza la aptitud metodológica de las cuatro fuentes retenidas para ajuste y evaluación, sin asignar todavía un rol efectivo.
+La Tabla 26 sintetiza la aptitud metodológica de las cuatro fuentes retenidas para ajuste y evaluación, sin asignar todavía un rol efectivo.
 
 La valoración considera cobertura, proximidad de dominio, formato, licencia y necesidad de mantener fuentes independientes para el test.
 
-**Tabla 29**
+**Tabla 26**
 
 *Aptitud de cada dataset candidato para fine-tuning y evaluación*
 
@@ -1436,7 +3005,7 @@ La valoración considera cobertura, proximidad de dominio, formato, licencia y n
 
 Tal como establece el framework de métricas, las métricas MOT basadas en identidades persistentes sólo resultan metodológicamente defendibles cuando se dispone de secuencias o benchmarks específicamente anotados con IDs de trayectoria. Por ello, los benchmarks de esta categoría no sustituyen la evaluación del dominio del proyecto: cumplen una función acotada de verificación de implementación y comparación de referencia para el módulo de seguimiento.
 
-**Tabla 30**
+**Tabla 27**
 
 *Benchmarks de evaluación de referencia para módulos de seguimiento*
 
@@ -1453,31 +3022,31 @@ MOT17 no representa el dominio de construcción civil. Su inclusión responde a 
 
 ###### 17.1.6.3.2. OVT-B — justificación de uso
 
-OVT-B es el benchmark más cercano a la arquitectura conceptual del proyecto, porque evalúa explícitamente el seguimiento multiobjeto en régimen open-vocabulary. Su utilidad no reside en representar el dominio de construcción civil, sino en evaluar la integración OVD+MOT bajo un vocabulario extenso y trayectorias de múltiples categorías. Por ello, OVT-B se interpreta como benchmark de referencia para robustez semántica y asociación temporal, mientras que la validación del dominio específico se mantiene separada y deberá realizarse sobre los datos del proyecto o sobre el escenario complementario que se defina en la instancia de análisis y diseño arquitectónico.
+OVT-B es el benchmark más cercano a la arquitectura conceptual del proyecto, porque evalúa explícitamente el seguimiento multiobjeto en régimen open-vocabulary. Su utilidad no reside en representar el dominio de construcción civil, sino en evaluar la integración OVD+MOT bajo un vocabulario extenso y trayectorias de múltiples categorías. Por ello, OVT-B se interpreta como benchmark de referencia para robustez semántica y asociación temporal, mientras que la validación del dominio específico se mantiene separada y se realiza sobre los datos del proyecto o sobre el escenario complementario que se defina en la instancia de análisis y diseño arquitectónico.
 
 ##### 17.1.6.4. Consideraciones transversales
 
-Las secciones precedentes analizaron los datasets desde una perspectiva técnica y metodológica. La presente sección documenta dos dimensiones que atraviesan el inventario completo con independencia de la categoría o del propósito asignado a cada dataset: las condiciones éticas y de licencia que enmarcan el uso de los datos, y las restricciones logísticas que condicionan su gestión operativa. Ambas dimensiones son insumos directos para la planificación de la instancia de análisis y diseño arquitectónico.
+Dos dimensiones atraviesan el inventario completo con independencia de la categoría o del propósito asignado a cada dataset: las condiciones éticas y de licencia que enmarcan el uso de los datos, y las restricciones logísticas que condicionan su gestión operativa. Ambas dimensiones son insumos directos para la planificación de la instancia de análisis y diseño arquitectónico.
 
 ###### 17.1.6.4.1. Consideraciones éticas sobre los datos
 
 Los datasets retenidos reúnen imágenes procedentes de repositorios públicos y escenas de construcción o dominios afines centrados en EPP. Su uso previsto se limita a investigación académica, sin reconocimiento facial, identificación individual ni tratamiento biométrico. Las anotaciones consideradas son principalmente cajas delimitadoras y etiquetas de objetos, en concordancia con el principio de minimización desarrollado en el marco ético-legal de la fundamentación teórica.
 
-Para cualquier dato generado ad hoc conforme a las alternativas de la Sección 17.1.6.2.6, se aplicará un protocolo específico de consentimiento informado, anonimización de rostros y minimización de datos personales, sin retención de identificadores biométricos. Este criterio se adopta en consonancia con la normativa argentina vigente de protección de datos personales, en particular la Ley 25.326.
+Para cualquier dato generado ad hoc conforme a las alternativas de la Sección 17.1.6.2.6 rigen las salvaguardas de la Sección 17.1.10.1.
 
-Las condiciones de uso no son homogéneas. SHEL5K, construction_site_safety y ppe_siabar se registran bajo CC BY 4.0; CHV no presenta una licencia formal para el paquete de datos, por lo que su eventual utilización exige citar la fuente y verificar los términos aplicables. La licencia del artículo asociado no se transfiere por inferencia al dataset. Las colecciones descartadas conservan el estatuto y la causa resumidos en la Tabla 27, sin atribuirles licencias no verificadas.
+Las condiciones de uso no son homogéneas. SHEL5K, construction_site_safety y ppe_siabar se registran bajo CC BY 4.0; CHV no presenta una licencia formal para el paquete de datos, por lo que su eventual utilización exige citar la fuente y verificar los términos aplicables. La licencia del artículo asociado no se transfiere por inferencia al dataset. Las colecciones descartadas conservan el estatuto y la causa resumidos en la Tabla 24, sin atribuirles licencias no verificadas.
 
-En consecuencia, la instancia de análisis y diseño arquitectónico deberá verificar manualmente los términos efectivos de cada fuente antes de descargar, fusionar, redistribuir o publicar derivados de los datos. La gestión del corpus deberá conservar trazabilidad por dataset de origen, registrar licencias y condiciones aplicables, y evitar que la combinación de colecciones con licencias heterogéneas genere obligaciones incompatibles con el alcance académico del proyecto.
+En consecuencia, la instancia de análisis y diseño arquitectónico verifica manualmente los términos efectivos de cada fuente antes de descargar, fusionar, redistribuir o publicar derivados de los datos. La gestión del corpus deberá conservar trazabilidad por dataset de origen, registrar licencias y condiciones aplicables, y evitar que la combinación de colecciones con licencias heterogéneas genere obligaciones incompatibles con el alcance académico del proyecto.
 
 ###### 17.1.6.4.2. Logística de datos
 
-El pipeline de gestión de datos comprende cinco pasos secuenciales: descarga o solicitud de acceso desde las fuentes de origen, verificación de integridad, inspección del formato nativo y conversión al formato de trabajo requerido por cada pipeline, partición conforme a las condiciones metodológicas definidas anteriormente, y transferencia del subset de entrenamiento y, cuando corresponda, del conjunto de validación al clúster de cómputo de alto rendimiento Mendieta para el experimento de fine-tuning. La evaluación e inferencia operativa se ejecutarán en el hardware local, manteniendo la separación funcional entre entrenamiento y despliegue documentada en la sección de entorno experimental, infraestructura y escenarios de evaluación. Esto puede verse en detalle en la Tabla C.5 del Anexo C.
+El pipeline de gestión de datos comprende cinco pasos secuenciales: descarga o solicitud de acceso desde las fuentes de origen, verificación de integridad, inspección del formato nativo y conversión al formato de trabajo requerido por cada pipeline, partición conforme a las condiciones metodológicas definidas anteriormente, y transferencia del subset de entrenamiento y, cuando corresponda, del conjunto de validación al clúster de cómputo de alto rendimiento Mendieta para el experimento de fine-tuning. La evaluación e inferencia operativa se ejecutarán en el hardware local, manteniendo la separación funcional entre entrenamiento y despliegue documentada en la sección de entorno experimental, infraestructura y escenarios de evaluación. La logística de conversión y acceso por fuente se detalla en la Tabla C.3 del Anexo C.
 
 ##### 17.1.6.5. Síntesis parcial de la estrategia de datos, benchmarks y partición
 
 La estrategia de datos, benchmarks y partición muestra una cobertura desigual respecto del catálogo retenido. Las condiciones de EPP poseen el soporte más sólido: CR-01 cuenta con múltiples fuentes centradas en casco o ausencia de casco, y CR-02 dispone de cobertura adecuada para chaleco, aunque menos redundante. En cambio, CR-03 y CR-04 mantienen brechas directas de cobertura, mientras que CR-05 y CR-06 dependen de entidades auxiliares y contexto parcial, no de etiquetas nativas del patrón de riesgo completo.
 
-**Tabla 31**
+**Tabla 28**
 
 *Cobertura de datos por condición y consecuencia metodológica*
 
@@ -1496,9 +3065,7 @@ Los benchmarks de referencia cumplen un papel más acotado. MOT17 puede utilizar
 
 Esta clasificación evita una sobre-declaración del alcance experimental. En particular, la presencia de entidades relacionadas con CR-03 o CR-04 en una colección de imágenes no habilita por sí sola la validación de la condición completa. Para esas condiciones, el protocolo sólo podrá reportar resultados completos cuando exista evidencia anotada sobre la combinación operativa requerida; de lo contrario, deberá distinguir entre detección de componentes visuales, prueba exploratoria de reglas espaciales y validación efectiva del patrón de riesgo.
 
-La partición de datos se rige por cinco reglas obligatorias: el test set debe congelarse antes de cualquier entrenamiento o augmentation; la baseline zero-shot y toda variante fine-tuned deben evaluarse sobre el mismo conjunto de test; los splits deben ser estrictamente disjuntos; la semilla y el procedimiento de partición deben registrarse; y toda anotación complementaria debe separar material de desarrollo y material de evaluación. Estas reglas sostienen la comparabilidad del protocolo.
-
-Para las condiciones brechadas, la política de datos complementarios sigue un orden de preferencia conservador: primero curación y conversión de fuentes públicas compatibles; después anotación complementaria acotada sobre material estrictamente necesario; y sólo en último término producción específica de material controlado en el EBE. El objetivo es evitar que la expansión del corpus consuma el tiempo y la capacidad que el proyecto necesita reservar para integración, instrumentación y validación del sistema.
+La partición de datos se rige por las condiciones metodológicas obligatorias de la Tabla 25.
 
 #### 17.1.7. Framework de métricas, viabilidad operativa y presupuesto de latencia
 
@@ -1508,9 +3075,9 @@ Para las condiciones brechadas, la política de datos complementarios sigue un o
 
 La fundamentación teórica del proyecto E-OVRT-VDP identificó una brecha persistente entre las métricas académicas estándar y la evidencia operativa que debe ofrecer un sistema de alerta asistiva orientado a seguridad laboral. Aunque métricas como AP, HOTA y los indicadores convencionales de rendimiento del pipeline resultan necesarias para la comparabilidad técnica, por sí solas no permiten establecer si el sistema detecta, sostiene y transforma una condición de riesgo en una alerta con la oportunidad, la estabilidad y la trazabilidad requeridas por el dominio.
 
-En ese marco, la presente sección responde a dos de las preguntas rectoras formuladas en la fundamentación teórica. En relación con P-E1-06, define el framework de métricas para evaluar de manera integral detección OVD, seguimiento multiobjeto, rendimiento del pipeline y desempeño operativo de alerta, junto con umbrales orientativos diferenciados por severidad. En relación con P-E1-01, operacionaliza el presupuesto de latencia admisible mediante una descomposición en componentes medibles y una estimación orientativa compatible con el perfil de hardware de referencia.
+En ese marco, el framework responde a dos preguntas rectoras de la fundamentación teórica. En relación con P-E1-06, define las métricas para evaluar de manera integral detección OVD, seguimiento multiobjeto, rendimiento del pipeline y desempeño operativo de alerta, junto con umbrales orientativos diferenciados por severidad. En relación con P-E1-01, operacionaliza el presupuesto de latencia admisible mediante una descomposición en componentes medibles y una estimación orientativa compatible con el perfil de hardware de referencia.
 
-El alcance de la sección es metodológico. Define métricas, niveles de compromiso, criterios de aplicación, umbrales orientativos y requisitos mínimos de instrumentación y reporte, pero no implementa la medición en código ni ejecuta campañas experimentales. Esas tareas corresponden, respectivamente, a la instancia de análisis y diseño arquitectónico y a la validación experimental. Las definiciones formales de las métricas estándar pueden consultarse en las secciones correspondientes de la fundamentación teórica.
+El alcance es metodológico: define métricas, niveles de compromiso, criterios de aplicación, umbrales orientativos y requisitos mínimos de instrumentación y reporte, pero no implementa la medición en código ni ejecuta campañas experimentales. Esas tareas corresponden, respectivamente, a la instancia de análisis y diseño arquitectónico y a la validación experimental. Las definiciones formales de las métricas estándar pueden consultarse en las secciones correspondientes de la fundamentación teórica.
 
 En consecuencia, el framework no debe interpretarse como una promesa de ejecución uniforme de todas las métricas definidas, sino como una matriz metodológica de aplicación condicionada. Cada métrica sólo será exigible cuando existan los datos, módulos, referencias de evaluación e instrumentación necesarios para calcularla de manera trazable. Cuando esas condiciones no se cumplan, la salida metodológicamente correcta será declararla como no ejecutada o no aplicable, indicando la causa.
 
@@ -1523,8 +3090,6 @@ La presente sección concentra su validación primaria en el tramo Glass-to-Aler
 En las configuraciones que incluyan un trayecto instrumentado de consulta o notificación, se reportará adicionalmente ⟦ECUACIÓN: no extraída — ver el .docx⟧ como medida complementaria. Esta métrica extiende la medición hacia la disponibilidad de la alerta en el canal definido, pero no forma parte del núcleo evaluativo mínimo.
 
 En este trabajo, la latencia interna hasta el registro de la alerta se identifica como t_alert-system; la extensión hasta un canal instrumentado se identifica como t_alert-notification. Ambas denominaciones deben conservarse sin intercambiar sus hitos de inicio y cierre.
-
-Bajo esta convención, G2A se entiende como el subtramo instrumental del pipeline que va desde la captura o lectura del cuadro hasta la disponibilidad del resultado algorítmico. El tramo Glass-to-Alert integra, además de ese subtramo, los módulos de seguimiento y razonamiento que correspondan y, sobre todo, la ventana funcional de persistencia requerida para confirmar el patrón de riesgo. Esta delimitación permite separar con claridad la latencia estrictamente computacional de las demoras asociadas al trayecto de consulta, notificación, distribución o interpretación humana.
 
 ##### 17.1.7.3. Estructura del framework y criterios de viabilidad
 
@@ -1542,7 +3107,7 @@ Esta jerarquía tiene una consecuencia práctica: si los recursos experimentales
 
 ###### 17.1.7.3.2. Niveles de compromiso
 
-No todas las métricas definidas en esta sección asumen el mismo nivel de compromiso. Obligatorio designa métricas que el núcleo del prototipo experimental debe reportar para sostener sus conclusiones; deseable designa métricas que enriquecen el análisis, pero cuya omisión no invalida el experimento si se explicita la razón; conceptual designa tratamientos o extensiones metodológicas cuya formulación analítica es pertinente, aunque su evaluación empírica completa exceda el alcance experimental del prototipo.
+No todas las métricas del framework asumen el mismo nivel de compromiso. Obligatorio designa métricas que el núcleo del prototipo experimental debe reportar para sostener sus conclusiones; deseable designa métricas que enriquecen el análisis, pero cuya omisión no invalida el experimento si se explicita la razón; conceptual designa tratamientos o extensiones metodológicas cuya formulación analítica es pertinente, aunque su evaluación empírica completa exceda el alcance experimental del prototipo.
 
 El nivel de compromiso también depende del alcance efectivamente implementado. Una métrica puede ser obligatoria para condiciones evaluables mediante detección directa o indirecta ya instrumentada, y no resultar exigible allí donde todavía falten módulos de razonamiento contextual, anotación especializada o trayectos completos de notificación.
 
@@ -1552,37 +3117,33 @@ Una métrica sólo se asumirá como obligatoria cuando cumpla simultáneamente c
 
 ##### 17.1.7.4. Métricas adoptadas
 
-Las secciones siguientes presentan las familias de métricas seleccionadas para los tres planos del sistema evaluable: detección OVD, seguimiento multiobjeto (MOT) y rendimiento del pipeline. La selección no pretende agotar la literatura, sino establecer un conjunto defendible de métricas candidatas y niveles de compromiso coherentes con el alcance del prototipo.
+Las métricas adoptadas cubren los tres planos del sistema evaluable: detección OVD, seguimiento multiobjeto (MOT) y rendimiento del pipeline. La selección no pretende agotar la literatura, sino establecer un conjunto defendible de métricas candidatas y niveles de compromiso coherentes con el alcance del prototipo.
 
 ###### 17.1.7.4.1. Métricas de detección OVD
 
-La evaluación del componente de detección open-vocabulary adopta un subconjunto de las métricas estándar revisadas en el análisis de modelos OVD. AP@0.5 y Precision/Recall constituyen el núcleo mínimo por su interpretabilidad, su disponibilidad en herramientas de evaluación consolidadas y su utilidad para contrastar variantes zero-shot y fine-tuned. AP@[0.5:0.95] se conserva como métrica deseable de comparabilidad académica, mientras que NMS-AP permanece en plano conceptual por su valor analítico sobre vocabularios extensos y su menor prioridad operativa en el prototipo experimental. Pueden verse estas métricas en la Tabla D.1 del Anexo D.
+La evaluación del componente de detección open-vocabulary adopta un subconjunto de las métricas estándar revisadas en el análisis de modelos OVD. AP@0.5 y Precision/Recall constituyen el núcleo mínimo por su interpretabilidad, su disponibilidad en herramientas de evaluación consolidadas y su utilidad para contrastar variantes zero-shot y fine-tuned. AP@[0.5:0.95] se conserva como métrica deseable de comparabilidad académica, mientras que NMS-AP permanece en plano conceptual por su valor analítico sobre vocabularios extensos y su menor prioridad operativa en el prototipo experimental.
 
 ###### 17.1.7.4.2. Métricas de seguimiento multiobjeto
 
-La evaluación MOT recupera como base las métricas estándar desarrolladas en la el análisis de seguimiento multiobjeto, pero recalibra su nivel de compromiso según el alcance efectivo del prototipo experimental. En ese marco, HOTA se conserva como métrica de referencia académica, aunque su cálculo riguroso —al igual que DetA, AssA e IDF1— exige anotaciones cuadro a cuadro con identidades persistentes, por lo que estas métricas quedan como deseables sobre subsets específicamente preparados para MOT. MOTA, IDSW y fragmentación conservan valor diagnóstico complementario en esos mismos subsets.
+La evaluación MOT recupera como base las métricas estándar desarrolladas en el análisis de seguimiento multiobjeto, pero recalibra su nivel de compromiso según el alcance efectivo del prototipo experimental. En ese marco, HOTA se conserva como métrica de referencia académica, aunque su cálculo riguroso —al igual que DetA, AssA e IDF1— exige anotaciones cuadro a cuadro con identidades persistentes, por lo que estas métricas quedan como deseables sobre subsets específicamente preparados para MOT. MOTA, IDSW y fragmentación conservan valor diagnóstico complementario en esos mismos subsets.
 
 Para el núcleo del prototipo experimental, la métrica más útil es ⟦ECUACIÓN: no extraída — ver el .docx⟧, incorporada en esta etapa como operacionalización propia y entendida como la diferencia de falsos positivos observada entre corridas equivalentes con y sin tracker habilitado. Su valor metodológico reside en estimar si el seguimiento reduce detecciones espurias o falsas alertas sin exigir ground truth de identidades. No obstante, su interpretación sólo es válida si la unidad de conteo del falso positivo se declara previamente y se mantiene constante durante la comparación.
 
-El análisis de las métricas de seguimiento multiobjeto puede verse en la Tabla D.2 del Anexo D.
-
 ###### 17.1.7.4.3. Métricas de rendimiento del pipeline
 
-El rendimiento del pipeline integrado constituye una familia de métricas propia, porque la utilidad del sistema no depende sólo de la calidad semántica de detección o seguimiento, sino también del comportamiento sostenido de la cadena completa. FPS efectivos, latencia G2A y consumo de recursos permiten interpretar cuellos de botella, estabilidad temporal y margen operativo del hardware disponible. El análisis de las métricas de rendimiento del pipeline queda desarrollado en la Tabla D.3 del Anexo D.
+El rendimiento del pipeline integrado constituye una familia de métricas propia, porque la utilidad del sistema no depende sólo de la calidad semántica de detección o seguimiento, sino también del comportamiento sostenido de la cadena completa. FPS efectivos, latencia G2A y consumo de recursos permiten interpretar cuellos de botella, estabilidad temporal y margen operativo del hardware disponible. El análisis de las métricas de rendimiento del pipeline queda desarrollado en la Tabla D.1 del Anexo D.
 
 ##### 17.1.7.5. Métricas operativas específicas del dominio
 
 Las métricas estándar de detección, seguimiento y rendimiento aportan comparabilidad técnica, pero no alcanzan por sí solas para describir el valor operativo del sistema en seguridad laboral. En este dominio, no interesa únicamente si el modelo detecta objetos o atributos en un cuadro, sino si el prototipo puede reaccionar frente a una condición de riesgo, sostener evidencia temporal suficiente y transformar esa evidencia en una alerta trazable cuando corresponda.
 
-Por ello, esta sección incorpora métricas operativas específicas del dominio: latencia de alerta, tiempo a la primera detección, tasa de detección sostenida y evaluación diferenciada por severidad. Su aplicación queda condicionada por la disponibilidad de secuencias temporales, eventos anotados, criterios de detección positivos previamente definidos e instrumentación suficiente. En consecuencia, estas métricas no deben interpretarse como aplicables a toda corrida experimental, sino como métricas ejecutables sólo cuando los datos y el alcance implementado permiten calcularlas de manera válida.
+Por ello, el framework incorpora métricas operativas específicas del dominio: latencia de alerta, tiempo a la primera detección, tasa de detección sostenida y evaluación diferenciada por severidad. Su aplicación queda condicionada por la disponibilidad de secuencias temporales, eventos anotados, criterios de detección positivos previamente definidos e instrumentación suficiente. En consecuencia, estas métricas no deben interpretarse como aplicables a toda corrida experimental, sino como métricas ejecutables sólo cuando los datos y el alcance implementado permiten calcularlas de manera válida.
 
 ###### 17.1.7.5.1. Latencia de alerta (⟦ECUACIÓN: no extraída — ver el .docx⟧)
 
 La latencia de alerta se evalúa principalmente mediante ⟦ECUACIÓN: no extraída — ver el .docx⟧. Esta métrica no mide una detección aislada, sino la capacidad del prototipo para transformar evidencia visual en una alerta confirmada y registrada dentro del sistema.
 
 Por lo tanto, ⟦ECUACIÓN: no extraída — ver el .docx⟧ sólo corresponde cuando la corrida incluye, como mínimo, detección OVD, evaluación de patrón, confirmación del patrón y registro interno de la alerta. Una detección temprana puede contribuir a la alerta, pero no la constituye por sí misma si no satisface los criterios de persistencia, severidad o activación definidos para el patrón evaluado.
-
-En pruebas puramente cuadro a cuadro, donde sólo se evalúa la salida del detector OVD sin evaluación de patrón ni alerta registrada, no corresponde reportar ⟦ECUACIÓN: no extraída — ver el .docx⟧. En esos casos, el análisis debe limitarse a métricas de detección, rendimiento del pipeline o latencia Glass-to-Algorithm (G2A), declarando explícitamente la no aplicación de métricas de alerta.
 
 Cuando la configuración evaluada incluya un trayecto instrumentado de consulta, exposición o notificación, se reportará adicionalmente ⟦ECUACIÓN: no extraída — ver el .docx⟧ como medida complementaria. Esta métrica no forma parte del núcleo mínimo de validación de la alerta, porque depende de componentes de interfaz o comunicación que pueden variar según el diseño arquitectónico adoptado.
 
@@ -1592,7 +3153,7 @@ El Tiempo a la Primera Detección, o TTFD, mide el tiempo transcurrido entre el 
 
 TTFD debe interpretarse como una métrica de reacción inicial y no como una métrica de alerta. Una primera detección temprana puede ser útil para reducir la latencia operativa posterior, pero no implica por sí sola que exista un patrón de riesgo confirmado ni una alerta válida dentro del sistema. La transición desde TTFD hacia ⟦ECUACIÓN: no extraída — ver el .docx⟧ depende de que las detecciones posteriores satisfagan los criterios de persistencia, severidad o activación definidos para la condición evaluada.
 
-Esta métrica resulta especialmente informativa en eventos de severidad crítica o alta, donde interesa conocer cuánto tarda el sistema en producir la primera señal visual relevante. Sin embargo, su aplicación requiere que el evento tenga un inicio temporal anotado y que el criterio de detección positiva esté definido previamente. En datasets estáticos de imágenes, o en evaluaciones sin secuencia temporal ni inicio de evento identificable, TTFD no corresponde como métrica operativa y debe declararse como no aplicable.
+Esta métrica resulta especialmente informativa en eventos de severidad crítica o alta, donde interesa conocer cuánto tarda el sistema en producir la primera señal visual relevante.
 
 ###### 17.1.7.5.3. Tasa de detección sostenida (SDR)
 
@@ -1600,15 +3161,7 @@ La Tasa de Detección Sostenida, o SDR, mide la proporción del intervalo anotad
 
 En el protocolo, SDR permite distinguir entre una detección puntual y una condición sostenida. Una detección aislada puede no ser suficiente para confirmar un patrón de riesgo; por eso, esta métrica aporta evidencia sobre la persistencia necesaria para alimentar la lógica de confirmación del patrón.
 
-SDR sólo corresponde cuando existe una secuencia temporal con inicio y duración anotados de la condición evaluada. En datasets estáticos de imágenes, o en evaluaciones sin ventana temporal identificable, la métrica no resulta aplicable y debe declararse como tal.
-
-###### 17.1.7.5.4. Condición de aplicación de métricas temporales
-
-Las métricas ⟦ECUACIÓN: no extraída — ver el .docx⟧, TTFD y SDR sólo son ejecutables sobre secuencias temporales donde pueda identificarse el inicio de la condición de riesgo, su duración efectiva y la respuesta temporal del sistema. No corresponde calcularlas sobre datasets compuestos únicamente por imágenes estáticas no ordenadas temporalmente.
-
-En esos casos, la evaluación debe limitarse a métricas de detección por imagen o por cuadro, como AP@0.5 y Precision/Recall, además de métricas de rendimiento del pipeline cuando exista instrumentación suficiente. Las métricas temporales quedan reservadas para clips, secuencias anotadas o corridas EBE con eventos definidos.
-
-###### 17.1.7.5.5. Evaluación diferenciada por severidad
+###### 17.1.7.5.4. Evaluación diferenciada por severidad
 
 No todos los errores del sistema tienen el mismo impacto operativo. Por ello, el framework adopta como obligación mínima el reporte de Precision y Recall por severidad, o por grupos de condiciones con severidad homogénea, acompañado por el tamaño muestral correspondiente.
 
@@ -1618,11 +3171,15 @@ La asignación formal de pesos distintos a falsos positivos y falsos negativos s
 
 ##### 17.1.7.6. Protocolo comparativo entre variantes preentrenada y ajustada al dominio
 
-La comparación entre la variante preentrenada y la variante ajustada al dominio (fine-tuned) debe entenderse como un protocolo evaluativo condicionado, no como un resultado garantizado. Su finalidad es determinar si el ajuste al dominio aporta mejoras medibles sin comprometer la validez experimental ni degradar de manera no controlada la capacidad open-vocabulary del modelo. En ese marco, toda variante ajustada al dominio requiere una baseline zero-shot explícita, evaluada previamente sobre el conjunto de evaluación reservado. Esa baseline constituye el punto de referencia mínimo de toda comparación. En ausencia de baseline zero-shot, soporte de datos suficiente o separación estricta entre entrenamiento y evaluación, el contraste entre variantes no corresponde como evidencia metodológicamente válida. La separación estricta entre datos de entrenamiento y evaluación es condición de validez experimental y deberá quedar formalizada en la estrategia de datos, benchmarks y partición. Asimismo, la selección de checkpoints no debe hacerse sobre el conjunto de evaluación ni sobre clips o cuadros reutilizados en la línea base o baseline. Toda corrida comparativa deberá conservar el mismo conjunto de evaluación y la misma configuración experimental, salvo la variable que se busque aislar. Cuando exista una variante ajustada y soporte de datos suficiente para una condición de riesgo determinada, se reportarán los deltas ΔAP, ΔRecall, ΔPrecision y ΔSDR respecto de la baseline zero-shot. Los deltas sobre ⟦ECUACIÓN: no extraída — ver el .docx⟧ y TTFD se consideran deseables cuando la condición evaluada permita medirlos con trazabilidad suficiente. Del mismo modo, resulta deseable verificar si el ajuste al dominio degrada la capacidad open-vocabulary sobre categorías externas al entrenamiento mediante un subset generalista separado del dominio específico.
+La comparación entre la variante preentrenada y la variante ajustada al dominio (fine-tuned) debe entenderse como un protocolo evaluativo condicionado, no como un resultado garantizado. Su finalidad es determinar si el ajuste al dominio aporta mejoras medibles sin comprometer la validez experimental ni degradar de manera no controlada la capacidad open-vocabulary del modelo. En ese marco, toda variante ajustada al dominio requiere una baseline zero-shot explícita, evaluada previamente sobre el conjunto de evaluación reservado. Esa baseline constituye el punto de referencia mínimo de toda comparación. En ausencia de baseline zero-shot, soporte de datos suficiente o separación estricta entre entrenamiento y evaluación, el contraste entre variantes no corresponde como evidencia metodológicamente válida.
+
+La separación estricta entre datos de entrenamiento y evaluación es condición de validez experimental y deberá quedar formalizada en la estrategia de datos, benchmarks y partición. Asimismo, la selección de checkpoints no debe hacerse sobre el conjunto de evaluación ni sobre clips o cuadros reutilizados en la línea base o baseline. Toda corrida comparativa deberá conservar el mismo conjunto de evaluación y la misma configuración experimental, salvo la variable que se busque aislar.
+
+Cuando exista una variante ajustada y soporte de datos suficiente para una condición de riesgo determinada, se reportarán los deltas ΔAP, ΔRecall, ΔPrecision y ΔSDR respecto de la baseline zero-shot. Los deltas sobre ⟦ECUACIÓN: no extraída — ver el .docx⟧ y TTFD se consideran deseables cuando la condición evaluada permita medirlos con trazabilidad suficiente. Del mismo modo, resulta deseable verificar si el ajuste al dominio degrada la capacidad open-vocabulary sobre categorías externas al entrenamiento mediante un subset generalista separado del dominio específico.
 
 Toda ejecución de ajuste al dominio debe documentar horas-GPU, tiempo total, horas-persona, cantidad de imágenes y criterios de selección del checkpoint. Sin ese contexto, la ganancia observada pierde interpretabilidad como insumo para decisiones metodológicas.
 
-**Tabla 32**
+**Tabla 29**
 
 *Métricas y criterios de reporte para la comparación entre variantes*
 
@@ -1655,7 +3212,7 @@ Aquí, ⟦ECUACIÓN: no extraída — ver el .docx⟧ representa la ventana func
 
 La descomposición temporal presentada en la subsección anterior sólo resulta metodológicamente útil si cada componente queda adscrito a un tramo evaluativo preciso. En ese marco, la presente tabla no fija valores cerrados por componente, sino que organiza qué partes del retardo pertenecen al subtramo instrumental G2A, cuáles integran la confirmación interna de la alerta operacionalizada como ⟦ECUACIÓN: no extraída — ver el .docx⟧ y cuál corresponde, cuando exista, al trayecto adicional de notificación expresado por ⟦ECUACIÓN: no extraída — ver el .docx⟧. Su función es guiar la instrumentación mínima del sistema efectivamente implementado y evitar que se mezclen costos computacionales, ventanas funcionales de evidencia y demoras externas de interfaz o distribución.
 
-**Tabla 33**
+**Tabla 30**
 
 *Componentes del presupuesto de latencia y adscripción a G2A,* ⟦ECUACIÓN: no extraída — ver el .docx⟧ *y* ⟦ECUACIÓN: no extraída — ver el .docx⟧
 
@@ -1670,29 +3227,33 @@ La descomposición temporal presentada en la subsección anterior sólo resulta 
 | ⟦ECUACIÓN: no extraída — ver el .docx⟧ | Debe distinguirse de ⟦ECUACIÓN: no extraída — ver el .docx⟧ y medirse como costo computacional de las reglas aplicadas. | Reglas de persistencia, lógica espacial, patrones activos. | ⟦ECUACIÓN: no extraída — ver el .docx⟧ | Obligatorio si existe |
 | ⟦ECUACIÓN: no extraída — ver el .docx⟧ | Sólo aplica en configuraciones que incluyan un trayecto instrumentado de notificación hacia interfaz, cliente o canal externo. | MQTT/HTTP/WebSocket, cola de eventos, cliente e interfaz. | ⟦ECUACIÓN: no extraída — ver el .docx⟧ | Deseable |
 
-*Nota.* La tabla organiza los componentes del presupuesto y explicita a qué tramo pertenece cada uno: G2A, ⟦ECUACIÓN: no extraída — ver el .docx⟧ o ⟦ECUACIÓN: no extraída — ver el .docx⟧. No fija valores cerrados por componente; su función es guiar la instrumentación y la interpretación del retardo sobre el sistema efectivamente implementado. La inclusión explícita de ⟦ECUACIÓN: no extraída — ver el .docx⟧ responde a que la latencia de alerta confirmada no se reduce al costo computacional del pipeline, sino que incorpora además la ventana funcional necesaria para acumular evidencia suficiente antes de registrar una alerta interna.
+*Nota.* La tabla organiza los componentes del presupuesto y explicita a qué tramo pertenece cada uno: G2A, ⟦ECUACIÓN: no extraída — ver el .docx⟧ o ⟦ECUACIÓN: no extraída — ver el .docx⟧. No fija valores cerrados por componente; su función es guiar la instrumentación y la interpretación del retardo sobre el sistema efectivamente implementado.
 
-###### 17.1.7.7.3. Consideración sobre el razonamiento temporal
-
-El componente ⟦ECUACIÓN: no extraída — ver el .docx⟧ debe distinguirse explícitamente de ⟦ECUACIÓN: no extraída — ver el .docx⟧. El primero corresponde al costo computacional asociado a la evaluación de reglas de persistencia, asociaciones espaciales y patrones activos una vez disponibles las detecciones. El segundo corresponde al tiempo funcional que el sistema requiere para acumular evidencia suficiente antes de confirmar una alerta. Esta distinción es metodológicamente central, porque evita interpretar la latencia de alerta confirmada como si fuera únicamente un problema de rendimiento computacional: ⟦ECUACIÓN: no extraída — ver el .docx⟧ integra el presupuesto computacional del sistema, mientras que ⟦ECUACIÓN: no extraída — ver el .docx⟧ integra el presupuesto operativo de confirmación que queda absorbido por ⟦ECUACIÓN: no extraída — ver el .docx⟧.
-
-###### 17.1.7.7.4. Cierre operativo del presupuesto
+###### 17.1.7.7.3. Cierre operativo del presupuesto
 
 En términos operativos, G2A abarca ⟦ECUACIÓN: no extraída — ver el .docx⟧, ⟦ECUACIÓN: no extraída — ver el .docx⟧, ⟦ECUACIÓN: no extraída — ver el .docx⟧ y ⟦ECUACIÓN: no extraída — ver el .docx⟧. La latencia de alerta hasta su confirmación interna, operacionalizada mediante ⟦ECUACIÓN: no extraída — ver el .docx⟧, agrega, según la configuración evaluada, ⟦ECUACIÓN: no extraída — ver el .docx⟧, ⟦ECUACIÓN: no extraída — ver el .docx⟧ y la ventana funcional ⟦ECUACIÓN: no extraída — ver el .docx⟧. El trayecto de notificación hacia interfaz, cliente o canal externo debe tratarse como una extensión adicional del sistema, expresada mediante ⟦ECUACIÓN: no extraída — ver el .docx⟧, y no como condición para validar el núcleo del prototipo experimental.
 
-###### 17.1.7.7.5. Estimación orientativa del presupuesto de latencia
+###### 17.1.7.7.4. Estimación orientativa del presupuesto de latencia
 
-La descomposición presentada permite construir una estimación orientativa del presupuesto de latencia sin confundir el rendimiento por cuadro del subtramo G2A con la latencia de alerta confirmada expresada por ⟦ECUACIÓN: no extraída — ver el .docx⟧. Esta estimación no reemplaza la calibración empírica de la validación experimental, sino que funciona como referencia de plausibilidad para interpretar los umbrales de la Sección 17.1.7.7.6 y verificar que las metas de ⟦ECUACIÓN: no extraída — ver el .docx⟧ resulten consistentes con el hardware de referencia.
+La descomposición presentada permite construir una estimación orientativa del presupuesto de latencia sin confundir el rendimiento por cuadro del subtramo G2A con la latencia de alerta confirmada expresada por ⟦ECUACIÓN: no extraída — ver el .docx⟧. Esta estimación no reemplaza la calibración empírica de la validación experimental, sino que funciona como referencia de plausibilidad para interpretar los umbrales de la Sección 17.1.7.7.5 y verificar que las metas de ⟦ECUACIÓN: no extraída — ver el .docx⟧ resulten consistentes con el hardware de referencia.
 
-Tomando como perfil de referencia el hardware de inferencia documentado en el entorno experimental, infraestructura y escenarios de evaluación, puede asumirse como orientación inicial un rango de 10 a 50 ms para ⟦ECUACIÓN: no extraída — ver el .docx⟧ + ⟦ECUACIÓN: no extraída — ver el .docx⟧ en una LAN controlada y configurada para baja latencia. Ese orden de magnitud es consistente con la literatura relevada en el análisis de operación en tiempo real, donde la captura a 30 fps impone un piso del orden de un período de cuadro y los protocolos orientados a entornos IP controlados —en particular RTSP/RTP— se presentan como alternativas operativamente convenientes en redes locales cuando el buffering se mantiene acotado (Axis Communications AB, s. f.; Bachhuber et al., 2018). Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, un rango de 5 a 20 ms constituye una estimación de ingeniería razonable para operaciones de redimensionado, normalización y, cuando corresponda, transferencia entre CPU y GPU sobre cuadros de 640 px; no debe interpretarse como una banda cerrada directamente respaldada por un benchmark único, sino como una aproximación plausible para el perfil experimental adoptado. Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, conviene tratar el rango de 15 a 150 ms como una banda orientativa de ingeniería para inferencia local acelerada, apoyada en dos referencias complementarias. Por un lado, la el análisis de operación en tiempo real identifica un rango de 10–30 ms por cuadro asociado a modelos ligeros optimizados y otro de 50–150 ms característico de arquitecturas transformer sin optimización específica para edge; por otro, la el análisis de modelos OVD documenta ejemplos concretos dentro de la familia OVD eficiente, como YOLOE-v8-S (3,3 ms) y YOLOE-v8-L (9,8 ms) sobre T4 con TensorRT, YOLO-World-L (19,2 ms) sobre V100 sin TensorRT, y variantes optimizadas como OmDet-Turbo-Base (10 ms) y G-DINO 1.5 Edge (13,3 ms) sobre A100 con TensorRT (Cheng et al., 2024; Wang et al., 2025). En este punto, la mención de YOLO-World debe leerse únicamente como referencia comparativa dentro de la subfamilia eficiente de detectores OVD, no como modelo priorizado del protocolo experimental de E2, cuyos candidatos de trabajo siguen siendo YOLOE y Grounding DINO. Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, un rango de 5 a 20 ms constituye una estimación conservadora y plausible para trackers ligeros de familia tracking-by-detection. En la literatura de referencia del proyecto, SORT se presenta como un método orientado a muy baja carga computacional y ByteTrack como una alternativa que preserva viabilidad en tiempo real dentro de sistemas de seguimiento más completos (Bewley et al., 2016; Zhang et al., 2022); sin embargo, esos valores no deben interpretarse como una cota universal del tracker aislado, sino como órdenes de magnitud útiles para un presupuesto experimental favorable. Para ⟦ECUACIÓN: no extraída — ver el .docx⟧ con reglas simples de persistencia y lógica espacial, un valor menor a 10 ms sigue siendo una estimación de ingeniería plausible, sujeta a verificación empírica.
+Tomando como perfil de referencia el hardware de inferencia documentado en el entorno experimental, infraestructura y escenarios de evaluación, puede asumirse como orientación inicial un rango de 10 a 50 ms para ⟦ECUACIÓN: no extraída — ver el .docx⟧ + ⟦ECUACIÓN: no extraída — ver el .docx⟧ en una LAN controlada y configurada para baja latencia. Ese orden de magnitud es consistente con la literatura relevada en el análisis de operación en tiempo real, donde la captura a 30 fps impone un piso del orden de un período de cuadro y los protocolos orientados a entornos IP controlados —en particular RTSP/RTP— se presentan como alternativas operativamente convenientes en redes locales cuando el buffering se mantiene acotado (Axis Communications AB, s. f.; Bachhuber et al., 2018).
+
+Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, un rango de 5 a 20 ms constituye una estimación de ingeniería razonable para operaciones de redimensionado, normalización y, cuando corresponda, transferencia entre CPU y GPU sobre cuadros de 640 px; no debe interpretarse como una banda cerrada directamente respaldada por un benchmark único, sino como una aproximación plausible para el perfil experimental adoptado.
+
+Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, conviene tratar el rango de 15 a 150 ms como una banda orientativa de ingeniería para inferencia local acelerada, apoyada en dos referencias complementarias. Por un lado, el análisis de operación en tiempo real identifica un rango de 10–30 ms por cuadro asociado a modelos ligeros optimizados y otro de 50–150 ms característico de arquitecturas transformer sin optimización específica para edge; por otro, el análisis de modelos OVD documenta ejemplos concretos dentro de la familia OVD eficiente, como YOLOE-v8-S (3,3 ms) y YOLOE-v8-L (9,8 ms) sobre T4 con TensorRT, YOLO-World-L (19,2 ms) sobre V100 sin TensorRT, y variantes optimizadas como OmDet-Turbo-Base (10 ms) y G-DINO 1.5 Edge (13,3 ms) sobre A100 con TensorRT (Cheng et al., 2024; Wang et al., 2025).
+
+En este punto, la mención de YOLO-World debe leerse únicamente como referencia comparativa dentro de la subfamilia eficiente de detectores OVD, no como modelo priorizado del protocolo experimental de E2, cuyos candidatos de trabajo siguen siendo YOLOE y Grounding DINO.
+
+Para ⟦ECUACIÓN: no extraída — ver el .docx⟧, un rango de 5 a 20 ms constituye una estimación conservadora y plausible para trackers ligeros de familia tracking-by-detection. En la literatura de referencia del proyecto, SORT se presenta como un método orientado a muy baja carga computacional y ByteTrack como una alternativa que preserva viabilidad en tiempo real dentro de sistemas de seguimiento más completos (Bewley et al., 2016; Zhang et al., 2022); sin embargo, esos valores no deben interpretarse como una cota universal del tracker aislado, sino como órdenes de magnitud útiles para un presupuesto experimental favorable. Para ⟦ECUACIÓN: no extraída — ver el .docx⟧ con reglas simples de persistencia y lógica espacial, un valor menor a 10 ms sigue siendo una estimación de ingeniería plausible, sujeta a verificación empírica.
 
 Bajo estos supuestos, el tramo estrictamente computacional desde la captura hasta la disponibilidad de evidencia utilizable para alerta puede ubicarse orientativamente en el orden de 35 a 250 ms por cuadro cuando se emplean OVD eficientes, red local de baja latencia, tracker ligero y reglas simples. ⟦ECUACIÓN: no extraída — ver el .docx⟧, sin embargo, incorpora además ⟦ECUACIÓN: no extraída — ver el .docx⟧: para severidad crítica, una persistencia orientativa de 2 a 4 s combinada con ese presupuesto computacional vuelve metodológicamente coherente el objetivo de 3 a 5 s; para severidad alta y media, ventanas funcionales más largas hacen igualmente plausibles objetivos orientativos de 5 a 10 s y 10 a 20 s, respectivamente.
 
 El presupuesto precedente corresponde, por tanto, a un escenario favorable de inferencia local sin cuello de botella severo de red y con una familia de modelos optimizada para tiempo real. En este marco, los rangos asignados a ⟦ECUACIÓN: no extraída — ver el .docx⟧ y ⟦ECUACIÓN: no extraída — ver el .docx⟧ deben interpretarse como estimaciones de ingeniería plausibles, pero no como bandas cerradas directamente respaldadas por la bibliografía citada; su validación definitiva corresponde a la calibración empírica de la validación experimental. Si el hardware efectivo difiriera significativamente del perfil de referencia —por ejemplo, por el uso de modelos más pesados, resolución de entrada superior a 640 px o protocolos de transporte con mayor latencia—, los umbrales de la siguiente sección deberán recalibrarse antes de operar como criterio de aceptación.
 
-###### 17.1.7.7.6. Umbrales orientativos por nivel de severidad
+###### 17.1.7.7.5. Umbrales orientativos por nivel de severidad
 
-La taxonomía de severidad definida en la taxonomía de condiciones de riesgo, patrones y prompts exige interpretar los umbrales de aceptación de manera diferenciada según la urgencia de la condición, la persistencia requerida para confirmarla y la tolerancia relativa a falsos positivos y falsos negativos. Los valores que siguen son orientativos: ordenan la evaluación del prototipo y deberán recalibrarse en la validación experimental con el throughput efectivo del pipeline. Los umbrales de TTFD se fijan por debajo de las ventanas orientativas de persistencia para preservar su función como métrica de responsividad inicial y evitar que quede absorbida por el tiempo total de confirmación de la alerta.
+La clasificación de severidad definida en la Sección 17.1.5.3.2 exige interpretar los umbrales de aceptación de manera diferenciada según la urgencia de la condición, la persistencia requerida para confirmarla y la tolerancia relativa a falsos positivos y falsos negativos. Los valores que siguen son orientativos: ordenan la evaluación del prototipo y deberán recalibrarse en la validación experimental con el throughput efectivo del pipeline. Los umbrales de TTFD se fijan por debajo de las ventanas orientativas de persistencia para preservar su función como métrica de responsividad inicial y evitar que quede absorbida por el tiempo total de confirmación de la alerta.
 
 **Severidad crítica.** Corresponde a condiciones con potencial de escalada rápida hacia daño grave. Se prioriza minimizar falsos negativos y, por lo tanto, sostener ventanas cortas de confirmación y tiempos exigentes tanto para TTFD como para ⟦ECUACIÓN: no extraída — ver el .docx⟧.
 
@@ -1700,11 +3261,11 @@ La taxonomía de severidad definida en la taxonomía de condiciones de riesgo, p
 
 **Severidad media**. Corresponde a condiciones con riesgo latente o de escalada más lenta. En este nivel puede exigirse mayor evidencia antes de confirmar la alerta, con menor tolerancia a falsos positivos y ventanas funcionales de persistencia más largas.
 
-Una lista de los umbrales orientativos por severidad puede verse en la Tabla D.4 del Anexo D.
+Los umbrales orientativos consolidados se presentan en la Tabla 32 (Sección 17.1.7.9).
 
 ##### 17.1.7.8. Operacionalización de la medición y condiciones de no aplicación
 
-Para que el framework sea ejecutable y no meramente declarativo, la presente sección traduce las métricas anteriores a requisitos mínimos de instrumentación, preparación y registro. Su propósito no es redefinir las métricas, sino fijar las condiciones bajo las cuales su medición resulta metodológicamente defendible.
+Para que el framework sea ejecutable y no meramente declarativo, las métricas anteriores se traducen a requisitos mínimos de instrumentación, preparación y registro. No se redefinen las métricas: se fijan las condiciones bajo las cuales su medición resulta metodológicamente defendible.
 
 ###### 17.1.7.8.1. Reglas generales de instrumentación
 
@@ -1712,7 +3273,7 @@ Toda corrida debe declarar, como mínimo, modelo, versión, checkpoint, variante
 
 En las corridas integradas que reporten métricas de alerta, la instrumentación deberá registrar además los hitos temporales asociados a la evaluación del patrón. Como mínimo, deberán conservarse el timestamp de la detección o evidencia positiva inicial, el timestamp de inicio del patrón candidato cuando corresponda, el timestamp de confirmación del patrón, el timestamp de registro interno de la alerta y, si aplica, el timestamp de disponibilidad, consulta o notificación externa. Estos hitos deben provenir de logs trazables y utilizar una fuente temporal coherente con el resto del pipeline. Sin estos registros, no corresponde reportar ⟦ECUACIÓN: no extraída — ver el .docx⟧ ni ⟦ECUACIÓN: no extraída — ver el .docx⟧; sólo podrán reportarse métricas de detección, rendimiento o reacción inicial, según corresponda.
 
-Toda medición debe incluir un período de calentamiento previo. Las métricas temporales se reportarán, como mínimo, con P50, P95 y P99, además del promedio, salvo que el tamaño muestral no lo permita. Si una métrica depende de ground truth específico inexistente o insuficiente, la salida correcta es declararla no ejecutada, no improvisar una aproximación. Esto se desarrolla de manera más sintética en la Tabla D.5 del Anexo D.
+Toda medición debe incluir un período de calentamiento previo. Las métricas temporales se reportarán, como mínimo, con P50, P95 y P99, además del promedio, salvo que el tamaño muestral no lo permita. Si una métrica depende de ground truth específico inexistente o insuficiente, la salida correcta es declararla no ejecutada, no improvisar una aproximación. Los insumos mínimos por familia de métricas se consolidan en la Tabla D.2 del Anexo D.
 
 ###### 17.1.7.8.2. Alcance efectivo y casos en los que no corresponde medir
 
@@ -1746,7 +3307,7 @@ Los resultados se reportan por estrato y escenario, nunca únicamente como agreg
 
 ###### 17.1.7.8.4. Registro mínimo por corrida y reporte
 
-Todo reporte deberá conservar contexto experimental suficiente para reproducir e interpretar la corrida. Como mínimo, la bitácora debe registrar identificación, modelo, entrada, parámetros, hardware y entorno de software, temporalidad y logs, resultados y observaciones.
+Todo reporte deberá conservar contexto experimental suficiente para reproducir e interpretar la corrida. Como mínimo, la bitácora debe registrar identificación, modelo, entrada, parámetros, hardware y entorno de software, temporalidad y logs, resultados y observaciones. El detalle de campos recomendados se consolida en la Tabla D.3 del Anexo D.
 
 Antes del reporte final debe verificarse que cada métrica corresponda al alcance implementado, que las corridas comparativas usen el mismo conjunto de evaluación y que la instrumentación incluya período de calentamiento previo, duración suficiente y conservación y trazabilidad de logs crudos y artefactos de evaluación. Asimismo, toda métrica no ejecutada deberá declararse junto con la razón metodológica o instrumental de su omisión.
 
@@ -1754,9 +3315,9 @@ Antes del reporte final debe verificarse que cada métrica corresponda al alcanc
 
 La evidencia central del prototipo no puede reducirse a métricas académicas de detección o seguimiento. Debe mostrar si el sistema detecta una condición relevante, la sostiene durante el tiempo requerido y la transforma en una alerta dentro de un margen compatible con su severidad. Por eso el protocolo diferencia métricas obligatorias, deseables y conceptuales: AP y Precision/Recall se conservan como base de detección, HOTA, IDF1 y CLEAR MOT como métricas de seguimiento cuando exista anotación suficiente, y NMS-AP como referencia conceptual para evaluaciones OVD de vocabulario fino (Everingham et al., 2010; Lin et al., 2014; Bernardin & Stiefelhagen, 2008; Ristani et al., 2016; Luiten et al., 2021; Yao et al., 2024).
 
-La jerarquía de métricas no implica que todas deban ejecutarse en todos los escenarios ni sobre todas las condiciones de riesgo. Cada métrica queda subordinada a un criterio de ejecutabilidad experimental: debe existir una referencia de evaluación suficiente, el módulo que produce la señal correspondiente, instrumentación confiable mediante logs o timestamps, y una salida exportable para análisis posterior. Por esta razón, el protocolo diferencia entre métricas definidas, métricas efectivamente medibles y métricas no aplicables.
+La jerarquía no implica ejecución universal: cada métrica queda subordinada a los criterios de ejecutabilidad de la Sección 17.1.7.3.3, por lo que el protocolo distingue entre métricas definidas, métricas efectivamente medibles y métricas no aplicables.
 
-**Tabla 34**
+**Tabla 31**
 
 *Jerarquía de métricas adoptadas para el prototipo experimental*
 
@@ -1769,11 +3330,9 @@ La jerarquía de métricas no implica que todas deban ejecutarse en todos los es
 
 *Nota.* ⟦ECUACIÓN: no extraída — ver el .docx⟧= Glass-to-Algorithm. TTFD = Time to First Detection. SDR = Sustained Detection Rate. Lo no implementado o no instrumentado debe declararse como no aplicable y no quedar implícitamente omitido.
 
-La latencia operativa principal es ⟦ECUACIÓN: no extraída — ver el .docx⟧, definida como el intervalo entre el inicio anotado de la condición de riesgo y la generación de una alerta confirmada y registrada dentro del sistema. Esta métrica integra la inferencia, la persistencia requerida y la evaluación del patrón. No corresponde reportarla en pruebas puramente cuadro a cuadro donde sólo se evalúa la salida del detector OVD. En esos casos, el análisis debe limitarse a métricas de detección, rendimiento del pipeline o latencia Glass-to-Algorithm. Cuando exista un trayecto instrumentado hacia consulta, interfaz o notificación, podrá reportarse adicionalmente ⟦ECUACIÓN: no extraída — ver el .docx⟧ como métrica complementaria.
+La latencia operativa principal es ⟦ECUACIÓN: no extraída — ver el .docx⟧, definida como el intervalo entre el inicio anotado de la condición de riesgo y la generación de una alerta confirmada y registrada dentro del sistema.
 
-TTFD mide el tiempo hasta la primera detección positiva válida desde el inicio anotado del evento. SDR mide la proporción del intervalo del evento durante la cual el sistema sostiene detecciones positivas. Ambas métricas sólo corresponden sobre secuencias temporales con inicio y duración anotados. No deben calcularse sobre datasets de imágenes estáticas sin continuidad temporal.
-
-**Tabla 35**
+**Tabla 32**
 
 *Umbrales orientativos por severidad para la lectura operativa de la alerta*
 
@@ -1787,8 +3346,6 @@ TTFD mide el tiempo hasta la primera detección positiva válida desde el inicio
 
 Finalmente, todo reporte experimental deberá conservar trazabilidad mínima de la corrida: modelo, prompts, dataset o fuente de video, parámetros, módulos habilitados, hardware, timestamps, métricas calculadas y métricas no aplicadas con su causa. Esto permite distinguir entre resultado negativo, falta de instrumentación y no aplicabilidad por alcance experimental.
 
-Además del framework de métricas, cada ejecución deberá conservar una bitácora mínima: identificación de corrida, modelo y checkpoint, dataset o clip utilizado, resolución efectiva, parámetros relevantes, timestamps de etapas críticas, consumo de recursos y observaciones. Esta bitácora garantiza que la evidencia de validación experimental pueda reconstruirse, auditarse y discutirse.
-
 #### 17.1.8. Protocolo experimental integrado
 
 ##### 17.1.8.1. Secuencia general del protocolo
@@ -1797,7 +3354,7 @@ La secuencia experimental busca evitar que decisiones tardías alteren la valide
 
 En cada corrida, el conjunto de métricas aplicables deberá definirse antes de la ejecución según el tipo de evidencia disponible. En DBE sobre imágenes estáticas se priorizarán métricas de detección por imagen o cuadro; las métricas temporales —TTFD, SDR y talert-system— quedarán reservadas para secuencias o corridas con eventos anotados e instrumentación suficiente. Del mismo modo, las métricas de seguimiento sólo serán exigibles sobre subconjuntos con identidades persistentes o en análisis ablativos previamente definidos.
 
-**Tabla 36**
+**Tabla 33**
 
 *Fases del protocolo experimental integrado*
 
@@ -1825,7 +3382,7 @@ En términos operativos, la comparación se concentrará como máximo en dos can
 
 La rama se define para su ejecución como una jornada experimental completa con criterios prerregistrados: una única baseline, márgenes fijados antes de evaluar y un veredicto determinado por reglas de aceptación previamente declaradas. Sus condiciones de habilitación son de datos y de protocolo, no de disponibilidad de cómputo; el TN constituye el recurso de entrenamiento y el CPN conserva la referencia operativa.
 
-**Tabla 37**
+**Tabla 34**
 
 *Regla metodológica de decisión para la adaptación al dominio*
 
@@ -1843,7 +3400,7 @@ La rama se define para su ejecución como una jornada experimental completa con 
 
 ##### 17.1.10.1. Política de minimización y uso asistivo
 
-El marco ético-legal del proyecto se apoya en una política de minimización de datos y de uso asistivo del sistema. Cuando la evaluación utilice datasets públicos o material pregrabado sin nuevas capturas, el requisito central será respetar licencias, condiciones de acceso y límites de uso académico. Cuando el proyecto genere material propio para el EBE, deberán adoptarse salvaguardas de finalidad explícita, acceso restringido, retención acotada y ausencia de reconocimiento de identidad personal o tratamiento biométrico, conforme al régimen argentino de protección de datos personales y videovigilancia (Argentina, 2000; Disposición 10/2015, 2015). Ese régimen prevé, además, la inscripción de las bases de datos con datos personales ante la autoridad de aplicación (AAIP); su aplicabilidad al material experimental del proyecto y el recaudo adoptado se documentan a continuación.
+El marco ético-legal del proyecto se apoya en una política de minimización de datos y de uso asistivo del sistema. Cuando la evaluación utilice datasets públicos o material pregrabado sin nuevas capturas, el requisito central será respetar licencias, condiciones de acceso y límites de uso académico. Cuando el proyecto genere material propio para el EBE, deberán adoptarse salvaguardas de finalidad explícita, acceso restringido, retención acotada y ausencia de reconocimiento de identidad personal o tratamiento biométrico, conforme al régimen argentino de protección de datos personales y videovigilancia (Argentina, 2000; Disposición 10/2015, 2015). Ese régimen contempla, además, requisitos administrativos asociados a las bases de datos con datos personales ante la autoridad de aplicación (AAIP), cuya aplicabilidad al contexto experimental debe determinarse; la decisión y el recaudo adoptado se documentan a continuación.
 
 [[PENDIENTE: definir con el equipo la aplicabilidad de esta inscripción al contexto experimental y documentar el recaudo adoptado en §17.1 y §17.4.]]
 
@@ -1851,7 +3408,9 @@ El marco ético-legal del proyecto se apoya en una política de minimización de
 
 También conviene fijar con claridad los supuestos de interpretación. Primero, el prototipo es un sistema asistivo: una alerta no equivale a una sanción ni a una determinación automática de incumplimiento normativo. Segundo, la evaluabilidad de varias condiciones depende de variables no controlables del todo por el detector, como escala aparente, ángulo de cámara, oclusión o iluminación. Tercero, CR-06 presupone una parametrización espacial externa al prompt y no debe evaluarse como si el lenguaje por sí solo definiera la zona restringida. Cuarto, el EBE constituye una validación en entorno simulado o controlado, no un despliegue real en obra.
 
-**Tabla 38**
+Quinto, la disyunción entre datos de entrenamiento y conjunto de evaluación sólo es verificable sobre el ajuste propio del trabajo: los modelos preentrenados de vocabulario abierto provienen de corpus de terceros no inspeccionables, por lo que no puede descartarse que imágenes del conjunto de evaluación hayan participado de ese preentrenamiento. Es una condición estructural de toda evaluación de modelos preentrenados y no una particularidad de este protocolo; acota las cifras zero-shot a una comparación entre combinaciones bajo condiciones idénticas, sin sostener afirmaciones sobre generalización a material inédito.
+
+**Tabla 35**
 
 *Riesgos metodológicos y operativos relevantes para las instancias siguientes*
 
@@ -1861,7 +3420,7 @@ También conviene fijar con claridad los supuestos de interpretación. Primero, 
 | Persisten brechas de datos para condiciones de Niveles 2 y 3. | Alto | Mantener esas condiciones como extensiones condicionadas y producir datos complementarios sólo si no desplazan el núcleo del prototipo experimental. |
 | El tracker agrega complejidad sin reducir falsas alarmas. | Medio | Medir primero ΔFPtracking y sólo exigir métricas MOT completas en subsets donde el costo de anotación esté justificado. |
 | El diseño experimental se vuelve inmanejable por exceso de variables combinadas. | Alto | Sostener un diseño reducido con condición base, barridos acotados y prueba de mayor exigencia sólo sobre la configuración retenida. |
-| La generación de material propio introduce dudas de privacidad o de consentimiento. | Medio | Aplicar minimización, acceso restringido y registro explícito de finalidad y condiciones de captura. |
+| La generación de material propio introduce dudas de privacidad o de consentimiento. | Medio | Aplicar las salvaguardas de la Sección 17.1.10.1, con registro explícito de finalidad y condiciones de captura. |
 
 *Nota.* La mitigación forma parte del diseño metodológico. En varios casos, preservar validez implica acotar el alcance antes que incrementar complejidad sin evidencia suficiente.
 
@@ -1877,24 +3436,242 @@ Las definiciones consolidadas en esta instancia orientan directamente las etapas
 
 Esta consolidación distribuye sus salidas hacia las instancias siguientes sin anticipar resultados: la caracterización del entorno restringe la arquitectura y sus perfiles de ejecución; las condiciones de riesgo y el protocolo de prompts determinan configuraciones y comparaciones; la estrategia de datos gobierna la curación, la partición y la trazabilidad durante la implementación; y el framework de métricas define la instrumentación de ⟦ECUACIÓN: no extraída — ver el .docx⟧, ⟦ECUACIÓN: no extraída — ver el .docx⟧ y los criterios con los que se interpreta la evaluación.
 
-**Alcance experimental consolidado**. Establece la frontera inicial del prototipo experimental y permite priorizar el núcleo obligatorio sin convertir las extensiones condicionadas en requisitos bloqueantes. En la etapa de diseño, orienta qué capacidades deben implementarse primero y cuáles deben quedar previstas como ampliaciones posibles. En la validación, define qué condiciones integran el plano principal de evaluación y evita interpretar capacidades exploratorias como resultados plenamente validados.
+Estas definiciones preservan el carácter experimental del trabajo y mantienen la orientación central del proyecto: evaluar si la detección open-vocabulary puede integrarse como herramienta asistiva útil para el monitoreo de condiciones de riesgo en construcción civil, sin reemplazar la supervisión humana ni asumir decisiones operativas automáticas.
 
-**Escenarios e infraestructura**. Fijan el marco operativo en el que deberá interpretarse la viabilidad del sistema. Para el diseño arquitectónico, esto implica organizar la captura, el procesamiento y el eventual entrenamiento alrededor de los roles funcionales CPN, EN y TN. Para la validación, permite diferenciar la lectura de resultados entre DBE y EBE, evitando mezclar la estabilidad de una evaluación basada en datos controlados con la variabilidad propia de una captura o transmisión continua.
+---
 
-**Estrategia de datos y partición**. Condiciona la selección de datasets, la construcción de particiones experimentales y el uso de datos complementarios. Su función es sostener la comparabilidad entre la línea base preentrenada y cualquier variante ajustada al dominio, evitando contaminación entre entrenamiento, validación y prueba. De esta manera, los resultados obtenidos podrán interpretarse como evidencia experimental y no como consecuencia de una partición inconsistente.
+## Fuente: `docs/informe/entregable/90g-etapa2-anexos-c-y-d.md`
 
-**Framework de métricas y registro**. Define qué evidencia mínima deberá producir el prototipo. En la etapa de diseño, guía la instrumentación de timestamps, logs, eventos, métricas por tramo y salidas del pipeline. En la validación, establece qué debe reportarse para analizar detección, rendimiento, latencia, persistencia temporal y alertas. Las métricas se reportarán cuando existan datos, módulos e instrumentación suficientes, y se declararán no aplicables cuando esas condiciones no estén presentes.
+> SHA-256 del bloque: `19d7997a30e86d70814e0eda16c8f76d542132b9d0505f8a99653a5f050522ec`  
+> Seleccion: CONTENIDO FINAL de los Anexos C y D (D-E2-1 ejecutada y refinada): Anexo C 5->3 tablas y Anexo D 6->3. **YA ANEXADO al final del .docx v1.4 por E2-49 (verificado contra este archivo: fila 'Alerta' unica, C.3 con las 4 retenidas, sin descartados).** Queda como constancia de motivos por tabla y como fuente para la mudanza a 19.3/19.4 en la integracion final.
 
-**Regla de adaptación al dominio**. Ordena la posible incorporación de fine-tuning o variantes ajustadas. Esta adaptación no constituye un punto de partida obligatorio, sino una comparación condicionada a la existencia de datos suficientes, partición válida y una línea base preentrenada previamente evaluada. Su propósito es permitir una lectura controlada de mejoras o degradaciones frente al enfoque zero-shot, sin sobredimensionar el alcance real del prototipo experimental.
+# 90g — Etapa 2: Anexos C y D finales (se anexan al final del documento de la etapa)
 
-**Supuestos y riesgos de validez**. Delimitan cómo deben interpretarse los resultados futuros. En el diseño, obligan a construir módulos y pruebas dentro del alcance declarado. En la validación, evitan extrapolar evidencia parcial como si constituyera una validación plena del sistema. Esta precaución preserva el carácter experimental del trabajo y mantiene la orientación central del proyecto: evaluar si la detección open-vocabulary puede integrarse como herramienta asistiva útil para el monitoreo de condiciones de riesgo en construcción civil, sin reemplazar la supervisión humana ni asumir decisiones operativas automáticas.
+> **Qué es.** El contenido **final y completo** de los Anexos C y D de la Etapa 2, listo para
+> pegar. **Decisión del usuario 2026-08-31 (D-P3-8): los anexos viajan AL FINAL del documento de
+> trabajo de la etapa** (`…Seccion_17.1_…` → v1.4) — los agrega ChatGPT con la unidad **E2-49**
+> del pase 3, y al integrar al maestro el equipo los muda a §19.3/§19.4. Esto supersede la mitad
+> "quedan fuera del `.docx`" de D-E2-1; la otra mitad (se corrigen aparte, con constancia) es este
+> archivo. Base: los anexos del informe v1.1 (`96e` §19.3/§19.4), que ningún pase había tocado.
+> Ejecuta las notas ✎ de **AJ-2.07**, la duplicación verificada **H-8** (`ajustes/09` §4) y la
+> decisión **D-P3-5** del pase 3.
+>
+> **Qué cambió respecto del v1.1:** Anexo C **5 → 3 tablas** · Anexo D **6 → 3 tablas**. Bajas y
+> motivos en §1 y §2. Efecto neto sobre el informe: **−7 tablas** (contando las 2 del desarrollo
+> que elimina el pase 3).
+>
+> **⚠ Convenciones al pegar:**
+> - Títulos de anexo **sin número** en este documento: *"Anexo C — Prompts, datos, datasets,
+>   benchmarks y logística"* y *"Anexo D — Métricas, instrumentación y bitácora experimental"*,
+>   con el **mismo estilo de encabezado que el título "17.1. Consolidación metodológica…"** (la
+>   numeración 19.3/19.4 es del maestro y se asigna al integrar; un número acá rompería la
+>   verificación de numeración del documento).
+> - Rótulos según la casa: `**Tabla C.1**` (negrita), título de tabla en itálica, `*Nota.*` en
+>   itálica.
+> - **Nombres de métrica en las tablas del anexo: texto plano** (t_alert-system, latencia G2A…),
+>   como TTFD y SDR. La unificación con los objetos de ecuación del cuerpo queda para el pase de
+>   integración (residual ya fichado — mismo caso que el t_alert-system en texto de §17.1.7.2).
+> - Guardas de contenido (AJ-2.07 ✎ y R-24): los anexos hablan **sólo de candidatos y
+>   retenidos** — nunca de "utilizados" ni del entrenamiento efectivo (eso es §17.4);
+>   **`bench_obra` no se introduce** (no es un dataset: es un estrato curado internamente);
+>   las licencias, como figuran en el registro.
+>
+> Las remisiones del cuerpo de §17.1 a estas tablas las actualiza **E2-47** del pase 3
+> (C.1 · C.2 · C.3 · D.1 · D.2 · D.3 — cada una queda citada exactamente una vez desde el
+> desarrollo).
+
+---
+
+## 1. Anexo C — qué queda, qué cae y por qué
+
+| Tabla v1.1 | Destino | Motivo |
+|---|---|---|
+| C.1 Catálogo de prompts candidatos | **QUEDA como C.1, sin cambios** | Ancla del anexo: fuente declarada del prompt set (AJ-2.07); §17.1.5.4.4 la cita. |
+| C.2 Variables de sensibilidad EBE | **QUEDA como C.2, sin cambios** | Diseño experimental pre-registrado. Estaba huérfana; E2-47 le da la remisión desde §17.1.4.4.2. |
+| C.3 Síntesis de cobertura conjunta | **CAE** | Huérfana y **contradice al desarrollo v1.3**: cuenta 7 fuentes para CR-01 incluyendo descartadas y da cobertura "Parcial" a CR-05/CR-06 vía SODA/MOCS, contra la Tabla 31 del desarrollo (4 retenidas, "sin cobertura directa retenida"); su nota cita "la Tabla 27", que hoy es otra tabla. La vista vigente de cobertura es la Tabla 31. |
+| C.4 Compatibilidad de formato (9 datasets) | **CAE** | Huérfana; reintroduce los 5 descartados que PODA-12 podó. Para las retenidas: columna "Formato" de la Tabla 26 + la nueva C.3. |
+| C.5 Volúmenes estimados (9 datasets) | **SE REESCRIBE como C.3** | Material de planificación de fuentes nunca gestionadas; queda la logística de las 4 retenidas, sin cifras que el registro no respalde. |
+
+### Contenido final del Anexo C (pegar tal cual)
+
+---
+
+**Anexo C — Prompts, datos, datasets, benchmarks y logística**
+
+**Tabla C.1**
+
+*Catálogo de prompts candidatos por condición de riesgo*
+
+| Código | Eje de variación | Prompt candidato (inglés) | Estrategia |
+| --- | --- | --- | --- |
+| CR-01 | Sintáctica | person without hard hat | Frase nominal con negación explícita |
+| CR-01 | Especificidad | construction worker without safety helmet | Términos específicos del dominio |
+| CR-01 | Estado observable | person with bare head on construction site | Estado resultante, sin negación directa |
+| CR-01 | Template | a photo of a hard hat | Template estándar CLIP para detección de presencia |
+| CR-01 | Indirecta | hard hat ; person | Detección separada de entidades; relación evaluada externamente |
+| CR-02 | Sintáctica | person without reflective vest | Frase nominal con negación |
+| CR-02 | Especificidad | worker without high-visibility vest | Vocabulario técnico de seguridad |
+| CR-02 | Descripción visual | person without bright colored safety clothing | Descripción visual del atributo ausente |
+| CR-02 | Template | a photo of a reflective safety vest | Template estándar CLIP |
+| CR-02 | Indirecta | reflective vest ; person | Detección separada de entidades |
+| CR-03 | Sintáctica | person on scaffolding without harness | Contexto espacial + negación |
+| CR-03 | Especificidad | worker at height without fall protection equipment | Vocabulario técnico ampliado |
+| CR-03 | Descompuesta | person on scaffolding ; safety harness ; fall arrest harness | Detección separada de persona en altura y elementos de protección |
+| CR-03 | Estado observable | unprotected worker on elevated platform | Estado resultante sin negación explícita del EPP |
+| CR-04 | Sintáctica | unprotected edge with person nearby | Entidad compuesta: borde + persona |
+| CR-04 | Especificidad | elevated platform without guardrail near workers | Términos de protección colectiva |
+| CR-04 | Descompuesta | platform edge ; guardrail ; safety railing ; person at height | Detección de borde, protección colectiva y persona |
+| CR-05 (a) | Entidades maquinaria | excavator ; backhoe loader ; dump truck ; crane ; heavy machinery | Entidades de maquinaria a detectar individualmente |
+| CR-05 (b) | Entidades humanas | person ; construction worker ; pedestrian | Entidades humanas a detectar individualmente |
+| CR-06 (a) | Entidad persona | person ; worker ; pedestrian | Entidad cuya posición se evalúa contra el polígono |
+| CR-06 (b) | Elementos auxiliares | restricted area sign ; caution tape ; warning tape ; barrier ; safety cone | Elementos delimitadores de referencia visual |
+
+*Nota.* Las estrategias "Indirecta" y "Descompuesta" utilizan el separador ";" como notación
+analítica para indicar consultas independientes al modelo OVD; su materialización concreta depende
+de la sintaxis admitida por cada detector. Las variaciones "Template" utilizan formulaciones tipo
+"a photo of a [CLASS]", alineadas con prácticas habituales de uso de modelos visión-lenguaje
+preentrenados como CLIP. Para CR-05 y CR-06, al tratarse de condiciones de Nivel 3, no se formulan
+prompts integrados sino prompts de entidades componentes; la evaluación de la condición completa se
+realiza en el módulo de razonamiento contextual. En particular, los elementos auxiliares de CR-06
+no reemplazan la definición externa del polígono de zona restringida, sino que pueden funcionar
+como referencias visuales complementarias para experimentos o análisis cualitativo. Fuente:
+Elaboración propia basada en los ejes de variación de la Sección 17.1.5.4.2 y en los hallazgos de
+Zhou et al. (2022), Du et al. (2022), Gu et al. (2021) y Radford et al. (2021).
+
+**Tabla C.2**
+
+*Variables de sensibilidad candidatas para el Environment-Based Evaluation*
+
+| Variable | Niveles o condiciones retenidas | Uso dentro del protocolo |
+| --- | --- | --- |
+| Iluminación | Controlada; mixta; natural cuando el entorno lo permita. | Define condición base y barridos univariados de sensibilidad. |
+| Resolución de fuente | 1280 × 720 como base; 1920 × 1080 como variante de sensibilidad si la configuración lo permite. | Estima el costo-beneficio entre visibilidad, carga computacional y estabilidad del pipeline. |
+| Distancia cámara-sujeto | Rangos a cerrar en instancia de análisis y diseño arquitectónico según campo visual y tamaño aparente; guía inicial: 5-10 m y 10-20 m. | Permite observar el efecto de escala de objeto sin fijar una geometría de cámara antes del diseño del EBE. |
+| Oclusión | Baja y media; la oclusión severa no se adopta como obligación de aceptación. | Tensiona la robustez sin convertir la campaña en irreproducible. |
+| Tracker | Deshabilitado y habilitado cuando aplique. | Permite medir el aporte del tracking a estabilidad, persistencia y reducción de falsas alarmas. |
+| Matriz de prompts | Conjunto acotado de variantes por condición. | Permite seleccionar y congelar el prompt primario antes de las corridas comparativas finales. |
+| Composición del vocabulario activo | Configuraciones pequeñas y medianas, explícitamente documentadas. | Permite medir si la cantidad y tipo de consultas activas impacta precisión, latencia o ambas. |
+
+*Nota.* El EBE se organiza de manera secuencial: condición base, barridos de sensibilidad y prueba
+de mayor exigencia sobre la mejor configuración retenida. Los niveles consignados son candidatos de
+diseño y deberán cerrarse al definir la topología y el espacio físico de prueba.
+
+**Tabla C.3**
+
+*Logística de conversión y acceso de los datasets retenidos*
+
+| Dataset | Formato nativo | Formato de trabajo | Vía de acceso | Observación |
+| --- | --- | --- | --- | --- |
+| SHEL5K | Pascal VOC | COCO/ODVG y/o YOLO | Mendeley Data | Conversión directa VOC→YOLO; para el pipeline de Grounding DINO, VOC→COCO→ODVG. |
+| CHV | Formato nativo a inspeccionar | COCO/ODVG y/o YOLO | Repositorio del autor | Revisar estructura del paquete y términos de uso al descargar; cita obligatoria. |
+| construction_site_safety | YOLO (Roboflow) | COCO/ODVG y/o YOLO | Roboflow | Requiere conversión YOLO→COCO→ODVG para el pipeline de Grounding DINO. |
+| ppe_siabar | YOLO (Roboflow) | COCO/ODVG y/o YOLO | Roboflow | Requiere conversión YOLO→COCO→ODVG para el pipeline de Grounding DINO. |
+
+*Nota.* La secuencia de gestión —descarga, verificación de integridad, inspección y conversión de
+formato, partición conforme a las condiciones metodológicas y transferencia del split de
+entrenamiento al nodo de entrenamiento cuando corresponda— se describe en la Sección 17.1.6.4.2.
+Los volúmenes y versiones por fuente se consignan en la tabla de datasets retenidos de la Sección
+17.1.6.2.1. El esfuerzo de conversión se clasifica como directo (un paso) o en dos pasos
+(inspección o normalización previa y conversión al formato de trabajo).
+
+---
+
+## 2. Anexo D — qué queda, qué cae y por qué
+
+| Tabla v1.1 | Destino | Motivo |
+|---|---|---|
+| D.1 Métricas de detección OVD | **CAE** | Contenido completo en la prosa de §17.1.7.4.1 y la Tabla 34; su único aporte (citas) vive en el primer párrafo de §17.1.7.9. |
+| D.2 Métricas MOT | **CAE** | Ídem: prosa de §17.1.7.4.2 + Tabla 34; la unidad de conteo del FP vive en §17.1.7.8.3. |
+| D.3 Rendimiento del pipeline | **QUEDA como D.1, sin cambios** | Única con detalle que el desarrollo no lleva (formato de reporte, criterio de estabilidad por métrica). |
+| D.4 Umbrales por severidad | **CAE** | ≡ Tabla 35 del desarrollo (**H-8 verificado**); lo que "agrega" ya está en la Tabla 24 y en §17.1.7.7.6. Refina D-E2-1: no queda nada que reducir. |
+| D.5 Insumos por familia | **SE REESCRIBE como D.2** | Aporta el mapeo familia→GT→instrumentación→herramientas. **Bug verificado**: la familia "Alerta" aparecía en DOS filas casi idénticas — fusionadas en una. |
+| D.6 Bitácora experimental | **QUEDA como D.3, sin cambios** | Estaba huérfana; E2-47 le da la remisión desde §17.1.7.8.4. |
+
+### Contenido final del Anexo D (pegar tal cual)
+
+---
+
+**Anexo D — Métricas, instrumentación y bitácora experimental**
+
+**Tabla D.1**
+
+*Métricas de rendimiento del pipeline y uso de recursos*
+
+| Métrica | Definición operativa | Formato de reporte | Compromiso | Criterio de estabilidad |
+| --- | --- | --- | --- | --- |
+| FPS efectivos | Cuadros completamente procesados por segundo al final del pipeline. | Media, P50, P95, P99 y variación | Obligatorio | Período de calentamiento previo y corrida sostenida |
+| Latencia G2A | Intervalo entre captura o lectura del cuadro y disponibilidad del resultado de inferencia. | ms (P50, P95, P99) | Obligatorio | Timestamps monotónicos |
+| Jitter | Variabilidad de la latencia entre cuadros consecutivos. | ms (desv. est. / coef. variación) | Deseable | Reportar junto con G2A |
+| Uso de VRAM | Memoria de video ocupada por modelo, tensores y buffers. | MB y % | Obligatorio | Sin crecimiento monótono |
+| Utilización GPU | Porcentaje de ocupación de la GPU durante la corrida. | % | Deseable | Registrar media y picos |
+| Uso de RAM/CPU | Consumo de memoria del sistema y presión sobre CPU del proceso completo. | MB/GB y %CPU | Deseable | Registrar serie temporal |
+
+*Nota.* G2A = Glass-to-Algorithm. FPS = Frames Per Second. VRAM = Video Random Access Memory. El
+reporte obligatorio mínimo incluye FPS efectivos, latencia G2A y uso de VRAM. Cuando sea posible,
+conviene registrar además GPU, RAM y CPU con muestreo periódico durante una corrida sostenida.
+
+**Tabla D.2**
+
+*Insumos mínimos requeridos antes de iniciar una campaña de medición*
+
+| Familia de métricas | Ground truth o insumo | Instrumentación mínima | Herramientas o artefactos | Salida mínima |
+| --- | --- | --- | --- | --- |
+| Detección (AP, P/R) | Bounding boxes y etiquetas por imagen o cuadro. | Export de predicciones por corrida. | pycocotools o conversión COCO equivalente. | AP y P/R por variante, con punto operativo o criterio de reporte explícitamente declarado. |
+| Tracking (HOTA, DetA / AssA, IDF1, MOTA, IDSW / Frag) | Boxes y track_id persistente por cuadro. | Export MOT-compatible sobre subset anotado. | TrackEval u otra implementación equivalente. | Métricas MOT sobre subset, con declaración explícita de qué métricas fueron ejecutadas y cuáles no. |
+| Pipeline (FPS, latencia G2A, jitter) | No requiere GT semántico. | Timestamps por etapa del pipeline. | Logs internos y scripts de agregación. | P50/P95/P99, promedio y variación. |
+| Alerta y patrón (t_alert-system; t_alert-notification si aplica; TTFD; SDR) | Inicio anotado de la condición de riesgo, duración o intervalo temporal del evento, severidad asignada y criterio de activación del patrón. | Logs con timestamps de primera evidencia positiva, inicio de patrón candidato si corresponde, patrón confirmado, alerta registrada y disponibilidad, consulta o notificación si aplica. | Motor de evaluación de patrones instrumentado; registro interno de alertas; event log del pipeline; bitácora de corrida; scripts de agregación temporal. | TTFD, SDR y t_alert-system por evento; t_alert-notification sólo si existe trayecto instrumentado; toda métrica sin insumos se declara no aplicable. |
+| Recursos (VRAM, GPU, RAM, CPU) | No requiere GT semántico. | Muestreo periódico durante la corrida. | nvidia-smi, psutil u otras herramientas del sistema. | Series temporales y resumen. |
+| Fine-tuning | Split train/eval disjunto y baseline zero-shot explícita. | Registro de entrenamiento y evaluación. | Logs de entrenamiento y scripts comparativos. | Deltas y costo de entrenamiento, cuando aplique. |
+
+*Nota.* La ausencia de cualquiera de los insumos requeridos para una familia de métricas debe
+declararse antes de planificar la campaña experimental. En particular, no corresponde reemplazar
+ground truth inexistente por estimaciones informales ni interpretar logs incompletos como evidencia
+suficiente de desempeño. Toda métrica sin insumos mínimos deberá registrarse como no ejecutada o no
+aplicable, según corresponda.
+
+**Tabla D.3**
+
+*Campos mínimos recomendados para la bitácora experimental*
+
+| Campo | Contenido mínimo recomendado | Uso en la interpretación |
+| --- | --- | --- |
+| Identificación | Fecha, nombre de la corrida, responsable y objetivo. | Permite rastrear la prueba. |
+| Modelo | Nombre, versión, checkpoint y variante zero-shot o fine-tuned. | Vincula resultados con artefactos concretos. |
+| Entrada | Dataset o clip, resolución, FPS de origen y protocolo de video. | Contextualiza comparaciones. |
+| Parámetros | Umbral, vocabulario activo, NMS, tracker on/off, ventana de persistencia, criterio de activación/desactivación del patrón e histéresis si aplica. | Hace reproducible la corrida y permite interpretar la confirmación o descarte de patrones. |
+| Hardware | CPU, GPU, VRAM, RAM y equipo o nodo utilizado. | Permite interpretar latencia y uso de recursos. |
+| Entorno de software | Sistema operativo, versiones de runtime, framework, librerías críticas y herramientas de instrumentación. | Permite reproducir la corrida y contextualizar diferencias de rendimiento o compatibilidad. |
+| Temporalidad y logs | Fuente temporal declarada, período de calentamiento, duración efectiva de la corrida, ubicación de logs crudos y artefactos de evaluación. | Permite validar trazabilidad temporal y auditar métricas derivadas del pipeline y de alerta. |
+| Eventos de patrón y alerta | Timestamps de primera evidencia positiva, inicio de patrón candidato si corresponde, patrón confirmado, alerta registrada y notificación o consulta si aplica; identificador del patrón y regla aplicada. | Permite reconstruir por qué y cuándo una detección se transformó en patrón confirmado y alerta registrada. |
+| Resultados | Métricas calculadas, unidades y métricas no ejecutadas. | Consolida la salida cuantitativa. |
+| Observaciones | Errores, cuellos de botella y cambios no planificados. | Evita lecturas descontextualizadas. |
+
+*Nota.* Una métrica sin contexto de corrida pierde interpretabilidad y trazabilidad.
+
+---
+
+## 3. Verificación (sobre la v1.4, tras aplicar E2-49)
+
+1. El documento cierra con **dos encabezados sin número** ("Anexo C — …", "Anexo D — …") del
+   mismo estilo que el título de §17.1, después de §17.1.11.2.
+2. Exactamente **3 tablas C.x** y **3 tablas D.x**, rotuladas `**Tabla C.1**` … `**Tabla D.3**`,
+   cada una con su título en itálica y su `*Nota.*`.
+3. Cada tabla de anexo aparece citada **exactamente una vez** desde el desarrollo (E2-47) y
+   rotulada una vez en el anexo.
+4. Cero apariciones de: la síntesis de cobertura vieja ("7" fuentes para CR-01) · la tabla de
+   compatibilidad de 9 datasets · los umbrales del anexo (ex-D.4) · las tablas de métricas
+   OVD/MOT del anexo (ex-D.1/D.2) · volúmenes de SH17/SODA/MOCS · `bench_obra` · "utilizados".
+5. Dos cambios de texto respecto del v1.1 dentro de las tablas conservadas, y sólo esos:
+   "por frame" → "por cuadro" en la fila Tracking de D.2 (terminología F5) y
+   "(FPS, latencia G2A, jitter)" en la fila Pipeline de D.2 (el nombre iba como objeto de
+   ecuación en el maestro; acá va como texto — ver convención del banner).
 
 ---
 
 ## Fuente: `docs/informe/entregable/96e-informe-v11-cierre-anexos-referencias.md`
 
 > SHA-256 del bloque: `400305128d8f6cb5f6e208294f5089eedb182dc557fe109e803ed90adb08fde7`  
-> Seleccion: Anexos C y D del informe v1.1 (texto vigente). Por D-E2-1 NO van en el .docx de la etapa: se corrigen aparte (AJ-2.07, duplicaciones de ajustes/09) y quedan en 90g para la seccion 19.
+> Seleccion: Anexos C y D del informe v1.1 - **FOTO HISTORICA, base de comparacion**: el contenido final vigente es 90g (2026-08-31). Por D-E2-1 NO van en el .docx de la etapa.
 
 ### 19.3. Anexo C - Prompts, datos, datasets, benchmarks y logística
 
@@ -2279,7 +4056,7 @@ marcadores; 17 tablas + 6 figuras; versiones vigentes v1.0/v1.4/v1.6/v1.3.
 
 ## Fuente: `docs/informe/ajustes/02-etapa-2-consolidacion-metodologica.md`
 
-> SHA-256 del bloque: `602bf6c6faca134a37359d0a681eaa44e46f354842a7a5e14e2fb3fd44efd44d`  
+> SHA-256 del bloque: `884039d2b7756693e1c6ce1d0d91912301f4edf296d5782024d73521ec744ae6`  
 > Seleccion: documento completo.
 
 # Etapa 2 — ajustes a la consolidación metodológica (§17.1) y a los Anexos C y D
@@ -2318,6 +4095,121 @@ marcadores; 17 tablas + 6 figuras; versiones vigentes v1.0/v1.4/v1.6/v1.3.
 > ✅ **2026-08-28 (noche) — PASE APLICADO Y VERIFICADO: §17.1 v1.3** (`desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.3.docx`,
 > 28.534 palabras, verificador OK). Las 12 fichas + AJ-2.13 + podas 12–14 quedaron resueltas (⊘ para
 > AJ-2.02 y AJ-2.04). Constancia y residuales: `desarrollando/archivado/correcciones-etapa-2-pase-2.md`.
+>
+> ✎ **2026-08-30 — dos cambios posteriores al pase 2 sobre §17.1** (la línea de arriba "no hay
+> trabajo de redacción pendiente sobre §17.1" ya no es exacta):
+>
+> 1. **§17.1.4.2.4 ELIMINADA** (título + cuerpo). Era la mitad "RTSP sintética" de AJ-2.10,
+>    vestigial: el criterio de prioridad ya vive completo en §17.1.4.2.3. `.2.5` pasa a `.2.4`.
+>    Motivos y guard de "no re-agregar": nota dentro de la ficha **AJ-2.10**.
+> 2. **§17.1.10.2 — quinto supuesto de interpretación agregado**: la disyunción train↔bench
+>    sólo es verificable sobre el ajuste propio, porque los modelos preentrenados vienen de
+>    corpus de terceros no inspeccionables. Declarado como **supuesto**, no como limitación
+>    nueva — el set `L1–L8` está cerrado (D-113.1).
+>
+> ✅ **2026-08-31 (cierre definitivo) — PASE 5 APLICADO Y VERIFICADO: §17.1 v1.6 VIGENTE Y
+> DEFINITIVA. LA ETAPA 2 CIERRA CON CINCO PASES.** 26.632 palabras · 106 títulos · 20 tablas
+> 16–35 + 6 de anexo · 76 ecuaciones · cero bajas de referencias · pre-registro intacto ·
+> 27 comentarios resueltos. Acumulado v1.1→v1.6: −18,5 % con los anexos adentro (desarrollo:
+> −24 %). Acta: banner de
+> `archivado/correcciones-etapa-2-pase-5.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-5.md`);
+> extensión final justificada en
+> `justificacion-extension-17-1.md` (fuente: `docs/informe/entregable/desarrollando/justificacion-extension-17-1.md`).
+> Del usuario: sólo git.
+>
+> ✅ **2026-09-01 — PASE 6 APLICADO Y VERIFICADO: §17.1 v1.7 VIGENTE. LA ETAPA 2 QUEDA CON SEIS
+> PASES (desacople normativo).** Origen: el criterio editorial firmado sobre las nuevas
+> §16.2/§16.6 de la Etapa 1 v1.1 — la normativa fundamenta relevancia preventiva, NUNCA
+> severidades, taxonomías ni ventanas. 35 reemplazos (E2-68…E2-88 + E2-75c), doble auditoría
+> Claude+GPT verificada; severidad reformulada como categoría metodológica de prioridad
+> temporal; Tabla 21 sin artículos; C2 → "Cobertura del catálogo experimental"; única cita
+> legal directa en 17.1.10.1 (D-P6-1); marcador AAIP intacto. 26.440 palabras · 106 títulos ·
+> tablas 16–35 · 76 ecuaciones · 27 comentarios resueltos · 0 marcas. Baja bibliográfica para
+> la integración: Res. SRT 299/2011 (D-P6-3). Acta: banner de
+> `archivado/correcciones-etapa-2-pase-6.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-6.md`);
+> compuerta reproducible: `herramientas/verificar_anclas_pase6.py --post`.
+> Del usuario: sólo git.
+>
+> ✎ **2026-08-31 (noche) — PASE 5 ESCRITO (NO aplicado):
+> `desarrollando/correcciones-etapa-2-pase-5.md` (fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-2-pase-5.md`)
+> (E2-56…E2-67, D-P5-1…4; base v1.5 → salida v1.6).** El usuario firmó la poda por aporte
+> ("podemos como limpieza pero **sin perder defensa de plataforma**") sobre el diagnóstico de
+> `analisis-poda-17-1.md`: **PODA-A** (auto-presentación de 17.1.1/17.1.3, nota de 261 w del
+> catálogo, no-aplicación duplicada del framework, solape ético) + **PODA-B** (la argumentación
+> bibliográfica OVD se comprime a decisión+citas — su fuente es §15/§16) · **PODA-C DESCARTADA**
+> (D-P5-3: D-E2-6 no se reabre, MOT intacto). Reglas duras: cero pérdida de defensa · **cero
+> bajas de referencias** (Kim/Jiang/Mazor/Minderer/Xiao/Sharma/Changpinyo conservan su mención
+> única) · anclas exactas (52/52 verificadas). Cae la **Tabla 16** → renumeración 16–35. Targets
+> v1.6: ~26,6–27,0k palabras · 106 títulos · 20+6 tablas · **76 ecuaciones** (−2 declaradas).
+> **La justificación de por qué NO se poda más allá quedó en
+> `justificacion-extension-17-1.md` (fuente: `docs/informe/entregable/desarrollando/justificacion-extension-17-1.md`)**
+> (el piso honesto ~140 pág; lo descartado y su costo en defensa, ~3.100 w).
+>
+> ✅ **2026-08-31 (cierre de jornada) — PASE 4 APLICADO Y VERIFICADO: §17.1 v1.5 VIGENTE, aceptada
+> y limpia. LA ETAPA 2 QUEDA CERRADA con los cuatro pases.** Metadiscurso 33→11 · párrafos gordos
+> 14→2 · cero pérdida verificada (citas, deberá, todavía, greps — todo idéntico) · 27 comentarios
+> resueltos intactos. Acta completa: banner de
+> `archivado/correcciones-etapa-2-pase-4.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-4.md`).
+> Del usuario: sólo git.
+>
+> ✎ **2026-08-31 (después del cierre del pase 3) — PASE 4 ESCRITO (NO aplicado):
+> `desarrollando/correcciones-etapa-2-pase-4.md` (fuente: `docs/informe/entregable/desarrollando/correcciones-etapa-2-pase-4.md`)
+> (E2-51…E2-55, D-P4-1/2; salida = v1.5).** El usuario confirmó que la sección "pierde al lector";
+> el diagnóstico medido ubicó la causa en **34 oraciones de metadiscurso** (vs 2 en §17.4 y 1 en
+> §17.5) y **14 párrafos >150 palabras** — no en la extensión del contenido. El pase corrige **voz
+> y ritmo con cero pérdida de información** (D-P4-1: "no reducir por reducir"): re-sujeta o pliega
+> el andamiaje (las cuatro "Introducción y alcance" son el grueso), parte los párrafos gordos, y
+> deja intactos P-E1-xx, fronteras anti-anacronismo, citas, tablas, ecuaciones y los 27
+> comentarios resueltos. Las 39 anclas verificadas contra la v1.4. Vara de voz: §17.5. Handoff:
+> §17.3 tiene 11 metadiscursos y 2 párrafos gordos para su v1.5; §15/§16 a medir (colega).
+>
+> ✅ **2026-08-31 (misma jornada) — PASE 3 APLICADO Y VERIFICADO: §17.1 v1.4 VIGENTE, con los
+> Anexos C y D al final del documento.** Verificación de §G completa (109 títulos · 21 tablas
+> 16–36 · 78 ecuaciones · 17 greps en cero · diff íntegro atribuido); un defecto (E2-50.12)
+> reparado sobre el XML. Acta: banner de
+> `archivado/correcciones-etapa-2-pase-3.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md`).
+> Quedan del usuario: aceptar cambios controlados y resolver los 27 comentarios (mapa §F del pase).
+>
+> ✎ **2026-08-31 — PASE 3 ESCRITO (NO aplicado): `entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-3.md`)**
+> (E2-30…E2-50, decisiones D-P3-1…9 — serie propia de la etapa 2; no confundir con las D-P3-1…6
+> del pase 3 de §17.3), disparado por la revisión crítica del usuario (27
+> comentarios en el `.docx`) y una auditoría verificada. Lo que cambia el marco de esta etapa:
+>
+> 1. **El guardrail 2 (`07` §9: "§17.1.5 y §17.1.7 no se comprimen") queda ENMENDADO por D-P3-1**
+>    (firmada por el usuario): se consolidan explicaciones repetidas; definiciones, umbrales,
+>    reglas y contenido de tablas siguen intocables. Fuera de las unidades del pase 3, los dos
+>    apartados siguen bajo guardrail.
+> 2. **Renumeración interna verificada segura**: §17.3/§17.4/§17.5 no citan ninguna tabla de
+>    §17.1 por número (cero apariciones; la única remisión numérica externa es `17.1.4.4`).
+>    Las Tablas 17 y 22 caen (duplicadas al 100 %) y el desarrollo queda con 21 tablas (16–36).
+>    El "sin renumerar" del pase 2 queda superado por este hecho verificado.
+> 3. **D-E2-1 EJECUTADA Y SUPERADA EN SU MITAD "fuera del `.docx`"**: los Anexos C y D finales
+>    están en `entregable/90g-etapa2-anexos-c-y-d.md` (fuente: `docs/informe/entregable/90g-etapa2-anexos-c-y-d.md`)
+>    (C: 5→3 tablas · D: 6→3; integra las notas ✎ de AJ-2.07 y H-8 de `09` §4, y **refina
+>    D-E2-1**: la ex-D.4 se elimina —no se "reduce"— porque nada de lo que agrega falta en el
+>    desarrollo). Hallazgo que lo urgía: la ex-C.3 **contradecía** a la Tabla 31 del desarrollo.
+>    **D-P3-8 (usuario, 2026-08-31, misma jornada): los anexos viajan AL FINAL del documento de
+>    la etapa** — los anexa ChatGPT (unidad E2-49, encabezados sin número, nombres de métrica en
+>    texto); al integrar, el equipo los muda a §19.3/§19.4.
+> 4. Defectos verificados en el XML que el pase repara: 6 sitios de gramática de sustitución
+>    ("la el análisis"…), la cifra huérfana **50–250 ms** de la Tabla 21 (no suma con el propio
+>    framework; va a 35–250), y una meta-referencia a "la versión anterior" en §17.1.5.5.
+> 5. **D-P3-9 — VOZ DEL DOCUMENTO (criterio de casa, traído por el equipo desde la Etapa 1):**
+>    lo que remite a una sección que **existe** deja de enmarcarse como obligación futura
+>    ("la instancia … **deberá** materializar" → "materializa"): 12 sitios, unidad **E2-50**.
+>    ⚠ **La regla NO se aplica en bloque**: de los 41 `deberá` de §17.1, ~25 son **prescripción
+>    normativa del protocolo** ("toda corrida deberá declarar…") y no se tocan; y lo
+>    **pre-registrado y no ejercido** (MOT17/OVT-B, español, kappa, CR-03/CR-04) **no** puede
+>    decir "se define más adelante" —sería falso—: sigue como protocolo y lo reporta §17.5.
+>    Medido en todo el informe: **§15+§16 = 7 sitios** (pase del colega) · **§17.3 = 3** ·
+>    **§17.4 y §17.5 = 0** (ya están en la voz correcta; por eso el desfase se nota).
+> 6. Targets de la v1.4: ~28,4–29,0k palabras (desarrollo ~26,0–26,5k + anexos ~2,4k) ·
+>    109 títulos numerados · 21 tablas 16–36 + 6 de anexo · **78 ecuaciones**
+>    (85 − 7 declaradas por unidad — el conteo de ecuaciones deja de ser "85 intactas").
+>
+> Efecto en el verificador: **títulos 118 → 117**, `[[PENDIENTE]]`×1 sin cambios, palabras
+> ~28.560. Derivados a regenerar después de guardar el `.docx`: `entregable/90f` (extracción) y
+> `project-kit/01-etapa-2-activa.md` (kit).
 > **No reaplicar nada de este tablero.**
 
 | Dónde | Qué |
@@ -2341,7 +4233,7 @@ marcadores; 17 tablas + 6 figuras; versiones vigentes v1.0/v1.4/v1.6/v1.3.
 | **AJ-2.07** | §17.1.5.4 / Anexo C | PRECISA | 🟡 | El prompt set debe declararse construido desde el **Anexo C (Tabla C.1)**; sumar **confianza media de los TP** y **métricas por entidad componente**. |
 | **AJ-2.08** | §17.1.6 / Tabla 36 | PRECISA | 🟡 | Usar los **nombres de fase de la Tabla 36** y declarar la correspondencia 1:1 con lo ejecutado (con la nota ADR-010). |
 | **AJ-2.09** | §17.1.7.8 | CONCRETA | 🟠 | Instrumentación: los **cinco hitos por alerta**, **P50/P95/P99**, warm-up declarado por corrida, bitácora mínima. |
-| **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. |
+| **AJ-2.10** | §17.1.4.2.4 | PRECISA | 🟡 | Fuente EBE (H4): la **contingencia oficial se ejerció primero**; la OAK-D está integrada; el RTSP sintético es herramienta, no fuente experimental. ✎ 08-30: **§17.1.4.2.4 ELIMINADA** — la ficha queda cumplida por §17.1.4.2.3; no re-agregar (ver nota en la ficha). |
 | **AJ-2.11** | §17.1 / Tabla 37 | PRECISA | 🟡 | Reencuadrar el **fine-tuning (I1)** conforme **ADR-017**: rama experimental condicionada (Tabla 37) que **se ejerce como jornada completa**; condiciones de datos y protocolo, no de cómputo — la causa "presupuesto de tiempo" queda **prohibida**. |
 | **AJ-2.12** | §17.1.7 | PRECISA | 🟠 | Declarar los **estados de aplicabilidad** (`not_applicable:<causa>`, ADR-006/013) y las **reglas de lectura** que ninguna métrica puede violar. ✎ 08-28: + la regla de conteo `re-alerta ≠ FP` (D-E2-3, E2-22). |
 | **AJ-2.13** | §17.1.7.3.1 | CONCRETA | 🟠 | ✎ **2026-08-28 (D-E2-5, nueva):** declarar el **nivel intermedio de análisis "estado observable por persona"** entre la percepción por imagen y la alerta temporal por episodio — §17.5 lo usa como eje y §17.1 no lo pre-registraba (0 apariciones). Texto guía en E2-18. Sin cifras. |
@@ -2568,6 +4460,31 @@ convencional**. En la práctica **la contingencia se ejerció primero**. Actuali
 prioridad declarada: contingencia oficial primero, y el **RTSP sintético
 (mediamtx+ffmpeg) como herramienta de desarrollo y vía de reproducibilidad DBE↔EBE con
 fuente idéntica** — no como fuente experimental.
+
+> ✎ **2026-08-30 — la mitad "RTSP sintética" se ELIMINÓ de §17.1; la ficha queda cumplida
+> por la otra mitad. NO volver a agregarla.**
+>
+> El pase 2 resolvió AJ-2.10 partiendo el contenido en dos: la **prioridad declarada** entró
+> en **§17.1.4.2.3** (*"La vía RTSP se prioriza inicialmente por disponibilidad e
+> interoperabilidad; la OAK-D se incorpora como fuente posterior"*) y el **RTSP sintético**
+> quedó solo en **§17.1.4.2.4**, que heredó el slot del viejo *"Plan de contingencia para el
+> EN"* de v1.1. Decisión del usuario: **borrar §17.1.4.2.4 entera** (título + los dos
+> renglones). Causas:
+>
+> 1. Su título prometía un "criterio de prioridad" que su cuerpo no daba — ya estaba completo
+>    en §17.1.4.2.3. Era un título vestigial.
+> 2. **Cero referencias cruzadas**: §17.3/§17.4/§17.5 no mencionan la fuente sintética ni una
+>    vez, y ninguna sección remite a §17.1.4.2.4 ni a §17.1.4.2.5 — la renumeración de
+>    `.2.5 → .2.4` (Stack de software) es segura.
+> 3. El párrafo se autodestruía: presentaba una herramienta sólo para aclarar que no contaba.
+>    Sin el párrafo, el lector nunca se hace la pregunta que el párrafo respondía.
+> 4. §17.1 es el protocolo, no el inventario de herramientas de desarrollo. Ninguna cifra
+>    reportada salió de la fuente sintética: el `rtsp` de los resultados (doc 61) es la cámara
+>    IP EZVIZ real.
+>
+> **La herramienta existió** (mediamtx + ffmpeg republicando material pregrabado por
+> `RtspSource`; nunca estuvo en el compose de 13 servicios). Si alguna vez hace falta citarla,
+> el lugar es §17.4, no §17.1.
 
 ---
 

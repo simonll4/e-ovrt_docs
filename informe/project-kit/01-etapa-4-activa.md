@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 4
 
-> Generado el 2026-08-28. Etapa 4: seccion 17.4, implementacion del prototipo.
+> Generado el 2026-09-01. Etapa 4: seccion 17.4, implementacion del prototipo.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -53,10 +53,14 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
    verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
-   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
-   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
-   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
+   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
+   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
+   severidad metodologica, sin articulos legales; extension justificada en
+   justificacion-extension-17-1.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
+   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
 4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
@@ -3134,7 +3138,7 @@ unidad futura toca uno de estos temas, tiene que actualizar la fila.
 
 ## Fuente: `docs/informe/ajustes/04-etapa-4-implementacion.md`
 
-> SHA-256 del bloque: `2e14a84aa8aa60447b25f27514e0a69f70a21bc277b4e70b1604c7296b7cca96`  
+> SHA-256 del bloque: `e4d8d5405b6671bbcc9ee64e5d54bb42c14974482163f732d3f7550e3dec6d6a`  
 > Seleccion: documento completo.
 
 # Etapa 4 — §17.4 Implementación del prototipo experimental
@@ -3142,7 +3146,8 @@ unidad futura toca uno de estos temas, tiene que actualizar la fila.
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
 > están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` (✎ 2026-08-28: vigente **v1.6**, `00-el-informe-hoy`) en
 > `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.
-> Lo que queda: revisión del autor, las URLs del lote (C1) y la integración al maestro. Las
+> Lo que queda: **el handoff recibido de la Etapa 2 (§0, abajo)**, la revisión del autor, las
+> URLs del lote (C1) y la integración al maestro. Las
 > unidades `AJ-4.x` de abajo ya fueron incorporadas; se conservan como criterio de lectura.
 >
 > *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
@@ -3166,6 +3171,60 @@ unidad futura toca uno de estos temas, tiene que actualizar la fila.
 | Relevamientos vigentes por servicio (✎ 2026-08-10) | **`nucleo/14`** (mapa de la cadena) · `15` setup · `16` datasets · `17` media · `18` control · **`19` el ciclo de vida de la alerta** — relevados contra git y código, sin cifras |
 | Estado real de la plataforma | `operacion/97-relevamiento-plataforma-2026-08-05.md` + `operacion/114-relevamiento-distribucion-alertas.md` |
 | Decisiones a citar | `decisiones/` — ADR-001…018 (+ la serie propia del control-plane, 4 dígitos) |
+
+---
+
+## 0. Handoff recibido de la Etapa 2 — pendiente de escribir en §17.4
+
+> ✎ **2026-08-30.** Estas dos unidades **no** son `AJ-4.x`: llegaron desde el cierre de la
+> Etapa 2 y **todavía no están en `§17.4 v1.6`**. Origen:
+> `entregable/desarrollando/archivado/correcciones-etapa-2-pase-2.md` §5, fila
+> "§17.4 v1.6 · handoff Etapa 4".
+
+| ID | Qué falta decir en §17.4 | Estado en v1.6 |
+|---|---|---|
+| **H2-01** | **Orden de disparo real de la corrida live: control → distribución → medios.** No es el orden del flujo de datos, es el inverso; la no-pérdida en el bus de alertas la garantiza el handshake del publicador, no el orden. Fuente: `operacion/130` R-01 · CLAUDE.md "Acople entre planos". | ausente |
+| **H2-02** | **Desviación del rango de entrenamiento: 500–2.000 → 2.946, con causa.** Ver ficha abajo. | ausente (sólo aparece el cierre de T3 por fuentes compartidas) |
+
+### H2-02 · la desviación del rango, y por qué NO es un incumplimiento
+
+**El problema si no se escribe.** §17.1 fija un rango orientativo de **500 a 2.000 imágenes**
+para el split de entrenamiento y exige explícitamente *"justificarse si se apartan de ese
+rango"* (§17.1.6.2.4 y Tabla 28). El fine-tuning usó **2.946 train / 483 val**, un 47 % sobre
+el techo. §17.5 ya reporta las 2.946 pero **no dice que exceden el rango ni por qué**: leído
+así, parece que el protocolo se violó. No se violó — la desviación es **consecuencia directa
+de cumplir la regla anti-leakage** de §17.1.6.5.
+
+**Qué tiene que decir §17.4** (la causa es implementación; §17.5 no se toca):
+
+> La causa de la desviación es el cumplimiento de la regla anti-leakage de §17.1.6.5, no su
+> incumplimiento: se tomó el 100 % de los linajes elegibles tras excluir íntegramente la
+> fuente compartida con el banco (1.330 imágenes) y deduplicar perceptualmente contra él
+> (81 imágenes más), sin submuestrear al techo del rango. Declarar también los controles en
+> cero — solapamiento con el banco, y componentes compartidos entre entrenamiento y
+> validación — y la semilla registrada: son la evidencia de las reglas 3 y 4 de §17.1.6.5.
+
+**Evidencia verificable** (`e-ovrt_experimental-setup/finetuning/manifests/`):
+
+| Dato | Valor | Archivo |
+|---|---|---|
+| Gates de disyunción | `bench_overlap_selected: 0` · `bench_rows_in_manifest: 0` · `shared_components_train_val: 0` | `finetuning_v1.summary.json` |
+| Semilla | `seed: 42` | ídem |
+| Banco congelado al auditar | sha256 `4557024e…` · `unchanged: true` · 6.477 imgs | `finetuning_v1.audit.json` |
+| Excluidas por solapamiento | 81 imágenes (56 por componente perceptual · 25 por linaje de fuente), 34 linajes | ídem |
+| Cadena de selección | 4.210 candidatas → 4.129 tras el guard → 3.429 seleccionadas (2.946 + 483) | ídem |
+| Regla perceptual | `ahash`+`dhash` 64 bits, Hamming ≤ 2, **y** MAE gris ≤ 2,0 sobre thumbnail 16×16 — las tres deben pasar | `finetuning_v1.audit.json` §parameters |
+
+Constancia de la desviación: `operacion/130` R-03 (no estaba justificada por escrito en
+ADR-017 / doc 100 / D-FT-11 hasta esa nota).
+
+⚠️ **Forma de nombrar las fuentes:** §17.5 las describe **sin identificador** ("obra con mayor
+cobertura de chaleco, n = 1.330"), mientras §17.1 sí las nombra. Usar la forma que ya emplee
+§17.4 en su entorno; no mezclar las dos en el mismo párrafo.
+
+🚫 **Lo que NO se hace acá:** no se toca §17.5 (ya reporta las 2.946; la causa vive en §17.4),
+no se reabre la Etapa 2 (§17.1 previó la desviación y sus cinco reglas se cumplieron), y no
+se crea una limitación nueva — el set `L1–L8` está cerrado (D-113.1).
 
 ---
 

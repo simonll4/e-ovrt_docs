@@ -620,7 +620,10 @@ limitaciones de la jornada se documentan con su estado a la entrega.
 gate por 0,0045 y la retención por `person` −11,62 %); **T2 NO-GO** el 08-21 (`operacion/127`:
 colapso en entrenamiento, ganancia PASA en `bare_head` 0→0,0909 pero retención in-domain
 FALLA ×4 —`person` −49,7 %— y OV FALLA —COCO −71,3 %—); **T3 cerrado con causa técnica**
-(sin baseline MM-GDINO sana, `operacion/117` §2). La respuesta hostil se arma con la **curva
+(✎ 09-01, `operacion/131`: la formulación precisa es — sin baseline de la **variante a
+tunear**: la `tiny` tiene cajas degeneradas **del checkpoint publicado**, verificado con
+`transformers` puro y hash del hub; `base` es sana pero mediocre. Encabezar siempre por
+**linaje** —lo tuneado no sería el campeón desplegado— **+ escalera**, F-131.4). La respuesta hostil se arma con la **curva
 de 3 puntos** (baseline / T1 / T2) y **F-127.1**: el fallo no era capacidad sino
 **estructural** (2.946 imágenes vs 10,35 M parámetros); T1 gana por recall CR-01 y T2 por
 AP — no es una métrica única. Ningún checkpoint adoptado; no hay más brazos contra `bench_v3`.

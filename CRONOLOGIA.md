@@ -17,6 +17,24 @@
 
 ---
 
+## 2026-09-01 — Verificación experimental del descarte de MM-GDINO (doc 131)
+
+Antes de redactar la justificación de T3, el usuario preguntó si estábamos *completamente
+seguros* de "tiny descartada por bboxes inválidas". La cadena documental tenía tres
+versiones incompatibles de la causa (bug de un adaptador propio / causa nunca diagnosticada /
+"large reproduce el bug"), así que se verificó por experimento
+([doc 131](operacion/131-verificacion-descarte-mmgdino.md)), sin tocar `bench_v3`.
+Resultado: **el descarte queda MÁS firme, con la causa corregida** — la degeneración de
+`tiny` reproduce con `transformers` puro, sin código del proyecto y con sha256 local == hub
+(**defecto del checkpoint publicado**; el `mmgdino_adapter.py` acusado en Sprint 2 **nunca
+existió**); los `detections.jsonl` supervivientes de S1 muestran que `large` falla
+**distinto** (mislocaliza con geometría normal; las 2–3 casi-degeneradas del sanity-check
+eran reales pero no explican mAP 0,0025) y que `base` es geométricamente sano ⇒ la
+justificación de T3 se encabeza por **linaje + escalera**, con las cajas de refuerzo
+(F-131.1…4; redacción segura en 131 §5). ✎ propagado a `64`/`117`/`62`/`101`/`116`/
+glosario/`GUIA-REDACTORES`/`sintesis/fundamentos`/`results/bench_imagenes/index.md`; kit
+regenerado (`--check` verde, 62 tests), verificador de índices ✅. Sin commits (git = usuario).
+
 ## 2026-08-28 — Etapa 1 CERRADA en v1.0, revisión previa a la Etapa 2 y relevamiento exhaustivo de la plataforma (doc 130)
 
 **La Etapa 1 cerró:** `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx`

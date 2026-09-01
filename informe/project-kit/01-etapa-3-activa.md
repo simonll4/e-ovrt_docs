@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 3
 
-> Generado el 2026-08-28. Etapa 3: seccion 17.3, diseno arquitectonico.
+> Generado el 2026-09-01. Etapa 3: seccion 17.3, diseno arquitectonico.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -53,10 +53,14 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
    verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
-   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
-   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
-   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
+   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
+   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
+   severidad metodologica, sin articulos legales; extension justificada en
+   justificacion-extension-17-1.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
+   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
 4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`

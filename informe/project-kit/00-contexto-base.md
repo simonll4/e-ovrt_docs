@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-08-28. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-09-01. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -53,10 +53,14 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
    verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.3
-   (Etapa 2) con el pase E2 y el de formato APLICADOS Y VERIFICADOS** el 2026-08-28 (texto base
-   `90f`; quedan `90g` —Anexos C y D— y los handoffs hacia 17.3/17.4/17.5) · §17.6, §18 y §19
-   sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
+   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
+   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
+   severidad metodologica, sin articulos legales; extension justificada en
+   justificacion-extension-17-1.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
+   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
 4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
@@ -245,7 +249,7 @@ huerfanas, la misma autoria con años distintos y si faltan los cambios controla
 
 ## Fuente: `docs/GUIA-REDACTORES.md`
 
-> SHA-256 del bloque: `2262b55fb9db73f1ee633fe79530557ecc1ef6dafa328244feed5d9e3f1d97ba`  
+> SHA-256 del bloque: `6f70403f60246aa77d03a12b5d48f5a2e97d4767413361a15d6313109ca7f40f`  
 > Seleccion: documento completo.
 
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
@@ -534,6 +538,13 @@ limitaciones y estado a la entrega, con causa técnica.
 > omitir que la enmienda fue posterior al veredicto — la transparencia de la secuencia ES el
 > argumento. **T3 no corre**: trabajo futuro con causa técnica (sin baseline MM-GDINO
 > geométricamente sana), jamás "falta de tiempo".
+> ✎ **2026-09-01 (`operacion/131`)**: la causa técnica quedó verificada por experimento y
+> **la formulación segura cambió** — encabezar por **linaje + escalera** (lo tuneado no
+> sería el campeón desplegado; T1 NO-GO + T2 NO-GO ⇒ T3 no se activa) y citar las cajas
+> como refuerzo: *"la variante a tunear (`tiny`) tiene cajas degeneradas **del checkpoint
+> publicado**, reproducidas con el stack estándar sin código del proyecto"*. NO escribir
+> "sin baseline MM-GDINO sana" a secas (`base` es sana pero mediocre, F-131.4), ni "bug de
+> nuestro adaptador", ni "la familia comparte un bug" (`large` mislocaliza — otra falla).
 >
 > ✎ **2026-08-21 — T2 CERRÓ: veredicto D-FT-15 = NO-GO y la jornada E-04 está COMPLETA**
 > (`operacion/127` (fuente: `docs/operacion/127-cierre-t2-no-go-curva-capacidad.md`)). Cifras: el gate de
@@ -689,7 +700,7 @@ bootstrap, 35 docs de procedencia, 1.452 enlaces / 0 rotos — EXIT 0 el 2026-08
 
 ## Fuente: `docs/13-glosario-y-convenciones-de-lectura.md`
 
-> SHA-256 del bloque: `1941c65d7e4cdc6a18ea4e6a8c4cc00d3a2959a0a53efa7ff461f033d94c32e9`  
+> SHA-256 del bloque: `c6f860fb5b3919f543cd61956ed0bd1ae5db85a827e3a457c6d945c0a5584173`  
 > Seleccion: documento completo.
 
 # 13 — Glosario y convenciones de lectura del set documental
@@ -938,7 +949,7 @@ obra y anotaciones subpíxel."*
 | **clip bench** | El banco de **video** con GT temporal (`processed/clip_bench/`, spec 43). ✎ **2026-08-10 — corregido: decía "1 clip promovido (`cb_b01_p7`) en `gt_preliminary`". Doblemente falso**: ese clip fue **RETIRADO** el 2026-08-03 (licencia sin registrar + GT generado por IA) y **no debe citarse**. **Hoy el banco tiene 47 clips con GT HUMANO** = 32 positivos / 15 negativos / **37 episodios**, manifest `3f14f50a…`, en dos bloques: **A** = rodaje guionado (34) y **B** = lote de internet (13). Es el escenario EBE oficial del informe. |
 | **video-gt-lab** | El pipeline semiautomático de GT temporal: `prepare_clip` → preanotación (GDINO-**base** anti-circularidad + ByteTrack) → CVAT (humano) → `derive_clip_gt` → `validate` → `promote_clip`. |
 | **`gt_preliminary`** | Estado de un GT sin pasada humana (anotador `claude-vision-preliminary`). Ver regla de oro #7. |
-| **GDINO / MM-GDINO / YOLOE** | Las tres familias de modelos OVD evaluadas. ✎ **2026-08-10 — cifra actualizada: el campeón es `gdino-tiny-560` con mAP50 0,551 sobre `bench_v3` (6.477 imgs)**, no el 0,441 del BENCH viejo. Licencias: GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0** (registro en `license_registry.md` §PESOS DE MODELO). Hallazgos clave: **YOLOE es ciego a `bare_head`** (recall CR-01 ≈ 0); MM-GDINO-tiny descartado (bboxes rotas). Pista doble del núcleo (doc 12 §3): GDINO-tiny primaria + YOLOE-26s réplica. |
+| **GDINO / MM-GDINO / YOLOE** | Las tres familias de modelos OVD evaluadas. ✎ **2026-08-10 — cifra actualizada: el campeón es `gdino-tiny-560` con mAP50 0,551 sobre `bench_v3` (6.477 imgs)**, no el 0,441 del BENCH viejo. Licencias: GDINO y MM-GDINO **Apache-2.0**, YOLOE **AGPL-3.0** (registro en `license_registry.md` §PESOS DE MODELO). Hallazgos clave: **YOLOE es ciego a `bare_head`** (recall CR-01 ≈ 0); MM-GDINO-tiny descartado (bboxes degeneradas **del checkpoint publicado** — verificado 2026-09-01 con `transformers` puro y hash del hub, `operacion/131`; `large` falla distinto: mislocaliza con geometría normal). Pista doble del núcleo (doc 12 §3): GDINO-tiny primaria + YOLOE-26s réplica. |
 | **OAK-D Pro PoE** | Cámara edge con NPU (DepthAI). Fuente viva `oak_d` del media-plane; trae IP estática de fábrica 169.254.1.222. |
 | **prompt set** | Conjunto versionado de prompts con ciclo de vida (`exploratory` → `frozen`, con `frozen_sha256`). ✎ **2026-08-10 — corregido: `eind_v1` y `edir_v1` están `frozen` con sha256 desde el 2026-07-29 (acta del usuario, doc 76). Ya no esperan nada.** Texto anterior: `eind_v1` está `frozen_pending_review` (espera el **acta** del usuario que desbloquea D1). |
 | **pattern set** | Conjunto versionado de patrones del control-plane. El oficial es **`cr01_cr02_v2`** (escena, 4000/7000 ms, sin cooldown ni memoria de cobertura). |
@@ -3093,7 +3104,7 @@ aceptado, fases y hashes) más `integrated-runs.json`, que enumera `media_run_id
 
 ## Fuente: `e-ovrt_experimental-setup/results/bench_imagenes/index.md`
 
-> SHA-256 del bloque: `1ee87a476d10d5a9bbfa3b86f81d023b42406c851218fa9a51d24ef1cc44fe2a`  
+> SHA-256 del bloque: `96aad6179a98960d915c634b360d123931116363f290ded7d3a928e27bcde5d9`  
 > Seleccion: documento completo.
 
 # Bench de imágenes — resultados consolidados
@@ -3166,6 +3177,17 @@ acá con sus números, para que la exclusión no sea una afirmación sin dato:
 
 Fuente: doc 64 (BENCH v2, 196 imgs — sin `metrics.json` mecánico; verificado a mano
 2026-08-14).
+
+> ✎ **2026-09-01 (`docs/operacion/131`): dos celdas de "Por qué no siguió" quedan
+> precisadas; los descartes SIGUEN VÁLIDOS.** (a) `mm-gdino-large` **no** "reproduce el
+> bug" de la tiny: sus cajas tienen geometría normal (las 2–3 del sanity-check son
+> casi-degeneradas de lado ≤3 px y no explican el mAP 0,017) y están **mal ubicadas y
+> apaisadas** — es **otra falla** (mislocalización), verificada sobre los `detections.jsonl`
+> supervivientes de estas mismas corridas. (b) `mm-gdino-tiny` **sí se re-midió** el
+> 2026-09-01 (geometría, fuera del banco): la degeneración **reproduce** con `transformers`
+> puro, sin código del proyecto y con hash verificado contra el hub — el defecto es **del
+> checkpoint publicado**, no de un adaptador propio. Redacción segura para el informe:
+> `operacion/131` §5.
 
 **Lectura de esta tabla, en una línea:** de los 6 descartes, **3 son por dominancia
 medida** dentro de su propia familia (las dos variantes 800 y las tallas menores de YOLOE),

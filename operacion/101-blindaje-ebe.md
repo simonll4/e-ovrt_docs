@@ -60,6 +60,9 @@ verifica, con UNA corrección de precisión** (abajo).
   > **único modelo que entra en presupuesto** y donde produjo F-RT2.
 - **MM-GDINO**: descartada en la selección de modelos (bboxes rotas; Sprint 2,
   consolidado en la selección S1/S2 del doc 64).
+  > ✎ **2026-09-01 (`operacion/131`)**: precisión — las bboxes rotas son de la **`tiny`**
+  > (defecto del checkpoint publicado); `large` falla por mislocalización con geometría
+  > normal y `base` es geométricamente sano (descartado por mediocre). El descarte sigue.
 
 ### 1.3 Corrección encontrada por la auditoría (precisión de cita)
 

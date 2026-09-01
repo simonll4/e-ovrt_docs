@@ -229,6 +229,10 @@ prueba negativa de `RUN` sin autorización terminó `exit=1` y no envió ningún
 - T2 requiere que T1 habilite el escalamiento y que D-FT-04 congele retención antes de correr.
 - T3 requiere que la escalera lo habilite, una baseline MM-GDINO geométricamente sana y el
   cierre de D-FT-02, D-FT-05 y D-FT-06.
+  > ✎ **2026-09-01 (`operacion/131` F-131.4)**: «baseline geométricamente sana» se matiza —
+  > `base` ES sana pero mediocre; lo que no hay es baseline de la **variante a tunear**
+  > (`tiny`, defecto del checkpoint publicado, verificado). T3 sigue cerrado por
+  > **escalera + linaje**; las cajas son refuerzo, no pilar.
 - Un resultado negativo cierra la rama con evidencia; no convierte la jornada en una omisión.
 
 ## 6. Gates invariantes

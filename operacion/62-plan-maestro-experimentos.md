@@ -212,6 +212,11 @@ Cascada E-HYB (D-61.1, trabajo futuro), EN-2 en corridas evaluativas (D-61.2), G
 como fuente de bench (100% aumentado por Roboflow, doc 66 B1), spec 45 MQTT para lo último
 (decisión usuario). Regla transversal: nada se commitea sin pedido explícito.
 
+> ✎ **2026-09-01 (`operacion/131`)**: la exclusión de MM-GDINO sigue, pero «bug de bboxes
+> reproducido dos veces» quedó precisado — son **dos fallas distintas**: `tiny` degenera
+> (defecto del checkpoint publicado, verificado con `transformers` puro y hash del hub);
+> `large` **mislocaliza con geometría normal**. No citarlas como el mismo bug.
+
 ### Lo único que falta del lado del usuario (resumen ejecutivo)
 
 1. **G2**: coordinar ~1h con cámaras para el ensayo de doble toma (doc 67).

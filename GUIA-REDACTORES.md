@@ -284,6 +284,13 @@ limitaciones y estado a la entrega, con causa técnica.
 > omitir que la enmienda fue posterior al veredicto — la transparencia de la secuencia ES el
 > argumento. **T3 no corre**: trabajo futuro con causa técnica (sin baseline MM-GDINO
 > geométricamente sana), jamás "falta de tiempo".
+> ✎ **2026-09-01 (`operacion/131`)**: la causa técnica quedó verificada por experimento y
+> **la formulación segura cambió** — encabezar por **linaje + escalera** (lo tuneado no
+> sería el campeón desplegado; T1 NO-GO + T2 NO-GO ⇒ T3 no se activa) y citar las cajas
+> como refuerzo: *"la variante a tunear (`tiny`) tiene cajas degeneradas **del checkpoint
+> publicado**, reproducidas con el stack estándar sin código del proyecto"*. NO escribir
+> "sin baseline MM-GDINO sana" a secas (`base` es sana pero mediocre, F-131.4), ni "bug de
+> nuestro adaptador", ni "la familia comparte un bug" (`large` mislocaliza — otra falla).
 >
 > ✎ **2026-08-21 — T2 CERRÓ: veredicto D-FT-15 = NO-GO y la jornada E-04 está COMPLETA**
 > ([`operacion/127`](operacion/127-cierre-t2-no-go-curva-capacidad.md)). Cifras: el gate de

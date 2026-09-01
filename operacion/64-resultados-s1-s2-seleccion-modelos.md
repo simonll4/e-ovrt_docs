@@ -87,6 +87,15 @@ default.)*
 5. **Familia MM-GDINO DESCARTADA entera con evidencia**: large reproduce el bug de bboxes
    degeneradas de Sprint 2 (sanity-check 2–3 degeneradas, mAP 0.003–0.027, 723 ms) y base es
    mediocre (0.360) sin ventaja en nada.
+   > ✎ **2026-09-01 (`operacion/131` F-131.3): la causa de este ítem estaba mal descrita;
+   > el descarte SIGUE VÁLIDO.** El conteo del sanity-check era correcto (con lado mínimo
+   > ≤3 px hay 1–2 casi-degeneradas por run; base: 0), pero **large NO reproduce el bug de
+   > la tiny**: sus cajas tienen geometría normal (0 degeneradas estrictas) y están
+   > **mal ubicadas y apaisadas** (`person` w/h 1,72–1,74 vs 0,34–0,52 de base) — 1–2 cajas
+   > malas no llevan el mAP de 0,34 a 0,0025. Son **dos fallas distintas**: tiny degenera
+   > masivamente (34 % de cajas-línea, reproducido el 09-01 con `transformers` puro y hash
+   > verificado contra el hub), large mislocaliza. No citar este ítem como "la familia
+   > comparte un bug de bboxes".
 6. **Campeón YOLOE: 26x** (0.407/0.405) — pero vest 0.18, bare_head 0.000, recall CR-01
    0.000: **zero-shot no ve EPP**. Confirma su rol de réplica rápida/gate (doc 12 §3) y
    cuantifica el otro lado del trade: 43 ms vs 129 ms, a costo de no poder evaluar CR-01/CR-02.

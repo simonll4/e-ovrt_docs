@@ -199,6 +199,16 @@ explícita que D-FT-03 prevé: **T2 se reabre como tier exploratorio**, no como 
   baseline MM-GDINO geométricamente sana (Sprint 2 descartó la tiny por bboxes rotos, causa
   nunca diagnosticada) el Δ de T3 no se puede interpretar, y el linaje tuneado ni siquiera
   sería el del campeón desplegado (`gdino-tiny-560` HF). D-FT-02/05/06 quedan diferidas.
+  > ✎ **2026-09-01 (`operacion/131`): la causa quedó diagnosticada en lo esencial, y una
+  > formulación de este bullet se matiza.** (a) La degeneración de la tiny se **reprodujo**
+  > con `transformers` puro, sin código del proyecto, con copia local byte-idéntica a la
+  > publicada (sha256 vs hub): el defecto es **del checkpoint publicado**, no de un
+  > adaptador propio — el `mmgdino_adapter.py` que acusaba el registro de Sprint 2 **nunca
+  > existió** (F-131.2). (b) *"Sin baseline MM-GDINO geométricamente sana"* dicho así no se
+  > sostiene: **base ES sana** (0,336–0,377 en las sondas de BENCH v2), lo que no hay es
+  > baseline de la **variante que T3 iba a tunear** (tiny) ni una que valga la pena (base
+  > es mediocre sin ventaja, doc 64 §5) — F-131.4. El cierre de T3 se encabeza por
+  > **linaje + escalera** (que este mismo bullet ya contiene); las cajas van de refuerzo.
 
 ### D-FT-15 — márgenes go/no-go T2 — **APROBADA, usuario 2026-08-17**
 
