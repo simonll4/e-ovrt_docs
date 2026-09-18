@@ -8,6 +8,19 @@ es la **foto de estado vigente**; la jornada de fine-tuning quedó completa: T1 
 `operacion/123` · T2 NO-GO `operacion/127` · T3 causa técnica. La foto día a día vive en
 `CRONOLOGIA.md`)*.
 
+> ✎ **Estado 2026-09-18 en una línea: EL INFORME ESTÁ COMPLETO.** El frente **F** cerró:
+> `informe/entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx` tiene
+> portada, §2–§19, Anexos A–F y Referencias, sin comentarios ni cambios rastreados (leído de
+> punta a punta; foto en `informe/entregable/90-informe-final-2026-09-16-v0.1-texto-extraido.md`).
+> **Lo que queda es formal**, y vive en `informe/entregable/00-lo-que-resta.md`: los
+> placeholders de §2–§4, el número de §8, la numeración de figuras, P-E1-05/07, el estatuto
+> de la distribución, la bibliografía (falta DINO; "s. f.-a/-b" sin entrada; ~8 huérfanas).
+> **C1 quedó cerrado en el informe** (Anexo F cita la lista de reproducción, consultada el
+> 15-sep-2026). **El frente activo es la defensa** (prevista para fines de septiembre, §18.6):
+> Drive de evidencia (`_evidencia-drive/`), videos de defensa, y el build + smoke del compose
+> integral, que el informe declara **no verificado** (§17.6.4) — hacerlo después no cambia el
+> texto. Todo lo de abajo es historia del camino.
+
 > ✎ **Estado 2026-08-21 en una línea:** no queda **ningún experimento** abierto ni
 > diferido-con-retorno (fundamento: acta 128 §2), y **los insumos del informe están todos
 > cerrados** — datos, decisiones, las 17 tablas y **las 6 figuras** (las cinco que

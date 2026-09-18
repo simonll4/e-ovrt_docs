@@ -1,5 +1,12 @@
 # Guía para redactar el informe — para quien NO participó del trabajo experimental
 
+> ✎ **2026-09-18 — el informe ya está escrito y completo**
+> (`informe/entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`). Esta guía
+> queda como referencia para **preparar la defensa y las correcciones del jurado**: siguen valiendo
+> el proyecto en 5 minutos (§1), cómo citar una cifra (§3) y las cinco trampas (§5); lo de "qué
+> sección te toca escribir" es historia. Las cifras para la defensa se citan **del informe**
+> (sección + tabla), con los índices de `results/` como respaldo.
+
 **Vos sos el lector previsto de este documento.** Todo el resto del set `docs/` está
 escrito como memoria de trabajo de quienes hicieron los experimentos: usa voseo, da por
 sabido el contexto y cita códigos sin definirlos. Este archivo es la única puerta de

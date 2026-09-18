@@ -1,5 +1,13 @@
 # Mapa de ajustes del informe — de la Etapa 1 a la Etapa 6
 
+> ✎ **2026-09-18 — DOCUMENTO HISTÓRICO. El pase de redacción que este mapa gobernaba TERMINÓ:** el
+> informe está completo en `../entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`
+> (§2–§19 + Anexos + Referencias). Los 109 ajustes/podas de este mapa y de `01`–`09` están aplicados,
+> superados o descartados por decisión del usuario dentro de ese documento; **nada de esta carpeta se
+> vuelve a aplicar**. Se conserva entera porque `00-indice.md`, `operacion/` y las memorias la citan
+> por número y ruta. Los pendientes vigentes del informe (formales) viven en
+> `../entregable/00-lo-que-resta.md` §0.
+
 > ✎ **2026-08-28 — estado del tablero (fuente `informe/entregable/00-el-informe-hoy.md` 08-28;
 > `operacion/130` §5):** el tablero global del §5 es la foto del 08-10. Hoy: **Etapa 1 CERRADA**
 > (§15+§16 v1.0, 16 `AJ-1` resueltos, podas 01–11 aplicadas); **§17.3 v1.4, §17.4 v1.6 y §17.5

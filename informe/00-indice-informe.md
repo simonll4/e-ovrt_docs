@@ -20,6 +20,22 @@
 > + `archivado/`), `borradores/`, los textos extraídos `90b`–`90f` y `resumen-cambios-etapa-1.md`;
 > `ajustes/` tiene además `09-pase-de-tablas-y-lectura-de-cierre.md`; `herramientas/` tiene
 > `extraer_informe.py` y `verificar_entregable.py`.
+>
+> ✎ **2026-09-07 — vencido lo de arriba; el árbol de abajo ya está actualizado.** Estado real:
+> las cinco secciones tienen entrega con sugerencias del pase 5 (§15/16 **v1.3** · §17.1 **v1.17** ·
+> §17.3 **v1.9** · §17.4 **v1.9** · §17.5 **v1.6**), a la espera de que el usuario las revise en Google
+> Docs; siguen vacías **§17.6, §18 y §19**. Lo superado se archivó ese mismo día, cada carpeta con su
+> `00-que-hay-aca.md`. La fuente sigue siendo `entregable/00-el-informe-hoy.md` y los pendientes,
+> `entregable/00-lo-que-resta.md`.
+>
+> ✎ **2026-09-18 — EL INFORME ESTÁ COMPLETO; todo lo de arriba es historia.** El documento
+> desarrollado entero es **`entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`**
+> (portada + §2–§19 + Anexos A–F + Referencias; 82k palabras; 73 tablas; 8 figuras; sin comentarios
+> ni cambios rastreados). Su foto de texto: **`entregable/90-informe-final-2026-09-16-v0.1-texto-extraido.md`**.
+> Los `.docx` por sección, el maestro v1.1, las actas, los mapas de secciones y las fotos por sección
+> fueron a `entregable/desarrollando/archivado/` y `entregable/archivado/`. **`ajustes/` y `project-kit/`
+> quedan históricos**: el pase de redacción que gobernaban terminó; se conservan porque el set los cita
+> por número y ruta. Lo que resta es formal y está en `entregable/00-lo-que-resta.md` (foto 2026-09-18).
 
 ---
 
@@ -29,14 +45,17 @@
 informe/
 ├── 00-indice-informe.md                      ← estás acá
 │
-├── entregable/                               ← EL INFORME Y LA ETAPA 3, como están hoy
-│   ├── 00-el-informe-hoy.md                  ← qué hay, qué versión, qué está vacío
-│   ├── E-OVRT-VDP_v1.1_05062026-sin-indice.docx
-│   ├── E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx
-│   ├── 90-etapa3-texto-extraido.md           §17.3 completo, en texto
-│   └── 96a … 96e                             el informe v1.1 completo, en texto
+├── entregable/                               ← EL INFORME, como está hoy
+│   ├── 00-el-informe-hoy.md                  ← tablero por jornada (✎ 09-18: informe completo)
+│   ├── 00-lo-que-resta.md                    ← el índice de pendientes, con dueño y bloqueo
+│   ├── 90-informe-final-2026-09-16-v0.1-texto-extraido.md   ← LA FOTO DEL INFORME COMPLETO
+│   ├── desarrollando/
+│   │   ├── E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx     ← EL INFORME FINAL (v0.1, 09-16)
+│   │   ├── revision-informe-final-v0.6-2026-09-15.md         ← revisión externa de la v0.6
+│   │   └── archivado/                        .docx por sección, maestro v1.1, actas, mapas, análisis
+│   └── archivado/                            fotos por sección 90/90b–90g/96a–96e, standalone de Etapa 3, borradores
 │
-├── ajustes/                                  ← TODO LO QUE HAY QUE CAMBIAR
+├── ajustes/                                  ← HISTÓRICO (✎ 09-18): el pase de redacción que gobernó terminó
     ├── 00-mapa-de-ajustes.md                 ← el mapa: etapa 1 → 6, en una tabla
     ├── 01-etapa-1-fundamentacion-teorica.md      inv. bibliográfica → §15 · §16 · Anexo A
     ├── 02-etapa-2-consolidacion-metodologica.md  análisis metodológico → §17.1 · Anexos C/D
@@ -49,7 +68,7 @@ informe/
     ├── material-etapa-3/   91 · 92 · 92b · 93 · 94
 │   └── gobierno/           95 · 97 · 98 · 99
 │
-└── project-kit/                              ← KIT MÍNIMO VERSIONADO PARA CHATGPT
+└── project-kit/                              ← KIT PARA CHATGPT — HISTÓRICO (✎ 09-18), no se regenera
     ├── README.md                              uso y cambio de etapa
     ├── INSTRUCCIONES-PROJECT.md              se pega en Project settings
     ├── 00-contexto-base.md                    primer archivo del knowledge
@@ -91,7 +110,8 @@ ajustes del informe por etapa; antes estaban repartidos entre `93` (solo Etapa 3
 2. **§17.4 y §17.5 están vacías.** Etapas 1–3 son corrección de texto existente; etapas
    4 y 5 son redacción desde cero, y son el camino crítico. (✎ 2026-08-28: **vencido** — §17.4
    v1.6 y §17.5 v1.3 están redactadas en `entregable/desarrollando/`; vacías quedan §17.6, §18 y
-   §19. El camino crítico hoy es la Etapa 2 (§17.1) y después el cierre.)
+   §19. El camino crítico hoy es la Etapa 2 (§17.1) y después el cierre.) (✎ 2026-09-18: **todo
+   redactado e integrado** en el Informe Final v0.1; ninguna sección está vacía.)
 3. **Las cifras salen solo de los cuatro índices de
    `e-ovrt_experimental-setup/results/`.** Varias tablas-atajo que parecen citables
    quedaron derogadas (`informe/92` §10, `gobierno/97` §5, `operacion/92`, `operacion/56`).

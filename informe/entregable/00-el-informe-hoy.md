@@ -16,13 +16,115 @@
 
 ---
 
-## Los dos entregables
+## El entregable (✎ 2026-09-18)
 
 | Archivo | Qué es | Fecha |
 |---|---|---|
-| `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` | **El informe completo, v1.1** | 05/06/2026 |
-| `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` | El capítulo de **Etapa 3** (Diseño arquitectónico) | — |
+| **`desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`** | **EL INFORME FINAL, COMPLETO** — portada, §2–§19, Anexos A–F y Referencias; 82k palabras, 73 tablas, 8 figuras; sin comentarios ni cambios rastreados. Leído de punta a punta el 09-18. | 16/09/2026 |
+| `90-informe-final-2026-09-16-v0.1-texto-extraido.md` | Su foto de texto (regla D-C), regenerable con `herramientas/extraer_informe.py` | 18/09/2026 |
+| `desarrollando/revision-informe-final-v0.6-2026-09-15.md` | Revisión externa de coherencia/cohesión sobre la v0.6 (414 pp); su verificación mecánica contra la v0.1 está en `00-lo-que-resta.md` §0 | 15/09/2026 |
 
+> ✎ **2026-09-18 — EL INFORME ESTÁ COMPLETO. Todo lo que sigue abajo es historia del camino.** La
+> v0.1 del 09-16 integra las secciones cerradas (§15/16 v1.4, §17.1 v1.21, §17.3 v1.12, §17.4 v1.15,
+> §17.5 «v1.5»), la Etapa 6 (§17.6/§18/§19, v1.5 con Figura 4.7 → aquí 4.6), las secciones iniciales
+> hasta §14 (v1.1) y los costos (§14.4/§17.2). Superados y **movidos a `desarrollando/archivado/`**:
+> todos esos `.docx` por sección, el maestro `E-OVRT-VDP_v1.1_05062026-sin-indice.docx`, las actas
+> de los pases, los mapas de secciones y los análisis de sugerencias. **Movidos a `archivado/`**: las
+> fotos por sección `90`/`90b`–`90g`/`96a`/`96e`, los resúmenes de cambios y `borradores/`. La tabla
+> de "los dos entregables" que estaba acá se reemplazó por la de arriba.
+> **Pendientes formales de la v0.1** → `00-lo-que-resta.md` (foto 2026-09-18).
+
+> ✎ **2026-09-08 — AUDITORÍA BIBLIOGRÁFICA sobre el maestro y las cinco secciones cerradas.** Cruce
+> mecánico de las 242 entradas del listado global contra las citas de las diez piezas vigentes, más cinco
+> auditorías de lectura en paralelo, con cada hallazgo re-verificado contra el texto. **La causa de fondo
+> es que el listado del maestro nunca se sincronizó con las correcciones de la Etapa 1: le faltan doce
+> entradas que sí están en `90e`**, y eso explica once citas que no resuelven, incluidas las dos únicas
+> fuentes sobre visión-lenguaje aplicado a seguridad en obra y la fuente de una fila de la Tabla A.1.
+> Además: **§17.5 no invoca ninguna vara de §15**, **§11–§14 no cita nada**, **104 de 242 entradas están
+> huérfanas** y **Kuhn (1955) es el paper viejo**, huérfano mientras el algoritmo húngaro se nombra sin
+> atribuir. Veintiún preprints tienen versión publicada: citarlos bien sube la literatura arbitrada del
+> 37 % al 46 % sin agregar una fuente. Sin fraude ni transcripción literal, y con la Tabla A.1 bien
+> resuelta. Informe: [`desarrollando/auditoria-bibliografica-2026-09-08.md`](desarrollando/archivado/auditoria-bibliografica-2026-09-08.md),
+> que pasa a ser el documento de ajustes vigente; el acta de los pases 5 a 5e se archivó.
+>
+> ✎ **2026-09-08, misma jornada — SEGUNDA BAJADA: el pase 5e ACEPTADO y CUATRO SECCIONES CERRADAS.**
+> El usuario aceptó las tres sugerencias del 5e y bajó las cinco secciones renumeradas: §15/16 **v1.4** ·
+> §17.1 **v1.21** · §17.3 **v1.12** · §17.4 **v1.15** · §17.5 **«v1.5»**. La vista aceptada de lo que entregué
+> coincide **exactamente** con lo que volvió, sin una línea de más ni de menos. Tres de las cinco son sólo
+> un cambio de número: §15/16, §17.3 y §17.5 son byte a byte idénticas a la v1.3, la v1.11 y la v1.9.
+> ⚠ **El número de §17.5 retrocedió**: el archivo se llama v1.5 y existe una v1.5 histórica distinta, la base
+> del pase 5. Citar esa sección por su estado, nunca por ese número, hasta que se renumere en Drive.
+> **CERRADAS: §17.1, §17.3, §17.4 y §17.5.** §17.4 queda sin marcas y con 3 comentarios abiertos; §17.1,
+> §17.3 y §17.5 quedan limpias. §15/16 sigue en revisión de los colegas (9 comentarios, la sugerencia del
+> pase 5 sin resolver y el «puede puede» de 15.2.4).
+>
+> ✎ **2026-09-08 — EL MAESTRO VUELVE, Y CON UNA TRAMPA.** El usuario trajo un export nuevo de
+> `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` y lo puso en `desarrollando/`, que es donde vive ahora: es el
+> destino de la integración. Sus 420 títulos son idénticos a los del export del 08-16, que quedó en
+> `archivado/` con su paréntesis. **Lo que cambió es el nombre de los estilos**: el export nuevo trae
+> `Ttulo1`…`Ttulo5` donde el viejo traía `Heading1`…`Heading5`, porque Google Docs los nombra según el
+> idioma de la interfaz y les quita los acentos al normalizarlos. Con eso, `extraer_informe.py` veía **cero**
+> títulos y `verificar_entregable.py` reportaba **420 problemas duros** falsos. Las tres herramientas
+> reconocen ahora las dos familias (`pase_docx.py` además detecta cuál usa el documento antes de escribir un
+> estilo), con dos pruebas nuevas que lo fijan. Sobre el maestro corregido quedan **4 observaciones reales**,
+> todas suyas y esperadas: el salto de numeración de §8–§10, la §17.1 vieja empezando en 17.1.2, una fuga de
+> andamiaje y 4 autorías sin entrada en Referencias.
+>
+> ✎ **2026-09-08 — BAJADA DEL USUARIO: las cinco secciones aceptadas; cuatro CERRADAS.** El usuario
+> aceptó en Google Docs todas las sugerencias de los pases 5/5b/5c/5d y bajó §15/16 **v1.3** · §17.1
+> **v1.19** · §17.3 **v1.11** · §17.4 **v1.13** · §17.5 **v1.9**. La vista aceptada de cada entrega
+> comparada con su bajada coincide, salvo ediciones suyas (abreviatura en la Tabla 35, dos notas de
+> §17.1 borradas, «Densidad» fusionada en la Tabla 64, negrita en rótulos «Nota») y **tres defectos del
+> viaje por Google Docs**: los tres bloques de código insertados en §17.4 perdieron su última línea al
+> aceptarse (dos llaves de cierre y `model_name`), quedó un título fantasma delante de 17.1.11 y un
+> «puede puede» en §15.2.4. **Pase 5e** (`herramientas/pase5e_cierre.py`): §17.4 → **v1.14** (las tres líneas
+> repuestas EN LIMPIO con comentario, y el único marcador `[[PENDIENTE]]` reemplazado como sugerencia por
+> la lista pública de YouTube que el usuario dejó en un comentario) · §17.1 → **v1.20** (párrafo fantasma a
+> Normal y título reescrito, como sugerencias; rechazar todo devuelve la v1.19). §15/16 **no se toca**: el
+> colega sigue revisándolo (9 comentarios, 3 de un segundo colega que «llegó hasta» 16.2.2). **Vigentes:
+> §15/16 v1.3 · §17.1 v1.20 · §17.3 v1.11 · §17.4 v1.14 · §17.5 v1.9.** Textos base re-extraídos por la
+> regla D-C (`90d` ← v1.3 · `90f` ← v1.20 · `90` ← v1.11 · `90b` ← v1.14 · `90c` ← v1.9); kit regenerado
+> con la **Etapa 6 como activa** y los cinco textos cerrados dentro de su paquete; entregas y bajadas
+> superadas → `archivado/`. Acta: §14 de
+> [`desarrollando/correcciones-pase-5-etapas-1-5.md`](desarrollando/archivado/correcciones-pase-5-etapas-1-5.md).
+>
+> ✎ **2026-09-07 — un solo documento de ajustes vigente.** En `desarrollando/` queda el acta del pase 5
+> y nada más de ese tipo: las tres actas del pase 4 y la lectura transversal se archivaron. Los mapas de
+> secciones se quedan porque son herramienta de lectura, no documento de un pase.
+>
+> ✎ **2026-09-07 — archivado de lo superado.** `desarrollando/` queda con los cinco `.docx` vigentes,
+> las actas de pase, los tres mapas de secciones y la lectura transversal. Se archivaron **las cinco bases
+> del pase 5** (§15/16 v1.2 · §17.1 v1.16 · §17.3 v1.8 · §17.4 v1.8 · §17.5 v1.5) y los **dos análisis**
+> cuyo pase ya se aplicó y aceptó; los guiones `pase5_*.py` leen desde `archivado/` y los cinco pases se
+> repiten con resultado idéntico parte por parte. En esta carpeta se archivaron `96b`, `96c` y `96d`
+> (superados por `90f` y `90d`), el standalone de Etapa 3 y la variante `-sin-etapa3` del informe v1.1.
+> En `herramientas/` se archivaron los once guiones de los pases 4 y 6, ya aceptados. Cada carpeta de
+> archivado tiene su `00-que-hay-aca.md` con el criterio: entra lo superado, se queda lo que es
+> constancia única o herramienta viva.
+>
+> ✎ **2026-09-07 — PASE 5: las cinco secciones entregadas con sugerencias y comentarios.**
+> §15/16 **v1.3** · §17.1 **v1.17** · §17.3 **v1.9** · §17.4 **v1.9** · §17.5 **v1.6**, todas con
+> «(sugerencias sin aceptar)». ✎ **Los pases 5b, 5c y 5d del mismo día** llevaron la configuración del
+> entrenamiento a §17.4.7, bajaron la fila «Pruebas automatizadas» de la Tabla 59 y aplicaron la revisión
+> completa (cinco auditorías cruzadas contra código e índices). **Vigentes: §15/16 v1.3 · §17.1 v1.18 ·
+> §17.3 v1.10 · §17.4 v1.12 · §17.5 v1.8.** Veinte decisiones abiertas en el acta, §12. §17.5 recupera las ocho limitaciones y, tras la segunda vuelta del 07-09,
+> **no lleva figuras de datos**: las dos insertadas se descartaron y su contenido volvió a tabla y a prosa,
+> de modo que queda sólo el fotograma como Figura 4.6.
+> §17.4 rehace la Figura 4.5 con la imagen vigente. Acta: [`desarrollando/correcciones-pase-5-etapas-1-5.md`](desarrollando/archivado/correcciones-pase-5-etapas-1-5.md).
+> Compuerta verde en las cinco (rechazar todo devuelve el original · paquete OPC íntegro · verificador sin
+> problemas duros). **Los textos base `90*` siguen siendo los del 09-06 y se re-extraen recién al aceptar**
+> (regla D-C). Herramientas nuevas: `pase_docx.py` (edición quirúrgica, comentarios e imágenes),
+> `rechazar_cambios.py` y `verificar_paquete.py`.
+>
+> ✎ **2026-09-07 — ronda de Google Docs del 09-06: cinco versiones nuevas en `desarrollando/`, lectura
+> transversal escrita, extractor corregido.** Vigentes: §15/16 **v1.2** · §17.1 **v1.16** · §17.3 **v1.8** ·
+> §17.4 **v1.8** · §17.5 **v1.5** (las anteriores, incluidas las dos «sugerencias sin aceptar» del 09-04, están en
+> `archivado/`). Diagnóstico y lista de trabajo: [`desarrollando/lectura-transversal-etapas-1-5-2026-09-07.md`](desarrollando/archivado/lectura-transversal-etapas-1-5-2026-09-07.md). Regla D-C aplicada: `90f`, `90`, `90b` y
+> `90c` re-extraídos de las versiones nuevas. **`extraer_informe.py` no atravesaba los controles de contenido
+> `w:sdt` que exporta Google Docs**: por eso la celda «CR-02 en vivo» de la Tabla 64 salía vacía (el `.docx`
+> siempre dijo «3 alertas: ≥ 7,1 s» — el 🔴 del 09-04 era del extractor) y las Tablas 28/29/30 de §17.1 salían
+> sin cuerpo (existen: 16/20/8 filas). Parchado; 63 tests; `90f` pasa de 19 a 22 tablas.
+>
 > ✎ **2026-08-22 — regla D-C aplicada sobre las dos secciones en desarrollo.** Se re-extrajeron
 > ambos textos base desde los `.docx` vigentes, porque el kit estaba entregando material viejo:
 > - `90-etapa3-texto-extraido.md` — **regenerado** desde §17.3 **v1.1**. Lo que había era la
@@ -197,7 +299,7 @@
 > **Lección de proceso:** al pedir un pase nuevo hay que entregar **el último final**, no la entrega
 > anterior — si no, se pierden las correcciones aplicadas después.
 >
-> 📄 **2026-08-28 — [`resumen-cambios-etapa-1.md`](resumen-cambios-etapa-1.md):** comparación del
+> 📄 **2026-08-28 — [`resumen-cambios-etapa-1.md`](archivado/resumen-cambios-etapa-1.md):** comparación del
 > `Etapa 1.docx` inicial (solo §15) y el v1.1 de §16 contra el final — 52.362 → 22.072 palabras,
 > los seis tipos de ajuste con ejemplos, antes/después por sección, qué salió del entregable sin
 > descartarse (`90e`), qué queda abierto y cómo se verificó. Es el documento para leer primero.
@@ -354,17 +456,17 @@
 > `90f` re-extraído de la v1.3; kit regenerado con el pase rotulado **YA APLICADO**; v1.0 y v1.2 en
 > `archivado/`.
 > 📄 Resumen legible de qué cambió respecto del inicial:
-> [`resumen-cambios-etapa-2.md`](resumen-cambios-etapa-2.md) (hermano del de la Etapa 1). **Queda de la etapa (fuera del `.docx`):** `90g` (Anexos C y D) y los handoffs a
+> [`resumen-cambios-etapa-2.md`](archivado/resumen-cambios-etapa-2.md) (hermano del de la Etapa 1). **Queda de la etapa (fuera del `.docx`):** `90g` (Anexos C y D) y los handoffs a
 > §17.3 (recorte de §17.3.6.4), §17.4 (orden de disparo, desviación 500–2.000) y §17.5.
 >
 > 🔎 **2026-08-31 — LA ETAPA 2 SE REABRE CON UN PASE 3 (escrito, NO aplicado).** El usuario leyó la
 > v1.3 de punta a punta y dejó **27 comentarios** en el `.docx`
 > (`desarrollando/…v1.3- a revisar.docx` = v1.3 + las 2 ediciones del 08-30: §17.1.4.2.4 RTSP
 > sintética eliminada y quinto supuesto en §17.1.10.2); la revisión crítica + auditoría verificada
-> produjo [`desarrollando/correcciones-etapa-2-pase-3.md`](desarrollando/correcciones-etapa-2-pase-3.md)
+> produjo [`desarrollando/correcciones-etapa-2-pase-3.md`](desarrollando/archivado/correcciones-etapa-2-pase-3.md)
 > (**E2-30…E2-50**, decisiones **D-P3-1…9** de la etapa 2 — serie propia, no confundir con las
 > D-P3 del pase 3 de §17.3; salida esperada: **v1.4**) y
-> [`90g-etapa2-anexos-c-y-d.md`](90g-etapa2-anexos-c-y-d.md) (**D-E2-1 ejecutada**: Anexo C 5→3
+> [`90g-etapa2-anexos-c-y-d.md`](archivado/90g-etapa2-anexos-c-y-d.md) (**D-E2-1 ejecutada**: Anexo C 5→3
 > tablas, Anexo D 6→3; la ex-C.3 **contradecía** a la Tabla 31 del desarrollo). Lo estructural del
 > pase: desduplicación (la peor: §17.1.4.7 contaba el CPN por cuarta vez; el cierre §17.1.11.2 lo
 > contaba por tercera) con el **guardrail 2 enmendado por D-P3-1**; **Tablas 17 y 22 fuera** y
@@ -436,7 +538,7 @@
 > contenido sino **34 oraciones de metadiscurso** —el documento hablando de sí mismo— contra 11 en
 > §17.3, **2 en §17.4 y 1 en §17.5**, más **14 párrafos de >150 palabras**; la oración media de
 > §17.1 (24,1 palabras) es incluso más corta que la de §17.4 (26,0). El instrumento:
-> [`desarrollando/correcciones-etapa-2-pase-4.md`](desarrollando/correcciones-etapa-2-pase-4.md)
+> [`desarrollando/correcciones-etapa-2-pase-4.md`](desarrollando/archivado/correcciones-etapa-2-pase-4.md)
 > (**E2-51…E2-55**, D-P4-1/2; base v1.4 limpia → **salida v1.5**): reescribe en voz de sistema las
 > cuatro "Introducción y alcance" y las aperturas de sección (conservando P-E1-xx con sus glosas,
 > fronteras anti-anacronismo y TODAS las citas), y parte 12 párrafos gordos con 14 cortes
@@ -466,7 +568,7 @@
 >
 > 🔎 **2026-08-31 — ANÁLISIS DE EXTENSIÓN de la v1.5 (151 páginas): cuánto más se puede podar y a
 > qué costo.** A pedido del usuario ("¿por qué no recortar más?"):
-> [`desarrollando/analisis-poda-17-1.md`](desarrollando/analisis-poda-17-1.md) — peso medido por
+> [`desarrollando/archivado/analisis-poda-17-1.md`](desarrollando/archivado/analisis-poda-17-1.md) — peso medido por
 > sección (17.1.5 = 35 % · 17.1.7 = 26 % · 17.1.6 = 16 %), veredicto 🟢/🟡/🔴 por bloque y menú de
 > poda en tres niveles: **PODA-A segura ~1.200 w** (auto-presentación 17.1.1/17.1.3, nota de 261 w
 > de la Tabla 21, no-aplicación duplicada del framework) · **PODA-B a criterio ~1.300 w**
@@ -480,12 +582,12 @@
 > ✎ **2026-08-31 (noche) — D-P5 FIRMADAS Y PASE 5 ESCRITO (NO aplicado).** El usuario autorizó
 > "limpieza **sin perder defensa de plataforma**" → **PODA-A + PODA-B, PODA-C descartada** (MOT
 > intacto, D-E2-6 no se reabre). Instrumento:
-> [`desarrollando/correcciones-etapa-2-pase-5.md`](desarrollando/correcciones-etapa-2-pase-5.md)
+> [`desarrollando/correcciones-etapa-2-pase-5.md`](desarrollando/archivado/correcciones-etapa-2-pase-5.md)
 > (**E2-56…E2-67**, base v1.5 → **v1.6**; 52/52 anclas verificadas; reglas duras: cero pérdida de
 > defensa, **cero bajas de referencias**, comentarios intactos; cae la Tabla 16 con renumeración
 > 16–35; targets: ~26,6–27,0k w · 106 títulos · 20+6 tablas · 76 ecuaciones). Y el registro de
 > **por qué no se poda más**:
-> [`desarrollando/justificacion-extension-17-1.md`](desarrollando/justificacion-extension-17-1.md)
+> [`desarrollando/archivado/justificacion-extension-17-1.md`](desarrollando/archivado/justificacion-extension-17-1.md)
 > — historia de los 5 pases (−24 % acumulado), el piso honesto (~140 pág = APA doble espacio + 26
 > tablas + protocolo completo/pre-registro), y la tabla de recortes descartados con su costo
 > (~3.100 w que se pagan en defensa). Al Project: re-subir `00-contexto-base.md` +
@@ -505,7 +607,7 @@
 > 62 tests. **Acumulado de la jornada: 32.669 (v1.1) → 26.632 (v1.6) = −18,5 % con los anexos
 > ADENTRO del documento; el desarrollo solo: −24 % · −13 títulos · −8 tablas.** La extensión final
 > (~140 pág) queda justificada por escrito en
-> [`desarrollando/justificacion-extension-17-1.md`](desarrollando/justificacion-extension-17-1.md).
+> [`desarrollando/archivado/justificacion-extension-17-1.md`](desarrollando/archivado/justificacion-extension-17-1.md).
 > **Del usuario: sólo git.** Handoffs vivos (sin cambios): §17.3 v1.5 · Etapa 1 (colega) ·
 > integración (anexos→§19.3/19.4 · hueco global de tablas ahora **36–38** · métricas del anexo a
 > ecuación) · D-E1-11 AAIP.
@@ -519,7 +621,7 @@
 > Decreto 911/96 (17.1.5.3.2), citas de artículos en las 6 filas de la Tabla 21, dos referencias
 > colgantes a la "taxonomía normativa" que ya no existe en §16.2, criterio C2 "Cobertura
 > normativa", y recaudos de las Tablas 18/19 con desarrollo jurídico (§17.3/§17.4/§17.5 limpias).
-> El pase: [`desarrollando/correcciones-etapa-2-pase-6.md`](desarrollando/correcciones-etapa-2-pase-6.md)
+> El pase: [`desarrollando/correcciones-etapa-2-pase-6.md`](desarrollando/archivado/correcciones-etapa-2-pase-6.md)
 > — **E2-68…E2-88** (15 obligatorios + 4 opcionales) y **D-P6-1…3** (una sola cita legal directa,
 > en 17.1.10.1 · severidad = categoría metodológica de prioridad temporal · baja de la Res.
 > SRT 299/2011 del informe). **32/32 anclas verificadas** con ocurrencia única; compuerta
@@ -544,6 +646,182 @@
 > v1.6 y el pase 6 (acta en su banner) → `archivado/` · ✎ al acta del pase 5 ("v1.6
 > definitiva" quedó superada). Baja bibliográfica pendiente de la integración: Res. SRT
 > 299/2011 (D-P6-3). **Del usuario: sólo git.**
+>
+> ✅ **2026-09-01 (más tarde) — D-E1-11 CERRADA POR EL USUARIO: el informe NO adjudica la
+> inscripción ante la AAIP** (converge con el comentario C9 de la Etapa 1 v1.1). Se borran
+> el párrafo indeciso y los dos marcadores `[[PENDIENTE]]`; las salvaguardas de §16.6 son
+> el recaudo documentado y la respuesta sobre la inscripción se prepara para la defensa.
+> **Lado §17.1 APLICADO: v1.7 → v1.8** (borrados la oración de anclaje de §17.1.10.1 y el
+> marcador espejo; compuerta verde: AAIP 0 · PENDIENTE 0 · 76 ecuaciones · 27 comentarios ·
+> 0 marcas · Disposición 10/2015 conservada · verificador OK · 26.440 → **26.380 palabras**;
+> diff = exactamente los dos sitios). Lado §16: **viaja con el pase de la Etapa 1**
+> (v1.1 → v1.2) — en la v1.1 el borrado arrastra el rango del comentario C9 y da de baja la
+> cita *AAIP, s. f.-b* (re-letrado de la s. f.-a en la integración); en la v1.0 el único
+> sitio es el marcador de §16.6.2.2. En §17.4 no hay nada que tocar (verificado). `90f`
+> re-extraído de la v1.8 · generador/`INSTRUCCIONES`/kit a v1.8 (`--check` OK, 62 tests) ·
+> v1.7 → `archivado/`. Constancia y anclas:
+> [`desarrollando/archivado/cierre-d-e1-11-aaip.md`](desarrollando/archivado/cierre-d-e1-11-aaip.md).
+> ⚠ `verificar_anclas_pase6.py --post` queda histórico (sus invariantes "1 PENDIENTE" y el
+> ancla AAIP describen la v1.7). **Del usuario: sólo git.**
+>
+> 🔎 **2026-09-02 — LA ETAPA 2 SE REABRE COMO REESTRUCTURACIÓN (GPT + validación): §17.1.2,
+> §17.1.4 y §17.1.5 pasan de fragmentación a narrativa.** El usuario trajo una copia
+> reestructurada por GPT (§17.1.2 → una subsección · §17.1.4 → dos) que **es un fork de la v1.7,
+> no de la v1.8**: sin D-E1-11, **sin 26 de los 27 comentarios resueltos**, sin las Tablas 18/19
+> (hueco de numeración), con un párrafo de cuerpo en estilo Heading 3 (§17.1.4.2) y tres celdas
+> vaciadas en la Tabla C.3. La propuesta de GPT para §17.1.5 (21 → 4 subsecciones) se **validó
+> entera** contra el `.docx`, §15/16, §17.3–17.5, el pattern set `cr01_cr02_v2` y las actas de
+> los pases 3–6: estructura y diagnóstico correctos, **cuatro afirmaciones falsas o vencidas**
+> (la corrección severidad↔§16.2 ya la hizo el pase 6 · §15/§16 NO citan FG-OVD/OVDEval/templates,
+> remitir allí sería falso · §17.3 v1.4 ya no remite a §17.1.5.x · "composición del vocabulario
+> activo" ya nacía en .4.2) y nueve huecos:
+> [`desarrollando/archivado/validacion-reestructuracion-17-1-5.md`](desarrollando/archivado/validacion-reestructuracion-17-1-5.md).
+> **Aplicado sobre la rama de GPT, por decisión del usuario:** (1) **v1.9** = copia de GPT +
+> D-E1-11 (mismos dos sitios que la v1.8; §17.1.10.1 idéntico a la v1.8; 24.851 w, 0 marcadores);
+> (2) **v1.10** = v1.9 + §17.1.5 reestructurada en cuatro subsecciones con las correcciones de la
+> validación (doctrina de severidad del pase 6 literal · ancla FG-OVD/OVDEval conservada ·
+> huecos de símbolos de .3.2/.3.3 restituidos como texto · motor sin nombrar estados · Tablas
+> 20/21, notas y los 4 saltos a página apaisada intactos · 4 referencias cruzadas actualizadas ·
+> **caen Mazor 2021 y Kim 2024**, reversibles): **21.779 w · 83 títulos · 76 ecuaciones ·
+> §17.1.5 7.351 → 4.421 w de prosa (−40 %) · 0 dos puntos y 0 punto y coma en la prosa nueva**
+> · verificador OK; acta en §G de la validación. **Archivado** (con nombres desambiguados): la
+> copia de GPT como *v1.7 (base reestructurada por GPT, sin D-E1-11)*, la **v1.8** como *fuente
+> de recuperación* (27 comentarios, §17.1.2/17.1.4 completas), §15/16 v1.0 y
+> `analisis-poda-17-1.md`; enlaces a `archivado/` reparados (0 rotos en `entregable/`).
+> **Vigentes en `desarrollando/`: §17.1 v1.9 (base) y v1.10 (a aceptar), §17.3 v1.4, §17.4 v1.6,
+> §17.5 v1.3, §15/16 v1.1.** ⚠ La cadena derivada **sigue a v1.8** (`90f`, kit, generador con la
+> nota D-E2-2 → §17.1.5.4.2, hoy §17.1.5.3): no se re-extrae hasta resolver A-1…A-4 de la rama de
+> GPT (comentarios, Tablas 18/19, §17.1.4). **Del usuario: aceptar la v1.10 (→ v1.9 a
+> `archivado/`), decidir A-1…A-4, git.**
+
+> ✅ **2026-09-03 — LA ETAPA 2 CERRÓ: §17.1 v1.15, aceptada y limpia.** El usuario reestructuró
+> §17.1.6 (19 → 5 títulos) y §17.1.7 (28 → 6) en la **v1.11**, con 76 → 4 ecuaciones. El relevamiento
+> exhaustivo de esa versión ([`archivado/relevamiento-17-1-v1-11.md`](desarrollando/archivado/relevamiento-17-1-v1-11.md),
+> §A a §L) confirmó la dirección y encontró tres pérdidas conceptuales y cinco defectos mecánicos;
+> se repararon como sugerencias en las **v1.12 → v1.14** (niveles de compromiso obligatorio /
+> deseable / conceptual · modelo de presupuesto con notación propia `B`/`W`, sin reusar
+> `t_alert-system` en una suma · Anexo D citado y su fila G2A alineada al *dequeue* · Tabla 30
+> "Máximo orientativo" · referencia colgante 17.1.4.4 → 17.1.4.2). **La contra-evaluación de GPT se
+> cotejó una por una** (§I): tres criterios editoriales suyos se adoptaron y **cuatro premisas
+> resultaron falsas o vencidas** — la más grave, pedir que volviera el marcador AAIP a §17.1.11.1,
+> que **D-E1-11 había borrado el 09-01**. Después, con el mismo criterio, se reescribió el tramo
+> final: **§17.1.8 a §17.1.11 quedaron sin subsecciones** (1.390 → 1.059 palabras, **0 dos puntos y
+> 0 punto y coma**), se cerraron los Anexos C y D (nota C.1 sin *"Fuente:"*, **C.2 dejó de estar
+> huérfana** — la cita §17.1.4.2 —, nota C.3 con remisiones vivas) y se resolvieron los **mecánicos
+> de §17.1.6** con el registro del repo de datasets (Roboflow v27 y v1, SH17 CC BY-NC-SA 4.0, fila
+> de deduplicación completa) más las dos referencias primarias verificadas en arXiv
+> (**Milan et al., 2016** para MOT17 y **Liang y Han, 2024** para OVT-B). Acta del pase:
+> [`archivado/analisis-17-1-8-anexos.md`](desarrollando/archivado/analisis-17-1-8-anexos.md) §8.
+>
+> **Contra la v1.8** (la del pase 6): **23.906 → 15.464 palabras (−35,3 %) · 109 → 37 títulos
+> (cero de nivel 5) · 26 → 22 tablas · 76 → 4 ecuaciones · cero bajas de referencias** y dos altas.
+> `verificar_entregable.py` OK, sin marcadores. Queda **un comentario abierto** del colega en
+> §17.1.6, que la v1.15 responde con el registro. **⚠ La numeración de subsecciones cambió**: toda
+> acta anterior cita números que ya no existen — traducción en
+> [`desarrollando/mapa-secciones-17-1-v1-15.md`](desarrollando/archivado/mapa-secciones-17-1-v1-15.md), que
+> además lleva el estado de las tablas (huecos 18/19 y 31/32) y los siete residuales de integración.
+> **Cadena derivada al día:** `90f` re-extraído de la v1.15, `90g` con banner histórico, generador y
+> kit regenerados (`--check` OK, 62 tests). **Archivado:** v1.9 a v1.15-sin-aceptar y las cinco
+> constancias del ciclo. **Vigentes en `desarrollando/`: §17.1 v1.15, §17.3 v1.4, §17.4 v1.6,
+> §17.5 v1.3, §15/16 v1.1.** Del usuario: **git**.
+
+> ✅ **2026-09-03 (misma jornada, más tarde) — PASE 4 DE LA ETAPA 3 APLICADO: §17.3 v1.5 → v1.6,
+> con sugerencias sin aceptar.** El pedido fue hacer con §17.3 lo mismo que se hizo con §17.1:
+> bajar la verborragia, consolidar contra lo que las Etapas 1 y 2 ya fijaron, eliminar los títulos
+> de nivel 5 y sacar los dos puntos y los punto y coma. Diagnóstico primero
+> ([`desarrollando/archivado/analisis-17-3-etapa-3.md`](desarrollando/archivado/analisis-17-3-etapa-3.md), 13 decisiones
+> D-A…D-M), aplicación después con las recomendaciones firmadas.
+>
+> **Hallazgo de entrada: la v1.5 era byte a byte la v1.4** (mismo sha256), así que el handoff
+> registrado desde el pase 4 de la Etapa 2 —**E3-42**, 3 sitios de voz D-P3-9, 11 metadiscursos y
+> 2 párrafos gordos— **nunca se había aplicado**. Este pase lo absorbe.
+>
+> **Resultado (vista aceptada):** prosa **13.174 → 10.075 (−24 %)** · títulos **61 → 30 (−51 %)**
+> con **cero de nivel 5** (eran 4) · tablas **17 → 14**, renumeradas **39–52** · figuras **6 → 4**,
+> renumeradas 4.1–4.4 · dos puntos **73 → 0** · punto y coma **86 → 0** · rayas **32 → 2** ·
+> «debe/deben» **87 → 9** · metadiscurso **10 → 0** · «deberá» **3 → 0** · párrafos de más de 150
+> palabras **2 → 0** · pares de oraciones repetidas entre secciones **16 → 3** (los tres son falsos
+> positivos). **Cada tabla y cada figura se cita ahora exactamente una vez**; en la v1.5 once tablas
+> y las seis figuras no se citaban.
+>
+> **Lo que se consolidó contra las etapas anteriores:** las cinco citas de prompts pasan a una
+> remisión a §17.1.5.3 y §17.3 queda **sin bibliografía propia**; la Tabla 43 pierde las ocho filas
+> que duplicaban el Anexo C; la Tabla 44 deja de repetir la Tabla 21; se eliminan las Tablas 47
+> (hechos persistibles), 49 (diccionario de métricas) y 51 (DBE/EBE), las tres duplicadas de §17.1.
+> Se corrigió la **remisión rota a «§17.1.4.4»**, que en la v1.15 es **§17.1.4.2**, y la afirmación
+> incompleta sobre el orden de arranque, que pasa a enunciar la regla del consumidor antes que el
+> productor. **Los 7 comentarios se conservan con su ancla** (dos re-anclados) y ninguno se marca
+> resuelto: eso lo decide el usuario.
+>
+> Compuerta **`herramientas/verificar_v16_17_3.py` verde: 0 fallas, 0 avisos**, con la verificación
+> de que **rechazar todos los cambios devuelve exactamente la v1.5**. Acta:
+> [`desarrollando/correcciones-etapa-3-pase-4.md`](desarrollando/archivado/correcciones-etapa-3-pase-4.md)
+> (**E3-43…E3-62**). ⚠ **La numeración de subsecciones cambió** — traducción obligatoria en
+> [`desarrollando/mapa-secciones-17-3-v1-6.md`](desarrollando/archivado/mapa-secciones-17-3-v1-6.md).
+> **Del usuario: aceptar la v1.6** (y git). Al aceptar: re-extraer `90` y regenerar el kit.
+> Handoff nuevo **E4-31** hacia §17.4 (detalle operativo del ledger).
+
+> ✅ **2026-09-04 — LA ETAPA 3 CERRÓ: el usuario aceptó la v1.6 de §17.3** («con sugerencias resueltas
+> y unos mini ajustes»). Documento vigente `desarrollando/…_17.3_…_v1.6.docx`: 14.220 palabras, 30
+> títulos, 0 marcas, `verificar_entregable.py` OK, **4 comentarios abiertos** (dos del colega en 17.3.2 y
+> 17.3.6.2, y dos respuestas ancladas). Regla D-C aplicada: **`90` re-extraído de la v1.6** y kit
+> regenerado; la v1.5 y la v1.6 con sugerencias pasaron a `archivado/`.
+>
+> 🔎 **Misma jornada — ANÁLISIS EXHAUSTIVO DE §17.4 v1.6 Y §17.5 v1.3, previo al pase de las Etapas 4 y
+> 5** (mismo encargo que en las Etapas 1–3; nada aplicado todavía, el usuario decide cómo seguir):
+> [`desarrollando/archivado/analisis-17-4-17-5-etapas-4-5.md`](desarrollando/archivado/analisis-17-4-17-5-etapas-4-5.md),
+> con **15 decisiones D-A…D-O**. Lo que cambia la lectura de «§17.4 y §17.5 cerradas»: **§17.4.4 afirma
+> un orden de arranque falso** (distribución → control → medios; el real es control → distribución →
+> medios con la garantía del *handshake*, H2-01) y §17.4.5 cita **17.3.8.4, que ya no existe**; la
+> Figura 4.7 embebida **no es la FIG-A producida**; **la Tabla 66 perdió una celda** en la exportación
+> del 08-27 («3 alertas: ≥ 7,1 s»); cuatro handoffs registrados no están en los textos (H2-01, H2-02,
+> E4-31, AJ-5.14); **L1–L8 se citan en §17.5.8 y no se declaran en ninguna sección**, y §17.5.8 tiene
+> el comentario «borrar». En estilo: §17.4 tiene 27,4 palabras por oración, 54 dos puntos y nueve
+> párrafos de más de 150 palabras; §17.5 repite «34 episodios evaluables» once veces. Propuesta:
+> §17.4 a 8 secciones (−27 % de prosa, Tabla 60 a prosa por pedido del usuario) y §17.5 a 7 (sin la
+> síntesis, con AJ-5.14 y L1–L8 adentro). Los **8 comentarios** (7 + 1) se informan y viajan.
+> **Del usuario: decidir D-A…D-O** (y git).
+>
+> ✅ **2026-09-04 (misma jornada, más tarde) — PASE 4 DE LAS ETAPAS 4 Y 5 APLICADO: §17.4 v1.6 → v1.7
+> y §17.5 v1.3 → v1.4, con sugerencias sin aceptar.** El usuario firmó las quince decisiones, las
+> quince en la recomendación, y las cuatro que se preguntaron una por una quedaron así: **Opción A**
+> para §17.4 (ocho secciones con renumeración interna), **las ocho limitaciones cierran §17.5.7**,
+> **el esfuerzo de anotación se afirma sin inventar horas** y **los comentarios quedan abiertos con
+> su ancla**.
+>
+> **§17.4:** 16 → 9 títulos y **cero de nivel 4**; prosa y tablas 6.375 → 5.493 palabras (−13,8 %);
+> 6 → 5 tablas, renumeradas 56–60; dos puntos **55 → 1**, punto y coma **29 → 0**, rayas **28 → 0**;
+> párrafos de más de 150 palabras **9 → 0** y oraciones de más de 45 **27 → 0**. Tres fusiones de
+> secciones, la Tabla 60 a prosa por estatuto (pedido del usuario) y la figura renumerada a 4.5 y
+> citada. **Aterrizaron los tres handoffs abiertos:** el orden de arranque real, que la v1.6
+> afirmaba invertido y en tres versiones incompatibles; las 2.946 imágenes de ajuste con su causa;
+> y el detalle operativo del ledger que §17.3 remite a este capítulo.
+>
+> **§17.5:** 9 → 8 títulos, 6 → 5 tablas renumeradas 61–65, dos puntos **15 → 0** y punto y coma
+> **16 → 0**, **sin recalcular ninguna de las 185 cifras verificadas**. Suma lo que faltaba: el
+> costo medido del vocabulario activo y su sub-experimento no ejecutado, y **las ocho limitaciones,
+> que el informe citaba y ninguna sección declaraba**. Se restauró la celda que la exportación del
+> 08-27 había perdido en la tabla de tiempo real.
+>
+> **§17.3 v1.7** se entrega con **un solo cambio controlado**: la remisión «sección 17.4.6» pasa a
+> 17.4.4, porque la renumeración de §17.4 la dejaría rota.
+>
+> Compuerta `herramientas/verificar_pase_17_4_17_5.py` **verde, 0 fallas**, con la propiedad que
+> hace segura la entrega: **rechazar todos los cambios devuelve exactamente el documento de
+> partida**, verificado en los tres. Actas
+> [`correcciones-etapa-4-pase-4.md`](desarrollando/archivado/correcciones-etapa-4-pase-4.md) y
+> [`correcciones-etapa-5-pase-4.md`](desarrollando/archivado/correcciones-etapa-5-pase-4.md). ⚠ **La
+> numeración de subsecciones de §17.4 cambió** — traducción obligatoria en
+> [`mapa-secciones-17-4-v1-7.md`](desarrollando/archivado/mapa-secciones-17-4-v1-7.md). **Del usuario:**
+> aceptar las dos entregas con sugerencias, reemplazar la imagen de la Figura 4.5 por la producida,
+> pegar las tres figuras de §17.5, y git. Al aceptar: re-extraer `90b` y `90c` y regenerar el kit.
+>
+> ✎ **Misma jornada, cierre — §17.3 no necesita otra ronda de aceptación.** Por indicación del
+> usuario, el token de la remisión se aplicó **en limpio** sobre el documento que él había pasado sin
+> marcas, y el vigente pasa a ser **`…_17.3_…_v1.7.docx`**: mismo texto que la v1.6 con la misma
+> longitud, sin cambios controlados, con los cuatro comentarios, los 21 saltos de sección y las
+> cuatro figuras intactos. `90-etapa3-texto-extraido.md` se re-extrajo de esa v1.7 y el kit se
+> regeneró. La v1.6 y la entrega con sugerencias quedaron en `archivado/`.
 
 ## El texto extraído
 
@@ -551,13 +829,13 @@
 |---|---|---|
 | `96a-informe-v11-frontmatter-intro-objetivos-plan.md` | frontmatter, §11 Glosario, §12 Introducción, §13 Objetivos, §14 Plan de trabajo (**§14.2 define las etapas**) | transversal |
 | **`90d-etapa1-texto-extraido.md`** | **§15 + §16 (Etapa 1, CERRADA 2026-08-28)** — texto base FINAL, extraído de `desarrollando/E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados | **1** ✅ |
-| `96c-informe-v11-estado-del-arte.md` | §15 del informe v1.1 — **SUPERADO por `90d`**, foto histórica | — |
-| `96d-informe-v11-marco-teorico.md` | §16 del informe v1.1 — **SUPERADO por `90d`** (✎ 2026-08-28; antes decía "texto base vigente sin pase"), foto histórica | — |
-| **`90f-etapa2-texto-extraido.md`** | **§17.1 Consolidación Metodológica (Etapa 2)** — texto base VIGENTE, re-extraído **2026-09-01** de `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.7.docx` (26.440 palabras, 106 títulos, tablas 16–35, 76 ecuaciones, limpia). **SEIS pases aplicados y verificados** (el 6: desacople normativo, 2026-09-01); los Anexos C/D viven al final del `.docx` y en `90g` | **2** ✅ |
-| `96b-informe-v11-17-1-consolidacion-metodologica.md` | §17.1 + §17.2 del informe v1.1 — **SUPERADO por `90f`** (mismo contenido; foto histórica) | — |
-| `90-etapa3-texto-extraido.md` | **§17.3 Diseño arquitectónico** (v1.4), §17.3.1 a §17.3.18 | **3** |
-| `90b-etapa4-texto-extraido.md` | **§17.4 Implementación** — extraído de **v1.6** (re-extraído 2026-08-28; antes v1.5) | **4** |
-| `90c-etapa5-texto-extraido.md` | **§17.5 Evaluación y validación** (v1.3) | **5** |
+| ~~`96c-informe-v11-estado-del-arte.md`~~ | **ARCHIVADO 2026-09-07** en [`archivado/`](archivado/00-que-hay-aca.md): foto del informe v1.1, superada | — |
+| ~~`96d-informe-v11-marco-teorico.md`~~ | **ARCHIVADO 2026-09-07** en [`archivado/`](archivado/00-que-hay-aca.md): foto del informe v1.1, superada | — |
+| **`90f-etapa2-texto-extraido.md`** | **§17.1 Consolidación Metodológica (Etapa 2, CERRADA 2026-09-03)** — texto base VIGENTE, re-extraído el 2026-09-07 de `desarrollando/E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.16.docx` (texto idéntico a la v1.15, sin comentarios; **22 tablas**, antes 19 por el defecto `w:sdt` del extractor; 4 ecuaciones). Los Anexos C/D viven al final del `.docx` y la extracción los incluye. ⚠ numeración de subsecciones: [`mapa-secciones-17-1-v1-15.md`](desarrollando/archivado/mapa-secciones-17-1-v1-15.md) | **2** ✅ |
+| ~~`96b-informe-v11-17-1-consolidacion-metodologica.md`~~ | **ARCHIVADO 2026-09-07** en [`archivado/`](archivado/00-que-hay-aca.md): foto del informe v1.1, superada | — |
+| **`90-etapa3-texto-extraido.md`** | **§17.3 Diseño arquitectónico (Etapa 3, cerrada 2026-09-04; edición del usuario del 09-06 en revisión)** — texto base VIGENTE, re-extraído el 2026-09-07 de `desarrollando/E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.8.docx` (14.126 palabras, 30 títulos, 14 tablas 39–52, 4 figuras, 0 comentarios). ⚠ numeración: [`mapa-secciones-17-3-v1-6.md`](desarrollando/archivado/mapa-secciones-17-3-v1-6.md), válido para la v1.8. Retoques pendientes: lectura transversal 09-07 (E3-1…E3-3) | **3** ✅ |
+| **`90b-etapa4-texto-extraido.md`** | **§17.4 Implementación** — re-extraído el 2026-09-07 de `desarrollando/E-OVRT-VDP_Seccion_17.4_Implementacion_v1.8.docx` (pase 4 aceptado y editado por el usuario el 09-06; 6.067 palabras con tablas, 9 títulos, 5 tablas 56–60, 1 figura, 6 comentarios). ⚠ numeración: [`mapa-secciones-17-4-v1-7.md`](desarrollando/archivado/mapa-secciones-17-4-v1-7.md). **NO cierra todavía** (Figura 4.5 rota, Tablas 57/59 sin llamada): lectura transversal 09-07 | **4** 🔄 |
+| **`90c-etapa5-texto-extraido.md`** | **§17.5 Evaluación y validación** — re-extraído el 2026-09-07 de `desarrollando/E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.5.docx` (pase 4 aceptado y editado por el usuario el 09-06; 3.391 palabras con tablas, 8 títulos, 5 tablas 61–65, 0 figuras). La celda «3 alertas: ≥ 7,1 s» de la Tabla 64 **siempre estuvo** (era el extractor). **NO cierra todavía** (ocho limitaciones borradas, 0 figuras, «23 episodios»): lectura transversal 09-07 | **5** 🔄 |
 | `96e-informe-v11-cierre-anexos-referencias.md` | §17.4–§17.6 (**los tres placeholders**), §18 Cierre, §19 Anexos A–D, Referencias | 4, 5, 6 |
 
 ---

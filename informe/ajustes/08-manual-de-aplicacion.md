@@ -1,5 +1,12 @@
 # Manual de aplicación — cómo se pasan los 109 ajustes al informe
 
+> ✎ **2026-09-18 — DOCUMENTO HISTÓRICO: el pase terminó y el informe está completo**
+> (`../entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`). Este manual ya no
+> se abre "el día 1"; su tablero (§5) queda como registro. Lo único que sigue vigente de acá es la
+> **regla D-C** (cada bajada nueva del `.docx` se re-extrae con `herramientas/extraer_informe.py` y se
+> anota en `../entregable/00-el-informe-hoy.md`) y la de **autocontención** (el informe no referencia
+> docs locales, ADRs ni fichas).
+
 > **Qué es esto (2026-08-12).** El mapa (`00`) dice **qué** hay que cambiar. Los documentos
 > `01`–`07` dicen **qué dice cada ajuste**. Este dice **cómo se aplica**: en qué superficie
 > se edita, en qué orden, quién hace qué, y cuándo una sección se puede dar por cerrada.
@@ -95,6 +102,11 @@ cambia el §3 y el §4 de este documento y nada más.
 **Dónde viven esos borradores:** `informe/entregable/borradores/17-4.md`, `17-5.md`,
 `17-6.md`. El nombre dice *borrador* a propósito, para que nunca se confundan con la foto
 extraída (`90`, `96a`–`96e`), que es otra cosa.
+
+> ✎ **2026-09-07.** La carpeta sigue siendo el lugar de los borradores que faltan (§17.6, §18, §19),
+> pero los dos que había —el de §17.4 y la vara del §15— ya se pegaron y se archivaron en
+> [`entregable/archivado/`](../entregable/archivado/00-que-hay-aca.md). El texto vigente de esas dos
+> secciones vive en su `.docx` y en su foto extraída.
 
 ### D-B · Quién hace qué → **recomendada: por juicio experimental requerido, no por volumen**
 

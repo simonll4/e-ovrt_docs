@@ -1,5 +1,12 @@
 # Kit mínimo para el Project de ChatGPT
 
+> ✎ **2026-09-18 — KIT HISTÓRICO.** Cumplió su función: el informe está completo
+> (`../entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`). **No se regenera ni
+> se vuelve a cargar**; los `.docx` de sección que menciona abajo ya están en
+> `../entregable/desarrollando/archivado/`. El generador (`herramientas/generar_project_kit.py`) y sus
+> tests se conservan por si hiciera falta armar un kit para las correcciones del jurado, con el informe
+> final como único `.docx` de referencia.
+
 Este directorio contiene el paquete versionado para desarrollar el informe final en
 ChatGPT Web. Reemplaza al kit externo aplanado de 95 archivos. Los documentos generados
 son derivados: las fuentes de verdad siguen siendo este repositorio y los índices de
@@ -21,46 +28,82 @@ El knowledge del Project usa **cuatro archivos**:
    Es el mismo para las siete etapas.
 2. `01-etapa-<N>-activa.md` (`N` = 0…6): texto e insumos de una sola etapa del informe.
    Subí solo el de la etapa que estás trabajando.
-3. `informe/entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`: el informe base —
-   autoridad de formato, estilos y estructura; su §17.3 está vaciada a propósito.
+3. **El `.docx` maestro como autoridad de formato, estilos y estructura.** ✎ **2026-09-08 —
+   cambió cuál es, y el que este README nombraba ya no está en esa ruta.** Hasta el 09-07 era
+   `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`, que se archivó junto con las demás variantes
+   superadas y hoy vive en `informe/entregable/archivado/` con su paréntesis. **El vigente es
+   `informe/entregable/archivado/E-OVRT-VDP_v1.1_05062026-sin-indice.docx`**, el export del
+   09-08: es el informe completo y el destino de la integración. Pesa 12 MB; si la carga lo
+   rechaza por tamaño, subí la variante archivada, que pesa 2,3 MB y sirve igual como autoridad de
+   formato.
+
+   ⚠ Al usarlo hay que saber que **sus §15, §16, §17.1 y §17.3 son las versiones viejas**,
+   superadas por los textos que el propio paquete de etapa ya trae. Se sube por su formato y su
+   estructura, no por su contenido de esas cuatro secciones.
 4. El `.docx` **vigente** de la sección en trabajo, que vive en
    `informe/entregable/desarrollando/` (✎ 2026-08-28 — tabla al día; la versión anterior de
    este README nombraba `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.1.docx` y
    `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.2.docx`, que **ya no existen en disco**;
    `operacion/130` §5 / `docs-set.md` #3):
 
-   | Etapa | `.docx` vigente en `desarrollando/` | Estado |
+   | Etapa | `.docx` vigente en `desarrollando/` (✎ 2026-09-08) | Estado |
    |---:|---|---|
-   | 1 | `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx` | **v1.0 CERRADA** (2026-08-28) |
-   | 2 | `E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.0.docx` | v1.0 = texto de v1.1 sin correcciones; **en preparación** (la etapa arranca) |
-   | 3 | `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.4.docx` | v1.4, tres pases aplicados |
-   | 4 | `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.6.docx` | v1.6, tres pases aplicados |
-   | 5 | `E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.3.docx` | v1.3, redactada bajo D-P3-6 |
-   | 0 · 6 | — | sin documento de trabajo todavía; el cuarto archivo no aplica |
+   | 1 | `E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.4.docx` | pase 5 aceptado; **en revisión de los colegas** (9 comentarios, 1 sugerencia sin resolver) |
+   | 2 | `E-OVRT-VDP_Seccion_17.1_Consolidacion_Metodologica_v1.21.docx` | **CERRADA**, limpia |
+   | 3 | `E-OVRT-VDP_Seccion_17.3_Diseno_Arquitectonico_v1.12.docx` | **CERRADA**, limpia |
+   | 4 | `E-OVRT-VDP_Seccion_17.4_Implementacion_v1.15.docx` | **CERRADA**; 3 comentarios abiertos, sin marcas |
+   | 5 | `E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.5.docx` | **CERRADA**, limpia. ⚠ el archivo dice v1.5 pero su contenido es el de la v1.9 |
+   | 0 · 6 | — | sin documento de trabajo propio: la Etapa 6 escribe §17.6/§18/§19 y el paquete `01-etapa-6-activa.md` ya trae los cinco textos cerrados; el cuarto archivo no aplica |
 
-   Las versiones anteriores están en `desarrollando/archivado/` y **no se suben**. El
-   histórico `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (16-08, PREVIO al pase 1)
-   quedó superado y **no se sube**; tampoco se sube nunca el
-   `E-OVRT-VDP_v1.1_05062026-sin-indice.docx` completo (su §17.3 embebida está
-   desactualizada).
+   ⚠ El maestro tiene dos exports en disco y traen el mismo contenido: el del 09-08, en
+   `desarrollando/`, y el del 08-16, en `entregable/archivado/`. Se distinguen en un detalle que
+   importa para cualquier herramienta que los procese: **el nuevo nombra sus estilos de título
+   `Ttulo1`…`Ttulo5` y el viejo `Heading1`…`Heading5`**, porque Google Docs los nombra según el
+   idioma de la interfaz.
+
+   Las versiones anteriores de cada sección están en `desarrollando/archivado/` y **no se suben**.
+   El histórico `E-OVRT-VDP_Etapa_3_Diseno_Arquitectonico.docx` (16-08, PREVIO al pase 1) quedó
+   superado y **no se sube**.
+
+5. **`informe/figuras/GUIA-DE-FIGURAS.md`** — el quinto archivo, ✎ **nuevo el 2026-09-08**. Se sube
+   **sólo cuando la etapa tiene que producir o rehacer figuras**. Define un sistema visual único
+   para las seis figuras del informe (superficie, paleta, tipografía, geometría, flechas, tamaño y
+   exportación) y después especifica cada una: qué debe mostrar, con qué rótulos exactos y con qué
+   trampas. **Regla que trae y conviene no saltear: las figuras se piden como código vectorial
+   —SVG o un script de graficación—, nunca como imagen de un modelo de imagen**, que deforma el
+   texto de los rótulos. Trae además una corrección de fondo verificada contra el código: la
+   máquina de estados de la Figura 4.3 dibuja hoy dos transiciones que el sistema no hace.
 
 El contexto base y el DOCX de formato son estables entre etapas. `INSTRUCCIONES-PROJECT.md`
 se pega en **Project settings → Instructions**. No se carga como archivo. `README.md`,
 el generador y sus pruebas tampoco se suben.
 
+### Qué subir para la Etapa 6, que es la activa (✎ 2026-09-08)
+
+```
+1. informe/project-kit/00-contexto-base.md
+2. informe/project-kit/01-etapa-6-activa.md
+3. informe/entregable/archivado/E-OVRT-VDP_v1.1_05062026-sin-indice.docx
+4. informe/figuras/GUIA-DE-FIGURAS.md          ← sólo si además se van a producir figuras
+```
+
+Son cuatro porque la Etapa 6 **no tiene documento de trabajo propio**: escribe §17.6, §18 y §19
+directamente sobre los marcadores del maestro, y los cinco textos cerrados que necesita para
+apoyarse ya viajan dentro de `01-etapa-6-activa.md`.
+
 ## Primera carga
 
-**Estado que define el orden (✎ 2026-08-28; antes 2026-08-23 — fuente `informe/entregable/00-el-informe-hoy.md`):**
+**Estado que define el orden (✎ 2026-09-08; antes 2026-08-28 — fuente `informe/entregable/00-lo-que-resta.md`):**
 
 | Sección | Estado | Trabajo que queda |
 |---|---|---|
-| §15 · §16 | **v1.0 CERRADA (2026-08-28)** — cinco pases E1, 16 `AJ-1` resueltos, podas 01–11 aplicadas; Anexo A a `90e` | sólo `D-E1-11` (AAIP, `[[PENDIENTE]]`) · integrar al maestro |
-| §17.1 | **Etapa 2 EN CURSO** — `.docx` v1.0 en `desarrollando/`; relevamiento previo `operacion/130` y decisiones D-E2-1…8 firmadas el 08-28 | el pase de la etapa 2 (`correcciones-etapa-2.md`, en preparación) |
-| §17.3 | **v1.4** — tres pases aplicados y verificados | revisión del autor · figuras · D-E2-2 (glosa de §17.3.6.4 → remisión, v1.5) · integrar al maestro |
-| §17.4 | **v1.6** — tres pases aplicados y verificados | revisión del autor · URLs del lote (C1) · integrar al maestro |
-| §17.5 | **v1.3** — redactada bajo D-P3-6 y verificada | revisión del autor · figuras · integrar al maestro |
-| §17.6 · §19 | vacías | redactar desde cero |
-| §18 | vacía | redactar **después** de cerrar §17.5: interpreta lo que ella reporta |
+| §15 · §16 | **v1.4** — cinco pases E1 + revisión del colega + pase 5, aceptado el 09-08 | cerrar la revisión de los colegas en Google Docs (9 comentarios) · integrar al maestro |
+| §17.1 | **v1.21 CERRADA** — seis pases + reestructuración + pases 5/5d/5e aceptados el 09-08 | integrar |
+| §17.3 | **v1.12 CERRADA** — cuatro pases + pases 5/5d aceptados el 09-08 | agregar el título «17.3» al integrar |
+| §17.4 | **v1.15 CERRADA** — pases 5/5b/5c/5d/5e aceptados el 09-08 | integrar · la ficha por video del lote depende de C1 |
+| §17.5 | **CERRADA** — pases 5/5b/5d aceptados el 09-08 (archivo «v1.5», contenido de la v1.9) | integrar |
+| §17.6 · §19 | vacías | redactar desde cero — **Etapa 6, AHORA** |
+| §18 | vacía | redactar sobre §17.5 cerrada: interpreta lo que ella reporta |
 | §11–§14 | escritas | correcciones de prosa (Etapa 0) — **al final**, por decisión del usuario |
 
 **Cada sección se trabaja en su propio documento** (decisión del usuario, 2026-08-23): los
@@ -75,13 +118,15 @@ criterio de lectura (sus decisiones D1–D4, D-P2-1…6 y D-P3-1…6 siguen rigi
 lista de tareas. Re-aplicarlos sobre texto ya corregido es exactamente la falla de
 integración que costó una pasada completa el 2026-08-23.
 
-**Orden de trabajo vigente (✎ 2026-08-28): Etapa 2 AHORA** (§17.1; la Etapa 1 cerró el 08-28),
-después **6 → 0**, con §17.6 y §19 antes que §18. *(Decía "6 → 1 → 2 → 0": el usuario
-cambió el orden el 08-27/28 — primero cerrar la fundamentación y el protocolo, después el cierre.)*
+**Orden de trabajo vigente (✎ 2026-09-08): Etapa 6 AHORA** (§17.6, §18 y §19: las cinco
+secciones del desarrollo cerraron el 09-08), después la **integración al maestro** y por último
+la **Etapa 0** (§11–§14). *(Antes, desde el 08-28: 2 → 6 → 0.)* El paquete de la Etapa 6 lleva
+dentro los cinco textos cerrados (`90c` y `90b` completos; las conclusiones parciales de §16,
+§17.1 y §17.3; §12–§13 del informe v1.1), así que §18 se escribe leyendo, no recordando.
 
 ```bash
-python3 herramientas/generar_project_kit.py --etapa 2
-python3 herramientas/generar_project_kit.py --etapa 2 --check
+python3 herramientas/generar_project_kit.py --etapa 6
+python3 herramientas/generar_project_kit.py --etapa 6 --check
 ```
 
 Después:

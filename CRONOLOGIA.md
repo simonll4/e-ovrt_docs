@@ -17,6 +17,28 @@
 
 ---
 
+## 2026-09-18 — El informe final está completo (v0.1 del 09-16): lectura íntegra, contexto actualizado y archivo de lo legacy
+
+El usuario entregó `informe/entregable/desarrollando/E-OVRT-VDP_Informe_Final_2026-09-16_v0.1.docx`
+como el documento desarrollado completo (portada, §2–§19, Anexos A–F, Referencias; 82k palabras,
+73 tablas, 8 figuras, sin comentarios ni cambios rastreados) y pidió leerlo de punta a punta,
+actualizar el contexto y archivar lo legacy. Se leyó entero (foto nueva:
+`entregable/90-informe-final-2026-09-16-v0.1-texto-extraido.md`, regla D-C). Cifras que el informe
+declara como resultado: banco de imágenes 6.477 imgs, `gdino-tiny-560` mAP50 0,551/0,503 (Tabla 51);
+banco temporal 47 clips (32+/15−) y 37 episodios, 34 de rodaje + 13 de obra real; rodaje E-IND escena
+F1 0,789 → sujeto **0,930** con detecciones idénticas (Tabla 53); obra real FP 26 escena vs 323
+sujeto; vivo p95 630–890 ms fuera de presupuesto (Tabla 54); FT T1/T2 NO-GO (Tabla 55); esfuerzo
+1.152 h, gasto ARS 10.000 (Tabla 31); defensa prevista fines de septiembre (§18.6). Lo que queda
+en la v0.1 es formal (placeholders §2–§4, número de §8, figuras 1/4.x, P-E1-05/07, estatuto de la
+distribución, bibliografía: falta DINO, «s. f.-a/-b» sin entrada, ~8 huérfanas) — tabla P-1…P-9
+en `entregable/00-lo-que-resta.md` §0. **Archivado:** los `.docx` por sección, el maestro v1.1,
+las actas, mapas y análisis fueron a `entregable/desarrollando/archivado/`; las fotos por sección
+90/90b–90g/96a/96e y `borradores/` a `entregable/archivado/`; `ajustes/`, `project-kit/` y los
+scripts de pase de `herramientas/` quedaron históricos con banner. Índices y guías (`00-indice`,
+`GUIA-CIERRE`, `informe/00-indice-informe`, `00-el-informe-hoy`) actualizados; la revisión externa
+de la v0.6 (2026-09-15) se copió a `entregable/desarrollando/`. Memoria de Claude consolidada
+(las memorias de las etapas 0–6 se plegaron a un índice histórico). Sin commits (git = usuario).
+
 ## 2026-09-01 — Verificación experimental del descarte de MM-GDINO (doc 131)
 
 Antes de redactar la justificación de T3, el usuario preguntó si estábamos *completamente
