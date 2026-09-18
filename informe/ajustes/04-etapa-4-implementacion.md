@@ -1,5 +1,16 @@
 # Etapa 4 — §17.4 Implementación del prototipo experimental
 
+> ✅ **Estado (✎ 2026-09-04): CUATRO pases. §17.4 v1.7 entregada con sugerencias, a aceptar por el
+> usuario.** El pase 4 ([`entregable/desarrollando/correcciones-etapa-4-pase-4.md`](../entregable/desarrollando/archivado/correcciones-etapa-4-pase-4.md),
+> E4-32…E4-57) consolidó el capítulo: 16 → 9 títulos, **cero de nivel 4**, prosa y tablas
+> 6.375 → 5.493 w, dos puntos 55 → 1, punto y coma 29 → 0, y la Tabla 60 pasó a prosa por estatuto.
+> **Los dos handoffs de §0 quedaron aterrizados**: H2-01 (orden de arranque real, que la v1.6
+> afirmaba al revés) y H2-02 (las 2.946 imágenes con su causa). También aterrizó **E4-31**, el
+> detalle operativo del ledger que venía de §17.3.
+> ⚠ **La numeración de subsecciones cambió**: toda ficha `AJ-4.x` y toda unidad E4-01…E4-31 se lee
+> con [`entregable/desarrollando/mapa-secciones-17-4-v1-7.md`](../entregable/desarrollando/archivado/mapa-secciones-17-4-v1-7.md).
+> **Lo que sigue es registro histórico.**
+>
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA y sus tres pases de corrección
 > están APLICADOS Y VERIFICADOS** — documento de trabajo `§17.4 v1.5` (✎ 2026-08-28: vigente **v1.6**, `00-el-informe-hoy`) en
 > `entregable/desarrollando/`, texto base extraído en `entregable/90b-etapa4-texto-extraido.md`.

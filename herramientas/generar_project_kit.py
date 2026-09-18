@@ -81,7 +81,7 @@ BASE_SOURCES = (
 STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     0: (
         SourceSlice(
-            "informe/entregable/96a-informe-v11-frontmatter-intro-objetivos-plan.md",
+            "informe/entregable/archivado/96a-informe-v11-frontmatter-intro-objetivos-plan.md",
             start_heading="## 11. Glosario, Listado de Símbolos y Convenciones",
             note="texto vigente de las secciones 11 a 14",
         ),
@@ -135,24 +135,28 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             " cubrio la seccion 16 y el Anexo A, que nunca habian recibido pase. Sus comentarios"
             " E1-24 a E1-51 y sus decisiones D-E1-9 a D-E1-12 siguen rigiendo como criterio de"
             " lectura -en particular la inversion de la poda 17 y las enmiendas a las podas 06, 07"
-            " y 11-. **D-E1-11 sigue ABIERTA y es del equipo**: la aplicabilidad de la inscripcion"
-            " ante la AAIP, hoy marcada en el texto con un [[PENDIENTE]] que debe viajar",
+            " y 11-. **D-E1-11 quedo CERRADA el 2026-09-01** (decision del usuario, converge con el"
+            " comentario C9 de la v1.1): el informe NO adjudica la inscripcion ante la AAIP — el"
+            " parrafo indeciso y los marcadores [[PENDIENTE]] se borran (en §17.1 ya aplicado, v1.8;"
+            " en §16 viaja con el proximo pase de la etapa). Ver cierre-d-e1-11-aaip.md",
         ),
         SourceSlice(
-            "informe/entregable/90d-etapa1-texto-extraido.md",
-            note="TEXTO BASE FINAL DE LA ETAPA 1 - **el DESARROLLO: seccion 15 y seccion 16**,"
-            " extraido de 'E-OVRT-VDP_Secciones_15_y_16_Estado_del_Arte_y_Marco_Teorico_v1.0.docx', con los **cinco pases YA APLICADOS Y"
-            " VERIFICADOS**, los 16 AJ-1.xx resueltos, las podas 01-11 aplicadas, formato y"
-            " terminologia unificados (el verificador da OK). **SUPERA al 96c y al 96d** del informe"
-            " v1.1, que por eso ya no forman parte de este paquete. **El entregable de la etapa es SOLO"
-            " el desarrollo**: el Anexo A y el listado de referencias salieron del documento por"
-            " decision del usuario -los arma el equipo- y quedaron en `90e`. **La etapa esta CERRADA:"
-            " no queda trabajo de contenido, formato ni terminologia** sobre este texto; no cambiar una"
-            " palabra de fondo. Lo unico abierto de fondo es D-E1-11, que decide el equipo y viaja"
-            " como [[PENDIENTE]]",
+            "informe/entregable/archivado/90d-etapa1-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de las secciones 15 y 16: extraido el 2026-09-08 de la **v1.4**"
+            " (bajada de Google Docs del 09-08 con el pase 5 ACEPTADO por el usuario; su contenido es"
+            " identico al de la v1.3, solo cambio el numero): 18.750 palabras,"
+            " 71 titulos numerados, verificador OK, el marcador [[PENDIENTE]] de la AAIP YA BORRADO"
+            " (D-E1-11 cerrada). Trae los cinco pases E1, la revision del colega (v1.1, 09-01), la ronda"
+            " del usuario (v1.2, 09-06) y el pase 5. **EN REVISION del colega en Google Docs**: 9"
+            " comentarios abiertos (2 del usuario y 7 de dos colegas; uno reabierto pide no nombrar"
+            " CR-01/CR-02 en §15 antes de definirlos en §16) y 1 sugerencia del pase 5 sin resolver en"
+            " §15.2 (esta extraccion la muestra como aceptada); un 'puede puede' en el parrafo sobre"
+            " ajuste selectivo de capas que el usuario corrige alla. **SUPERA al 96c y al 96d.** El Anexo A"
+            " y el listado de referencias siguen en `90e` (los arma el equipo para §19). **No redactar de"
+            " nuevo ni cambiar una palabra de fondo**: cualquier cambio requiere un pase nuevo explicito",
         ),
         SourceSlice(
-            "informe/entregable/90e-etapa1-anexo-a-y-referencias.md",
+            "informe/entregable/archivado/90e-etapa1-anexo-a-y-referencias.md",
             note="Anexo A y listado de Referencias, ya corregidos en los cuatro pases pero FUERA del entregable de la etapa: el Anexo A pertenece a la seccion 19 y las referencias son globales del informe, y los arma el equipo. Se conserva porque **el cuerpo de la seccion 15 cita la Tabla A.1 y la 15.3.3 cita la Tabla A.2**: si esas tablas no llegan a la seccion 19, quedan dos remisiones colgadas. NO se redacta desde aca",
         ),
         SourceSlice(
@@ -164,7 +168,7 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             " una lista de tareas",
         ),
         SourceSlice(
-            "informe/entregable/borradores/vara-15.md",
+            "informe/entregable/archivado/borrador-vara-15.md",
             note="borrador historico (2026-08-16) de la vara del 15: YA INTEGRADO al texto base"
             " (AJ-1.01/1.02/1.13 estan aplicados). Material de consulta para las cifras y sus marcas"
             " de confianza, NO redactar desde aca",
@@ -210,7 +214,8 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             " legales. La severidad queda como categoria metodologica de prioridad temporal"
             " (D-P6-2); unica cita legal directa en 17.1.10.1 (D-P6-1); baja de la Res. SRT"
             " 299/2011 del informe (D-P6-3). NO toca cifras, ecuaciones, pre-registro ni los"
-            " catalogos CR/PR; el marcador AAIP sigue [[PENDIENTE]] (D-E1-11). Este criterio"
+            " catalogos CR/PR. El marcador AAIP se cerro DESPUES: D-E1-11 firmada el 09-01 y la"
+            " v1.8 lo borra (cierre-d-e1-11-aaip.md). Este criterio"
             " RIGE para cualquier redaccion futura de la etapa 2",
         ),
         SourceSlice(
@@ -225,11 +230,12 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             " (renumeracion 16-35, E2-67 al final). Los 27 comentarios resueltos no se tocan",
         ),
         SourceSlice(
-            "informe/entregable/desarrollando/justificacion-extension-17-1.md",
-            note="POR QUE NO SE PODO MAS: la justificacion de la extension final de 17.1 (~140 pag tras"
-            " el pase 5) — el piso honesto: formato APA + 26 tablas, protocolo completo = pre-registro,"
-            " lo no ejercido NO se borra, cero bajas de referencias; y la tabla de lo DESCARTADO con su"
-            " costo (~3.100 w mas solo pagando defensa). Companero: analisis-poda-17-1.md (diagnostico)",
+            "informe/entregable/desarrollando/archivado/justificacion-extension-17-1.md",
+            note="SUPERADO (2026-09-03) - se conserva como registro de la decision de entonces: explicaba"
+            " por que 17.1 conservaba ~140 pag tras el pase 5 (v1.5/v1.6, ~26.000 palabras). El ciclo de"
+            " reestructuracion 09-01/09-03 dejo el capitulo en 15.464 palabras y 37 titulos SIN perder"
+            " tablas de pre-registro ni referencias, asi que la pregunta ya no se plantea. Lo que SIGUE"
+            " rigiendo de aca es el criterio: lo no ejercido NO se borra y cero bajas de referencias",
         ),
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-2-pase-4.md",
@@ -266,26 +272,44 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             " corrigen, el delta de referencias (13 bajas) y lo que queda fuera del .docx (90g y handoffs)",
         ),
         SourceSlice(
-            "informe/entregable/90f-etapa2-texto-extraido.md",
-            note="TEXTO BASE VIGENTE de la seccion 17.1: extraido el 2026-09-01 de la"
-            " **v1.7 FINAL Y LIMPIA** (26.440 palabras, 106 titulos, 20 tablas 16-35, 76 ecuaciones, CERO marcas de revision"
-            " y los 27 comentarios marcados como resueltos), con los SEIS pases **APLICADOS Y VERIFICADOS**"
-            " (el 6: desacople normativo, 2026-09-01). ⚠ la extraccion corta en los anexos (encabezados"
-            " sin numero): los Anexos C y D viven AL FINAL del .docx vigente y su contenido esta en 90g."
-            " No cambiar una palabra de fondo sin un pase nuevo explicito. El 96b (v1.1) queda como foto"
-            " historica fuera del paquete. Las ecuaciones de Word aparecen como ⟦ECUACIÓN⟧: no son"
-            " erratas",
+            "informe/entregable/archivado/90f-etapa2-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de la seccion 17.1: extraido el 2026-09-08 de la **v1.21**, la bajada"
+            " de Google Docs con los pases 5, 5d y 5e ACEPTADOS por el usuario (el 5e reparo el parrafo"
+            " vacio con estilo de titulo que habia quedado delante de 17.1.11 y el formato de ese titulo)."
+            " 17.030 palabras contando los Anexos C y D (que viven AL"
+            " FINAL del .docx), 37 titulos, 22 tablas, 4 ecuaciones, verificador OK, sin comentarios"
+            " ni marcas de revision."
+            " **LA ETAPA 2 ESTA CERRADA — no reaplicar ningun pase.** Historia: SEIS pases + reestructuracion"
+            " 09-01/09-03 (109 -> 37 titulos, -35,3 %, CERO bajas de referencias y dos altas: Milan et al."
+            " 2016 / Liang y Han 2024) + pases 5/5d (tres precisiones hacia atras: la regla de fuente unica"
+            " se mantiene y §17.4.7 declara la desviacion; la particion de calibracion tiene semilla"
+            " registrada; el banco temporal es 'material construido para ese fin'; Liu 2024; Tabla 26"
+            " 'se orienta'). Ediciones del usuario del 09-08: 'Imp. probable' en la Tabla 35 y dos notas"
+            " borradas. ⚠ **LA NUMERACION DE SUBSECCIONES CAMBIO en la v1.15**: toda acta anterior se traduce"
+            " con desarrollando/mapa-secciones-17-1-v1-15.md. No cambiar una palabra de fondo sin un pase"
+            " nuevo explicito. El 96b (v1.1) queda como foto historica fuera del paquete",
         ),
         SourceSlice(
-            "informe/entregable/90g-etapa2-anexos-c-y-d.md",
-            note="CONTENIDO FINAL de los Anexos C y D (D-E2-1 ejecutada y refinada): Anexo C 5->3 tablas"
-            " y Anexo D 6->3. **YA ANEXADO al final del .docx v1.4 por E2-49 (verificado contra este"
-            " archivo: fila 'Alerta' unica, C.3 con las 4 retenidas, sin descartados).** Queda como"
-            " constancia de motivos por tabla y como fuente para la mudanza a 19.3/19.4 en la"
-            " integracion final",
+            "informe/entregable/desarrollando/archivado/mapa-secciones-17-1-v1-15.md",
+            note="MAPA DE TRADUCCION obligatorio (2026-09-03): la reestructuracion llevo §17.1 de 109 a 37"
+            " titulos, asi que TODA acta, ajuste o decision anterior cita subsecciones que ya no existen."
+            " Antes de aplicar cualquier unidad vieja sobre el .docx, traducir su numero con este mapa."
+            " Incluye ademas el estado de las tablas (22 vigentes, huecos 18/19 y 31/32 para la integracion)"
+            " y los siete residuales que quedan para el pase de integracion al maestro. Las constancias"
+            " completas del ciclo estan en desarrollando/archivado/ (relevamiento-17-1-v1-11.md §A-§L y"
+            " analisis-17-1-8-anexos.md §0-§8)",
         ),
         SourceSlice(
-            "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
+            "informe/entregable/archivado/90g-etapa2-anexos-c-y-d.md",
+            note="HISTORICO (2026-09-03): la decision de que tablas quedaban en los Anexos C y D (5->3 y 6->3)"
+            " y por que. Ya pegados y cerrados en la v1.15; las TRES notas del Anexo C se reescribieron alli"
+            " (mas cortas, sin 'Fuente:', con remisiones vivas) y la C.2 dejo de estar huerfana: la cita 17.1.4.2."
+            " ⚠ toda la numeracion de secciones que este archivo cita CAMBIO (ver mapa-secciones-17-1-v1-15.md) y"
+            " la 'Tabla 31' que menciona como vista de cobertura es hoy la Tabla 25. Sigue siendo la fuente para"
+            " la mudanza a 19.3/19.4 en la integracion",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 19.3. Anexo C - Prompts, datos, datasets, benchmarks y logística",
             end_heading="## Referencias",
             note="Anexos C y D del informe v1.1 - **FOTO HISTORICA, base de comparacion**: el contenido"
@@ -310,7 +334,7 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-5-pase-3.md",
             start_heading="## I. Diferidos y dependencias inversas",
             note="dependencias inversas hacia la etapa 2: C-1 (bautismo E-DIR/E-IND/E-HYB, ahora firmado por"
-            " D-E2-2), el solape 17.3.3.1/17.3.3.2 y la anomalia de la sigla OMML en 17.1.7.5.1",
+            " D-E2-2), el solape 17.3.3.1/17.3.3.2 y la anomalia de la sigla OMML (hoy resuelta: la v1.15 usa texto plano en todo el capitulo)",
         ),
         SourceSlice("informe/ajustes/02-etapa-2-consolidacion-metodologica.md"),
         SourceSlice(
@@ -323,7 +347,7 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     3: (
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
-            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplica ahora en §17.1.5.4.2 y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
+            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplico en §17.1.5.3 (v1.15; era §17.1.5.4.2 antes de la reestructuracion) y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
         ),
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-pase-2.md",
@@ -334,8 +358,17 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             note="pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo",
         ),
         SourceSlice(
-            "informe/entregable/90-etapa3-texto-extraido.md",
-            note="TEXTO BASE VIGENTE de la seccion 17.3: extraido del documento de trabajo v1.4 (2026-08-23), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando",
+            "informe/entregable/archivado/90-etapa3-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de la seccion 17.3: extraido el 2026-09-08 de la **v1.12** (bajada del"
+            " 09-08 con los pases 5 y 5d ACEPTADOS por el usuario; su contenido es identico al de la v1.11,"
+            " solo cambio el numero; sin comentarios ni marcas): 14.208"
+            " palabras, 30 titulos, 14 tablas (39-52), 4 figuras, verificador OK. **LA ETAPA 3 ESTA"
+            " CERRADA**: cuatro pases + ronda del usuario del 09-06 + pases 5/5d (la garantia del canal de"
+            " alertas es el publicador, no el orden de arranque; planos <-> rutas de §16.5.3; una nota y dos"
+            " sentidos restituidos). ⚠ El .docx arranca en 17.3.1 y NO trae el titulo '17.3. Diseño"
+            " arquitectonico': se agrega al integrar. La numeracion de subsecciones cambio en la v1.6:"
+            " traducir actas viejas con desarrollando/mapa-secciones-17-3-v1-6.md. No cambiar una palabra"
+            " de fondo sin un pase nuevo explicito",
         ),
         SourceSlice("informe/ajustes/03-etapa-3-diseno-arquitectonico.md"),
         SourceSlice("informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md"),
@@ -352,7 +385,7 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     4: (
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4.md",
-            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplica ahora en §17.1.5.4.2 y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
+            note="pase de cierre 1 (2026-08-19): YA APLICADO - NO volver a aplicarlo; sus decisiones D1-D4 y la regla de autocontención SIGUEN RIGIENDO. Excepcion (✎ 2026-08-28, D-E2-2): el bautismo E-DIR/E-IND/E-HYB de D3/C-1 no quedo en §17.1 en su momento (E3-42 lo hizo nacer en §17.3.6.4); la etapa 2 lo aplico en §17.1.5.3 (v1.15; era §17.1.5.4.2 antes de la reestructuracion) y §17.3.6.4 debera recortar su glosa a una remision (dependencia inversa, pase 3 §I)",
         ),
         SourceSlice(
             "informe/entregable/desarrollando/archivado/correcciones-etapa-3-4-pase-2.md",
@@ -363,18 +396,29 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             note="pase de cierre 3 (2026-08-22): YA APLICADO Y VERIFICADO en el documento de trabajo (2026-08-23) - NO volver a aplicarlo; enmendo a E3-22 y E4-22, y su seccion D fija las restricciones de la etapa 5. Sus decisiones D-P3-1..6 siguen rigiendo",
         ),
         SourceSlice(
-            "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
+            "informe/entregable/archivado/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 17.4. Implementación del prototipo experimental",
             end_heading="### 17.5. Evaluación y validación del prototipo",
             note="placeholder vigente de la seccion 17.4",
         ),
         SourceSlice("informe/ajustes/04-etapa-4-implementacion.md"),
         SourceSlice(
-            "informe/entregable/90b-etapa4-texto-extraido.md",
-            note="TEXTO BASE VIGENTE de la seccion 17.4: extraido del documento de trabajo v1.6 (re-extraido 2026-08-28), con los tres pases YA aplicados y verificados. Es el texto sobre el que se revisa y se sigue trabajando. Pendiente detectado por operacion/130 R-01: su parrafo sobre el orden de disparo con distribucion debe decir control -> distribucion -> medios",
+            "informe/entregable/archivado/90b-etapa4-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de la seccion 17.4: extraido el 2026-09-08 de la **v1.15**, la bajada"
+            " con los pases 5, 5b, 5c, 5d y 5e ACEPTADOS por el usuario: 7.563 palabras, 9 titulos,"
+            " 5 tablas (56-60), Figura 4.5 (vista de procesos con la"
+            " imagen vigente). El pase 5e repuso la ultima linea de tres bloques de"
+            " codigo que Google Docs habia descartado al aceptar la sugerencia (dos llaves de cierre y"
+            " `model_name` del DTO Detection) y reemplazo el unico marcador [[PENDIENTE]] que le quedaba al"
+            " informe: la procedencia del lote de obra real es una lista publica de YouTube, y la ficha por"
+            " video se promete en la seccion 19 (depende de C1). El orden de arranque"
+            " control -> distribucion -> medios ya esta corregido (R-01). La configuracion del entrenamiento"
+            " vive en 17.4.7. **SECCION CERRADA**, sin marcas de revision; quedan 3 comentarios abiertos"
+            " (dos mios explicando la reparacion y uno del usuario sobre la URL). No cambiar una palabra de"
+            " fondo sin un pase nuevo explicito",
         ),
         SourceSlice(
-            "informe/entregable/borradores/17-4.md",
+            "informe/entregable/archivado/borrador-17-4.md",
             note="borrador historico (2026-08-20), ANTERIOR a los pases 2 y 3 y ya superado por el documento de trabajo v1.6: material de consulta, NO redactar desde aca",
         ),
         SourceSlice("informe/ajustes/material-etapa-3/92-anexo-concrecion-tecnica.md"),
@@ -404,18 +448,29 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
             note="revision de cierre (2026-08-21/22): su seccion 2 es el plan de tablas del 17.5 (7 quedan, 6 a prosa, 3 al Anexo D, 1 fuera) y sus hallazgos de la seccion 3 estan RESUELTOS",
         ),
         SourceSlice(
-            "informe/entregable/90c-etapa5-texto-extraido.md",
-            note="TEXTO BASE VIGENTE de la seccion 17.5: extraido del documento de trabajo v1.3 (2026-08-23), redactado bajo D-P3-6 y verificado (185 cifras, cero inventadas, cero marcadores de cifra). Es el texto sobre el que se revisa y se sigue trabajando",
+            "informe/entregable/archivado/90c-etapa5-texto-extraido.md",
+            note="TEXTO BASE VIGENTE de la seccion 17.5: extraido el 2026-09-08 de la bajada del 09-08 con"
+            " los pases 5, 5b y 5d ACEPTADOS por el usuario. ⚠ El archivo se llama **v1.5** pero su"
+            " contenido es el de la v1.9: al renumerar, el numero retrocedio, y existe ademas una v1.5"
+            " historica DISTINTA (la base del pase 5). Citar la seccion por su estado, no por ese numero."
+            " Sin comentarios ni marcas: 4.913"
+            " palabras, 8 titulos, 5 tablas (61-65) y UNA sola figura (4.6, el fotograma con la alerta"
+            " confirmada; §17.5 NO lleva figuras de datos por decision del usuario del 09-07). Redactada"
+            " bajo D-P3-6 (por pregunta de medicion), con las ocho limitaciones restauradas al final de"
+            " 17.5.7, las cifras verificadas contra los indices de results/ en la revision 5d (13"
+            " contradicciones corregidas) y los denominadores reales de las medias de latencia (21 clips"
+            " para CR-01 y 7 para CR-02). **LA ETAPA 5 ESTA CERRADA**; §18 interpreta lo que esta seccion"
+            " reporta, no la reescribe. No cambiar una palabra de fondo sin un pase nuevo explicito",
         ),
         SourceSlice(
-            "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
+            "informe/entregable/archivado/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 17.5. Evaluación y validación del prototipo",
             end_heading="### 17.6. Documentación técnica, repositorio y evidencias de cierre",
             note="placeholder de la seccion 17.5 en el maestro: sigue vacio porque el documento de trabajo todavia no se integro",
         ),
         SourceSlice("informe/ajustes/05-etapa-5-evaluacion-y-validacion.md"),
         SourceSlice(
-            "informe/entregable/borradores/vara-15.md",
+            "informe/entregable/archivado/borrador-vara-15.md",
             note="la vara de literatura: sin ella no se puede escribir en tres tiempos",
         ),
         SourceSlice(
@@ -427,9 +482,67 @@ STAGE_SOURCES: dict[int, tuple[SourceSlice, ...]] = {
     ),
     6: (
         SourceSlice(
-            "informe/entregable/96e-informe-v11-cierre-anexos-referencias.md",
+            "informe/entregable/archivado/96e-informe-v11-cierre-anexos-referencias.md",
             start_heading="### 17.6. Documentación técnica, repositorio y evidencias de cierre",
-            note="secciones 17.6, 18, 19 y referencias vigentes",
+            note="secciones 17.6, 18, 19 y referencias vigentes del informe v1.1: §17.6 vacia, §18 y §19"
+            " escritos ANTES de los resultados (se reescriben, no se retocan)",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/96a-informe-v11-frontmatter-intro-objetivos-plan.md",
+            start_heading="## 12. Introducción",
+            end_heading="## 14. Plan De Trabajo De Proyecto Integrador",
+            note="§12 Introduccion (hipotesis de trabajo, alcance) y §13 Objetivos del informe v1.1: §18"
+            " tiene que responderlos uno por uno; se citan, no se reescriben (son Etapa 0)",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90c-etapa5-texto-extraido.md",
+            note="§17.5 CERRADA (bajada del 2026-09-08): lo que §18 interpreta. Cada conclusion de §18 nace de"
+            " una cifra o de un veredicto de esta seccion, con su n y su estrato; las ocho limitaciones"
+            " viven al final de 17.5.7 y §18 las hereda y las lee, no las repite",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90b-etapa4-texto-extraido.md",
+            note="§17.4 CERRADA (v1.15, 2026-09-08): lo construido, los artefactos"
+            " por corrida (17.4.5) y las brechas declaradas (17.4.7). Es la fuente de §17.6 (repositorio y"
+            " evidencias de cierre) y del anexo de reproducibilidad de §19",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90-etapa3-texto-extraido.md",
+            start_heading="#### 17.3.11. Riesgos, plan de materialización y cierre",
+            note="cierre de §17.3 (CERRADA, v1.12): los riesgos y el plan de materializacion que §17.4 y"
+            " §17.5 ya resolvieron; §18 cierra el circulo con ellos",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90f-etapa2-texto-extraido.md",
+            start_heading="#### 17.1.11. Conclusiones parciales de la consolidación metodológica",
+            end_heading="### Anexo C — Prompts, datos, datasets, benchmarks y logística",
+            note="conclusiones parciales de §17.1 (CERRADA, v1.21): las preguntas que el protocolo dejo"
+            " planteadas y que §18 responde con lo medido",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90d-etapa1-texto-extraido.md",
+            start_heading="### 16.8. Conclusiones parciales de la fundamentación teórica",
+            note="conclusiones parciales de §16 (v1.4, en revision de los colegas): la vara de literatura contra"
+            " la que §18 lee los resultados propios. Nunca 'OVD detecta mejor': la tesis es la plataforma y"
+            " la medicion sin entrenar",
+        ),
+        SourceSlice(
+            "informe/entregable/desarrollando/archivado/auditoria-bibliografica-2026-09-08.md",
+            note="AUDITORIA BIBLIOGRAFICA (2026-09-08), insumo directo de §19: cruce de las 242 entradas del"
+            " listado global contra las citas del texto vigente. **Hallazgo de raiz: el listado del maestro"
+            " es anterior a las correcciones de la Etapa 1 y le faltan DOCE entradas que si estan en 90e**,"
+            " lo que deja once citas sin resolver, entre ellas las dos unicas fuentes de vision-lenguaje"
+            " aplicado a seguridad en obra y la fuente de una fila de la Tabla A.1. Antes de escribir el"
+            " listado de §19 hay que fusionar 90e en el del maestro. Trae ademas: 104 de 242 entradas"
+            " huerfanas con las bajas propuestas, 21 preprints que ya tienen version publicada, los defectos"
+            " de APA del listado, y el plan de correccion ordenado por retorno",
+        ),
+        SourceSlice(
+            "informe/entregable/archivado/90e-etapa1-anexo-a-y-referencias.md",
+            note="ANEXO A corregido (matrices comparativas de modelos, Tablas A.1 y A.2) y el LISTADO DE"
+            " REFERENCIAS de la Etapa 1, con 102 entradas. Es insumo de §19.1 —el cuerpo de §15 cita la Tabla"
+            " A.1 y §15.3.3 la A.2, asi que si el Anexo A no llega a §19 quedan dos remisiones colgadas— y es"
+            " la fuente de las doce entradas que le faltan al listado del maestro (ver la auditoria)",
         ),
         SourceSlice("informe/ajustes/06-etapa-6-documentacion-y-cierre.md"),
         SourceSlice(
@@ -473,10 +586,12 @@ STAGE_CONTRACTS: dict[int, tuple[str, ...]] = {
         " defectos que quedan aparecieron exactamente asi. El detalle del circuito de entrega"
         " esta en la seccion 'Como se trabaja y como se entrega' del contexto base y en la"
         " seccion 2 del pase 4.",
-        "Queda **una decision del equipo, no del redactor**: D-E1-11, la aplicabilidad de la"
-        " inscripcion ante la AAIP al contexto experimental. Esta correctamente marcada en el"
-        " texto con `[[PENDIENTE: ...]]` y **ese marcador debe viajar**: no se completa con una"
-        " estimacion ni se borra.",
+        "**D-E1-11 quedo CERRADA el 2026-09-01** (decision del usuario, converge con el comentario"
+        " C9 de la v1.1): el informe NO adjudica el tramite de inscripcion ante la AAIP — el parrafo"
+        " de 'decision pendiente' y el marcador `[[PENDIENTE]]` de §16.6 **se BORRAN** en el proximo"
+        " pase de esta etapa (el espejo de §17.1 ya esta borrado, v1.8). Las salvaguardas de §16.6"
+        " son el recaudo documentado; la respuesta sobre la inscripcion se prepara para la defensa."
+        " Constancia: desarrollando/cierre-d-e1-11-aaip.md.",
     ),
     2: (
         "**Restriccion propia de esta etapa: §17.1 se corrige COMO PROTOCOLO** (regla de"
@@ -486,28 +601,31 @@ STAGE_CONTRACTS: dict[int, tuple[str, ...]] = {
         " prescribio y no se ejercio (templates de prompt, vocabulario aislado-vs-completo cruzado,"
         " espanol, doble anotacion/kappa, MOT17/OVT-B y metricas MOT, NVDEC) **NO se borra ni se"
         " 'corrige' en §17.1**: queda como protocolo y §17.5 lo reporta como no ejercido.",
-        "**Texto base = `90f` = §17.1 v1.7 FINAL (extraido 2026-09-01: 106 titulos, 20 tablas 16–35,"
-        " 76 ecuaciones, verificador OK), con los SEIS pases YA APLICADOS Y VERIFICADOS** (pases 1–2"
-        " el 08-28; pases 3, 4 y 5 el 08-31; pase 6 el 09-01, actas en sus banners). **La seccion esta"
-        " CERRADA: v1.7 vigente con SEIS pases aplicados y verificados"
-        " (el 5: poda por aporte A+B sin C — cero bajas de referencias, pre-registro intacto;"
-        " el 6: desacople normativo — la normativa fundamenta relevancia preventiva en 16.2/16.6,"
-        " NUNCA severidades, taxonomias ni ventanas; severidad = categoria metodologica de prioridad"
-        " temporal). La extension final esta JUSTIFICADA en justificacion-extension-17-1.md."
-        " No reaplicar ningun pase.** Los Anexos C y D viajan AL FINAL del propio"
-        " .docx (D-P3-8; la extraccion 90f no los incluye — estan en el .docx y en 90g). Cambios"
-        " aceptados y 27 comentarios resueltos desde la v1.6: el documento esta limpio."
-        " **Guardrails:** los nombres de metrica que se ven vacios o"
-        " como ⟦ECUACIÓN⟧ son objetos de ecuacion de Word, NO erratas (76 vigentes); en las tablas"
-        " de los anexos van como TEXTO plano (unificacion en la integracion); CPN/EN/TN y las siglas"
-        " t_alert-system/TTFD/SDR nacen aca y §17.3/§17.4 las usan — no renombrar.",
+        "**Texto base = `90f` = §17.1 v1.15 FINAL (extraido 2026-09-03: 15.464 palabras, 37 titulos,"
+        " 22 tablas, 4 ecuaciones, CERO marcas de revision), con los SEIS pases previos MAS el ciclo de"
+        " reestructuracion del 09-01 al 09-03. **LA ETAPA 2 ESTA CERRADA — no reaplicar ningun pase.**"
+        " Recorrido del ciclo: 17.1.2 y 17.1.4 (GPT, v1.9) · 17.1.5 de 21 a 4 subsecciones (v1.10) ·"
+        " 17.1.6 de 19 a 5 y 17.1.7 de 28 a 6 (el usuario, v1.11) · reparaciones sobre esa base"
+        " (v1.12-v1.14: niveles de compromiso, modelo de presupuesto B/W, Anexo D citado y alineado"
+        " con G2A desde el dequeue) · tramo 17.1.8-17.1.11 SIN subsecciones y anexos + mecanicos de"
+        " 17.1.6 (v1.15). Contra la v1.8: -35,3 % de palabras, 109 -> 37 titulos, CERO bajas de"
+        " referencias y dos altas (Milan et al. 2016 / Liang y Han 2024, a dar de alta en el listado"
+        " global). **⚠ LA NUMERACION DE SUBSECCIONES CAMBIO: traducir toda unidad vieja con"
+        " desarrollando/mapa-secciones-17-1-v1-15.md antes de aplicarla.** Los Anexos C y D viajan AL"
+        " FINAL del propio .docx (D-P3-8) y la extraccion los incluye. Documento limpio, con UN"
+        " comentario abierto del colega en 17.1.6 que la v1.15 ya responde con el registro de datasets."
+        " **Guardrails:** las metricas van en TEXTO PLANO en todo el capitulo (t_alert-system, t_G2A);"
+        " sobreviven 4 objetos de ecuacion (2 definiciones por hitos + 2 del modelo de presupuesto),"
+        " que se ven como ⟦ECUACIÓN⟧ y NO son erratas; CPN/EN/TN y las siglas t_alert-system/TTFD/SDR"
+        " nacen aca y §17.3/§17.4 las usan — no renombrar.",
         "**Decisiones firmadas (2026-08-28):** D-E2-1 el .docx es SOLO §17.1 (Anexos C y D aparte, en"
-        " 90g) · D-E2-2 los codigos E-DIR/E-IND/E-HYB se bautizan en §17.1.5.4.2 y §17.3.6.4 recorta su"
+        " 90g) · D-E2-2 los codigos E-DIR/E-IND/E-HYB se bautizan en §17.1.5.3 (v1.15) y §17.3.6.4 recorta su"
         " glosa a una remision · D-E2-5 el nivel intermedio 'estado observable por persona' se declara"
-        " en §17.1.7.3.1 (AJ-2.13) · D-E2-6 MOT17/OVT-B y metricas MOT intactos con ⊘ explicito ·"
-        " D-E2-3 la regla 're-alerta ≠ FP' va en §17.1.7.8.3 · D-E2-4 los 4.000/7.000 ms entran como"
+        " en §17.1.7.1 y §17.1.7.2 (AJ-2.13; era §17.1.7.3.1) · D-E2-6 MOT17/OVT-B y metricas MOT intactos con ⊘ explicito ·"
+        " D-E2-3 la regla 're-alerta ≠ FP' va en §17.1.7.3 (era §17.1.7.8.3) · D-E2-4 los 4.000/7.000 ms entran como"
         " decision dentro del rango de la Tabla 24, sin la palabra 'efectivos' · D-E2-7 marcador"
-        " espejo de la AAIP en §17.1.11 · D-E2-8 PODA-14 solo recorta §17.1.4."
+        " espejo de la AAIP en §17.1.11 (borrado el 09-01 al cerrarse D-E1-11) · D-E2-8 PODA-14 solo"
+        " recorta §17.1.4."
         " **Decisiones del pase 3 (2026-08-31):** D-P3-1 enmienda del guardrail 2 · D-P3-2 Tablas 17"
         " y 22 fuera, renumeracion 16–36 (verificado: cero refs numericas aguas abajo) · D-P3-3 el"
         " fine-tuning en EBE se CONDICIONA a la adopcion conforme a §17.1.9, no se restringe a DBE"
@@ -527,6 +645,52 @@ STAGE_CONTRACTS: dict[int, tuple[str, ...]] = {
         " estilo Heading 2 (el nivel de §17.1) con tabulador tras el numero — debe ser Heading 3 con"
         " espacio, como sus hermanas §17.1.2…§17.1.12. La remision a 'la seccion 16.7.6' es hoy"
         " §16.7.3. Verificacion: `verificar_entregable.py <entrega.docx> --seccion 17.1`.",
+    ),
+    6: (
+        "**Restriccion propia de esta etapa (✎ 2026-09-08): las cinco secciones del desarrollo estan"
+        " CERRADAS** — §15/16 v1.4 (en revision final de los colegas) · §17.1 v1.21 · §17.3 v1.12 ·"
+        " §17.4 v1.15 · §17.5 (archivo «v1.5», contenido de la v1.9), bajadas del 09-08 con los pases"
+        " 5/5b/5c/5d/5e ACEPTADOS por el usuario. Sus textos viajan"
+        " en este paquete para LEERLOS y citarlos. **No se reabren, no se reescriben y no se les 'corrige'"
+        " nada desde §17.6/§18/§19**: si algo de ellas parece mal, se anota como hallazgo para un pase"
+        " explicito, nunca se edita.",
+        "**§18 interpreta lo que §17.5 reporta.** Cada conclusion nace de una cifra o de un veredicto de"
+        " §17.5 (con su n y su estrato) y declara su fuerza con la escala AF-1…AF-11 de la sintesis; el"
+        " circulo se cierra con las preguntas rectoras de §16.7.3, las conclusiones parciales de §17.1.11 y"
+        " los objetivos de §13. Las ocho limitaciones viven en §17.5.7: §18 las hereda y las lee, no las"
+        " repite. **Nunca 'OVD detecta mejor'**: la tesis es la plataforma y la medicion sin entrenar; el"
+        " ajuste fino (T1/T2 NO-GO, T3 cerrado por linaje) es un resultado declarado, no un fracaso a"
+        " esconder ni una promesa.",
+        "**§17.6 es repositorio y evidencias de cierre** (AJ-6.04): lo construido segun §17.4, los artefactos"
+        " por corrida de 17.4.5 y las pruebas automatizadas de cada modulo, sin conteos que envejecen. **§19**"
+        " reune el anexo de reproducibilidad (AJ-6.02), licencias, consentimientos y citas obligatorias"
+        " (AJ-6.03), el Anexo A de `90e` (§19.1) y los Anexos C y D que hoy viajan al final del .docx de"
+        " §17.1 (§19.3/§19.4). El trabajo futuro (AJ-6.05) sale de las exclusiones EJERCIDAS (ADR-015), no"
+        " de deseos.",
+        "**Autocontencion:** el informe NUNCA cita documentos locales, ADRs por numero, fichas ni indices del"
+        " repositorio; las cifras se citan por combinacion + material + n y salen SOLO de los cuatro indices"
+        " de results/ ya volcados en el contexto base. Un marcador [[PENDIENTE]] solo para datos que no"
+        " existen todavia (hoy queda uno, en §17.4.6, con su oracion de reemplazo propuesta: la ficha por"
+        " video del lote de obra real depende de C1).",
+        "**El listado de referencias de §19 arranca por una fusion, no por una redaccion.** La auditoria"
+        " bibliografica de este paquete lo demuestra: el listado del maestro (242 entradas) es anterior a las"
+        " correcciones de la Etapa 1 y le faltan DOCE entradas que si estan en el listado de 90e, entre ellas"
+        " las dos unicas fuentes que aplican modelos vision-lenguaje a seguridad en obra y la fuente de una"
+        " fila entera de la Tabla A.1. **Primero se fusiona 90e en el listado del maestro; recien despues se"
+        " decide que dar de baja** (hay 104 huerfanas) y se reemplazan los 21 preprints que ya tienen version"
+        " publicada. Once citas del informe hoy no resuelven contra ninguna entrada: eso es lo primero que"
+        " prueba un jurado.",
+        "**Las figuras se producen con `informe/figuras/GUIA-DE-FIGURAS.md`**, que se sube como quinto"
+        " archivo cuando toca. Define el sistema visual unico de las seis figuras y las especifica una por"
+        " una. Dos reglas de esa guia que conviene tener presentes desde aca: **se piden como codigo"
+        " vectorial (SVG o script de graficacion), nunca como imagen de un modelo de imagen**, que deforma"
+        " los rotulos; y **la Figura 4.3 dibuja hoy dos transiciones que el sistema no hace**, con el mismo"
+        " error arrastrado en el texto de 17.3.6.1.",
+        "**Integracion (dueño: el equipo, DESPUES de §17.6/§18/§19; no es tarea de esta etapa):** numeracion"
+        " global de tablas con 14 numeros libres (12–15, 18–19, 31–32, 36–38, 53–55), titulo '17.3. Diseño"
+        " arquitectonico' ausente del .docx de esa seccion, rotulos 'Nota' con tres formatos distintos entre"
+        " secciones, altas bibliograficas Milan et al. 2016 y Liang y Han 2024, baja de 'AAIP, s. f.-b'."
+        " Numerar con campos de Word al integrar; no renumerar antes.",
     ),
 }
 
@@ -591,19 +755,22 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    propio documento** en `entregable/desarrollando/`; lo que queda al final es
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
-   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
-   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
-   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
-   severidad metodologica, sin articulos legales; extension justificada en
-   justificacion-extension-17-1.md), y los
-   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
-   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   verificados; texto base `90d`; el marcador D-E1-11 se borra en el proximo pase) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.15
+   (Etapa 2) CERRADA el 2026-09-03 con los SEIS pases mas el ciclo de reestructuracion 09-01/09-03
+   (109 -> 37 titulos, -35,3 % de palabras, cero bajas de referencias; la numeracion de subsecciones
+   CAMBIO — traducir con desarrollando/mapa-secciones-17-1-v1-15.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio, con un
+   comentario abierto del colega en 17.1.6; siguen los handoffs hacia
    17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
-4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
-   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
+4. **D-E1-11 — inscripcion ante la AAIP: CERRADA el 2026-09-01** (decision del usuario,
+   converge con el comentario C9 de la Etapa 1 v1.1): el informe NO adjudica el tramite de
+   inscripcion — las salvaguardas de §16.6 son el recaudo documentado y la respuesta se
+   prepara para la defensa. El espejo de §17.1 (D-E2-7) ya esta borrado (v1.8); el marcador
+   de §16.6 se borra en el proximo pase de la Etapa 1. No reintroducir el tema en el texto.
+   Constancia: `desarrollando/cierre-d-e1-11-aaip.md`.
 
 ### Convencion de marcadores (obligatoria)
 

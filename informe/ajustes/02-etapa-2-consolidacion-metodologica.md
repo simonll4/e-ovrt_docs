@@ -53,7 +53,19 @@
 > −24 %). Acta: banner de
 > [`archivado/correcciones-etapa-2-pase-5.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-5.md);
 > extensión final justificada en
-> [`justificacion-extension-17-1.md`](../entregable/desarrollando/justificacion-extension-17-1.md).
+> [`justificacion-extension-17-1.md`](../entregable/desarrollando/archivado/justificacion-extension-17-1.md).
+> Del usuario: sólo git.
+>
+> ✅ **2026-09-01 (más tarde) — CIERRE DE D-E1-11 APLICADO: §17.1 v1.8 VIGENTE.** El usuario
+> firmó la decisión (converge con C9 de la Etapa 1 v1.1): **el informe no adjudica la
+> inscripción ante la AAIP** — v1.8 = v1.7 sin la oración de anclaje de §17.1.10.1 ni el
+> marcador espejo `[[PENDIENTE]]` (las salvaguardas de §16.6 son el recaudo documentado; la
+> respuesta se prepara para la defensa). Compuerta verde: AAIP 0 · PENDIENTE 0 · 76
+> ecuaciones · 27 comentarios · 0 marcas · Disposición 10/2015 conservada · verificador OK ·
+> 26.380 palabras · diff = exactamente los dos sitios. El lado §16 viaja con el pase de la
+> Etapa 1. Constancia y anclas:
+> [`desarrollando/archivado/cierre-d-e1-11-aaip.md`](../entregable/desarrollando/archivado/cierre-d-e1-11-aaip.md).
+> ⚠ el `--post` del pase 6 queda histórico (describía la v1.7: "1 PENDIENTE" + ancla AAIP).
 > Del usuario: sólo git.
 >
 > ✅ **2026-09-01 — PASE 6 APLICADO Y VERIFICADO: §17.1 v1.7 VIGENTE. LA ETAPA 2 QUEDA CON SEIS
@@ -70,7 +82,7 @@
 > Del usuario: sólo git.
 >
 > ✎ **2026-08-31 (noche) — PASE 5 ESCRITO (NO aplicado):
-> [`desarrollando/correcciones-etapa-2-pase-5.md`](../entregable/desarrollando/correcciones-etapa-2-pase-5.md)
+> [`desarrollando/correcciones-etapa-2-pase-5.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-5.md)
 > (E2-56…E2-67, D-P5-1…4; base v1.5 → salida v1.6).** El usuario firmó la poda por aporte
 > ("podemos como limpieza pero **sin perder defensa de plataforma**") sobre el diagnóstico de
 > `analisis-poda-17-1.md`: **PODA-A** (auto-presentación de 17.1.1/17.1.3, nota de 261 w del
@@ -81,7 +93,7 @@
 > única) · anclas exactas (52/52 verificadas). Cae la **Tabla 16** → renumeración 16–35. Targets
 > v1.6: ~26,6–27,0k palabras · 106 títulos · 20+6 tablas · **76 ecuaciones** (−2 declaradas).
 > **La justificación de por qué NO se poda más allá quedó en
-> [`justificacion-extension-17-1.md`](../entregable/desarrollando/justificacion-extension-17-1.md)**
+> [`justificacion-extension-17-1.md`](../entregable/desarrollando/archivado/justificacion-extension-17-1.md)**
 > (el piso honesto ~140 pág; lo descartado y su costo en defensa, ~3.100 w).
 >
 > ✅ **2026-08-31 (cierre de jornada) — PASE 4 APLICADO Y VERIFICADO: §17.1 v1.5 VIGENTE, aceptada
@@ -92,7 +104,7 @@
 > Del usuario: sólo git.
 >
 > ✎ **2026-08-31 (después del cierre del pase 3) — PASE 4 ESCRITO (NO aplicado):
-> [`desarrollando/correcciones-etapa-2-pase-4.md`](../entregable/desarrollando/correcciones-etapa-2-pase-4.md)
+> [`desarrollando/correcciones-etapa-2-pase-4.md`](../entregable/desarrollando/archivado/correcciones-etapa-2-pase-4.md)
 > (E2-51…E2-55, D-P4-1/2; salida = v1.5).** El usuario confirmó que la sección "pierde al lector";
 > el diagnóstico medido ubicó la causa en **34 oraciones de metadiscurso** (vs 2 en §17.4 y 1 en
 > §17.5) y **14 párrafos >150 palabras** — no en la extensión del contenido. El pase corrige **voz
@@ -123,7 +135,7 @@
 >    Las Tablas 17 y 22 caen (duplicadas al 100 %) y el desarrollo queda con 21 tablas (16–36).
 >    El "sin renumerar" del pase 2 queda superado por este hecho verificado.
 > 3. **D-E2-1 EJECUTADA Y SUPERADA EN SU MITAD "fuera del `.docx`"**: los Anexos C y D finales
->    están en [`entregable/90g-etapa2-anexos-c-y-d.md`](../entregable/90g-etapa2-anexos-c-y-d.md)
+>    están en [`entregable/90g-etapa2-anexos-c-y-d.md`](../entregable/archivado/90g-etapa2-anexos-c-y-d.md)
 >    (C: 5→3 tablas · D: 6→3; integra las notas ✎ de AJ-2.07 y H-8 de `09` §4, y **refina
 >    D-E2-1**: la ex-D.4 se elimina —no se "reduce"— porque nada de lo que agrega falta en el
 >    desarrollo). Hallazgo que lo urgía: la ex-C.3 **contradecía** a la Tabla 31 del desarrollo.

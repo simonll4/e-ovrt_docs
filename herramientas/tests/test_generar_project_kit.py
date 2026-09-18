@@ -116,6 +116,39 @@ class ProjectDocumentationContractTest(unittest.TestCase):
         self.assertIn("--etapa all", readme)
         self.assertNotIn("nivel1/", readme)
 
+    def test_readme_points_at_a_master_docx_that_exists(self) -> None:
+        # ⚠ 2026-09-08: el README mandaba subir `entregable/E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx`
+        # como autoridad de formato, y ese archivo se había archivado el 09-07. Quien
+        # siguiera el README no podía completar la carga: el paso 3 apuntaba a una ruta
+        # vacía. Este test evita que vuelva a pasar con cualquier maestro que el README
+        # nombre como el que hay que subir.
+        readme = (REPO_ROOT / "informe/project-kit/README.md").read_text(encoding="utf-8")
+        vigente = "informe/entregable/archivado/E-OVRT-VDP_v1.1_05062026-sin-indice.docx"
+        self.assertIn(vigente, readme)
+        self.assertTrue(
+            (REPO_ROOT / vigente).is_file(),
+            f"el README manda subir {vigente} y ese archivo no está en disco",
+        )
+        # El export anterior sigue nombrado, pero como variante archivada.
+        archivado = list((REPO_ROOT / "informe/entregable/archivado").glob("*sin-etapa3*.docx"))
+        self.assertEqual(len(archivado), 1, "la variante -sin-etapa3 debería estar archivada, una sola vez")
+
+    def test_readme_and_stage_six_point_at_the_figure_guide(self) -> None:
+        # La guía de figuras es el quinto archivo del knowledge y no la genera el kit:
+        # se escribe a mano, como los DOCX. Si el README la nombra, tiene que existir;
+        # y el contrato de la Etapa 6 tiene que mandar a ella, porque es la etapa que
+        # produce figuras.
+        guia = "informe/figuras/GUIA-DE-FIGURAS.md"
+        readme = (REPO_ROOT / "informe/project-kit/README.md").read_text(encoding="utf-8")
+        self.assertIn("GUIA-DE-FIGURAS.md", readme)
+        self.assertTrue((REPO_ROOT / guia).is_file(), f"el README nombra {guia} y no está en disco")
+        contrato = "\n".join(kit.STAGE_CONTRACTS[6])
+        self.assertIn("GUIA-DE-FIGURAS.md", contrato)
+        # La regla que más caro sale saltear: nada de imágenes generadas para diagramas.
+        texto = (REPO_ROOT / guia).read_text(encoding="utf-8")
+        self.assertIn("codigo vectorial", contrato.replace("código", "codigo"))
+        self.assertIn("SVG", texto)
+
     def test_project_instructions_fit_the_settings_box(self) -> None:
         # El cuadro de Project settings de ChatGPT corta en 8.000 caracteres. Nadie
         # avisa al pegar: lo que sobra se pierde en silencio, y lo último del archivo
