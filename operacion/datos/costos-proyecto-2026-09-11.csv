@@ -1,0 +1,33 @@
+item,categoria,seccion_tabla,condicion,cantidad,unidad,gasto_efectivo_ars,valor_referencia_ars,fuente,fecha_fuente,nota
+"Notebook HP Victus 15-fb2024la (Ryzen 5 8645HS, RTX 4060 Laptop 8 GB, 1 TB)",equipamiento,17.2.2 Tabla 12,preexistente propio,1,unidad,0,2719999,"Tienda HP Argentina https://www.hp.com/ar-es/shop/notebook-gaming-victus-15-fb2024la-a14lsla.html",2026-09-11,"AR$ 2.461.538 sin impuestos nacionales; AR$ 2.719.999 con IVA 10,5 % (campo price de la pagina)"
+"Ampliacion RAM a 32 GB DDR5 (2 x 16 GB SO-DIMM)",equipamiento,17.2.2 Tabla 12,A CONFIRMAR,2,modulo,A CONFIRMAR,A CONFIRMAR,,,"Tabla B.1 declara 32 GB; el modelo de fabrica trae 16 GB (2 x 8). Confirmar si se compro para el proyecto"
+"Camara Luxonis OAK-D Pro PoE (Series 2)",equipamiento,17.2.2 Tabla 12,prestada por el tutor,1,unidad,0,888765,"Luxonis Shop https://shop.luxonis.com/products/oak-d-pro-poe (US$ 579) x 1535",2026-09-11,"Precio de lista en origen, sin flete ni tributos de importacion"
+"Cable Ethernet M12/RJ45",equipamiento,17.2.2 Tabla 12,prestado con la camara (A CONFIRMAR),1,unidad,0,38360,"Luxonis Shop (US$ 24,99) x 1535",2026-09-11,
+"Inyector PoE (solo para la unidad minima de replicacion)",equipamiento,17.2.5 costo de replicacion,no usado en el proyecto (se uso switch PoE),1,unidad,,38360,"Luxonis Shop (US$ 24,99) x 1535",2026-09-11,
+"Switch PoE gigabit",equipamiento,17.2.2 Tabla 12,preexistente (propietario A CONFIRMAR),1,unidad,0,no imputado,,,"Bajo valor relativo; no altera el orden de magnitud"
+"Camara IP RTSP con DVR",equipamiento,17.2.2 Tabla 12,preexistente propio (uso domestico),1,unidad,0,no imputado,,,
+"Casco y chaleco reflectivo (utileria)",consumibles campo,17.2.2 Tabla 12,prestados por Steel Brox S.R.L.,1,juego,0,no imputado,,,
+"Traslado a locacion de rodaje (Steel Brox S.R.L.)",movilidad,14.4 / 17.2.5 Tabla 15,aporte propio,1,viaje,A CONFIRMAR,A CONFIRMAR,,,"Unico gasto efectivo del proyecto; falta el monto (combustible o pasajes) y la sede visitada"
+"Horas integrante 1",rrhh,17.2.3 Tabla 13,trabajo no remunerado,384,hora,0,3692400,"8 h/sem x 48 sem x 9615,625 ARS/h",2026-09-11,"Previsto: 336 h (42 sem) = 3.230.850"
+"Horas integrante 2",rrhh,17.2.3 Tabla 13,trabajo no remunerado,384,hora,0,3692400,"8 h/sem x 48 sem x 9615,625 ARS/h",2026-09-11,
+"Horas integrante 3",rrhh,17.2.3 Tabla 13,trabajo no remunerado,384,hora,0,3692400,"8 h/sem x 48 sem x 9615,625 ARS/h",2026-09-11,
+"Tutoria academica",rrhh,17.2.3 Tabla 13,aporte institucional en especie,,hora,0,no cuantificado,,,"Cuantificar solo si el usuario aporta N reuniones"
+"Tarifa horaria de referencia",parametro,17.2.1,,9615.625,ARS/hora,,,"Mediana bruta junior ARS 1.538.500/mes (Sysarmy 2026.01, via https://teclab.edu.ar/tecnologia-y-desarrollo/cuanto-gana-un-programador-junior/) / 160 h",2026-09-11,"Fuente primaria: https://sueldos.openqube.io/encuesta-sueldos-2026.01/"
+"Tipo de cambio USD/ARS",parametro,17.2.1,,1535,ARS por USD,,,"BNA minorista venta 10/09/2026 (El Cronista / La Nacion)",2026-09-10,"Compra 1.485"
+"Semanas previstas",parametro,17.2.3,,42,semana,,,"Gantt Figura 1: 31/10/2025 a 21/08/2026",,"42,0 semanas calendario"
+"Semanas ejecutadas",parametro,17.2.3,,48,semana,,,"31/10/2025 a defensa prevista fin de septiembre 2026",,"47,7 semanas a 30/09/2026"
+"Computo local de inferencia",operacion,17.2.4 Tabla 14,energia absorbida en consumo domestico,34.35,hora GPU,0,no imputado,"e-ovrt_media-plane/runs/*/summary.json duration_seconds (472 dirs, 470 con duracion)",2026-09-11,"jul 2,64 h; ago 31,71 h; 33,98 h grounding_dino. Energia estimada 3-5 kWh a 100-150 W"
+"Computo en cluster Mendieta",operacion,17.2.4 Tabla 14,acceso institucional CCAD-UNC sin cargo,1.195,hora GPU,0,marginal,"sacct -M ivb -X -u gguillaumet -S 2026-07-01 -E now",2026-09-11,"15 jobs (13-20/08/2026), 10 con GPU asignada, 6 COMPLETED; 4.302 s; fulls T1 13:08 + T2 17:07 + T2v2 26:10 = 0,94 GPU-h; gres/gpu=1 cpu=10 por job"
+"Alquiler de servidores / VPS",operacion,14.4 / 17.2.4 Tabla 14,no contratado,0,,0,0,,,
+"Almacenamiento Google Drive",operacion,17.2.4 Tabla 14,plan gratuito,2.6,GB,0,0,,,"Evidencia no regenerable"
+"Repositorios GitHub",operacion,17.2.4 Tabla 14,plan gratuito,5,repositorio,0,0,,,
+"Licencias de software",operacion,14.4 / 17.2.4 Tabla 14,stack open source,,,0,0,,,"Nota AGPL-3.0 (ultralytics/YOLOE) para uso comercial; GDINO Apache-2.0"
+"Datasets y pesos",operacion,17.2.4 Tabla 14,licencias abiertas con atribucion,,,0,0,"e-ovrt_datasets/datasets/registry/license_registry.md",,
+"Conectividad a Internet",operacion,17.2.4 Tabla 14,uso domestico,,,0,no discriminado,,,
+"Suscripciones pagas",suscripciones,14.4,A CONFIRMAR (asumido: ninguna),,,0,,,,"Si hubo planes pagos de asistentes de IA u otros, agregar fila con monto"
+"Impresiones y encuadernacion",impresiones,14.4,no aplica (entrega digital),0,,0,0,,,
+"Extensibilidad medida (AF-4)",ahorro medido,17.2.5,,,,,,"e-ovrt_experimental-setup/results/bench_imagenes/index.md seccion 4",2026-09-11,"0 entrenamientos; 1 archivo de 48 lineas; 9 min de pared; machinery AP@0.5 0,662 (99 cajas GT)"
+"Unidad minima de replicacion",resumen,17.2.5,,1,unidad,,3685484,"2.719.999 + 888.765 + 38.360 + 38.360",2026-09-11,"Notebook + OAK-D Pro PoE + cable M12/RJ45 + inyector PoE; notebook = 73,8 %"
+"Total equipamiento aportado (Tabla 12)",resumen,17.2.2,,,,0,3647124,"2.719.999 + 888.765 + 38.360",2026-09-11,
+"Total RRHH ejecutado (Tabla 13)",resumen,17.2.3,,1152,hora,0,11077200,"1.152 x 9615,625",2026-09-11,"Previsto 1.008 h = 9.692.550"
+"Total costo valorizado (Tabla 15)",resumen,17.2.5,,,,A CONFIRMAR (= movilidad),14724324,"11.077.200 + 3.647.124 (+ movilidad)",2026-09-11,"RRHH = 75,2 % del total"
