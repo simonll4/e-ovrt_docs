@@ -11,6 +11,46 @@ su artefacto; estas cinco eran trabajo real y están hechas (2026-08-21).
 > publicado**. Es la misma disciplina que las tablas: el inventario dice cuál es la
 > fuente, y la fuente es la que manda.
 
+> ⚠️ ✎ **2026-09-07 — FIG-B y FIG-F ya no van al informe.** Por decisión del usuario, §17.5 no
+> lleva figuras de datos: lo que mostraban se reescribió como prosa y como filas de tabla, que es
+> la forma en que esos datos nacieron y la única que se puede corregir desde Google Docs. Las dos
+> siguen produciéndose y **siguen publicadas en el repositorio público**, así que no se archivan;
+> lo que cambia es su destino. Razones del descarte, en la lectura del 07-09:
+> · **FIG-B** era una tabla de cuatro filas dibujada como curva, y seis de sus ocho valores ya
+>   estaban en la Tabla 64, que ahora completa la serie con las dos densidades que le faltaban.
+> · **FIG-F** mezclaba dos cosas distintas: juzgabilidad es si el anotador humano puede determinar
+>   el estado, y lo que graficaba era rendimiento del sistema. Además su panel inferior tomaba
+>   cuatro clips de una foto anterior al cierre de la campaña de diecisiete, omitía un clip con
+>   dato medido y dejaba afuera la proporción de cuadros no observables, que es la variable que
+>   define el fenómeno. Los tres ejes, con la caída nocturna incluida, viven ahora en §17.5.3.
+>
+> **FIG-A (§17.4.1) y FIG-C (§17.5.4) siguen en el informe**: un diagrama de procesos y un
+> fotograma no se sustituyen por una tabla. FIG-E sigue en §17.3.
+>
+> ✎ **2026-09-08 — FIG-A y FIG-C están PEGADAS Y ACEPTADAS** (Figura 4.5 en §17.4 v1.13 y Figura 4.6 en
+> §17.5 v1.9, las bajadas del usuario). Trampa de verificación: **Google Docs re-codifica el PNG al
+> exportar**, así que la huella SHA-256 de la imagen embebida ya no coincide con el archivo de esta
+> carpeta; las dimensiones sí (FIG-A: 1926×1684 px, 16,0 × 13,99 cm). Verificar por dimensiones, no
+> por huella, después de cualquier viaje por Google Docs.
+
+> ✎ **2026-09-08 — hay una guía nueva, y manda sobre este README para producir figuras:**
+> [`GUIA-DE-FIGURAS.md`](GUIA-DE-FIGURAS.md). Define **un sistema visual único para las seis figuras
+> del informe** —hoy conviven dos lenguajes distintos, el de las cuatro de §17.3 y el de la 4.5— y
+> especifica cada una: qué debe mostrar, con qué rótulos exactos y con qué trampas. Es el quinto
+> archivo del kit de ChatGPT y se sube cuando toca producir figuras. Este README conserva lo que
+> sigue siendo cierto: la procedencia de cada figura, la validación de la paleta y las notas al pie
+> que van en el documento.
+>
+> ⚠️ **Hallazgo del 09-08, verificado contra el motor de patrones del plano de control: la Figura 4.3
+> del informe dibuja dos transiciones que el sistema NO hace.** Dibuja `candidate → inactive` por
+> evidencia insuficiente, cuando desde `candidate` el patrón va a `resolved`; y dibuja
+> `resolved → inactive` como «cierre del episodio», cuando **no existe ninguna transición hacia
+> `inactive`**: es sólo el estado inicial y nada vuelve a él. Faltan además el salto directo a
+> `confirmed` cuando la primera evidencia ya cumple la ventana, la reapertura desde `resolved` —que
+> es la que produce las re-alertas— y los dos caminos distintos por los que se llega a `resolved`.
+> **El texto de 17.3.6.1 arrastra el mismo error** en dos oraciones. §17.3 está cerrada, así que la
+> corrección la decide el usuario; la guía trae la versión correcta y completa.
+
 ## Qué hay acá
 
 | Figura | Archivo | Va en | Origen |
