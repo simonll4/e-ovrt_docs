@@ -40,7 +40,7 @@ Cuatro archivos: `00-contexto-base.md` (reglas, estado vigente, cifras citables,
 limitaciones) · `01-etapa-N-activa.md` (texto e insumos de la etapa: unidades
 `AJ-`/`R-`/`PODA-`, pases `E1-`…`E4-` y decisiones `D-*`, textos base) · DOCX
 `E-OVRT-VDP_v1.1_05062026-sin-etapa3.docx` (formato, estilos) · el `.docx` vigente de la
-sección (§15+§16 v1.0 · §17.1 v1.7 · §17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3). Rótulo `> Seleccion:` por
+sección (la versión que lista el README del kit; nunca una anterior). Rótulo `> Seleccion:` por
 fuente: «YA APLICADO» no se reaplica; «NO aplicado» es trabajo a hacer.
 
 Ante desacuerdo, resolvé en orden: 1) paquete de etapa activa,

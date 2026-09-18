@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 6
 
-> Generado el 2026-09-01. Etapa 6: secciones 17.6, 18 y 19.
+> Generado el 2026-09-08. Etapa 6: secciones 17.6, 18 y 19.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -52,19 +52,22 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    propio documento** en `entregable/desarrollando/`; lo que queda al final es
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
-   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
-   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
-   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
-   severidad metodologica, sin articulos legales; extension justificada en
-   justificacion-extension-17-1.md), y los
-   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
-   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   verificados; texto base `90d`; el marcador D-E1-11 se borra en el proximo pase) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.15
+   (Etapa 2) CERRADA el 2026-09-03 con los SEIS pases mas el ciclo de reestructuracion 09-01/09-03
+   (109 -> 37 titulos, -35,3 % de palabras, cero bajas de referencias; la numeracion de subsecciones
+   CAMBIO — traducir con desarrollando/mapa-secciones-17-1-v1-15.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio, con un
+   comentario abierto del colega en 17.1.6; siguen los handoffs hacia
    17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
-4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
-   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
+4. **D-E1-11 — inscripcion ante la AAIP: CERRADA el 2026-09-01** (decision del usuario,
+   converge con el comentario C9 de la Etapa 1 v1.1): el informe NO adjudica el tramite de
+   inscripcion — las salvaguardas de §16.6 son el recaudo documentado y la respuesta se
+   prepara para la defensa. El espejo de §17.1 (D-E2-7) ya esta borrado (v1.8); el marcador
+   de §16.6 se borra en el proximo pase de la Etapa 1. No reintroducir el tema en el texto.
+   Constancia: `desarrollando/cierre-d-e1-11-aaip.md`.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -251,13 +254,20 @@ huerfanas, la misma autoria con años distintos y si faltan los cambios controla
 - Este archivo contiene el texto vigente que se modifica y sus insumos de ajuste.
 - No se trasladan resultados propios hacia secciones cronologicamente anteriores.
 - Nombre propio de esta etapa (01-etapa-6-activa.md): regenerarla no pisa el paquete de ninguna otra etapa.
+- **Restriccion propia de esta etapa (✎ 2026-09-08): las cinco secciones del desarrollo estan CERRADAS** — §15/16 v1.4 (en revision final de los colegas) · §17.1 v1.21 · §17.3 v1.12 · §17.4 v1.15 · §17.5 (archivo «v1.5», contenido de la v1.9), bajadas del 09-08 con los pases 5/5b/5c/5d/5e ACEPTADOS por el usuario. Sus textos viajan en este paquete para LEERLOS y citarlos. **No se reabren, no se reescriben y no se les 'corrige' nada desde §17.6/§18/§19**: si algo de ellas parece mal, se anota como hallazgo para un pase explicito, nunca se edita.
+- **§18 interpreta lo que §17.5 reporta.** Cada conclusion nace de una cifra o de un veredicto de §17.5 (con su n y su estrato) y declara su fuerza con la escala AF-1…AF-11 de la sintesis; el circulo se cierra con las preguntas rectoras de §16.7.3, las conclusiones parciales de §17.1.11 y los objetivos de §13. Las ocho limitaciones viven en §17.5.7: §18 las hereda y las lee, no las repite. **Nunca 'OVD detecta mejor'**: la tesis es la plataforma y la medicion sin entrenar; el ajuste fino (T1/T2 NO-GO, T3 cerrado por linaje) es un resultado declarado, no un fracaso a esconder ni una promesa.
+- **§17.6 es repositorio y evidencias de cierre** (AJ-6.04): lo construido segun §17.4, los artefactos por corrida de 17.4.5 y las pruebas automatizadas de cada modulo, sin conteos que envejecen. **§19** reune el anexo de reproducibilidad (AJ-6.02), licencias, consentimientos y citas obligatorias (AJ-6.03), el Anexo A de `90e` (§19.1) y los Anexos C y D que hoy viajan al final del .docx de §17.1 (§19.3/§19.4). El trabajo futuro (AJ-6.05) sale de las exclusiones EJERCIDAS (ADR-015), no de deseos.
+- **Autocontencion:** el informe NUNCA cita documentos locales, ADRs por numero, fichas ni indices del repositorio; las cifras se citan por combinacion + material + n y salen SOLO de los cuatro indices de results/ ya volcados en el contexto base. Un marcador [[PENDIENTE]] solo para datos que no existen todavia (hoy queda uno, en §17.4.6, con su oracion de reemplazo propuesta: la ficha por video del lote de obra real depende de C1).
+- **El listado de referencias de §19 arranca por una fusion, no por una redaccion.** La auditoria bibliografica de este paquete lo demuestra: el listado del maestro (242 entradas) es anterior a las correcciones de la Etapa 1 y le faltan DOCE entradas que si estan en el listado de 90e, entre ellas las dos unicas fuentes que aplican modelos vision-lenguaje a seguridad en obra y la fuente de una fila entera de la Tabla A.1. **Primero se fusiona 90e en el listado del maestro; recien despues se decide que dar de baja** (hay 104 huerfanas) y se reemplazan los 21 preprints que ya tienen version publicada. Once citas del informe hoy no resuelven contra ninguna entrada: eso es lo primero que prueba un jurado.
+- **Las figuras se producen con `informe/figuras/GUIA-DE-FIGURAS.md`**, que se sube como quinto archivo cuando toca. Define el sistema visual unico de las seis figuras y las especifica una por una. Dos reglas de esa guia que conviene tener presentes desde aca: **se piden como codigo vectorial (SVG o script de graficacion), nunca como imagen de un modelo de imagen**, que deforma los rotulos; y **la Figura 4.3 dibuja hoy dos transiciones que el sistema no hace**, con el mismo error arrastrado en el texto de 17.3.6.1.
+- **Integracion (dueño: el equipo, DESPUES de §17.6/§18/§19; no es tarea de esta etapa):** numeracion global de tablas con 14 numeros libres (12–15, 18–19, 31–32, 36–38, 53–55), titulo '17.3. Diseño arquitectonico' ausente del .docx de esa seccion, rotulos 'Nota' con tres formatos distintos entre secciones, altas bibliograficas Milan et al. 2016 y Liang y Han 2024, baja de 'AAIP, s. f.-b'. Numerar con campos de Word al integrar; no renumerar antes.
 
 ---
 
 ## Fuente: `docs/informe/entregable/96e-informe-v11-cierre-anexos-referencias.md`
 
 > SHA-256 del bloque: `3d054514a734cf944d87341e6f10df53d8bb128bd08741ccc4ecebdede898b44`  
-> Seleccion: secciones 17.6, 18, 19 y referencias vigentes.
+> Seleccion: secciones 17.6, 18, 19 y referencias vigentes del informe v1.1: §17.6 vacia, §18 y §19 escritos ANTES de los resultados (se reescriben, no se retocan).
 
 ### 17.6. Documentación técnica, repositorio y evidencias de cierre
 
@@ -1132,6 +1142,1452 @@ Zhu, X., Su, W., Lu, L., Li, B., Wang, X., & Dai, J. (2020, October 8). [2010.04
 Zou, X., Dou, Z.-Y., Yang, J., Gan, Z., Li, L., Li, C., Dai, X., Behl, H., Wang, J., Yuan, L., Peng, N., Wang, L., Lee, Y. J., & Gao, J. (2023). Generalized Decoding for Pixel, Image, and Language (arXiv:2212.11270). arXiv. https://arxiv.org/abs/2212.11270
 
 Zou, Z., Chen, K., Shi, Z., Guo, Y., & Ye, J. (2023). Object Detection in 20 Years: A Survey. Proceedings of the IEEE, 111(3), 257–276. https://doi.org/10.1109/JPROC.2023.3238524
+
+---
+
+## Fuente: `docs/informe/entregable/96a-informe-v11-frontmatter-intro-objetivos-plan.md`
+
+> SHA-256 del bloque: `040f740c01fc99048af4698388ed55a1e30d9c7c1ecbc46751284197ffa6e016`  
+> Seleccion: §12 Introduccion (hipotesis de trabajo, alcance) y §13 Objetivos del informe v1.1: §18 tiene que responderlos uno por uno; se citan, no se reescriben (son Etapa 0).
+
+## 12. Introducción
+
+
+### 12.1. Motivación y contexto del proyecto
+
+La seguridad laboral en la industria de la construcción civil constituye un problema de alta relevancia técnica, social y organizacional. Se trata de un sector caracterizado por entornos dinámicos, tareas simultáneas, circulación de personas y maquinaria, estructuras temporales, cambios frecuentes en la disposición del espacio de trabajo y exposición permanente a condiciones de riesgo. En este contexto, la supervisión visual cumple un papel preventivo relevante, pero también presenta limitaciones cuando depende exclusivamente de la observación humana continua sobre múltiples cámaras o frentes de obra.
+
+El presente Proyecto Integrador surge de la necesidad de explorar una alternativa tecnológica capaz de complementar la supervisión tradicional mediante una plataforma experimental de detección open-vocabulary en video en tiempo real. La motivación central no consiste en reemplazar al supervisor humano ni en automatizar decisiones de cumplimiento normativo, sino en investigar si los modelos actuales de visión-lenguaje pueden contribuir a identificar de manera flexible señales visuales asociadas a condiciones de riesgo en entornos de construcción. De esta forma, el proyecto se ubica en la intersección entre inteligencia artificial, visión por computadora, procesamiento de video en tiempo real, seguridad laboral y diseño responsable de sistemas asistivos.
+
+La elección del tema se fundamenta en una brecha concreta. Los sistemas tradicionales de detección de objetos operan, en general, bajo un paradigma de vocabulario cerrado, es decir, solo reconocen categorías previstas durante su entrenamiento. Esta característica resulta problemática en obras civiles, donde los riesgos no siempre pueden anticiparse como una lista fija de objetos o clases. Una condición como "persona sin casco cerca de una excavación", "material obstruyendo un pasillo de circulación" o "trabajador en zona de tránsito vehicular" combina objetos, atributos, relaciones espaciales, contexto operativo y persistencia temporal. Por ello, un sistema cerrado puede resultar insuficiente si no fue entrenado explícitamente para cada combinación posible.
+
+Frente a esta limitación, los enfoques de detección de vocabulario abierto permiten formular consultas mediante lenguaje natural o, eventualmente, imágenes de referencia. Esta capacidad habilita un modo de interacción más flexible: el usuario puede definir condiciones de interés sin depender exclusivamente de un conjunto rígido de etiquetas preestablecidas. En consecuencia, el proyecto propone evaluar la factibilidad técnica y académica de una plataforma que procese video, interprete consultas open-vocabulary, detecte entidades o condiciones observables, aplique criterios de persistencia o patrones de riesgo y genere alertas asistivas trazables.
+
+
+### 12.2. Problema identificado
+
+El problema que orienta el trabajo puede expresarse como una discontinuidad entre la naturaleza dinámica y semánticamente abierta de los riesgos en obra y la naturaleza estática de los sistemas de detección visual basados en vocabularios cerrados. Mientras que el entorno de construcción introduce situaciones variables, dependientes del contexto y difíciles de reducir a categorías fijas, muchos sistemas de visión computacional requieren que las clases detectables hayan sido definidas, anotadas y entrenadas previamente.
+
+Esta restricción genera consecuencias prácticas. En primer lugar, una condición no contemplada durante el diseño del sistema puede quedar fuera de su capacidad de detección, aunque sea relevante para la seguridad. En segundo lugar, incorporar nuevas clases o combinaciones suele exigir procesos de recolección de datos, anotación, entrenamiento y validación que pueden ser costosos en tiempo y recursos. En tercer lugar, la detección por fotograma aislado no basta para representar situaciones de riesgo que dependen de duración, reiteración o trayectoria, por lo que el análisis de video requiere además mecanismos de persistencia temporal y criterios operativos para distinguir detecciones aisladas de eventos significativos.
+
+A esta problemática técnica se suma una dimensión operativa: el monitoreo de múltiples cámaras o zonas de trabajo impone una carga cognitiva elevada sobre los responsables de seguridad. La observación humana continua puede verse afectada por fatiga, distracciones, simultaneidad de eventos o limitaciones propias de la atención sostenida. Por ello, una herramienta de detección asistiva puede funcionar como una capa adicional de apoyo, siempre que se mantenga dentro de un marco responsable, trazable y no vinculante.
+
+El proyecto no parte de la premisa de que la inteligencia artificial pueda resolver por sí sola la seguridad en obra. Por el contrario, reconoce que una alerta visual no equivale a una determinación jurídica ni técnica de incumplimiento. La función del sistema propuesto es detectar indicios observables, registrar evidencia, activar patrones previamente definidos y asistir a la supervisión humana. Esta delimitación resulta central para sostener el carácter experimental del trabajo y evitar una interpretación excesiva de las capacidades del prototipo.
+
+
+### 12.3. Enfoque propuesto e hipótesis de trabajo
+
+La hipótesis de trabajo sostiene que los modelos de detección open-vocabulary, al permitir expresar condiciones de interés mediante lenguaje natural en tiempo de inferencia, constituyen un habilitador tecnológico viable para superar parte de la rigidez de los sistemas closed-set en el contexto del monitoreo visual de seguridad en construcción. Bajo esta hipótesis, una plataforma experimental podría recibir consultas o patrones como "persona sin casco", "persona sin chaleco reflectivo" o "maquinaria cerca de peatones" y transformarlos en eventos analizables dentro de un flujo de video.
+
+Sin embargo, esta hipótesis se formula de manera condicionada. La viabilidad de la solución no depende únicamente de que un modelo pueda detectar objetos en imágenes estáticas, sino de la integración de múltiples dimensiones: selección de modelos visión-lenguaje, rendimiento en hardware disponible, estabilidad temporal de las detecciones, estrategia de prompts, disponibilidad de datasets, presupuesto de latencia, arquitectura de streaming, trazabilidad de eventos y restricciones ético-legales asociadas al tratamiento de vídeo en contextos laborales.
+
+Por este motivo, el proyecto se estructura como una plataforma experimental y no como un producto industrial terminado. El objetivo es construir un prototipo experimental que permita evaluar el comportamiento del enfoque bajo condiciones controladas y reproducibles. La solución esperada se organiza alrededor de una cadena operativa mínima: ingesta o lectura de video, inferencia open-vocabulary, eventual seguimiento temporal, evaluación de patrones de riesgo, registro de eventos y generación de alertas asistivas. Esta cadena permite analizar no sólo la precisión de detección, sino también la oportunidad, estabilidad y utilidad operativa de las alertas generadas.
+
+La propuesta también contempla la comparación entre una línea base zero-shot y eventuales estrategias de adaptación al dominio únicamente cuando existan datos, soporte metodológico e infraestructura suficientes. De esta forma, el ajuste de modelos no se asume como punto de partida, sino como posibilidad condicionada a la evidencia disponible. Esta decisión preserva el sentido open-vocabulary del proyecto y evita convertir la adaptación al dominio en un requisito previo de factibilidad.
+
+
+### 12.4. Alcance, límites y condiciones de trabajo
+
+El alcance del trabajo se circunscribe al desarrollo y evaluación de una plataforma experimental de detección open-vocabulary en video en tiempo real aplicada al dominio de seguridad en construcción civil. El prototipo se orienta a condiciones observables visualmente, especialmente aquellas vinculadas con uso de elementos de protección personal, presencia de personas en zonas de riesgo, interacción entre peatones y maquinaria, obstrucciones del entorno y otros patrones que puedan formularse como consultas o reglas evaluables.
+
+No se busca construir un sistema de fiscalización automática ni una herramienta de certificación normativa. Las alertas generadas por el prototipo se interpretan como señales asistivas destinadas a apoyar la supervisión humana. En consecuencia, el sistema no sustituye la evaluación técnica en terreno, no define responsabilidades legales, no toma decisiones operativas autónomas y no activa medidas físicas de control. Su valor se analiza como instrumento de apoyo, trazabilidad y experimentación académica.
+
+El prototipo no incluirá reconocimiento de identidad personal. La detección se limitará a entidades y condiciones observables, tales como "persona", "casco", "chaleco", "maquinaria" o "zona restringida", sin asociar individuos a nombres, credenciales o perfiles personales. Esta restricción responde tanto a criterios ético-legales como al alcance técnico del trabajo. Del mismo modo, la versión experimental no contempla integración completa con sistemas externos de gestión de seguridad ni con infraestructura física de alarmas, aunque podrá prever mecanismos básicos de notificación o registro para demostrar interoperabilidad futura.
+
+También se asumen condiciones experimentales controladas. El trabajo prioriza escenarios reproducibles, datasets de referencia y, cuando corresponda, un entorno simulado o representativo de obra. La evaluación se organizará en dos planos complementarios: una evaluación basada en datasets, orientada a comparabilidad, control de variables y repetibilidad; y una evaluación basada en entorno, orientada a observar el comportamiento del pipeline sobre captura continua y variables visuales realistas. La disponibilidad de datos, hardware y tiempo de desarrollo condicionará el grado de profundidad de cada escenario.
+
+El proyecto utilizará, prioritariamente, modelos preentrenados y herramientas disponibles, evitando el entrenamiento desde cero por exceder el alcance académico y computacional previsto. Las decisiones sobre fine-tuning, prompts, tracking, servidores de medios o frameworks de inferencia deberán justificarse según criterios de viabilidad técnica, reproducibilidad, licenciamiento, desempeño y compatibilidad con el hardware disponible. En este sentido, el trabajo no se mide por alcanzar una solución industrial completa, sino por construir evidencia suficiente para evaluar la factibilidad del enfoque.
+
+
+### 12.5. Enfoque metodológico general
+
+El desarrollo del proyecto adopta un enfoque progresivo e iterativo. En primer lugar, se construye una fundamentación teórica orientada a delimitar el problema, revisar el estado del arte y establecer criterios conceptuales. Esta instancia permite responder qué debe detectar el sistema, cómo pueden interpretarse consultas de lenguaje natural, qué restricciones impone el video en tiempo real, qué papel cumple el seguimiento temporal y bajo qué condiciones ético-legales puede analizarse video en contextos laborales.
+
+En segundo lugar, la fundamentación se traduce en una consolidación metodológica que define condiciones de riesgo, patrones, escenarios de evaluación, infraestructura disponible, estrategia de datos, protocolo de prompts, métricas y presupuesto de latencia. Esta etapa cumple una función de puente entre el análisis conceptual y la implementación, ya que transforma criterios generales en decisiones operativas evaluables.
+
+Posteriormente, el trabajo avanza hacia el diseño arquitectónico de la plataforma, donde se definirán los módulos, flujos de datos, contratos de interfaz, separación entre plano de medios y plano de control, mecanismos de registro y criterios de integración. La implementación del prototipo materializará esas decisiones en una versión mínima reproducible. Finalmente, la validación experimental permitirá medir el comportamiento del sistema, identificar dificultades, discutir limitaciones y proponer líneas futuras.
+
+La metodología se orienta a la trazabilidad. Cada decisión técnica relevante deberá poder vincularse con una necesidad del problema, un criterio derivado del marco teórico, una restricción metodológica o una condición experimental. Por ello, las matrices comparativas extensas, catálogos completos de prompts, inventarios de datasets, detalles de infraestructura y registros de medición se conservarán como anexos o evidencia complementaria, mientras que el cuerpo principal mantendrá únicamente la información relevante para sostener la argumentación central del proyecto.
+
+
+## 13. Objetivo Del Proyecto
+
+
+### 13.1. Objetivo general
+
+Diseñar, implementar y evaluar la factibilidad técnica de una plataforma experimental de detección open-vocabulary en video en tiempo real, orientada a la identificación asistiva de condiciones de riesgo en obras de construcción civil, mediante la integración de modelos de visión-lenguaje, procesamiento de video de baja latencia, seguimiento temporal, patrones de riesgo y mecanismos de alerta evaluables bajo condiciones controladas.
+
+
+### 13.2. Objetivos específicos
+
+Analizar el estado del arte y los fundamentos técnicos, metodológicos, normativos y ético-legales vinculados con la detección open-vocabulary, el seguimiento multiobjeto, la transmisión de video en tiempo real y la seguridad laboral en construcción civil, a fin de establecer criterios de diseño y evaluación para la plataforma experimental.
+
+Definir y operacionalizar un conjunto de condiciones de riesgo visualmente observables en entornos de obra, vinculándolas con patrones de riesgo, niveles de severidad, criterios de persistencia temporal y formulaciones de consulta compatibles con modelos de detección open-vocabulary.
+
+Diseñar una arquitectura modular de procesamiento de video en tiempo real que distinga el plano de medios y el plano de control, permitiendo integrar de manera desacoplada componentes de ingesta, inferencia, seguimiento temporal, evaluación de patrones, registro de eventos y generación de alertas.
+
+Implementar un prototipo experimental capaz de ejecutar el flujo experimental previsto, incorporando ingesta o lectura de video, inferencia open-vocabulary, evaluación de patrones de riesgo, registro de eventos, alertas internas e instrumentación de métricas técnicas y operativas.
+
+Evaluar el desempeño del prototipo mediante un protocolo experimental reproducible, considerando escenarios basados en datasets y escenarios controlados representativos, con métricas de detección, seguimiento, rendimiento del pipeline, latencia de alerta y utilidad operativa de las notificaciones generadas.
+
+Incorporar lineamientos de ética, privacidad y seguridad de la información acordes con el uso responsable de sistemas de análisis automatizado de video en contextos laborales, manteniendo el carácter asistivo de las alertas y evitando mecanismos de reconocimiento de identidad personal.
+
+Documentar las decisiones técnicas, metodológicas y experimentales adoptadas durante el desarrollo del proyecto, junto con sus resultados, limitaciones, evidencias generadas y posibles líneas de continuidad o mejora futura.
+
+---
+
+## Fuente: `docs/informe/entregable/90c-etapa5-texto-extraido.md`
+
+> SHA-256 del bloque: `11fc4c6636e1c6573a8ddeac918ec8691485a006a147b0eae7a4892abf13ea09`  
+> Seleccion: §17.5 CERRADA (bajada del 2026-09-08): lo que §18 interpreta. Cada conclusion de §18 nace de una cifra o de un veredicto de esta seccion, con su n y su estrato; las ocho limitaciones viven al final de 17.5.7 y §18 las hereda y las lee, no las repite.
+
+# 90c — Texto extraído del documento de trabajo: §17.5 Evaluación y Validación (bajada del 2026-09-08, nombrada v1.5 pero con el contenido de la v1.9: el número retrocedió al renumerar. Limpia, sin comentarios. ETAPA 5 CERRADA)
+
+> **Extracción derivada (2026-09-08)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.5.docx`, **solo para búsqueda y cita**
+> (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
+> este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
+> extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
+> `⟦ECUACIÓN: no extraída — ver el .docx⟧` donde estaban. Regenerado con
+> `herramientas/extraer_informe.py` (regla D-C del manual de aplicación).
+
+---
+
+### 17.5. Evaluación y validación del prototipo
+
+#### 17.5.1. Encuadre y reglas de lectura
+
+La evaluación informa cuánto produjo el prototipo bajo las condiciones experimentales definidas. Los resultados se organizan por pregunta de medición y distinguen tres niveles. La percepción sobre imágenes caracteriza al detector, el estado observable por persona evalúa la reconstrucción de una condición por sujeto, y la alerta temporal por episodio representa a la plataforma completa. Las mediciones de percepción, estado por persona y alerta por episodio pertenecen al Escenario A, sobre material congelado y relectura por archivo, y las de tiempo real al Escenario B, sobre captura continua.
+
+Rigen las reglas de lectura fijadas en la sección 17.1.7.3. Cada cifra se acompaña de la combinación que la produjo, del material o estrato sobre el que se calculó y de su denominador. Precisión, recall y F1 se calcularon sólo sobre casos positivos con referencia aplicable, los materiales negativos se analizaron por conteo de falsos positivos, las re-alertas se contabilizaron aparte y los percentiles de tramos con relojes distintos no se sumaron. Los nombres abreviados de esta sección siguen al marco de métricas, con dos equivalencias. AP50 y mAP50 designan la precisión media a solapamiento 0,5 que el marco escribe AP@0,5, y la latencia de alerta es el intervalo que el marco llama t_alert-system. La latencia de alerta mide el intervalo entre el inicio del episodio anotado y su alerta confirmada, y la cobertura del episodio, que las tablas abrevian SDR, expresa qué proporción del tiempo con la condición activa mantuvo evidencia correcta.
+
+El banco temporal congelado comprendió 47 clips, distribuidos en 32 positivos y 15 negativos, con 37 episodios de referencia. Lo integran 34 clips de un bloque de rodaje guionado y 13 de un estrato de obra real no guionada. El estrato de obra real no guionada se mantuvo separado y no se utilizó para ordenar granularidades cuando su denominador efectivo fue insuficiente. La referencia temporal fue humana y quedó congelada antes del reporte.
+
+Una métrica se trató como computable sólo cuando existieron referencia, reloj e instrumentación compatibles con su definición. Cuando faltó alguno de esos elementos, el resultado se declaró no aplicable o no interpretable en lugar de convertir la ausencia de medición en un cero.
+
+#### 17.5.2. Percepción sobre imágenes
+
+La primera pregunta examinó la capacidad perceptiva de las combinaciones sobre un banco congelado de 6.477 imágenes y 55.165 anotaciones. El material se dividió en tres estratos independientes de 147, 1.330 y 5.000 imágenes, correspondientes a obra curada, a obra con mayor cobertura de chaleco y a una fuente con clase nativa de cabeza descubierta. El tercero aportó el 77 % del banco, de modo que el agregado se leyó siempre junto con el desglose por estrato.
+
+La Tabla 61 muestra que la combinación gdino-tiny-560 alcanzó el mAP50 más alto en el agregado y en el núcleo curado, mientras que gdino-base-560 produjo el recall más alto de CR-01 por evidencia directa. El veredicto se formuló entonces por combinación. El primer perfil se retuvo como configuración operativa por un criterio fijado antes de leer los resultados, y el segundo como contraste especializado para cabeza descubierta y chaleco. No se estableció una jerarquía universal entre modelos. Las dos comparten resolución de entrada y umbrales, que declara la sección 17.4.4, y difieren en el tamaño del perfil.
+
+**Tabla 61**
+
+*Resultados de percepción por combinación en el banco congelado*
+
+| **Combinación** | **mAP50 agregado (n = 6.477 imágenes)** | **mAP50 obra curada (n = 147 imágenes)** | **Recall de CR-01 por evidencia directa (n+ = 5.313)** | **Veredicto por combinación** |
+| --- | --- | --- | --- | --- |
+| gdino-tiny-560 | 0,551 | 0,503 | 0,308 | Retenida como perfil operativo por liderar el mAP50 en las dos escalas reportadas. |
+| gdino-base-560 | 0,525 | 0,474 | 0,599 | Retenida como contraste de mayor cobertura de cabeza descubierta y chaleco. |
+| yoloe-26x | 0,442 | 0,405 | 0,000 | Ciega a la cabeza descubierta, de modo que no sostiene la formulación directa. Su límite para el núcleo es el chaleco, con AP 0,182 en obra curada frente a 0,520 del perfil operativo. |
+
+***Nota****.* El denominador del agregado es el banco completo. El recall de CR-01 se informa sobre 5.313 positivos, el conteo de la referencia con la que se ejecutó la campaña. Una corrección posterior de esa referencia lo dejó en 5.308 y la medición no se repitió. Esa columna cuenta sólo detecciones de cabeza descubierta, de modo que mide la formulación directa. El núcleo opera con la indirecta, que deriva la ausencia desde persona y casco, y su capacidad para la condición no se lee en esta columna.
+
+La especialización del perfil base también apareció en chaleco, con AP 0,582 frente a 0,520 del perfil operativo sobre el estrato de obra curada. Para el perfil operativo, persona y casco se mantuvieron entre 0,70 y 0,89 de AP en los dos estratos públicos, mientras que chaleco quedó en 0,553 y 0,520 en los dos estratos que anotan esa clase. La asimetría no dependió de una única fuente, porque se sostuvo en ambos.
+
+La familia YOLOE presentó una limitación distinta. Sus cuatro variantes produjeron AP 0,000 para bare_head, la clase de cabeza descubierta, sobre el banco anterior al congelado, y la variante mayor repitió el cero sobre el estrato que anota esa clase de forma nativa. Aunque resultó adecuada para rutas de mayor velocidad, esa ceguera la volvió inservible para la formulación directa de CR-01 en la configuración evaluada.
+
+La extensibilidad semántica se ejerció sobre una clase nueva, cuyo costo de incorporación informa la sección 17.4.8. La clase alcanzó AP50 de 0,662 sobre 99 cajas de referencia sin ninguna corrida de entrenamiento. El costo reducido no eliminó la necesidad de validación semántica. Sobre el mismo material, la palabra vehicle no produjo ninguna detección cuando acompañó a machinery en el vocabulario y, aislada, produjo 118 cajas con AP 0,026, porque el modelo la resolvió sobre la maquinaria misma.
+
+#### 17.5.3. Estado por persona
+
+El nivel intermedio evaluó si la evidencia perceptiva permitía determinar el estado observable de cada persona. La calibración se realizó sobre una mitad del material y las métricas sobre la otra, con IoU mayor o igual que 0,5. La partición en mitades se registró con su semilla y fue la misma para todos los brazos, de modo que ninguna imagen que ajustó un umbral entró después en la medición. Se compararon E-IND, la estrategia indirecta que reconstruye la ausencia desde evidencia positiva, y E-DIR, la formulación directa retenida para el contraste. La medición sobre video abarcó 17 clips de obra real, los 13 del estrato de obra real del banco temporal y 4 de un piloto anterior, evaluados al nivel del estado por persona sobre su referencia de atributos, submuestreados a 2 Hz y sin calibración de umbrales, con el punto de operación desplegado, y no incluyó el motor de patrones. La Tabla 62 reúne los resultados.
+
+**Tabla 62**
+
+*Resultados de estado por persona*
+
+| **Material y condición** | **Resultado E-IND** | **Contraste E-DIR** | **Denominador** | **Lectura** |
+| --- | --- | --- | --- | --- |
+| Imágenes, CR-01 | F1 0,546 | F1 0,188 | n+ = 2.487 | Los intervalos de confianza no se solaparon. |
+| Núcleo curado, CR-01 | F1 0,408 | F1 0,189 | n+ = 28 | La ventaja se conservó en el estrato objetivo. |
+| Imágenes, CR-02 | F1 0,479 | F1 0,418 | n+ = 82 | Un único estrato; el resultado no cerró la condición. |
+| Video de obra real - CR-01 | P 0,016 · R 0,467 · F1 0,031 | No corresponde a esta medición | n+ = 92 de 10.356 cuadros con persona | La caída provino de precisión, no de recall. |
+| Video de obra real - CR-02 | P 0,009 · R 0,318 · F1 0,018 | No corresponde a esta medición | n+ = 170 de 10.361 cuadros con persona | La misma frontera de juzgabilidad dominó el resultado. |
+
+La estrategia directa no se comportó como un detector estable del estado, sino como un recuperador de casos omitidos por la estrategia indirecta. Recuperó el 18,5 % de esos casos, equivalentes a 155 de 840, pero lo hizo a costa de precisión. Esa relación explica por qué la estrategia no se adoptó aunque aportara evidencia complementaria en un subconjunto.
+
+La medición sobre 17 clips de obra real mostró un cambio de régimen. La caída del F1 provino de la precisión y no del recall, por acumulación de falsos positivos sobre personas cuyo estado no podía determinarse visualmente. El evaluador excluyó del denominador 1.414 cuadros con persona no juzgables para CR-01, aquellos en los que el anotador no pudo determinar el estado, y 1.409 para CR-02, y contabilizó como falso positivo cualquier predicción emitida sobre ellos.
+
+Esa frontera tiene al menos tres ejes y ninguno de los tres, por sí solo, anticipa si el material es evaluable. La escala ordena dentro de un mismo régimen de luz. En los clips diurnos del estrato de obra real, la proporción de sujetos detectados a los que se asocia un chaleco pasa de alrededor del 10 % en la banda de 80 a 120 píxeles de altura a entre 63 y 73 % en la banda de 220 a 320, y en el bloque de rodaje, con medianas de altura por encima de 700 píxeles, esa misma asociación se sostuvo entre 96 y 100 %. La iluminación desplaza la curva entera, porque en el clip nocturno del estrato la banda de 80 a 120 píxeles cae a 0 % y las siguientes, hasta 320, quedan entre 6 y 13 %. Y la oclusión invierte el orden de los dos ejes anteriores, ya que el clip con los sujetos más grandes del conjunto, con mediana de 370 píxeles, quedó entre los peores resultados con F1 0,084 sobre una cuadrilla apiñada en la que el 58,5 % de las personas aparece solapada con otra. Tampoco la juzgabilidad humana anticipa el rendimiento del sistema, porque el clip con la segunda proporción más baja de cuadros no observables para el anotador rindió el peor F1 del conjunto.
+
+#### 17.5.4. Alerta por episodio contra la referencia temporal humana
+
+La alerta por episodio constituyó el resultado principal porque integra percepción, asociación, histéresis, estado temporal y registro de alerta. El bloque de rodaje guionado reunió 34 clips y 35 episodios de referencia, 28 de CR-01 y 7 de CR-02. Treinta y cuatro episodios resultaron evaluables y uno quedó censurado con causa declarada, porque su duración no permitía que una alerta lenta ocurriera dentro del clip, y cuatro clips fueron negativos. La Tabla 63 reúne las combinaciones ejecutadas sobre ese material, cada una con una sola variable cambiada respecto de la línea de base.
+
+**Tabla 63**
+
+*Alerta por episodio en el bloque de rodaje guionado*
+
+| **Combinación** | **Recall** | **Precisión** | **F1** | **t_alert en ms (n de episodios confirmados)** | **SDR** | **FP en 4 negativos** | **Veredicto local** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Núcleo E-IND, escena | 0,824 | 0,757 | 0,789 | 5.327 (n = 28) | 0,698 | 0/4 | Línea de base de la plataforma. |
+| Contraste base-560 | 0,735 | 0,676 | 0,704 | 4.899 (n = 25) | 0,819 | 0/4 | Mayor SDR, menor F1 que el perfil operativo. |
+| E-DIR de extremo a extremo | 0,176 | 0,146 | 0,160 | 6.611 (n = 6) | 0,210 | 2/4 | Vetada por precisión. |
+| E-HYB por disyunción | 0,353 | 0,255 | 0,296 | 6.956 (n = 12) | 0,738 | 2/4 | Ejecutada y refutada. |
+| Núcleo E-IND, sujeto | 0,971 | 0,892 | 0,930 | 5.236 (n = 33) | 0,698 | 0/4 | La identidad elevó F1 sin cambiar las detecciones. |
+| Vocabulario nativo bare_head | 0,382 | 0,371 | 0,377 | 3.919 (n = 13) | 0,940 | 3/4 | Alerta temprana, con mayor costo en falsos positivos. |
+
+***Nota****.* Las métricas temporales se calcularon sobre 34 episodios evaluables de 35 en el bloque de rodaje, y el número entre paréntesis de la columna de latencia es la cantidad de episodios confirmados, mientras que la media se promedia por clip con alerta confirmada, un conteo menor cuando un mismo clip contiene las dos condiciones. Los falsos positivos se cuentan sobre los cuatro clips negativos y no incluyen re-alertas.
+
+La histéresis rescató evidencia intermitente. CR-02 confirmó sus 7 episodios, con recall 1,000 y SDR 0,281, aunque requirió una latencia de alerta de 8.572 ms frente a 4.314 ms para CR-01. Las dos medias se promediaron por clip con alerta confirmada, siete en CR-02 y veintiuno en CR-01. La diferencia fue coherente con ventanas de confirmación de 7,0 y 4,0 s. Una detección sostenida sólo durante una fracción del episodio pudo producir una alerta correcta cuando acumuló evidencia suficiente dentro de la ventana. La Figura 4.6 muestra un fotograma con la alerta ya confirmada. Las referencias por severidad de la sección 17.1.7.5 no se usaron como criterio de aceptación, porque el propio protocolo las condiciona a una recalibración previa que esta evaluación no realizó, y sus valores se leen como dato.
+
+**Figura 4.6**
+
+*Fotograma con alerta confirmada de CR-01*
+
+⟦FIGURA: no extraída — ver el .docx⟧
+
+**Nota.** Fotograma del clip a_p1_c04 del bloque de rodaje a los 8,5 s, en la corrida de línea de base, con la alerta emitida a los 7,3 s y el motor en estado sostenido. El casco visible sobre la mesa, que el detector marca en cuadros vecinos, no suprime la condición, porque CR-01 se evalúa sobre la región del sujeto y no sobre la escena.
+
+La identidad temporal fue la capa con mayor aporte medido dentro del banco. Con las mismas detecciones, la granularidad por sujeto elevó el F1 de 0,789 a 0,930, una diferencia de 0,141 sobre los 34 episodios evaluables. En el escenario de mayor dificultad el resultado pasó de 0,400 a 1,000, es decir de dos episodios confirmados sobre cinco a los cinco. La mejora no provino del detector, sino de evitar que la evidencia de personas distintas se mezclara dentro de un mismo estado de escena.
+
+El vocabulario activo también se comportó como una variable experimental. Sobre la combinación de contraste base-560, un ensayo posterior mantuvo fijos el modelo, el evaluador, el conjunto de patrones, la referencia y los tiempos, y sumó al vocabulario una sola palabra, la de cabeza descubierta. El F1 por episodio bajó de 0,704 a 0,622, el recall de 0,735 a 0,676 y la precisión de 0,676 a 0,575. La interacción entre términos de un mismo vocabulario no resultó despreciable, de modo que dos configuraciones sólo son comparables cuando declaran el vocabulario completo que vieron.
+
+El estrato de obra real no guionada se informó por separado y comprendió 13 clips. Una revisión ciega encontró que 5 de las 7 declaraciones de episodio eran errores de anotación por sobre-declarar estados que no resultaban observables, y dejó 2 episodios evaluables y 11 clips negativos. Ese denominador impidió ordenar granularidades. El resultado robusto del estrato fue la asimetría de falsos positivos, 26 con granularidad de escena frente a 323 con granularidad por sujeto sobre los mismos 11 clips negativos. Esa asimetría es el ΔFP_tracking que adopta el marco de métricas de la sección 17.1.7, y su signo es el contrario al del riesgo que la sección 17.1.10 anticipaba, que el seguimiento agregara complejidad sin reducir falsas alarmas.
+
+Sobre el único tramo continuo de cumplimiento, de 6 minutos y 9,6 segundos, los conteos fueron 3 falsos positivos con granularidad de escena y 190 con granularidad por sujeto. Las tasas de 29,2 y 1.850,8 falsas alarmas por hora se derivan de esa exposición de 0,1027 h y se informan como magnitudes derivadas, nunca como cota operativa, porque la exposición disponible estuvo casi treinta veces por debajo de la necesaria para sostener una.
+
+#### 17.5.5. Tiempo real
+
+La evaluación en vivo examinó qué parte del resultado temporal sobrevivía cuando la densidad de procesamiento descendía respecto de la evidencia disponible. El banco se representó a 30 fps, mientras que el camino en vivo entregó entre 1,16 y 4,42 fps. Para cubrir esa franja, los 34 clips del bloque de rodaje se remuestrearon de manera pareada a cuatro densidades, de 30 a 1,15 cuadros por segundo. La Tabla 64 reúne esas mediciones junto con las de integridad y latencia por tramo.
+
+**Tabla 64**
+
+*Resultados del camino en vivo por densidad, integridad y tramo temporal*
+
+| **Eje** | **Condición o material** | **Resultado** | **Denominador** | **Lectura** |
+| --- | --- | --- | --- | --- |
+| Densidad | Referencia del banco, 30 fps | Escena 0,789 · sujeto 0,930 | n = 34 episodios evaluables | Punto de partida de la comparación. |
+|  | Techo en vivo, aproximadamente 4,29 fps | Escena 0,794 · sujeto 0,866 | n = 34 episodios evaluables | La ganancia por identidad se conservó. |
+|  | Intermedia, aproximadamente 2,00 fps | Escena 0,738 · sujeto 0,875 | n = 34 episodios evaluables | La pérdida no avanza de manera uniforme. |
+|  | Peor caso, aproximadamente 1,15 fps | Escena 0,646 · sujeto 0,742 | n = 34 episodios evaluables | La restricción redujo ambos resultados sin invertir el orden. |
+| Identidad | Cuatro densidades medidas | Ganancias de F1 +0,141 · +0,072 · +0,137 · +0,096 | n = 4 densidades sobre 34 clips; remuestreo pareado por clip | El intervalo empírico excluyó el cero en las cuatro condiciones. |
+| Integridad | Relectura frente a transmisión | 0 eventos perdidos · paridad byte a byte verificada en una corrida y protegida por prueba automatizada | n = 6 corridas del rodaje para los eventos. n = 1 corrida para la paridad | El transporte no alteró la evidencia. |
+| Latencia | Sobrecarga de la plataforma con detector simulado, en diferido | p50 14,7 - p95 31,8 ms | n = 20 unidades | Costo propio de la cadena sin inferencia, dentro del presupuesto de la sección 17.1.7. |
+| Latencia | Detector open-vocabulary en vivo | p95 630–890 ms | n = 47, 93 y 55 unidades procesadas en las tres corridas en vivo | Fuera del presupuesto; la corrida lo declaró. |
+| Captura | Antes del retiro de la unidad | 202–217 ms | medianas por corrida; n = 47 a 295 unidades procesadas en cada una de las seis corridas | No está incluida en el tramo anterior. |
+| Alerta | CR-01 en vivo | 7 alertas: 4,1–4,6 s | n = 7 confirmaciones | Ventana: 4,0 s. |
+| Alerta | CR-02 en vivo | 3 alertas: ≥ 7,1 s | n = 3 confirmaciones | Ventana: 7,0 s. |
+| Canal | Bus de alertas a confirmación del canal | p95 64,534 ms · sostenido 102,025 ms | n = 460 · sostenido n = 104 | Tramo separado; no se suma a la alerta del sistema. |
+
+*Nota.* Los percentiles pertenecen a tramos con relojes distintos y no se suman. El tramo desde el retiro de la unidad comienza en el dequeue, no en la captura de la escena.
+
+La cobertura del episodio no se comparó entre cadencias porque depende de cuántas unidades sobreviven al muestreo. Tampoco se comparó la latencia agregada entre densidades sin controlar la supervivencia, porque los episodios que no alcanzan a confirmar desaparecen del promedio y lo sesgan. Entre los episodios supervivientes, el costo de bajar la densidad fue de 0,7 a 1,3 s sobre ventanas de 4 a 7 s, medido sobre 21, 20 y 16 episodios comunes a las cadencias comparadas. Entre la densidad del banco y el techo del camino en vivo el resultado por escena no cambió de manera apreciable y el resultado por sujeto perdió 0,064, mientras que en la densidad más baja la caída ya alcanza 0,143 y 0,188 respectivamente. Con 34 episodios evaluables, las diferencias del orden de un episodio, 0,029 de recall, quedan dentro de la resolución del banco y no se leen como orden.
+
+La medición confirmó además la separación entre captura, procesamiento y distribución. Los tres tramos corresponden a relojes distintos y por eso sus percentiles no se suman. El del tramo de distribución describe el intervalo desde el bus de alertas hasta la confirmación del canal, y no la latencia completa de la plataforma.
+
+#### 17.5.6. Caminos probados y no adoptados
+
+Los caminos no adoptados se evaluaron contra criterios fijados antes de leer sus resultados. La estrategia directa quedó descartada por un veto de precisión, cuyo umbral de 0,5 se fijó de antemano en el pre-registro de la comparación de estrategias y quedó muy por encima del valor obtenido. La brecha que ya mostraba en el estado por persona se amplió al atravesar el motor de patrones.
+
+La fusión híbrida por disyunción fue ejecutada y refutada, porque el recall descendió respecto del núcleo indirecto en lugar de crecer. La unión de evidencia no resultó monótona dentro del motor de patrones, ya que las detecciones más tempranas desplazaron confirmaciones fuera de la ventana de referencia. La variante por conjunción no se ejecutó, porque no podía medirse contra el banco sin romper la comparabilidad de las seis combinaciones. La familia MM-Grounding-DINO se integró por el mismo mecanismo de adaptación y se archivó durante la selección de modelos, sobre el banco anterior al congelado, de modo que no tiene cifra comparable en esta sección. Una de sus variantes no aportó ventaja en ninguna dimensión evaluada, otra entregó cajas degeneradas con origen en el punto de control publicado y no en el adaptador que las integró, y la tercera localizó mal con geometría normal.
+
+La rama comparativa de ajuste fino se cerró como una curva de capacidad, con criterios y expectativas registrados antes de cada evaluación, y sus cifras se mantuvieron separadas de las del núcleo sin entrenamiento. La Tabla 65 recorre sus tres puntos.
+
+**Tabla 65**
+
+*Curva de capacidad de la rama comparativa de ajuste fino*
+
+| **Punto o tramo** | **Resultado de ganancia** | **Retención y comportamiento** | **Veredicto** |
+| --- | --- | --- | --- |
+| Línea base sin ajuste | AP50 bare_head 0,0000 · recall de CR-01 por evidencia directa 0,0002 | Referencia previa a los tramos entrenados. | Punto de partida. |
+| Primer tramo entrenado | AP50 bare_head 0,0455 · recall de CR-01 por evidencia directa 0,2089 | Quedó a 0,0045 del umbral de AP50 0,05 y redujo person de 0,7843 a 0,6932 (−11,62 %), con tope de 10 %. | Veredicto negativo pre-registrado; checkpoint no adoptado. |
+| Segundo tramo entrenado | AP50 bare_head 0,0909 | Detención temprana 16/60, mejor época 1; person de 0,7843 a 0,3943 (−49,7 %) y mAP50 en dominio de 0,4193 a 0,2374 (−43,4 %); retención open-vocabulary 0,4347 a 0,1247 (−71,3 %) · n = 5.000 imágenes de validación de COCO 2017. | Veredicto negativo pre-registrado; checkpoint no adoptado. |
+| Tramo adicional | No corresponde | Cerrado con causa técnica antes de producir una comparación interpretable. | Sin checkpoint y sin nuevo brazo contra el banco. |
+
+***Nota****.* Los puntos medidos pertenecen a una rama comparativa separada. Las métricas en dominio de la línea base y de los dos tramos entrenados se calcularon sobre el banco congelado de 6.477 imágenes. El primer tramo agregó principalmente recall y el segundo, AP, de modo que no existe una combinación ajustada universalmente superior. Los tres puntos corresponden a la variante s de YOLOE-26. El primer tramo entrenó sólo la proyección de clases, 3.096 parámetros, y el segundo el detector completo con las rutas de prompt congeladas, 10,35 millones. La retención open-vocabulary se midió sobre un material ajeno al dominio, distinto del estrato de 5.000 imágenes del banco.
+
+El segundo tramo duplicó el AP50 de cabeza descubierta respecto del primero, pero colapsó durante el entrenamiento y falló las dos retenciones. El patrón conjunto mostró que el límite no fue capacidad de cómputo sino estructura experimental, con 2.946 imágenes de ajuste frente a 10,35 millones de parámetros, un conjunto cuya composición, regla de partición y configuración de entrenamiento declara la sección 17.4.7. Ningún checkpoint se adoptó como modelo de servicio, y los veredictos negativos se conservaron como resultados pre-registrados y no como trabajo pendiente.
+
+#### 17.5.7. Lo no ejecutado y lo no implementado
+
+Las condiciones de Nivel 2 y Nivel 3 no se implementaron en el núcleo evaluativo porque el material disponible no aportaba verdad de terreno del dominio ni evaluadores relacionales, zonales o de trayectoria que pudieran validarse. Incorporarlas habría producido capacidades sin medición defendible y habría confundido extensión arquitectónica con resultado experimental.
+
+Las métricas formales de seguimiento multiobjeto tampoco se calcularon, porque faltó una referencia de identidad apta para ese propósito. La exclusión no alcanzó a la capacidad de identidad temporal, que sí fue implementada y medida por su efecto sobre la alerta. La ganancia informada más arriba y su persistencia en las cuatro densidades pertenecen a esa capacidad y no a una métrica de seguimiento.
+
+La preselección liviana en el dispositivo de captura fue implementada para la fuente propia y caracterizada mediante una comparación pareada. Descartó el 87 % de las unidades antes de abandonar el dispositivo, 206 de las 236 que vio la compuerta, frente a las 277 que procesó la rama sin preselección, y permaneció deshabilitada en todas las corridas evaluativas. La exclusión fue deliberada, porque un filtro de cuadros sin persona habría suprimido la evidencia sostenida que la medición de falsas alarmas debía observar y habría superpuesto el error de un detector auxiliar sobre la cadena evaluada.
+
+Tampoco se sostuvo una cota operativa de falsas alarmas. Para hacerlo se requerían aproximadamente 3 h de cumplimiento anotado, mientras que la exposición continua disponible fue de 0,1027 h. La tasa horaria se reportó como derivación observacional, pero el material no habilitó una afirmación poblacional.
+
+Finalmente, la comparación temporal directa entre una fuente en vivo y su reproducción desde clip se declaró no interpretable. Sin un ancla común entre el reloj de pared y el tiempo del medio, el emparejamiento habría mezclado desfases instrumentales con el comportamiento de la plataforma.
+
+El sub-experimento formal que evaluaba cada prompt en aislamiento y dentro del vocabulario completo no se ejecutó sobre las combinaciones finalistas. La pregunta que lo motivaba quedó respondida por el contraste de variable única informado más arriba, que midió el costo de sumar un término al vocabulario activo.
+
+El marco de métricas admite además medidas que esta evaluación no reporta, y su estado se declara en lugar de omitirse. El tiempo hasta la primera detección se computó en todas las campañas y no se informa aquí, porque la comparación entre combinaciones se resolvió con la latencia de alerta, que es la que integra el motor de patrones. La precisión media promediada sobre el rango de umbrales de solapamiento quedó sin computar, porque la lectura se fijó en un único umbral. El percentil 99 de latencia se computó por corrida y no se consolidó como resultado comparativo, porque las corridas en vivo procesaron entre 30 y 295 unidades, muy por debajo de lo que ese percentil requiere. El consumo de memoria del acelerador se registró por corrida y no se consolidó como resultado comparativo, porque describe al perfil cargado y no a la combinación evaluada. Los benchmarks públicos de seguimiento multiobjeto previstos en la estrategia de datos no se ejecutaron, por la misma falta de referencia de identidad que excluyó a sus métricas. La curva de falsos positivos en función de la duración de la ventana, que la sección 17.1.5.2 prevé como eje de la calibración empírica, no se ejecutó, y las ventanas se usaron con sus valores de protocolo.
+
+Ocho limitaciones acotan la lectura de todo lo anterior. La tasa de falsas alarmas por hora no sostiene una cota operativa. La referencia temporal no tuvo doble anotación ni medida de acuerdo entre anotadores. Los bordes de episodio se adjudicaron por criterio único en seis clips. El material guionado proviene de un solo bloque de rodaje, y la medición sobre obra real precisó esa limitación sin levantarla, porque caracteriza por mecanismo dónde el sistema deja de ser evaluable en lugar de validarlo sobre obra real. Los escenarios quedaron desbalanceados, de modo que todo resultado se reporta por estrato además del agregado. El seguimiento no tiene métricas formales en obra real con multitud, aunque un clip con 127 personas mostró la fragmentación de identidades que explica la precisión por sujeto de ese estrato. Una de las fuentes de imágenes conserva licencia parcial. Y la condición de chaleco no quedó cerrada al nivel del estado por persona.
+
+---
+
+## Fuente: `docs/informe/entregable/90b-etapa4-texto-extraido.md`
+
+> SHA-256 del bloque: `51d89e555269aa5286f466ede903249078ef1af7e931d4a91e561005bdb76e61`  
+> Seleccion: §17.4 CERRADA (v1.15, 2026-09-08): lo construido, los artefactos por corrida (17.4.5) y las brechas declaradas (17.4.7). Es la fuente de §17.6 (repositorio y evidencias de cierre) y del anexo de reproducibilidad de §19.
+
+# 90b — Texto extraído del documento de trabajo: §17.4 Implementación (v1.15, bajada del 2026-09-08 con los pases 5, 5b, 5c, 5d y 5e aceptados; sin marcas, 3 comentarios abiertos. ETAPA 4 CERRADA)
+
+> **Extracción derivada (2026-09-08)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.4_Implementacion_v1.15.docx`, **solo para búsqueda y cita**
+> (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
+> este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
+> extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
+> `⟦ECUACIÓN: no extraída — ver el .docx⟧` donde estaban. Regenerado con
+> `herramientas/extraer_informe.py` (regla D-C del manual de aplicación).
+
+---
+
+### 17.4. Implementación del prototipo experimental
+
+La implementación materializa el diseño arquitectónico de la sección 17.3 en componentes construidos, contratos e interfaces concretados, mecanismos de acople y persistencia, y evidencia de verificación del funcionamiento técnico del prototipo.
+
+#### 17.4.1. Componentes construidos y cadena de datos
+
+El prototipo se materializó en tres componentes de plataforma, un módulo funcional de distribución y una cadena de datos externa a la plataforma que produce los insumos experimentales. La Figura 4.5 muestra esa organización con sus dos patrones de acople.
+
+El plano de medios implementa la cadena de inferencia de vocabulario abierto, desde la ingesta hasta la publicación de evidencia perceptiva normalizada. El plano de control implementa el motor de patrones de riesgo, que consume esa evidencia, mantiene estado temporal y registra alertas internas. El soporte experimental no es un plano de ejecución. Reúne los catálogos de prompts y de experimentos, el orquestador reproducible de corridas, la consolidación de artefactos y la consola de inspección con su servicio intermediario.
+
+El módulo de distribución de alertas es un módulo desacoplado y no un tercer plano de ejecución. Consume las alertas confirmadas desde el bus de alertas, aplica la política de notificación, controla idempotencia y supresión, entrega por MQTT en el nivel de calidad de servicio 1, con confirmación por mensaje y conserva un ledger de entregas de sólo adición. Su vista de resultados y su lanzamiento desde la orquestación quedaron integrados a la consola.
+
+La cadena de datos comprende adquisición, validación, conversión y congelamiento de datasets y bancos de evaluación, y la sección 17.4.6 documenta cómo se construyó la del banco temporal de video. Alimenta a la plataforma pero no forma parte de su cadena operativa, porque su función es producir material reproducible y con procedencia para entrenamiento, selección y evaluación.
+
+**Figura 4.5**
+
+*Vista de procesos y patrones de acople de la plataforma experimental*
+
+⟦FIGURA: no extraída — ver el .docx⟧
+
+**Nota.** La figura representa la materialización efectiva de los dos patrones de acople. El gobierno de las corridas ocurre por interfaces HTTP en el plano de medios, el plano de control y el módulo de distribución, con el orquestador y la consola como clientes de los tres. El flujo de datos se desacopla mediante buses ZeroMQ de patrón publicador-suscriptor con serialización msgpack, uno para los eventos de percepción entre medios y control y otro para las alertas confirmadas entre control y distribución. El repositorio por ejecución experimental conserva los artefactos persistentes de cada corrida.
+
+#### 17.4.2. Correspondencia y contratos materializados
+
+Los contratos mínimos definidos durante el diseño se materializaron como modelos de datos, configuraciones versionadas, esquemas serializables, servicios ejecutables y artefactos persistentes. La Tabla 56 establece la correspondencia entre cada denominación conceptual y su realización efectiva.
+
+**Tabla 56**
+
+*Correspondencia entre los contratos del diseño y su materialización efectiva*
+
+| **Elemento del diseño** | **Materialización efectiva** | **Versionado y trazabilidad** | **Componente** |
+| --- | --- | --- | --- |
+| Manifiesto de experimento | Archivo de manifiesto del experimento y configuraciones efectivas por plano | experiment.manifest.v1 | Soporte experimental |
+| SourceDefinition | Sección de fuente de la configuración y registro de adaptadores de ingesta | Esquema de configuración; congelado por el manifiesto | Plano de medios |
+| ModelProfile | Catálogo de perfiles de modelo, con un archivo por variante | Catálogo versionado; un archivo por variante | Plano de medios |
+| PromptDefinition | Conjunto de prompts versionado e identificado en cada corrida | prompt_set_id registrado en cada corrida | Soporte experimental |
+| FrameMetadata | Unidad visual y unidad preparada internas, y bloque de fuente del evento publicado | Contrato interno; viaja dentro del evento publicado | Plano de medios |
+| PerceptionEvent | Evento de percepción normalizado | media.detection.v1 | Plano de medios |
+| PatternDefinition | Definición declarativa dentro del conjunto de patrones | Conjunto de patrones versionado (pattern set) | Plano de control |
+| PatternStateChanged | Evento de transición del patrón | control.pattern_state.v1 | Plano de control |
+| AlertEvent | Alerta interna con identificador determinista e idempotente | control.alert.v1 | Plano de control |
+| MetricSample | Muestras de métricas de medios y control | media.metric.v2 / control.metric.v1 | Ambos planos |
+| ErrorEvent | Registro de errores y anomalías por corrida | Esquema por componente, registrado por corrida | Ambos planos |
+| Bus interno de eventos | Publicación ZeroMQ con envoltorio versionado | bus.envelope.v1 | Frontera entre planos |
+| Cierre de corrida | Evento de finalización publicado al cerrar la corrida | run.lifecycle.v1 (evento run_finished) | Plano de medios |
+| Repositorio de hechos | Archivos JSONL de sólo adición por corrida | Esquemas de cada evento persistido | Ambos planos |
+| Referencia temporal | Anotación humana de episodios por clip | clip_gt.v2 | Soporte experimental |
+| Reporte experimental | Reporte consolidado por experimento, report.json y report.md | Proyección regenerable de los artefactos primarios | Soporte experimental |
+| NotificationEnvelope y DeliveryRecord | Envoltorio de notificación y registro de entrega en el ledger | control.notification.v1 / control.delivery.v1 | Módulo de distribución |
+
+**Nota.** La tabla documenta la correspondencia semántica entre el diseño y la implementación. El versionado se materializa mediante esquemas explícitos, catálogos, conjuntos de configuración y artefactos congelados por el manifiesto de cada ejecución experimental.
+
+Cinco de esos contratos concentran los hechos principales de la ejecución, y son el evento de percepción, el envoltorio del bus, el contrato de ciclo de vida, el evento de transición de patrón y la alerta interna. La tabla anterior los declara con su identificador de esquema.
+
+Cada contrato es una clase de modelo declarada en el módulo de contratos de su componente, con tipos y campos obligatorios explícitos, validada en la frontera de entrada y persistida como un objeto JSON por línea, omitiendo los campos sin valor. Dentro del plano de medios la evidencia atraviesa además una cadena interna de contratos antes de publicarse. La unidad visual normaliza la lectura de la fuente, y la unidad preparada transporta los píxeles junto con la transformación espacial que devuelve del espacio del modelo al de la imagen original. La detección cruda recoge la salida del adaptador y la detección normalizada es la que se persiste. Esa cadena hace de la reproyección de coordenadas una operación declarada.
+
+El evento de percepción normaliza la salida del detector. Identifica la corrida y la unidad visual, y agrupa en bloques estructurados la fuente, el perfil de modelo, el conjunto de prompts efectivo, las detecciones y los tiempos medidos por unidad. Cada detección lleva su etiqueta, el identificador del prompt que la originó, el puntaje, la caja en píxeles y su equivalente normalizado. Esa composición permite que una detección se atribuya después a una variable concreta de la corrida y no a una combinación desconocida. La forma efectiva del evento, tal como se persiste, es la siguiente.
+
+{   "schema_version": "media.detection.v1",   "event_type": "detection_event",   "run_id": "run_20260803_211225_dbe_grounding_dino_1e06f3",   "unit_id": "frame_000229",   "source":  { "source_id": "a_p1_c02", "source_type": "video_frame",                "frame_index": 229, "timestamp_ms": 7633.33,                "width": 1920, "height": 1080 },   "model":   { "name": "grounding_dino",                "model_id": "IDEA-Research/grounding-dino-tiny", "device": "cuda" },   "prompts": { "prompt_set_id": "cr01_cr02_v2_short" },   "detections": [     { "detection_id": "det_000001", "label": "person",       "prompt_id": "person", "source_prompt": "person", "confidence": 0.88,       "bbox_xyxy":      [1239.8, 149.8, 1503.2, 861.9],       "bbox_norm_xyxy": [0.6457, 0.1387, 0.7829, 0.7981],       "area_px": 187612.4, "model_name": "grounding_dino" },     { "detection_id": "det_000002", "label": "vest",       "prompt_id": "vest", "source_prompt": "vest", "confidence": 0.8755,       "bbox_xyxy":      [1286.5, 235.3, 1459.3, 487.0],       "bbox_norm_xyxy": [0.67, 0.2179, 0.76, 0.4509],       "area_px": 43490.1, "model_name": "grounding_dino" },     { "detection_id": "det_000003", "label": "helmet",       "prompt_id": "helmet", "source_prompt": "helmet", "confidence": 0.456,       "bbox_xyxy":      [1519.0, 432.5, 1648.1, 521.3],       "bbox_norm_xyxy": [0.7911, 0.4005, 0.8584, 0.4827],       "area_px": 11463.6, "model_name": "grounding_dino" }   ],   "timing": { "normalize_ms": 8.06, "inference_ms": 491.17,               "postprocess_ms": 0.08, "write_ms": 0.0, "total_ms": 491.27 } }
+
+La misma estructura se declara en el código como modelo de datos con tipos explícitos. El campo de identidad entre fotogramas aparece aquí como opcional y con valor nulo por defecto, que es el mecanismo con el que un dato todavía no producido puede incorporarse sin cambiar la versión del esquema ni alterar los artefactos ya escritos.
+
+class DetectionEvent(BaseModel):     schema_version: str = "media.detection.v1"     event_type: str = "detection_event"     run_id: str     unit_id: str     source: DetectionEventSource     model: DetectionEventModel     prompts: DetectionEventPrompts     detections: list[Detection]     timing: DetectionEventTiming  class Detection(BaseModel):     detection_id: str | None = None     track_id: str | None = None        # aditivo: identidad entre fotogramas     label: str     prompt_id: str | None = None     source_prompt: str | None = None     strategy: str | None = None     condition_id: str | None = None     confidence: float     bbox_xyxy: list[float]             # coordenadas en la imagen original     bbox_norm_xyxy: list[float]        # coordenadas normalizadas     area_px: float | None = None     model_name: str | None = None
+
+El envoltorio del bus no reempaqueta ese contenido. Transporta como carga la misma cadena que ya se escribió en el artefacto y le agrega cuatro campos propios del transporte, que son el tópico, la clave de particionado, un número de secuencia monótono por publicador y el instante de publicación en reloj de pared. El módulo de distribución conserva ese instante como marca de confirmación. El número de secuencia se consume incluso cuando el envío se descarta por saturación del canal, de modo que la pérdida se vuelva un hueco observable del lado del consumidor.
+
+El contrato de ciclo de vida no delimita el inicio de la corrida sino su cierre, y publica un único evento de finalización con el identificador de corrida y su estado, para que el final lógico se distinga de una interrupción. Ambos contratos se emplean sin variantes en los dos buses, porque el publicador de alertas del plano de control es un espejo deliberado del publicador de medios.
+
+El evento de transición registra los cambios entre los estados del patrón que fija la máquina de estados del diseño, junto con la evidencia y los hitos temporales que los motivaron. Incorpora además el instante y la unidad de la primera evidencia positiva del episodio, que es el punto de partida de la medición de latencia. Un contrato hermano registra el progreso parcial mientras la condición está en curso y todavía no fue confirmada.
+
+La alerta interna registra la confirmación del episodio, y su identificador no es un valor aleatorio. Se deriva de forma determinista sobre la cadena que concatena el identificador de corrida de control, el de corrida de medios, la unidad, el patrón y la clave de sujeto, que incorpora el identificador del sujeto sólo cuando el patrón opera con esa granularidad. La alerta conserva además el sujeto observado, las detecciones de soporte, la clase de protección ausente, la región evaluada, el puntaje y una justificación legible. El fragmento siguiente reproduce la alerta registrada sobre el mismo clip y la misma unidad que el evento anterior, y permite verificar la ventana de confirmación. La alerta transporta el fotograma de la primera evidencia, el 109, y el de la confirmación, el 229. A los 30 cuadros por segundo del clip, esos fotogramas corresponden a 3.633 y 7.633 ms de video, exactamente los 4.000 ms configurados para la condición. Los dos instantes en milisegundos que la alerta también conserva pertenecen al reloj del equipo de control y no al tiempo de video.
+
+{   "schema_version": "control.alert.v1",   "event_type": "alert_event",   "control_run_id": "bench_a_p1_c02_gdino_20260822_20260822T225536Z",   "media_run_id":   "run_20260803_211225_dbe_grounding_dino_1e06f3",   "alert_id": "394c9116-a38d-568d-b620-20d147c4cac9",   "pattern_id": "CR-01", "condition_id": "CR-01",   "subject_key": "CR-01:a_p1_c02", "source_id": "a_p1_c02",   "severity": "high", "state": "open",   "unit_id": "frame_000229", "frame_index": 229, "timestamp_ms": 7633.33,   "evidence": {     "subject": { "detection_id": "det_000001", "label": "person", "confidence": 0.88,                  "bbox_xyxy": [1239.8, 149.8, 1503.2, 861.9] },     "missing_class": "helmet",     "supporting": [],     "score": 0.88, "subjects_in_evidence": 1,     "rationale": "No se encontro evidencia 'helmet' en region 'upper_body' de 1 sujeto(s)."   },   "first_evidence_ms": 41990631.527, "first_evidence_unit_id": "frame_000109",   "first_evidence_frame_index": 109,   "alert_registered_ms": 41990642.511 }
+
+La identidad de la alerta es entonces una función pura de esa quíntupla, con tres consecuencias verificables. Reprocesar la misma evidencia bajo el mismo identificador de corrida reproduce exactamente los mismos identificadores de alerta. La deduplicación no requiere estado compartido entre componentes, porque el módulo de distribución construye su clave de idempotencia a partir del identificador de alerta y la asienta en su propio registro sin consultar al plano de control. Y la identidad se asigna por confirmación y no por episodio, de modo que una confirmación posterior sobre el mismo sujeto recibe identidad propia y la idempotencia no oculta reincidencias reales.
+
+Los contratos admiten además información que la implementación actual no produce, y la sección 17.4.8 informa cómo se ejerció esa capacidad sin romper la compatibilidad.
+
+#### 17.4.3. Servicios, gobierno por configuración y acople
+
+Los tres módulos de la cadena se implementaron como servicios independientes, gobernados por configuración y expuestos mediante HTTP. Cada uno carga su configuración al iniciarse, admite una corrida activa por vez, rechaza las solicitudes concurrentes señalando la que está en curso y los dos planos persisten además la configuración efectiva que utilizaron, que el módulo de distribución expone por su interfaz. El plano de medios carga además el modelo una sola vez al arrancar. Rutas, fuentes, umbrales, ventanas temporales y opciones de instrumentación se declaran en configuración, sin constantes ocultas en el código. La Tabla 57 reúne sus operaciones de gobierno.
+
+**Tabla 57**
+
+*Interfaces principales de los servicios de la plataforma*
+
+| **Servicio** | **Operación** | **Función** |
+| --- | --- | --- |
+| Plano de medios (:8080) | GET /api/model | Expone el perfil de modelo, dispositivo y umbrales efectivos. |
+|  | POST /api/runs | Dispara una corrida con fuente, prompts, parámetros, configuración de bus e identificador de experimento. |
+|  | POST /api/runs/{id}/stop | Detiene cooperativamente la corrida en curso y el cierre se propaga a los consumidores por el bus. |
+|  | GET /api/runs/{id} | Consulta estado y resumen de la corrida. |
+|  | GET /api/runs/{id}/detections | Recupera evidencia perceptiva paginada. |
+|  | POST /api/runs/{id}/evaluate | Ejecuta la evaluación de percepción cuando existe referencia aplicable. |
+| Plano de control (:8081) | POST /api/runs | Dispara una corrida en modo diferido o en vivo. |
+|  | GET /api/runs/{id}/alerts | Recupera las alertas internas registradas. |
+|  | GET /api/config | Expone la configuración efectiva de control. |
+| Módulo de distribución (:8082) | POST /api/runs | Inicia una corrida de entrega con fuente de alertas, política, canal e identificador de experimento. |
+|  | GET /api/runs/{id} | Consulta estado y conteos de entrega; determina cuándo consolidar artefactos. |
+|  | POST /api/runs/{id}/cancel | Detiene cooperativamente una corrida de entrega en curso. |
+|  | GET /api/config | Expone la configuración efectiva de distribución. |
+| Medios → control (:5557) | Bus ZeroMQ publicador-suscriptor (msgpack) | Transporta los eventos de percepción y el ciclo de vida de la corrida dentro del envoltorio versionado del bus. |
+| Control → distribución (:5558) | Bus ZeroMQ publicador-suscriptor (msgpack) | Transporta las alertas internas confirmadas hacia el módulo de distribución. |
+| Orquestador y consola | Clientes HTTP de los tres servicios | Gobiernan corridas y consolidan artefactos, sin consumir los buses de datos. |
+
+El modelo no se transmite en la solicitud de corrida, de modo que comparar perfiles implica disponer procesos con perfiles distintos en lugar de reconfigurar pesos dentro de una corrida. La decisión mantiene el costo de carga fuera de la ruta crítica y evita estados ambiguos del servicio.
+
+Las operaciones de consulta de configuración y de perfil de modelo permiten verificar antes de disparar que el servicio cargó lo que el experimento requiere. Sin ellas, una discrepancia entre lo configurado y lo desplegado sólo se descubriría en los resultados.
+
+En una corrida en vivo el orquestador inicia primero el plano de control, después el módulo de distribución y por último el plano de medios. El control arranca primero porque debe quedar suscripto al canal de detecciones antes de que los medios publiquen, y la distribución va después porque su corrida se declara contra la corrida de control ya creada. La no pérdida en el canal de alertas no depende de ese orden sino del publicador, configurado por el orquestador para esperar a que haya un suscriptor antes de emitir. Un consumidor suscripto tarde perdería los eventos ya publicados sin ningún error observable, y las dos garantías juntas excluyen esa pérdida por construcción.
+
+La detención de corridas es cooperativa en los dos servicios que la exponen. La solicitud marca la corrida y el hilo de ejecución la observa entre unidades, sin cortes abruptos que dejarían artefactos a medio escribir. El plano de control no expone detención y la asimetría es deliberada, porque su corrida en vivo se cierra con el evento de finalización que publica el plano de medios, con el que mantiene una relación uno a uno. El módulo de distribución sí requiere cancelación propia, porque una corrida de entrega puede quedar a la espera de alertas y debe poder abortarse sin reiniciar el servicio.
+
+Sobre esos servicios se materializan los dos caminos experimentales, que describen cómo circula la evidencia entre los planos según la naturaleza de la ejecución.
+
+En el camino DBE el acople entre planos se realiza por archivo. El plano de medios persiste su registro de detecciones y el plano de control lo relee, de modo que el repositorio de corrida es la fuente de verdad y permite repetir el procesamiento bajo condiciones controladas. En el camino EBE la evidencia se transmite por el bus dentro del envoltorio versionado.
+
+La evidencia se persiste antes de publicarse, y el contenido lógico de la línea persistida y del mensaje transmitido es el mismo, lo que permite reevaluar una corrida en vivo por el camino diferido y reproducir sus artefactos. En los experimentos, los tres servicios se ejecutaron en un mismo equipo con unidad de procesamiento gráfico, el nodo central de procesamiento que describe la sección 17.1.4.1. Los contratos entre módulos no fijan esa topología, y la configuración de cada corrida registra la disposición efectiva.
+
+#### 17.4.4. Configuración efectiva y catálogo de modelos
+
+El conjunto de patrones efectivo del núcleo es el que el catálogo de configuración identifica como cr01_cr02_v2. CR-01, persona sin casco, se configuró con severidad alta, confirmación a los 4.000 ms y resolución a los 2.000 ms. CR-02, persona sin chaleco reflectivo, se configuró con severidad media, confirmación a los 7.000 ms y resolución a los 3.000 ms. Las precondiciones de evidencia exigen confianza mínima de 0,35 y área mínima de 400 píxeles cuadrados para el sujeto, y confianza mínima de 0,25 para el elemento de protección. La región de búsqueda se define de forma relativa a la caja del sujeto. Para CR-01 es la franja superior entre el 0 % y el 45 % de la altura con margen lateral del 12 %, y para CR-02 la franja del torso entre el 25 % y el 85 % con margen lateral del 8 %.
+
+El conjunto opera con granularidad de escena y el motor registra cada confirmación sin supresión, conforme a la decisión de diseño DA-13. La identidad por sujeto se implementó como capacidad activable por configuración del plano de control y se trata en la sección 17.4.8.
+
+El vocabulario activo del núcleo se compone de person como entidad y de helmet y vest como elementos de protección.
+
+El catálogo de perfiles de modelo materializa la sustituibilidad prevista en el diseño. Reúne variantes de Grounding DINO en sus versiones tiny y base, que corresponden a los backbones Swin-T y Swin-B que presenta la sección 15.2.1.1, cada una con resolución de entrada de 800 y de 560 píxeles, y YOLOE-26 en cuatro tamaños, s, m, l y x, todas integradas mediante adaptadores sobre el mismo contrato de salida. Una tercera familia, MM-Grounding-DINO, se integró por el mismo mecanismo y se archivó fuera del catálogo activo tras la evaluación, cuyo resultado informa la sección 17.5.
+
+El núcleo no fija un modelo único. Cada instancia del servicio de medios carga un perfil al iniciarse, de modo que comparar perfiles equivale a disponer instancias distintas bajo la misma configuración de corrida, y el despliegue integral define un servicio por cada uno de los nueve perfiles de servicio del catálogo, y deja fuera los dos perfiles de ajuste fino que se conservan sólo para reproducir su evaluación. Las campañas temporales y en vivo fijan un perfil por corrida, declarado en el manifiesto.
+
+Cada perfil declara sus umbrales y su postproceso en el catálogo. El perfil operativo, fijado por criterio pre-registrado para las campañas temporales y en vivo, es la variante tiny de Grounding DINO con resolución de entrada de 560 píxeles, identificada en el catálogo como gdino-tiny-560, y declara umbral de caja de 0,30 y de texto de 0,25. Su postproceso aplica confianza mínima de 0,25, supresión de solapamientos con IoU de 0,50 y área mínima de caja de 100 píxeles cuadrados, y el control de ritmo opera con selección determinista de paso 1 y una cola máxima de ocho unidades. La inferencia corre en coma flotante de 16 bits sobre la unidad gráfica, una opción de la corrida y no del perfil, y la variante base de 560 píxeles, gdino-base-560, comparte resolución, umbrales y postproceso.
+
+#### 17.4.5. Artefactos y trazabilidad por corrida
+
+Cada ejecución produce un repositorio de artefactos de sólo adición. La organización por componente que reúne la Tabla 58 conserva la evidencia necesaria para reproducir el flujo, analizar fallas y reconstruir una alerta desde su configuración hasta su salida distribuida.
+
+**Tabla 58**
+
+*Artefactos persistidos por componente y experimento*
+
+| **Tramo** | **Artefactos principales** | **Función de trazabilidad** |
+| --- | --- | --- |
+| Plano de medios | detections.jsonl; metrics.jsonl; errors.jsonl; summary.json; effective_config.yaml; run_manifest.json; run_provenance.json | Reconstruye fuente, unidades procesadas, detecciones, tiempos, errores, configuración, procedencia y versión de código. |
+| Plano de control | pattern_events.jsonl; alerts.jsonl; alerts.csv; metrics.jsonl; errors.jsonl; summary.json; effective_config.yaml | Reconstruye transiciones del patrón, alertas internas, evidencia causal, métricas y configuración del motor. |
+| Soporte experimental | manifest.effective.yaml; copias de artefactos livianos; referencias a artefactos pesados; report.json; report.md | Agrupa las corridas de ambos planos bajo un experiment_id y consolida el resultado de la ejecución experimental. |
+| Distribución | notifications.jsonl (ledger de intentos y entregas, de sólo agregado); dead_letter.jsonl; distribution_summary.json | Relaciona cada intento y resultado de entrega con la alerta interna original sin reescribirla, y conserva por separado los descartes definitivos por agotamiento de reintentos. |
+
+**Nota.** Los nombres de archivo corresponden a los artefactos implementados. Los artefactos pesados se referencian en la ejecución experimental para evitar duplicación, mientras que las configuraciones y reportes se conservan junto al experimento.
+
+La disposición del repositorio del soporte experimental es la siguiente.
+
+runs/<experiment_id>/  (repositorio del soporte experimental)   manifest.effective.yaml   media/    summary.json · metrics.jsonl · effective_config.yaml             detections.ref.json             (referencia al detections.jsonl del plano de medios)   control/  alerts.jsonl · pattern_events.jsonl · metrics.jsonl             summary.json · effective_config.yaml             (y la evaluación temporal, cuando la corrida la habilita)   distribution/  notifications.jsonl · distribution_summary.json                  dead_letter.jsonl               (cuando la corrida habilita el tramo de distribución)   report/   report.json · report.md
+
+La ejecución experimental consolida así los cuatro componentes bajo una misma clave. El manifiesto de corrida registra la versión de código que produjo los artefactos. Junto con la configuración efectiva, el conjunto de prompts y la procedencia de la fuente, ese dato permite reconstruir cada alerta hasta el modelo y la revisión de código que intervinieron. El reporte consolidado declara el estado de aplicabilidad de cada métrica como computada, aplicable no computada, no aplicable o no interpretable, siempre con una causa explícita.
+
+El ledger de entregas del módulo de distribución registra una fila por intento y una más por el descarte definitivo cuando se agotan los reintentos, de modo que la unidad de conteo del tramo es la notificación y no la fila. Al reutilizar un directorio de salida, la generación anterior se archiva íntegra y la deduplicación considera todas las generaciones, para que un reprocesamiento no vuelva a entregar lo ya entregado ni pierda la traza de lo entregado antes.
+
+#### 17.4.6. Banco temporal y referencia humana de evaluación
+
+La evaluación temporal se apoya en una referencia humana de episodios por clip, materializada mediante el esquema clip_gt.v2. La primera generación registraba alertas esperadas por sujeto y fue reemplazada por episodios a nivel de escena y condición, con tiempos en milisegundos y estados de aplicabilidad por clip. Para la anotación se seleccionó CVAT, una herramienta de código abierto con soporte de interpolación temporal y exportación estructurada.
+
+**Adquisición del material.** El banco proviene de dos fuentes con procedencia y grado de control experimental distintos, y esa diferencia se conserva como atributo de cada clip. La primera es un rodaje guionado ejecutado con el hardware real de captura del prototipo. Cada escenario se diseñó en función de una condición de riesgo del núcleo. Un guion segundo a segundo fija la entrada del sujeto en cumplimiento, el inicio diferido de la infracción y su persistencia sostenida durante lapsos muy superiores a las ventanas de confirmación. El guion incluye además escenas negativas y escenas deliberadamente por debajo de ese umbral. Las tomas se registraron con margen temporal adicional respecto del clip previsto, y tanto la grabación como el recorte se hicieron desde la propia consola del prototipo.
+
+La segunda fuente es un lote de obra real no guionada, obtenido de videos públicos e incorporado como bloque separado con criterios de selección definidos de antemano. Reúne material de obra en cumplimiento destinado a medir especificidad y falsos positivos, no sensibilidad, prohíbe concatenar segmentos cortos para fabricar unidades largas y exige que toda exclusión se declare con causa y firma en lugar de descartarse en silencio.
+
+Los videos maestros del lote se obtuvieron de una lista de reproducción pública de YouTube compilada por el equipo (https://www.youtube.com/playlist?list=PLVG3-xIaXtKzAC9JJnZJUY4aBCg0BNPKV, consultada el 8 de septiembre de 2026) y no se redistribuyen. La dirección de origen y la fecha de acceso de cada video se consignan en el anexo de licencias y procedencia de la sección 19.
+
+**Segmentación temporal.** Los videos maestros se conservaron sin modificación y las unidades de evaluación se generaron como clips derivados, con criterios temporales fijados antes de ejecutar las campañas y aplicados como reglas ejecutables. Cada clip del rodaje se recortó con un preludio fijo de 3,5 s antes del inicio de la condición, porque un episodio que arranca en el primer fotograma impide medir el tiempo hasta la primera detección. Lleva además una cola posterior al cierre del episodio de entre 3 y 10 s según el escenario, y un piso de duración que garantiza que una alerta válida pero lenta ocurra dentro del clip.
+
+Ese piso resulta de sumar al inicio del episodio el techo del objetivo de latencia de alerta de su patrón, la ventana de resolución y un margen final, y se verifica mediante un control automático durante la derivación de la referencia. El clip que no lo alcanza no se vuelve a recortar, y sus métricas de latencia y sensibilidad quedan censuradas y así se declaran.
+
+El fundamento del dimensionamiento es bidireccional. Un clip demasiado corto subestima al sistema, porque produce latencias artefactuales y cuenta como omisión una alerta que no tuvo tiempo de ocurrir. Un clip sin tiempo muerto sobreestima la precisión, porque elimina los tramos donde aparecen los falsos positivos. La selección de tomas se hizo por calidad visual de la escena y no por duración, y los límites de todos los clips quedaron congelados bajo control de versiones antes de ejecutar las campañas. Los clips del lote de obra real no se segmentaron, porque recortarlos alteraría el tiempo negativo que ese bloque aporta.
+
+**Preanotación y revisión humana.** La anotación no partió de video crudo. Cada clip se preanotó automáticamente con un detector de vocabulario abierto de mayor capacidad que el modelo evaluado, elección deliberada para evitar circularidad entre el sistema medido y su referencia. Ese detector se acopló a un algoritmo de seguimiento que propone trayectorias por sujeto, con los atributos de protección inicializados por asociación espacial.
+
+Sobre esa propuesta se realizó la pasada humana en CVAT. Esa revisión corrigió las cajas y las trayectorias de los 47 clips del banco, verificó la identidad de cada sujeto a lo largo de la secuencia y asignó los atributos observables tramo por tramo. Marcó como estado desconocido aquellos tramos donde el atributo no resulta observable, en lugar de forzar un valor, y fijó los límites temporales de los 37 episodios de referencia. La interpolación temporal y la preanotación redujeron las operaciones repetitivas, pero no sustituyeron ninguna de esas decisiones. La referencia experimental es el producto de esa revisión. Cuatro clips de un piloto anterior sobre video de obra real, anotados con la misma referencia de atributos y ajenos al banco temporal, se conservaron para la medición del estado por persona que informa la sección 17.5.3. La anotación la realizó un único anotador, sin la doble anotación sobre el 20 % del material que la sección 17.1.5.4 exige para la anotación propia, desviación que la sección 17.5.7 registra como limitación.
+
+**Derivación y congelamiento.** La salida de la anotación se procesa mediante una cadena reproducible de separación, derivación, validación, promoción y agregación. La cadena valida la estructura de cada exportación antes de derivar. La derivación clasifica los episodios con las mismas ventanas de confirmación que utiliza el motor de patrones, de modo que la referencia y el sistema evaluado apliquen un criterio temporal idéntico. Una divergencia entre ambos produciría omisiones ficticias. Las correcciones humanas posteriores se aplican como registros firmados sobre los artefactos versionados, nunca editando la herramienta, y un control automático falla cuando una corrección firmada no aparece en la referencia derivada. Las anotaciones promovidas quedan congeladas bajo control de versiones, con huella criptográfica por clip y un manifiesto agregado del banco. La referencia experimental es la versión promovida en el repositorio y no el estado mutable de CVAT.
+
+#### 17.4.7. Verificación, alcance efectivo y brechas
+
+El criterio de cierre de la implementación exigió que cada unidad funcional produjera evidencia verificable dentro de una corrida y que su comportamiento pudiera repetirse mediante pruebas automatizadas o artefactos persistidos. La Tabla 59 reúne esa evidencia, concentrada en gobierno por configuración, cierre de corridas, paridad entre caminos, determinismo del motor y funcionamiento de la integración.
+
+**Tabla 59**
+
+*Evidencia de verificación técnica del prototipo*
+
+| **Propiedad verificada** | **Evidencia de implementación** |
+| --- | --- |
+| Servicios ejecutables y gobernados por configuración | Las operaciones de salud, disponibilidad, creación y consulta de corridas operan sobre configuraciones validadas, y cada servicio limita la concurrencia de corridas activas. |
+| Cadena DBE de extremo a extremo | La relectura por archivo produce detecciones, transiciones, alertas, métricas, resumen y configuración efectiva, y repetir el camino conserva los artefactos deterministas. |
+| Cadena EBE y cierre de ciclo de vida | El consumidor confirma la suscripción antes del productor, la corrida cierra con el evento de finalización y los huecos de secuencia se registran como degradación. |
+| Paridad entre repositorio y bus | La evidencia persistida y la transmitida conservan el mismo contenido lógico, y una corrida en vivo puede reevaluarse por el camino diferido. |
+| Motor de patrones e idempotencia | Las transiciones respetan las ventanas configuradas y la alerta usa un identificador determinista, estable ante el reprocesamiento de la misma corrida. |
+| Distribución de alertas | Se verificaron la relectura diferida, el consumo en vivo, la supresión, la idempotencia, la entrega MQTT con confirmación contra un broker real, el ledger y el reporte. |
+
+**Nota.** La tabla acredita funcionamiento técnico y reproducibilidad. Cada módulo mantiene su propio conjunto de pruebas automatizadas, con el que estas propiedades se vuelven a verificar. No presenta métricas de desempeño del banco experimental, que se informan con sus denominadores y condiciones en la sección 17.5.
+
+La verificación confirmó además que las fallas instrumentales no se convierten en ceros silenciosos, porque una pérdida de bus degrada la corrida, una métrica sin reloj comparable se declara no interpretable y un canal no habilitado se declara no aplicable.
+
+El cierre de la implementación requiere declarar con precisión qué capacidades se ejercieron, cuáles permanecen fuera del núcleo y con qué estatuto, porque no todas las brechas son del mismo tipo.
+
+La concentración del prototipo en el núcleo validable no responde a una reducción tardía del alcance sino a las condiciones de evaluabilidad de cada condición del catálogo. Las de Nivel 1 cuentan con datasets públicos y bancos con verdad de terreno para persona y elementos de protección, lo que permite medir percepción, estado temporal y alerta con denominadores declarados. Las de Nivel 2 y Nivel 3 exigen insumos que el material disponible no provee, y su justificación se desarrolla en la sección 17.5.7. Incorporarlas sin esa base habría producido capacidades no medibles, de modo que el esfuerzo se concentró en llevar el núcleo a capacidad medida. Las doce capacidades del núcleo y la operación sobre fuentes en vivo quedaron implementadas, se describen en las secciones 17.4.1 a 17.4.5 y se ejercieron en las campañas de la sección 17.5.
+
+Dos capacidades opcionales de la Tabla 39 y dos propiedades del diseño quedaron implementadas y medidas. La identidad persistente de sujeto opera como decorador configurable de la fuente del plano de control y constituye una capacidad medida, aunque las métricas formales de seguimiento permanezcan excluidas por falta de anotación de identidad. Las tres estrategias de detección se implementaron y su comparación se ejecutó, con la salvedad de la variante híbrida por conjunción que declara la sección 17.5.6. La distribución de alertas quedó implementada, verificada e integrada a la consola y a la orquestación, con MQTT como canal ejercido. Y la paridad entre la relectura por archivo y el transporte por bus quedó verificada. Los valores de todas ellas se informan en la sección 17.5.
+
+Una capacidad se implementó y se caracterizó fuera del régimen evaluativo. La preselección liviana en el rol de captura funciona como filtro de personas ejecutado en el dispositivo, con criterio de degradación segura y deshabilitada por defecto, y no existe para las fuentes por red. Permaneció deshabilitada en todas las corridas evaluativas, y esa exclusión es deliberada y anterior a los resultados, porque un filtro de cuadros sin persona suprimiría las detecciones sostenidas que la tasa de falsas alarmas existe para medir. La sección 17.5.7 informa su reducción de carga medida.
+
+Las condiciones de riesgo de Nivel 2 y Nivel 3 quedaron especificadas y no implementadas. Su incorporación requiere evaluadores relacionales, zonales o de trayectoria y evidencia adecuada, y por eso no forman parte del núcleo validable.
+
+La gestión de evidencia visual controlada quedó implementada como opción de corrida. El plano de medios puede conservar una previsualización por unidad procesada, con un tope configurable, y un video anotado de la corrida completa. La previsualización viene habilitada por defecto, un valor que invierte la regla de habilitación explícita que el diseño fija para los módulos opcionales, y el video anotado viene deshabilitado. Las campañas del banco declararon apagadas las dos, conforme a la política de minimización de evidencia visual, de modo que los artefactos evaluativos conservan identificadores, metadatos y coordenadas, y no imágenes.
+
+La rama comparativa de ajuste fino se ejerció por completo. El protocolo, la procedencia, el servicio de inferencia, la evaluación y la línea base quedaron congelados, y la escalera de tres tramos, registrada antes de entrenar, se ejecutó entera. Los dos tramos entrenados se evaluaron una única vez contra el banco congelado, sin que ninguno superara los criterios de incorporación, que se firmaron antes de que existiera el punto de control al que se aplicarían. El tercer tramo, que habría ajustado MM-Grounding-DINO como linaje entrenable de Grounding DINO, se cerró con causa técnica por dos razones. La escalera lo condicionaba a que alguno de los dos tramos anteriores alcanzara sus criterios, y ninguno lo hizo. Y la variante que iba a ajustarse entregaba cajas degeneradas con origen en el punto de control publicado, verificado con la biblioteca de referencia sin código del proyecto, mientras que la variante sana de esa familia no había mostrado ventaja en ninguna dimensión evaluada, de modo que el linaje ajustado no habría sido el del perfil operativo. Ninguno se adoptó como modelo de servicio ni entró al despliegue, y sus perfiles permanecen en el catálogo sólo para reproducir la evaluación. Los valores por tramo se informan en la sección 17.5.6.
+
+El subconjunto de ajuste reunió 2.946 imágenes, por encima del rango orientativo de 500 a 2.000 que fija el protocolo, y ese exceso es consecuencia de aplicar la regla de partición y no de apartarse de ella. Se tomó el total de los linajes elegibles después de excluir íntegramente la única fuente que el banco de evaluación incorpora completa y de deduplicar de forma perceptual contra él, sin submuestrear hasta el techo del rango. Los controles de solapamiento con el banco y de componentes compartidos entre entrenamiento y validación quedaron en cero, y la semilla de partición se registró con el resto de la configuración.
+
+El cumplimiento de esa regla tuvo un límite que conviene declarar. Una de las dos fuentes retenidas para el ajuste aporta además el estrato curado del banco de imágenes, de modo que en ese punto la partición se apartó del protocolo, que reserva para el banco a toda fuente que lo integre aunque sus particiones nominales sean disjuntas. Excluirla habría reducido el conjunto de ajuste de 2.946 a 743 imágenes. La desviación se admitió con dos controles verificados, particiones disjuntas y deduplicación perceptual contra el banco en cero, y la retención medida sobre el banco, que incluye ese estrato, se lee con esa salvedad.
+
+La asignación efectiva de las cuatro fuentes de la sección 17.1.6.2 fue la siguiente. SHEL5K y CHV integran el banco de evaluación como los estratos de 5.000 y 1.330 imágenes, y CHV es la fuente que quedó excluida íntegramente del ajuste. construction_site_safety aportó 2.203 imágenes al ajuste y es además el origen del estrato curado de obra, que es la desviación declarada arriba. ppe_siabar aportó las 743 restantes. La retención open-vocabulary se midió sobre las 5.000 imágenes de validación de COCO 2017, un material ajeno al dominio y distinto del estrato de 5.000 imágenes del banco.
+
+El aumento de datos fue el conjunto por defecto de la biblioteca de entrenamiento, mosaico, variación de color, traslación, escala, volteo horizontal y borrado aleatorio, sin ajustes propios, y quedó registrado en la configuración efectiva de cada corrida. El costo fue de 7,7 minutos para el primer tramo y de 23,8 para el segundo, sobre una unidad gráfica NVIDIA A30 del clúster de cómputo.
+
+Los dos tramos entrenados ajustaron la variante s de YOLOE-26 sobre la misma partición de 2.946 imágenes de ajuste y 483 de validación, con imágenes a 640 píxeles de lado, lotes de ocho, semilla fija y ejecución determinista, y en cada uno se conservó el punto de control de mejor mAP50-95 sobre las cuatro clases de validación y no el de la última época. Lo que la escalera varía es el alcance entrenable. El primer tramo entrenó sólo la proyección de clases, 3.096 parámetros, en la modalidad de linear probing que describe la sección 15.2.4. El segundo entrenó el detector completo con las rutas de prompt congeladas, 10,35 millones de parámetros, y modificó además su régimen de época y de optimización por una enmienda registrada antes de observar resultado alguno.
+
+Ese régimen es la segunda diferencia entre ambos. El primer tramo recorrió 10 épocas completas con la selección automática de optimizador de la biblioteca de entrenamiento, y su detención temprana quedó inoperante porque la paciencia configurada superaba ese techo. El segundo fijó un techo de 60 épocas y una detención tras 15 sin mejora, ambos valores registrados antes de observar resultado alguno, y declaró el optimizador de forma explícita, por descenso de gradiente estocástico con tasa de aprendizaje inicial 0,01, momento 0,937 y tres épocas de calentamiento. La detención se activó en la época 16 y la mejor época fue la primera, que es el dato sobre el que se apoya la lectura de colapso durante el entrenamiento.
+
+La declaración explícita del optimizador responde a un hallazgo de una corrida anterior del mismo tramo, descartada por esa causa. El modo automático de la biblioteca de entrenamiento deriva la tasa de aprendizaje del número de clases y no del alcance entrenable, de modo que asignaba el mismo valor a un tramo de 3.096 parámetros y a otro de 10,35 millones. Esa corrida se conservó como evidencia del hallazgo y no como candidata a incorporación.
+
+El prototipo conserva su carácter experimental y asistivo. No implementa reconocimiento de identidad personal, no determina incumplimientos normativos y no reemplaza la supervisión de seguridad, conforme a las salvaguardas de la sección 17.1.10.
+
+#### 17.4.8. Extensibilidad y costo de extensión
+
+La extensibilidad se verificó en dos dimensiones, la incorporación de nuevas capacidades mediante puntos de extensión acotados y la evolución aditiva del evento de percepción. La plataforma no sostiene que toda condición pueda incorporarse sólo con lenguaje, y la Tabla 60 delimita qué cambios requieren configuración y cuáles requieren código nuevo.
+
+**Tabla 60**
+
+*Puntos de extensión y costo técnico de incorporación*
+
+| **Extensión** | **Intervención requerida** | **Costo técnico esperado** |
+| --- | --- | --- |
+| Condición del mismo tipo: sujeto sin EPP | Entrada declarativa en el conjunto de patrones y formulaciones de prompt, con clase del sujeto, clase ausente, región, umbrales y ventanas. | Sólo configuración. Sin reentrenamiento ni cambios en el motor. |
+| Familia nueva de condiciones | Nuevo evaluador para relaciones, zonas, trayectorias u otra semántica no cubierta por el evaluador de ausencia espacial. | Código acotado al evaluador, con los contratos y el resto de la cadena conservados. |
+| Modelo de detección | Adaptador que normalice la salida y perfil de modelo en el catálogo. | Código acotado al adaptador y configuración. |
+| Fuente visual | Adaptador de ingesta que produzca unidades visuales normalizadas. | Código acotado al adaptador y su validación. |
+| Canal de notificación | Implementación de un consumidor del contrato de notificación y su integración de ciclo de vida. | Fuera de los dos planos; no modifica la alerta interna. |
+| Dato adicional en la detección | Campo opcional con valor por defecto y consumidor tolerante a su ausencia. | Evolución aditiva sin ruptura del contrato de percepción. |
+
+***Nota****.* La frontera entre la primera y la segunda fila delimita la extensibilidad por configuración. Una ausencia de EPP sobre un sujeto observable reutiliza el evaluador existente, mientras que una relación nueva entre entidades requiere lógica de evaluación específica.
+
+El costo de incorporar vocabulario nuevo se midió en un piloto sobre la clase machinery. No requirió entrenamiento y demandó 48 líneas de configuración y nueve minutos de trabajo. El ejercicio mostró también que la extensión no termina al obtener detecciones, porque la alineación entre el término elegido y el concepto visual debe validarse. La sección 17.5.2 informa su desempeño y los dos fallos semánticos que aparecieron.
+
+La identidad de sujeto recorrió el segundo camino de extensión. Se implementó como un decorador configurable de la fuente de eventos del plano de control, desactivado por defecto y utilizable tanto en el camino diferido como en el camino en vivo. La incorporación no exigió modificar el plano de medios ni romper el contrato de percepción. El identificador se conserva en los artefactos de control y no en los del plano de medios, pero el seguidor, que asocia cajas de persona por solapamiento entre cuadros consecutivos, y el orden del flujo son deterministas, de modo que una relectura reproduce las mismas identidades. Su efecto cuantitativo se informa en la sección 17.5.
+
+El evento de percepción admite además información que la implementación actual no produce, y esa capacidad se ejerció antes de declararse. La detección normalizada incluye un campo de identidad entre fotogramas que ningún productor emite, declarado como opcional con valor por defecto y omitido al serializar cuando no tiene valor, de modo que su presencia no altera un solo byte de los artefactos existentes. El plano de control ya lo consume como clave de estado cuando opera con granularidad por sujeto, y el contrato conservó su versión.
+
+Tres decisiones de implementación sostienen esa propiedad. Los campos nuevos se agregan como opcionales con valor por defecto, los consumidores validan contra su propia declaración del contrato y descartan sin error los campos que no conocen, y la frontera de la distribución admite explícitamente campos adicionales. Cada plano mantiene además su propia declaración del evento en lugar de una biblioteca compartida, de modo que la frontera entre ellos es el esquema serializado y no una dependencia de código, y ambos pueden versionarse y desplegarse por separado.
+
+Lo excluido son las métricas formales de seguimiento multiobjeto y no la capacidad de asociar sujetos. De manera análoga, la velocidad, la dirección, la pose y la segmentación permanecen previstas como campos opcionales, sin presentarse como implementadas.
+
+En conjunto, la implementación materializó la cadena que va del video a la alerta distribuida como un prototipo ejecutable, configurable, reproducible y auditable, que conserva la separación entre planos, opera por archivo o por bus y explicita sus brechas. Sobre esa base, la sección 17.5 evalúa su rendimiento sin atribuirle capacidades que no fueron medidas.
+
+---
+
+## Fuente: `docs/informe/entregable/90-etapa3-texto-extraido.md`
+
+> SHA-256 del bloque: `7d05833d0737d5690c56794048205bebd255bad305352129423109d2f01e9173`  
+> Seleccion: cierre de §17.3 (CERRADA, v1.12): los riesgos y el plan de materializacion que §17.4 y §17.5 ya resolvieron; §18 cierra el circulo con ellos.
+
+#### 17.3.11. Riesgos, plan de materialización y cierre
+
+Los riesgos arquitectónicos se formulan como modos de falla observables y se vinculan con una mitigación concreta. La arquitectura no presupone que una mitigación elimina el riesgo, sino que exige instrumentarlo y declarar su efecto sobre la interpretación de la corrida. La Tabla 51 reúne esos riesgos y sus mitigaciones de diseño.
+
+**Tabla 51**
+
+*Riesgos arquitectónicos y mitigaciones de diseño*
+
+| **Riesgo arquitectónico** | **Mitigación de diseño** |
+| --- | --- |
+| Conflicto entre calidad perceptiva y cadencia. | Separar selección de modelo, densidad de procesamiento y patrón; medir percepción, G2A y capacidad de sostener el ritmo por configuración sin asumir que un único modelo satisface todos los objetivos. |
+| Identidad de detección interpretada como identidad temporal. | Declarar detection_id local al frame; utilizar granularidad de escena o una identidad temporal válida para subject. |
+| Pérdida silenciosa en publicador-suscriptor. | Persistir antes de publicar, transportar seq, contar huecos y degradar explícitamente la corrida. |
+| Relojes incompatibles entre hosts. | Medir cada tramo en un único dominio o declarar not_interpretable/cross_node_monotonic_clock. |
+| Fuente no temporal evaluada con patrones. | Derivar naturaleza temporal y declarar not_applicable/non_temporal_source en lugar de cero alertas. |
+| Preselección en borde descarta evidencia. | Mantener la preselección liviana como variante opcional y fail-open, con ledger por unidad y comparación contra el flujo completo. |
+| Notificación externa altera la métrica del sistema. | Registrar primero la alerta interna; ubicar cooldown, idempotencia y fallas en distribución. |
+| Trazabilidad o privacidad insuficientes. | Conservar manifiesto, JSONL y procedencia; minimizar evidencia visual y controlar acceso y retención. |
+| Extensiones desplazan el núcleo. | Separar condiciones configurables de nuevas familias de evaluadores y exigir que cada capacidad opcional se declare por corrida. |
+
+El plan de materialización ordena dependencias de diseño y no reemplaza el registro de implementación. El núcleo se construye primero sobre DBE para estabilizar contratos, evidencia, patrones y reporte, y luego se incorporan EBE y las capacidades opcionales sin modificar la semántica del flujo base. La Tabla 52 fija el entregable arquitectónico de cada incremento y el criterio que permite decidir si es verificable. El estado alcanzado por el conjunto de los incrementos corresponde a la sección 17.4.
+
+**Tabla 52**
+
+*Plan de materialización del núcleo*
+
+| **Incremento** | **Criterio de avance** |
+| --- | --- |
+| Manifiesto y configuración | Una corrida puede reconstruirse mediante experiment_id, configs efectivas y versiones. |
+| Fuentes DBE | Imágenes y videos ingresan con identidad, orden y naturaleza temporal declarados. |
+| Vocabulario E-IND | Cada detección se atribuye a prompt_set_id y al rol de la clase. |
+| Adaptador OVD | El modelo puede sustituirse sin modificar el contrato de percepción. |
+| Normalización y postproceso | Las detecciones conservan coordenadas originales, normalizadas y filtros declarados. |
+| Persistencia y bus | El hecho se persiste antes de publicarse y toda pérdida resulta detectable. |
+| Patrones CR-01/CR-02 | La configuración fija región, granularidad, severidad y ventanas en milisegundos. |
+| Alertas internas | Cada episodio confirmado produce una alerta idempotente y auditable. |
+| Observabilidad | Cada métrica declara tramo, reloj, unidad, status y cause. |
+| Reporte | La salida puede regenerarse desde los artefactos primarios. |
+
+La frontera de extensibilidad distingue tres clases de cambio. Una condición nueva del tipo «sujeto sin EPP» requiere una definición declarativa de patrón y vocabulario, sin modificar contratos ni reentrenar el modelo. Una familia relacional, zonal o de trayectoria requiere un evaluador nuevo en el plano de control. Un modelo, una fuente o un canal nuevos requieren sus respectivos adaptadores y mantienen estables los contratos centrales. Esa frontera evita presentar la extensibilidad open-vocabulary como una capacidad ilimitada, y el costo medido de incorporar extensiones se documenta en las secciones de implementación y evaluación.
+
+El diseño define una plataforma experimental compuesta por el plano de medios, el plano de control, el soporte experimental y un tramo desacoplado de distribución, que protege la ruta crítica, separa la evidencia de su interpretación y conserva una cadena causal reconstruible desde la fuente hasta la entrega. La granularidad de escena y la granularidad de sujeto se tratan como configuraciones semánticamente distintas, y la identidad personal permanece fuera del alcance.
+
+El capítulo deja preparado el paso a la implementación. La sección 17.4 documenta qué componentes se materializaron y cómo se verificaron, y la sección 17.5 concentra las mediciones y su interpretación experimental.
+
+---
+
+## Fuente: `docs/informe/entregable/90f-etapa2-texto-extraido.md`
+
+> SHA-256 del bloque: `e83394eabfd4bd2c6b52735d41c92495d439ee7caf1457bacba005f4f3958324`  
+> Seleccion: conclusiones parciales de §17.1 (CERRADA, v1.21): las preguntas que el protocolo dejo planteadas y que §18 responde con lo medido.
+
+#### 17.1.11. Conclusiones parciales de la consolidación metodológica
+
+La consolidación metodológica cierra con un protocolo experimental integrado y ajustado al alcance real del prototipo. El núcleo obligatorio queda en las condiciones de detección directa de Nivel 1, la comparación controlada en DBE se separa de la plausibilidad operativa en EBE, la estrategia de datos evita la filtración entre entrenamiento y evaluación, el framework de métricas se centra en el valor operativo de la alerta y una regla explícita decide cuándo habilitar o descartar la adaptación al dominio.
+
+Las instancias siguientes toman estas definiciones como referencia. El análisis y diseño arquitectónico las traduce en una organización técnica y la validación experimental produce resultados sobre las condiciones, los escenarios y las métricas fijadas, con la instrumentación de t_G2A y t_alert-system definida en la sección 17.1.7. En todos los casos debe declararse qué elementos del catálogo se implementaron, cuáles no aplicaron y cuáles permanecieron condicionados. Esa trazabilidad entre definición metodológica, diseño, implementación y validación es el principal resultado de esta parte del proyecto y sostiene su orientación central, que es evaluar si la detección open-vocabulary puede integrarse como herramienta asistiva para el monitoreo de condiciones de riesgo en construcción civil.
+
+---
+
+## Fuente: `docs/informe/entregable/90d-etapa1-texto-extraido.md`
+
+> SHA-256 del bloque: `e34c1ab06c14bbc2a3e0daf3be80fef31fd0227932ec1cdcb759091b491ed5ff`  
+> Seleccion: conclusiones parciales de §16 (v1.4, en revision de los colegas): la vara de literatura contra la que §18 lee los resultados propios. Nunca 'OVD detecta mejor': la tesis es la plataforma y la medicion sin entrenar.
+
+### 16.8. Conclusiones parciales de la fundamentación teórica
+
+El marco teórico sostiene la factibilidad conceptual de una plataforma asistiva que interpreta observables expresados mediante lenguaje sobre video, mantiene continuidad temporal y produce alertas trazables para revisión humana. Esta factibilidad no implica superioridad de OVD frente a detectores supervisados ni habilita conclusiones de cumplimiento desde una observación visual; depende de condiciones evaluables, del comportamiento en el dominio y de restricciones temporales explícitas.
+
+La fundamentación delimita también qué debe resolverse empíricamente: los benchmarks generales no predicen el rendimiento en construcción; una detección por cuadro no equivale a una alerta; un identificador de seguimiento no representa identidad personal; y una capacidad de la literatura no constituye una función implementada. En un campo en evolución, estas separaciones exigen decisiones trazables y validación reproducible.
+
+---
+
+## Fuente: `docs/informe/entregable/desarrollando/auditoria-bibliografica-2026-09-08.md`
+
+> SHA-256 del bloque: `22c8c3ead1f62abe28f482ee57cc2ec352deb54941028e0ccfbf10a61af28a06`  
+> Seleccion: AUDITORIA BIBLIOGRAFICA (2026-09-08), insumo directo de §19: cruce de las 242 entradas del listado global contra las citas del texto vigente. **Hallazgo de raiz: el listado del maestro es anterior a las correcciones de la Etapa 1 y le faltan DOCE entradas que si estan en 90e**, lo que deja once citas sin resolver, entre ellas las dos unicas fuentes de vision-lenguaje aplicado a seguridad en obra y la fuente de una fila de la Tabla A.1. Antes de escribir el listado de §19 hay que fusionar 90e en el del maestro. Trae ademas: 104 de 242 entradas huerfanas con las bajas propuestas, 21 preprints que ya tienen version publicada, los defectos de APA del listado, y el plan de correccion ordenado por retorno.
+
+# Auditoría bibliográfica del informe — 2026-09-08
+
+> **Qué es.** Revisión de las citas y del listado de referencias del TFG. El listado global se
+> tomó del maestro `desarrollando/E-OVRT-VDP_v1.1_05062026-sin-indice.docx` (export del 09-08);
+> las citas válidas, de los cinco documentos de sección cerrados. Responde a seis preguntas: si la
+> referencia está bien usada, si quedó huérfana, si está bien citada y sin riesgo de plagio, si es
+> pertinente para un TFG, si conviene darla de baja, y qué más mirar antes de entregar.
+>
+> **Método, en dos capas.** Una **mecánica y reproducible**: se parsearon las 242 entradas y se
+> extrajeron las citas de las diez piezas vigentes, y se cruzaron; todo número de este documento
+> sale de ese cruce. Una **de lectura**: cinco auditorías en paralelo sobre el uso de cada cita en
+> su contexto. **Cada hallazgo de la segunda capa se re-verificó contra el texto antes de entrar
+> acá.** Los que no se pudieron confirmar no figuran.
+>
+> **Qué NO es.** No es un pase: no toca ningún `.docx`. Es el insumo para decidir qué corregir.
+
+---
+
+## 1. Veredicto en cinco líneas
+
+El criterio bibliográfico del trabajo es maduro y en varios tramos ejemplar. No hay fraude, ni
+apropiación, ni una sola transcripción literal sin atribuir. Lo que hay son tres cosas que un
+jurado ve antes que el mérito. **La cadena entre la cita y la referencia está rota en trece
+puntos**, y la causa es que el listado del maestro nunca se sincronizó con las correcciones de la
+Etapa 1. **§17.5 reporta resultados sin invocar ninguna de las varas que §15 ya tiene relevadas.**
+Y **§11–§14 no tiene una sola referencia**, incluida la premisa que justifica todo el trabajo.
+
+Ninguno exige investigación nueva. Son fusiones, remisiones y citas puntuales, más una tanda de
+higiene de formato. Sin esa pasada, el flanco más fácil de atacar es 15.2.5.4, porque es la
+subsección que fundamenta por qué el trabajo existe y apoya sus cuatro cifras clave en una
+referencia que el lector no puede encontrar.
+
+---
+
+## 2. Qué se comparó, y cuánto se cita
+
+El listado global tiene **242 entradas**. Las citas se tomaron de las piezas que hoy son el
+informe, no del cuerpo viejo del maestro, cuyas §15, §16, §17.1 y §17.3 quedaron superadas.
+
+| Pieza | Palabras | Citas | Densidad |
+|---|---:|---:|---|
+| §11–§14 Glosario, Introducción, Objetivos y Plan (maestro) | 4.523 | **0** | — |
+| §15 + §16 Estado del arte y Marco teórico (v1.4) | 18.670 | 169 | 1 cada 110 palabras |
+| §17.1 Consolidación metodológica + Anexos C y D (v1.21) | 16.950 | 26 | 1 cada 651 |
+| §17.3 Diseño arquitectónico (v1.12) | 14.128 | **0** | — |
+| §17.4 Implementación (v1.15) | 7.483 | 1 | 1 cada 7.483 |
+| §17.5 Evaluación y validación | 4.833 | **0** | — |
+| Anexo A, matrices comparativas (90e) | 3.980 | 161 | 1 cada 24 |
+| Anexo B, infraestructura (maestro) | 1.801 | 9 | 1 cada 200 |
+
+Que §17.3 y §17.4 casi no citen **no es un defecto**: describen diseño y construcción propios. Que
+§17.5 y §11–§14 no citen sí lo es, por razones distintas, y se tratan en los puntos 5 y 6.
+
+---
+
+## 3. Lo más grave, y su causa: el listado del maestro quedó viejo
+
+Trece citas no resuelven contra el listado. Un lector busca la referencia y no la encuentra: en la
+práctica es indistinguible de una cita inventada, y es lo primero que prueba un jurado.
+
+**Pero la causa no es que falte investigar.** El listado corregido de la Etapa 1, que vive en
+`90e-etapa1-anexo-a-y-referencias.md`, tiene **102 entradas**, y **doce de ellas no están en las
+242 del maestro**. Verificado una por una:
+
+> Chen y Zou (2025) · Choi y Greer (2024) · Kumar et al. (2022) · Lee et al. (2023) ·
+> NVIDIA (s. f.-g), TAO Toolkit · NVIDIA (s. f.-h), Triton · OASIS (2019), MQTT 5.0 ·
+> Thrush et al. (2022), Winoground · Ultralytics (2026), YOLO26 · UNESCO (2021) ·
+> Yuksekgonul et al. (2023), ARO · Zhou et al. (2022), Detic
+
+Es decir: **el listado global del maestro es anterior a las correcciones de la Etapa 1 y nunca se
+sincronizó.** Diez de las once citas irresolubles se arreglan **fusionando `90e` en el listado del
+maestro**, no buscando fuentes nuevas. Es la corrección más barata y más importante de toda esta
+auditoría, y explica por qué las citas que faltan son justo las mejores: son las que la Etapa 1
+agregó al corregirse.
+
+**Las que quedan sin entrada aun después de fusionar** son dos, y sí requieren alta nueva:
+**Liang y Han (2024)**, declarada «referencia primaria» de OVT-B en §17.1.6.4, y **Liu et al.
+(2023)** del Anexo B, que además parece un error de año por Liu et al. (2024).
+
+**El detalle de las citas irresolubles, con lo que sostiene cada una:**
+
+| Cita | Dónde | Qué sostiene |
+|---|---|---|
+| **Choi y Greer (2024)** | §15.2.5.4 y Tabla 5 | las cuatro cifras del único antecedente OVD × EPP publicado |
+| **Chen y Zou (2025)** | §15.2.5.4 | IoU bajo 20 % en objetivos con restricción de atributo |
+| **Yuksekgonul et al. (2023)** | §16.3.4 | ARO, 50.000 casos |
+| **Thrush et al. (2022)** | §16.3.4 | Winoground, desempeño no mejor que el azar |
+| **Kumar et al. (2022)** | §15.2.4 | degradación fuera de distribución al ajustar |
+| **Lee et al. (2023)** | §15.2.4 | ajuste selectivo de capas |
+| **Ultralytics (2026)** | §15.2.1.2 | la advertencia que separa YOLOE-v8 de YOLOE-26 |
+| **NVIDIA (s. f.-g) y (s. f.-h)** | §15.4.3.2 | TAO Toolkit y Triton; la serie del listado llega a `-f` |
+| **OASIS (2019)** | §15.4.2 y §16.5.3 | MQTT, idempotencia y reentregas |
+| **Liang y Han (2024)** | §17.1.6.4 | OVT-B, declarada «referencia primaria» |
+| **Liu et al. (2023)** | Anexo B | ajuste fino y partición disjunta |
+
+Las dos primeras y las dos de composicionalidad son las que más pesan: **Choi y Greer sostiene la
+brecha que justifica el trabajo**, y Yuksekgonul y Thrush sostienen todo el argumento por el cual
+CR-01 se formula por ausencia. Las cuatro están en `90e` y ninguna en el maestro.
+
+El mismo desfase golpea a los anexos, y ahí rompe la cadena de verificación: la nota de la Tabla
+A.1 cita a «X. Zhou et al. (2022)» para la fila de Detic, y esa entrada existe en `90e` pero no en
+el maestro, de modo que **las cifras de Detic quedan sin fuente verificable en el documento
+entregado**. La nota de la Tabla B.5 cita «Liu et al. (2023)», que no existe en ningún lado, y la
+de la Tabla B.2 cita «Luxonis, s. f.-a», que tampoco.
+
+**Con entrada, pero el año o el sufijo no coinciden.** Se corrige en un lado o en el otro:
+
+| Cita | El listado tiene |
+|---|---|
+| Minderer et al. (2023), 4 apariciones | 2022 y **2024** para el mismo paper de OWLv2 |
+| Axis Communications AB (s. f.), en §17.1.7.5 | 2015 |
+| Luxonis (s. f.-a) | sólo `s. f.-b`, que además queda como «-b» sin «-a» |
+| IDEA-Research (2024a) y (2024c) | tres entradas de 2024 **sin sufijo** |
+| Zhou et al. (2022), en §17.1 | 2022a y 2022b |
+
+Verificadas y **descartadas como falsas alarmas**: Agencia de Acceso a la Información Pública,
+Advanced Micro Devices, DASH Industry Forum, ISO/IEC, UNESCO y NVIDIA Corporation resolvieron bien
+contra el listado; eran artefactos de la extracción automática.
+
+---
+
+## 4. Citas mal usadas: un patrón, no casos sueltos
+
+No son descuidos aislados. Hay una tendencia a **estirar la fuente** hasta la conclusión que el
+párrafo necesita, y otra a **hacer cargar afirmaciones metodológicas a documentación comercial**.
+
+**La fuente no trata el tema de la afirmación**
+
+- §16.4.1: «pueden reducir la carga cognitiva y la fatiga de alerta asociada con falsos positivos
+  frecuentes **(Du et al., 2024)**». Du et al. (2024) es *Exploring the State-of-the-Art in
+  Multi-Object Tracking*, un survey técnico que no estudia fatiga de alerta.
+- §15.2.5.2 y §16.4.1: la inestabilidad cuadro a cuadro atribuida a **Xiao et al. (2024)**, que es
+  un paper de imagen estática y no mide estabilidad temporal. La segunda cita además generaliza a
+  todos los OVD lo dicho de un modelo.
+- §15.4.1.2: latencia, transporte seguro y control de congestión de WebRTC apoyados en
+  **Keranen et al. (2018)**, que es el RFC de ICE y trata NAT traversal. La especificación de W3C
+  está en el listado y no se cita ahí.
+- §15.2.5.3 y §16.3.3: la sensibilidad del prompt **en detección** apoyada en **Zhou et al.
+  (2022b)**, que es CoOp, sobre clasificación con CLIP. El propio informe advierte dos párrafos
+  antes que lo de clasificación «no se transfiere directamente al contexto de detección».
+- §15.2.5.1: «compatibilidad textual evaluada de manera independiente para cada región candidata
+  (Zareian et al., 2021; **Liu et al., 2024**)». §15.2.1.1 describe a Grounding DINO como fusión
+  profunda en el decoder, es decir lo contrario.
+- §16.3.4: el solapamiento léxico y la negación atribuidos a **Liu et al. (2024)**, que no estudia
+  ninguno de los dos.
+
+**Cifra publicada atribuida a un repositorio o a una ficha de modelo**
+
+- §15.2.1.1: los AP de MM-Grounding-DINO citados como «(IDEA-Research, 2024c; X. Zhao et al.,
+  2024)». MM-Grounding-DINO es de OpenMMLab, y el paper está en la misma cita: alcanza con él.
+- §15.2.1.3: los AP de OWLv2 **L/14 y G/14** citados con «(Google, 2022, 2023; …)», donde
+  Google (2023) es la ficha de `owlv2-**base**-patch16-ensemble`, que no puede sostener cifras de
+  las variantes grandes. Para la licencia de los pesos, en cambio, la ficha es la fuente correcta.
+
+**Documentación de fabricante cargando una conclusión metodológica** (§17.1.4.1, cuatro casos):
+HP Inc. sosteniendo que el hardware condiciona resolución, precisión numérica y elección de
+runtime; Luxonis sosteniendo el reparto de roles entre borde y CPN; la página de producto del
+Video Codec SDK de NVIDIA sosteniendo el efecto sobre el reparto CPU/GPU, cuando la guía de NVDEC,
+que sí lo trata, ya está en el listado; y los papers de Grounding DINO y YOLOE sosteniendo
+compatibilidad de frameworks y rutas de inferencia acelerada, que no es lo que esos papers tratan.
+
+**Afirmación de consenso sobre una sola fuente, que es la proponente del método**: §15.2.5.3,
+«Se demostró que la optimización automática de representaciones de prompts […] supera
+consistentemente a los prompts elaborados mediante ingeniería manual (Du et al., 2022)».
+
+---
+
+## 5. Riesgo de plagio: dónde está y dónde no
+
+**No hay transcripción literal sin atribuir.** En todo el informe hay sólo dos fragmentos
+entrecomillados largos: una salida del propio sistema y el título de un paper. Tampoco se detectó
+prosa que parezca traducida de un abstract. El riesgo formal más común no está presente.
+
+El riesgo real es otro: **vocabulario y definiciones de terceros presentados en primera persona**.
+
+**Definiciones de métricas y términos ajenos sin atribuir**
+
+- §17.1.6.4: «**TETA** es Track Every Thing Accuracy y se descompone en LocA, ClsA y AssA». Es la
+  definición de una métrica de terceros y su fuente, Li et al. (2022), **ya está en el listado**.
+  Contrasta con MOTA, IDF1 y HOTA, que sí llevan sus tres fuentes en §17.1.7.3. Es el hueco de
+  atribución más nítido del informe.
+- §17.1.7.5 y Anexo D: «**G2A** = Glass-to-Algorithm», definido dos veces sin citar a Bachhuber et
+  al. (2018), que acuñó el término, y además **con la frontera estrechada**: el original arranca en
+  el vidrio y acá arranca en el `dequeue`. El texto es honesto en lo técnico, dice «No equivale a
+  sensor → algoritmo»; le falta la atribución y una línea que declare el cambio de frontera.
+- §17.1.5.4: intervalos de confianza «obtenidos por **bootstrap**», sin fuente, en un párrafo donde
+  kappa sí está atribuida a Cohen.
+- §15.3.1 y §16.4.2: **el algoritmo húngaro y el filtro de Kalman** se nombran sin cita. Ver el
+  punto 8.
+
+**Patrones y estilos de arquitectura descritos como acuñación propia** (§17.3): publicación-
+suscripción y su semántica de pérdida por suscripción tardía, tubos y filtros («El flujo interno se
+organiza como una cadena de transformación progresiva…»), el patrón adaptador —que es el mecanismo
+de sustituibilidad de toda la arquitectura, en DA-05—, el registro de sólo adición, la clave de
+idempotencia y el ledger de entregas, la taxonomía de requisitos no funcionales de la Tabla 40, y
+`fail-open`, introducido con un «denominado» que lo presenta como acuñación del trabajo. El listado
+ya tiene a Bass, Clements y Kazman (2022) y no se lo cita nunca.
+
+**Tecnologías centrales sin ninguna entrada en las 242 referencias**, verificado uno por uno:
+
+| Tecnología | Dónde carga peso |
+|---|---|
+| **ZeroMQ** | §17.3.3 justifica su adopción por latencia y ausencia de broker |
+| **msgpack** | §17.3.3 afirma que «reduce el costo de serialización respecto del texto plano» |
+| **MQTT** | §17.3.7 y §17.4.1; es el único canal de entrega ejercido del sistema |
+| **CVAT** | §17.4.6; con ella se construyó toda la referencia humana de evaluación |
+| **Swin Transformer** | §17.4.4 remite a §15.2.1.1 por los *backbones*, que no tienen fuente |
+
+**Y el hallazgo más serio de §17.4**: el detector de vocabulario abierto y el algoritmo de
+seguimiento que **preanotaron la verdad de terreno** no se nombran, ni con versión ni con cita
+(«Cada clip se preanotó automáticamente con un detector de vocabulario abierto de mayor capacidad
+que el modelo evaluado, elección deliberada para evitar circularidad»). Sin identificarlos, el
+argumento de no circularidad no se puede auditar ni la referencia se puede reproducir. En la misma
+línea, la biblioteca de entrenamiento cuyo comportamiento interno justifica descartar una corrida
+entera tampoco se nombra, y ni la biblioteca de validación visible en el propio fragmento de código
+ni el framework HTTP aparecen en ningún lado.
+
+---
+
+## 6. §17.5 reporta sin vara, teniendo la vara al lado
+
+§17.5 tiene **cero citas** en 4.833 palabras. Que las cifras propias salgan de artefactos del
+proyecto está bien. El problema es que **ninguna se lee contra una cifra publicada**, y §15 tiene
+relevadas y citadas exactamente las que hacían falta. Verificado que existen en §15:
+
+| Lo que §17.5 reporta | La vara que §15 ya tiene |
+|---|---|
+| mAP50 0,551, «el más alto en el agregado» | «YOLOR alcanzó un mAP@0,5 de 0,883 sobre SHEL5K»; «YOLOv5x alcanzó un mAP@0,5 de 0,866 sobre CHV» |
+| recall de CR-01 por evidencia directa, 0,308 y 0,599 | «la clase *head* —cabeza sin casco— alcanzó 0,1024 AP» zero-shot, y «AP@0,5 de 0,907 para la clase head» supervisado |
+| p95 de 630 a 890 ms, «fuera del presupuesto» | «La literatura reporta órdenes de 10–30 ms para alternativas one-stage optimizadas y 50–150 ms para Transformers» |
+| 1,16 a 4,42 fps en vivo | la tabla de puntos de operación publicados de §15.2.3.1 |
+
+Además, en §17.5 **los dos datasets que aportan el 98 % del banco no se nombran** («obra con mayor
+cobertura de chaleco», «una fuente con clase nativa de cabeza descubierta» son CHV y SHEL5K, ambos
+en el listado), el modelo campeón aparece sólo con su alias interno, Grounding DINO no se nombra ni
+una vez, COCO 2017 se usa como material de retención sin citar a Lin et al. (2014), y las métricas
+excluidas —las de seguimiento multiobjeto— se declaran no ejecutadas sin nombrarlas: una exclusión
+sólo es defendible si el lector sabe qué se excluyó.
+
+El arreglo no es investigación nueva. Es tejer §17.5 con §15 y §16 mediante remisiones y una docena
+de citas que ya están en el listado. **Cuidado con una trampa**: la vara más pertinente, Choi y
+Greer (2024), es una de las que no tienen entrada. Hay que darla de alta antes de apoyarse en ella.
+
+---
+
+## 7. §11 a §14: cuatro mil quinientas palabras sin una sola referencia
+
+Ni una. El párrafo de apertura afirma que la seguridad laboral en la construcción «constituye un
+problema de alta relevancia técnica, social y organizacional» y caracteriza la limitación del
+vocabulario cerrado, todo sin fuente. Es el lugar donde un jurado pregunta «¿según quién?», y es lo
+primero que se lee.
+
+Hay una buena noticia dentro: **el informe no arriesga ninguna cifra de accidentología, costo ni
+adopción sin respaldo.** No dice «el X % de los accidentes fatales en obra». Ese error clásico no
+está. Lo que hay son tres afirmaciones sustantivas presentadas como sentido común:
+
+- «Los sistemas tradicionales de detección de objetos operan, en general, bajo un paradigma de
+  vocabulario cerrado». Es **la premisa que justifica el trabajo entero**, y Zareian et al., Gu et
+  al. y Liu et al. están en el listado exactamente para eso.
+- «La observación humana continua puede verse afectada por fatiga, distracciones, simultaneidad de
+  eventos o limitaciones propias de la atención sostenida». Afirmación empírica sobre atención
+  sostenida, sin fuente, y es la que sostiene la utilidad del sistema frente al supervisor humano.
+- §14.2.1 anuncia una revisión de la normativa de seguridad en construcción y §13.2 fija como
+  objetivo analizar los fundamentos normativos, sin nombrar ni una norma, teniendo el Decreto
+  911/96, el Decreto 351/79, la Ley 19.587 y dos resoluciones de la Superintendencia en el listado.
+
+En §11, el glosario define MOTA, IDF1 y HOTA sin atribución, cuando el Anexo A sí las cita. Es
+incoherente hacia adentro.
+
+El trabajo **tiene con qué responder**: todo está en §15, §16 y §16.2.1. Falta traerlo. Es la
+corrección de mayor retorno de la auditoría: entre seis y diez citas bien puestas.
+
+---
+
+## 8. Huérfanas, bajas, y el paper de 1955
+
+**104 de las 242 entradas están huérfanas: el 43 %.** Se verificó dos veces, por clave autor-año y
+después buscando el apellido cerca del año; el segundo paso rescató 31 entradas que sí estaban
+citadas. La causa es conocida: la Etapa 1 podó el estado del arte a menos de la mitad y la
+reestructuración de §17.1 recortó otro 35 %. El texto se achicó; el listado no.
+
+| Tema de las huérfanas | Cuántas |
+|---|---:|
+| Streaming y protocolos de transporte | 32 |
+| Borde, niebla, nube y benchmarks de hardware | 21 |
+| Documentación de producto: Intel, GStreamer, FFmpeg, Mesa, drivers | 33 |
+| Seguimiento y asociación de datos | 9 |
+| Detección, OVD y datasets | 9 |
+
+**Bajas propuestas, en orden de seguridad.** Ninguna es obligatoria: una huérfana no invalida nada,
+sólo infla el listado y delata que el texto se recortó sin revisar la bibliografía.
+
+1. **Las 53 de streaming y de borde.** §15.4 y §16.5 siguen existiendo y siguen bien sostenidas,
+   con 22 fuentes cada una y densidad de 1 cada 110 palabras. Se pueden dar de baja sin dejar
+   ninguna afirmación sin respaldo.
+2. **Las 33 de documentación de producto** que ya no sostienen nada. Son las que más bajan la
+   proporción de literatura arbitrada del listado.
+3. **Las 18 de seguimiento y detección, una por una**: son las más cercanas al núcleo. Varias
+   conviene conservarlas **citándolas**, no dándolas de baja.
+4. **Ninguna de normativa y legislación**, aunque quede huérfana: en un trabajo sobre seguridad
+   laboral el marco legal completo tiene valor propio. Sí conviene verificar la vigencia de la
+   Disposición 11/2006 frente a la normativa posterior de la AAIP.
+
+**El paper viejo es Kuhn (1955)**, «The Hungarian method for the assignment problem», la entrada
+más antigua del listado, y **está huérfana**. Pero la baja directa no es la respuesta, porque el
+texto sí nombra el algoritmo dos veces sin atribuir, en §15.3.1 y en §16.4.2, y hay una asimetría:
+el **filtro de Kalman se nombra y no tiene ninguna entrada**. Recomendación: citar a Kuhn donde el
+algoritmo aparece por primera vez y dar de alta a Kalman (1960). Son los dos clásicos que sostienen
+a SORT, y una fecha de 1955 no es un defecto cuando lo que se cita es el origen de un método
+vigente. La alternativa, tratar ambos como conocimiento de manual y dar de baja a Kuhn, también es
+defendible; lo que no se puede es dejarlo como está. Corregir además «Húngaro» a «húngaro».
+
+**Cohen (1960), la segunda más antigua, está bien y no se toca**: §17.1 la cita para definir kappa
+y §17.5 declara que «La referencia temporal no tuvo doble anotación ni medida de acuerdo entre
+anotadores». El protocolo prescribe, el resultado informa que no se ejerció. Único retoque: §17.5
+no nombra la métrica, así que el lazo queda implícito.
+
+**Y al revés: cuatro entradas del listado que §15/§16 debería usar y no usa.** Abdalwhab et al.
+(2025), sobre modelos open-vocabulary en obra, es exactamente el cruce que §15.2.5.4 declara vacío,
+y sólo se cita en §17.1. Con Yao et al. (2024) sobre OVDEval, Nath et al. (2020) y Duan et al.
+(2022) sobre SODA pasa algo parecido. Su ausencia es el flanco más fácil de atacar cuando se
+declara una brecha.
+
+**Una brecha declarada sin protocolo de búsqueda.** «El relevamiento de publicaciones entre 2023 y
+2026 no identificó evaluaciones de Grounding DINO o YOLO-World zero-shot sobre SHEL5K o CHV» y tres
+subsecciones enteras de §15.4.3 con cero citas afirman qué **no** existe en la literatura. Una
+afirmación negativa sobre el estado del arte necesita decir cómo se buscó: bases, cadenas, ventana
+y fecha de corte. Alcanza con una nota metodológica.
+
+---
+
+## 9. Defectos de forma
+
+**Entradas que comparten autor y año sin distinguirse.** IDEA-Research (2024) ×3 sin sufijo, y el
+texto cita 2024a y 2024c. Roboflow (2025) ×2, ambas del 14 de noviembre. **NVIDIA aparece con dos
+nombres de organización**, «NVIDIA» y «NVIDIA Corporation», y eso produce **dos entradas «s. f.-a»,
+dos «s. f.-b» y dos de 2022**: una cita a «NVIDIA, s. f.-a» hoy es irresoluble. Hay que unificar el
+nombre y renumerar toda la serie. En cambio Ren, T. (2024) ×3 **no es un error**: el texto los
+distingue con «Ren, Chen, et al.» y «Ren, Jiang, et al.», que es la forma prevista.
+
+**Homónimos sin inicial.** APA pide la inicial cuando dos autores distintos comparten apellido y
+año. El informe lo hace bien con Li y Zhao, y no lo hace en **Jiang et al. (2024)**, 6 citas, con
+Jiang, K. y Jiang, Q. en el listado; **Yao et al. (2024)**, 5 citas, con Yao, L. y Yao, Y.; y
+**Zhang et al. (2022)**, 3 citas con inicial y 1 sin ella. En el caso de Jiang la ambigüedad cambia
+la fuente: sin inicial, la cita sobre prompts visuales resuelve al trabajo equivocado.
+
+**Dos estilos de conjunción conviviendo.** El listado usa «&» en 129 entradas y « y » en 8; en el
+texto, las nueve citas de dos autores usan «&» y ninguna usa « y ». Para un TFG en español bajo APA
+corresponde « y » en los dos lados. Reemplazo mecánico, pero hay que hacerlo simultáneo.
+
+**Idioma y formato de fecha mezclados**: «Retrieved» en 16 entradas y «Recuperado» en 30; meses en
+inglés en 28, en español en 16, y un tercer formato «(1996, 5 de agosto)» en 3.
+
+**Orden alfabético**: correcto salvo un par, que se resuelve al unificar el nombre de NVIDIA.
+
+**«SRT» es ambiguo en un informe de streaming.** El listado usa la sigla como autor para las
+resoluciones de la Superintendencia de Riesgos del Trabajo, sin desarrollarla, y a la vez cita el
+protocolo Secure Reliable Transport. Una cita «(SRT, 1997)» no se lee. Desarrollar el organismo.
+
+**Cuatro estilos distintos para la legislación argentina** conviven en el listado: autor-país
+(«Argentina, 2000»), norma como autor con fecha duplicada («Decreto 911/96 de 1996… (1996, 5 de
+agosto)»), «Ley 19.587 de 1972… (1972)» y sigla de organismo («SRT, 1997»). Elegir uno.
+
+**Fechas de consulta donde no corresponden**: 7 entradas de arXiv y 7 de GitHub las llevan, y APA
+las reserva para contenido diseñado para cambiar. Nueve entradas arrastran el identificador de
+arXiv dentro del título, entre corchetes, y dieciséis dicen «Recuperado» seguido directamente de
+la URL, sin fecha.
+
+**Entradas puntuales que un jurado señalaría**: «Stephen. (2026)» como autoría por nombre de pila,
+con la etiqueta de lenguaje de GitHub tomada por descriptor de medio; «Go Packages» como autor,
+que es un índice autogenerado y cuya fuente real ya está en el listado; la especificación de RTMP
+enlazada a un anexo de litigio de la oficina de patentes; una entrada de Intel con el título
+truncado con puntos suspensivos; y un artículo con tres de sus cuatro autores sin invertir, que
+además rompe el orden alfabético.
+
+**Una entrada pide justificación explícita**: Mazor et al. (2021), un *registered report* de
+neurociencia de la conciencia. Si el cuerpo no la ancla con precisión, es la primera que van a
+preguntar.
+
+**Una URL cruda en el cuerpo**: la lista de reproducción de §17.4.6 aparece como dirección entre
+paréntesis. Debería ser entrada del listado, con el detalle por video en el anexo de licencias.
+
+**Rangos de latencia de la Tabla 8 sostenidos en fuentes no arbitradas.** La nota atribuye los
+rangos a quince fuentes, pero ninguna RFC ni especificación publica latencias extremo a extremo:
+los números sólo pueden venir de Roy (2024), un post del blog de Wowza, y de Sonono (2019), una
+tesis de maestría. Hay que declarar que el origen es industrial, o reemplazarlos. El mismo problema,
+sin ninguna cita, en §15.4.1.2: «RTSP/RTP puede operar aproximadamente entre 200 y 800 ms […]
+valores de entre 1.000 y 2.000 ms o más».
+
+---
+
+## 10. Lo que está bien, y conviene no tocar
+
+- **Autocontención impecable en las cinco secciones.** Ni un ADR por número, ni una ficha, ni una
+  ruta del repositorio, ni un guion propio citados como fuente. Verificado con búsqueda exhaustiva.
+  Los nombres de archivo de §17.4 son artefactos de salida del sistema y su nota los legitima.
+- **Las diez tablas de §15 y §16 declaran fuente y llevan nota.** La Tabla 3 aclara que su columna
+  de latencia se derivó de la tasa publicada y «no corresponde a una medición independiente». Ese
+  cuidado es lo que un jurado espera y rara vez encuentra.
+- **§17.1 atribuye bien lo más expuesto**: AP@0,5 a Everingham y Lin, MOTA, IDF1 y HOTA a
+  Bernardin, Ristani y Luiten, kappa a Cohen, el *template* a Radford, el costo del vocabulario a
+  Cheng, Wang y Liu.
+- **§17.5 es sobria y honesta**: declara denominadores, separa estratos, distingue no computable de
+  cero, marca censuras y reporta veredictos negativos pre-registrados.
+- **La composición del listado es defendible**: 90 entradas con DOI y 36 preprints suman más de la
+  mitad. La documentación de fabricante está donde tiene que estar, en el Anexo B y en el capítulo
+  de medios: no existe paper arbitrado que diga qué codecs soporta un decodificador de una placa
+  concreta. Las entradas normativas **son** fuente primaria, no un sustituto de una.
+- **La nota de la Tabla A.1 hace lo correcto con una matriz comparativa**: declara sus diecisiete
+  fuentes, advierte que «las cifras conservan el protocolo, el conjunto de evaluación y el hardware
+  informados por cada fuente; por ello, no constituyen un benchmark homogéneo» y marca N/D donde no
+  hay dato. Verificadas las veinte filas: cada modelo tiene su fuente. Eso desactiva el riesgo real
+  de plagio en el lugar donde más suele aparecer. Le falta sólo una cosa: la columna de licencias
+  no tiene atribución propia, y no puede salir de los papers, que no declaran licencia de pesos.
+
+---
+
+## 11. Plan de corrección, por retorno
+
+1. **Fusionar el listado de `90e` en el del maestro.** Doce entradas, ya redactadas y corregidas,
+   que resuelven diez de las once citas irresolubles. Es media hora de trabajo y es lo que más
+   cambia. Después, **dar de alta sólo dos**: Liang y Han (2024) para OVT-B, y corregir el «Liu et
+   al. (2023)» del Anexo B.
+2. **Unificar cinco años y sufijos**: Minderer, Axis, Luxonis, IDEA-Research y Zhou.
+3. **Dar de alta las tecnologías que sostienen decisiones**: ZeroMQ, msgpack, CVAT y Swin
+   Transformer, y nombrar el detector y el seguidor que preanotaron la verdad de terreno. MQTT ya
+   queda cubierto por OASIS (2019) al fusionar `90e`.
+3-bis. **Reemplazar veintiún preprints por su versión publicada.** DETR, CLIP, SAM, LVIS, GLIP y
+   GLIPv2, la trilogía DetCLIP, OV-DETR, Deformable DETR, DaViT, MaPLe, X-Decoder, APE, OWLv2,
+   TETA, MLPerf, LLMDet y las dos fundacionales de OVD, Zareian et al. y Gu et al., están
+   publicados en CVPR, ECCV, ICCV, NeurIPS, ICML, ICLR e ISCA. El listado ya lo hace con Grounding
+   DINO y con OWL-ViT, así que la inconsistencia es interna. **Sube la proporción de literatura
+   arbitrada del 37 % al 46 % sin agregar una sola fuente.**
+4. **Atribuir lo que ya tiene fuente en el listado**: TETA a Li et al. (2022), G2A a Bachhuber et
+   al. (2018), los patrones de arquitectura a Bass, Clements y Kazman (2022).
+5. **Poner citas en §11–§14**, trayendo las que ya están en §15, §16 y §16.2.1.
+6. **Tejer §17.5 con las varas de §15**, con remisiones y una docena de citas ya disponibles.
+7. **Desdoblar las siete citas estiradas** del punto 4, y degradar las cuatro fuentes de fabricante
+   a lo que sí prueban.
+8. **Agregar iniciales** a Jiang, Yao y Zhang; unificar «&» por « y »; unificar idioma de fechas.
+9. **Declarar el protocolo de búsqueda** que sostiene las brechas.
+10. **Decidir las bajas** del punto 8, empezando por las 53 de streaming y borde.
+
+---
+
+## 12. Hallazgo posterior, del mismo día: la Figura 4.3 contradice al sistema
+
+No es bibliográfico, pero apareció al escribir la guía de figuras y es del mismo orden de gravedad,
+porque **un lector confía en el dibujo más que en el párrafo**. Verificado contra el motor de
+patrones del plano de control, leyendo el código, no la documentación.
+
+| Lo que la Figura 4.3 dibuja hoy | Lo que hace el sistema |
+|---|---|
+| `candidate → inactive`, «evidencia insuficiente / no persiste» | desde `candidate` el patrón va a **`resolved`**, no a `inactive` |
+| `resolved → inactive`, «cierre del episodio» | **no existe ninguna transición hacia `inactive`**: es sólo el estado inicial y nada vuelve a él |
+
+Faltan además tres cosas que el sistema sí hace: el **salto directo a `confirmed`** cuando la
+primera evidencia ya cumple la ventana; la **reapertura desde `resolved`**, que es la que produce
+las re-alertas que §17.5 contabiliza aparte de los falsos positivos; y los **dos caminos distintos**
+por los que se llega a `resolved`, despeje sostenido y ausencia por expiración.
+
+**El texto de 17.3.6.1 arrastra el mismo error**, en dos oraciones: «el episodio pasa a resolved y
+retorna a inactive» y «el patrón vuelve a inactive sin generar una alerta». §17.3 está cerrada, así
+que la corrección la decide el autor. La versión correcta y completa, lista para dibujar, está en
+la sección 5.3 de `../../figuras/GUIA-DE-FIGURAS.md` (fuente: `docs/informe/figuras/GUIA-DE-FIGURAS.md`).
+
+---
+
+## 13. Fuera de la bibliografía, para la entrega
+
+- **§17.2 «Costos asociados» dice `[Pendiente]`**; §17.6 y §18 dicen `[Agregado futuro]`. Las tres
+  últimas están previstas para la Etapa 6, pero **§17.2 no está en ningún plan**: hay que
+  escribirla o sacarla del índice.
+- **Catorce números de tabla libres** en la numeración global (12–15, 18–19, 31–32, 36–38, 53–55).
+  Se resuelve al integrar, con campos de Word.
+- **Cuatro entradas viven sólo en el Anexo A y cuatro sólo en el Anexo B.** Si esos anexos no
+  llegan a §19, esas ocho quedan huérfanas y además dejan dos remisiones colgadas en §15.2.3 y
+  §15.3.3.
+- **Una baja pendiente ya anotada**: «AAIP, s. f.-b», cuyo párrafo se borró.
+- **El typo «puede puede»** de §15.2.4 sigue ahí; se corrige en Google Docs.
+
+---
+
+## Fuente: `docs/informe/entregable/90e-etapa1-anexo-a-y-referencias.md`
+
+> SHA-256 del bloque: `e44e3a8b5e8872eb1b24786ca361532ce922e9dbdf85fcf2e7aee338568d7142`  
+> Seleccion: ANEXO A corregido (matrices comparativas de modelos, Tablas A.1 y A.2) y el LISTADO DE REFERENCIAS de la Etapa 1, con 102 entradas. Es insumo de §19.1 —el cuerpo de §15 cita la Tabla A.1 y §15.3.3 la A.2, asi que si el Anexo A no llega a §19 quedan dos remisiones colgadas— y es la fuente de las doce entradas que le faltan al listado del maestro (ver la auditoria).
+
+# 90e — Anexo A y Referencias de la Etapa 1 (material para §19 y para el listado global)
+
+> **Extracción derivada (2026-08-27).** Este material **salió del entregable de la Etapa 1**
+> por decisión del usuario: el `.docx` de la etapa contiene **solo el desarrollo** (§15 y §16).
+> El Anexo A pertenece a §19 y el listado de referencias es global del informe — los arma el
+> equipo, no el redactor de la etapa.
+>
+> **No se descarta, y hay una razón dura:** el cuerpo de §15 **cita la Tabla A.1**
+> («en la Tabla A.1 del Anexo A se incluye una matriz ampliada…», §15.2.3) y §15.3.3 **cita la
+> Tabla A.2**. Si esas tablas no llegan a §19, quedan dos remisiones colgadas en el informe.
+>
+> Lo que este material aporta, ya corregido en los cuatro pases:
+> - **Tabla A.1** pasó de 12 a **20 filas** e incorpora **Grounding DINO Swin-T/Swin-L y
+>   MM-Grounding-DINO**, que faltaban pese a ser los modelos del trabajo (E1-34).
+> - Sus **licencias están corregidas** (E1-33/`AJ-1.09`): DINO-X y Grounding DINO 1.5 figuran
+>   como «API cerrada; Apache-2.0 aplica al SDK, no a los pesos», no como Apache-2.0 a secas.
+> - **Tabla A.2** reescrita en términos del límite de cada métrica frente a la alerta; la
+>   antigua Tabla A.3 (servidores de medios) se eliminó por quedar sin uso (D-E1-9).
+> - **83 entradas de referencia**, sin huérfanas y sin citas sin entrada, con las altas de los
+>   cuatro pases (Kumar 2022, Lee 2023, OASIS 2019, Ultralytics 2026, Yuksekgonul 2023,
+>   Thrush 2022) y `Luxonis` con su letra.
+
+---
+
+## 19. Anexos
+
+### 19.1. Anexo A - Comparativas técnicas y estado del arte complementario
+
+El Anexo A reúne comparativas complementarias que respaldan el estado del arte sin sobrecargar el cuerpo principal. La Tabla A.1 amplía el catálogo de alternativas de detección open-vocabulary y modelos relacionados; la Tabla A.2 sintetiza el alcance y las limitaciones de las métricas MOT tratadas en la sección 15.3.3.
+
+**Tabla A.1**
+
+*Matriz ampliada de alternativas de detección open-vocabulary y modelos relacionados*
+
+| **Modelo** | **Familia** | **Mecanismo visión-lenguaje** | **AP zero-shot reportado** | **Rendimiento reportado** | **Licencia / disponibilidad** |
+| --- | --- | --- | --- | --- | --- |
+| DINO-X | Transformer | Universal Object Prompt | 59,8 (LVIS-minival) | N/D | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| G-DINO 1.5 Pro | Transformer | Fusión cross-modal profunda | 55,7 (LVIS-minival) | N/D | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| G-DINO 1.5 Edge | Transformer | Fusión cross-modal optimizada | 36,2 (LVIS-minival) | 75,2 FPS (A100, TensorRT) | API cerrada; Apache-2.0 aplica al SDK, no a los pesos |
+| Grounding DINO Swin-L | Transformer | Feature Enhancer, selección de consultas guiada y decoder cross-modal | 52,5 (COCO); 26,1 mean AP (ODinW-35) | N/D | Apache-2.0 |
+| Grounding DINO Swin-T | Transformer | Feature Enhancer, selección de consultas guiada y decoder cross-modal | 48,4 (COCO) | N/D | Apache-2.0 |
+| MM-Grounding-DINO Tiny | Transformer | Pipeline unificado de grounding y detección | 50,4–50,6 (COCO); 35,7–41,4 (LVIS-minival) | N/D | Apache-2.0 |
+| GLIP | Dynamic Head + Swin | Alineamiento región-palabra con fusión profunda | 49,8 (COCO); 26,9 (LVIS) | N/D | MIT |
+| OV-DINO | Transformer | LASF + UniDI | 50,6 (COCO) | N/D | Apache-2.0 |
+| OV-DETR | Deformable DETR | Matching condicional binario con prompts textuales o visuales | 17,4 novel (OV-LVIS); 29,4 AP50 novel (OV-COCO) | N/D | CC BY-NC-SA 4.0 |
+| APE-L (D) | Transformer | Alineamiento por producto punto y encoder cross-modal | 59,6 caja (LVIS); 58,3 caja (COCO) | N/D | Apache-2.0 |
+| LLMDet | Transformer + LLM | Coentrenamiento con LLM; LLM descartado en inferencia | 51,1 (LVIS-minival) | N/D | Apache-2.0 |
+| DetCLIPv3 | Transformer | Formulación generativa con VLLM | 48,8 (LVIS-minival) | N/D | N/D |
+| OWLv2 L/14 | ViT dual-encoder | Autoentrenamiento escalable | 44,6 (LVIS rare) | N/D | Apache-2.0 |
+| Detic | Two-stage | Embeddings CLIP como pesos del clasificador de regiones | 17,8 rare (OV-LVIS); 27,8 novel AP50 (OV-COCO) | N/D | Apache-2.0 |
+| T-Rex2 Swin-L | Transformer multimodal | Prompts textuales y visuales con fusión tardía | 46,7 texto / 46,8 visual (LVIS-minival) | N/D | IDEA License 1.0; uso no comercial |
+| YOLOE-v8-L | One-stage | RepRTA + SAVPE + LRPC | 35,9 (LVIS-minival) | 102,5 FPS (T4, TensorRT) | AGPL-3.0 |
+| YOLO-World-L | One-stage | RepVL-PAN contrastivo | 35,4 (LVIS-minival) | 52,0 FPS (V100, PyTorch) | GPL-3.0 |
+| OmDet-Turbo-Base | Transformer para tiempo real | EFH + caché textual | 34,7 (LVIS-minival) | 100,2 FPS (A100, TensorRT + caché textual) | Apache-2.0 |
+| YOLOE-v8-S | One-stage | RepRTA reparametrizable | 27,9 (LVIS-minival) | 305,8 FPS (T4, TensorRT) | AGPL-3.0 |
+| Florence-2-L | Seq2Seq | Generación condicionada por instrucciones | 37,5 (COCO) | Variable | MIT |
+
+Nota. Las cifras conservan el protocolo, el conjunto de evaluación y el hardware informados por cada fuente; por ello, no constituyen un benchmark homogéneo. N/D indica información no reportada o no comparable. En DINO-X y Grounding DINO 1.5, la licencia Apache-2.0 corresponde al SDK de acceso y no a pesos abiertos. Fuente: elaboración propia basada en Cheng et al. (2024), Fu et al. (2025), Jiang et al. (2024), L. H. Li et al. (2021), Liu et al. (2024), Minderer et al. (2023), Ren, Chen, et al. (2024), Ren, Jiang, et al. (2024), Shen et al. (2023), A. Wang et al. (2025), H. Wang et al. (2024), Xiao et al. (2024), Yao et al. (2024), Zang et al. (2022), T. Zhao et al. (2024), X. Zhao et al. (2024) y X. Zhou et al. (2022).
+
+**Tabla A.2**
+
+*Comparación conceptual de métricas MOT y sus límites para evaluar alertas temporales*
+
+| **Métrica** | **Qué caracteriza** | **Sesgo principal** | **Límite respecto de las alertas** |
+| --- | --- | --- | --- |
+| MOTA | Errores acumulados de detección y cambios de identidad | Está fuertemente condicionada por falsos positivos y falsos negativos del detector | No mide persistencia, oportunidad ni resolución de episodios de alerta |
+| IDF1 | Consistencia de identidad a lo largo de una secuencia | Privilegia la correspondencia de identidad y exige anotaciones de trayectorias | No mide la condición semántica ni el comportamiento temporal de la alerta |
+| HOTA | Calidad combinada de detección, asociación y localización | Resume componentes del tracker y requiere referencia MOT explícita | No sustituye la evaluación por persona ni la evaluación por episodio temporal |
+
+Nota. MOTA resume errores de detección y cambios de identidad; IDF1 enfatiza la continuidad de identidad; HOTA separa y combina detección, asociación y localización. Las tres caracterizan el seguimiento, pero no miden por sí mismas el estado semántico ni el episodio de alerta. Fuente: elaboración propia basada en Bernardin y Stiefelhagen (2008), Ristani et al. (2016) y Luiten et al. (2021).
+
+## Referencias
+
+Adžemović, M. (2025). Deep Learning-Based Multi-Object Tracking: A Comprehensive Survey from Foundations to State-of-the-Art (arXiv:2506.13457). arXiv. https://doi.org/10.48550/arXiv.2506.13457
+
+Agencia de Acceso a la Información Pública. (s. f.-a). Conocé tus derechos respecto a tus datos personales. Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/aaip/datospersonales/derechos
+
+Agencia de Acceso a la Información Pública. (s. f.-b). Videovigilancia: ¿Por qué hay que registrar bases de datos de videovigilancia y presentar el manual de tratamiento? Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/aaip/datospersonales/responsables/videovigilancia
+
+Aharon, N., Orfaig, R., & Bobrovsky, B.-Z. (2022). BoT-SORT: Robust Associations Multi-Pedestrian Tracking (arXiv:2206.14651). arXiv. https://doi.org/10.48550/arXiv.2206.14651
+
+Ahmad, H. M., y Rahimi, A. (2025). SH17: A dataset for human safety and personal protective equipment detection in manufacturing industry. Journal of Safety Science and Resilience, 6(2), 175–185. https://doi.org/10.1016/j.jnlssr.2024.09.002
+
+Ahmad, I., Xiaohui Wei, Yu Sun, & Ya-Qin Zhang. (2005). Video transcoding: An overview of various techniques and research issues. IEEE Transactions on Multimedia, 7(5), 793–804. https://doi.org/10.1109/TMM.2005.854472
+
+AILab-CVC. (2024, January 30). YOLO-World. GitHub. Retrieved January 21, 2026, from https://github.com/AILab-CVC/YOLO-World
+
+Amirante, A., Castaldi, T., Miniero, L., & Romano, S. P. (2014). Janus: A general purpose WebRTC gateway. Proceedings of the Conference on Principles, Systems and Applications of IP Telecommunications, 1–8. https://doi.org/10.1145/2670386.2670389
+
+Amirante, A., Castaldi, T., Miniero, L., & Romano, S. P. (2015). Performance analysis of the Janus WebRTC gateway. Proceedings of the 1st Workshop on All-Web Real-Time Systems, 1–7. https://doi.org/10.1145/2749215.2749223
+
+Ananthanarayanan, G., Bahl, P., Bodik, P., Chintalapudi, K., Philipose, M., Ravindranath, L., & Sinha, S. (2017). Real-Time Video Analytics: The Killer App for Edge Computing. Computer, 50(10), 58–67. https://doi.org/10.1109/MC.2017.3641638
+
+Argentina. (2000). Ley N.º 25.326: Ley de Protección de los Datos Personales. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/60000-64999/64790/texact.htm
+
+Argentina. (2001, noviembre 29). Decreto 1558/2001: Ley 25.326—Reglamentación. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368
+
+Argentina. (2006, septiembre 19). Disposición 11/2006: Medidas de seguridad para el tratamiento y conservación de los datos personales. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-11-2006-120120
+
+Argentina. (2015, febrero 24). Disposición 10/2015: Condiciones de licitud para las actividades de recolección y posterior tratamiento de imágenes digitales de personas con fines de seguridad. Argentina.gob.ar. https://www.argentina.gob.ar/normativa/nacional/disposici%C3%B3n-10-2015-243335
+
+Axis Communications AB. (2015). Latency in live network video surveillance (63380/EN/R1/1504) [White paper]. https://www.axis.com/dam/public/9d/e4/5d/latency-in-live-network-video-surveillance-en-US-190945.pdf
+
+Bachhuber, C., Steinbach, E., Freundl, M., & Reisslein, M. (2018). On the Minimization of Glass-to-Glass and Glass-to-Algorithm Delay in Video Communication. IEEE Transactions on Multimedia, 20(1), 238–252. https://doi.org/10.1109/TMM.2017.2726189
+
+Bass, L., Clements, P., & Kazman, R. (2022). Software architecture in practice (Fourth edition). Addison-Wesley.
+
+Bernardin, K., & Stiefelhagen, R. (2008). Evaluating multiple object tracking performance: The CLEAR MOT metrics. EURASIP Journal on Image and Video Processing, 2008(1), 1-10. https://doi.org/10.1155/2008/246309
+
+Bewley, A., Ge, Z., Ott, L., Ramos, F., y Upcroft, B. (2016). Simple online and realtime tracking. En 2016 IEEE International Conference on Image Processing (ICIP) (pp. 3464-3468). IEEE. https://doi.org/10.1109/ICIP.2016.7533003
+
+Cao, J., Pang, J., Weng, X., Khirodkar, R., & Kitani, K. (2023). Observation-Centric SORT: Rethinking SORT for Robust Multi-Object Tracking. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 9686–9696. https://doi.org/10.1109/CVPR52729.2023.00934
+
+Card, S. K., Moran, T. P., & Newell, A. (2008). The psychology of human-computer interaction (Repr). Erlbaum.
+
+Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A., & Zagoruyko, S. (2020). End-to-End Object Detection with Transformers (arXiv:2005.12872). arXiv. https://doi.org/10.48550/arXiv.2005.12872
+
+Chen, J., & Ran, X. (2019). Deep Learning With Edge Computing: A Review. Proceedings of the IEEE, 107(8), 1655–1674. https://doi.org/10.1109/JPROC.2019.2921977
+
+Chen, X., & Zou, Z. (2025). Are large pre-trained vision language models effective construction safety inspectors? (arXiv:2508.11011). arXiv. https://doi.org/10.48550/arXiv.2508.11011
+
+Cheng, T., Song, L., Ge, Y., Liu, W., Wang, X., & Shan, Y. (2024). YOLO-World: Real-time open-vocabulary object detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 16901–16911). https://doi.org/10.1109/CVPR52733.2024.01599
+
+Choi, L., & Greer, R. (2024). Evaluating cascaded methods of vision-language models for zero-shot detection and association of hardhats for increased construction safety (arXiv:2410.12225). arXiv. https://doi.org/10.48550/arXiv.2410.12225
+
+Cugola, G., & Margara, A. (2012). Processing flows of information: From data stream to complex event processing. ACM Computing Surveys, 44(3), 1–62. https://doi.org/10.1145/2187671.2187677
+
+DASH Industry Forum. (2020, marzo 27). Low-latency Modes for DASH. CR-Low-Latency-Live-r8. https://dashif.org/docs/CR-Low-Latency-Live-r8.pdf
+
+Deber, J., Jota, R., Forlines, C., & Wigdor, D. (2015). How Much Faster is Fast Enough?: User Perception of Latency & Latency Improvements in Direct and Indirect Touch. Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems, 1827–1836. https://doi.org/10.1145/2702123.2702300
+
+Decreto 351/79 de 1979. Reglamentación de la Ley 19.587 de Higiene y Seguridad en el Trabajo. (1979, febrero 5). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/30000-34999/32030/dto351-1979-anexo1.htm
+
+Decreto 911/96 de 1996. Reglamento de Higiene y Seguridad para la Industria de la Construcción. (1996, 5 de agosto). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/35000-39999/38568/texact.htm
+
+Dendorfer, P., Rezatofighi, H., Milan, A., Shi, J., Cremers, D., Reid, I., Roth, S., Schindler, K., & Leal-Taixé, L. (2020). MOT20: A benchmark for multi object tracking in crowded scenes (arXiv:2003.09003). arXiv. https://doi.org/10.48550/arXiv.2003.09003
+
+Du, C., Lin, C., Jin, R., Chai, B., Yao, Y., & Su, S. (2024). Exploring the State-of-the-Art in Multi-Object Tracking: A Comprehensive Survey, Evaluation, Challenges, and Future Directions. Multimedia Tools and Applications, 83(29), 73151–73189. https://doi.org/10.1007/s11042-023-17983-2
+
+Du, Y., Wei, F., Zhang, Z., Shi, M., Gao, Y., & Li, G. (2022). Learning to prompt for open-vocabulary object detection with vision-language model. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 14084-14093). https://doi.org/10.1109/CVPR52688.2022.01369
+
+European Data Protection Board. (2020, enero 30). Guidelines 3/2019 on processing of personal data through video devices (Version 2.0). EDPB. https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en
+
+Everingham, M., Van Gool, L., Williams, C. K. I., Winn, J., & Zisserman, A. (2010). The Pascal Visual Object Classes (VOC) Challenge. International Journal of Computer Vision, 88(2), 303–338. https://doi.org/10.1007/s11263-009-0275-4
+
+Fu, S., Yang, Q., Mo, Q., Yan, J., Wei, X., Meng, J., Xie, X., & Zheng, W.-S. (2025, January 31). [2501.18954] LLMDet: Learning Strong Open-Vocabulary Object Detectors under the Supervision of Large Language Models. arXiv. Retrieved January 21, 2026, from https://arxiv.org/abs/2501.18954
+
+Gettys, J., & Nichols, K. (2012). Bufferbloat: Dark buffers in the internet. Communications of the ACM, 55(1), 57–65. https://doi.org/10.1145/2063176.2063196
+
+Google. (2022, May). owlvit-large-patch14. Hugging Face. https://huggingface.co/google/owlvit-large-patch14
+
+Google. (2023, June). owlv2-base-patch16-ensemble. Hugging Face. https://huggingface.co/google/owlv2-base-patch16-ensemble
+
+Gupta, A., Dollár, P., & Girshick, R. (2019). LVIS: A Dataset for Large Vocabulary Instance Segmentation (arXiv:1908.03195). arXiv. https://doi.org/10.48550/arXiv.1908.03195
+
+IDEA-Research. (2024a, noviembre 20). DINO-X-API: A unified vision model for open-world object detection and understanding [Repositorio de código]. GitHub. https://github.com/IDEA-Research/DINO-X-API
+
+IDEA-Research. (2024c, mayo 18). GroundingDINO: Official implementation of “Grounding DINO: Marrying DINO with grounded pre-training for open-set object detection” [Repositorio de código]. GitHub. https://github.com/IDEA-Research/GroundingDINO
+
+Iorga, M., Feldman, L., Barton, R., Martin, M. J., Goren, N., & Mahmoudi, C. (2018). Fog computing conceptual model (NIST SP 500-325; p. NIST SP 500-325). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.500-325
+
+ISO. (2018). ISO 45001:2018 Occupational health and safety management systems—Requirements with guidance for use. ISO. https://www.iso.org/standard/63787.html
+
+ISO. (2023). ISO/IEC 42001:2023—Artificial intelligence management system. ISO. https://www.iso.org/standard/42001
+
+ISO/IEC. (2022). Information technology—Dynamic adaptive streaming over HTTP (DASH)—Part 1: Media presentation description and segment formats. ISO/IEC 23009-1:2022. https://www.iso.org/standard/83314.html
+
+Jiang, Q., Li, F., Zeng, Z., Ren, T., Liu, S., & Zhang, L. (2024). T-Rex2: Towards Generic Object Detection via Text-Visual Prompt Synergy (arXiv:2403.14610). arXiv. https://doi.org/10.48550/arXiv.2403.14610
+
+Keranen, A., Holmberg, C., & Rosenberg, J. (2018). Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal (No. RFC8445; p. RFC8445). RFC Editor. https://doi.org/10.17487/RFC8445
+
+Khattak, M. U., Rasheed, H., Maaz, M., Khan, S., & Khan, F. S. (2023). MaPLe: Multi-modal Prompt Learning (arXiv:2210.03117). arXiv. https://doi.org/10.48550/arXiv.2210.03117
+
+Kirkpatrick, J., Pascanu, R., Rabinowitz, N., Veness, J., Desjardins, G., Rusu, A. A., Milan, K., Quan, J., Ramalho, T., Grabska-Barwinska, A., Hassabis, D., Clopath, C., Kumaran, D., & Hadsell, R. (2017). Overcoming catastrophic forgetting in neural networks. Proceedings of the National Academy of Sciences, 114(13), 3521-3526. https://doi.org/10.1073/pnas.1611835114
+
+Kreutz, D., Ramos, F. M. V., Esteves Verissimo, P., Esteve Rothenberg, C., Azodolmolky, S., & Uhlig, S. (2015). Software-Defined Networking: A Comprehensive Survey. Proceedings of the IEEE, 103(1), 14–76. https://doi.org/10.1109/JPROC.2014.2371999
+
+Kumar, A., Raghunathan, A., Jones, R. M., Ma, T., & Liang, P. (2022). Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations. https://arxiv.org/abs/2202.10054
+
+Kurose, J. F., & Ross, K. W. (2021). Computer networking: A top-down approach (Eighth edition). Pearson.
+
+Lee, Y., Chen, A. S., Tajwar, F., Kumar, A., Yao, H., Liang, P., & Finn, C. (2023). Surgical fine-tuning improves adaptation to distribution shifts. International Conference on Learning Representations. https://arxiv.org/abs/2210.11466
+
+Ley 19.587 de 1972. Ley de Higiene y Seguridad en el Trabajo. (1972). Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/17612/norma.htm
+
+Li, L. H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan, L., Zhang, L., Hwang, J.-N., Chang, K.-W., & Gao, J. (2021). Grounded language-image pre-training (arXiv:2112.03857). arXiv. https://doi.org/10.48550/arXiv.2112.03857
+
+Li, S., Fischer, T., Ke, L., Ding, H., Danelljan, M., & Yu, F. (2023). OVTrack: Open-Vocabulary Multiple Object Tracking. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 5567–5577. https://doi.org/10.1109/CVPR52729.2023.00539
+
+Li, S., Ren, H., Xie, X., & Cao, Y. (2025). A Review of Multi‐Object Tracking in Recent Times. IET Computer Vision, 19(1), e70010. https://doi.org/10.1049/cvi2.70010
+
+Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollar, P. y Zitnick, C. L. (2014). Microsoft COCO: Common objects in context. En D. Fleet, T. Pajdla, B. Schiele y T. Tuytelaars (Eds.), Computer Vision - ECCV 2014 (Vol. 8693, pp. 740-755). Springer. https://doi.org/10.1007/978-3-319-10602-1_48
+
+Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Jiang, Q., Li, C., Yang, J., Su, H., Zhu, J., & Zhang, L. (2024). Grounding DINO: Marrying DINO with grounded pre-training for open-set object detection. In Computer Vision - ECCV 2024 (pp. 38-55). Springer. https://doi.org/10.1007/978-3-031-72970-6_3
+
+Luiten, J., Os̆ep, A., Dendorfer, P., Torr, P., Geiger, A., Leal-Taixé, L., & Leibe, B. (2021). HOTA: A Higher Order Metric for Evaluating Multi-object Tracking. International Journal of Computer Vision, 129(2), 548–578. https://doi.org/10.1007/s11263-020-01375-2
+
+Luo, W., Xing, J., Milan, A., Zhang, X., Liu, W., & Kim, T.-K. (2021). Multiple object tracking: A literature review. Artificial Intelligence, 293, 103448. https://doi.org/10.1016/j.artint.2020.103448
+
+Luxonis. (s. f.-b). OAK-D Pro PoE [Documentación de hardware]. Luxonis Docs. https://docs.luxonis.com/hardware/products/OAK-D%20Pro%20PoE
+
+May, W. (2017). HTTP Live Streaming (R. Pantos, Ed.; No. RFC8216; p. RFC8216). RFC Editor. https://doi.org/10.17487/RFC8216
+
+Microsoft. (2024, June). Florence-2-large. Hugging Face. https://huggingface.co/microsoft/Florence-2-large
+
+Milan, A., Leal-Taixe, L., Reid, I., Roth, S., & Schindler, K. (2016). MOT16: A Benchmark for Multi-Object Tracking (arXiv:1603.00831). arXiv. https://doi.org/10.48550/arXiv.1603.00831
+
+Minderer, M., Gritsenko, A., & Houlsby, N. (2023). Scaling open-vocabulary object detection (arXiv:2306.09683). arXiv. https://doi.org/10.48550/arXiv.2306.09683
+
+Minderer, M., Gritsenko, A., Stone, A., Neumann, M., Weissenborn, D., Dosovitskiy, A., Mahendran, A., Arnab, A., Dehghani, M., Shen, Z., Wang, X., Zhai, X., Kipf, T., & Houlsby, N. (2022). Simple open-vocabulary object detection with vision transformers. In Computer Vision – ECCV 2022 (pp. 728–755). Springer. https://doi.org/10.1007/978-3-031-20080-9_42
+
+Nakagawa, K., Tsukada, M., Shima, K., & Esaki, H. (2021). WebRTC-based measurement tool for peer-to-peer applications and preliminary findings with real users. Asian Internet Engineering Conference, 1–8. https://doi.org/10.1145/3497777.3498544
+
+NVIDIA. (2024). DeepStream SDK 8.0 for NVIDIA dGPU/X86 and Jetson—DeepStream documentation. https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_Release_notes.html
+
+NVIDIA. (s. f.-g). Grounding DINO. NVIDIA TAO Toolkit Documentation. Recuperado el 27 de agosto de 2026, de https://docs.nvidia.com/tao/tao-toolkit/latest/text/cv_finetuning/pytorch/object_detection/grounding_dino.html
+
+NVIDIA. (s. f.-h). NVIDIA Triton Inference Server. Recuperado el 27 de agosto de 2026, de https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html
+
+OASIS. (2019). MQTT Version 5.0. OASIS Standard. https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html
+
+ONVIF. (2019). ONVIF Profile S Specification (ONVIF Profile S). ONVIF. https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_-S_Specification_v1-3.pdf
+
+Organisation for Economic Co-operation and Development. (2019, mayo 1). OECD AI Principles overview. OECD. https://oecd.ai/en/ai-principles
+
+Otgonbold, M.-E., Gochoo, M., Alnajjar, F. S., Ali, L., Tan, T.-H., Hsieh, J.-W., y Chen, P.-Y. (2022). SHEL5K: An extended dataset and benchmarking for safety helmet detection. Sensors, 22(6), 2315. https://doi.org/10.3390/s22062315
+
+Pantos, R. (2025). HTTP Live Streaming 2nd Edition (Internet-Draft). Internet Engineering Task Force. https://datatracker.ietf.org/doc/draft-pantos-hls-rfc8216bis/18/
+
+Parmar, H., & Thornburgh, M. (2012). Adobe’s Real Time Messaging Protocol. Adobe. https://ptacts.uspto.gov/ptacts/public-informations/petitions/1557060/download-documents?artifactId=CX29dwexemvGTAgu1npsGb4QtKzyjACHSNYXLhjJp5m1SpQS4AAf-3A
+
+Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., Krueger, G., & Sutskever, I. (2021). Learning Transferable Visual Models From Natural Language Supervision (arXiv:2103.00020). arXiv. https://doi.org/10.48550/arXiv.2103.00020
+
+Rasaee, H., Koleilat, T., & Rivaz, H. (2025). Grounding DINO-US-SAM: Text-Prompted Multi-Organ Segmentation in Ultrasound with LoRA-Tuned Vision-Language Models. IEEE Transactions on Ultrasonics, Ferroelectrics, and Frequency Control, 72(10), 1414-1425. https://doi.org/10.1109/TUFFC.2025.3605285
+
+Ren, T., Chen, Y., Jiang, Q., Zeng, Z., Xiong, Y., Liu, W., Ma, Z., Shen, J., Gao, Y., Jiang, X., Chen, X., Song, Z., Zhang, Y., Huang, H., Gao, H., Liu, S., Zhang, H., Li, F., Yu, K., & Zhang, L. (2024). DINO-X: A unified vision model for open-world object detection and understanding (arXiv:2411.14347). arXiv. https://doi.org/10.48550/arXiv.2411.14347
+
+Ren, T., Jiang, Q., Liu, S., Zeng, Z., Liu, W., Gao, H., Huang, H., Ma, Z., Jiang, X., Chen, Y., Xiong, Y., Zhang, H., Li, F., Tang, P., Yu, K., & Zhang, L. (2024). Grounding DINO 1.5: Advance the “Edge” of Open-Set Object Detection (Versión 2). arXiv. https://doi.org/10.48550/ARXIV.2405.10300
+
+Ren, T., Liu, S., Zeng, A., Lin, J., Li, K., Cao, H., Chen, J., Huang, X., Chen, Y., Yan, F., Zeng, Z., Zhang, H., Li, F., Yang, J., Li, H., Jiang, Q., & Zhang, L. (2024). Grounded SAM: Assembling Open-World Models for Diverse Visual Tasks (arXiv:2401.14159). arXiv. https://doi.org/10.48550/arXiv.2401.14159
+
+Ristani, E., Solera, F., Zou, R., Cucchiara, R., & Tomasi, C. (2016). Performance Measures and a Data Set for Multi-target, Multi-camera Tracking. En G. Hua & H. Jégou (Eds.), Computer Vision – ECCV 2016 Workshops (Vol. 9914, pp. 17–35). Springer International Publishing. https://doi.org/10.1007/978-3-319-48881-3_2
+
+Roy (Whalen), S. (2024, julio 18). RTMP vs. RTSP: Which Protocol Should You Choose? (Update). Wowza Media Systems. Wowza Blog. https://www.wowza.com/blog/rtmp-vs-rtsp-which-protocol-should-you-choose
+
+Satyanarayanan, M. (2017). The Emergence of Edge Computing. Computer, 50(1), 30–39. https://doi.org/10.1109/MC.2017.9
+
+Schulzrinne, H., Casner, S., Frederick, R., & Jacobson, V. (2003). RTP: A Transport Protocol for Real-Time Applications (No. RFC3550; p. RFC3550). RFC Editor. https://doi.org/10.17487/rfc3550
+
+Schulzrinne, H., Rao, A., & Lanphier, R. (1998). Real Time Streaming Protocol (RTSP) (No. RFC2326; p. RFC2326). RFC Editor. https://doi.org/10.17487/rfc2326
+
+Schulzrinne, H., Rao, A., Lanphier, R., & Westerlund, M. (2016). Real-Time Streaming Protocol Version 2.0 (M. Stiemerling, Ed.; No. RFC7826; p. RFC7826). RFC Editor. https://doi.org/10.17487/RFC7826
+
+Sharabayko, M. P., Sharabayko, M. A., Dube, J., Kim, J., & Kim, J. (2024). The SRT Protocol (Internet-Draft (working copy)). Internet Engineering Task Force. https://haivision.github.io/srt-rfc/draft-sharabayko-srt.html
+
+Shen, Y., Fu, C., Chen, P., Zhang, M., Li, K., Sun, X., Wu, Y., Lin, S., & Ji, R. (2023, December 4). Aligning and Prompting Everything All at Once for Universal Visual Perception. arXiv. https://arxiv.org/abs/2312.02153
+
+Shi, W., Cao, J., Zhang, Q., Li, Y., & Xu, L. (2016). Edge Computing: Vision and Challenges. IEEE Internet of Things Journal, 3(5), 637–646. https://doi.org/10.1109/JIOT.2016.2579198
+
+Sonono, T. (2019). Interoperable Retransmission Protocols with Low Latency and Constrained Delay: A Performance Evaluation of RIST and SRT [Master’s thesis, KTH Royal Institute of Technology]. https://www.diva-portal.org/smash/get/diva2:1335907/FULLTEXT01.pdf
+
+SRT. (1997, julio 7). Resolución SRT 51/97 de 1997. Mecanismo Preventivo de Control en Obras de Construcción. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/40000-44999/44588/norma.htm
+
+SRT. (1998, marzo 31). Resolución SRT 35/98 de 1998. Coordinación de Programas de Seguridad en Obras de Construcción. Infoleg. https://servicios.infoleg.gob.ar/infolegInternet/anexos/50000-54999/50188/norma.htm
+
+SRT. (s. f.). Programa de Construcción. Argentina.gob.ar. Recuperado el 12 de enero de 2026, de https://www.argentina.gob.ar/srt/prevencion/programas/construccion
+
+THU-MIG. (2025). THU-MIG / yoloe: YOLOE: Real-Time Seeing Anything. GitHub. https://github.com/THU-MIG/yoloe
+
+Thrush, T., Jiang, R., Bartolo, M., Singh, A., Williams, A., Kiela, D., & Ross, C. (2022). Winoground: Probing vision and language models for visio-linguistic compositionality (arXiv:2204.03162). arXiv. https://doi.org/10.48550/arXiv.2204.03162
+
+Ucar, A., Ro, S., Satwika, S., Gayathri, P. Y., & Balsha, M. G. (2025). Fine-Tuning Florence2 for Enhanced Object Detection in Un-constructed Environments: Vision-Language Model Approach (arXiv:2503.04918). arXiv. https://doi.org/10.48550/arXiv.2503.04918
+
+Ultralytics. (2026). Ultralytics YOLO26. https://docs.ultralytics.com/models/yolo26/
+
+UNESCO. (2021). Recommendation on the ethics of artificial intelligence. https://unesdoc.unesco.org/ark:/48223/pf0000380455
+
+Video Services Forum. (2020). Reliable Internet Stream Transport (RIST) protocol specification – Simple profile. Video Services Forum. https://static.vsf.tv/download/technical_recommendations/VSF_TR-06-1_2020_06_25.pdf
+
+Video Services Forum. (2024). Reliable Internet Stream Transport (RIST) Protocol Specification – Main Profile. Video Services Forum. https://static.vsf.tv/download/technical_recommendations/VSF_TR-06-2_2024_06_12.pdf
+
+Wang, A., Liu, L., Chen, H., Lin, Z., Han, J., & Ding, G. (2025). YOLOE: Real-Time Seeing Anything (arXiv:2503.07465). arXiv. https://doi.org/10.48550/arXiv.2503.07465
+
+Wang, H., Ren, P., Jie, Z., Dong, X., Feng, C., Qian, Y., Ma, L., Jiang, D., Wang, Y., Lan, X., & Liang, X. (2024). OV-DINO: Unified open-vocabulary detection with language-aware selective fusion (arXiv:2407.07844). arXiv. https://doi.org/10.48550/arXiv.2407.07844
+
+Wang, H., Zhang, X., Chen, H., Xu, Y., & Ma, Z. (2022). Inferring End-to-End Latency in Live Videos. IEEE Transactions on Broadcasting, 68(2), 517–529. https://doi.org/10.1109/TBC.2021.3071060
+
+Wang, Z., Wu, Y., Yang, L., Thirunavukarasu, A., Evison, C., y Zhao, Y. (2021). Fast personal protective equipment detection for real construction sites using deep learning approaches. Sensors, 21(10), 3478. https://doi.org/10.3390/s21103478
+
+Wojke, N., Bewley, A., & Paulus, D. (2017). Simple online and realtime tracking with a deep association metric. 2017 IEEE International Conference on Image Processing (ICIP), 3645–3649. https://doi.org/10.1109/ICIP.2017.8296962
+
+World Wide Web Consortium. (2025). WebRTC: Real-Time Communication in Browsers (W3C Recommendation). World Wide Web Consortium. https://www.w3.org/TR/webrtc/
+
+Xiao, B., Wu, H., Xu, W., Dai, X., Hu, H., Lu, Y., Zeng, M., Liu, C., & Yuan, L. (2024). Florence-2: Advancing a unified representation for a variety of vision tasks. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 4818–4829). https://doi.org/10.1109/CVPR52733.2024.00461
+
+Yao, L., Pi, R., Han, J., Liang, X., Xu, H., Zhang, W., Li, Z., & Xu, D. (2024). DetCLIPv3: Towards versatile generative open-vocabulary object detection (arXiv:2404.09216). arXiv. https://doi.org/10.48550/arXiv.2404.09216
+
+Yousefpour, A., Fung, C., Nguyen, T., Kadiyala, K., Jalali, F., Niakanlahiji, A., Kong, J., & Jue, J. P. (2019). All one needs to know about fog computing and related edge computing paradigms: A complete survey. Journal of Systems Architecture, 98, 289–330. https://doi.org/10.1016/j.sysarc.2019.02.009
+
+Yuksekgonul, M., Bianchi, F., Kalluri, P., Jurafsky, D., & Zou, J. (2023). When and why vision-language models behave like bags-of-words, and what to do about it? International Conference on Learning Representations. https://arxiv.org/abs/2210.01936
+
+Zang, Y., Li, W., Zhou, K., Huang, C., & Loy, C. C. (2022, March 22). [2203.11876] Open-Vocabulary DETR with Conditional Matching. arXiv. https://arxiv.org/abs/2203.11876
+
+Zareian, A., Rosa, K. D., Hu, D. H., & Chang, S.-F. (2021). Open-Vocabulary Object Detection Using Captions (arXiv:2011.10678). arXiv. https://doi.org/10.48550/arXiv.2011.10678
+
+Zhang, H., Zhang, P., Hu, X., Chen, Y.-C., Li, L. H., Dai, X., Wang, L., Yuan, L., Hwang, J.-N., & Gao, J. (2022). GLIPv2: Unifying Localization and Vision-Language Understanding (arXiv:2206.05836). arXiv. https://doi.org/10.48550/arXiv.2206.05836
+
+Zhang, Y., Sun, P., Jiang, Y., Yu, D., Weng, F., Yuan, Z., Luo, P., Liu, W., & Wang, X. (2022). ByteTrack: Multi-object Tracking by Associating Every Detection Box. En S. Avidan, G. Brostow, M. Cissé, G. M. Farinella, & T. Hassner (Eds.), Computer Vision – ECCV 2022 (Vol. 13682, pp. 1–21). Springer Nature Switzerland. https://doi.org/10.1007/978-3-031-20047-2_1
+
+Zhao, T., Liu, P., He, X., Zhang, L., & Lee, K. (2024). Real-time Transformer-based Open-Vocabulary Detection with Efficient Fusion Head (arXiv:2403.06892). arXiv. https://doi.org/10.48550/arXiv.2403.06892
+
+Zhao, X., Chen, Y., Xu, S., Li, X., Wang, X., Li, Y., & Huang, H. (2024). An Open and Comprehensive Pipeline for Unified Object Grounding and Detection (arXiv:2401.02361). arXiv. https://doi.org/10.48550/arXiv.2401.02361
+
+Zhou, K., Yang, J., Loy, C. C., & Liu, Z. (2022b). Learning to Prompt for Vision-Language Models. International Journal of Computer Vision, 130(9), 2337–2348. https://doi.org/10.1007/s11263-022-01653-1
+
+Zhou, X., Girdhar, R., Joulin, A., Krähenbühl, P., & Misra, I. (2022). Detecting twenty-thousand classes using image-level supervision (arXiv:2201.02605). arXiv. https://doi.org/10.48550/arXiv.2201.02605
 
 ---
 

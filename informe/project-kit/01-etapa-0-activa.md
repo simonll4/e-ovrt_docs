@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 0
 
-> Generado el 2026-09-01. Etapa 0: secciones 11 a 14 y ajustes transversales.
+> Generado el 2026-09-08. Etapa 0: secciones 11 a 14 y ajustes transversales.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -52,19 +52,22 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    propio documento** en `entregable/desarrollando/`; lo que queda al final es
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
-   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
-   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
-   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
-   severidad metodologica, sin articulos legales; extension justificada en
-   justificacion-extension-17-1.md), y los
-   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
-   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   verificados; texto base `90d`; el marcador D-E1-11 se borra en el proximo pase) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.15
+   (Etapa 2) CERRADA el 2026-09-03 con los SEIS pases mas el ciclo de reestructuracion 09-01/09-03
+   (109 -> 37 titulos, -35,3 % de palabras, cero bajas de referencias; la numeracion de subsecciones
+   CAMBIO — traducir con desarrollando/mapa-secciones-17-1-v1-15.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio, con un
+   comentario abierto del colega en 17.1.6; siguen los handoffs hacia
    17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
-4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
-   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
+4. **D-E1-11 — inscripcion ante la AAIP: CERRADA el 2026-09-01** (decision del usuario,
+   converge con el comentario C9 de la Etapa 1 v1.1): el informe NO adjudica el tramite de
+   inscripcion — las salvaguardas de §16.6 son el recaudo documentado y la respuesta se
+   prepara para la defensa. El espejo de §17.1 (D-E2-7) ya esta borrado (v1.8); el marcador
+   de §16.6 se borra en el proximo pase de la Etapa 1. No reintroducir el tema en el texto.
+   Constancia: `desarrollando/cierre-d-e1-11-aaip.md`.
 
 ### Convencion de marcadores (obligatoria)
 

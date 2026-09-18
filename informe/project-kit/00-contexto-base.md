@@ -1,6 +1,6 @@
 # E-OVRT-VDP - contexto base para redaccion
 
-> Generado el 2026-09-01. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
+> Generado el 2026-09-08. Archivo estable del knowledge; se usa junto al paquete de la etapa activa.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -52,19 +52,22 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    propio documento** en `entregable/desarrollando/`; lo que queda al final es
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
-   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
-   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
-   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
-   severidad metodologica, sin articulos legales; extension justificada en
-   justificacion-extension-17-1.md), y los
-   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
-   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   verificados; texto base `90d`; el marcador D-E1-11 se borra en el proximo pase) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.15
+   (Etapa 2) CERRADA el 2026-09-03 con los SEIS pases mas el ciclo de reestructuracion 09-01/09-03
+   (109 -> 37 titulos, -35,3 % de palabras, cero bajas de referencias; la numeracion de subsecciones
+   CAMBIO — traducir con desarrollando/mapa-secciones-17-1-v1-15.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio, con un
+   comentario abierto del colega en 17.1.6; siguen los handoffs hacia
    17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
-4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
-   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
+4. **D-E1-11 — inscripcion ante la AAIP: CERRADA el 2026-09-01** (decision del usuario,
+   converge con el comentario C9 de la Etapa 1 v1.1): el informe NO adjudica el tramite de
+   inscripcion — las salvaguardas de §16.6 son el recaudo documentado y la respuesta se
+   prepara para la defensa. El espejo de §17.1 (D-E2-7) ya esta borrado (v1.8); el marcador
+   de §16.6 se borra en el proximo pase de la Etapa 1. No reintroducir el tema en el texto.
+   Constancia: `desarrollando/cierre-d-e1-11-aaip.md`.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -967,7 +970,7 @@ obra y anotaciones subpíxel."*
 
 ## Fuente: `docs/informe/ajustes/08-manual-de-aplicacion.md`
 
-> SHA-256 del bloque: `5702870503539b030947f6966045d5e0b8a69df56913b2a73f3001d17278edcc`  
+> SHA-256 del bloque: `03fbc480691e8db47352e5e3d64ba25fac7f4ea09d136b617f4e4505535e8e51`  
 > Seleccion: documento completo.
 
 # Manual de aplicación — cómo se pasan los 109 ajustes al informe
@@ -1067,6 +1070,11 @@ cambia el §3 y el §4 de este documento y nada más.
 **Dónde viven esos borradores:** `informe/entregable/borradores/17-4.md`, `17-5.md`,
 `17-6.md`. El nombre dice *borrador* a propósito, para que nunca se confundan con la foto
 extraída (`90`, `96a`–`96e`), que es otra cosa.
+
+> ✎ **2026-09-07.** La carpeta sigue siendo el lugar de los borradores que faltan (§17.6, §18, §19),
+> pero los dos que había —el de §17.4 y la vara del §15— ya se pegaron y se archivaron en
+> `entregable/archivado/` (fuente: `docs/informe/entregable/archivado/00-que-hay-aca.md`). El texto vigente de esas dos
+> secciones vive en su `.docx` y en su foto extraída.
 
 ### D-B · Quién hace qué → **recomendada: por juicio experimental requerido, no por volumen**
 
@@ -3104,7 +3112,7 @@ aceptado, fases y hashes) más `integrated-runs.json`, que enumera `media_run_id
 
 ## Fuente: `e-ovrt_experimental-setup/results/bench_imagenes/index.md`
 
-> SHA-256 del bloque: `96aad6179a98960d915c634b360d123931116363f290ded7d3a928e27bcde5d9`  
+> SHA-256 del bloque: `74488e21d87db3041c64f2b2c259018e77ec9eb68abc8ed2f7d7dcab61364d78`  
 > Seleccion: documento completo.
 
 # Bench de imágenes — resultados consolidados
@@ -3146,6 +3154,21 @@ agregadas, nunca solo el agregado.** El agregado de `bench_v3` está dominado po
 
 ## 2. Fase S — selección de modelos (docs 61/64/66)
 
+> ⚠️ ✎ **2026-09-07 — qué mide la columna «recall CR-01» de las tres tablas de esta sección.**
+> Mide la **formulación DIRECTA**: el evaluador (`evaluate_bench.evaluate_cr01`) cuenta únicamente
+> detecciones de `bare_head` dentro de la región de cabeza del violador. **El núcleo validable no
+> usa esa vía**: opera con la formulación INDIRECTA, que deriva la ausencia desde `person` y
+> `helmet`. Por eso un 0,000 acá **no** significa incapacidad para la condición, y por eso el
+> campeón `gdino-tiny-560` se retuvo con 0,308 sin que eso lo descalifique. La capacidad del núcleo
+> para CR-01 se mide en el **Nivel A** (`results/bench_nivel_a/`), donde E-IND y E-DIR se comparan
+> sobre el mismo material y E-IND gana (F1 0,546 vs 0,188 en imágenes).
+>
+> **Consecuencia para YOLOE:** su descarte SIGUE VÁLIDO, pero por `vest` (AP 0,182 en obra curada
+> frente a 0,520 del campeón) y por mAP50 agregado, **no por CR-01**. En las dos clases que la vía
+> indirecta necesita mide `person` 0,785 y `helmet` 0,715 sobre `shel5k`, contra 0,770 y 0,707 del
+> campeón. **El Nivel A nunca se corrió con YOLOE**, de modo que no hay medición de su rendimiento
+> en la condición por la vía que el núcleo usa, y no debe afirmarse ninguna.
+
 ### S1/S2 sobre el núcleo curado `bench_obra` (147 imgs)
 
 | Configuración | mAP50 obra | recall CR-01 obra | vest AP obra |
@@ -3173,7 +3196,7 @@ acá con sus números, para que la exclusión no sea una afirmación sin dato:
 | `mm-gdino-base` | 0,360 | 0,029 | 0,39 | **0,00** | 213 ms | **Mediocre sin ventaja en nada** (hallazgo 5 del doc 64): recall CR-01 0,029 y `bare_head` 0,00 |
 | `mm-gdino-large` | 0,017 | — | — | — | 723 ms | **Roto**: reproduce el bug de bboxes degeneradas (sanity-check pre-planificado: 2–3 degeneradas) |
 | `mm-gdino-tiny` | — | — | — | — | — | **Excluido a priori** en Sprint 2 por bboxes degeneradas; no se re-midió |
-| `yoloe-26l` / `26m` / `26s` | 0,407 (26x, campeón de la familia) | 0,049 (`26s`) | — | **0,000 en las 4** | 43 ms (`26x`) | **La familia entera es ciega a la condición.** `26x` es el campeón YOLOE y **el único tabulado arriba** por eso: representa a la familia en su mejor talla, no en la más rápida |
+| `yoloe-26l` / `26m` / `26s` | 0,407 (26x, campeón de la familia) | 0,049 (`26s`) | — | **0,000 en las 4** | 43 ms (`26x`) | **La familia entera es ciega a `bare_head`, la evidencia de la vía directa** (✎ 2026-09-07: antes decía «ciega a la condición», que es más de lo que el dato sostiene). `26x` es el campeón YOLOE y **el único tabulado arriba** por eso: representa a la familia en su mejor talla, no en la más rápida |
 
 Fuente: doc 64 (BENCH v2, 196 imgs — sin `metrics.json` mecánico; verificado a mano
 2026-08-14).

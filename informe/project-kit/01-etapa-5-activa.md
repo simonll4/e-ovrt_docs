@@ -1,6 +1,6 @@
 # E-OVRT-VDP - paquete de etapa 5
 
-> Generado el 2026-09-01. Etapa 5: seccion 17.5, evaluacion y validacion.
+> Generado el 2026-09-08. Etapa 5: seccion 17.5, evaluacion y validacion.
 
 ## Que esta CERRADO y que esta ABIERTO (leer antes de redactar)
 
@@ -52,19 +52,22 @@ escribe: se deja un marcador visible para que lo complete quien tiene el dato.
    propio documento** en `entregable/desarrollando/`; lo que queda al final es
    **integrarlas al maestro**, que todavia tiene §17.3/§17.4 en su version previa y §17.5 vacia. Estado:
    **Etapa 1 CERRADA** (`E-OVRT-VDP_Secciones_15_y_16_…_v1.0.docx`, cinco pases aplicados y
-   verificados; texto base `90d`; solo D-E1-11 abierta) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
-   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.7
-   (Etapa 2) CERRADA el 2026-09-01 con SEIS pases aplicados y verificados (el 5:
-   poda por aporte, cero bajas de referencias; el 6: desacople normativo del 09-01 —
-   severidad metodologica, sin articulos legales; extension justificada en
-   justificacion-extension-17-1.md), y los
-   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio —
-   cambios aceptados y 27 comentarios resueltos; siguen los handoffs hacia
+   verificados; texto base `90d`; el marcador D-E1-11 se borra en el proximo pase) · **§17.3 v1.4 · §17.4 v1.6 · §17.5 v1.3**
+   con sus tres pases APLICADOS Y VERIFICADOS (textos base `90` / `90b` / `90c`) · **§17.1 v1.15
+   (Etapa 2) CERRADA el 2026-09-03 con los SEIS pases mas el ciclo de reestructuracion 09-01/09-03
+   (109 -> 37 titulos, -35,3 % de palabras, cero bajas de referencias; la numeracion de subsecciones
+   CAMBIO — traducir con desarrollando/mapa-secciones-17-1-v1-15.md), y los
+   Anexos C y D finales AL FINAL del propio documento** (texto base `90f`; documento limpio, con un
+   comentario abierto del colega en 17.1.6; siguen los handoffs hacia
    17.3/17.4/17.5) · §17.6, §18 y §19 sin redactar. El texto base vigente de cada etapa es SIEMPRE su extraccion
    (`90d`/`90f`/`90`/`90b`/`90c`), nunca el placeholder del maestro, los borradores ni las fotos
    `96x` del informe v1.1 (superadas para §15, §16 y §17.1).
-4. **D-E1-11 — inscripcion ante la AAIP**: decision del EQUIPO, marcada con `[[PENDIENTE]]`
-   en §16.6.2.2 y con marcador espejo en §17.1.11 (D-E2-7); viaja hasta que el equipo la resuelva.
+4. **D-E1-11 — inscripcion ante la AAIP: CERRADA el 2026-09-01** (decision del usuario,
+   converge con el comentario C9 de la Etapa 1 v1.1): el informe NO adjudica el tramite de
+   inscripcion — las salvaguardas de §16.6 son el recaudo documentado y la respuesta se
+   prepara para la defensa. El espejo de §17.1 (D-E2-7) ya esta borrado (v1.8); el marcador
+   de §16.6 se borra en el proximo pase de la Etapa 1. No reintroducir el tema en el texto.
+   Constancia: `desarrollando/cierre-d-e1-11-aaip.md`.
 
 ### Convencion de marcadores (obligatoria)
 
@@ -1516,13 +1519,13 @@ DECISIÓN §5 → [ ] acepto  [ ] modifico  [ ] rechazo
 
 ## Fuente: `docs/informe/entregable/90c-etapa5-texto-extraido.md`
 
-> SHA-256 del bloque: `834333e79cd3b7a4341b79e58a30e7e79346f22336985f8d3bd723b4a6eda0f6`  
-> Seleccion: TEXTO BASE VIGENTE de la seccion 17.5: extraido del documento de trabajo v1.3 (2026-08-23), redactado bajo D-P3-6 y verificado (185 cifras, cero inventadas, cero marcadores de cifra). Es el texto sobre el que se revisa y se sigue trabajando.
+> SHA-256 del bloque: `11fc4c6636e1c6573a8ddeac918ec8691485a006a147b0eae7a4892abf13ea09`  
+> Seleccion: TEXTO BASE VIGENTE de la seccion 17.5: extraido el 2026-09-08 de la bajada del 09-08 con los pases 5, 5b y 5d ACEPTADOS por el usuario. ⚠ El archivo se llama **v1.5** pero su contenido es el de la v1.9: al renumerar, el numero retrocedio, y existe ademas una v1.5 historica DISTINTA (la base del pase 5). Citar la seccion por su estado, no por ese numero. Sin comentarios ni marcas: 4.913 palabras, 8 titulos, 5 tablas (61-65) y UNA sola figura (4.6, el fotograma con la alerta confirmada; §17.5 NO lleva figuras de datos por decision del usuario del 09-07). Redactada bajo D-P3-6 (por pregunta de medicion), con las ocho limitaciones restauradas al final de 17.5.7, las cifras verificadas contra los indices de results/ en la revision 5d (13 contradicciones corregidas) y los denominadores reales de las medias de latencia (21 clips para CR-01 y 7 para CR-02). **LA ETAPA 5 ESTA CERRADA**; §18 interpreta lo que esta seccion reporta, no la reescribe. No cambiar una palabra de fondo sin un pase nuevo explicito.
 
-# 90c — Texto extraído del documento de trabajo: §17.5 Evaluación y Validación (v1.3)
+# 90c — Texto extraído del documento de trabajo: §17.5 Evaluación y Validación (bajada del 2026-09-08, nombrada v1.5 pero con el contenido de la v1.9: el número retrocedió al renumerar. Limpia, sin comentarios. ETAPA 5 CERRADA)
 
-> **Extracción derivada (2026-08-23)** del `.docx`
-> `informe/entregable/E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.3.docx`, **solo para búsqueda y cita**
+> **Extracción derivada (2026-09-08)** del `.docx`
+> `informe/entregable/E-OVRT-VDP_Seccion_17.5_Evaluacion_y_Validacion_v1.5.docx`, **solo para búsqueda y cita**
 > (mismo estatuto que el doc 90): al editar, se edita el `.docx`/Google Docs, nunca
 > este archivo. Tablas y figuras pueden haber perdido formato; las figuras no se
 > extraen y las ecuaciones no se convierten — quedan `⟦FIGURA: no extraída — ver el .docx⟧` y
@@ -1535,43 +1538,43 @@ DECISIÓN §5 → [ ] acepto  [ ] modifico  [ ] rechazo
 
 #### 17.5.1. Encuadre y reglas de lectura
 
-La presente sección informa cuánto produjo el prototipo bajo las condiciones experimentales definidas. Los resultados se organizan por pregunta de medición y distinguen tres niveles: percepción sobre imágenes, estado observable por persona y alerta temporal por episodio. El primero caracteriza al detector, el segundo evalúa la reconstrucción de una condición por sujeto y el tercero representa a la plataforma completa. Las capacidades funcionales y su verificación técnica se documentaron en la sección 17.4; aquí se reportan sus mediciones, mientras que la interpretación de conjunto corresponde a las conclusiones.
+La evaluación informa cuánto produjo el prototipo bajo las condiciones experimentales definidas. Los resultados se organizan por pregunta de medición y distinguen tres niveles. La percepción sobre imágenes caracteriza al detector, el estado observable por persona evalúa la reconstrucción de una condición por sujeto, y la alerta temporal por episodio representa a la plataforma completa. Las mediciones de percepción, estado por persona y alerta por episodio pertenecen al Escenario A, sobre material congelado y relectura por archivo, y las de tiempo real al Escenario B, sobre captura continua.
 
-Toda cifra se vincula con una combinación, un material o estrato y un denominador. Las métricas de precisión, recall y F1 se calcularon únicamente sobre casos positivos con referencia aplicable. Los materiales negativos se analizaron mediante conteos de falsos positivos; cuando se derivó una tasa horaria, se informó junto con la duración observada y no se la utilizó como cota operativa. Las re-alertas se contabilizaron por separado y no se clasificaron como falsos positivos. Los percentiles de latencia pertenecientes a relojes o tramos distintos no se sumaron.
+Rigen las reglas de lectura fijadas en la sección 17.1.7.3. Cada cifra se acompaña de la combinación que la produjo, del material o estrato sobre el que se calculó y de su denominador. Precisión, recall y F1 se calcularon sólo sobre casos positivos con referencia aplicable, los materiales negativos se analizaron por conteo de falsos positivos, las re-alertas se contabilizaron aparte y los percentiles de tramos con relojes distintos no se sumaron. Los nombres abreviados de esta sección siguen al marco de métricas, con dos equivalencias. AP50 y mAP50 designan la precisión media a solapamiento 0,5 que el marco escribe AP@0,5, y la latencia de alerta es el intervalo que el marco llama t_alert-system. La latencia de alerta mide el intervalo entre el inicio del episodio anotado y su alerta confirmada, y la cobertura del episodio, que las tablas abrevian SDR, expresa qué proporción del tiempo con la condición activa mantuvo evidencia correcta.
 
-El banco temporal congelado comprendió 47 clips, distribuidos en 32 positivos y 15 negativos, con 37 episodios de referencia. Esta descomposición no debe confundirse con los 34 clips del bloque de rodaje guionado. El estrato de obra real no guionada se mantuvo separado y no se utilizó para ordenar granularidades cuando su denominador efectivo fue insuficiente. La referencia temporal fue humana y quedó congelada antes del reporte.
+El banco temporal congelado comprendió 47 clips, distribuidos en 32 positivos y 15 negativos, con 37 episodios de referencia. Lo integran 34 clips de un bloque de rodaje guionado y 13 de un estrato de obra real no guionada. El estrato de obra real no guionada se mantuvo separado y no se utilizó para ordenar granularidades cuando su denominador efectivo fue insuficiente. La referencia temporal fue humana y quedó congelada antes del reporte.
 
 Una métrica se trató como computable sólo cuando existieron referencia, reloj e instrumentación compatibles con su definición. Cuando faltó alguno de esos elementos, el resultado se declaró no aplicable o no interpretable en lugar de convertir la ausencia de medición en un cero.
 
 #### 17.5.2. Percepción sobre imágenes
 
-La primera pregunta examinó la capacidad perceptiva de las combinaciones sobre un banco congelado de 6.477 imágenes y 55.165 anotaciones. El material se dividió en tres estratos independientes: obra curada (n = 147 imágenes), obra con mayor cobertura de chaleco (n = 1.330 imágenes) y una fuente con clase nativa de cabeza descubierta (n = 5.000 imágenes). El último aportó el 77 % del banco, 5.000 de 6.477 imágenes; por esa razón, el agregado se leyó siempre junto con el desglose por estrato.
+La primera pregunta examinó la capacidad perceptiva de las combinaciones sobre un banco congelado de 6.477 imágenes y 55.165 anotaciones. El material se dividió en tres estratos independientes de 147, 1.330 y 5.000 imágenes, correspondientes a obra curada, a obra con mayor cobertura de chaleco y a una fuente con clase nativa de cabeza descubierta. El tercero aportó el 77 % del banco, de modo que el agregado se leyó siempre junto con el desglose por estrato.
 
-La Tabla 62 muestra que la combinación gdino-tiny-560 alcanzó el mAP50 más alto en el agregado y en el núcleo curado, mientras que gdino-base-560 produjo el recall más alto para CR-01. Por lo tanto, el veredicto se formuló por combinación: el primer perfil se retuvo como configuración operativa mediante un criterio fijado antes de leer los resultados y el segundo como contraste especializado para cabeza descubierta y chaleco. No se estableció una jerarquía universal entre modelos.
+La Tabla 61 muestra que la combinación gdino-tiny-560 alcanzó el mAP50 más alto en el agregado y en el núcleo curado, mientras que gdino-base-560 produjo el recall más alto de CR-01 por evidencia directa. El veredicto se formuló entonces por combinación. El primer perfil se retuvo como configuración operativa por un criterio fijado antes de leer los resultados, y el segundo como contraste especializado para cabeza descubierta y chaleco. No se estableció una jerarquía universal entre modelos. Las dos comparten resolución de entrada y umbrales, que declara la sección 17.4.4, y difieren en el tamaño del perfil.
 
-**Tabla 62**
+**Tabla 61**
 
 *Resultados de percepción por combinación en el banco congelado*
 
-| **Combinación** | **mAP50 agregado (n = 6.477 imágenes)** | **mAP50 obra curada (n = 147 imágenes)** | **Recall CR-01 (n+ = 5.313)** | **Veredicto por combinación** |
+| **Combinación** | **mAP50 agregado (n = 6.477 imágenes)** | **mAP50 obra curada (n = 147 imágenes)** | **Recall de CR-01 por evidencia directa (n+ = 5.313)** | **Veredicto por combinación** |
 | --- | --- | --- | --- | --- |
 | gdino-tiny-560 | 0,551 | 0,503 | 0,308 | Retenida como perfil operativo por liderar el mAP50 en las dos escalas reportadas. |
-| gdino-base-560 | 0,525 | 0,474 | 0,599 | Retenida como contraste de mayor cobertura para CR-01 y chaleco. |
-| yoloe-26x | 0,442 | 0,405 | 0,000 | No apta para CR-01 bajo esta formulación: no recuperó cabeza descubierta. |
+| gdino-base-560 | 0,525 | 0,474 | 0,599 | Retenida como contraste de mayor cobertura de cabeza descubierta y chaleco. |
+| yoloe-26x | 0,442 | 0,405 | 0,000 | Ciega a la cabeza descubierta, de modo que no sostiene la formulación directa. Su límite para el núcleo es el chaleco, con AP 0,182 en obra curada frente a 0,520 del perfil operativo. |
 
-*Nota.* El denominador del agregado es el banco completo. El recall de CR-01 se informa sobre 5.313 positivos de referencia.
+***Nota****.* El denominador del agregado es el banco completo. El recall de CR-01 se informa sobre 5.313 positivos, el conteo de la referencia con la que se ejecutó la campaña. Una corrección posterior de esa referencia lo dejó en 5.308 y la medición no se repitió. Esa columna cuenta sólo detecciones de cabeza descubierta, de modo que mide la formulación directa. El núcleo opera con la indirecta, que deriva la ausencia desde persona y casco, y su capacidad para la condición no se lee en esta columna.
 
-La especialización del perfil base también apareció en chaleco: registró AP 0,582 frente a 0,520 del perfil operativo en el estrato de mayor cobertura de esa clase (n = 1.330 imágenes). En los tres estratos, persona y casco se mantuvieron entre 0,70 y 0,89 de AP, mientras que chaleco quedó entre 0,55 y 0,58. La asimetría no dependió de una única fuente, sino que se sostuvo en los estratos de 147, 1.330 y 5.000 imágenes.
+La especialización del perfil base también apareció en chaleco, con AP 0,582 frente a 0,520 del perfil operativo sobre el estrato de obra curada. Para el perfil operativo, persona y casco se mantuvieron entre 0,70 y 0,89 de AP en los dos estratos públicos, mientras que chaleco quedó en 0,553 y 0,520 en los dos estratos que anotan esa clase. La asimetría no dependió de una única fuente, porque se sostuvo en ambos.
 
-La familia YOLOE presentó una limitación distinta: sus cuatro variantes produjeron AP 0,000 para bare_head en el estrato con clase nativa de cabeza descubierta (n = 5.000 imágenes). Aunque la familia resultó adecuada para rutas de mayor velocidad, esa ceguera la volvió inservible para CR-01 en la configuración evaluada.
+La familia YOLOE presentó una limitación distinta. Sus cuatro variantes produjeron AP 0,000 para bare_head, la clase de cabeza descubierta, sobre el banco anterior al congelado, y la variante mayor repitió el cero sobre el estrato que anota esa clase de forma nativa. Aunque resultó adecuada para rutas de mayor velocidad, esa ceguera la volvió inservible para la formulación directa de CR-01 en la configuración evaluada.
 
-La extensibilidad semántica se ejerció con una clase nueva (n = 1) y requirió 0 corridas de entrenamiento. La incorporación se resolvió mediante un archivo de 48 líneas y 9 minutos de trabajo, y alcanzó AP@0,5 de 0,662 sobre 99 cajas de referencia. El costo reducido no eliminó la necesidad de validación semántica: sobre el mismo material (n = 99 cajas de referencia), un sinónimo produjo 0 detecciones, mientras que otra palabra generó 252 cajas y ninguna fue correcta.
+La extensibilidad semántica se ejerció sobre una clase nueva, cuyo costo de incorporación informa la sección 17.4.8. La clase alcanzó AP50 de 0,662 sobre 99 cajas de referencia sin ninguna corrida de entrenamiento. El costo reducido no eliminó la necesidad de validación semántica. Sobre el mismo material, la palabra vehicle no produjo ninguna detección cuando acompañó a machinery en el vocabulario y, aislada, produjo 118 cajas con AP 0,026, porque el modelo la resolvió sobre la maquinaria misma.
 
 #### 17.5.3. Estado por persona
 
-El nivel intermedio evaluó si la evidencia perceptiva permitía determinar el estado observable de cada persona. La calibración se realizó sobre una mitad del material y las métricas sobre la otra, con IoU mayor o igual que 0,5. Se compararon E-IND, estrategia indirecta que reconstruye la ausencia desde evidencia positiva, y E-DIR, formulación directa retenida para el contraste.
+El nivel intermedio evaluó si la evidencia perceptiva permitía determinar el estado observable de cada persona. La calibración se realizó sobre una mitad del material y las métricas sobre la otra, con IoU mayor o igual que 0,5. La partición en mitades se registró con su semilla y fue la misma para todos los brazos, de modo que ninguna imagen que ajustó un umbral entró después en la medición. Se compararon E-IND, la estrategia indirecta que reconstruye la ausencia desde evidencia positiva, y E-DIR, la formulación directa retenida para el contraste. La medición sobre video abarcó 17 clips de obra real, los 13 del estrato de obra real del banco temporal y 4 de un piloto anterior, evaluados al nivel del estado por persona sobre su referencia de atributos, submuestreados a 2 Hz y sin calibración de umbrales, con el punto de operación desplegado, y no incluyó el motor de patrones. La Tabla 62 reúne los resultados.
 
-**Tabla 63**
+**Tabla 62**
 
 *Resultados de estado por persona*
 
@@ -1580,70 +1583,69 @@ El nivel intermedio evaluó si la evidencia perceptiva permitía determinar el e
 | Imágenes, CR-01 | F1 0,546 | F1 0,188 | n+ = 2.487 | Los intervalos de confianza no se solaparon. |
 | Núcleo curado, CR-01 | F1 0,408 | F1 0,189 | n+ = 28 | La ventaja se conservó en el estrato objetivo. |
 | Imágenes, CR-02 | F1 0,479 | F1 0,418 | n+ = 82 | Un único estrato; el resultado no cerró la condición. |
-| Video de obra real, CR-01 | P 0,016 · R 0,467 · F1 0,031 | No corresponde a esta medición | n+ = 92 de 10.356 person-frames | La caída provino de precisión, no de recall. |
-| Video de obra real, CR-02 | P 0,009 · R 0,318 · F1 0,018 | No corresponde a esta medición | n+ = 170 de 10.361 person-frames | La misma frontera de juzgabilidad dominó el resultado. |
-
-*Nota.* La medición sobre imágenes utilizó calibración en una mitad y evaluación en la otra. La medición sobre video de obra real abarcó 17 clips y no incluyó el motor temporal.
+| Video de obra real - CR-01 | P 0,016 · R 0,467 · F1 0,031 | No corresponde a esta medición | n+ = 92 de 10.356 cuadros con persona | La caída provino de precisión, no de recall. |
+| Video de obra real - CR-02 | P 0,009 · R 0,318 · F1 0,018 | No corresponde a esta medición | n+ = 170 de 10.361 cuadros con persona | La misma frontera de juzgabilidad dominó el resultado. |
 
 La estrategia directa no se comportó como un detector estable del estado, sino como un recuperador de casos omitidos por la estrategia indirecta. Recuperó el 18,5 % de esos casos, equivalentes a 155 de 840, pero lo hizo a costa de precisión. Esa relación explica por qué la estrategia no se adoptó aunque aportara evidencia complementaria en un subconjunto.
 
-La medición sobre 17 clips de obra real mostró un cambio de régimen. Para CR-01, el recall se mantuvo en 0,467 sobre 92 positivos dentro de 10.356 person-frames; para CR-02, fue 0,318 sobre 170 positivos dentro de 10.361 person-frames. El F1 cayó por la acumulación de falsos positivos sobre personas cuyo estado no podía determinarse visualmente. El evaluador excluyó del denominador 1.414 person-frames no juzgables para CR-01 y 1.409 para CR-02, pero cualquier predicción emitida sobre ellos se contabilizó como falso positivo.
+La medición sobre 17 clips de obra real mostró un cambio de régimen. La caída del F1 provino de la precisión y no del recall, por acumulación de falsos positivos sobre personas cuyo estado no podía determinarse visualmente. El evaluador excluyó del denominador 1.414 cuadros con persona no juzgables para CR-01, aquellos en los que el anotador no pudo determinar el estado, y 1.409 para CR-02, y contabilizó como falso positivo cualquier predicción emitida sobre ellos.
+
+Esa frontera tiene al menos tres ejes y ninguno de los tres, por sí solo, anticipa si el material es evaluable. La escala ordena dentro de un mismo régimen de luz. En los clips diurnos del estrato de obra real, la proporción de sujetos detectados a los que se asocia un chaleco pasa de alrededor del 10 % en la banda de 80 a 120 píxeles de altura a entre 63 y 73 % en la banda de 220 a 320, y en el bloque de rodaje, con medianas de altura por encima de 700 píxeles, esa misma asociación se sostuvo entre 96 y 100 %. La iluminación desplaza la curva entera, porque en el clip nocturno del estrato la banda de 80 a 120 píxeles cae a 0 % y las siguientes, hasta 320, quedan entre 6 y 13 %. Y la oclusión invierte el orden de los dos ejes anteriores, ya que el clip con los sujetos más grandes del conjunto, con mediana de 370 píxeles, quedó entre los peores resultados con F1 0,084 sobre una cuadrilla apiñada en la que el 58,5 % de las personas aparece solapada con otra. Tampoco la juzgabilidad humana anticipa el rendimiento del sistema, porque el clip con la segunda proporción más baja de cuadros no observables para el anotador rindió el peor F1 del conjunto.
 
 #### 17.5.4. Alerta por episodio contra la referencia temporal humana
 
-La alerta por episodio constituyó el resultado principal porque integra percepción, asociación, histéresis, estado temporal y registro de alerta. El bloque de rodaje guionado reunió 34 clips y 35 episodios de referencia (28 de CR-01 y 7 de CR-02); 34 episodios fueron evaluables y uno quedó censurado con causa. Cuatro clips fueron negativos. Todas las combinaciones de la tabla siguiente se ejecutaron sobre ese mismo material y cambiaron una sola variable por fila.
+La alerta por episodio constituyó el resultado principal porque integra percepción, asociación, histéresis, estado temporal y registro de alerta. El bloque de rodaje guionado reunió 34 clips y 35 episodios de referencia, 28 de CR-01 y 7 de CR-02. Treinta y cuatro episodios resultaron evaluables y uno quedó censurado con causa declarada, porque su duración no permitía que una alerta lenta ocurriera dentro del clip, y cuatro clips fueron negativos. La Tabla 63 reúne las combinaciones ejecutadas sobre ese material, cada una con una sola variable cambiada respecto de la línea de base.
 
-**Tabla 64**
+**Tabla 63**
 
 *Alerta por episodio en el bloque de rodaje guionado*
 
-| **Combinación** | **Recall** | **Precisión** | **F1** | **t_alert (ms)** | **SDR** | **FP en 4 negativos** | **Veredicto local** |
+| **Combinación** | **Recall** | **Precisión** | **F1** | **t_alert en ms (n de episodios confirmados)** | **SDR** | **FP en 4 negativos** | **Veredicto local** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Núcleo E-IND, escena | 0,824 | 0,757 | 0,789 | 5.327 | 0,698 | 0/4 | Línea de base de la plataforma. |
-| Contraste base-560 | 0,735 | 0,676 | 0,704 | 4.899 | 0,819 | 0/4 | Mayor SDR, menor F1 que el perfil operativo. |
-| E-DIR de extremo a extremo | 0,176 | 0,146 | 0,160 | 6.611 | 0,210 | 2/4 | Vetada por precisión. |
-| E-HYB por disyunción | 0,353 | 0,255 | 0,296 | 6.956 | 0,738 | 2/4 | Ejecutada y refutada. |
-| Núcleo E-IND, sujeto | 0,971 | 0,892 | 0,930 | 5.236 | 0,698 | 0/4 | La identidad elevó F1 sin cambiar las detecciones. |
-| Vocabulario nativo bare_head | 0,382 | 0,371 | 0,377 | 3.919 | 0,940 | 3/4 | Alerta temprana, con mayor costo en falsos positivos. |
+| Núcleo E-IND, escena | 0,824 | 0,757 | 0,789 | 5.327 (n = 28) | 0,698 | 0/4 | Línea de base de la plataforma. |
+| Contraste base-560 | 0,735 | 0,676 | 0,704 | 4.899 (n = 25) | 0,819 | 0/4 | Mayor SDR, menor F1 que el perfil operativo. |
+| E-DIR de extremo a extremo | 0,176 | 0,146 | 0,160 | 6.611 (n = 6) | 0,210 | 2/4 | Vetada por precisión. |
+| E-HYB por disyunción | 0,353 | 0,255 | 0,296 | 6.956 (n = 12) | 0,738 | 2/4 | Ejecutada y refutada. |
+| Núcleo E-IND, sujeto | 0,971 | 0,892 | 0,930 | 5.236 (n = 33) | 0,698 | 0/4 | La identidad elevó F1 sin cambiar las detecciones. |
+| Vocabulario nativo bare_head | 0,382 | 0,371 | 0,377 | 3.919 (n = 13) | 0,940 | 3/4 | Alerta temprana, con mayor costo en falsos positivos. |
 
-*Nota.* Las métricas temporales se calcularon sobre 34 episodios evaluables de 35 en el bloque de rodaje. Los falsos positivos se cuentan sobre los cuatro clips negativos y no incluyen re-alertas.
+***Nota****.* Las métricas temporales se calcularon sobre 34 episodios evaluables de 35 en el bloque de rodaje, y el número entre paréntesis de la columna de latencia es la cantidad de episodios confirmados, mientras que la media se promedia por clip con alerta confirmada, un conteo menor cuando un mismo clip contiene las dos condiciones. Los falsos positivos se cuentan sobre los cuatro clips negativos y no incluyen re-alertas.
 
-En el orden de las filas de la Tabla 64, los denominadores de t_alert fueron n = 28, n = 25, n = 6, n = 12, n = 33 y n = 13 episodios confirmados, respectivamente, dentro de los 34 episodios evaluables del bloque de rodaje.
+La histéresis rescató evidencia intermitente. CR-02 confirmó sus 7 episodios, con recall 1,000 y SDR 0,281, aunque requirió una latencia de alerta de 8.572 ms frente a 4.314 ms para CR-01. Las dos medias se promediaron por clip con alerta confirmada, siete en CR-02 y veintiuno en CR-01. La diferencia fue coherente con ventanas de confirmación de 7,0 y 4,0 s. Una detección sostenida sólo durante una fracción del episodio pudo producir una alerta correcta cuando acumuló evidencia suficiente dentro de la ventana. La Figura 4.6 muestra un fotograma con la alerta ya confirmada. Las referencias por severidad de la sección 17.1.7.5 no se usaron como criterio de aceptación, porque el propio protocolo las condiciona a una recalibración previa que esta evaluación no realizó, y sus valores se leen como dato.
 
-La histéresis rescató evidencia intermitente. CR-02 confirmó 7 de 7 episodios, con recall 1,000 y SDR 0,281, aunque requirió t_alert de 8.572 ms frente a 4.314 ms para CR-01 (n = 23 episodios CR-01 confirmados del bloque de rodaje), dentro del conjunto de 34 episodios evaluables. La diferencia fue coherente con ventanas de confirmación de 7,0 s y 4,0 s, respectivamente: una detección sostenida sólo durante una fracción del episodio pudo producir una alerta correcta si acumuló evidencia suficiente en la ventana temporal.
+**Figura 4.6**
 
-La identidad temporal fue la capa con mayor aporte medido dentro del banco. Con las mismas detecciones, la granularidad por sujeto elevó el F1 de 0,789 a 0,930, una diferencia de 0,141 sobre los 34 episodios evaluables. En el escenario de mayor dificultad, el resultado pasó de 0,400 a 1,000 (2/5 con granularidad de escena frente a 5/5 con granularidad por sujeto; n = 5 episodios evaluables del bloque de rodaje). La mejora no provino del detector, sino de evitar que la evidencia de personas distintas se mezclara dentro de un mismo estado de escena.
+*Fotograma con alerta confirmada de CR-01*
 
-El estrato de obra real no guionada se informó por separado. Comprendió 13 clips. Una revisión ciega encontró que 5 de las 7 declaraciones de episodio eran errores de anotación por sobre-declarar estados que no resultaban observables; quedaron 2 episodios evaluables y 11 clips negativos. Ese denominador impidió ordenar granularidades. El resultado robusto del estrato fue, en cambio, la asimetría de falsos positivos: 26 con granularidad de escena frente a 323 con granularidad por sujeto sobre los mismos 11 clips negativos.
+⟦FIGURA: no extraída — ver el .docx⟧
 
-**Tabla 65**
+**Nota.** Fotograma del clip a_p1_c04 del bloque de rodaje a los 8,5 s, en la corrida de línea de base, con la alerta emitida a los 7,3 s y el motor en estado sostenido. El casco visible sobre la mesa, que el detector marca en cuadros vecinos, no suprime la condición, porque CR-01 se evalúa sobre la región del sujeto y no sobre la escena.
 
-*Falsos positivos en el estrato de obra real no guionada*
+La identidad temporal fue la capa con mayor aporte medido dentro del banco. Con las mismas detecciones, la granularidad por sujeto elevó el F1 de 0,789 a 0,930, una diferencia de 0,141 sobre los 34 episodios evaluables. En el escenario de mayor dificultad el resultado pasó de 0,400 a 1,000, es decir de dos episodios confirmados sobre cinco a los cinco. La mejora no provino del detector, sino de evitar que la evidencia de personas distintas se mezclara dentro de un mismo estado de escena.
 
-| **Granularidad** | **FP en 11 clips negativos** | **FP en 6 min 9,6 s de cumplimiento** | **Duración observada** | **FA/h derivadas** |
-| --- | --- | --- | --- | --- |
-| Escena | 26 | 3 | 0,1027 h | 29,2 |
-| Sujeto | 323 | 190 | 0,1027 h | 1.850,8 |
+El vocabulario activo también se comportó como una variable experimental. Sobre la combinación de contraste base-560, un ensayo posterior mantuvo fijos el modelo, el evaluador, el conjunto de patrones, la referencia y los tiempos, y sumó al vocabulario una sola palabra, la de cabeza descubierta. El F1 por episodio bajó de 0,704 a 0,622, el recall de 0,735 a 0,676 y la precisión de 0,676 a 0,575. La interacción entre términos de un mismo vocabulario no resultó despreciable, de modo que dos configuraciones sólo son comparables cuando declaran el vocabulario completo que vieron.
 
-*Nota.* Los conteos sobre 11 clips negativos describen el estrato completo. La tasa horaria se deriva del subconjunto continuo de 6 min 9,6 s y se presenta junto con su exposición de 0,1027 h; no constituye una cota operativa.
+El estrato de obra real no guionada se informó por separado y comprendió 13 clips. Una revisión ciega encontró que 5 de las 7 declaraciones de episodio eran errores de anotación por sobre-declarar estados que no resultaban observables, y dejó 2 episodios evaluables y 11 clips negativos. Ese denominador impidió ordenar granularidades. El resultado robusto del estrato fue la asimetría de falsos positivos, 26 con granularidad de escena frente a 323 con granularidad por sujeto sobre los mismos 11 clips negativos. Esa asimetría es el ΔFP_tracking que adopta el marco de métricas de la sección 17.1.7, y su signo es el contrario al del riesgo que la sección 17.1.10 anticipaba, que el seguimiento agregara complejidad sin reducir falsas alarmas.
 
-La exposición disponible estuvo dos órdenes de magnitud por debajo de la necesaria para sostener una cota. Por ello, las tasas de 29,2 y 1.850,8 falsas alarmas por hora se conservaron como magnitudes derivadas de 3 y 190 falsos positivos observados en 0,1027 h, y no como estimaciones de comportamiento horario estable.
+Sobre el único tramo continuo de cumplimiento, de 6 minutos y 9,6 segundos, los conteos fueron 3 falsos positivos con granularidad de escena y 190 con granularidad por sujeto. Las tasas de 29,2 y 1.850,8 falsas alarmas por hora se derivan de esa exposición de 0,1027 h y se informan como magnitudes derivadas, nunca como cota operativa, porque la exposición disponible estuvo casi treinta veces por debajo de la necesaria para sostener una.
 
 #### 17.5.5. Tiempo real
 
-La evaluación en vivo examinó qué parte del resultado temporal sobrevivía cuando la densidad de procesamiento descendía respecto de la evidencia disponible. El banco se representó a 30 fps, mientras que el camino en vivo entregó entre 1,16 y 4,42 fps en cuatro densidades medidas sobre el bloque de rodaje (n = 34 clips). El contraste mantuvo ese material y remuestreó los clips de manera pareada.
+La evaluación en vivo examinó qué parte del resultado temporal sobrevivía cuando la densidad de procesamiento descendía respecto de la evidencia disponible. El banco se representó a 30 fps, mientras que el camino en vivo entregó entre 1,16 y 4,42 fps. Para cubrir esa franja, los 34 clips del bloque de rodaje se remuestrearon de manera pareada a cuatro densidades, de 30 a 1,15 cuadros por segundo. La Tabla 64 reúne esas mediciones junto con las de integridad y latencia por tramo.
 
-**Tabla 66**
+**Tabla 64**
 
 *Resultados del camino en vivo por densidad, integridad y tramo temporal*
 
 | **Eje** | **Condición o material** | **Resultado** | **Denominador** | **Lectura** |
 | --- | --- | --- | --- | --- |
-| Densidad | Techo en vivo, aproximadamente 4,29 fps | Escena 0,794 · sujeto 0,866 | n = 34 episodios evaluables | La ganancia por identidad se conservó. |
-| Densidad | Peor caso, aproximadamente 1,15 fps | Escena 0,646 · sujeto 0,742 | n = 34 episodios evaluables | La restricción redujo ambos resultados sin invertir el orden. |
+| Densidad | Referencia del banco, 30 fps | Escena 0,789 · sujeto 0,930 | n = 34 episodios evaluables | Punto de partida de la comparación. |
+|  | Techo en vivo, aproximadamente 4,29 fps | Escena 0,794 · sujeto 0,866 | n = 34 episodios evaluables | La ganancia por identidad se conservó. |
+|  | Intermedia, aproximadamente 2,00 fps | Escena 0,738 · sujeto 0,875 | n = 34 episodios evaluables | La pérdida no avanza de manera uniforme. |
+|  | Peor caso, aproximadamente 1,15 fps | Escena 0,646 · sujeto 0,742 | n = 34 episodios evaluables | La restricción redujo ambos resultados sin invertir el orden. |
 | Identidad | Cuatro densidades medidas | Ganancias de F1 +0,141 · +0,072 · +0,137 · +0,096 | n = 4 densidades sobre 34 clips; remuestreo pareado por clip | El intervalo empírico excluyó el cero en las cuatro condiciones. |
-| Integridad | Relectura frente a transmisión | Paridad byte a byte · 0 eventos perdidos | n = 6 corridas del rodaje | El transporte no alteró la evidencia. |
-| Latencia | Detector de referencia | p50 14,7 · p95 31,8 ms | n = 20 unidades | Dentro del presupuesto de 50–250 ms. |
+| Integridad | Relectura frente a transmisión | 0 eventos perdidos · paridad byte a byte verificada en una corrida y protegida por prueba automatizada | n = 6 corridas del rodaje para los eventos. n = 1 corrida para la paridad | El transporte no alteró la evidencia. |
+| Latencia | Sobrecarga de la plataforma con detector simulado, en diferido | p50 14,7 - p95 31,8 ms | n = 20 unidades | Costo propio de la cadena sin inferencia, dentro del presupuesto de la sección 17.1.7. |
 | Latencia | Detector open-vocabulary en vivo | p95 630–890 ms | n = 47, 93 y 55 unidades procesadas en las tres corridas en vivo | Fuera del presupuesto; la corrida lo declaró. |
 | Captura | Antes del retiro de la unidad | 202–217 ms | medianas por corrida; n = 47 a 295 unidades procesadas en cada una de las seis corridas | No está incluida en el tramo anterior. |
 | Alerta | CR-01 en vivo | 7 alertas: 4,1–4,6 s | n = 7 confirmaciones | Ventana: 4,0 s. |
@@ -1652,52 +1654,50 @@ La evaluación en vivo examinó qué parte del resultado temporal sobrevivía cu
 
 *Nota.* Los percentiles pertenecen a tramos con relojes distintos y no se suman. El tramo desde el retiro de la unidad comienza en el dequeue, no en la captura de la escena.
 
-La cobertura del episodio no se comparó entre cadencias porque depende de cuántas unidades sobreviven al muestreo. Tampoco se comparó la latencia agregada entre densidades sin controlar la supervivencia: los episodios que no alcanzan a confirmar desaparecen del promedio y lo sesgan. Entre los episodios supervivientes, el costo real de bajar la densidad fue de 0,7 a 1,3 s sobre ventanas de 4 a 7 s (n = 21, 20 y 16 episodios supervivientes comunes a 4,29, 2 y 1,15 fps, respectivamente).
+La cobertura del episodio no se comparó entre cadencias porque depende de cuántas unidades sobreviven al muestreo. Tampoco se comparó la latencia agregada entre densidades sin controlar la supervivencia, porque los episodios que no alcanzan a confirmar desaparecen del promedio y lo sesgan. Entre los episodios supervivientes, el costo de bajar la densidad fue de 0,7 a 1,3 s sobre ventanas de 4 a 7 s, medido sobre 21, 20 y 16 episodios comunes a las cadencias comparadas. Entre la densidad del banco y el techo del camino en vivo el resultado por escena no cambió de manera apreciable y el resultado por sujeto perdió 0,064, mientras que en la densidad más baja la caída ya alcanza 0,143 y 0,188 respectivamente. Con 34 episodios evaluables, las diferencias del orden de un episodio, 0,029 de recall, quedan dentro de la resolución del banco y no se leen como orden.
 
-La medición temporal confirmó además la separación entre captura, procesamiento y distribución. Los percentiles de procesamiento y la latencia de captura se consignan en la Tabla 66 con los denominadores que permanecen abiertos; corresponden a relojes distintos. En distribución, el p95 fue 64,534 ms sobre 460 entregas (n = 460) y el p95 sostenido fue 102,025 ms sobre 104 entregas (n = 104). Ambos valores describieron el intervalo desde el bus de alertas hasta la confirmación del canal, no la latencia completa de la plataforma.
+La medición confirmó además la separación entre captura, procesamiento y distribución. Los tres tramos corresponden a relojes distintos y por eso sus percentiles no se suman. El del tramo de distribución describe el intervalo desde el bus de alertas hasta la confirmación del canal, y no la latencia completa de la plataforma.
 
 #### 17.5.6. Caminos probados y no adoptados
 
-Los caminos no adoptados se evaluaron contra criterios fijados antes de leer sus resultados. La estrategia directa quedó descartada por un veto de precisión: obtuvo 0,146, por debajo del umbral de 0,5, sobre los 34 episodios evaluables del rodaje. Su recall fue 0,176 y el F1 0,160; la brecha observada en estado por persona se amplió al atravesar el motor temporal.
+Los caminos no adoptados se evaluaron contra criterios fijados antes de leer sus resultados. La estrategia directa quedó descartada por un veto de precisión, cuyo umbral de 0,5 se fijó de antemano en el pre-registro de la comparación de estrategias y quedó muy por encima del valor obtenido. La brecha que ya mostraba en el estado por persona se amplió al atravesar el motor de patrones.
 
-La fusión híbrida por disyunción fue ejecutada y refutada. Sobre los mismos 34 episodios evaluables, el recall descendió de 0,824 para el núcleo indirecto a 0,353. La unión de evidencia no resultó monótona dentro del motor temporal: detecciones más tempranas desplazaron confirmaciones fuera de la ventana de referencia. La variante híbrida por conjunción no se ejecutó porque no podía medirse contra el banco sin romper la comparabilidad de las seis combinaciones. Una familia adicional de modelos fue integrada, evaluada y archivada durante la selección, sin incorporarse al perfil operativo.
+La fusión híbrida por disyunción fue ejecutada y refutada, porque el recall descendió respecto del núcleo indirecto en lugar de crecer. La unión de evidencia no resultó monótona dentro del motor de patrones, ya que las detecciones más tempranas desplazaron confirmaciones fuera de la ventana de referencia. La variante por conjunción no se ejecutó, porque no podía medirse contra el banco sin romper la comparabilidad de las seis combinaciones. La familia MM-Grounding-DINO se integró por el mismo mecanismo de adaptación y se archivó durante la selección de modelos, sobre el banco anterior al congelado, de modo que no tiene cifra comparable en esta sección. Una de sus variantes no aportó ventaja en ninguna dimensión evaluada, otra entregó cajas degeneradas con origen en el punto de control publicado y no en el adaptador que las integró, y la tercera localizó mal con geometría normal.
 
-La rama comparativa de ajuste fino se cerró como una curva de capacidad con criterios y expectativas registrados antes de cada evaluación. Sus cifras se mantuvieron separadas del núcleo sin entrenamiento. El banco de evaluación in-domain fue el banco congelado de 6.477 imágenes; el segundo tramo utilizó 2.946 imágenes de ajuste para 10,35 millones de parámetros.
+La rama comparativa de ajuste fino se cerró como una curva de capacidad, con criterios y expectativas registrados antes de cada evaluación, y sus cifras se mantuvieron separadas de las del núcleo sin entrenamiento. La Tabla 65 recorre sus tres puntos.
 
-**Tabla 67**
+**Tabla 65**
 
 *Curva de capacidad de la rama comparativa de ajuste fino*
 
 | **Punto o tramo** | **Resultado de ganancia** | **Retención y comportamiento** | **Veredicto** |
 | --- | --- | --- | --- |
-| Línea base sin ajuste | AP50 bare_head 0,0000 · recall CR-01 0,0002 | Referencia previa a los tramos entrenados. | Punto de partida. |
-| Primer tramo entrenado | AP50 bare_head 0,0455 · recall CR-01 0,2089 | Quedó a 0,0045 del umbral y redujo person 11,62 %, con tope de 10 %. | NO-GO pre-registrado; checkpoint no adoptado. |
-| Segundo tramo entrenado | AP50 bare_head 0,0909 | Detención temprana 16/60, mejor época 1; mAP50 protegido -43,4 %; retención open-vocabulary 0,4347 a 0,1247 (-71,3 %) · n = 5.000 imágenes del banco generalista. | NO-GO pre-registrado; checkpoint no adoptado. |
+| Línea base sin ajuste | AP50 bare_head 0,0000 · recall de CR-01 por evidencia directa 0,0002 | Referencia previa a los tramos entrenados. | Punto de partida. |
+| Primer tramo entrenado | AP50 bare_head 0,0455 · recall de CR-01 por evidencia directa 0,2089 | Quedó a 0,0045 del umbral de AP50 0,05 y redujo person de 0,7843 a 0,6932 (−11,62 %), con tope de 10 %. | Veredicto negativo pre-registrado; checkpoint no adoptado. |
+| Segundo tramo entrenado | AP50 bare_head 0,0909 | Detención temprana 16/60, mejor época 1; person de 0,7843 a 0,3943 (−49,7 %) y mAP50 en dominio de 0,4193 a 0,2374 (−43,4 %); retención open-vocabulary 0,4347 a 0,1247 (−71,3 %) · n = 5.000 imágenes de validación de COCO 2017. | Veredicto negativo pre-registrado; checkpoint no adoptado. |
 | Tramo adicional | No corresponde | Cerrado con causa técnica antes de producir una comparación interpretable. | Sin checkpoint y sin nuevo brazo contra el banco. |
 
-*Nota.* Los puntos medidos pertenecen a una rama comparativa separada. Las métricas in-domain de la línea base y de los dos tramos entrenados se calcularon sobre el banco congelado (n = 6.477 imágenes); el segundo tramo utilizó 2.946 imágenes de ajuste para 10,35 millones de parámetros. El primer tramo agregó principalmente recall y el segundo, AP. No existe una combinación ajustada universalmente superior.
+***Nota****.* Los puntos medidos pertenecen a una rama comparativa separada. Las métricas en dominio de la línea base y de los dos tramos entrenados se calcularon sobre el banco congelado de 6.477 imágenes. El primer tramo agregó principalmente recall y el segundo, AP, de modo que no existe una combinación ajustada universalmente superior. Los tres puntos corresponden a la variante s de YOLOE-26. El primer tramo entrenó sólo la proyección de clases, 3.096 parámetros, y el segundo el detector completo con las rutas de prompt congeladas, 10,35 millones. La retención open-vocabulary se midió sobre un material ajeno al dominio, distinto del estrato de 5.000 imágenes del banco.
 
-El segundo tramo duplicó el AP50 de cabeza descubierta respecto del primero, pero colapsó durante el entrenamiento y falló las dos retenciones. El patrón conjunto mostró que el límite no era capacidad de cómputo, sino estructura experimental: 2.946 imágenes de ajuste frente a 10,35 millones de parámetros. Los tramos tampoco ganaron por la misma vía, ya que el primero se destacó por recall y el segundo por AP. Ningún checkpoint se adoptó como modelo de servicio y los veredictos negativos se conservaron como resultados pre-registrados, no como trabajo pendiente.
+El segundo tramo duplicó el AP50 de cabeza descubierta respecto del primero, pero colapsó durante el entrenamiento y falló las dos retenciones. El patrón conjunto mostró que el límite no fue capacidad de cómputo sino estructura experimental, con 2.946 imágenes de ajuste frente a 10,35 millones de parámetros, un conjunto cuya composición, regla de partición y configuración de entrenamiento declara la sección 17.4.7. Ningún checkpoint se adoptó como modelo de servicio, y los veredictos negativos se conservaron como resultados pre-registrados y no como trabajo pendiente.
 
-#### 17.5.7. Lo no ejecutado y lo no implementado, con su justificación
+#### 17.5.7. Lo no ejecutado y lo no implementado
 
 Las condiciones de Nivel 2 y Nivel 3 no se implementaron en el núcleo evaluativo porque el material disponible no aportaba verdad de terreno del dominio ni evaluadores relacionales, zonales o de trayectoria que pudieran validarse. Incorporarlas habría producido capacidades sin medición defendible y habría confundido extensión arquitectónica con resultado experimental.
 
-Las métricas formales de seguimiento multiobjeto tampoco se calcularon: faltó una referencia de identidad apta para ese propósito. Esta exclusión no alcanzó a la capacidad de identidad temporal, que sí fue implementada y medida por su efecto sobre la alerta; la ganancia de F1 de 0,141 sobre 34 episodios evaluables del rodaje y su persistencia en cuatro densidades sobre los mismos 34 clips pertenecen a esa capacidad, no a una métrica MOT.
+Las métricas formales de seguimiento multiobjeto tampoco se calcularon, porque faltó una referencia de identidad apta para ese propósito. La exclusión no alcanzó a la capacidad de identidad temporal, que sí fue implementada y medida por su efecto sobre la alerta. La ganancia informada más arriba y su persistencia en las cuatro densidades pertenecen a esa capacidad y no a una métrica de seguimiento.
 
-La preselección liviana en el dispositivo de captura fue implementada para la fuente propia y caracterizada mediante una comparación pareada. Descartó el 87 % de las unidades antes de abandonar el dispositivo (206 de 236 unidades vistas por la compuerta; la rama sin preselección procesó 277), pero permaneció deshabilitada en todas las corridas evaluativas. La exclusión fue deliberada: un filtro de fotogramas sin persona habría suprimido la evidencia sostenida que la medición de falsas alarmas debía observar y habría superpuesto el error de un detector auxiliar sobre la cadena evaluada.
+La preselección liviana en el dispositivo de captura fue implementada para la fuente propia y caracterizada mediante una comparación pareada. Descartó el 87 % de las unidades antes de abandonar el dispositivo, 206 de las 236 que vio la compuerta, frente a las 277 que procesó la rama sin preselección, y permaneció deshabilitada en todas las corridas evaluativas. La exclusión fue deliberada, porque un filtro de cuadros sin persona habría suprimido la evidencia sostenida que la medición de falsas alarmas debía observar y habría superpuesto el error de un detector auxiliar sobre la cadena evaluada.
 
 Tampoco se sostuvo una cota operativa de falsas alarmas. Para hacerlo se requerían aproximadamente 3 h de cumplimiento anotado, mientras que la exposición continua disponible fue de 0,1027 h. La tasa horaria se reportó como derivación observacional, pero el material no habilitó una afirmación poblacional.
 
 Finalmente, la comparación temporal directa entre una fuente en vivo y su reproducción desde clip se declaró no interpretable. Sin un ancla común entre el reloj de pared y el tiempo del medio, el emparejamiento habría mezclado desfases instrumentales con el comportamiento de la plataforma.
 
-#### 17.5.8. Síntesis de la sección
+El sub-experimento formal que evaluaba cada prompt en aislamiento y dentro del vocabulario completo no se ejecutó sobre las combinaciones finalistas. La pregunta que lo motivaba quedó respondida por el contraste de variable única informado más arriba, que midió el costo de sumar un término al vocabulario activo.
 
-La evaluación mostró que la detección sin entrenamiento sostuvo CR-01 con mayor consistencia, pero no cerró CR-02 al nivel de percepción. La selección del perfil operativo respondió al mAP50 por estrato, mientras que otras combinaciones ofrecieron mayor recall o mayor SDR; por ello, los veredictos se mantuvieron locales y no se formuló una superioridad universal entre modelos.
+El marco de métricas admite además medidas que esta evaluación no reporta, y su estado se declara en lugar de omitirse. El tiempo hasta la primera detección se computó en todas las campañas y no se informa aquí, porque la comparación entre combinaciones se resolvió con la latencia de alerta, que es la que integra el motor de patrones. La precisión media promediada sobre el rango de umbrales de solapamiento quedó sin computar, porque la lectura se fijó en un único umbral. El percentil 99 de latencia se computó por corrida y no se consolidó como resultado comparativo, porque las corridas en vivo procesaron entre 30 y 295 unidades, muy por debajo de lo que ese percentil requiere. El consumo de memoria del acelerador se registró por corrida y no se consolidó como resultado comparativo, porque describe al perfil cargado y no a la combinación evaluada. Los benchmarks públicos de seguimiento multiobjeto previstos en la estrategia de datos no se ejecutaron, por la misma falta de referencia de identidad que excluyó a sus métricas. La curva de falsos positivos en función de la duración de la ventana, que la sección 17.1.5.2 prevé como eje de la calibración empírica, no se ejecutó, y las ventanas se usaron con sus valores de protocolo.
 
-El aporte cuantitativo principal provino de la plataforma alrededor del detector. Sobre 34 episodios evaluables del bloque de rodaje, la granularidad por sujeto elevó el F1 de 0,789 a 0,930 con las mismas detecciones y mantuvo una ganancia positiva en cuatro densidades sobre los mismos 34 clips. La histéresis, a su vez, permitió confirmar los 7 episodios de CR-02 (n = 7) aun con SDR 0,281, a costa de una latencia coherente con su ventana temporal.
-
-La limitación dominante apareció en la obra real no guionada: el sistema continuó recuperando condiciones, pero produjo falsos positivos sobre estados no juzgables. La exposición de 0,1027 h permitió reportar conteos y tasas derivadas, no una cota operativa. Los caminos descartados y las capacidades no ejecutadas quedaron asociados a criterios explícitos de precisión, comparabilidad, evaluabilidad o referencia disponible. Estos resultados deben leerse junto con las limitaciones L1-L8 declaradas; su interpretación respecto de la factibilidad de la plataforma se desarrolla en las conclusiones.
+Ocho limitaciones acotan la lectura de todo lo anterior. La tasa de falsas alarmas por hora no sostiene una cota operativa. La referencia temporal no tuvo doble anotación ni medida de acuerdo entre anotadores. Los bordes de episodio se adjudicaron por criterio único en seis clips. El material guionado proviene de un solo bloque de rodaje, y la medición sobre obra real precisó esa limitación sin levantarla, porque caracteriza por mecanismo dónde el sistema deja de ser evaluable en lugar de validarlo sobre obra real. Los escenarios quedaron desbalanceados, de modo que todo resultado se reporta por estrato además del agregado. El seguimiento no tiene métricas formales en obra real con multitud, aunque un clip con 127 personas mostró la fragmentación de identidades que explica la precisión por sujeto de ese estrato. Una de las fuentes de imágenes conserva licencia parcial. Y la condición de chaleco no quedó cerrada al nivel del estado por persona.
 
 ---
 
@@ -1714,11 +1714,22 @@ La limitación dominante apareció en la obra real no guionada: el sistema conti
 
 ## Fuente: `docs/informe/ajustes/05-etapa-5-evaluacion-y-validacion.md`
 
-> SHA-256 del bloque: `5ff6e048a45f658bbc6b20a9df693ba01e6c3ba87fba72b8361ea91de9c81ac2`  
+> SHA-256 del bloque: `8253b49a08b0910fe426794431c5a79660fc812b45e0d57364b5e25ba2c1dfd6`  
 > Seleccion: documento completo.
 
 # Etapa 5 — §17.5 Evaluación y validación del prototipo
 
+> ✅ **Estado (✎ 2026-09-04): CUATRO pases. §17.5 v1.4 entregada con sugerencias, a aceptar por el
+> usuario.** El pase 4 (`entregable/desarrollando/correcciones-etapa-5-pase-4.md` (fuente: `docs/informe/entregable/desarrollando/archivado/correcciones-etapa-5-pase-4.md`),
+> E5-01…E5-11) consolidó el capítulo sin recalcular ninguna de las 185 cifras verificadas: 9 → 8
+> títulos, 6 → 5 tablas renumeradas **61–65**, dos puntos 15 → 0 y punto y coma 16 → 0.
+> **`AJ-5.14` quedó APLICADA** (el contraste 0,704 → 0,622 en §17.5.4 y la no ejecución del
+> sub-experimento en §17.5.7), **§17.5.8 se eliminó** por pedido del usuario y **las ocho
+> limitaciones pasaron a declararse** al cierre de §17.5.7, que es lo que `AJ-5.05` exigía y ninguna
+> sección hacía. Dos reparaciones de hecho: la celda vacía de la tabla de tiempo real y el
+> presupuesto de latencia, que ahora remite a §17.1.7 en vez de declarar una cifra propia.
+> **Lo que sigue es registro histórico.**
+>
 > *Gantt ID 4 — "Evaluación y validación", 12/06/26 – 10/07/26.*
 >
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA bajo el esquema temático de D-P3-6
@@ -1727,6 +1738,13 @@ La limitación dominante apareció en la obra real no guionada: el sistema conti
 > `entregable/90c-etapa5-texto-extraido.md`, tablas 62–67. Lo que queda: revisión del autor,
 > insertar las figuras y la integración al maestro. Las fichas `AJ-5.x` ya fueron
 > incorporadas; se conservan como criterio de lectura.
+>
+> ⏳ **2026-09-02 — SE REABRE UN CONTENIDO: `AJ-5.14`.** Al reestructurar §17.1.5 (Etapa 2)
+> apareció que su eje de composición del vocabulario activo **promete un contraste que §17.5
+> no reporta**, y que la medición existe. La ficha está desarrollada abajo con sus cifras
+> verificadas contra el artefacto. **No bloquea nada de lo ya escrito**: son dos inserciones
+> (§17.5.4 y §17.5.7) más una opcional. Constancia del hallazgo:
+> `../entregable/desarrollando/archivado/validacion-reestructuracion-17-1-5.md` (fuente: `docs/informe/entregable/desarrollando/archivado/validacion-reestructuracion-17-1-5.md`).
 >
 > *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
 >
@@ -1817,10 +1835,10 @@ contenido; este esquema fija su orden y su lugar):
 | 1 | Encuadre y reglas de lectura | AJ-5.01 (tres niveles) · AJ-5.03 (de dónde salen las cifras) · AJ-5.06 (reglas no negociables) · AJ-5.08 (dónde arranca el reloj) |
 | 2 | Percepción sobre imágenes | AJ-5.02 (tablas/figuras del banco de imágenes) · veredictos por combinación (E4-26) · piloto de clase nueva |
 | 3 | Estado por sujeto (nivel intermedio) | comparación de estrategias sobre el estado por persona (los resultados; los descartes van al bloque 6) |
-| 4 | Alerta por episodio — el resultado principal | banco 47 clips por estrato y condición · granularidad por sujeto medida · AJ-5.09 (FAR: se reporta, sin cota) · AJ-5.07 (estrato B y frontera de juzgabilidad, sin ranking n = 2) |
+| 4 | Alerta por episodio — el resultado principal | **AJ-5.14** (costo medido del caption: 0,704 → 0,622) · banco 47 clips por estrato y condición · granularidad por sujeto medida · AJ-5.09 (FAR: se reporta, sin cota) · AJ-5.07 (estrato B y frontera de juzgabilidad, sin ranking n = 2) |
 | 5 | Tiempo real | AJ-5.10 (eje de densidad y sus trampas) · cadena de latencias por tramos · latencia del tramo de distribución |
-| 6 | Caminos probados y no adoptados | AJ-5.12 (híbrida: refutada / no ejecutable) · directa vetada por precisión · familia de modelos descartada · AJ-5.13 (ajuste fino: curva de tres puntos) |
-| 7 | Lo no ejecutado / no implementado, con su justificación | Nivel 2/3 (evaluabilidad) · métricas MOT (sin anotación de identidad) · preselección en el borde (excluida de lo evaluativo, pre-registrado) · cota FAR · ancla EBE-desde-clip |
+| 6 | Caminos probados y no adoptados | AJ-5.14 (el sub-experimento aislado-vs-completo que no se corrió) · AJ-5.12 (híbrida: refutada / no ejecutable) · directa vetada por precisión · familia de modelos descartada · AJ-5.13 (ajuste fino: curva de tres puntos) |
+| 7 | Lo no ejecutado / no implementado, con su justificación | **AJ-5.14** (el sub-experimento aislado-vs-completo, no corrido) · Nivel 2/3 (evaluabilidad) · métricas MOT (sin anotación de identidad) · preselección en el borde (excluida de lo evaluativo, pre-registrado) · cota FAR · ancla EBE-desde-clip |
 | 8 | Síntesis de la sección | AJ-5.05 (limitaciones L1–L8, remisión) · AJ-5.11 (círculo con §15) — la interpretación y la escala de conclusiones (AJ-5.04) pertenecen al §18 |
 
 ⚠ Con la organización temática, la campaña "T1" del banco de clips y el tramo "T1" del ajuste fino conviven
@@ -1845,6 +1863,7 @@ en la misma sección: **cada mención dice de cuál habla**.
 | **AJ-5.11** | PRECISA | 🟡 | El **cierre del círculo con el §15**: la regla de tres tiempos. |
 | **AJ-5.12** | EVIDENCIA | 🟡 | La **estrategia híbrida**: una rama refutada y una no ejecutable. |
 | **AJ-5.13** | EVIDENCIA | 🟠 | ✎ **08-22 — JORNADA COMPLETA, TOTALMENTE desbloqueada: T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 causa técnica (`operacion/117` §2).** Se escribe como **curva de capacidad de tres puntos** con márgenes y expectativas pre-registrados: T1 `bare_head` 0,0000 → 0,0455 (faltaron 0,0045) y `person` −11,62 %; T2 ganancia PASA (`bare_head` → 0,0909) pero retención in-domain −49,7 % (`person`) y OV −71,3 % (COCO), colapso early-stop 16/60. **F-127.1: fallo estructural (datos), no de capacidad.** Ningún checkpoint adoptado; sin `[[PENDIENTE]]`. Trampa: T1 gana por recall, T2 por AP. *(notas 08-12/08-17: históricas)* |
+| **AJ-5.14** | EVIDENCIA | 🟠 | ✎ **09-02 — NUEVA.** El **costo medido del vocabulario activo** (F-88.1 / F-94.1) y el sub-experimento aislado-vs-completo que **no se corrió**: hoy §17.5 no reporta ninguno de los dos, y §17.1.5.3 los promete. |
 
 El **anexo de reproducibilidad** (§19), del que el §17.5 depende para ser auditable, es
 `AJ-6.02` en la Etapa 6.
@@ -2171,6 +2190,59 @@ clasificación `walltime_binding` / `walltime_not_binding`.
 
 ---
 
+### AJ-5.14 · 🟠 — el costo del vocabulario activo: una promesa de §17.1 que hoy §17.5 no reporta
+
+**El problema.** §17.1.5.3 pre-registra el eje de composición del vocabulario activo y
+promete que *"cada prompt se evalúa tanto en aislamiento como dentro del vocabulario
+completo del sistema"*. El diseño de prompts (`nucleo/historicos/12` §4.1) lo formalizó
+como un **sub-experimento aislado-vs-completo acotado a las finalistas**, listado como
+corridas extra del media-plane. **Ese sub-experimento nunca se corrió.** Y §17.5 v1.3 no
+dice nada al respecto: ni como resultado, ni en §17.5.6, ni en §17.5.7. Verificado sobre la
+extracción — `0,622` y `0,082` aparecen **cero veces**; los índices de resultados y la
+síntesis tampoco nombran el sub-experimento. Queda una promesa de pre-registro sin
+contraparte, que es exactamente lo que la doctrina del pase 3 manda evitar (*"lo prescripto
+y no ejercido no se borra, lo reporta §17.5"*).
+
+**Lo que sí se midió, y es mejor que un "no se ejerció".** La pregunta de fondo quedó
+respondida dos veces, como subproducto de otras campañas.
+
+| Hallazgo | Contraste | Cifra | Artefacto |
+|---|---|---|---|
+| **F-88.1** (`operacion/88` §2) | T2 (`v2_short`, 3 clases) contra el **control interno de B1** (`bench_v2`, 4 clases): mismo modelo `gdino-base-560`, mismo evaluador E-IND, mismo pattern set, mismo GT, mismos timings, **una sola palabra de diferencia en el caption** (`bare head`) | F1 **0,704 → 0,622** (−0,082); recall 0,735 → 0,676; precisión 0,676 → 0,575 | `clip_bench/b1_gdinobase560_barehead_scene/metrics_eind_mismo_caption.json` |
+| **F-94.1** (`operacion/94` §3) | `vehicle` junto a `machinery` en el mismo caption, contra el mismo caption sin `machinery` | **0 detecciones** contra **118 detecciones, AP 0,026** (el 67 % de las cajas cae sobre lo que el GT llama `machinery`) | `bench_imagenes/clase_nueva` · runs `vehiculo_aislado` |
+
+⚠ **Precisión obligatoria al citar F-94.1:** "aislada" ahí significa **sin `machinery` al
+lado**, no sola. El caption de esas corridas seguía siendo `person. helmet. vest. vehicle.`
+(verificado en el `effective_config.yaml` de ambos runs). Escribirlo como "prompt aislado"
+sería falso.
+
+**La conclusión que habilita.** `operacion/88` §2 lo dice textualmente: la interacción
+**no es despreciable**, así que el atajo del pase único con vocabulario unión no es gratis y
+**la regla dual-run queda validada empíricamente, no sólo por argumento**. Hay además una
+tercera confirmación indirecta, F-83.1: la composición del caption invalidó un atajo que el
+propio pre-registro autorizaba, porque las 28 corridas de Sprint 2 que se iban a reusar como
+brazo E-IND habían visto 4 clases mientras `eind_v1` declara 3 — el adaptador arma **un
+caption único**, de modo que el vocabulario activo es literalmente una cadena de texto.
+
+**Qué escribir, y dónde.**
+
+1. **§17.5.4** (alerta por episodio — es Nivel B, ahí viven T2 y B1): un párrafo con el par
+   0,704 contra 0,622 y su lectura. **No es una excusa, es un resultado**, y de los buenos
+   para la defensa: sostiene con número el argumento central de que el vocabulario es una
+   variable experimental y no una lista de deseos. Se cita como contraste de variable única,
+   nombrando las cinco cosas que se mantuvieron fijas.
+2. **§17.5.7** (lo no ejecutado): una oración que declare que el sub-experimento formal
+   aislado-vs-completo sobre las finalistas **no se corrió**, y que la pregunta quedó
+   respondida por la vía de arriba. Sin esa oración, la promesa de §17.1 queda huérfana.
+3. **Opcional, §17.5.2**: F-94.1 como el caso extremo del mismo mecanismo, si el bloque del
+   piloto de clase nueva no lo cubre ya.
+
+**Lo que NO hay que hacer.** No tocar §17.1. La promesa se mantiene tal cual está redactada
+—es pre-registro, y la doctrina D-P3-3 prohíbe reescribirla para que encaje con el
+resultado—. El arreglo es de §17.5, y por eso esta ficha vive acá.
+
+---
+
 ## 3. 🚫 Lo que no hay que escribir en el §17.5
 
 | # | No escribir | Por qué |
@@ -2190,10 +2262,14 @@ limitaciones) · `gobierno/99` §1–§4 · `gobierno/97` §3 (reglas de honesti
 `e-ovrt_experimental-setup/results/` y sus cuatro índices · `operacion/96` (costo del
 tiempo real), `98` (conclusiones), `101` (claqueta y blindaje EBE), `109`/`111`/`112`/`113`
 (el tramo de video y su cierre) · `13-glosario-y-convenciones-de-lectura.md` §4.
+**✎ 09-02, para `AJ-5.14`:** `operacion/88` §2 (F-88.1) · `operacion/94` §3
+(F-94.1) · `operacion/83` (F-83.1) · `nucleo/historicos/12` §4.1 (el sub-experimento
+pre-registrado) · `results/clip_bench/index.md` §F-88.1 y su artefacto
+`b1_gdinobase560_barehead_scene/metrics_eind_mismo_caption.json`.
 
 ---
 
-## Fuente: `docs/informe/entregable/borradores/vara-15.md`
+## Fuente: `docs/informe/entregable/archivado/borrador-vara-15.md`
 
 > SHA-256 del bloque: `d82aac011a58729e9bf7aeae19bf8147734f7704b635b7140ec18d7c4ba0d496`  
 > Seleccion: la vara de literatura: sin ella no se puede escribir en tres tiempos.
