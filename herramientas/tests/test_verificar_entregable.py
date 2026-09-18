@@ -45,7 +45,11 @@ class TitulosSinEstiloTest(unittest.TestCase):
         self.assertEqual([], v.titulos_sin_estilo(parrafos))
 
     def test_acepta_variantes_de_estilo_de_titulo(self) -> None:
-        for estilo in ("Heading3", "heading3", "Titulo2", "Título2", "Title"):
+        # `Ttulo3` no es un error de tipeo: es lo que exporta Google Docs cuando el documento
+        # se editó en español (le quita la tilde a «Título» al normalizar el identificador).
+        # El maestro del informe llegó así el 2026-09-08 y sus 420 títulos se reportaron como
+        # «sin estilo de encabezado».
+        for estilo in ("Heading3", "heading3", "Ttulo3", "Ttulo1", "Titulo2", "Título2", "Title"):
             with self.subTest(estilo=estilo):
                 self.assertEqual([], v.titulos_sin_estilo([(estilo, "16.3. Percepción")]))
 
@@ -170,6 +174,23 @@ class VerificarIntegracionTest(unittest.TestCase):
             ruta = docx(Path(tmp) / "x.docx", [parrafo("16. Marco", "Heading2")])
             informe = v.verificar(ruta)
             self.assertTrue(any("NO trae cambios controlados" in b for b in informe.blandos))
+
+    def test_informa_los_cambios_controlados_cuando_los_hay(self) -> None:
+        """Defecto real (2026-09-03): la comprobación corría sobre el XML pasado por
+        ElementTree, que reescribe el prefijo `w:` a `ns0:`, de modo que TODO documento con
+        cambios controlados se informaba como si no los trajera."""
+        with TemporaryDirectory() as tmp:
+            insertado = (
+                '<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr>'
+                '<w:ins w:id="1" w:author="X" w:date="2026-09-03T00:00:00Z">'
+                "<w:r><w:t>16. Marco</w:t></w:r></w:ins>"
+                '<w:del w:id="2" w:author="X" w:date="2026-09-03T00:00:00Z">'
+                "<w:r><w:delText>viejo</w:delText></w:r></w:del></w:p>"
+            )
+            ruta = docx(Path(tmp) / "con-cambios.docx", [insertado])
+            informe = v.verificar(ruta)
+            self.assertTrue(any("trae cambios controlados" in b for b in informe.blandos))
+            self.assertFalse(any("NO trae cambios controlados" in b for b in informe.blandos))
 
     def test_docx_ilegible_da_error_claro(self) -> None:
         with TemporaryDirectory() as tmp:

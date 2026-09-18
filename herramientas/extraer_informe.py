@@ -35,7 +35,12 @@ M = "{http://schemas.openxmlformats.org/officeDocument/2006/math}"
 MARCA_ECUACION = "⟦ECUACIÓN: no extraída — ver el .docx⟧"
 MARCA_FIGURA = "⟦FIGURA: no extraída — ver el .docx⟧"
 
-_HEADING_STYLE = re.compile(r"^Heading(\d)$", re.IGNORECASE)
+# ⚠ 2026-09-08: Google Docs exporta los estilos de título con el nombre de la interfaz en que
+# se editó el documento, y al normalizar el identificador se come los acentos: un documento
+# editado en español trae `Ttulo1`…`Ttulo5` («Título» sin la í) donde uno en inglés trae
+# `Heading1`…`Heading5`. El maestro del informe llegó con `Ttulo` y el extractor veía CERO
+# títulos. Las tres formas valen y son el mismo nivel.
+_HEADING_STYLE = re.compile(r"^(?:Heading|T[íi]?tulo)(\d)$", re.IGNORECASE)
 
 
 class SeccionNoEncontrada(ValueError):
@@ -76,7 +81,10 @@ def _recolectar_runs(el: ET.Element, salida: list[tuple[str, bool, bool]]) -> No
                 salida.append(("".join(partes), negrita, cursiva))
         elif tag in (M + "oMath", M + "oMathPara"):
             salida.append((MARCA_ECUACION, False, False))
-        elif tag in (W + "hyperlink", W + "ins", W + "smartTag"):
+        elif tag in (W + "hyperlink", W + "ins", W + "smartTag", W + "sdt", W + "sdtContent"):
+            # ✎ 2026-09-07: `w:sdt` (control de contenido) envuelve runs enteros en algunas celdas
+            # exportadas por Google Docs (Tabla 64, fila «CR-02 en vivo»); sin recorrerlo, la celda
+            # salía vacía y se leyó como defecto del documento cuando era del extractor.
             _recolectar_runs(hijo, salida)
 
 
@@ -157,10 +165,37 @@ def _celda_a_texto(tc: ET.Element) -> str:
     return texto.replace("|", "\\|")
 
 
+def _hijos_desenvueltos(elemento: ET.Element):
+    """Hijos directos, atravesando controles de contenido `w:sdt`/`w:sdtContent`.
+
+    ✎ 2026-09-07: Google Docs exporta algunas tablas (§17.1 Tablas 28, 29 y 30) y algunas
+    filas o celdas envueltas en `w:sdt`. Sin atravesarlo, la tabla entera desaparecía de la
+    extracción y se leía como «tabla sin cuerpo» cuando el .docx la tiene completa.
+    """
+    for hijo in elemento:
+        if hijo.tag in (W + "sdt", W + "sdtContent"):
+            yield from _hijos_desenvueltos(hijo)
+        else:
+            yield hijo
+
+
+def _fila_borrada(tr: ET.Element) -> bool:
+    """Fila marcada como borrada con cambios controlados (`w:trPr/w:del`).
+
+    ✎ 2026-09-07: la extracción es la vista ACEPTADA (lee `w:t` e ignora `w:delText`), así que
+    una fila borrada como sugerencia salía como una fila vacía `|  |  |`. Al aceptar, la fila
+    desaparece; la vista previa tiene que hacer lo mismo.
+    """
+    trpr = tr.find(W + "trPr")
+    return trpr is not None and trpr.find(W + "del") is not None
+
+
 def _tabla_a_md(tbl: ET.Element) -> str:
     filas: list[list[str]] = []
-    for tr in tbl.findall(W + "tr"):
-        filas.append([_celda_a_texto(tc) for tc in tr.findall(W + "tc")])
+    for tr in (h for h in _hijos_desenvueltos(tbl) if h.tag == W + "tr"):
+        if _fila_borrada(tr):
+            continue
+        filas.append([_celda_a_texto(tc) for tc in _hijos_desenvueltos(tr) if tc.tag == W + "tc"])
     if not filas:
         return ""
     columnas = max(len(fila) for fila in filas)
@@ -181,7 +216,7 @@ def docx_a_markdown(ruta_docx: Path | str) -> str:
     if cuerpo is None:
         return ""
     bloques: list[str] = []
-    for hijo in cuerpo:
+    for hijo in _hijos_desenvueltos(cuerpo):
         if hijo.tag == W + "p":
             bloque = _parrafo_a_md(hijo)
         elif hijo.tag == W + "tbl":

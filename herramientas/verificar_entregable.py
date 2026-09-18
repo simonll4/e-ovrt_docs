@@ -44,7 +44,11 @@ from extraer_informe import docx_a_markdown  # noqa: E402
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
 TITULO_NUMERADO = re.compile(r"^(\d{1,2}(?:\.\d+)*)\.\s+\S")
-ESTILOS_TITULO = ("heading", "titulo", "título", "title")
+# ⚠ 2026-09-08: `ttulo` no es un error de tipeo. Google Docs exporta el estilo de título con el
+# nombre de la interfaz en que se editó el documento y le quita los acentos al normalizarlo, así
+# que un documento editado en español trae `Ttulo1`…`Ttulo5`. El maestro del informe llegó así y
+# el verificador reportó sus 420 títulos como «sin estilo de encabezado».
+ESTILOS_TITULO = ("heading", "ttulo", "titulo", "título", "title")
 
 FUGAS = (
     (re.compile(r"\b(?:AJ-\d+\.\d+|R-\d{2}|PODA-\d{2})\b"), "identificador de ficha interna"),
@@ -315,8 +319,11 @@ def verificar(ruta: Path, secciones: tuple[str, ...] = ()) -> Informe:
     for divergencia in anios_divergentes(markdown):
         informe.blandos.append(f"misma autoría con años distintos — {divergencia}")
 
-    xml = ET.tostring(ET.fromstring(zipfile.ZipFile(ruta).read("word/document.xml")))
-    if b"w:ins " in xml or b"w:del " in xml:
+    # Sobre el XML CRUDO: al pasarlo por ElementTree el prefijo `w:` se reescribe a `ns0:`
+    # y la búsqueda de `w:ins`/`w:del` nunca acertaba, de modo que todo documento con cambios
+    # controlados se informaba como si no los trajera (reparado 2026-09-03).
+    xml = zipfile.ZipFile(ruta).read("word/document.xml")
+    if b"<w:ins " in xml or b"<w:del " in xml:
         informe.blandos.append("el documento trae cambios controlados")
     else:
         informe.blandos.append("el documento NO trae cambios controlados")

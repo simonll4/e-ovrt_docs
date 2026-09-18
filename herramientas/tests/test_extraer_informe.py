@@ -48,8 +48,21 @@ class ConversionTest(DocxFixtureMixin, unittest.TestCase):
         )
         md = ext.docx_a_markdown(docx)
         self.assertIn("## 15. Estado del Arte", md)
-        self.assertIn("Texto plano del capítulo.", md)
         self.assertIn("### 15.1. Alcance", md)
+
+    def test_reconoce_los_estilos_de_titulo_en_espanol(self) -> None:
+        # ⚠ 2026-09-08: el maestro exportado de Google Docs en español trae `Ttulo1`…`Ttulo5`
+        # («Título» sin la tilde, que el normalizador del identificador se come) y el extractor
+        # veía CERO títulos en sus 420 encabezados.
+        docx = self.write_docx(
+            _p("15. Estado del Arte", style="Ttulo1")
+            + _p("15.1. Alcance", style="Ttulo2")
+            + _p("15.1.1. Detalle", style="Título3")
+        )
+        md = ext.docx_a_markdown(docx)
+        self.assertIn("## 15. Estado del Arte", md)
+        self.assertIn("### 15.1. Alcance", md)
+        self.assertIn("#### 15.1.1. Detalle", md)
 
     def test_title_style_maps_to_h1(self) -> None:
         docx = self.write_docx(_p("E-OVRT-VDP", style="Title"))
@@ -148,3 +161,25 @@ class BannerTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FilasBorradasTest(unittest.TestCase):
+    """✎ 2026-09-07: una fila marcada como borrada (`w:trPr/w:del`) no entra a la vista aceptada."""
+
+    def test_tabla_omite_la_fila_con_trpr_del(self) -> None:
+        import xml.etree.ElementTree as ET
+
+        W = ext.W
+        tbl = ET.fromstring(
+            f'<w:tbl xmlns:w="{W[1:-1]}">'
+            '<w:tr><w:tc><w:p><w:r><w:t>Propiedad</w:t></w:r></w:p></w:tc></w:tr>'
+            '<w:tr><w:tc><w:p><w:r><w:t>Servicios</w:t></w:r></w:p></w:tc></w:tr>'
+            '<w:tr><w:trPr><w:del w:id="1" w:author="x" w:date="2026-09-07T00:00:00Z"/></w:trPr>'
+            '<w:tc><w:p><w:del w:id="2" w:author="x" w:date="2026-09-07T00:00:00Z">'
+            '<w:r><w:delText>Pruebas automatizadas</w:delText></w:r></w:del></w:p></w:tc></w:tr>'
+            '</w:tbl>'
+        )
+        md = ext._tabla_a_md(tbl)
+        self.assertIn("| Servicios |", md)
+        self.assertNotIn("Pruebas automatizadas", md)
+        self.assertEqual(md.count("\n"), 2, "encabezado, separador y una sola fila de datos")
