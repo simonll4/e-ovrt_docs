@@ -1,5 +1,15 @@
 # Etapa 3 — ajustes al diseño arquitectónico (§17.3)
 
+> ✅ **Estado (✎ 2026-09-04): la Etapa 3 CERRÓ — §17.3 v1.6 aceptada por el usuario, con cuatro
+> pases.** El pase 4 (`entregable/desarrollando/correcciones-etapa-3-pase-4.md`, E3-43…E3-62,
+> 2026-09-03) consolidó el capítulo: 61 → 30 títulos (cero nivel 5), prosa 13.174 → 10.075 (−24 %),
+> 17 → 14 tablas (39–52), 6 → 4 figuras, dos puntos y punto y coma en cero. **La numeración de
+> subsecciones cambió**: toda unidad E3-xx, las 26 redlines del `93` y el material `91`/`92`/`94` se
+> leen con `entregable/desarrollando/mapa-secciones-17-3-v1-6.md`. `90` re-extraído de la v1.6; el
+> pendiente D-E2-2 de abajo quedó resuelto por E3-42 dentro del pase 4. Handoff abierto a la Etapa 4:
+> **E4-31** (detalle operativo del ledger), absorbido por el análisis de §17.4/§17.5 del 09-04.
+> **Lo que sigue es registro histórico.**
+>
 > ✅ **Estado (✎ 2026-08-28): §17.3 está en v1.4 con sus tres pases E3 aplicados y verificados**
 > (`correcciones-etapa-3-4*.md`, E3-01…E3-42; `00-el-informe-hoy` 08-28). La decisión por
 > redline **se resolvió dentro de esos pases**; las 53 casillas del `93` **no se marcaron una a

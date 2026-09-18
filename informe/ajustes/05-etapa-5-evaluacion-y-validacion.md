@@ -1,5 +1,16 @@
 # Etapa 5 — §17.5 Evaluación y validación del prototipo
 
+> ✅ **Estado (✎ 2026-09-04): CUATRO pases. §17.5 v1.4 entregada con sugerencias, a aceptar por el
+> usuario.** El pase 4 ([`entregable/desarrollando/correcciones-etapa-5-pase-4.md`](../entregable/desarrollando/archivado/correcciones-etapa-5-pase-4.md),
+> E5-01…E5-11) consolidó el capítulo sin recalcular ninguna de las 185 cifras verificadas: 9 → 8
+> títulos, 6 → 5 tablas renumeradas **61–65**, dos puntos 15 → 0 y punto y coma 16 → 0.
+> **`AJ-5.14` quedó APLICADA** (el contraste 0,704 → 0,622 en §17.5.4 y la no ejecución del
+> sub-experimento en §17.5.7), **§17.5.8 se eliminó** por pedido del usuario y **las ocho
+> limitaciones pasaron a declararse** al cierre de §17.5.7, que es lo que `AJ-5.05` exigía y ninguna
+> sección hacía. Dos reparaciones de hecho: la celda vacía de la tabla de tiempo real y el
+> presupuesto de latencia, que ahora remite a §17.1.7 en vez de declarar una cifra propia.
+> **Lo que sigue es registro histórico.**
+>
 > *Gantt ID 4 — "Evaluación y validación", 12/06/26 – 10/07/26.*
 >
 > ✅ **Estado (✎ 2026-08-23): la sección está REDACTADA bajo el esquema temático de D-P3-6
@@ -8,6 +19,13 @@
 > `entregable/90c-etapa5-texto-extraido.md`, tablas 62–67. Lo que queda: revisión del autor,
 > insertar las figuras y la integración al maestro. Las fichas `AJ-5.x` ya fueron
 > incorporadas; se conservan como criterio de lectura.
+>
+> ⏳ **2026-09-02 — SE REABRE UN CONTENIDO: `AJ-5.14`.** Al reestructurar §17.1.5 (Etapa 2)
+> apareció que su eje de composición del vocabulario activo **promete un contraste que §17.5
+> no reporta**, y que la medición existe. La ficha está desarrollada abajo con sus cifras
+> verificadas contra el artefacto. **No bloquea nada de lo ya escrito**: son dos inserciones
+> (§17.5.4 y §17.5.7) más una opcional. Constancia del hallazgo:
+> [`../entregable/desarrollando/archivado/validacion-reestructuracion-17-1-5.md`](../entregable/desarrollando/archivado/validacion-reestructuracion-17-1-5.md).
 >
 > *Lo que sigue es el encuadre del 2026-08-10, conservado como registro histórico:*
 >
@@ -98,10 +116,10 @@ contenido; este esquema fija su orden y su lugar):
 | 1 | Encuadre y reglas de lectura | AJ-5.01 (tres niveles) · AJ-5.03 (de dónde salen las cifras) · AJ-5.06 (reglas no negociables) · AJ-5.08 (dónde arranca el reloj) |
 | 2 | Percepción sobre imágenes | AJ-5.02 (tablas/figuras del banco de imágenes) · veredictos por combinación (E4-26) · piloto de clase nueva |
 | 3 | Estado por sujeto (nivel intermedio) | comparación de estrategias sobre el estado por persona (los resultados; los descartes van al bloque 6) |
-| 4 | Alerta por episodio — el resultado principal | banco 47 clips por estrato y condición · granularidad por sujeto medida · AJ-5.09 (FAR: se reporta, sin cota) · AJ-5.07 (estrato B y frontera de juzgabilidad, sin ranking n = 2) |
+| 4 | Alerta por episodio — el resultado principal | **AJ-5.14** (costo medido del caption: 0,704 → 0,622) · banco 47 clips por estrato y condición · granularidad por sujeto medida · AJ-5.09 (FAR: se reporta, sin cota) · AJ-5.07 (estrato B y frontera de juzgabilidad, sin ranking n = 2) |
 | 5 | Tiempo real | AJ-5.10 (eje de densidad y sus trampas) · cadena de latencias por tramos · latencia del tramo de distribución |
-| 6 | Caminos probados y no adoptados | AJ-5.12 (híbrida: refutada / no ejecutable) · directa vetada por precisión · familia de modelos descartada · AJ-5.13 (ajuste fino: curva de tres puntos) |
-| 7 | Lo no ejecutado / no implementado, con su justificación | Nivel 2/3 (evaluabilidad) · métricas MOT (sin anotación de identidad) · preselección en el borde (excluida de lo evaluativo, pre-registrado) · cota FAR · ancla EBE-desde-clip |
+| 6 | Caminos probados y no adoptados | AJ-5.14 (el sub-experimento aislado-vs-completo que no se corrió) · AJ-5.12 (híbrida: refutada / no ejecutable) · directa vetada por precisión · familia de modelos descartada · AJ-5.13 (ajuste fino: curva de tres puntos) |
+| 7 | Lo no ejecutado / no implementado, con su justificación | **AJ-5.14** (el sub-experimento aislado-vs-completo, no corrido) · Nivel 2/3 (evaluabilidad) · métricas MOT (sin anotación de identidad) · preselección en el borde (excluida de lo evaluativo, pre-registrado) · cota FAR · ancla EBE-desde-clip |
 | 8 | Síntesis de la sección | AJ-5.05 (limitaciones L1–L8, remisión) · AJ-5.11 (círculo con §15) — la interpretación y la escala de conclusiones (AJ-5.04) pertenecen al §18 |
 
 ⚠ Con la organización temática, la campaña "T1" del banco de clips y el tramo "T1" del ajuste fino conviven
@@ -126,6 +144,7 @@ en la misma sección: **cada mención dice de cuál habla**.
 | **AJ-5.11** | PRECISA | 🟡 | El **cierre del círculo con el §15**: la regla de tres tiempos. |
 | **AJ-5.12** | EVIDENCIA | 🟡 | La **estrategia híbrida**: una rama refutada y una no ejecutable. |
 | **AJ-5.13** | EVIDENCIA | 🟠 | ✎ **08-22 — JORNADA COMPLETA, TOTALMENTE desbloqueada: T1 NO-GO (`operacion/123`) · T2 NO-GO (`operacion/127`) · T3 causa técnica (`operacion/117` §2).** Se escribe como **curva de capacidad de tres puntos** con márgenes y expectativas pre-registrados: T1 `bare_head` 0,0000 → 0,0455 (faltaron 0,0045) y `person` −11,62 %; T2 ganancia PASA (`bare_head` → 0,0909) pero retención in-domain −49,7 % (`person`) y OV −71,3 % (COCO), colapso early-stop 16/60. **F-127.1: fallo estructural (datos), no de capacidad.** Ningún checkpoint adoptado; sin `[[PENDIENTE]]`. Trampa: T1 gana por recall, T2 por AP. *(notas 08-12/08-17: históricas)* |
+| **AJ-5.14** | EVIDENCIA | 🟠 | ✎ **09-02 — NUEVA.** El **costo medido del vocabulario activo** (F-88.1 / F-94.1) y el sub-experimento aislado-vs-completo que **no se corrió**: hoy §17.5 no reporta ninguno de los dos, y §17.1.5.3 los promete. |
 
 El **anexo de reproducibilidad** (§19), del que el §17.5 depende para ser auditable, es
 `AJ-6.02` en la Etapa 6.
@@ -452,6 +471,59 @@ clasificación `walltime_binding` / `walltime_not_binding`.
 
 ---
 
+### AJ-5.14 · 🟠 — el costo del vocabulario activo: una promesa de §17.1 que hoy §17.5 no reporta
+
+**El problema.** §17.1.5.3 pre-registra el eje de composición del vocabulario activo y
+promete que *"cada prompt se evalúa tanto en aislamiento como dentro del vocabulario
+completo del sistema"*. El diseño de prompts (`nucleo/historicos/12` §4.1) lo formalizó
+como un **sub-experimento aislado-vs-completo acotado a las finalistas**, listado como
+corridas extra del media-plane. **Ese sub-experimento nunca se corrió.** Y §17.5 v1.3 no
+dice nada al respecto: ni como resultado, ni en §17.5.6, ni en §17.5.7. Verificado sobre la
+extracción — `0,622` y `0,082` aparecen **cero veces**; los índices de resultados y la
+síntesis tampoco nombran el sub-experimento. Queda una promesa de pre-registro sin
+contraparte, que es exactamente lo que la doctrina del pase 3 manda evitar (*"lo prescripto
+y no ejercido no se borra, lo reporta §17.5"*).
+
+**Lo que sí se midió, y es mejor que un "no se ejerció".** La pregunta de fondo quedó
+respondida dos veces, como subproducto de otras campañas.
+
+| Hallazgo | Contraste | Cifra | Artefacto |
+|---|---|---|---|
+| **F-88.1** (`operacion/88` §2) | T2 (`v2_short`, 3 clases) contra el **control interno de B1** (`bench_v2`, 4 clases): mismo modelo `gdino-base-560`, mismo evaluador E-IND, mismo pattern set, mismo GT, mismos timings, **una sola palabra de diferencia en el caption** (`bare head`) | F1 **0,704 → 0,622** (−0,082); recall 0,735 → 0,676; precisión 0,676 → 0,575 | `clip_bench/b1_gdinobase560_barehead_scene/metrics_eind_mismo_caption.json` |
+| **F-94.1** (`operacion/94` §3) | `vehicle` junto a `machinery` en el mismo caption, contra el mismo caption sin `machinery` | **0 detecciones** contra **118 detecciones, AP 0,026** (el 67 % de las cajas cae sobre lo que el GT llama `machinery`) | `bench_imagenes/clase_nueva` · runs `vehiculo_aislado` |
+
+⚠ **Precisión obligatoria al citar F-94.1:** "aislada" ahí significa **sin `machinery` al
+lado**, no sola. El caption de esas corridas seguía siendo `person. helmet. vest. vehicle.`
+(verificado en el `effective_config.yaml` de ambos runs). Escribirlo como "prompt aislado"
+sería falso.
+
+**La conclusión que habilita.** `operacion/88` §2 lo dice textualmente: la interacción
+**no es despreciable**, así que el atajo del pase único con vocabulario unión no es gratis y
+**la regla dual-run queda validada empíricamente, no sólo por argumento**. Hay además una
+tercera confirmación indirecta, F-83.1: la composición del caption invalidó un atajo que el
+propio pre-registro autorizaba, porque las 28 corridas de Sprint 2 que se iban a reusar como
+brazo E-IND habían visto 4 clases mientras `eind_v1` declara 3 — el adaptador arma **un
+caption único**, de modo que el vocabulario activo es literalmente una cadena de texto.
+
+**Qué escribir, y dónde.**
+
+1. **§17.5.4** (alerta por episodio — es Nivel B, ahí viven T2 y B1): un párrafo con el par
+   0,704 contra 0,622 y su lectura. **No es una excusa, es un resultado**, y de los buenos
+   para la defensa: sostiene con número el argumento central de que el vocabulario es una
+   variable experimental y no una lista de deseos. Se cita como contraste de variable única,
+   nombrando las cinco cosas que se mantuvieron fijas.
+2. **§17.5.7** (lo no ejecutado): una oración que declare que el sub-experimento formal
+   aislado-vs-completo sobre las finalistas **no se corrió**, y que la pregunta quedó
+   respondida por la vía de arriba. Sin esa oración, la promesa de §17.1 queda huérfana.
+3. **Opcional, §17.5.2**: F-94.1 como el caso extremo del mismo mecanismo, si el bloque del
+   piloto de clase nueva no lo cubre ya.
+
+**Lo que NO hay que hacer.** No tocar §17.1. La promesa se mantiene tal cual está redactada
+—es pre-registro, y la doctrina D-P3-3 prohíbe reescribirla para que encaje con el
+resultado—. El arreglo es de §17.5, y por eso esta ficha vive acá.
+
+---
+
 ## 3. 🚫 Lo que no hay que escribir en el §17.5
 
 | # | No escribir | Por qué |
@@ -471,3 +543,7 @@ limitaciones) · `gobierno/99` §1–§4 · `gobierno/97` §3 (reglas de honesti
 `e-ovrt_experimental-setup/results/` y sus cuatro índices · `operacion/96` (costo del
 tiempo real), `98` (conclusiones), `101` (claqueta y blindaje EBE), `109`/`111`/`112`/`113`
 (el tramo de video y su cierre) · `13-glosario-y-convenciones-de-lectura.md` §4.
+**✎ 09-02, para `AJ-5.14`:** `operacion/88` §2 (F-88.1) · `operacion/94` §3
+(F-94.1) · `operacion/83` (F-83.1) · `nucleo/historicos/12` §4.1 (el sub-experimento
+pre-registrado) · `results/clip_bench/index.md` §F-88.1 y su artefacto
+`b1_gdinobase560_barehead_scene/metrics_eind_mismo_caption.json`.
