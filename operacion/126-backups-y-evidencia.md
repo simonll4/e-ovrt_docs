@@ -4,6 +4,17 @@
   repos commiteados y pusheados. Este doc responde la pregunta que queda después:
   **el código ya está a salvo en GitHub; ¿qué NO está, y de eso qué hay que subir a Drive?**
 - **Estado: cerrado como criterio.** La ejecución de las copias es manual del usuario.
+- ✎ **2026-09-23 — la EJECUCIÓN vive ahora en [`132`](132-paquete-de-evidencia-jurado.md).**
+  Este doc sigue siendo el criterio (las tres capas, la pregunta "¿se regenera con un comando
+  versionado?"); lo que cambió es el artefacto: ya no es un espejo por `rsync` para backup sino
+  un **paquete para el jurado**, armado por `scripts/empaquetar_evidencia.py` y escrito a
+  `/mnt/c` (el `ext4.vhdx` crece sobre `C:` y borrar dentro de WSL no lo achica). Dos cosas de
+  acá quedaron **desactualizadas**: (a) los tamaños de la capa 1 son del 19-ago y quedaron
+  cortos — medido el 23-sep, el núcleo son **5,3 GB** y no 2,6 (`finetuned/` 2,0 GB y no 1,2;
+  `finetuning/runs/` 1,7 y no 1,1; `docs/informe/` 187 MB y no 29); (b) el §2.1 señalaba que la
+  raíz del workspace no tiene respaldo, y el script de entonces **no la copiaba**: ahora sí,
+  en `Respaldo-privado/raiz-del-workspace.zip`. El staging `_evidencia-drive/` **se borró**
+  (era copia pura, y duplicaba 28 GB dentro del VHDX).
 
 ---
 
