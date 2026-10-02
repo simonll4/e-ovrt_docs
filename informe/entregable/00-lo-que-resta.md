@@ -616,19 +616,27 @@ remoto) — va a la capa de evidencia del backup.
       de 13 filas "*(sin URL registrada)*". **Sigue abierto en `e-ovrt_datasets`**: los 13
       `datasets-videos/v*.clip.yaml` tienen `video_url: TODO` (la URL por clip no está
       registrada; la playlist reúne los 10 videos de origen).
-- [ ] **Drive (10-02): reemplazar 3 archivos** de la carpeta compartida por los reempacados
+- [x] **Drive (10-02): reemplazar 3 archivos** — el usuario los subió el 10-02 — de la carpeta compartida por los reempacados
       en `C:\Users\giuli\E-OVRT-VDP-evidencia\Evidencia-compartida\`:
       `4-fine-tuning/corridas-y-evaluaciones.zip` (sin las 19.431 previews; 3.990 eran de CHV),
       `5-datos-de-campana/datos-de-operacion.zip` (sin las 3 imágenes de MOCS) y `00-LEEME.txt`.
       Los sha256 que publica `e-ovrt-vdp/evidencia/mapa-de-artefactos.md` §4 son los nuevos.
-- [ ] **Informe PDF** → `e-ovrt-vdp/informe/E-OVRT-VDP-informe.pdf`, y ajustar
-      `informe/README.md`. Ojo: el `00-LEEME.txt` del Drive ya dice que el informe está en el repo.
-- [ ] **Congelar**: en cada repo de código
-      `git tag -a informe-2026 -m "Versión citada en el informe" <commit> && git push origin informe-2026`;
-      completar la tabla de versiones de `repositorios/README.md`; opcional, reemplazar
-      `blob/HEAD/`/`tree/HEAD/` por `informe-2026` y volver a correr `verificar.py`; en
-      `CITATION.cff` ajustar `date-released` y `version`; Release `v1.0` con el PDF.
-- [ ] **Citar el repo en el informe** = **P-11** (§0 arriba).
+- [ ] **Informe PDF** — **lo único que queda del repo público, y espera el informe final** (el
+      usuario lo cierra en Google Docs; la v0.1 del disco NO sirve: tiene "[se completará más
+      adelante]" y le falta P-11). Cuando exista: `e-ovrt-vdp/informe/E-OVRT-VDP-informe.pdf`,
+      ajustar `informe/README.md` y adjuntarlo al Release con
+      `gh release upload v1.0 <pdf> --repo simonll4/e-ovrt-vdp`. Si llega como `.docx`, hay
+      Word en Windows para exportarlo (respeta las ecuaciones). Ojo: el `00-LEEME.txt` del
+      Drive ya dice que el informe está en el repo.
+- [x] **Congelar** (10-02): tag anotado `informe-2026` en los cinco repos de código, pusheado —
+      media-plane `7fabbc9`, control-plane `a0f9f89`, alert-distribution `eccd202`,
+      experimental-setup `01b0dda` (incluye el arreglo de la prueba no hermética del BFF),
+      datasets `9a9fb842`—; tabla de versiones completa; los 73 enlaces a código del repo
+      público fijados al tag (28 URLs únicas, todas 200); `verificacion.md` re-corrida sobre esos
+      commits (3.150 pasadas, 0 fallidas); `CITATION.cff` fechado 2026-10-02; tag `v1.0` y
+      **Release v1.0 publicado** sin PDF (https://github.com/simonll4/e-ovrt-vdp/releases/tag/v1.0).
+- [ ] **Citar el repo en el informe** = **P-11** (§0 arriba) — lo pega el usuario en Google Docs;
+      el texto exacto de la oración y de la entrada de Referencias está en §0.
 - [x] **Borrar `PUBLICAR.md`** y su mención en `CONTRIBUTING.md` (10-02).
 
 ---
