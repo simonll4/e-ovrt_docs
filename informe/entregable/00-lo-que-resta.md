@@ -593,6 +593,46 @@ remoto) — va a la capa de evidencia del backup.
 
 ---
 
+## 6b. Checklist de publicación del repo público `e-ovrt-vdp` — **dueño: el usuario**
+
+> ✎ **2026-10-02 — movido acá desde `e-ovrt-vdp/PUBLICAR.md`**, que se veía en el repo
+> público (ya publicado) siendo un checklist interno. Lo de abajo es lo que quedaba vivo;
+> lo hecho se tilda con su constancia. El repo ya no lo menciona (`CONTRIBUTING.md` sin la
+> excepción; `herramientas/verificar.py` conserva `EXCLUIR = {"PUBLICAR.md"}`, inocuo).
+
+- [x] **Licencias** (09-18): paraguas CC BY 4.0 con el texto legal completo; MIT en los cinco
+      repos de código; notas propias en `e-ovrt_datasets` (licencias de terceros) y
+      `e-ovrt_media-plane` (YOLOE AGPL-3.0). **Falta confirmar la elección con los coautores.**
+- [ ] **Barrido de secretos** en la historia de los 5 repos (ya son públicos: es constancia,
+      no prevención). `git log -p --all | grep -n -i -E 'password|api_key|secret|rtsp://[^*]' | head`
+      en cada uno, o `gitleaks detect`. Verificado el 08-25: `cameras/` nunca se commiteó.
+- [ ] **Coherencia de READMEs**: el primer párrafo del `README.md` de cada repo de código dice
+      lo mismo que su ficha en `e-ovrt-vdp/repositorios/README.md`.
+- [x] **Rama por defecto** (09-18): `main` en los cinco; los enlaces `blob/HEAD/` resuelven a `main`.
+- [x] **Repo creado y público** (verificado con `gh` el 10-02): `simonll4/e-ovrt-vdp` PUBLIC,
+      descripción y 7 topics puestos. Los cinco de código y `e-ovrt_docs`, PUBLIC, rama `main`.
+- [x] **C1 — URLs del lote de internet, en el repo público** (10-02):
+      `evidencia/material-de-video.md` cita canal + playlist (la misma del Anexo F) en lugar
+      de 13 filas "*(sin URL registrada)*". **Sigue abierto en `e-ovrt_datasets`**: los 13
+      `datasets-videos/v*.clip.yaml` tienen `video_url: TODO` (la URL por clip no está
+      registrada; la playlist reúne los 10 videos de origen).
+- [ ] **Drive (10-02): reemplazar 3 archivos** de la carpeta compartida por los reempacados
+      en `C:\Users\giuli\E-OVRT-VDP-evidencia\Evidencia-compartida\`:
+      `4-fine-tuning/corridas-y-evaluaciones.zip` (sin las 19.431 previews; 3.990 eran de CHV),
+      `5-datos-de-campana/datos-de-operacion.zip` (sin las 3 imágenes de MOCS) y `00-LEEME.txt`.
+      Los sha256 que publica `e-ovrt-vdp/evidencia/mapa-de-artefactos.md` §4 son los nuevos.
+- [ ] **Informe PDF** → `e-ovrt-vdp/informe/E-OVRT-VDP-informe.pdf`, y ajustar
+      `informe/README.md`. Ojo: el `00-LEEME.txt` del Drive ya dice que el informe está en el repo.
+- [ ] **Congelar**: en cada repo de código
+      `git tag -a informe-2026 -m "Versión citada en el informe" <commit> && git push origin informe-2026`;
+      completar la tabla de versiones de `repositorios/README.md`; opcional, reemplazar
+      `blob/HEAD/`/`tree/HEAD/` por `informe-2026` y volver a correr `verificar.py`; en
+      `CITATION.cff` ajustar `date-released` y `version`; Release `v1.0` con el PDF.
+- [ ] **Citar el repo en el informe** = **P-11** (§0 arriba).
+- [x] **Borrar `PUBLICAR.md`** y su mención en `CONTRIBUTING.md` (10-02).
+
+---
+
 ## 7. Herramientas disponibles para lo que queda
 
 Construidas en esta jornada y reutilizables (`docs/herramientas/`, stdlib puro — el entorno
